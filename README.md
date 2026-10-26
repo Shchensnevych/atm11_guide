@@ -3,8 +3,9 @@
 [![Minecraft](https://img.shields.io/badge/Minecraft-26.1.2-green.svg?style=for-the-badge&logo=minecraft)](https://minecraft.net)
 [![Modpack](https://img.shields.io/badge/Modpack-All_the_Mods_11-yellow.svg?style=for-the-badge)](https://www.curseforge.com/minecraft/modpacks/all-the-mods-11)
 [![Language](https://img.shields.io/badge/Мова-Українська_🇺🇦-blue.svg?style=for-the-badge)](https://github.com/Shchensnevych/atm11_guide)
-[![License](https://img.shields.io/badge/Ліцензія-MIT-purple.svg?style=for-the-badge)](LICENSE)
+[![Localization Pack](https://img.shields.io/badge/Українізатор-ATM11--UA-emerald.svg?style=for-the-badge)](https://github.com/Shchensnevych/ATM11-UA)
 [![Companion Server](https://img.shields.io/badge/Companion_App-ATM11--Companion-orange.svg?style=for-the-badge)](https://github.com/Shchensnevych/ATM11-Companion)
+[![License](https://img.shields.io/badge/Ліцензія-MIT-purple.svg?style=for-the-badge)](LICENSE)
 
 > Сучасний, інтерактивний та надшвидкий веб-довідник українською мовою для модифікованої збірки **All the Mods 11** (Minecraft 26.1.2, NeoForge).
 
@@ -137,15 +138,15 @@ atm11_guide/
 
 ---
 
-## 🤝 Синергія з проєктом ATM11-Companion
+## 🌐 Українська екосистема All the Mods 11
 
-Для максимального комфорту під час гри путівник розроблено в парі з окремим десктопним застосунком:
+Для максимального комфорту під час гри путівник розроблено в синергії з іншими проєктами екосистеми:
 
-👉 **[ATM11-Companion Репозиторій](https://github.com/Shchensnevych/ATM11-Companion)**
-- Прозорий плаваючий HUD-оверлей поверх вікна гри з викликом по **`Alt+Q`**.
-- Внутрішньоігрові команди в чаті KubeJS: `!що`, `!клавіші`, `!як <питання>`.
-- Живий моніторинг NBT інвентарю, пояса Tool Belt, слотів Curios та рюкзаків.
-- Миттєвий розбір скріншотів гри по `F2` через Vision AI (Qwen 2.5 VL).
+| Проєкт | Опис | Посилання |
+| :--- | :--- | :--- |
+| **📦 ATM11-UA** | Повний українізатор гри (255 модів, 4 800+ квестів, книжки, меню, інсталятор `install.bat`) | [GitHub](https://github.com/Shchensnevych/ATM11-UA) |
+| **🌐 atm11_guide** | Цей інтерактивний веб-путівник (дорожня карта v2, довідник 293 модів, квести, клавіші) | [Онлайн](https://shchensnevych.github.io/atm11_guide/) |
+| **🤖 ATM11-Companion** | Плаваючий ігровий HUD-оверлей (`Alt+Q`), міст :8812, чат-команди KubeJS, Vision AI по `F2` | [GitHub](https://github.com/Shchensnevych/ATM11-Companion) |
 
 ---
 
