@@ -17,12 +17,15 @@
 
 ```mermaid
 flowchart TD
-    Save["💾 Сейв гри (saves/...)"] -->|File System Access API / Python| Guide["🌐 ATM11 Веб-путівник"]
+    Pack["📦 ATM11-UA<br/>(переклади модів і квестів)"] -->|Пайплайн зведення tools/| Guide["🌐 ATM11 Веб-путівник"]
+    Save["💾 Сейв гри (saves/...)"] -->|File System Access API / Python| Guide
+
     Guide --> RM["🌳 Дорожня карта v2<br/>(ELK.js + Стовбур + Сузір'я)"]
-    Guide --> MD["📚 Довідник 293 модів<br/>(14 класів, 6 ознак, дизайн карток)"]
+    Guide --> MD["📚 Довідник 293 модів<br/>(14 категорій, 6 ознак)"]
     Guide --> QB["📜 Книга квестів<br/>(68 глав, 4 839 квестів у Cytoscape)"]
     Guide --> KB["⌨️ Інтерактивні клавіші<br/>(ANSI TKL/104, 462 дії, конфлікти)"]
     Guide --> AS["🤖 ШІ-помічник<br/>(Автономний RAG + міст до Companion)"]
+
     Companion["🤖 ATM11-Companion (:8812)"] <-->|SSE + REST API| AS
 ```
 
