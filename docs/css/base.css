@@ -1,0 +1,23 @@
+/* Базові стилі елементів */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; }                         /* без height: 100% — інакше sticky-шапка «їде» разом зі сторінкою */
+html { scroll-padding-top: calc(var(--topbar-h) + 8px); }
+body { background: var(--bg); color: var(--text); font: 15px/1.55 var(--font); display: flex; flex-direction: column; min-height: 100vh; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+h1, h2, h3 { line-height: 1.25; margin: 0 0 .5em; }
+h1 { font-size: 1.7rem; } h2 { font-size: 1.3rem; } h3 { font-size: 1.08rem; }
+p { margin: 0 0 .8em; }
+code, kbd { font-family: var(--mono); font-size: .9em; background: var(--panel-2); padding: 1px 5px; border-radius: 4px; }
+button, input, select { font: inherit; color: inherit; }
+input[type="search"], input[type="text"], select {
+  background: var(--bg-2); border: 1px solid var(--line-2); border-radius: var(--radius-sm); padding: 7px 10px; outline: none;
+}
+input:focus, select:focus { border-color: var(--accent); }
+.muted { color: var(--muted); }
+.pad { padding: var(--gap); }
+.small { font-size: .85rem; }
+.nowrap { white-space: nowrap; }
+::selection { background: rgb(250 204 21 / 30%); }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--line-2); border-radius: 6px; }

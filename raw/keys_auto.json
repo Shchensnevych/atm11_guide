@@ -1,0 +1,4622 @@
+[
+ {
+  "id": "key.keybindbundles.open_radial_menu",
+  "bind": "key.keyboard.left.alt",
+  "mod": "",
+  "ns": "keybindbundles",
+  "en": "Open Bundle radial menu",
+  "uk": "Відкрити кругове меню наборів",
+  "key": "Лівий Alt",
+  "combo": "Лівий Alt"
+ },
+ {
+  "id": "key.keybindbundles.open_screen",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "keybindbundles",
+  "en": "Open Key Bindings Screen",
+  "uk": "Відкрити екран призначень клавіш",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.attack",
+  "bind": "key.mouse.left",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Attack/Destroy",
+  "uk": "Атакувати / знищувати",
+  "key": "ЛКМ",
+  "combo": "ЛКМ"
+ },
+ {
+  "id": "key.use",
+  "bind": "key.mouse.right",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Use Item/Place Block",
+  "uk": "Використати предмет / розмістити блок",
+  "key": "ПКМ",
+  "combo": "ПКМ"
+ },
+ {
+  "id": "key.forward",
+  "bind": "key.keyboard.w",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Walk Forward",
+  "uk": "Іти вперед",
+  "key": "W",
+  "combo": "W"
+ },
+ {
+  "id": "key.left",
+  "bind": "key.keyboard.a",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Strafe Left",
+  "uk": "Ліворуч",
+  "key": "A",
+  "combo": "A"
+ },
+ {
+  "id": "key.back",
+  "bind": "key.keyboard.s",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Walk Backward",
+  "uk": "Іти назад",
+  "key": "S",
+  "combo": "S"
+ },
+ {
+  "id": "key.right",
+  "bind": "key.keyboard.d",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Strafe Right",
+  "uk": "Праворуч",
+  "key": "D",
+  "combo": "D"
+ },
+ {
+  "id": "key.jump",
+  "bind": "key.keyboard.space",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Jump",
+  "uk": "Стрибок",
+  "key": "Пробіл",
+  "combo": "Пробіл"
+ },
+ {
+  "id": "key.sneak",
+  "bind": "key.keyboard.left.shift",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Sneak",
+  "uk": "Крастися",
+  "key": "Лівий Shift",
+  "combo": "Лівий Shift"
+ },
+ {
+  "id": "key.sprint",
+  "bind": "key.keyboard.left.control",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Sprint",
+  "uk": "Біг",
+  "key": "Лівий Ctrl",
+  "combo": "Лівий Ctrl"
+ },
+ {
+  "id": "key.drop",
+  "bind": "key.keyboard.q",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Drop Selected Item",
+  "uk": "Викинути вибраний предмет",
+  "key": "Q",
+  "combo": "Q"
+ },
+ {
+  "id": "key.inventory",
+  "bind": "key.keyboard.e",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Open/Close Inventory",
+  "uk": "Відкрити / закрити інвентар",
+  "key": "E",
+  "combo": "E"
+ },
+ {
+  "id": "key.chat",
+  "bind": "key.keyboard.t",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Open Chat",
+  "uk": "Відкрити чат",
+  "key": "T",
+  "combo": "T"
+ },
+ {
+  "id": "key.playerlist",
+  "bind": "key.keyboard.tab",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "List Players",
+  "uk": "Список гравців",
+  "key": "Tab",
+  "combo": "Tab"
+ },
+ {
+  "id": "key.pickItem",
+  "bind": "key.mouse.middle",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Pick Block",
+  "uk": "Вибрати блок",
+  "key": "СКМ",
+  "combo": "СКМ"
+ },
+ {
+  "id": "key.command",
+  "bind": "key.keyboard.slash",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Open Command",
+  "uk": "Відкрити команду",
+  "key": "/",
+  "combo": "/"
+ },
+ {
+  "id": "key.socialInteractions",
+  "bind": "key.keyboard.p",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Social Interactions Screen",
+  "uk": "Екран соціальних взаємодій",
+  "key": "P",
+  "combo": "P"
+ },
+ {
+  "id": "key.toggleGui",
+  "bind": "key.keyboard.f1",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Toggle GUI",
+  "uk": "Перемикати графічний інтерфейс",
+  "key": "F1",
+  "combo": "F1"
+ },
+ {
+  "id": "key.toggleSpectatorShaderEffects",
+  "bind": "key.keyboard.f4",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Toggle Spectator Shader Effects",
+  "uk": "Перемикати ефекти шейдерів глядача",
+  "key": "F4",
+  "combo": "F4"
+ },
+ {
+  "id": "key.screenshot",
+  "bind": "key.keyboard.f2",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Take Screenshot",
+  "uk": "Зробити знімок екрана",
+  "key": "F2",
+  "combo": "F2"
+ },
+ {
+  "id": "key.togglePerspective",
+  "bind": "key.keyboard.f5",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Toggle Perspective",
+  "uk": "Перемкнути перспективу",
+  "key": "F5",
+  "combo": "F5"
+ },
+ {
+  "id": "key.smoothCamera",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Toggle Cinematic Camera",
+  "uk": "Перемкнути режим кінокамери",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.fullscreen",
+  "bind": "key.keyboard.f11",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Toggle Fullscreen",
+  "uk": "Перемкнути повний екран",
+  "key": "F11",
+  "combo": "F11"
+ },
+ {
+  "id": "key.spectatorOutlines",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Highlight Players",
+  "uk": "Підсвічувати гравців",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.spectatorHotbar",
+  "bind": "key.mouse.middle",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Select On Hotbar",
+  "uk": "Вибрати на панелі швидкого доступу",
+  "key": "СКМ",
+  "combo": "СКМ"
+ },
+ {
+  "id": "key.swapOffhand",
+  "bind": "key.keyboard.f",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Swap Item With Off Hand",
+  "uk": "Поміняти місцями предмети в руках",
+  "key": "F",
+  "combo": "F"
+ },
+ {
+  "id": "key.saveToolbarActivator",
+  "bind": "key.keyboard.c",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Save Hotbar Activator",
+  "uk": "Зберегти панель швидкого доступу",
+  "key": "C",
+  "combo": "C"
+ },
+ {
+  "id": "key.loadToolbarActivator",
+  "bind": "key.keyboard.x",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Load Hotbar Activator",
+  "uk": "Завантажити панель швидкого доступу",
+  "key": "X",
+  "combo": "X"
+ },
+ {
+  "id": "key.advancements",
+  "bind": "key.keyboard.l",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Advancements",
+  "uk": "Досягнення",
+  "key": "L",
+  "combo": "L"
+ },
+ {
+  "id": "key.quickActions",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Quick Actions",
+  "uk": "Швидкі дії",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.debug.overlay",
+  "bind": "key.keyboard.f3",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Toggle Overlay",
+  "uk": "Перемкнути накладення",
+  "key": "F3",
+  "combo": "F3"
+ },
+ {
+  "id": "key.debug.modifier",
+  "bind": "key.keyboard.f3",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Debug Modifier Key",
+  "uk": "Клавіша-модифікатор налагодження",
+  "key": "F3",
+  "combo": "F3"
+ },
+ {
+  "id": "key.hotbar.1",
+  "bind": "key.keyboard.1",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Hotbar Slot 1",
+  "uk": "Слот швидкого доступу 1",
+  "key": "1",
+  "combo": "1"
+ },
+ {
+  "id": "key.hotbar.2",
+  "bind": "key.keyboard.2",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Hotbar Slot 2",
+  "uk": "Слот швидкого доступу 2",
+  "key": "2",
+  "combo": "2"
+ },
+ {
+  "id": "key.hotbar.3",
+  "bind": "key.keyboard.3",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Hotbar Slot 3",
+  "uk": "Слот швидкого доступу 3",
+  "key": "3",
+  "combo": "3"
+ },
+ {
+  "id": "key.hotbar.4",
+  "bind": "key.keyboard.4",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Hotbar Slot 4",
+  "uk": "Слот швидкого доступу 4",
+  "key": "4",
+  "combo": "4"
+ },
+ {
+  "id": "key.hotbar.5",
+  "bind": "key.keyboard.5",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Hotbar Slot 5",
+  "uk": "Слот швидкого доступу 5",
+  "key": "5",
+  "combo": "5"
+ },
+ {
+  "id": "key.hotbar.6",
+  "bind": "key.keyboard.6",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Hotbar Slot 6",
+  "uk": "Слот швидкого доступу 6",
+  "key": "6",
+  "combo": "6"
+ },
+ {
+  "id": "key.hotbar.7",
+  "bind": "key.keyboard.7",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Hotbar Slot 7",
+  "uk": "Слот швидкого доступу 7",
+  "key": "7",
+  "combo": "7"
+ },
+ {
+  "id": "key.hotbar.8",
+  "bind": "key.keyboard.8",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Hotbar Slot 8",
+  "uk": "Слот швидкого доступу 8",
+  "key": "8",
+  "combo": "8"
+ },
+ {
+  "id": "key.hotbar.9",
+  "bind": "key.keyboard.9",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Hotbar Slot 9",
+  "uk": "Слот швидкого доступу 9",
+  "key": "9",
+  "combo": "9"
+ },
+ {
+  "id": "key.debug.reloadChunk",
+  "bind": "key.keyboard.a",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Reload Chunks",
+  "uk": "Перезавантажити чанки",
+  "key": "A",
+  "combo": "A"
+ },
+ {
+  "id": "key.debug.showHitboxes",
+  "bind": "key.keyboard.b",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Show Hitboxes",
+  "uk": "Показати гітбокси",
+  "key": "B",
+  "combo": "B"
+ },
+ {
+  "id": "key.debug.clearChat",
+  "bind": "key.keyboard.d",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Clear Chat",
+  "uk": "Очистити чат",
+  "key": "D",
+  "combo": "D"
+ },
+ {
+  "id": "key.debug.crash",
+  "bind": "key.keyboard.c",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Debug Crash",
+  "uk": "Збій для налагодження",
+  "key": "C",
+  "combo": "C"
+ },
+ {
+  "id": "key.debug.showChunkBorders",
+  "bind": "key.keyboard.g",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Show Chunk Boundaries",
+  "uk": "Показати межі чанків",
+  "key": "G",
+  "combo": "G"
+ },
+ {
+  "id": "key.debug.showAdvancedTooltips",
+  "bind": "key.keyboard.h",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Show Advanced Tooltips",
+  "uk": "Показати розширені підказки",
+  "key": "H",
+  "combo": "H"
+ },
+ {
+  "id": "key.debug.copyRecreateCommand",
+  "bind": "key.keyboard.i",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Copy Data",
+  "uk": "Копіювати дані",
+  "key": "I",
+  "combo": "I"
+ },
+ {
+  "id": "key.debug.spectate",
+  "bind": "key.keyboard.n",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Cycle Spectator",
+  "uk": "Перемкнути режим глядача",
+  "key": "N",
+  "combo": "N"
+ },
+ {
+  "id": "key.debug.switchGameMode",
+  "bind": "key.keyboard.f4",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Game Mode Switcher",
+  "uk": "Перемикач режиму гри",
+  "key": "F4",
+  "combo": "F4"
+ },
+ {
+  "id": "key.debug.debugOptions",
+  "bind": "key.keyboard.f6",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Debug Options",
+  "uk": "Налаштування налагодження",
+  "key": "F6",
+  "combo": "F6"
+ },
+ {
+  "id": "key.debug.focusPause",
+  "bind": "key.keyboard.p",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Toggle Lost Focus Pause",
+  "uk": "Перемикати призупинення при переході до іншого вікна",
+  "key": "P",
+  "combo": "P"
+ },
+ {
+  "id": "key.debug.dumpDynamicTextures",
+  "bind": "key.keyboard.s",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Dump Dynamic Textures",
+  "uk": "Зберегти динамічні текстури",
+  "key": "S",
+  "combo": "S"
+ },
+ {
+  "id": "key.debug.reloadResourcePacks",
+  "bind": "key.keyboard.t",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Reload Resource Packs",
+  "uk": "Перезавантажити пакети ресурсів",
+  "key": "T",
+  "combo": "T"
+ },
+ {
+  "id": "key.debug.profiling",
+  "bind": "key.keyboard.l",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Start/Stop Profiling",
+  "uk": "Почати/зупинити профілювання",
+  "key": "L",
+  "combo": "L"
+ },
+ {
+  "id": "key.debug.copyLocation",
+  "bind": "key.keyboard.c",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Copy Location",
+  "uk": "Копіювати розташування",
+  "key": "C",
+  "combo": "C"
+ },
+ {
+  "id": "key.debug.dumpVersion",
+  "bind": "key.keyboard.v",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Dump Version Info",
+  "uk": "Зберегти інформацію про версію",
+  "key": "V",
+  "combo": "V"
+ },
+ {
+  "id": "key.debug.profilingChart",
+  "bind": "key.keyboard.1",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Profiling Chart",
+  "uk": "Діаграма профілювання",
+  "key": "1",
+  "combo": "1"
+ },
+ {
+  "id": "key.debug.fpsCharts",
+  "bind": "key.keyboard.2",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "FPS Charts",
+  "uk": "Діаграми частоти кадрів",
+  "key": "2",
+  "combo": "2"
+ },
+ {
+  "id": "key.debug.networkCharts",
+  "bind": "key.keyboard.3",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Network Charts",
+  "uk": "Діаграми мережі",
+  "key": "3",
+  "combo": "3"
+ },
+ {
+  "id": "key.debug.lightmapTexture",
+  "bind": "key.keyboard.4",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "Lightmap Texture",
+  "uk": "Текстура мапи освітлення",
+  "key": "4",
+  "combo": "4"
+ },
+ {
+  "id": "key.sky_aesthetics.open_editor",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "sky_aesthetics",
+  "en": "Open Sky Editor",
+  "uk": "Відкрити редактор неба",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.energizedpower.teleporter.use",
+  "bind": "key.keyboard.v",
+  "mod": "",
+  "ns": "energizedpower",
+  "en": "Use Teleporter",
+  "uk": "Використати телепортер",
+  "key": "V",
+  "combo": "V"
+ },
+ {
+  "id": "simplemagnets.keys.toggle",
+  "bind": "key.keyboard.h",
+  "mod": "",
+  "ns": "simplemagnets",
+  "en": "Toggle Magnet",
+  "uk": "Перемкнути магніт",
+  "key": "H",
+  "combo": "H"
+ },
+ {
+  "id": "key.aether_ii.allow_dismounting_passenger.desc",
+  "bind": "key.keyboard.left.shift",
+  "mod": "",
+  "ns": "aether_ii",
+  "en": "Allow Dismounting Passenger",
+  "uk": "Дозволити висадку пасажира",
+  "key": "Лівий Shift",
+  "combo": "Лівий Shift"
+ },
+ {
+  "id": "key.integratedterminals.terminal.tab.next",
+  "bind": "key.keyboard.tab",
+  "mod": "",
+  "ns": "integratedterminals",
+  "en": "Go to next terminal tab",
+  "uk": "Наступна вкладка термінала",
+  "key": "Tab",
+  "combo": "Tab"
+ },
+ {
+  "id": "key.integratedterminals.terminal.tab.previous",
+  "bind": "key.keyboard.tab",
+  "mod": "SHIFT",
+  "ns": "integratedterminals",
+  "en": "Go to previous terminal tab",
+  "uk": "Попередня вкладка термінала",
+  "key": "Tab",
+  "combo": "Shift+Tab"
+ },
+ {
+  "id": "key.integratedterminals.terminal.craftinggrid.clearplayer",
+  "bind": "key.keyboard.c",
+  "mod": "SHIFT",
+  "ns": "integratedterminals",
+  "en": "Clear Crafting Grid into Inventory",
+  "uk": "Очистити сітку створення в інвентар",
+  "key": "C",
+  "combo": "Shift+C"
+ },
+ {
+  "id": "key.integratedterminals.terminal.craftinggrid.clearstorage",
+  "bind": "key.keyboard.c",
+  "mod": "",
+  "ns": "integratedterminals",
+  "en": "Clear Crafting Grid into Storage",
+  "uk": "Очистити сітку створення в сховище",
+  "key": "C",
+  "combo": "C"
+ },
+ {
+  "id": "key.integratedterminals.terminal.craftinggrid.balance",
+  "bind": "key.keyboard.b",
+  "mod": "",
+  "ns": "integratedterminals",
+  "en": "Balance Crafting Grid",
+  "uk": "Вирівняти сітку створення",
+  "key": "B",
+  "combo": "B"
+ },
+ {
+  "id": "key.integratedterminals.terminal.portable.open",
+  "bind": "key.keyboard.c",
+  "mod": "",
+  "ns": "integratedterminals",
+  "en": "Open first Portable Storage Terminal",
+  "uk": "Відкрити перший портативний термінал сховища",
+  "key": "C",
+  "combo": "C"
+ },
+ {
+  "id": "keybind.ironjetpacks.engine",
+  "bind": "key.mouse.4",
+  "mod": "CONTROL",
+  "ns": "ironjetpacks",
+  "en": "Toggle Engine",
+  "uk": "Перемкнути рушій",
+  "key": "Миша 4",
+  "combo": "Ctrl+Миша 4"
+ },
+ {
+  "id": "keybind.ironjetpacks.hover",
+  "bind": "key.keyboard.h",
+  "mod": "",
+  "ns": "ironjetpacks",
+  "en": "Toggle Hover Mode",
+  "uk": "Перемкнути режим планерування",
+  "key": "H",
+  "combo": "H"
+ },
+ {
+  "id": "keybind.ironjetpacks.hud",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "ironjetpacks",
+  "en": "Toggle HUD",
+  "uk": "Перемкнути HUD",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "keybind.ironjetpacks.ascend",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "ironjetpacks",
+  "en": "Ascend",
+  "uk": "Підйом",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "keybind.ironjetpacks.descend",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "ironjetpacks",
+  "en": "Descend",
+  "uk": "Спуститися",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "keybind.ironjetpacks.increment_throttle",
+  "bind": "key.keyboard.period",
+  "mod": "",
+  "ns": "ironjetpacks",
+  "en": "Increase Throttle",
+  "uk": "Збільшити газ",
+  "key": ".",
+  "combo": "."
+ },
+ {
+  "id": "keybind.ironjetpacks.decrement_throttle",
+  "bind": "key.keyboard.comma",
+  "mod": "",
+  "ns": "ironjetpacks",
+  "en": "Decrease Throttle",
+  "uk": "Зменшити газ",
+  "key": ",",
+  "combo": ","
+ },
+ {
+  "id": "key.evilcraft.fart",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "evilcraft",
+  "en": "Toggle Farting",
+  "uk": "Перемкнути пукання",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.evilcraft.exaltedCrafting",
+  "bind": "key.keyboard.c",
+  "mod": "",
+  "ns": "evilcraft",
+  "en": "Open Exalted Crafter",
+  "uk": "Відкрити піднесений верстак",
+  "key": "C",
+  "combo": "C"
+ },
+ {
+  "id": "iris.keybind.reload",
+  "bind": "key.keyboard.f8",
+  "mod": "",
+  "ns": "iris",
+  "en": "Reload Shaders",
+  "uk": "Перезавантажити шейдери",
+  "key": "F8",
+  "combo": "F8"
+ },
+ {
+  "id": "iris.keybind.toggleShaders",
+  "bind": "key.keyboard.f10",
+  "mod": "",
+  "ns": "iris",
+  "en": "Toggle Shaders",
+  "uk": "Перемкнути шейдери",
+  "key": "F10",
+  "combo": "F10"
+ },
+ {
+  "id": "iris.keybind.shaderPackSelection",
+  "bind": "key.keyboard.o",
+  "mod": "",
+  "ns": "iris",
+  "en": "Shaderpack Selection Screen",
+  "uk": "Екран вибору пакету шейдерів",
+  "key": "O",
+  "combo": "O"
+ },
+ {
+  "id": "iris.keybind.wireframe",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "iris",
+  "en": "Wireframe (SP only)",
+  "uk": "Каркасний режим (лише одиночна гра)",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.universalgrid.open_wireless_universal_grid",
+  "bind": "key.keyboard.u",
+  "mod": "SHIFT",
+  "ns": "universalgrid",
+  "en": "Open Wireless Universal Grid",
+  "uk": "Відкрити бездротову універсальну сітку",
+  "key": "U",
+  "combo": "Shift+U"
+ },
+ {
+  "id": "key.universalgrid.switch_wireless_universal_grid_type",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "universalgrid",
+  "en": "Switch Wireless Universal Grid Type",
+  "uk": "Перемкнути тип бездротової універсальної сітки",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.refinedstorage.focus_search_bar",
+  "bind": "key.keyboard.tab",
+  "mod": "",
+  "ns": "refinedstorage",
+  "en": "Focus search bar",
+  "uk": "Фокус на рядок пошуку",
+  "key": "Tab",
+  "combo": "Tab"
+ },
+ {
+  "id": "key.refinedstorage.clear_crafting_grid_matrix_to_network",
+  "bind": "key.keyboard.x",
+  "mod": "CONTROL",
+  "ns": "refinedstorage",
+  "en": "Clear Crafting Grid matrix to network",
+  "uk": "Очистити сітку майстрування в мережу",
+  "key": "X",
+  "combo": "Ctrl+X"
+ },
+ {
+  "id": "key.refinedstorage.clear_crafting_grid_matrix_to_inventory",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "refinedstorage",
+  "en": "Clear Crafting Grid matrix to inventory",
+  "uk": "Очистити сітку майстрування в інвентар",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.refinedstorage.open_wireless_grid",
+  "bind": "key.keyboard.r",
+  "mod": "CONTROL",
+  "ns": "refinedstorage",
+  "en": "Open Wireless Grid",
+  "uk": "Відкрити бездротову сітку",
+  "key": "R",
+  "combo": "Ctrl+R"
+ },
+ {
+  "id": "key.refinedstorage.open_portable_grid",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "refinedstorage",
+  "en": "Open Portable Grid",
+  "uk": "Відкрити портативну сітку",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.refinedstorage.open_wireless_autocrafting_monitor",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "refinedstorage",
+  "en": "Open Wireless Autocrafting Monitor",
+  "uk": "Відкрити бездротовий монітор автомайстрування",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.oritech.augment_screen",
+  "bind": "key.keyboard.g",
+  "mod": "",
+  "ns": "oritech",
+  "en": "Implant Controls [Hold]",
+  "uk": "Керування імплантами [утримуйте]",
+  "key": "G",
+  "combo": "G"
+ },
+ {
+  "id": "Cycle Attack Type Up",
+  "bind": "key.keyboard.k",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "",
+  "uk": "",
+  "key": "K",
+  "combo": "K"
+ },
+ {
+  "id": "Cycle Attack Type Down",
+  "bind": "key.keyboard.m",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "",
+  "uk": "",
+  "key": "M",
+  "combo": "M"
+ },
+ {
+  "id": "Laser Attack",
+  "bind": "key.keyboard.0",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "",
+  "uk": "",
+  "key": "0",
+  "combo": "0"
+ },
+ {
+  "id": "key.silentgear.cycle.back",
+  "bind": "key.keyboard.z",
+  "mod": "",
+  "ns": "silentgear",
+  "en": "Cycle Back",
+  "uk": "Перемкнути назад",
+  "key": "Z",
+  "combo": "Z"
+ },
+ {
+  "id": "key.silentgear.cycle.next",
+  "bind": "key.keyboard.c",
+  "mod": "",
+  "ns": "silentgear",
+  "en": "Cycle Next",
+  "uk": "Перемкнути далі",
+  "key": "C",
+  "combo": "C"
+ },
+ {
+  "id": "key.silentgear.displayItemProperties",
+  "bind": "key.keyboard.left.control",
+  "mod": "",
+  "ns": "silentgear",
+  "en": "Display Properties and Traits",
+  "uk": "Показати властивості й риси",
+  "key": "Лівий Ctrl",
+  "combo": "Лівий Ctrl"
+ },
+ {
+  "id": "key.silentgear.displayTraitDescriptions",
+  "bind": "key.keyboard.left.shift",
+  "mod": "",
+  "ns": "silentgear",
+  "en": "Display Trait Descriptions",
+  "uk": "Показати описи рис",
+  "key": "Лівий Shift",
+  "combo": "Лівий Shift"
+ },
+ {
+  "id": "key.silentgear.displayItemConstruction",
+  "bind": "key.keyboard.left.alt",
+  "mod": "",
+  "ns": "silentgear",
+  "en": "Display Construction and Materials",
+  "uk": "Показати будову й матеріали",
+  "key": "Лівий Alt",
+  "combo": "Лівий Alt"
+ },
+ {
+  "id": "key.silentgear.openItem",
+  "bind": "key.keyboard.x",
+  "mod": "",
+  "ns": "silentgear",
+  "en": "Open Item",
+  "uk": "Відкрити предмет",
+  "key": "X",
+  "combo": "X"
+ },
+ {
+  "id": "key.curios.open.desc",
+  "bind": "key.mouse.4",
+  "mod": "SHIFT",
+  "ns": "curios",
+  "en": "Open/Close Curios Inventory",
+  "uk": "Відкрити/закрити інвентар Curios",
+  "key": "Миша 4",
+  "combo": "Shift+Миша 4"
+ },
+ {
+  "id": "framedblocks.key.update_cull",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "framedblocks",
+  "en": "Update culling cache",
+  "uk": "Оновити кеш відсікання",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "framedblocks.key.wipe_cache",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "framedblocks",
+  "en": "Clear model cache",
+  "uk": "Очистити кеш моделей",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "framedblocks.key.toggle_state_cycle",
+  "bind": "key.keyboard.y",
+  "mod": "",
+  "ns": "framedblocks",
+  "en": "Toggle placement state cycling",
+  "uk": "Перемкнути перебір станів розміщення",
+  "key": "Y",
+  "combo": "Y"
+ },
+ {
+  "id": "framedblocks.key.unlock_state_cycle",
+  "bind": "key.keyboard.left.control",
+  "mod": "",
+  "ns": "framedblocks",
+  "en": "Unlock placement state cycling",
+  "uk": "Розблокувати перебір станів розміщення",
+  "key": "Лівий Ctrl",
+  "combo": "Лівий Ctrl"
+ },
+ {
+  "id": "key.libtooltips.expand",
+  "bind": "key.keyboard.left.shift",
+  "mod": "",
+  "ns": "libtooltips",
+  "en": "Expand Tooltip",
+  "uk": "Розгорнути підказку",
+  "key": "Лівий Shift",
+  "combo": "Лівий Shift"
+ },
+ {
+  "id": "key.arsmagicalegacy.next_shape_group",
+  "bind": "key.keyboard.period",
+  "mod": "",
+  "ns": "arsmagicalegacy",
+  "en": "Next Shape Group",
+  "uk": "Наступна група форм",
+  "key": ".",
+  "combo": "."
+ },
+ {
+  "id": "key.arsmagicalegacy.prev_shape_group",
+  "bind": "key.keyboard.comma",
+  "mod": "",
+  "ns": "arsmagicalegacy",
+  "en": "Previous Shape Group",
+  "uk": "Попередня група форм",
+  "key": ",",
+  "combo": ","
+ },
+ {
+  "id": "key.arsmagicalegacy.spell_customization",
+  "bind": "key.keyboard.c",
+  "mod": "SHIFT",
+  "ns": "arsmagicalegacy",
+  "en": "Customize Spell",
+  "uk": "Налаштувати закляття",
+  "key": "C",
+  "combo": "Shift+C"
+ },
+ {
+  "id": "key.sfm.more_info",
+  "bind": "key.keyboard.left.shift",
+  "mod": "",
+  "ns": "sfm",
+  "en": "Hold For More Info",
+  "uk": "Затисніть для більшої інформації",
+  "key": "Лівий Shift",
+  "combo": "Лівий Shift"
+ },
+ {
+  "id": "key.sfm.container_inspector.activation_key",
+  "bind": "key.keyboard.i",
+  "mod": "CONTROL",
+  "ns": "sfm",
+  "en": "Toggle Container Inspector",
+  "uk": "Перемкнути інспектор контейнерів",
+  "key": "I",
+  "combo": "Ctrl+I"
+ },
+ {
+  "id": "key.sfm.item_inspector.activation_key",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "sfm",
+  "en": "(WIP) Copy Hovered Item To Clipboard",
+  "uk": "(WIP) Скопіювати дані наведеного предмета до буфера обміну",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.sfm.toggle_label_view_key",
+  "bind": "key.keyboard.left.alt",
+  "mod": "",
+  "ns": "sfm",
+  "en": "Cycle label gun view",
+  "uk": "Перемкнути перегляд пістолета для етикеток",
+  "key": "Лівий Alt",
+  "combo": "Лівий Alt"
+ },
+ {
+  "id": "key.sfm.label_gun.open_gui",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "sfm",
+  "en": "Open Label Gun GUI",
+  "uk": "Відкрити інтерфейс маркувального пістолета",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.sfm.label_gun.pick_block_modifier",
+  "bind": "key.keyboard.left.alt",
+  "mod": "",
+  "ns": "sfm",
+  "en": "Label Gun Pick Block Modifier",
+  "uk": "Дія обирання блока пістолетом для етикеток",
+  "key": "Лівий Alt",
+  "combo": "Лівий Alt"
+ },
+ {
+  "id": "key.sfm.label_gun.contiguous_modifier",
+  "bind": "key.keyboard.left.control",
+  "mod": "",
+  "ns": "sfm",
+  "en": "Label Gun Contiguous Modifier",
+  "uk": "Суміжна дія пістолетом для етикеток",
+  "key": "Лівий Ctrl",
+  "combo": "Лівий Ctrl"
+ },
+ {
+  "id": "key.sfm.label_gun.clear_modifier",
+  "bind": "key.keyboard.left.shift",
+  "mod": "",
+  "ns": "sfm",
+  "en": "Label Gun Clear Modifier",
+  "uk": "Дія очищення пістолетом для етикеток",
+  "key": "Лівий Shift",
+  "combo": "Лівий Shift"
+ },
+ {
+  "id": "key.sfm.label_gun.scroll_modifier",
+  "bind": "key.keyboard.left.shift",
+  "mod": "",
+  "ns": "sfm",
+  "en": "Label Gun Scroll Modifier",
+  "uk": "Дія перемикання пістолетом для етикеток",
+  "key": "Лівий Shift",
+  "combo": "Лівий Shift"
+ },
+ {
+  "id": "key.sfm.label_gun.next_label",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "sfm",
+  "en": "Label Gun Next Label",
+  "uk": "Наступна етикетка пістолета для етикеток",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.sfm.label_gun.previous_label",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "sfm",
+  "en": "Label Gun Previous Label",
+  "uk": "Попередня етикетка пістолета для етикеток",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.sfm.label_gun.pull_modifier",
+  "bind": "key.keyboard.left.shift",
+  "mod": "",
+  "ns": "sfm",
+  "en": "Label Gun Pull Modifier",
+  "uk": "Дія забирання пістолетом для етикеток",
+  "key": "Лівий Shift",
+  "combo": "Лівий Shift"
+ },
+ {
+  "id": "key.sfm.label_gun.target_manager_modifier",
+  "bind": "key.keyboard.right.alt",
+  "mod": "",
+  "ns": "sfm",
+  "en": "Label Gun Target Manager Modifier",
+  "uk": "Дія обирання менеджера пістолетом для етикеток",
+  "key": "Правий Alt",
+  "combo": "Правий Alt"
+ },
+ {
+  "id": "key.sfm.text_editor.accept_intellisense",
+  "bind": "key.keyboard.backslash",
+  "mod": "",
+  "ns": "sfm",
+  "en": "Text Editor - Accept Intellisense Suggestion",
+  "uk": "Текстовий редактор - Прийняти пропозицію Інтелісенсу",
+  "key": "\\",
+  "combo": "\\"
+ },
+ {
+  "id": "key.sfm.manager.text_editor",
+  "bind": "key.keyboard.e",
+  "mod": "CONTROL",
+  "ns": "sfm",
+  "en": "Manager Screen - Open Text Editor",
+  "uk": "Екран менеджера - Відкрити текстовий редактор",
+  "key": "E",
+  "combo": "Ctrl+E"
+ },
+ {
+  "id": "key.sfm.title_screen.text_editor",
+  "bind": "key.keyboard.e",
+  "mod": "CONTROL",
+  "ns": "sfm",
+  "en": "Title Screen - Open Text Editor",
+  "uk": "Головний екран - Відкрити текстовий редактор",
+  "key": "E",
+  "combo": "Ctrl+E"
+ },
+ {
+  "id": "key.sfm.toggle_network_tool_overlay",
+  "bind": "key.keyboard.left.alt",
+  "mod": "",
+  "ns": "sfm",
+  "en": "Toggle network tool overlay",
+  "uk": "Перемкнути оверлей мережевого інструмента",
+  "key": "Лівий Alt",
+  "combo": "Лівий Alt"
+ },
+ {
+  "id": "crafting_on_a_stick.key.open_curios",
+  "bind": "key.keyboard.v",
+  "mod": "",
+  "ns": "crafting_on_a_stick",
+  "en": "Open Crafting on a Stick",
+  "uk": "Відкрити «Створення на паличці»",
+  "key": "V",
+  "combo": "V"
+ },
+ {
+  "id": "key.dragon_fireAttack",
+  "bind": "key.keyboard.r",
+  "mod": "",
+  "ns": "iceandfire",
+  "en": "Dragon Breath",
+  "uk": "Дихання дракона",
+  "key": "R",
+  "combo": "R"
+ },
+ {
+  "id": "key.dragon_strike",
+  "bind": "key.keyboard.g",
+  "mod": "",
+  "ns": "iceandfire",
+  "en": "Dragon Strike",
+  "uk": "Драконячий удар",
+  "key": "G",
+  "combo": "G"
+ },
+ {
+  "id": "key.dragon_down",
+  "bind": "key.keyboard.x",
+  "mod": "",
+  "ns": "iceandfire",
+  "en": "Dragon Down",
+  "uk": "Спуск униз",
+  "key": "X",
+  "combo": "X"
+ },
+ {
+  "id": "key.dragon_change_view",
+  "bind": "key.keyboard.f7",
+  "mod": "",
+  "ns": "iceandfire",
+  "en": "Change 3rd person camera for dragon",
+  "uk": "Камера дракона від третьої особи",
+  "key": "F7",
+  "combo": "F7"
+ },
+ {
+  "id": "key.crystalix.pick_block",
+  "bind": "key.keyboard.x",
+  "mod": "",
+  "ns": "crystalix",
+  "en": "Pick properties from block",
+  "uk": "Взяти властивості з блока",
+  "key": "X",
+  "combo": "X"
+ },
+ {
+  "id": "key.crystalix.open_wand_editor",
+  "bind": "key.keyboard.v",
+  "mod": "",
+  "ns": "crystalix",
+  "en": "Open Wand Editor",
+  "uk": "Відкрити редактор жезла",
+  "key": "V",
+  "combo": "V"
+ },
+ {
+  "id": "key.crystalix.highlight_blocks",
+  "bind": "key.keyboard.r",
+  "mod": "",
+  "ns": "crystalix",
+  "en": "Highlight Blocks",
+  "uk": "Підсвітити блоки",
+  "key": "R",
+  "combo": "R"
+ },
+ {
+  "id": "key.luminax.open_color_picker",
+  "bind": "key.keyboard.v",
+  "mod": "",
+  "ns": "luminax",
+  "en": "Open Color Picker",
+  "uk": "Відкрити вибір кольору",
+  "key": "V",
+  "combo": "V"
+ },
+ {
+  "id": "key.luminax.toggle_glowing",
+  "bind": "key.keyboard.x",
+  "mod": "",
+  "ns": "luminax",
+  "en": "Toggle Glowing",
+  "uk": "Перемкнути світіння",
+  "key": "X",
+  "combo": "X"
+ },
+ {
+  "id": "key.neovitae.edit_hud",
+  "bind": "key.keyboard.home",
+  "mod": "",
+  "ns": "neovitae",
+  "en": "Edit HUD Layout",
+  "uk": "Редагувати розмітку HUD",
+  "key": "Home",
+  "combo": "Home"
+ },
+ {
+  "id": "key.neovitae.lex_beam",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "neovitae",
+  "en": "Lex Vitae: Fire Beam",
+  "uk": "Lex Vitae: вогняний промінь",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.neovitae.blood_shield",
+  "bind": "key.mouse.right",
+  "mod": "",
+  "ns": "neovitae",
+  "en": "Blood Shield (Orb of Vitae)",
+  "uk": "Кривавий щит (Сфера Vitae)",
+  "key": "ПКМ",
+  "combo": "ПКМ"
+ },
+ {
+  "id": "key.neovitae.lex_mode",
+  "bind": "key.keyboard.period",
+  "mod": "",
+  "ns": "neovitae",
+  "en": "Lex Vitae: Cycle Mode",
+  "uk": "Lex Vitae: змінити режим",
+  "key": ".",
+  "combo": "."
+ },
+ {
+  "id": "key.neovitae.open_guide",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "neovitae",
+  "en": "Open Scriptura Vitae for Hovered Item",
+  "uk": "Відкрити Scriptura Vitae для предмета під курсором",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.railcraft.change_aura",
+  "bind": "key.keyboard.g",
+  "mod": "",
+  "ns": "railcraft",
+  "en": "Change Aura",
+  "uk": "Змінити ауру",
+  "key": "G",
+  "combo": "G"
+ },
+ {
+  "id": "key.railcraft.loco.reverse",
+  "bind": "key.keyboard.n",
+  "mod": "",
+  "ns": "railcraft",
+  "en": "Change locomotive direction",
+  "uk": "Змінити напрямок локомотива",
+  "key": "N",
+  "combo": "N"
+ },
+ {
+  "id": "key.railcraft.loco.faster",
+  "bind": "key.keyboard.period",
+  "mod": "",
+  "ns": "railcraft",
+  "en": "Increase locomotive speed",
+  "uk": "Збільшити швидкість локомотива",
+  "key": ".",
+  "combo": "."
+ },
+ {
+  "id": "key.railcraft.loco.slower",
+  "bind": "key.keyboard.comma",
+  "mod": "",
+  "ns": "railcraft",
+  "en": "Decrease locomotive speed",
+  "uk": "Зменшити швидкість локомотива",
+  "key": ",",
+  "combo": ","
+ },
+ {
+  "id": "key.railcraft.loco.mode",
+  "bind": "key.keyboard.m",
+  "mod": "",
+  "ns": "railcraft",
+  "en": "Change locomotive mode",
+  "uk": "Змінити режим локомотива",
+  "key": "M",
+  "combo": "M"
+ },
+ {
+  "id": "key.railcraft.loco.whistle",
+  "bind": "key.keyboard.b",
+  "mod": "",
+  "ns": "railcraft",
+  "en": "Locomotive whistle",
+  "uk": "Гудок локомотива",
+  "key": "B",
+  "combo": "B"
+ },
+ {
+  "id": "key.railcraft.bed_minecart.sleep",
+  "bind": "key.keyboard.down",
+  "mod": "",
+  "ns": "railcraft",
+  "en": "Sleep in the Minecart with Bed",
+  "uk": "Спати у вагонетці з ліжком",
+  "key": "↓",
+  "combo": "↓"
+ },
+ {
+  "id": "key.occultism.backpack",
+  "bind": "key.keyboard.b",
+  "mod": "",
+  "ns": "occultism",
+  "en": "Open Satchel",
+  "uk": "Відкрити сумку",
+  "key": "B",
+  "combo": "B"
+ },
+ {
+  "id": "key.occultism.ender_bag",
+  "bind": "key.keyboard.v",
+  "mod": "",
+  "ns": "occultism",
+  "en": "Open Ender Satchel",
+  "uk": "Відкрити сумку Енду",
+  "key": "V",
+  "combo": "V"
+ },
+ {
+  "id": "key.occultism.storage_remote",
+  "bind": "key.keyboard.n",
+  "mod": "",
+  "ns": "occultism",
+  "en": "Open Storage Accessor",
+  "uk": "Відкрити медіум сховища",
+  "key": "N",
+  "combo": "N"
+ },
+ {
+  "id": "key.occultism.familiar.greedy_familiar",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "occultism",
+  "en": "Toggle Abilities: Greedy",
+  "uk": "Перемкнути здібності: Жадюга",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.occultism.familiar.drikwing",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "",
+  "uk": "",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.occultism.familiar.wingnis",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "minecraft",
+  "en": "",
+  "uk": "",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.occultism.familiar.bat_familiar",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "occultism",
+  "en": "Toggle Abilities: Bat",
+  "uk": "Перемкнути здібності: Кажан",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.occultism.familiar.deer_familiar",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "occultism",
+  "en": "Toggle Abilities: Deer",
+  "uk": "Перемкнути здібності: Олень",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.occultism.familiar.cthulhu_familiar",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "occultism",
+  "en": "Toggle Abilities: Cthulhu",
+  "uk": "Перемкнути здібності: Ктулху",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.occultism.familiar.devil_familiar",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "occultism",
+  "en": "Toggle Abilities: Devil",
+  "uk": "Перемкнути здібності: Диявол",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.occultism.familiar.dragon_familiar",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "occultism",
+  "en": "Toggle Abilities: Dragon",
+  "uk": "Перемкнути здібності: Дракон",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.occultism.familiar.blacksmith_familiar",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "occultism",
+  "en": "Toggle Abilities: Blacksmith",
+  "uk": "Перемкнути здібності: Коваль",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.occultism.familiar.guardian_familiar",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "occultism",
+  "en": "Toggle Abilities: Guardian",
+  "uk": "Перемкнути здібності: Хоронитель",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.occultism.familiar.headless_familiar",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "occultism",
+  "en": "Toggle Abilities: Headless Ratman",
+  "uk": "Перемкнути здібності: Безголова щуролюдина",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.occultism.familiar.chimera_familiar",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "occultism",
+  "en": "Toggle Abilities: Chimera",
+  "uk": "Перемкнути здібності: Химера",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.occultism.familiar.goat_familiar",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "occultism",
+  "en": "Toggle Abilities: Goat",
+  "uk": "Перемкнути здібності: Коза",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.occultism.familiar.shub_niggurath_familiar",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "occultism",
+  "en": "Toggle Abilities: Shub Niggurath",
+  "uk": "Перемкнути здібності: Шуб Ніггурат",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.occultism.familiar.beholder_familiar",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "occultism",
+  "en": "Toggle Abilities: Beholder",
+  "uk": "Перемкнути здібності: Споглядач",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.occultism.familiar.fairy_familiar",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "occultism",
+  "en": "Toggle Abilities: Fairy",
+  "uk": "Перемкнути здібності: Фея",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.occultism.familiar.mummy_familiar",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "occultism",
+  "en": "Toggle Abilities: Mummy",
+  "uk": "Перемкнути здібності: Мумія",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.occultism.familiar.beaver_familiar",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "occultism",
+  "en": "Toggle Abilities: Beaver",
+  "uk": "Перемкнути здібності: Бобер",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.modernui.openCenter",
+  "bind": "key.keyboard.insert",
+  "mod": "SHIFT",
+  "ns": "modernui",
+  "en": "Open Action Center",
+  "uk": "Відкрити Центр дій",
+  "key": "Insert",
+  "combo": "Shift+Insert"
+ },
+ {
+  "id": "key.modernui.zoom",
+  "bind": "key.keyboard.c",
+  "mod": "",
+  "ns": "modernui",
+  "en": "Zoom",
+  "uk": "Збільшення",
+  "key": "C",
+  "combo": "C"
+ },
+ {
+  "id": "key.constructionstick.change_restriction",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "constructionstick",
+  "en": "Toggle Restriction",
+  "uk": "Перемкнути обмеження",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.constructionstick.change_upgrade",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "constructionstick",
+  "en": "Toggle Upgrade",
+  "uk": "Перемкнути покращення",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.constructionstick.change_direction",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "constructionstick",
+  "en": "Toggle Direction",
+  "uk": "Перемкнути напрямок",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.constructionstick.open_gui",
+  "bind": "key.keyboard.i",
+  "mod": "CONTROL",
+  "ns": "constructionstick",
+  "en": "Open Stick Options",
+  "uk": "Параметри палички",
+  "key": "I",
+  "combo": "Ctrl+I"
+ },
+ {
+  "id": "key.constructionstick.undo",
+  "bind": "key.keyboard.z",
+  "mod": "CONTROL",
+  "ns": "constructionstick",
+  "en": "Undo Operation",
+  "uk": "Скасувати операцію",
+  "key": "Z",
+  "combo": "Ctrl+Z"
+ },
+ {
+  "id": "key.constructionstick.show_previous",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "constructionstick",
+  "en": "Show Previous",
+  "uk": "Показати попереднє",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.open_muffler_gui",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "extremesoundmuffler",
+  "en": "Open sound muffler screen",
+  "uk": "Відкрити екран глушника звуків",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.integrateddynamics.logic_programmer_focus_search",
+  "bind": "key.keyboard.f",
+  "mod": "ALT",
+  "ns": "integrateddynamics",
+  "en": "Focus Search Logic Programmer",
+  "uk": "Логічний програматор: фокус на пошуку",
+  "key": "F",
+  "combo": "Alt+F"
+ },
+ {
+  "id": "key.integrateddynamics.logic_programmer_open_rename",
+  "bind": "key.keyboard.r",
+  "mod": "ALT",
+  "ns": "integrateddynamics",
+  "en": "Rename Variable Logic Programmer",
+  "uk": "Логічний програматор: перейменувати змінну",
+  "key": "R",
+  "combo": "Alt+R"
+ },
+ {
+  "id": "key.inventoryessentials.bulk_transfer",
+  "bind": "key.mouse.left",
+  "mod": "",
+  "ns": "inventoryessentials",
+  "en": "Transfer all of type",
+  "uk": "Перенести всі такого типу",
+  "key": "ЛКМ",
+  "combo": "ЛКМ"
+ },
+ {
+  "id": "key.inventoryessentials.bulk_drop",
+  "bind": "key.keyboard.q",
+  "mod": "",
+  "ns": "inventoryessentials",
+  "en": "Bulk Drop",
+  "uk": "Викинути все",
+  "key": "Q",
+  "combo": "Q"
+ },
+ {
+  "id": "key.inventoryessentials.single_transfer",
+  "bind": "key.mouse.left",
+  "mod": "",
+  "ns": "inventoryessentials",
+  "en": "Transfer one",
+  "uk": "Перенести один",
+  "key": "ЛКМ",
+  "combo": "ЛКМ"
+ },
+ {
+  "id": "key.inventoryessentials.screen_bulk_drop",
+  "bind": "key.mouse.left",
+  "mod": "",
+  "ns": "inventoryessentials",
+  "en": "Bulk Drop out of Screen",
+  "uk": "Викинути все за межі екрана",
+  "key": "ЛКМ",
+  "combo": "ЛКМ"
+ },
+ {
+  "id": "key.trashslot.delete_all",
+  "bind": "key.keyboard.delete",
+  "mod": "",
+  "ns": "trashslot",
+  "en": "Delete All Items of Type",
+  "uk": "Видалити всі предмети цього типу",
+  "key": "Delete",
+  "combo": "Delete"
+ },
+ {
+  "id": "key.craftingtweaks.compress_one",
+  "bind": "key.keyboard.k",
+  "mod": "",
+  "ns": "craftingtweaks",
+  "en": "Compress Item",
+  "uk": "Стиснути предмет",
+  "key": "K",
+  "combo": "K"
+ },
+ {
+  "id": "key.craftingtweaks.compress_all",
+  "bind": "key.keyboard.k",
+  "mod": "",
+  "ns": "craftingtweaks",
+  "en": "Compress All",
+  "uk": "Стиснути всі",
+  "key": "K",
+  "combo": "K"
+ },
+ {
+  "id": "key.craftingtweaks.refill_last",
+  "bind": "key.keyboard.tab",
+  "mod": "",
+  "ns": "craftingtweaks",
+  "en": "Refill Last",
+  "uk": "Поповнити останнє",
+  "key": "Tab",
+  "combo": "Tab"
+ },
+ {
+  "id": "key.inventoryessentials.bulk_transfer_single",
+  "bind": "key.mouse.right",
+  "mod": "",
+  "ns": "inventoryessentials",
+  "en": "Transfer single",
+  "uk": "Перенести по одному",
+  "key": "ПКМ",
+  "combo": "ПКМ"
+ },
+ {
+  "id": "key.inventoryessentials.bulk_transfer_all",
+  "bind": "key.mouse.left",
+  "mod": "",
+  "ns": "inventoryessentials",
+  "en": "Transfer all",
+  "uk": "Перенести все",
+  "key": "ЛКМ",
+  "combo": "ЛКМ"
+ },
+ {
+  "id": "key.inventoryessentials.drag_transfer",
+  "bind": "key.keyboard.left.shift",
+  "mod": "",
+  "ns": "inventoryessentials",
+  "en": "Transfer on Hover (Hold)",
+  "uk": "Переносити під курсором (утримувати)",
+  "key": "Лівий Shift",
+  "combo": "Лівий Shift"
+ },
+ {
+  "id": "key.inventoryessentials.sort_inventory",
+  "bind": "key.mouse.middle",
+  "mod": "",
+  "ns": "inventoryessentials",
+  "en": "Sort Inventory",
+  "uk": "Сортувати інвентар",
+  "key": "СКМ",
+  "combo": "СКМ"
+ },
+ {
+  "id": "key.inventoryessentials.restock_container",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "inventoryessentials",
+  "en": "Restock Container",
+  "uk": "Поповнити контейнер",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.inventoryessentials.restock_inventory",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "inventoryessentials",
+  "en": "Restock Inventory",
+  "uk": "Поповнити інвентар",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.inventoryessentials.dump_to_container",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "inventoryessentials",
+  "en": "Dump to Container",
+  "uk": "Вивантажити в контейнер",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.trashslot.toggle",
+  "bind": "key.keyboard.t",
+  "mod": "",
+  "ns": "trashslot",
+  "en": "Show/Hide TrashSlot",
+  "uk": "Показати/Приховати корзину",
+  "key": "T",
+  "combo": "T"
+ },
+ {
+  "id": "key.trashslot.toggle_lock",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "trashslot",
+  "en": "Lock/Unlock TrashSlot",
+  "uk": "Заблокувати/розблокувати TrashSlot",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.trashslot.delete",
+  "bind": "key.keyboard.delete",
+  "mod": "",
+  "ns": "trashslot",
+  "en": "Delete Item",
+  "uk": "Видалити предмет",
+  "key": "Delete",
+  "combo": "Delete"
+ },
+ {
+  "id": "key.craftingtweaks.rotate",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "craftingtweaks",
+  "en": "Rotate Grid",
+  "uk": "Обернути сітку",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.craftingtweaks.rotate_counter_clockwise",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "craftingtweaks",
+  "en": "Rotate Grid (CCW)",
+  "uk": "Обернути сітку (CCW)",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.craftingtweaks.balance",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "craftingtweaks",
+  "en": "Balance Grid",
+  "uk": "Розподілити сітку",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.craftingtweaks.spread",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "craftingtweaks",
+  "en": "Spread Grid",
+  "uk": "Розповсюдити по всій сітці",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.craftingtweaks.clear",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "craftingtweaks",
+  "en": "Clear Grid",
+  "uk": "Очистити сітку",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.craftingtweaks.force_clear",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "craftingtweaks",
+  "en": "Force Clear Grid",
+  "uk": "Примусово очистити сітку",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.craftingtweaks.compress_stack",
+  "bind": "key.keyboard.k",
+  "mod": "",
+  "ns": "craftingtweaks",
+  "en": "Compress Stack",
+  "uk": "Стиснути стос",
+  "key": "K",
+  "combo": "K"
+ },
+ {
+  "id": "key.craftingtweaks.decompress_one",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "craftingtweaks",
+  "en": "Decompress Item",
+  "uk": "Розпакувати предмет",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.craftingtweaks.decompress_stack",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "craftingtweaks",
+  "en": "Decompress Stack",
+  "uk": "Розпакувати стос",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.craftingtweaks.decompress_all",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "craftingtweaks",
+  "en": "Decompress All",
+  "uk": "Розпакувати всі",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.craftingtweaks.refill_last_stack",
+  "bind": "key.keyboard.tab",
+  "mod": "",
+  "ns": "craftingtweaks",
+  "en": "Refill Last Stack",
+  "uk": "Поповнити останнє (Стос)",
+  "key": "Tab",
+  "combo": "Tab"
+ },
+ {
+  "id": "key.craftingtweaks.transfer_stack",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "craftingtweaks",
+  "en": "Transfer to Crafting Grid",
+  "uk": "Перенести до сітки створення",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.refinedstorage_quartz_arsenal.open_wireless_crafting_grid",
+  "bind": "key.keyboard.g",
+  "mod": "CONTROL",
+  "ns": "refinedstorage_quartz_arsenal",
+  "en": "Open Wireless Crafting Grid",
+  "uk": "Відкрити бездротову сітку майстрування",
+  "key": "G",
+  "combo": "Ctrl+G"
+ },
+ {
+  "id": "key.sophisticatedcore.sort",
+  "bind": "key.mouse.middle",
+  "mod": "",
+  "ns": "sophisticatedcore",
+  "en": "Sort Storage/Backpack",
+  "uk": "Сортувати сховище/ранець",
+  "key": "СКМ",
+  "combo": "СКМ"
+ },
+ {
+  "id": "key.sophisticatedcore.transfer_to_storage",
+  "bind": "key.keyboard.left.bracket",
+  "mod": "",
+  "ns": "sophisticatedcore",
+  "en": "Transfer to Storage",
+  "uk": "Перенести в сховище",
+  "key": "[",
+  "combo": "["
+ },
+ {
+  "id": "key.sophisticatedcore.transfer_to_inventory",
+  "bind": "key.keyboard.right.bracket",
+  "mod": "",
+  "ns": "sophisticatedcore",
+  "en": "Transfer to Inventory",
+  "uk": "Перенести в інвентар",
+  "key": "]",
+  "combo": "]"
+ },
+ {
+  "id": "placebo.toggleTrails",
+  "bind": "key.keyboard.keypad.9",
+  "mod": "",
+  "ns": "placebo",
+  "en": "Toggle Supporter Trails",
+  "uk": "",
+  "key": "Num 9",
+  "combo": "Num 9"
+ },
+ {
+  "id": "placebo.toggleWings",
+  "bind": "key.keyboard.keypad.8",
+  "mod": "",
+  "ns": "placebo",
+  "en": "Toggle Supporter Wings",
+  "uk": "",
+  "key": "Num 8",
+  "combo": "Num 8"
+ },
+ {
+  "id": "key.irons_artifice.open_modifier_menu",
+  "bind": "key.keyboard.g",
+  "mod": "",
+  "ns": "irons_artifice",
+  "en": "Open Gun Modifiers",
+  "uk": "Відкрити модифікатори зброї",
+  "key": "G",
+  "combo": "G"
+ },
+ {
+  "id": "key.irons_artifice.reload",
+  "bind": "key.keyboard.r",
+  "mod": "",
+  "ns": "irons_artifice",
+  "en": "Reload",
+  "uk": "Перезарядити",
+  "key": "R",
+  "combo": "R"
+ },
+ {
+  "id": "key.sophisticatedbackpacks.open_backpack",
+  "bind": "key.mouse.4",
+  "mod": "",
+  "ns": "sophisticatedbackpacks",
+  "en": "Open Backpack",
+  "uk": "Відкрити ранець",
+  "key": "Миша 4",
+  "combo": "Миша 4"
+ },
+ {
+  "id": "key.sophisticatedbackpacks.inventory_interaction",
+  "bind": "key.keyboard.c",
+  "mod": "",
+  "ns": "sophisticatedbackpacks",
+  "en": "Run Inventory Interaction Upgrades",
+  "uk": "Запустити покращення взаємодії з інвентарем",
+  "key": "C",
+  "combo": "C"
+ },
+ {
+  "id": "key.sophisticatedbackpacks.tool_swap",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "sophisticatedbackpacks",
+  "en": "Swap tool based on current block/entity",
+  "uk": "Змінити інструмент на основі поточного блоку/сутності",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.sophisticatedbackpacks.toggle_upgrade_4",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "sophisticatedbackpacks",
+  "en": "Switch Upgrade in the 4th Slot On/Off",
+  "uk": "Увімкнути/вимкнути покращення в 4-му слоті",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.sophisticatedbackpacks.toggle_upgrade_5",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "sophisticatedbackpacks",
+  "en": "Switch Upgrade in the 5th Slot On/Off",
+  "uk": "Увімкнути/вимкнути покращення в 5-му слоті",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.sophisticatedbackpacks.toggle_upgrade_1",
+  "bind": "key.keyboard.z",
+  "mod": "ALT",
+  "ns": "sophisticatedbackpacks",
+  "en": "Switch Upgrade in the 1st Slot On/Off",
+  "uk": "Увімкнути/вимкнути покращення в 1-му слоті",
+  "key": "Z",
+  "combo": "Alt+Z"
+ },
+ {
+  "id": "key.sophisticatedbackpacks.toggle_upgrade_2",
+  "bind": "key.keyboard.x",
+  "mod": "ALT",
+  "ns": "sophisticatedbackpacks",
+  "en": "Switch Upgrade in the 2nd Slot On/Off",
+  "uk": "Увімкнути/вимкнути покращення в 2-му слоті",
+  "key": "X",
+  "combo": "Alt+X"
+ },
+ {
+  "id": "key.sophisticatedbackpacks.toggle_upgrade_3",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "sophisticatedbackpacks",
+  "en": "Switch Upgrade in the 3rd Slot On/Off",
+  "uk": "Увімкнути/вимкнути покращення в 3-му слоті",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.ftbteams.open_gui",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "ftbteams",
+  "en": "Open Teams GUI",
+  "uk": "Відкрити GUI Команд",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.ftbquests.keys.quests",
+  "bind": "key.keyboard.q",
+  "mod": "CONTROL",
+  "ns": "ftbquests",
+  "en": "Open Quests",
+  "uk": "Відкрити квести",
+  "key": "Q",
+  "combo": "Ctrl+Q"
+ },
+ {
+  "id": "key.ftbquests.keys.cycle_pinned_tracker",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "ftbquests",
+  "en": "Pinned Quest Tracker Visibility",
+  "uk": "Видимість відстеження закріплених квестів",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.ftbquests.gui.search",
+  "bind": "key.keyboard.f",
+  "mod": "CONTROL",
+  "ns": "ftbquests",
+  "en": "Search",
+  "uk": "Пошук",
+  "key": "F",
+  "combo": "Ctrl+F"
+ },
+ {
+  "id": "key.ftbquests.gui.recenter",
+  "bind": "key.keyboard.space",
+  "mod": "",
+  "ns": "ftbquests",
+  "en": "Recenter GUI",
+  "uk": "Центрувати інтерфейс",
+  "key": "Пробіл",
+  "combo": "Пробіл"
+ },
+ {
+  "id": "key.ftbquests.gui.zoom_in",
+  "bind": "key.keyboard.equal",
+  "mod": "",
+  "ns": "ftbquests",
+  "en": "Zoom In",
+  "uk": "Наблизити",
+  "key": "=",
+  "combo": "="
+ },
+ {
+  "id": "key.ftbquests.gui.zoom_out",
+  "bind": "key.keyboard.minus",
+  "mod": "",
+  "ns": "ftbquests",
+  "en": "Zoom Out",
+  "uk": "Віддалити",
+  "key": "-",
+  "combo": "-"
+ },
+ {
+  "id": "key.ftbquests.gui.zoom_reset",
+  "bind": "key.keyboard.0",
+  "mod": "",
+  "ns": "ftbquests",
+  "en": "Reset Zoom",
+  "uk": "Скинути масштаб",
+  "key": "0",
+  "combo": "0"
+ },
+ {
+  "id": "key.ftbquests.gui.next_chapter",
+  "bind": "key.keyboard.tab",
+  "mod": "",
+  "ns": "ftbquests",
+  "en": "Next Chapter",
+  "uk": "Наступний розділ",
+  "key": "Tab",
+  "combo": "Tab"
+ },
+ {
+  "id": "key.ftbquests.gui.prev_chapter",
+  "bind": "key.keyboard.tab",
+  "mod": "SHIFT",
+  "ns": "ftbquests",
+  "en": "Previous Chapter",
+  "uk": "Попередній розділ",
+  "key": "Tab",
+  "combo": "Shift+Tab"
+ },
+ {
+  "id": "key.ftbquests.gui.extended_info",
+  "bind": "key.keyboard.f1",
+  "mod": "",
+  "ns": "ftbquests",
+  "en": "See Extended Quest Info",
+  "uk": "Розширена інформація про квест",
+  "key": "F1",
+  "combo": "F1"
+ },
+ {
+  "id": "key.ftbquests.gui.move_up",
+  "bind": "key.keyboard.up",
+  "mod": "",
+  "ns": "ftbquests",
+  "en": "Move Selection / Scroll Up",
+  "uk": "Перемістити вибір / прокрутити вгору",
+  "key": "↑",
+  "combo": "↑"
+ },
+ {
+  "id": "key.ftbquests.gui.move_down",
+  "bind": "key.keyboard.down",
+  "mod": "",
+  "ns": "ftbquests",
+  "en": "Move Selection / Scroll Down",
+  "uk": "Перемістити вибір / прокрутити вниз",
+  "key": "↓",
+  "combo": "↓"
+ },
+ {
+  "id": "key.ftbquests.gui.move_left",
+  "bind": "key.keyboard.left",
+  "mod": "",
+  "ns": "ftbquests",
+  "en": "Move Selection / Scroll Left",
+  "uk": "Перемістити вибір / прокрутити ліворуч",
+  "key": "←",
+  "combo": "←"
+ },
+ {
+  "id": "key.ftbquests.gui.move_right",
+  "bind": "key.keyboard.right",
+  "mod": "",
+  "ns": "ftbquests",
+  "en": "Move Selection / Scroll Right",
+  "uk": "Перемістити вибір / прокрутити праворуч",
+  "key": "→",
+  "combo": "→"
+ },
+ {
+  "id": "key.ftbquests.gui_editor.toggle_crosshairs",
+  "bind": "key.keyboard.r",
+  "mod": "CONTROL",
+  "ns": "ftbquests",
+  "en": "Toggle Crosshairs",
+  "uk": "Перемкнути перехрестя",
+  "key": "R",
+  "combo": "Ctrl+R"
+ },
+ {
+  "id": "key.ftbquests.gui_editor.select_all",
+  "bind": "key.keyboard.a",
+  "mod": "CONTROL",
+  "ns": "ftbquests",
+  "en": "Select All",
+  "uk": "Вибрати все",
+  "key": "A",
+  "combo": "Ctrl+A"
+ },
+ {
+  "id": "key.ftbquests.gui_editor.select_none",
+  "bind": "key.keyboard.d",
+  "mod": "CONTROL",
+  "ns": "ftbquests",
+  "en": "Select None",
+  "uk": "Зняти вибір",
+  "key": "D",
+  "combo": "Ctrl+D"
+ },
+ {
+  "id": "key.ftbquests.gui_editor.copy",
+  "bind": "key.keyboard.c",
+  "mod": "CONTROL",
+  "ns": "ftbquests",
+  "en": "Copy",
+  "uk": "Копіювати",
+  "key": "C",
+  "combo": "Ctrl+C"
+ },
+ {
+  "id": "key.ftbquests.gui_editor.paste",
+  "bind": "key.keyboard.v",
+  "mod": "CONTROL",
+  "ns": "ftbquests",
+  "en": "Paste",
+  "uk": "Вставити",
+  "key": "V",
+  "combo": "Ctrl+V"
+ },
+ {
+  "id": "key.ftbquests.gui_editor.reload_theme",
+  "bind": "key.keyboard.f5",
+  "mod": "",
+  "ns": "ftbquests",
+  "en": "Reload Theme",
+  "uk": "Перезавантажити тему",
+  "key": "F5",
+  "combo": "F5"
+ },
+ {
+  "id": "key.ftbquests.gui_editor.delete",
+  "bind": "key.keyboard.delete",
+  "mod": "",
+  "ns": "ftbquests",
+  "en": "Delete Hovered / Selected",
+  "uk": "Видалити наведене / вибране",
+  "key": "Delete",
+  "combo": "Delete"
+ },
+ {
+  "id": "key.ftbquests.gui_editor.force_delete",
+  "bind": "key.keyboard.delete",
+  "mod": "SHIFT",
+  "ns": "ftbquests",
+  "en": "Force-delete Hovered / Selected",
+  "uk": "Примусово видалити наведене / вибране",
+  "key": "Delete",
+  "combo": "Shift+Delete"
+ },
+ {
+  "id": "key.ftbquests.gui_editor.reward_tables",
+  "bind": "key.keyboard.t",
+  "mod": "CONTROL",
+  "ns": "ftbquests",
+  "en": "Open Reward Table Editor",
+  "uk": "Відкрити редактор таблиць винагород",
+  "key": "T",
+  "combo": "Ctrl+T"
+ },
+ {
+  "id": "key.ftbquests.gui_editor.complete_object",
+  "bind": "key.keyboard.c",
+  "mod": "ALT",
+  "ns": "ftbquests",
+  "en": "Force-complete Hovered",
+  "uk": "Примусово завершити наведене",
+  "key": "C",
+  "combo": "Alt+C"
+ },
+ {
+  "id": "key.ftbquests.gui_editor.reset_object",
+  "bind": "key.keyboard.r",
+  "mod": "ALT",
+  "ns": "ftbquests",
+  "en": "Force-reset Hovered",
+  "uk": "Примусово скинути наведене",
+  "key": "R",
+  "combo": "Alt+R"
+ },
+ {
+  "id": "key.ftbquests.gui_editor.save",
+  "bind": "key.keyboard.s",
+  "mod": "CONTROL",
+  "ns": "ftbquests",
+  "en": "Save Quests Now",
+  "uk": "Зберегти квести зараз",
+  "key": "S",
+  "combo": "Ctrl+S"
+ },
+ {
+  "id": "key.ftbquests.gui_quest_panel.edit_title",
+  "bind": "key.keyboard.t",
+  "mod": "",
+  "ns": "ftbquests",
+  "en": "Edit Title",
+  "uk": "Редагувати назву",
+  "key": "T",
+  "combo": "T"
+ },
+ {
+  "id": "key.ftbquests.gui_quest_panel.edit_subtitle",
+  "bind": "key.keyboard.s",
+  "mod": "",
+  "ns": "ftbquests",
+  "en": "Edit Subtitle",
+  "uk": "Редагувати підзаголовок",
+  "key": "S",
+  "combo": "S"
+ },
+ {
+  "id": "key.ftbquests.gui_quest_panel.edit_desc",
+  "bind": "key.keyboard.d",
+  "mod": "",
+  "ns": "ftbquests",
+  "en": "Edit Description",
+  "uk": "Редагувати опис",
+  "key": "D",
+  "combo": "D"
+ },
+ {
+  "id": "key.ftbquests.gui_quest_panel.add_page_break",
+  "bind": "key.keyboard.p",
+  "mod": "",
+  "ns": "ftbquests",
+  "en": "Insert Page Break",
+  "uk": "Вставити розрив сторінки",
+  "key": "P",
+  "combo": "P"
+ },
+ {
+  "id": "key.ftbquests.gui_quest_panel.add_line",
+  "bind": "key.keyboard.l",
+  "mod": "",
+  "ns": "ftbquests",
+  "en": "Insert Image",
+  "uk": "Вставити лінію",
+  "key": "L",
+  "combo": "L"
+ },
+ {
+  "id": "key.ftbquests.gui_quest_panel.add_image",
+  "bind": "key.keyboard.i",
+  "mod": "",
+  "ns": "ftbquests",
+  "en": "Insert Line",
+  "uk": "Вставити зображення",
+  "key": "I",
+  "combo": "I"
+ },
+ {
+  "id": "key.ftbquests.gui_quest_panel.edit_quest_props",
+  "bind": "key.keyboard.q",
+  "mod": "",
+  "ns": "ftbquests",
+  "en": "Edit Quest Properties",
+  "uk": "Редагувати властивості квесту",
+  "key": "Q",
+  "combo": "Q"
+ },
+ {
+  "id": "key.starcatcher.minigame_hit",
+  "bind": "key.keyboard.space",
+  "mod": "",
+  "ns": "starcatcher",
+  "en": "Minigame Hit",
+  "uk": "Удар у мінігрі",
+  "key": "Пробіл",
+  "combo": "Пробіл"
+ },
+ {
+  "id": "key.starcatcher.expand_tournament",
+  "bind": "key.keyboard.tab",
+  "mod": "",
+  "ns": "starcatcher",
+  "en": "Toggle Tournament Overlay",
+  "uk": "Перемкнути накладання турніру",
+  "key": "Tab",
+  "combo": "Tab"
+ },
+ {
+  "id": "key.starcatcher.open_guide",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "starcatcher",
+  "en": "Open guide",
+  "uk": "Відкрити посібник",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.hostilenetworks.open_deep_learner",
+  "bind": "key.keyboard.u",
+  "mod": "",
+  "ns": "hostilenetworks",
+  "en": "Open Deep Learner Curio",
+  "uk": "Відкрити глибинного учня (Curio)",
+  "key": "U",
+  "combo": "U"
+ },
+ {
+  "id": "crashutils.openscreen",
+  "bind": "key.keyboard.u",
+  "mod": "CONTROL",
+  "ns": "crashutilities",
+  "en": "Open the Crash Utilities Screen",
+  "uk": "",
+  "key": "U",
+  "combo": "Ctrl+U"
+ },
+ {
+  "id": "crashutils.copycontainer",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "crashutilities",
+  "en": "Copy Container Class",
+  "uk": "",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "crashutils.slottooltips",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "crashutilities",
+  "en": "Show Slot Index Tooltips",
+  "uk": "",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.ftbultimine.default.ftbultimine",
+  "bind": "key.keyboard.grave.accent",
+  "mod": "",
+  "ns": "ftbultimine",
+  "en": "Activate Ultimining",
+  "uk": "Увімкнути ультидобування",
+  "key": "`",
+  "combo": "`"
+ },
+ {
+  "id": "key.ftbultimine.default.change_shape.next",
+  "bind": "key.keyboard.up",
+  "mod": "",
+  "ns": "ftbultimine",
+  "en": "Cycle to Next Shape",
+  "uk": "Наступна форма",
+  "key": "↑",
+  "combo": "↑"
+ },
+ {
+  "id": "key.ftbultimine.default.change_shape.prev",
+  "bind": "key.keyboard.down",
+  "mod": "",
+  "ns": "ftbultimine",
+  "en": "Cycle to Previous Shape",
+  "uk": "Попередня форма",
+  "key": "↓",
+  "combo": "↓"
+ },
+ {
+  "id": "key.oracle_index.open",
+  "bind": "key.keyboard.h",
+  "mod": "CONTROL",
+  "ns": "oracle_index",
+  "en": "Open Oracle Index",
+  "uk": "Відкрити Oracle Index",
+  "key": "H",
+  "combo": "Ctrl+H"
+ },
+ {
+  "id": "key.oracle_index.search",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "oracle_index",
+  "en": "Open Oracle Search",
+  "uk": "Відкрити пошук Oracle",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.moreoverlays.lightoverlay.desc",
+  "bind": "key.keyboard.f7",
+  "mod": "",
+  "ns": "moreoverlays",
+  "en": "Toggle Light Overlay",
+  "uk": "Перемкнути накладку освітлення",
+  "key": "F7",
+  "combo": "F7"
+ },
+ {
+  "id": "key.moreoverlays.chunkbounds.desc",
+  "bind": "key.keyboard.f9",
+  "mod": "",
+  "ns": "moreoverlays",
+  "en": "Toggle Chunk Boundaries",
+  "uk": "Перемкнути межі чанків",
+  "key": "F9",
+  "combo": "F9"
+ },
+ {
+  "id": "justdirethings.key.toggle_tool",
+  "bind": "key.keyboard.v",
+  "mod": "",
+  "ns": "justdirethings",
+  "en": "Toggle Tool Abilities",
+  "uk": "Перемкнути здібності інструменту",
+  "key": "V",
+  "combo": "V"
+ },
+ {
+  "id": "justdirethings.key.toolUI",
+  "bind": "key.keyboard.i",
+  "mod": "CONTROL",
+  "ns": "justdirethings",
+  "en": "Open Tool Settings UI",
+  "uk": "Відкрити налаштування інструменту",
+  "key": "I",
+  "combo": "Ctrl+I"
+ },
+ {
+  "id": "key.journeymap.minimap_preset",
+  "bind": "key.keyboard.backslash",
+  "mod": "",
+  "ns": "journeymap",
+  "en": "Switch MiniMap Preset",
+  "uk": "Змінити пресет мінімапи",
+  "key": "\\",
+  "combo": "\\"
+ },
+ {
+  "id": "key.journeymap.toggle_entity_names",
+  "bind": "key.keyboard.g",
+  "mod": "",
+  "ns": "journeymap",
+  "en": "Toggle Entity Names",
+  "uk": "Перемкнути імена сутностей",
+  "key": "G",
+  "combo": "G"
+ },
+ {
+  "id": "key.journeymap.toggle_render_waypoints_map",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "journeymap",
+  "en": "Toggle Waypoint Map Rendering",
+  "uk": "Перемкнути показ маршрутних точок на мапі",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.journeymap.fullscreen.south",
+  "bind": "key.keyboard.down",
+  "mod": "",
+  "ns": "journeymap",
+  "en": "Pan South (16 Blocks)",
+  "uk": "Зсунути на південь (16 блоків)",
+  "key": "↓",
+  "combo": "↓"
+ },
+ {
+  "id": "key.journeymap.zoom_in",
+  "bind": "key.keyboard.equal",
+  "mod": "",
+  "ns": "journeymap",
+  "en": "Zoom In",
+  "uk": "Збільшити",
+  "key": "=",
+  "combo": "="
+ },
+ {
+  "id": "key.journeymap.fullscreen.north",
+  "bind": "key.keyboard.up",
+  "mod": "",
+  "ns": "journeymap",
+  "en": "Pan North (16 Blocks)",
+  "uk": "Зсунути на північ (16 блоків)",
+  "key": "↑",
+  "combo": "↑"
+ },
+ {
+  "id": "key.journeymap.fullscreen_waypoints",
+  "bind": "key.keyboard.n",
+  "mod": "",
+  "ns": "journeymap",
+  "en": "Waypoint Manager",
+  "uk": "Диспетчер маршрутних точок",
+  "key": "N",
+  "combo": "N"
+ },
+ {
+  "id": "key.journeymap.toggle_render_waypoints_world",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "journeymap",
+  "en": "Toggle Waypoint World Rendering",
+  "uk": "Перемкнути показ маршрутних точок у світі",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.journeymap.fullscreen.east",
+  "bind": "key.keyboard.right",
+  "mod": "",
+  "ns": "journeymap",
+  "en": "Pan East (16 Blocks)",
+  "uk": "Зсунути на схід (16 блоків)",
+  "key": "→",
+  "combo": "→"
+ },
+ {
+  "id": "key.journeymap.zoom_out",
+  "bind": "key.keyboard.minus",
+  "mod": "",
+  "ns": "journeymap",
+  "en": "Zoom Out",
+  "uk": "Зменшити",
+  "key": "-",
+  "combo": "-"
+ },
+ {
+  "id": "key.journeymap.create_waypoint",
+  "bind": "key.keyboard.b",
+  "mod": "CONTROL",
+  "ns": "journeymap",
+  "en": "Create Waypoint",
+  "uk": "Створити маршрутну точку",
+  "key": "B",
+  "combo": "Ctrl+B"
+ },
+ {
+  "id": "key.journeymap.fullscreen.disable_buttons",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "journeymap",
+  "en": "Disable Fullscreen Buttons",
+  "uk": "Вимкнути кнопки повного екрана",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.journeymap.minimap_type",
+  "bind": "key.keyboard.left.bracket",
+  "mod": "",
+  "ns": "journeymap",
+  "en": "Change Map Type",
+  "uk": "Змінити тип мапи",
+  "key": "[",
+  "combo": "["
+ },
+ {
+  "id": "key.journeymap.fullscreen_create_waypoint",
+  "bind": "key.keyboard.b",
+  "mod": "",
+  "ns": "journeymap",
+  "en": "Create Waypoint (at cursor)",
+  "uk": "Створити маршрутну точку під курсором",
+  "key": "B",
+  "combo": "B"
+ },
+ {
+  "id": "key.journeymap.fullscreen.west",
+  "bind": "key.keyboard.left",
+  "mod": "",
+  "ns": "journeymap",
+  "en": "Pan West (16 Blocks)",
+  "uk": "Зсунути на захід (16 блоків)",
+  "key": "←",
+  "combo": "←"
+ },
+ {
+  "id": "key.journeymap.toggle_waypoints",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "journeymap",
+  "en": "Toggle All Waypoints",
+  "uk": "Перемкнути всі маршрутні точки",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.journeymap.fullscreen_chat_position",
+  "bind": "key.keyboard.c",
+  "mod": "",
+  "ns": "journeymap",
+  "en": "Chat Position (at cursor)",
+  "uk": "Позиція в чат (під курсором)",
+  "key": "C",
+  "combo": "C"
+ },
+ {
+  "id": "key.journeymap.map_toggle_alt",
+  "bind": "key.keyboard.j",
+  "mod": "",
+  "ns": "journeymap",
+  "en": "Show / Hide Fullscreen Map",
+  "uk": "Показати/приховати мапу повного екрана",
+  "key": "J",
+  "combo": "J"
+ },
+ {
+  "id": "key.journeymap.toggle_render_waypoints",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "journeymap",
+  "en": "Toggle Waypoint Rendering",
+  "uk": "Перемкнути показ маршрутних точок",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.journeymap.minimap_toggle_alt",
+  "bind": "key.keyboard.j",
+  "mod": "CONTROL",
+  "ns": "journeymap",
+  "en": "Show / Hide MiniMap",
+  "uk": "Показати/приховати мінімапу",
+  "key": "J",
+  "combo": "Ctrl+J"
+ },
+ {
+  "id": "key.journeymap.fullscreen_options",
+  "bind": "key.keyboard.o",
+  "mod": "",
+  "ns": "journeymap",
+  "en": "Options Manager",
+  "uk": "Диспетчер налаштувань",
+  "key": "O",
+  "combo": "O"
+ },
+ {
+  "id": "key.journeymap.fullscreen_follow_player",
+  "bind": "key.keyboard.f",
+  "mod": "",
+  "ns": "journeymap",
+  "en": "Follow Player",
+  "uk": "Стежити за гравцем",
+  "key": "F",
+  "combo": "F"
+ },
+ {
+  "id": "artifacts.key.helium_flamingo.activate",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "artifacts",
+  "en": "Activate Helium Flamingo",
+  "uk": "Активувати гелієвого фламінго",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "artifacts.key.charm_of_shrinking.toggle",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "artifacts",
+  "en": "Toggle Charm of Shrinking",
+  "uk": "Перемкнути амулет зменшення",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "artifacts.key.charm_of_sinking.toggle",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "artifacts",
+  "en": "Toggle Charm of Sinking",
+  "uk": "Перемкнути амулет занурення",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "artifacts.key.night_vision_goggles.toggle",
+  "bind": "key.keyboard.n",
+  "mod": "CONTROL",
+  "ns": "artifacts",
+  "en": "Toggle Night Vision Goggles",
+  "uk": "Перемкнути окуляри нічного бачення",
+  "key": "N",
+  "combo": "Ctrl+N"
+ },
+ {
+  "id": "artifacts.key.scarf_of_invisibility.toggle",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "artifacts",
+  "en": "Toggle Scarf of Invisibility",
+  "uk": "Перемкнути шарф-невидимку",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "artifacts.key.universal_attractor.toggle",
+  "bind": "key.keyboard.y",
+  "mod": "CONTROL",
+  "ns": "artifacts",
+  "en": "Toggle Universal Attractor",
+  "uk": "Перемкнути магніт",
+  "key": "Y",
+  "combo": "Ctrl+Y"
+ },
+ {
+  "id": "key.configured.open_mod_list",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "configured",
+  "en": "Open Mod List",
+  "uk": "Відкрити список модів",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.guideme.guide",
+  "bind": "key.keyboard.g",
+  "mod": "",
+  "ns": "guideme",
+  "en": "Open Guide for Items",
+  "uk": "Відкрити посібник для предметів",
+  "key": "G",
+  "combo": "G"
+ },
+ {
+  "id": "key.drawMahoujin",
+  "bind": "key.keyboard.m",
+  "mod": "",
+  "ns": "mahoutsukai",
+  "en": "Draw Mahoujin",
+  "uk": "Малюнок Mahoujin",
+  "key": "M",
+  "combo": "M"
+ },
+ {
+  "id": "key.changeMysticCode",
+  "bind": "key.keyboard.y",
+  "mod": "",
+  "ns": "mahoutsukai",
+  "en": "Change Mystic Code",
+  "uk": "Зміна Містичного коду",
+  "key": "Y",
+  "combo": "Y"
+ },
+ {
+  "id": "key.settingsGUI",
+  "bind": "key.keyboard.period",
+  "mod": "",
+  "ns": "mahoutsukai",
+  "en": "Mahou Settings GUI",
+  "uk": "Mahou налаштування GUI",
+  "key": ".",
+  "combo": "."
+ },
+ {
+  "id": "key.selectiveDisplacement",
+  "bind": "key.keyboard.h",
+  "mod": "",
+  "ns": "mahoutsukai",
+  "en": "Selective Displacement",
+  "uk": "Вибіркове переміщення",
+  "key": "H",
+  "combo": "H"
+ },
+ {
+  "id": "key.gunUp",
+  "bind": "key.keyboard.up",
+  "mod": "",
+  "ns": "mahoutsukai",
+  "en": "Nobu Guns Up",
+  "uk": "Nobu Guns Up",
+  "key": "↑",
+  "combo": "↑"
+ },
+ {
+  "id": "key.gunDown",
+  "bind": "key.keyboard.down",
+  "mod": "",
+  "ns": "mahoutsukai",
+  "en": "Nobu Guns Down",
+  "uk": "Nobu Guns Down",
+  "key": "↓",
+  "combo": "↓"
+ },
+ {
+  "id": "key.fireNobu",
+  "bind": "key.mouse.left",
+  "mod": "",
+  "ns": "mahoutsukai",
+  "en": "Fire Nobu",
+  "uk": "Fire Nobu",
+  "key": "ЛКМ",
+  "combo": "ЛКМ"
+ },
+ {
+  "id": "key.toastcontrol.clear",
+  "bind": "key.keyboard.end",
+  "mod": "",
+  "ns": "toastcontrol",
+  "en": "Clear Active Toasts",
+  "uk": "Очистити активні сповіщення",
+  "key": "End",
+  "combo": "End"
+ },
+ {
+  "id": "mininggadgets.text.open_gui",
+  "bind": "key.keyboard.i",
+  "mod": "CONTROL",
+  "ns": "mininggadgets",
+  "en": "Open Mining Gadget Settings",
+  "uk": "",
+  "key": "I",
+  "combo": "Ctrl+I"
+ },
+ {
+  "id": "key.ftbchunks.keys.map",
+  "bind": "key.keyboard.m",
+  "mod": "",
+  "ns": "ftbchunks",
+  "en": "Open Map",
+  "uk": "Відкрити мапу",
+  "key": "M",
+  "combo": "M"
+ },
+ {
+  "id": "key.ftbchunks.keys.toggle_minimap",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "ftbchunks",
+  "en": "Toggle Minimap",
+  "uk": "Перемкнути мінімапу",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.ftbchunks.keys.zoom_in",
+  "bind": "key.keyboard.equal",
+  "mod": "",
+  "ns": "ftbchunks",
+  "en": "Zoom In Minimap",
+  "uk": "Наблизити мінімапу",
+  "key": "=",
+  "combo": "="
+ },
+ {
+  "id": "key.ftbchunks.keys.zoom_out",
+  "bind": "key.keyboard.minus",
+  "mod": "",
+  "ns": "ftbchunks",
+  "en": "Zoom Out Minimap",
+  "uk": "Віддалити мінімапу",
+  "key": "-",
+  "combo": "-"
+ },
+ {
+  "id": "key.ftbchunks.keys.claim_manager",
+  "bind": "key.keyboard.l",
+  "mod": "CONTROL",
+  "ns": "ftbchunks",
+  "en": "Open Claim Manager",
+  "uk": "Відкрити менеджер привласнень",
+  "key": "L",
+  "combo": "Ctrl+L"
+ },
+ {
+  "id": "key.ftbchunks.keys.add_waypoint",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "ftbchunks",
+  "en": "Quick Add Waypoint",
+  "uk": "Швидко додати мітку",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.ftbchunks.keys.waypoint_manager",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "ftbchunks",
+  "en": "Waypoint Manager",
+  "uk": "Менеджер міток",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.apotheosis.toggle_radial_mining",
+  "bind": "key.keyboard.o",
+  "mod": "CONTROL",
+  "ns": "apotheosis",
+  "en": "Change Radial Mining Mode",
+  "uk": "Змінити радіальний режим добування",
+  "key": "O",
+  "combo": "Ctrl+O"
+ },
+ {
+  "id": "key.apotheosis.toggle_attribute_bonuses",
+  "bind": "key.keyboard.k",
+  "mod": "CONTROL",
+  "ns": "apotheosis",
+  "en": "Toggle Boots Attribute Bonuses",
+  "uk": "Перемкнути бонуси атрибутів чобіт",
+  "key": "K",
+  "combo": "Ctrl+K"
+ },
+ {
+  "id": "key.apotheosis.open_world_tier_select",
+  "bind": "key.keyboard.t",
+  "mod": "CONTROL",
+  "ns": "apotheosis",
+  "en": "Open World Tier Select",
+  "uk": "Відкрити екран вибору світових рівнів",
+  "key": "T",
+  "combo": "Ctrl+T"
+ },
+ {
+  "id": "key.apotheosis.link_item_to_chat",
+  "bind": "key.keyboard.t",
+  "mod": "SHIFT",
+  "ns": "apotheosis",
+  "en": "Link Hovered Item to Chat",
+  "uk": "Поділитися наведеним предметом у чаті",
+  "key": "T",
+  "combo": "Shift+T"
+ },
+ {
+  "id": "key.apotheosis.compare_equipment",
+  "bind": "key.keyboard.left.shift",
+  "mod": "",
+  "ns": "apotheosis",
+  "en": "Compare Hovered Equipment",
+  "uk": "Порівняти наведене спорядження",
+  "key": "Лівий Shift",
+  "combo": "Лівий Shift"
+ },
+ {
+  "id": "key.toolbelt.open",
+  "bind": "key.keyboard.r",
+  "mod": "",
+  "ns": "toolbelt",
+  "en": "Swap Tool",
+  "uk": "Замінити інструмент",
+  "key": "R",
+  "combo": "R"
+ },
+ {
+  "id": "key.toolbelt.cycle.left",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "toolbelt",
+  "en": "Cycle Tool Left",
+  "uk": "Спорядити попередній інструмент",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.toolbelt.cycle.right",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "toolbelt",
+  "en": "Cycle Tool Right",
+  "uk": "Спорядити наступний інструмент",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.toolbelt.slot",
+  "bind": "key.keyboard.v",
+  "mod": "CONTROL",
+  "ns": "toolbelt",
+  "en": "Open Belt Slot Inventory",
+  "uk": "Відкрити інвентар слотів пояса",
+  "key": "V",
+  "combo": "Ctrl+V"
+ },
+ {
+  "id": "key.jade.config",
+  "bind": "key.keyboard.insert",
+  "mod": "CONTROL",
+  "ns": "jade",
+  "en": "Open Config",
+  "uk": "Відкрити налаштування",
+  "key": "Insert",
+  "combo": "Ctrl+Insert"
+ },
+ {
+  "id": "key.jade.show_overlay",
+  "bind": "key.keyboard.insert",
+  "mod": "",
+  "ns": "jade",
+  "en": "Show Overlay",
+  "uk": "Показати накладання",
+  "key": "Insert",
+  "combo": "Insert"
+ },
+ {
+  "id": "key.jade.toggle_liquid",
+  "bind": "key.keyboard.keypad.2",
+  "mod": "",
+  "ns": "jade",
+  "en": "Toggle Fluid",
+  "uk": "Перемкнути рідини",
+  "key": "Num 2",
+  "combo": "Num 2"
+ },
+ {
+  "id": "key.jade.show_recipes",
+  "bind": "key.keyboard.keypad.3",
+  "mod": "",
+  "ns": "jade",
+  "en": "Show Recipes",
+  "uk": "Показати рецепти",
+  "key": "Num 3",
+  "combo": "Num 3"
+ },
+ {
+  "id": "key.jade.show_uses",
+  "bind": "key.keyboard.keypad.4",
+  "mod": "",
+  "ns": "jade",
+  "en": "Show Uses",
+  "uk": "Показати застосування",
+  "key": "Num 4",
+  "combo": "Num 4"
+ },
+ {
+  "id": "key.jade.narrate",
+  "bind": "key.keyboard.keypad.5",
+  "mod": "",
+  "ns": "jade",
+  "en": "Narrate Target",
+  "uk": "Диктор",
+  "key": "Num 5",
+  "combo": "Num 5"
+ },
+ {
+  "id": "key.jade.show_details",
+  "bind": "key.keyboard.left.shift",
+  "mod": "",
+  "ns": "jade",
+  "en": "Show Details",
+  "uk": "Показати деталі",
+  "key": "Лівий Shift",
+  "combo": "Лівий Shift"
+ },
+ {
+  "id": "key.jade.profile.0",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "jade",
+  "en": "Use Profile #0",
+  "uk": "Використати профіль #0",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.jade.profile.1",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "jade",
+  "en": "Use Profile #1",
+  "uk": "Використати профіль #1",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.jade.profile.2",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "jade",
+  "en": "Use Profile #2",
+  "uk": "Використати профіль #2",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.jade.profile.3",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "jade",
+  "en": "Use Profile #3",
+  "uk": "Використати профіль #3",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.next_item.desc",
+  "bind": "key.keyboard.period",
+  "mod": "CONTROL",
+  "ns": "deepnullreforged",
+  "en": "Cycle to next item in DeepNull",
+  "uk": "Наступний предмет у DeepNull",
+  "key": ".",
+  "combo": "Ctrl+."
+ },
+ {
+  "id": "key.previous_item.desc",
+  "bind": "key.keyboard.comma",
+  "mod": "CONTROL",
+  "ns": "deepnullreforged",
+  "en": "Cycle to previous item in DeepNull",
+  "uk": "Попередній предмет у DeepNull",
+  "key": ",",
+  "combo": "Ctrl+,"
+ },
+ {
+  "id": "key.open_deepnull.desc",
+  "bind": "key.keyboard.x",
+  "mod": "CONTROL",
+  "ns": "deepnullreforged",
+  "en": "Open/close DeepNull in hotbar",
+  "uk": "Відкрити/закрити DeepNull на панелі швидкого доступу",
+  "key": "X",
+  "combo": "Ctrl+X"
+ },
+ {
+  "id": "key.toggle_transfer_lock.desc",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "deepnullreforged",
+  "en": "Cycle DeepNull output mode",
+  "uk": "Перемкнути режим виводу DeepNull",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.toggle_transfer_direction.desc",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "deepnullreforged",
+  "en": "Cycle DeepNull transfer direction",
+  "uk": "Перемкнути напрямок передавання DeepNull",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.toggle_sponge.desc",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "deepnullreforged",
+  "en": "Toggle DampNull sponge upgrade",
+  "uk": "Увімкнути/вимкнути губку DampNull",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.toggle_hud.desc",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "deepnullreforged",
+  "en": "Toggle DeepNull HUD",
+  "uk": "Увімкнути/вимкнути HUD DeepNull",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.toggle_auto_pickup.desc",
+  "bind": "key.keyboard.x",
+  "mod": "SHIFT",
+  "ns": "deepnullreforged",
+  "en": "Toggle DeepNull auto-pickup",
+  "uk": "Увімкнути/вимкнути автопідбирання DeepNull",
+  "key": "X",
+  "combo": "Shift+X"
+ },
+ {
+  "id": "key.toggle_global_auto_pickup.desc",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "deepnullreforged",
+  "en": "Toggle global Null auto-pickup",
+  "uk": "Увімкнути/вимкнути глобальне автопідбирання Null",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.toggle_auto_feeding.desc",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "deepnullreforged",
+  "en": "Toggle DeepNull auto-feeding",
+  "uk": "Увімкнути/вимкнути автохарчування DeepNull",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.toggle_auto_smelting.desc",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "deepnullreforged",
+  "en": "Toggle DeepNull auto-smelting",
+  "uk": "Увімкнути/вимкнути автопереплавлення DeepNull",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.cycle_stone_generator.desc",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "deepnullreforged",
+  "en": "Cycle DampNull stone type",
+  "uk": "Перемкнути тип каменю DampNull",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.gui_primary_action.desc",
+  "bind": "key.mouse.left",
+  "mod": "",
+  "ns": "deepnullreforged",
+  "en": "DeepNull UI primary button",
+  "uk": "Основна кнопка інтерфейсу DeepNull",
+  "key": "ЛКМ",
+  "combo": "ЛКМ"
+ },
+ {
+  "id": "key.gui_secondary_action.desc",
+  "bind": "key.mouse.right",
+  "mod": "",
+  "ns": "deepnullreforged",
+  "en": "DeepNull UI secondary button",
+  "uk": "Додаткова кнопка інтерфейсу DeepNull",
+  "key": "ПКМ",
+  "combo": "ПКМ"
+ },
+ {
+  "id": "key.gui_tertiary_action.desc",
+  "bind": "key.mouse.middle",
+  "mod": "",
+  "ns": "deepnullreforged",
+  "en": "DeepNull UI tertiary button",
+  "uk": "Третя кнопка інтерфейсу DeepNull",
+  "key": "СКМ",
+  "combo": "СКМ"
+ },
+ {
+  "id": "key.theurgy.change_item_mode",
+  "bind": "key.keyboard.c",
+  "mod": "CONTROL",
+  "ns": "theurgy",
+  "en": "Change Item Mode",
+  "uk": "Змінити режим предмета",
+  "key": "C",
+  "combo": "Ctrl+C"
+ },
+ {
+  "id": "key.theurgy.show_held_stack_fit_outline",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "theurgy",
+  "en": "Show Held Stack Fit Outline",
+  "uk": "Показати контур розміщення стосу в руці",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.enderio.travel_staff",
+  "bind": "key.keyboard.g",
+  "mod": "",
+  "ns": "enderio",
+  "en": "Staff of Travelling",
+  "uk": "Посох мандрування",
+  "key": "G",
+  "combo": "G"
+ },
+ {
+  "id": "key.enderio.toggle_magnet",
+  "bind": "key.keyboard.m",
+  "mod": "",
+  "ns": "enderio",
+  "en": "Toggle Electromagnet",
+  "uk": "Перемкнути електромагніт",
+  "key": "M",
+  "combo": "M"
+ },
+ {
+  "id": "key.easy_villagers.pick_up",
+  "bind": "key.keyboard.v",
+  "mod": "",
+  "ns": "easy_villagers",
+  "en": "Pick Up",
+  "uk": "Підібрати",
+  "key": "V",
+  "combo": "V"
+ },
+ {
+  "id": "key.easy_villagers.cycle_trades",
+  "bind": "key.keyboard.c",
+  "mod": "",
+  "ns": "easy_villagers",
+  "en": "Cycle Trades",
+  "uk": "Цикл торгів",
+  "key": "C",
+  "combo": "C"
+ },
+ {
+  "id": "key.reliquary.fortune_coin",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "reliquary",
+  "en": "Enable/Disable Fortune Coin",
+  "uk": "Увімкнути/вимкнути монету удачі",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.inventoryhud.toggle",
+  "bind": "key.keyboard.i",
+  "mod": "",
+  "ns": "inventoryhud",
+  "en": "Toggle InventoryHUD on/off",
+  "uk": "Перемикає режим відображення Inventory HUD+ ON/OFF",
+  "key": "I",
+  "combo": "I"
+ },
+ {
+  "id": "key.inventoryhud.openconfig",
+  "bind": "key.keyboard.home",
+  "mod": "CONTROL",
+  "ns": "inventoryhud",
+  "en": "Open config",
+  "uk": "Відкрити налаштування",
+  "key": "Home",
+  "combo": "Ctrl+Home"
+ },
+ {
+  "id": "key.inventoryhud.togglepot",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "inventoryhud",
+  "en": "Toggle PotionHUD on/off",
+  "uk": "Перемикає HUD Ефектів ON/OFF",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.inventoryhud.togglearm",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "inventoryhud",
+  "en": "Toggle ArmorHUD on/off",
+  "uk": "Перемикає HUD Броні ON/OFF",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.inventoryhud.toggleall",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "inventoryhud",
+  "en": "Toggle all HUDs on/off",
+  "uk": "Перемикає всі HUD ON/OFF",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.buildinggadgets2.settings_menu",
+  "bind": "key.keyboard.g",
+  "mod": "",
+  "ns": "buildinggadgets2",
+  "en": "Settings Menu",
+  "uk": "Меню налаштувань",
+  "key": "G",
+  "combo": "G"
+ },
+ {
+  "id": "key.buildinggadgets2.undo",
+  "bind": "key.keyboard.u",
+  "mod": "",
+  "ns": "buildinggadgets2",
+  "en": "Undo",
+  "uk": "Скасувати",
+  "key": "U",
+  "combo": "U"
+ },
+ {
+  "id": "key.buildinggadgets2.anchor",
+  "bind": "key.keyboard.h",
+  "mod": "",
+  "ns": "buildinggadgets2",
+  "en": "Anchor",
+  "uk": "Якір",
+  "key": "H",
+  "combo": "H"
+ },
+ {
+  "id": "key.buildinggadgets2.range",
+  "bind": "key.keyboard.r",
+  "mod": "",
+  "ns": "buildinggadgets2",
+  "en": "Range",
+  "uk": "Радіус",
+  "key": "R",
+  "combo": "R"
+ },
+ {
+  "id": "key.modonomicon.open_associated_entry",
+  "bind": "key.keyboard.left.alt",
+  "mod": "",
+  "ns": "modonomicon",
+  "en": "Open Associated Book Page",
+  "uk": "Відкрити пов'язану сторінку книги",
+  "key": "Лівий Alt",
+  "combo": "Лівий Alt"
+ },
+ {
+  "id": "key.chisel.mode_select",
+  "bind": "key.keyboard.left.shift",
+  "mod": "",
+  "ns": "chisel",
+  "en": "Select Chisel Mode",
+  "uk": "Вибрати режим різця",
+  "key": "Лівий Shift",
+  "combo": "Лівий Shift"
+ },
+ {
+  "id": "key.modularrouters.configure",
+  "bind": "key.keyboard.c",
+  "mod": "",
+  "ns": "modularrouters",
+  "en": "Configure Installed Module",
+  "uk": "Налаштувати встановлений модуль",
+  "key": "C",
+  "combo": "C"
+ },
+ {
+  "id": "key.modularrouters.moduleInfo",
+  "bind": "key.keyboard.c",
+  "mod": "",
+  "ns": "modularrouters",
+  "en": "Extra Tooltip Info",
+  "uk": "Додаткова інформація в підказці",
+  "key": "C",
+  "combo": "C"
+ },
+ {
+  "id": "justzoom.keybinds.keybind.zoom",
+  "bind": "key.keyboard.z",
+  "mod": "",
+  "ns": "justzoom",
+  "en": "Zoom",
+  "uk": "Зум",
+  "key": "Z",
+  "combo": "Z"
+ },
+ {
+  "id": "key.witchery.dismount",
+  "bind": "key.keyboard.x",
+  "mod": "",
+  "ns": "witchery",
+  "en": "Dismount Broom",
+  "uk": "Злізти з мітли",
+  "key": "X",
+  "combo": "X"
+ },
+ {
+  "id": "key.witchery.open_ability_selection",
+  "bind": "key.keyboard.v",
+  "mod": "",
+  "ns": "witchery",
+  "en": "Open Ability Selection",
+  "uk": "Відкрити вибір здібностей",
+  "key": "V",
+  "combo": "V"
+ },
+ {
+  "id": "key.witchery.utility_button",
+  "bind": "key.keyboard.left.alt",
+  "mod": "",
+  "ns": "witchery",
+  "en": "Utility Button",
+  "uk": "Службова кнопка",
+  "key": "Лівий Alt",
+  "combo": "Лівий Alt"
+ },
+ {
+  "id": "key.witchery.edit_hud",
+  "bind": "key.keyboard.home",
+  "mod": "SHIFT",
+  "ns": "witchery",
+  "en": "Edit HUD",
+  "uk": "Редагувати HUD",
+  "key": "Home",
+  "combo": "Shift+Home"
+ },
+ {
+  "id": "key.witchery.toggle_quest_hud",
+  "bind": "key.keyboard.end",
+  "mod": "SHIFT",
+  "ns": "witchery",
+  "en": "Quest HUD",
+  "uk": "HUD завдань",
+  "key": "End",
+  "combo": "Shift+End"
+ },
+ {
+  "id": "key.jei.toggleOverlay",
+  "bind": "key.keyboard.o",
+  "mod": "CONTROL_OR_COMMAND",
+  "ns": "jei",
+  "en": "Show/Hide JEI Overlays",
+  "uk": "Показати/приховати накладання JEI",
+  "key": "O",
+  "combo": "Ctrl+O"
+ },
+ {
+  "id": "key.jei.focusSearch",
+  "bind": "key.keyboard.f",
+  "mod": "CONTROL_OR_COMMAND",
+  "ns": "jei",
+  "en": "Select Search Bar",
+  "uk": "Сфокусуватися на полі пошуку",
+  "key": "F",
+  "combo": "Ctrl+F"
+ },
+ {
+  "id": "key.jei.previousPage",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "jei",
+  "en": "Previous Page",
+  "uk": "Попередня сторінка",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.jei.nextPage",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "jei",
+  "en": "Next Page",
+  "uk": "Наступна сторінка",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.jei.toggleBookmarkOverlay",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "jei",
+  "en": "Show/Hide Bookmarked Ingredients",
+  "uk": "Показ./прихов. інгредієнти із закладкою",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.jei.bookmark",
+  "bind": "key.keyboard.a",
+  "mod": "",
+  "ns": "jei",
+  "en": "Add/Remove Bookmark",
+  "uk": "Додати/видалити закладку",
+  "key": "A",
+  "combo": "A"
+ },
+ {
+  "id": "key.jei.showRecipe",
+  "bind": "key.keyboard.r",
+  "mod": "",
+  "ns": "jei",
+  "en": "Show Recipe for Hovered Ingredient",
+  "uk": "Показати рецепт",
+  "key": "R",
+  "combo": "R"
+ },
+ {
+  "id": "key.jei.showRecipe2",
+  "bind": "key.mouse.left",
+  "mod": "",
+  "ns": "jei",
+  "en": "Show Recipe for Hovered Ingredient (Alternate)",
+  "uk": "Показати рецепт (альтернативно)",
+  "key": "ЛКМ",
+  "combo": "ЛКМ"
+ },
+ {
+  "id": "key.jei.showUses",
+  "bind": "key.keyboard.u",
+  "mod": "",
+  "ns": "jei",
+  "en": "Show Uses for Hovered Ingredient",
+  "uk": "Показати використання",
+  "key": "U",
+  "combo": "U"
+ },
+ {
+  "id": "key.jei.showUses2",
+  "bind": "key.mouse.right",
+  "mod": "",
+  "ns": "jei",
+  "en": "Show Uses for Hovered Ingredient (Alternate)",
+  "uk": "Показати використання (альтернативно)",
+  "key": "ПКМ",
+  "combo": "ПКМ"
+ },
+ {
+  "id": "key.jei.transferRecipeBookmark",
+  "bind": "key.mouse.left",
+  "mod": "SHIFT",
+  "ns": "jei",
+  "en": "Craft Bookmarked Recipe (One)",
+  "uk": "Змайстр. із закладкою один раз",
+  "key": "ЛКМ",
+  "combo": "Shift+ЛКМ"
+ },
+ {
+  "id": "key.jei.maxTransferRecipeBookmark",
+  "bind": "key.mouse.left",
+  "mod": "CONTROL_OR_COMMAND",
+  "ns": "jei",
+  "en": "Craft Bookmarked Recipe (Many)",
+  "uk": "Змайстр. із закладкою багато разів",
+  "key": "ЛКМ",
+  "combo": "Ctrl+ЛКМ"
+ },
+ {
+  "id": "key.jei.transferRecipeGui",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "jei",
+  "en": "Craft Hovered Recipe (One)",
+  "uk": "Змайструвати рецепт під курсором (один)",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.jei.maxTransferRecipeGui",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "jei",
+  "en": "Craft Hovered Recipe (Many)",
+  "uk": "Змайструвати рецепт під курсором (багато)",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.jei.quickMove",
+  "bind": "key.mouse.left",
+  "mod": "SHIFT",
+  "ns": "jei",
+  "en": "Quick Move Ghost Item",
+  "uk": "Швидко перемістити предмет-привид",
+  "key": "ЛКМ",
+  "combo": "Shift+ЛКМ"
+ },
+ {
+  "id": "key.jei.shareToChat",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "jei",
+  "en": "Share Item to Chat",
+  "uk": "Поділитися предметом у чаті",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.jei.clearSearchBar",
+  "bind": "key.mouse.right",
+  "mod": "",
+  "ns": "jei",
+  "en": "Clear Search Filter",
+  "uk": "Очистити фільтр пошуку",
+  "key": "ПКМ",
+  "combo": "ПКМ"
+ },
+ {
+  "id": "key.jei.previousSearch",
+  "bind": "key.keyboard.up",
+  "mod": "",
+  "ns": "jei",
+  "en": "Previous Search",
+  "uk": "Попередній пошук",
+  "key": "↑",
+  "combo": "↑"
+ },
+ {
+  "id": "key.jei.nextSearch",
+  "bind": "key.keyboard.down",
+  "mod": "",
+  "ns": "jei",
+  "en": "Next Search",
+  "uk": "Наступний пошук",
+  "key": "↓",
+  "combo": "↓"
+ },
+ {
+  "id": "key.jei.toggleCheatMode",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "jei",
+  "en": "Toggle Cheat Mode",
+  "uk": "Перемкнути режим шахрайства",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.jei.cheatOneItem",
+  "bind": "key.mouse.left",
+  "mod": "",
+  "ns": "jei",
+  "en": "Cheat One Item",
+  "uk": "Узяти 1 предмет",
+  "key": "ЛКМ",
+  "combo": "ЛКМ"
+ },
+ {
+  "id": "key.jei.cheatOneItem2",
+  "bind": "key.mouse.right",
+  "mod": "",
+  "ns": "jei",
+  "en": "Cheat One Item (Alternate)",
+  "uk": "Узяти 1 предмет (альтернативно)",
+  "key": "ПКМ",
+  "combo": "ПКМ"
+ },
+ {
+  "id": "key.jei.cheatItemStack",
+  "bind": "key.mouse.left",
+  "mod": "SHIFT",
+  "ns": "jei",
+  "en": "Cheat One Stack",
+  "uk": "Узяти 1 стос",
+  "key": "ЛКМ",
+  "combo": "Shift+ЛКМ"
+ },
+ {
+  "id": "key.jei.cheatItemStack2",
+  "bind": "key.mouse.middle",
+  "mod": "",
+  "ns": "jei",
+  "en": "Cheat One Stack (Alternate)",
+  "uk": "Узяти 1 стос (альтернативно)",
+  "key": "СКМ",
+  "combo": "СКМ"
+ },
+ {
+  "id": "key.jei.toggleCheatModeConfigButton",
+  "bind": "key.mouse.left",
+  "mod": "CONTROL_OR_COMMAND",
+  "ns": "jei",
+  "en": "Toggle Cheat Mode",
+  "uk": "Перемкнути режим шахрайства",
+  "key": "ЛКМ",
+  "combo": "Ctrl+ЛКМ"
+ },
+ {
+  "id": "key.jei.toggleEditMode",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "jei",
+  "en": "Toggle Hide Ingredients Mode",
+  "uk": "Перемкнути режим прихов. інгредієнтів",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.jei.toggleHideIngredient",
+  "bind": "key.mouse.left",
+  "mod": "CONTROL_OR_COMMAND",
+  "ns": "jei",
+  "en": "Hide Ingredient",
+  "uk": "Приховати інгредієнт",
+  "key": "ЛКМ",
+  "combo": "Ctrl+ЛКМ"
+ },
+ {
+  "id": "key.jei.toggleWildcardHideIngredient",
+  "bind": "key.mouse.right",
+  "mod": "CONTROL_OR_COMMAND",
+  "ns": "jei",
+  "en": "Hide Ingredient (With Wildcard)",
+  "uk": "Приховати інгредієнт (за шаблоном)",
+  "key": "ПКМ",
+  "combo": "Ctrl+ПКМ"
+ },
+ {
+  "id": "key.jei.recipeBack",
+  "bind": "key.keyboard.backspace",
+  "mod": "",
+  "ns": "jei",
+  "en": "Previous Recipe",
+  "uk": "Попередній рецепт",
+  "key": "Backspace",
+  "combo": "Backspace"
+ },
+ {
+  "id": "key.jei.recipeForward",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "jei",
+  "en": "Next Recipe",
+  "uk": "Наступний рецепт",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.jei.previousRecipePage",
+  "bind": "key.keyboard.page.up",
+  "mod": "",
+  "ns": "jei",
+  "en": "Previous Recipe Page",
+  "uk": "Попередня сторінка рецептів",
+  "key": "PgUp",
+  "combo": "PgUp"
+ },
+ {
+  "id": "key.jei.nextRecipePage",
+  "bind": "key.keyboard.page.down",
+  "mod": "",
+  "ns": "jei",
+  "en": "Next Recipe Page",
+  "uk": "Наступна сторінка рецептів",
+  "key": "PgDn",
+  "combo": "PgDn"
+ },
+ {
+  "id": "key.jei.pauseRecipeCycling",
+  "bind": "key.keyboard.left.shift",
+  "mod": "",
+  "ns": "jei",
+  "en": "Pause Recipe Ingredient Cycling",
+  "uk": "Призупинити чергування інгредієнтів",
+  "key": "Лівий Shift",
+  "combo": "Лівий Shift"
+ },
+ {
+  "id": "key.jei.previousCategory",
+  "bind": "key.keyboard.page.up",
+  "mod": "SHIFT",
+  "ns": "jei",
+  "en": "Previous Recipe Category",
+  "uk": "Попередня категорія рецептів",
+  "key": "PgUp",
+  "combo": "Shift+PgUp"
+ },
+ {
+  "id": "key.jei.nextCategory",
+  "bind": "key.keyboard.page.down",
+  "mod": "SHIFT",
+  "ns": "jei",
+  "en": "Next Recipe Category",
+  "uk": "Наступна категорія рецептів",
+  "key": "PgDn",
+  "combo": "Shift+PgDn"
+ },
+ {
+  "id": "key.jei.closeRecipeGui",
+  "bind": "key.keyboard.escape",
+  "mod": "",
+  "ns": "jei",
+  "en": "Close Recipes GUI",
+  "uk": "Закрити інтерфейс рецептів",
+  "key": "Esc",
+  "combo": "Esc"
+ },
+ {
+  "id": "key.jei.copy.recipe.id",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "jei",
+  "en": "Copy Recipe ID to Clipboard",
+  "uk": "Копіювати ID рецепта в буфер обміну",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.ae2.mouse_wheel_item_modifier",
+  "bind": "key.keyboard.left.shift",
+  "mod": "",
+  "ns": "ae2",
+  "en": "Modifier for Mouse-Wheel Items",
+  "uk": "Модифікатор для предметів із коліщатком миші",
+  "key": "Лівий Shift",
+  "combo": "Лівий Shift"
+ },
+ {
+  "id": "key.ae2.part_placement_opposite",
+  "bind": "key.keyboard.left.control",
+  "mod": "",
+  "ns": "ae2",
+  "en": "Place Parts on Opposite Side",
+  "uk": "Ставити частини з протилежного боку",
+  "key": "Лівий Ctrl",
+  "combo": "Лівий Ctrl"
+ },
+ {
+  "id": "key.ae2.wireless_requester_terminal",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "merequester",
+  "en": "Open Wireless Requester Terminal",
+  "uk": "Відкрити бездротовий термінал запитувача",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.ae2.wireless_pattern_access_terminal",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "ae2wtlib",
+  "en": "Open Wireless Pattern Access Terminal",
+  "uk": "Відкрити бездротовий термінал доступу до шаблонів",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.ae2.wireless_quantum_crafter_terminal",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "advanced_ae",
+  "en": "Open Wireless Quantum Crafter Terminal",
+  "uk": "Відкрити бездротовий термінал квантового майструвача",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.ae2.appliedthaumaturge.wireless_essentia_terminal",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "appliedthaumaturge",
+  "en": "Open Wireless Essentia Terminal",
+  "uk": "Відкрити бездротовий термінал Essentia",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.ae2.ae2wtlib_restock",
+  "bind": "key.keyboard.p",
+  "mod": "CONTROL",
+  "ns": "ae2wtlib",
+  "en": "Toggle Restock",
+  "uk": "Перемкнути поповнення",
+  "key": "P",
+  "combo": "Ctrl+P"
+ },
+ {
+  "id": "key.ae2.ae2wtlib_magnet",
+  "bind": "key.keyboard.m",
+  "mod": "CONTROL",
+  "ns": "ae2wtlib",
+  "en": "Toggle Magnet Card",
+  "uk": "Перемкнути магнітну картку",
+  "key": "M",
+  "combo": "Ctrl+M"
+ },
+ {
+  "id": "key.ae2.portable_item_cell",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "ae2",
+  "en": "Open Portable Item Cell",
+  "uk": "Відкрити портативну комірку предметів",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.ae2.ae2wtlib_stow",
+  "bind": "key.keyboard.o",
+  "mod": "SHIFT",
+  "ns": "ae2wtlib",
+  "en": "Stow stack in hand into ME System",
+  "uk": "Сховати стос із руки в ME-систему",
+  "key": "O",
+  "combo": "Shift+O"
+ },
+ {
+  "id": "key.ae2.portable_fluid_cell",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "ae2",
+  "en": "Open Portable Fluid Cell",
+  "uk": "Відкрити портативну комірку рідин",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.ae2.wireless_pattern_encoding_terminal",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "ae2wtlib",
+  "en": "Open Wireless Pattern Encoding Terminal",
+  "uk": "Відкрити бездротовий термінал кодування шаблонів",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.ae2.wireless_terminal",
+  "bind": "key.keyboard.e",
+  "mod": "CONTROL",
+  "ns": "ae2",
+  "en": "Open Wireless Terminal",
+  "uk": "Відкрити бездротовий термінал",
+  "key": "E",
+  "combo": "Ctrl+E"
+ },
+ {
+  "id": "key.ae2.appliedthaumaturge.wireless_arcane_terminal",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "appliedthaumaturge",
+  "en": "Open Wireless Arcane Crafting Terminal",
+  "uk": "Відкрити бездротовий термінал арканного створення",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.logisticsnetworks.toggle_wrench_hud",
+  "bind": "key.keyboard.h",
+  "mod": "",
+  "ns": "logisticsnetworks",
+  "en": "Toggle Wrench HUD",
+  "uk": "Перемкнути HUD ключа",
+  "key": "H",
+  "combo": "H"
+ },
+ {
+  "id": "key.logisticsnetworks.toggle_slot_numbers",
+  "bind": "key.keyboard.i",
+  "mod": "ALT",
+  "ns": "logisticsnetworks",
+  "en": "Toggle Slot Numbers",
+  "uk": "Перемкнути номери комірок",
+  "key": "I",
+  "combo": "Alt+I"
+ },
+ {
+  "id": "key.logisticsnetworks.wrench_colors",
+  "bind": "key.keyboard.g",
+  "mod": "",
+  "ns": "logisticsnetworks",
+  "en": "Wrench Settings",
+  "uk": "Налаштування ключа",
+  "key": "G",
+  "combo": "G"
+ },
+ {
+  "id": "key.logisticsnetworks.wrench_modes",
+  "bind": "key.keyboard.r",
+  "mod": "",
+  "ns": "logisticsnetworks",
+  "en": "Hold Wrench Mode Wheel",
+  "uk": "Утримувати колесо режимів ключа",
+  "key": "R",
+  "combo": "R"
+ },
+ {
+  "id": "key.logisticsnetworks.modifier_1",
+  "bind": "key.keyboard.left.shift",
+  "mod": "",
+  "ns": "logisticsnetworks",
+  "en": "Modifier Key 1",
+  "uk": "Клавіша-модифікатор 1",
+  "key": "Лівий Shift",
+  "combo": "Лівий Shift"
+ },
+ {
+  "id": "key.logisticsnetworks.modifier_2",
+  "bind": "key.keyboard.left.control",
+  "mod": "",
+  "ns": "logisticsnetworks",
+  "en": "Modifier Key 2",
+  "uk": "Клавіша-модифікатор 2",
+  "key": "Лівий Ctrl",
+  "combo": "Лівий Ctrl"
+ },
+ {
+  "id": "key.logisticsnetworks.modifier_3",
+  "bind": "key.keyboard.left.alt",
+  "mod": "",
+  "ns": "logisticsnetworks",
+  "en": "Modifier Key 3",
+  "uk": "Клавіша-модифікатор 3",
+  "key": "Лівий Alt",
+  "combo": "Лівий Alt"
+ },
+ {
+  "id": "key.logisticsnetworks.primary_interaction",
+  "bind": "key.mouse.left",
+  "mod": "",
+  "ns": "logisticsnetworks",
+  "en": "Primary Interaction",
+  "uk": "Основна взаємодія",
+  "key": "ЛКМ",
+  "combo": "ЛКМ"
+ },
+ {
+  "id": "key.logisticsnetworks.secondary_interaction",
+  "bind": "key.mouse.right",
+  "mod": "",
+  "ns": "logisticsnetworks",
+  "en": "Secondary Interaction",
+  "uk": "Додаткова взаємодія",
+  "key": "ПКМ",
+  "combo": "ПКМ"
+ },
+ {
+  "id": "key.extendedae.viewpattern",
+  "bind": "key.keyboard.p",
+  "mod": "",
+  "ns": "extendedae",
+  "en": "View Pattern",
+  "uk": "Переглянути шаблон",
+  "key": "P",
+  "combo": "P"
+ },
+ {
+  "id": "key.extendedae.set_amount",
+  "bind": "key.mouse.middle",
+  "mod": "",
+  "ns": "extendedae",
+  "en": "Set Amount",
+  "uk": "Задати кількість",
+  "key": "СКМ",
+  "combo": "СКМ"
+ },
+ {
+  "id": "key.advanced_ae.pattern_encoder_action",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "advanced_ae",
+  "en": "Open Advanced Pattern Encoder",
+  "uk": "Відкрити поліпшений кодувальник шаблонів",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.advanced_ae.pick_craft",
+  "bind": "key.keyboard.v",
+  "mod": "",
+  "ns": "advanced_ae",
+  "en": "Attempt crafting targeted block",
+  "uk": "Спробувати змайструвати блок, на який дивитеся",
+  "key": "V",
+  "combo": "V"
+ },
+ {
+  "id": "key.advanced_ae.portable_workbench",
+  "bind": "key.keyboard.c",
+  "mod": "",
+  "ns": "advanced_ae",
+  "en": "Open Portable Workbench",
+  "uk": "Відкрити портативний верстак",
+  "key": "C",
+  "combo": "C"
+ },
+ {
+  "id": "key.advanced_ae.quantum_armor_config",
+  "bind": "key.keyboard.z",
+  "mod": "",
+  "ns": "advanced_ae",
+  "en": "Open Quantum Armor Configuration",
+  "uk": "Відкрити налаштування квантової броні",
+  "key": "Z",
+  "combo": "Z"
+ },
+ {
+  "id": "key.advanced_ae.quantum_magnet_upgrade",
+  "bind": "key.keyboard.g",
+  "mod": "",
+  "ns": "advanced_ae",
+  "en": "Toggle Quantum Armor Magnet",
+  "uk": "Перемкнути магніт квантової броні",
+  "key": "G",
+  "combo": "G"
+ },
+ {
+  "id": "key.advanced_ae.quantum_auto_stock_upgrade",
+  "bind": "key.keyboard.j",
+  "mod": "",
+  "ns": "advanced_ae",
+  "en": "Toggle Quantum Armor Auto Stock",
+  "uk": "Перемкнути автопоповнення квантової броні",
+  "key": "J",
+  "combo": "J"
+ },
+ {
+  "id": "key.advanced_ae.quantum_night_vision_upgrade",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "advanced_ae",
+  "en": "Toggle Quantum Armor Night Vision",
+  "uk": "Перемкнути нічне бачення квантової броні",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.thaumaturge.thaumonomicon",
+  "bind": "key.keyboard.n",
+  "mod": "",
+  "ns": "thaumaturge",
+  "en": "Open Thaumonomicon",
+  "uk": "Відкрити Thaumonomicon",
+  "key": "N",
+  "combo": "N"
+ },
+ {
+  "id": "key.thaumaturge.change_focus",
+  "bind": "key.keyboard.f",
+  "mod": "",
+  "ns": "thaumaturge",
+  "en": "Change Wand Focus",
+  "uk": "Змінити фокус жезла",
+  "key": "F",
+  "combo": "F"
+ },
+ {
+  "id": "key.thaumaturge.misc_toggle",
+  "bind": "key.keyboard.g",
+  "mod": "",
+  "ns": "thaumaturge",
+  "en": "Misc Wand Toggle",
+  "uk": "Перемикач жезла (інше)",
+  "key": "G",
+  "combo": "G"
+ },
+ {
+  "id": "key.thaumaturge.toggle_hover",
+  "bind": "key.keyboard.h",
+  "mod": "",
+  "ns": "thaumaturge",
+  "en": "Activate Hover Harness",
+  "uk": "Увімкнути упряж для ширяння",
+  "key": "H",
+  "combo": "H"
+ },
+ {
+  "id": "key.stellaris.rocket_start",
+  "bind": "key.keyboard.space",
+  "mod": "",
+  "ns": "stellaris",
+  "en": "Start Rocket",
+  "uk": "Запустити ракету",
+  "key": "Пробіл",
+  "combo": "Пробіл"
+ },
+ {
+  "id": "key.stellaris.jet_switch_mode",
+  "bind": "key.keyboard.v",
+  "mod": "",
+  "ns": "stellaris",
+  "en": "Switch Jet Mode",
+  "uk": "Змінити режим реактивного ранця",
+  "key": "V",
+  "combo": "V"
+ },
+ {
+  "id": "key.stellaris.night_vision",
+  "bind": "key.keyboard.m",
+  "mod": "",
+  "ns": "stellaris",
+  "en": "Enable Night Vision",
+  "uk": "Увімкнути нічне бачення",
+  "key": "M",
+  "combo": "M"
+ }
+]

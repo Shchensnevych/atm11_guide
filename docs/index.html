@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ATM11 — дорожня карта</title>
+  <meta name="description" content="Український путівник по збірці All the Mods 11: дорожня карта прогресу, довідник модів, квести й гілки." />
+  <link rel="icon" href="img/favicon.svg" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/graph.css" />
+  <link rel="stylesheet" href="css/tree.css" />
+  <link rel="stylesheet" href="css/keys.css" />
+  <link rel="stylesheet" href="css/assistant.css" />
+  <!-- Бібліотеки (локальні копії, див. vendor/VERSIONS.txt). ELK (vendor/elk.bundled.js) вантажиться ліниво — лише на дорожній карті. -->
+  <script src="vendor/cytoscape.min.js" defer></script>
+  <script src="vendor/dagre.min.js" defer></script>
+  <script src="vendor/cytoscape-dagre.js" defer></script>
+  <script src="vendor/jsplumb.browser-ui.umd.js" defer></script>
+  <script type="module" src="js/core/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#/"><span class="brand-star">⭐</span> ATM11 <span class="brand-sub">дорожня карта</span></a>
+    <nav class="nav" id="nav">
+      <a href="#/roadmap" data-nav="roadmap">Дорожня карта</a>
+      <a href="#/mods" data-nav="mods">Моди</a>
+      <a href="#/chapters" data-nav="chapters">Квести</a>
+      <a href="#/branches" data-nav="branches">Гілки</a>
+      <a href="#/keys" data-nav="keys">Клавіші</a>
+      <a href="#/assistant" data-nav="assistant"><span class="btn-ic">🤖</span> Помічник</a>
+    </nav>
+    <div class="world-bar" id="world-bar"></div>
+  </header>
+  <main id="view" class="view" aria-live="polite"><p class="muted pad">Завантаження…</p></main>
+  <footer class="footer muted" id="footer"></footer>
+</body>
+</html>

@@ -1,0 +1,3374 @@
+{
+ "advanced_ae:quantum_chestplate": {
+  "img": "img/items/advanced_ae/quantum_chestplate.png",
+  "kind": "item",
+  "uk": "Квантовий нагрудник",
+  "en": "Quantum Chestplate"
+ },
+ "advanced_ae:quantum_core": {
+  "img": "img/items/advanced_ae/quantum_core.png",
+  "kind": "block",
+  "uk": "Ядро квантового комп'ютера",
+  "en": "Quantum Computer Core"
+ },
+ "advanced_ae:quantum_crafter": {
+  "img": "img/items/advanced_ae/quantum_crafter.png",
+  "kind": "block",
+  "uk": "Квантовий майструвач",
+  "en": "Quantum Crafter"
+ },
+ "advanced_ae:reaction_chamber": {
+  "img": "img/items/advanced_ae/reaction_chamber.png",
+  "kind": "block",
+  "uk": "Реакційна камера",
+  "en": "Reaction Chamber"
+ },
+ "ae2:certus_quartz_crystal": {
+  "img": "img/items/ae2/certus_quartz_crystal.png",
+  "kind": "item",
+  "uk": "Кристал істинного кварцу",
+  "en": "Certus Quartz Crystal"
+ },
+ "ae2:controller": {
+  "img": "img/items/ae2/controller.png",
+  "kind": "block",
+  "uk": "ME контролер",
+  "en": "ME Controller"
+ },
+ "ae2:drive": {
+  "img": "img/items/ae2/drive.png",
+  "kind": "block",
+  "uk": "ME накопичувач",
+  "en": "ME Drive"
+ },
+ "ae2:inscriber": {
+  "img": "img/items/ae2/inscriber.png",
+  "kind": "block",
+  "uk": "Штампувальний прес",
+  "en": "Inscriber"
+ },
+ "ae2:logic_processor": {
+  "img": "img/items/ae2/logic_processor.png",
+  "kind": "item",
+  "uk": "Логічний процесор",
+  "en": "Logic Processor"
+ },
+ "ae2importexportcard:block_picker_card": {
+  "img": "img/items/ae2importexportcard/block_picker_card.png",
+  "kind": "item",
+  "uk": "Картка вибору блоків",
+  "en": "Block Picker Card"
+ },
+ "ae2importexportcard:export_card": {
+  "img": "img/items/ae2importexportcard/export_card.png",
+  "kind": "item",
+  "uk": "Картка експорту",
+  "en": "Export Card"
+ },
+ "ae2importexportcard:import_card": {
+  "img": "img/items/ae2importexportcard/import_card.png",
+  "kind": "item",
+  "uk": "Картка вставки",
+  "en": "Import Card"
+ },
+ "ae2netanalyser:network_analyser": {
+  "img": "img/items/ae2netanalyser/network_analyser.png",
+  "kind": "item",
+  "uk": "ME аналізатор мережі",
+  "en": "ME Network Analyzer"
+ },
+ "ae2netanalyser:tick_analyser": {
+  "img": "img/items/ae2netanalyser/tick_analyser.png",
+  "kind": "item",
+  "uk": "ME профілювальник тактів",
+  "en": "ME Tick Profiler"
+ },
+ "ae2wtlib:magnet_card": {
+  "img": "img/items/ae2wtlib/magnet_card.png",
+  "kind": "item",
+  "uk": "Магнітна картка",
+  "en": "Magnet Card"
+ },
+ "ae2wtlib:quantum_bridge_card": {
+  "img": "img/items/ae2wtlib/quantum_bridge_card.png",
+  "kind": "item",
+  "uk": "Картка квантового зв'язку",
+  "en": "Quantum Bridge Card"
+ },
+ "ae2wtlib:wireless_universal_terminal": {
+  "img": "img/items/ae2wtlib/wireless_universal_terminal.png",
+  "kind": "item",
+  "uk": "Універсальний бездротовий термінал",
+  "en": "Wireless Universal Terminal"
+ },
+ "aeinfinitybooster:dimension_card": {
+  "img": "img/items/aeinfinitybooster/dimension_card.png",
+  "kind": "item",
+  "uk": "Міжвимірна картка",
+  "en": "Dimension Card"
+ },
+ "aeinfinitybooster:infinity_card": {
+  "img": "img/items/aeinfinitybooster/infinity_card.png",
+  "kind": "item",
+  "uk": "Підсилювач нескінченної дальності",
+  "en": "Infinity Range Booster"
+ },
+ "aether_ii:aether_grass_block": {
+  "img": "img/items/aether_ii/aether_grass_block.png",
+  "kind": "block",
+  "uk": "Блок етерної трави",
+  "en": "Aether Grass Block"
+ },
+ "aether_ii:aether_portal_frame": {
+  "img": "img/items/aether_ii/aether_portal_frame.png",
+  "kind": "item",
+  "uk": "Рамка порталу Етеру",
+  "en": "Aether Portal Frame"
+ },
+ "aether_ii:ambrosium_shard": {
+  "img": "img/items/aether_ii/ambrosium_shard.png",
+  "kind": "item",
+  "uk": "Амброзієвий уламок",
+  "en": "Ambrosium Shard"
+ },
+ "aether_ii:arkenium_forge": {
+  "img": "img/items/aether_ii/arkenium_forge.png",
+  "kind": "block",
+  "uk": "Аркенієва кузня",
+  "en": "Arkenium Forge"
+ },
+ "aether_ii:gravitite_plate": {
+  "img": "img/items/aether_ii/gravitite_plate.png",
+  "kind": "item",
+  "uk": "Гравітитова пластина",
+  "en": "Gravitite Plate"
+ },
+ "aether_ii:zanite_gemstone": {
+  "img": "img/items/aether_ii/zanite_gemstone.png",
+  "kind": "item",
+  "uk": "Занітовий самоцвіт",
+  "en": "Zanite Gemstone"
+ },
+ "agritechevolved:advanced_planter": {
+  "img": "img/items/agritechevolved/advanced_planter.png",
+  "kind": "block",
+  "uk": "Покращений садильник",
+  "en": "Advanced Planter"
+ },
+ "agritechevolved:cloche_dome": {
+  "img": "img/items/agritechevolved/cloche_dome.png",
+  "kind": "item",
+  "uk": "Купол-ковпак",
+  "en": "Cloche Dome"
+ },
+ "agritechevolved:silo": {
+  "img": "img/items/agritechevolved/silo.png",
+  "kind": "block",
+  "uk": "Силос",
+  "en": "Silo"
+ },
+ "agritechevolved:ym_mk3": {
+  "img": "img/items/agritechevolved/ym_mk3.png",
+  "kind": "item",
+  "uk": "Покращення врожайності MK3",
+  "en": "Yield Upgrade MK3"
+ },
+ "allthecompressed:cobblestone_1x": {
+  "img": "img/items/allthecompressed/cobblestone_1x.png",
+  "kind": "block",
+  "uk": "Кругляк 1x",
+  "en": "Cobblestone 1x"
+ },
+ "allthecompressed:cobblestone_4x": {
+  "img": "img/items/allthecompressed/cobblestone_4x.png",
+  "kind": "block",
+  "uk": "Кругляк 4x",
+  "en": "Cobblestone 4x"
+ },
+ "allthecompressed:nitro_crystal_block_1x": {
+  "img": "img/items/allthecompressed/nitro_crystal_block_1x.png",
+  "kind": "block",
+  "uk": "Блок нітро-кристала 1x",
+  "en": "Block Of Nitro Crystal 1x"
+ },
+ "allthemodium:allthemodium_ingot": {
+  "img": "img/items/allthemodium/allthemodium_ingot.png",
+  "kind": "item",
+  "uk": "Усемодієвий злиток",
+  "en": "Allthemodium Ingot"
+ },
+ "allthemodium:allthemodium_ore": {
+  "img": "img/items/allthemodium/allthemodium_ore.png",
+  "kind": "block",
+  "uk": "Усемодієва руда",
+  "en": "Allthemodium Ore"
+ },
+ "allthemodium:allthemodium_pickaxe": {
+  "img": "img/items/allthemodium/allthemodium_pickaxe.png",
+  "kind": "item",
+  "uk": "Усемодієве кайло",
+  "en": "Allthemodium Pickaxe"
+ },
+ "allthemodium:piglich_heart": {
+  "img": "img/items/allthemodium/piglich_heart.png",
+  "kind": "item",
+  "uk": "Серце піґліча",
+  "en": "Piglich Heart"
+ },
+ "allthemodium:teleport_pad": {
+  "img": "img/items/allthemodium/teleport_pad.png",
+  "kind": "block",
+  "uk": "Телепортаційна платформа",
+  "en": "Teleport Pad"
+ },
+ "allthemodium:unobtainium_ingot": {
+  "img": "img/items/allthemodium/unobtainium_ingot.png",
+  "kind": "item",
+  "uk": "Унобтанієвий злиток",
+  "en": "Unobtainium Ingot"
+ },
+ "allthemodium:vibranium_ingot": {
+  "img": "img/items/allthemodium/vibranium_ingot.png",
+  "kind": "item",
+  "uk": "Вібранієвий злиток",
+  "en": "Vibranium Ingot"
+ },
+ "alltheores:brass_gear": {
+  "img": "img/items/alltheores/brass_gear.png",
+  "kind": "item",
+  "uk": "Латунна шестерня",
+  "en": "Brass Gear"
+ },
+ "alltheores:enderium_ingot": {
+  "img": "img/items/alltheores/enderium_ingot.png",
+  "kind": "item",
+  "uk": "Ендеріюмовий злиток",
+  "en": "Enderium Ingot"
+ },
+ "alltheores:osmium_ingot": {
+  "img": "img/items/alltheores/osmium_ingot.png",
+  "kind": "item",
+  "uk": "Осмієвий злиток",
+  "en": "Osmium Ingot"
+ },
+ "alltheores:platinum_ore_hammer": {
+  "img": "img/items/alltheores/platinum_ore_hammer.png",
+  "kind": "item",
+  "uk": "Платиновий молот для руди",
+  "en": "Platinum Ore Hammer"
+ },
+ "alltheores:raw_tin": {
+  "img": "img/items/alltheores/raw_tin.png",
+  "kind": "item",
+  "uk": "Необроблене олово",
+  "en": "Raw Tin"
+ },
+ "alltheores:tin_ore": {
+  "img": "img/items/alltheores/tin_ore.png",
+  "kind": "block",
+  "uk": "Олов'яна руда",
+  "en": "Tin Ore"
+ },
+ "allthetweaks:atm_star": {
+  "img": "img/items/allthetweaks/atm_star.png",
+  "kind": "item",
+  "uk": "Зірка ATM",
+  "en": "ATM Star"
+ },
+ "allthetweaks:atm_star_shard": {
+  "img": "img/items/allthetweaks/atm_star_shard.png",
+  "kind": "item",
+  "uk": "Уламок зірки ATM",
+  "en": "ATM Star Shard"
+ },
+ "allthetweaks:dimensional_seed": {
+  "img": "img/items/allthetweaks/dimensional_seed.png",
+  "kind": "item",
+  "uk": "Насіння вимірів",
+  "en": "Dimensional Seed"
+ },
+ "allthetweaks:mini_nether": {
+  "img": "img/items/allthetweaks/mini_nether.png",
+  "kind": "block",
+  "uk": "Мініатюрний портал Незеру",
+  "en": "Miniature Nether Portal"
+ },
+ "allthetweaks:nether_star_block": {
+  "img": "img/items/allthetweaks/nether_star_block.png",
+  "kind": "block",
+  "uk": "Блок зірок Незеру",
+  "en": "Nether Star Block"
+ },
+ "allthetweaks:pulsating_black_hole": {
+  "img": "img/items/allthetweaks/pulsating_black_hole.png",
+  "kind": "item",
+  "uk": "Пульсуюча чорна діра",
+  "en": "Pulsating Black Hole"
+ },
+ "apotheosis:augmenting_table": {
+  "img": "img/items/apotheosis/augmenting_table.png",
+  "kind": "block",
+  "uk": "Стіл доповнення",
+  "en": "Augmenting Table"
+ },
+ "apotheosis:gem": {
+  "img": "img/items/apotheosis/gem.png",
+  "kind": "item",
+  "uk": "",
+  "en": "gem"
+ },
+ "apotheosis:gem_cutting_table": {
+  "img": "img/items/apotheosis/gem_cutting_table.png",
+  "kind": "block",
+  "uk": "Стіл огранування самоцвітів",
+  "en": "Gem Cutting Table"
+ },
+ "apotheosis:reforging_table": {
+  "img": "img/items/apotheosis/reforging_table.png",
+  "kind": "block",
+  "uk": "Стіл перекування",
+  "en": "Reforging Table"
+ },
+ "apotheosis:salvaging_table": {
+  "img": "img/items/apotheosis/salvaging_table.png",
+  "kind": "block",
+  "uk": "Стіл перероблення",
+  "en": "Salvaging Table"
+ },
+ "apotheosis:sigil_of_socketing": {
+  "img": "img/items/apotheosis/sigil_of_socketing.png",
+  "kind": "item",
+  "uk": "Сигіл інкрустації",
+  "en": "Sigil of Socketing"
+ },
+ "apothic_enchanting:draconic_endshelf": {
+  "img": "img/items/apothic_enchanting/draconic_endshelf.png",
+  "kind": "block",
+  "uk": "Драконічна ендополиця",
+  "en": "Draconic Endshelf"
+ },
+ "apothic_enchanting:ender_library": {
+  "img": "img/items/apothic_enchanting/ender_library.png",
+  "kind": "block",
+  "uk": "Александрійська бібліотека",
+  "en": "Library of Alexandria"
+ },
+ "apothic_enchanting:geode_shelf": {
+  "img": "img/items/apothic_enchanting/geode_shelf.png",
+  "kind": "block",
+  "uk": "Книжкова полиця в жеодовій оболонці стабільності",
+  "en": "Geode-Encased Bookshelf of Stability"
+ },
+ "apothic_enchanting:hellshelf": {
+  "img": "img/items/apothic_enchanting/hellshelf.png",
+  "kind": "block",
+  "uk": "Пеклополиця",
+  "en": "Hellshelf"
+ },
+ "apothic_enchanting:raven_enchanting_table": {
+  "img": "img/items/apothic_enchanting/raven_enchanting_table.png",
+  "kind": "block",
+  "uk": "Стіл зачарування Ворона",
+  "en": "Enchanting Table of the Raven"
+ },
+ "apothic_enchanting:seashelf": {
+  "img": "img/items/apothic_enchanting/seashelf.png",
+  "kind": "block",
+  "uk": "Мореполиця",
+  "en": "Seashelf"
+ },
+ "appliedthaumaturge:arcane_terminal": {
+  "img": "img/items/appliedthaumaturge/arcane_terminal.png",
+  "kind": "block",
+  "uk": "ME термінал арканного створення",
+  "en": "ME Arcane Crafting Terminal"
+ },
+ "appliedthaumaturge:essentia_cell_1k": {
+  "img": "img/items/appliedthaumaturge/essentia_cell_1k.png",
+  "kind": "item",
+  "uk": "1K ME комірка зберігання Essentia",
+  "en": "1k ME Essentia Storage Cell"
+ },
+ "appliedthaumaturge:infusion_provider": {
+  "img": "img/items/appliedthaumaturge/infusion_provider.png",
+  "kind": "block",
+  "uk": "ME постачальник інфузії",
+  "en": "ME Infusion Provider"
+ },
+ "aquaculture:arapaima": {
+  "img": "img/items/aquaculture/arapaima.png",
+  "kind": "item",
+  "uk": "Арапайма",
+  "en": "Arapaima"
+ },
+ "aquaculture:iron_fishing_rod": {
+  "img": "img/items/aquaculture/iron_fishing_rod.png",
+  "kind": "item",
+  "uk": "Залізна вудка",
+  "en": "Iron Fishing Rod"
+ },
+ "aquaculture:neptunes_bounty": {
+  "img": "img/items/aquaculture/neptunes_bounty.png",
+  "kind": "approx",
+  "uk": "Подарунок Нептуна",
+  "en": "Neptune's Bounty"
+ },
+ "aquaculture:neptunium_fishing_rod": {
+  "img": "img/items/aquaculture/neptunium_fishing_rod.png",
+  "kind": "item",
+  "uk": "Нептунієва вудка",
+  "en": "Neptunium Fishing Rod"
+ },
+ "aquaculture:tackle_box": {
+  "img": "img/items/aquaculture/tackle_box.png",
+  "kind": "approx",
+  "uk": "Скринька для снастей",
+  "en": "Tackle Box"
+ },
+ "arsmagicalegacy:altar_core": {
+  "img": "img/items/arsmagicalegacy/altar_core.png",
+  "kind": "block",
+  "uk": "Ядро вівтаря",
+  "en": "Altar Core"
+ },
+ "arsmagicalegacy:inscription_table": {
+  "img": "img/items/arsmagicalegacy/inscription_table.png",
+  "kind": "block",
+  "uk": "Стіл написання",
+  "en": "Inscription Table"
+ },
+ "arsmagicalegacy:occulus": {
+  "img": "img/items/arsmagicalegacy/occulus.png",
+  "kind": "block",
+  "uk": "Окулюс",
+  "en": "Occulus"
+ },
+ "arsmagicalegacy:spell_book": {
+  "img": "img/items/arsmagicalegacy/spell_book.png",
+  "kind": "item",
+  "uk": "Книга заклять",
+  "en": "Spell Book"
+ },
+ "arsmagicalegacy:spell_parchment": {
+  "img": "img/items/arsmagicalegacy/spell_parchment.png",
+  "kind": "item",
+  "uk": "Пергамент закляття",
+  "en": "Spell Parchment"
+ },
+ "artifacts:crystal_heart": {
+  "img": "img/items/artifacts/crystal_heart.png",
+  "kind": "item",
+  "uk": "Кришталеве серце",
+  "en": "Crystal Heart"
+ },
+ "artifacts:eternal_steak": {
+  "img": "img/items/artifacts/eternal_steak.png",
+  "kind": "item",
+  "uk": "Вічний стейк",
+  "en": "Eternal Steak"
+ },
+ "artifacts:flame_pendant": {
+  "img": "img/items/artifacts/flame_pendant.png",
+  "kind": "item",
+  "uk": "Полум'яний кулон",
+  "en": "Flame Pendant"
+ },
+ "artifacts:night_vision_goggles": {
+  "img": "img/items/artifacts/night_vision_goggles.png",
+  "kind": "item",
+  "uk": "Окуляри нічного бачення",
+  "en": "Night Vision Goggles"
+ },
+ "artifacts:power_glove": {
+  "img": "img/items/artifacts/power_glove.png",
+  "kind": "item",
+  "uk": "Потужна рукавиця",
+  "en": "Power Glove"
+ },
+ "artifacts:running_shoes": {
+  "img": "img/items/artifacts/running_shoes.png",
+  "kind": "item",
+  "uk": "Кросівки",
+  "en": "Running Shoes"
+ },
+ "auroral:aurora_bloom": {
+  "img": "img/items/auroral/aurora_bloom.png",
+  "kind": "item",
+  "uk": "Квітка аврори",
+  "en": "Aurora Bloom"
+ },
+ "auroral:glacial_basin": {
+  "img": "img/items/auroral/glacial_basin.png",
+  "kind": "item",
+  "uk": "Льодовикова чаша",
+  "en": "Glacial Basin"
+ },
+ "auroral:hearthwood_log": {
+  "img": "img/items/auroral/hearthwood_log.png",
+  "kind": "item",
+  "uk": "Колода домовогнища",
+  "en": "Hearthwood Log"
+ },
+ "auroral:shimmersteel_ingot": {
+  "img": "img/items/auroral/shimmersteel_ingot.png",
+  "kind": "item",
+  "uk": "Злиток мерехтливої сталі",
+  "en": "Shimmersteel Ingot"
+ },
+ "auroral:shimmerweave_skates": {
+  "img": "img/items/auroral/shimmerweave_skates.png",
+  "kind": "item",
+  "uk": "Ковзани з мерехтливої тканини",
+  "en": "Shimmerweave Skates"
+ },
+ "bblcore:upgrade_base": {
+  "img": "img/items/bblcore/upgrade_base.png",
+  "kind": "item",
+  "uk": "Основа покращення",
+  "en": "Upgrade Base"
+ },
+ "bhc:blue_heart_canister": {
+  "img": "img/items/bhc/blue_heart_canister.png",
+  "kind": "item",
+  "uk": "Контейнер з синім серцем",
+  "en": "Blue Heart Canister"
+ },
+ "bhc:heart_amulet": {
+  "img": "img/items/bhc/heart_amulet.png",
+  "kind": "item",
+  "uk": "Амулет сердець",
+  "en": "Heart Amulet"
+ },
+ "bhc:red_heart_canister": {
+  "img": "img/items/bhc/red_heart_canister.png",
+  "kind": "item",
+  "uk": "Контейнер з червоним серцем",
+  "en": "Red Heart Canister"
+ },
+ "bhc:soul_heart_amulet": {
+  "img": "img/items/bhc/soul_heart_amulet.png",
+  "kind": "item",
+  "uk": "Амулет душі",
+  "en": "Soul Amulet"
+ },
+ "buildinggadgets2:gadget_building": {
+  "img": "img/items/buildinggadgets2/gadget_building.png",
+  "kind": "item",
+  "uk": "Будівельний гаджет",
+  "en": "Building Gadget"
+ },
+ "buildinggadgets2:gadget_copy_paste": {
+  "img": "img/items/buildinggadgets2/gadget_copy_paste.png",
+  "kind": "item",
+  "uk": "Гаджет копіювання-вставлення",
+  "en": "Copy Paste Gadget"
+ },
+ "buildinggadgets2:gadget_destruction": {
+  "img": "img/items/buildinggadgets2/gadget_destruction.png",
+  "kind": "item",
+  "uk": "Гаджет руйнування",
+  "en": "Destruction Gadget"
+ },
+ "buildinggadgets2:gadget_exchanging": {
+  "img": "img/items/buildinggadgets2/gadget_exchanging.png",
+  "kind": "item",
+  "uk": "Гаджет заміни",
+  "en": "Exchanging Gadget"
+ },
+ "cabletiers:elite_importer": {
+  "img": "img/items/cabletiers/elite_importer.png",
+  "kind": "block",
+  "uk": "Елітний імпортер",
+  "en": "Elite Importer"
+ },
+ "cabletiers:mega_autocrafter": {
+  "img": "img/items/cabletiers/mega_autocrafter.png",
+  "kind": "block",
+  "uk": "Мегаавтокрафтер",
+  "en": "Mega Autocrafter"
+ },
+ "cabletiers:ultra_exporter": {
+  "img": "img/items/cabletiers/ultra_exporter.png",
+  "kind": "block",
+  "uk": "Ультраекспортер",
+  "en": "Ultra Exporter"
+ },
+ "charginggadgets:charging_station": {
+  "img": "img/items/charginggadgets/charging_station.png",
+  "kind": "block",
+  "uk": "Зарядна станція",
+  "en": "Charging Station"
+ },
+ "classicpipes:copper_pipe": {
+  "img": "img/items/classicpipes/copper_pipe.png",
+  "kind": "block",
+  "uk": "Мідна труба",
+  "en": "Copper Pipe"
+ },
+ "classicpipes:diamond_pipe": {
+  "img": "img/items/classicpipes/diamond_pipe.png",
+  "kind": "block",
+  "uk": "Діамантова труба",
+  "en": "Diamond Pipe"
+ },
+ "classicpipes:golden_pipe": {
+  "img": "img/items/classicpipes/golden_pipe.png",
+  "kind": "block",
+  "uk": "Золота труба",
+  "en": "Golden Pipe"
+ },
+ "classicpipes:routing_pipe": {
+  "img": "img/items/classicpipes/routing_pipe.png",
+  "kind": "block",
+  "uk": "Мережева маршрутизаційна труба",
+  "en": "Networked Routing Pipe"
+ },
+ "cobblegengalore:block_gen_iron": {
+  "img": "img/items/cobblegengalore/block_gen_iron.png",
+  "kind": "block",
+  "uk": "Залізний генератор блоків",
+  "en": "Iron Block Generator"
+ },
+ "cobblegengalore:block_gen_netherite": {
+  "img": "img/items/cobblegengalore/block_gen_netherite.png",
+  "kind": "block",
+  "uk": "Незеритовий генератор блоків",
+  "en": "Netherite Block Generator"
+ },
+ "cobblegengalore:block_gen_stone": {
+  "img": "img/items/cobblegengalore/block_gen_stone.png",
+  "kind": "block",
+  "uk": "Кам'яний генератор блоків",
+  "en": "Stone Block Generator"
+ },
+ "comforts:hammock_white": {
+  "img": "img/items/comforts/hammock_white.png",
+  "kind": "item",
+  "uk": "Білий гамак",
+  "en": "White Hammock Cloth"
+ },
+ "comforts:rope_and_nail": {
+  "img": "img/items/comforts/rope_and_nail.png",
+  "kind": "item",
+  "uk": "Мотузка та цвях",
+  "en": "Rope and Nail"
+ },
+ "comforts:sleeping_bag_red": {
+  "img": "img/items/comforts/sleeping_bag_red.png",
+  "kind": "item",
+  "uk": "Червоний спальний мішок",
+  "en": "Red Sleeping Bag"
+ },
+ "constructionstick:diamond_stick": {
+  "img": "img/items/constructionstick/diamond_stick.png",
+  "kind": "item",
+  "uk": "Діамантова будівельна паличка",
+  "en": "Diamond Stick"
+ },
+ "constructionstick:iron_stick": {
+  "img": "img/items/constructionstick/iron_stick.png",
+  "kind": "item",
+  "uk": "Залізна будівельна паличка",
+  "en": "Iron Stick"
+ },
+ "constructionstick:netherite_stick": {
+  "img": "img/items/constructionstick/netherite_stick.png",
+  "kind": "item",
+  "uk": "Незеритова будівельна паличка",
+  "en": "Netherite Stick"
+ },
+ "cookingforblockheads:cooking_table": {
+  "img": "img/items/cookingforblockheads/cooking_table.png",
+  "kind": "block",
+  "uk": "Кухонний стіл",
+  "en": "Cooking Table"
+ },
+ "cookingforblockheads:cow_jar": {
+  "img": "img/items/cookingforblockheads/cow_jar.png",
+  "kind": "block",
+  "uk": "Корова в банці",
+  "en": "Cow in a Jar"
+ },
+ "cookingforblockheads:sink": {
+  "img": "img/items/cookingforblockheads/sink.png",
+  "kind": "block",
+  "uk": "Раковина",
+  "en": "Sink"
+ },
+ "cookingforblockheads:white_oven": {
+  "img": "img/items/cookingforblockheads/white_oven.png",
+  "kind": "block",
+  "uk": "Духовка",
+  "en": "Oven"
+ },
+ "crafting_on_a_stick:anvil": {
+  "img": "img/items/crafting_on_a_stick/anvil.png",
+  "kind": "item",
+  "uk": "",
+  "en": "%s"
+ },
+ "crafting_on_a_stick:crafting_table": {
+  "img": "img/items/crafting_on_a_stick/crafting_table.png",
+  "kind": "item",
+  "uk": "",
+  "en": "%s"
+ },
+ "crafting_on_a_stick:smithing_table": {
+  "img": "img/items/crafting_on_a_stick/smithing_table.png",
+  "kind": "item",
+  "uk": "",
+  "en": "%s"
+ },
+ "crafting_on_a_stick:stonecutter": {
+  "img": "img/items/crafting_on_a_stick/stonecutter.png",
+  "kind": "item",
+  "uk": "",
+  "en": "%s"
+ },
+ "croptopia:cooking_pot": {
+  "img": "img/items/croptopia/cooking_pot.png",
+  "kind": "item",
+  "uk": "Каструля",
+  "en": "Cooking Pot"
+ },
+ "croptopia:food_press": {
+  "img": "img/items/croptopia/food_press.png",
+  "kind": "item",
+  "uk": "Універсальний харчовий прес",
+  "en": "All Purpose Food Press"
+ },
+ "croptopia:knife": {
+  "img": "img/items/croptopia/knife.png",
+  "kind": "item",
+  "uk": "Ніж",
+  "en": "Knife"
+ },
+ "croptopia:supreme_pizza": {
+  "img": "img/items/croptopia/supreme_pizza.png",
+  "kind": "item",
+  "uk": "Піца «Супрім»",
+  "en": "Supreme Pizza"
+ },
+ "croptopia:tomato": {
+  "img": "img/items/croptopia/tomato.png",
+  "kind": "item",
+  "uk": "Помідор",
+  "en": "Tomato"
+ },
+ "croptopia:tres_leche_cake": {
+  "img": "img/items/croptopia/tres_leche_cake.png",
+  "kind": "item",
+  "uk": "Торт «Три молока»",
+  "en": "Tres Leche Cake"
+ },
+ "deepnullreforged:damp_null_0": {
+  "img": "img/items/deepnullreforged/damp_null_0.png",
+  "kind": "block",
+  "uk": "DampNull",
+  "en": "DampNull"
+ },
+ "deepnullreforged:deep_null_0": {
+  "img": "img/items/deepnullreforged/deep_null_0.png",
+  "kind": "block",
+  "uk": "DeepNull",
+  "en": "DeepNull"
+ },
+ "deepnullreforged:deepnull_dock": {
+  "img": "img/items/deepnullreforged/deepnull_dock.png",
+  "kind": "block",
+  "uk": "Док-станція DeepNull",
+  "en": "DeepNull Docking Station"
+ },
+ "dimstorage:dimensional_chest": {
+  "img": "img/items/dimstorage/dimensional_chest.png",
+  "kind": "block",
+  "uk": "Міжвимірна скриня",
+  "en": "Dimensional Chest"
+ },
+ "dimstorage:dimensional_tablet": {
+  "img": "img/items/dimstorage/dimensional_tablet.png",
+  "kind": "item",
+  "uk": "Міжвимірний планшет",
+  "en": "Dimensional Tablet"
+ },
+ "dimstorage:dimensional_tank": {
+  "img": "img/items/dimstorage/dimensional_tank.png",
+  "kind": "block",
+  "uk": "Міжвимірний резервуар",
+  "en": "Dimensional Tank"
+ },
+ "dyenamics:bubblegum_wool": {
+  "img": "img/items/dyenamics/bubblegum_wool.png",
+  "kind": "block",
+  "uk": "Жуйкова вовна",
+  "en": "Bubblegum Wool"
+ },
+ "dyenamics:cherenkov_dye": {
+  "img": "img/items/dyenamics/cherenkov_dye.png",
+  "kind": "item",
+  "uk": "Черенковський барвник",
+  "en": "Cherenkov Dye"
+ },
+ "dyenamics:lavender_dye": {
+  "img": "img/items/dyenamics/lavender_dye.png",
+  "kind": "item",
+  "uk": "Лавандовий барвник",
+  "en": "Lavender Dye"
+ },
+ "dyenamics:mint_dye": {
+  "img": "img/items/dyenamics/mint_dye.png",
+  "kind": "item",
+  "uk": "М'ятний барвник",
+  "en": "Mint Dye"
+ },
+ "easy_piglins:barterer": {
+  "img": "img/items/easy_piglins/barterer.png",
+  "kind": "block",
+  "uk": "Торговець",
+  "en": "Barterer"
+ },
+ "easy_villagers:auto_trader": {
+  "img": "img/items/easy_villagers/auto_trader.png",
+  "kind": "block",
+  "uk": "Автоматичний торговець",
+  "en": "Auto Trader"
+ },
+ "easy_villagers:breeder": {
+  "img": "img/items/easy_villagers/breeder.png",
+  "kind": "block",
+  "uk": "Розмножувач",
+  "en": "Breeder"
+ },
+ "easy_villagers:converter": {
+  "img": "img/items/easy_villagers/converter.png",
+  "kind": "block",
+  "uk": "Конвертер",
+  "en": "Converter"
+ },
+ "easy_villagers:iron_farm": {
+  "img": "img/items/easy_villagers/iron_farm.png",
+  "kind": "block",
+  "uk": "Ферма заліза",
+  "en": "Iron Farm"
+ },
+ "elevatorid:elevator_blue": {
+  "img": "img/items/elevatorid/elevator_blue.png",
+  "kind": "block",
+  "uk": "Синій ліфт",
+  "en": "Blue Elevator"
+ },
+ "elevatorid:elevator_white": {
+  "img": "img/items/elevatorid/elevator_white.png",
+  "kind": "block",
+  "uk": "Білий ліфт",
+  "en": "White Elevator"
+ },
+ "enderio:alloy_smelter": {
+  "img": "img/items/enderio/alloy_smelter.png",
+  "kind": "block",
+  "uk": "Плавильник",
+  "en": "Alloy Smelter"
+ },
+ "enderio:basic_capacitor": {
+  "img": "img/items/enderio/basic_capacitor.png",
+  "kind": "item",
+  "uk": "Базовий конденсатор",
+  "en": "Basic Capacitor"
+ },
+ "enderio:sag_mill": {
+  "img": "img/items/enderio/sag_mill.png",
+  "kind": "block",
+  "uk": "Млин НСП",
+  "en": "SAG Mill"
+ },
+ "enderio:staff_of_travelling": {
+  "img": "img/items/enderio/staff_of_travelling.png",
+  "kind": "item",
+  "uk": "Посох мандрування",
+  "en": "Staff of Travelling"
+ },
+ "enderio_endergy:melodic_alloy_ingot": {
+  "img": "img/items/enderio_endergy/melodic_alloy_ingot.png",
+  "kind": "item",
+  "uk": "Злиток мелодійного сплаву",
+  "en": "Melodic Alloy Ingot"
+ },
+ "enderio_endergy:stellar_alloy_ingot": {
+  "img": "img/items/enderio_endergy/stellar_alloy_ingot.png",
+  "kind": "item",
+  "uk": "Злиток зоряного сплаву",
+  "en": "Stellar Alloy Ingot"
+ },
+ "enderio_endergy:vivid_capacitor": {
+  "img": "img/items/enderio_endergy/vivid_capacitor.png",
+  "kind": "item",
+  "uk": "Яскравий конденсатор",
+  "en": "Vivid Capacitor"
+ },
+ "enderthing:key": {
+  "img": "img/items/enderthing/key.png",
+  "kind": "item",
+  "uk": "Ключ Енду",
+  "en": "Ender Key"
+ },
+ "enderthing:key_chest": {
+  "img": "img/items/enderthing/key_chest.png",
+  "kind": "block",
+  "uk": "Скриня Енду з ключем",
+  "en": "Ender Key Chest"
+ },
+ "enderthing:pack": {
+  "img": "img/items/enderthing/pack.png",
+  "kind": "item",
+  "uk": "Рюкзак Енду",
+  "en": "Ender Pack"
+ },
+ "energizedpower:coal_engine": {
+  "img": "img/items/energizedpower/coal_engine.png",
+  "kind": "block",
+  "uk": "Вугільний двигун",
+  "en": "Coal Engine"
+ },
+ "energizedpower:crusher": {
+  "img": "img/items/energizedpower/crusher.png",
+  "kind": "block",
+  "uk": "Дробарка",
+  "en": "Crusher"
+ },
+ "energizedpower:pulverizer": {
+  "img": "img/items/energizedpower/pulverizer.png",
+  "kind": "block",
+  "uk": "Подрібнювач",
+  "en": "Pulverizer"
+ },
+ "energizedpower:solar_panel_7": {
+  "img": "img/items/energizedpower/solar_panel_7.png",
+  "kind": "block",
+  "uk": "Сонячна панель (Tier VII)",
+  "en": "Solar Panel (Tier VII)"
+ },
+ "energizedpower:teleporter": {
+  "img": "img/items/energizedpower/teleporter.png",
+  "kind": "block",
+  "uk": "Телепортер",
+  "en": "Teleporter"
+ },
+ "energymeter:meter": {
+  "img": "img/items/energymeter/meter.png",
+  "kind": "block",
+  "uk": "Лічильник енергії",
+  "en": "Energy Meter"
+ },
+ "energymeter:monitor": {
+  "img": "img/items/energymeter/monitor.png",
+  "kind": "block",
+  "uk": "Зовнішній монітор",
+  "en": "External Monitor"
+ },
+ "epitaphs:grave": {
+  "img": "img/items/epitaphs/grave.png",
+  "kind": "block",
+  "uk": "Могила",
+  "en": "Grave"
+ },
+ "epitaphs:soul_bottle": {
+  "img": "img/items/epitaphs/soul_bottle.png",
+  "kind": "item",
+  "uk": "Душа в пляшці",
+  "en": "Soul in a Bottle"
+ },
+ "evilcraft:blood_extractor": {
+  "img": "img/items/evilcraft/blood_extractor.png",
+  "kind": "item",
+  "uk": "Екстрактор крові",
+  "en": "Blood Extractor"
+ },
+ "evilcraft:blood_infuser": {
+  "img": "img/items/evilcraft/blood_infuser.png",
+  "kind": "block",
+  "uk": "Кривавий насичувач",
+  "en": "Blood Infuser"
+ },
+ "evilcraft:colossal_blood_chest": {
+  "img": "img/items/evilcraft/colossal_blood_chest.png",
+  "kind": "block",
+  "uk": "Колосальна кривава скриня",
+  "en": "Colossal Blood Chest"
+ },
+ "evilcraft:dark_gem": {
+  "img": "img/items/evilcraft/dark_gem.png",
+  "kind": "item",
+  "uk": "Темний самоцвіт",
+  "en": "Dark Gem"
+ },
+ "evilcraft:eternal_water": {
+  "img": "img/items/evilcraft/eternal_water.png",
+  "kind": "block",
+  "uk": "Блок вічної води",
+  "en": "Eternal Water Block"
+ },
+ "explorerscompass:explorerscompass": {
+  "img": "img/items/explorerscompass/explorerscompass.png",
+  "kind": "item",
+  "uk": "Компас дослідника",
+  "en": "Explorer's Compass"
+ },
+ "extendedae:assembler_matrix_frame": {
+  "img": "img/items/extendedae/assembler_matrix_frame.png",
+  "kind": "block",
+  "uk": "Каркас матриці збирачів",
+  "en": "Assembler Matrix Frame"
+ },
+ "extendedae:crystal_assembler": {
+  "img": "img/items/extendedae/crystal_assembler.png",
+  "kind": "block",
+  "uk": "Кристалічний збирач",
+  "en": "Crystal Assembler"
+ },
+ "extendedae:entro_crystal": {
+  "img": "img/items/extendedae/entro_crystal.png",
+  "kind": "item",
+  "uk": "Кристал ентро",
+  "en": "Entro Crystal"
+ },
+ "extendedae:ex_pattern_provider": {
+  "img": "img/items/extendedae/ex_pattern_provider.png",
+  "kind": "block",
+  "uk": "ME розширений постачальник шаблонів",
+  "en": "ME Extended Pattern Provider"
+ },
+ "extradisks:1024k_item_storage_part": {
+  "img": "img/items/extradisks/1024k_item_storage_part.png",
+  "kind": "item",
+  "uk": "1024K частина сховища",
+  "en": "1024k Storage Part"
+ },
+ "extradisks:1048576k_item_storage_disk": {
+  "img": "img/items/extradisks/1048576k_item_storage_disk.png",
+  "kind": "item",
+  "uk": "1048M диск сховища",
+  "en": "1048m Storage Disk"
+ },
+ "extradisks:256k_item_storage_disk": {
+  "img": "img/items/extradisks/256k_item_storage_disk.png",
+  "kind": "item",
+  "uk": "256K диск сховища",
+  "en": "256k Storage Disk"
+ },
+ "farmingforblockheads:chicken_nest": {
+  "img": "img/items/farmingforblockheads/chicken_nest.png",
+  "kind": "block",
+  "uk": "Куряче гніздо",
+  "en": "Chicken Nest"
+ },
+ "farmingforblockheads:green_fertilizer": {
+  "img": "img/items/farmingforblockheads/green_fertilizer.png",
+  "kind": "item",
+  "uk": "Зелене добриво",
+  "en": "Green Fertilizer"
+ },
+ "farmingforblockheads:market": {
+  "img": "img/items/farmingforblockheads/market.png",
+  "kind": "block",
+  "uk": "Ринок",
+  "en": "Market"
+ },
+ "farmingforblockheads:red_fertilizer": {
+  "img": "img/items/farmingforblockheads/red_fertilizer.png",
+  "kind": "item",
+  "uk": "Червоне добриво",
+  "en": "Red Fertilizer"
+ },
+ "fireproofboats:crimson_boat": {
+  "img": "img/items/fireproofboats/crimson_boat.png",
+  "kind": "item",
+  "uk": "Багряний човен",
+  "en": "Crimson Boat"
+ },
+ "fireproofboats:crimson_chest_boat": {
+  "img": "img/items/fireproofboats/crimson_chest_boat.png",
+  "kind": "item",
+  "uk": "Багряний човен зі скринею",
+  "en": "Crimson Boat with Chest"
+ },
+ "fireproofboats:warped_boat": {
+  "img": "img/items/fireproofboats/warped_boat.png",
+  "kind": "item",
+  "uk": "Химерний човен",
+  "en": "Warped Boat"
+ },
+ "fireproofboats:warped_chest_boat": {
+  "img": "img/items/fireproofboats/warped_chest_boat.png",
+  "kind": "item",
+  "uk": "Химерний човен зі скринею",
+  "en": "Warped Boat with Chest"
+ },
+ "forbidden_arcanus:arcane_crystal": {
+  "img": "img/items/forbidden_arcanus/arcane_crystal.png",
+  "kind": "item",
+  "uk": "Містичний кристал",
+  "en": "Arcane Crystal"
+ },
+ "forbidden_arcanus:clibano_core": {
+  "img": "img/items/forbidden_arcanus/clibano_core.png",
+  "kind": "block",
+  "uk": "Ядро Клібано",
+  "en": "Clibano Core"
+ },
+ "forbidden_arcanus:eternal_stella": {
+  "img": "img/items/forbidden_arcanus/eternal_stella.png",
+  "kind": "item",
+  "uk": "Вічна Стелла",
+  "en": "Eternal Stella"
+ },
+ "forbidden_arcanus:hephaestus_forge": {
+  "img": "img/items/forbidden_arcanus/hephaestus_forge.png",
+  "kind": "block",
+  "uk": "Кузня Гефеста",
+  "en": "Hephaestus Forge"
+ },
+ "forbidden_arcanus:mundabitur_dust": {
+  "img": "img/items/forbidden_arcanus/mundabitur_dust.png",
+  "kind": "item",
+  "uk": "Чистий пил",
+  "en": "Mundabitur Dust"
+ },
+ "forbidden_arcanus:quantum_catcher": {
+  "img": "img/items/forbidden_arcanus/quantum_catcher.png",
+  "kind": "block",
+  "uk": "Квантовий ловець",
+  "en": "Quantum Catcher"
+ },
+ "ftbfiltersystem:smart_filter": {
+  "img": "img/items/ftbfiltersystem/smart_filter.png",
+  "kind": "item",
+  "uk": "Розумний фільтр",
+  "en": "Smart Filter"
+ },
+ "ftbultimine:ultiminer": {
+  "img": "img/items/ftbultimine/ultiminer.png",
+  "kind": "item",
+  "uk": "Ультидобувач",
+  "en": "Ultiminer"
+ },
+ "functionalstorage:compacting_drawer": {
+  "img": "img/items/functionalstorage/compacting_drawer.png",
+  "kind": "approx",
+  "uk": "Компактуюча шухляда",
+  "en": "Compacting Drawer"
+ },
+ "functionalstorage:fluid_1": {
+  "img": "img/items/functionalstorage/fluid_1.png",
+  "kind": "approx",
+  "uk": "Рідинна шухляда (1x1)",
+  "en": "Fluid Drawer (1x1)"
+ },
+ "functionalstorage:oak_1": {
+  "img": "img/items/functionalstorage/oak_1.png",
+  "kind": "block",
+  "uk": "Дубова шухляда (1x1)",
+  "en": "Oak Drawer (1x1)"
+ },
+ "functionalstorage:storage_controller": {
+  "img": "img/items/functionalstorage/storage_controller.png",
+  "kind": "approx",
+  "uk": "Контролер сховищ",
+  "en": "Storage Controller"
+ },
+ "gateways:gate_pearl": {
+  "img": "img/items/gateways/gate_pearl.png",
+  "kind": "item",
+  "uk": "Перлина брами",
+  "en": "Gate Pearl"
+ },
+ "generatorgalore:culinary_generator": {
+  "img": "img/items/generatorgalore/culinary_generator.png",
+  "kind": "block",
+  "uk": "Кулінарний генератор",
+  "en": "Culinary Generator"
+ },
+ "generatorgalore:iron_generator": {
+  "img": "img/items/generatorgalore/iron_generator.png",
+  "kind": "block",
+  "uk": "Залізний генератор",
+  "en": "Iron Generator"
+ },
+ "generatorgalore:magmatic_generator": {
+  "img": "img/items/generatorgalore/magmatic_generator.png",
+  "kind": "block",
+  "uk": "Магматичний генератор",
+  "en": "Magmatic Generator"
+ },
+ "generatorgalore:netherstar_generator": {
+  "img": "img/items/generatorgalore/netherstar_generator.png",
+  "kind": "block",
+  "uk": "Генератор зірки Незеру",
+  "en": "Netherstar Generator"
+ },
+ "geore:allthemodium_shard": {
+  "img": "img/items/geore/allthemodium_shard.png",
+  "kind": "item",
+  "uk": "Уламок GeOre: усемодій",
+  "en": "Allthemodium GeOre Shard"
+ },
+ "geore:budding_allthemodium": {
+  "img": "img/items/geore/budding_allthemodium.png",
+  "kind": "block",
+  "uk": "Родючий GeOre: усемодій",
+  "en": "Budding Allthemodium GeOre"
+ },
+ "geore:budding_ancient_debris": {
+  "img": "img/items/geore/budding_ancient_debris.png",
+  "kind": "block",
+  "uk": "Родючий GeOre: стародавні уламки",
+  "en": "Budding Ancient Debris GeOre"
+ },
+ "geore:budding_diamond": {
+  "img": "img/items/geore/budding_diamond.png",
+  "kind": "block",
+  "uk": "Родючий GeOre: діамант",
+  "en": "Budding Diamond GeOre"
+ },
+ "geore:budding_iron": {
+  "img": "img/items/geore/budding_iron.png",
+  "kind": "block",
+  "uk": "Родючий GeOre: залізо",
+  "en": "Budding Iron GeOre"
+ },
+ "hostilenetworks:data_center": {
+  "img": "img/items/hostilenetworks/data_center.png",
+  "kind": "block",
+  "uk": "Центр обробки даних",
+  "en": "Data Center"
+ },
+ "hostilenetworks:deep_learner": {
+  "img": "img/items/hostilenetworks/deep_learner.png",
+  "kind": "item",
+  "uk": "Глибинний учень",
+  "en": "Deep Learner"
+ },
+ "hostilenetworks:loot_fabricator": {
+  "img": "img/items/hostilenetworks/loot_fabricator.png",
+  "kind": "block",
+  "uk": "Фабрикатор здобичі",
+  "en": "Loot Fabricator"
+ },
+ "hostilenetworks:sim_chamber": {
+  "img": "img/items/hostilenetworks/sim_chamber.png",
+  "kind": "block",
+  "uk": "Симуляційна камера",
+  "en": "Simulation Chamber"
+ },
+ "iceandfire:bestiary": {
+  "img": "img/items/iceandfire/bestiary.png",
+  "kind": "item",
+  "uk": "Бестіарій",
+  "en": "Bestiary"
+ },
+ "iceandfire:dragon_skull_fire": {
+  "img": "img/items/iceandfire/dragon_skull_fire.png",
+  "kind": "item",
+  "uk": "Череп дракона",
+  "en": "Dragon Skull"
+ },
+ "iceandfire:dragonscales_red": {
+  "img": "img/items/iceandfire/dragonscales_red.png",
+  "kind": "item",
+  "uk": "Луска червоного дракона",
+  "en": "Red Dragon Scales"
+ },
+ "iceandfire:dragonsteel_fire_ingot": {
+  "img": "img/items/iceandfire/dragonsteel_fire_ingot.png",
+  "kind": "item",
+  "uk": "Злиток вогняної драконесталі",
+  "en": "Fire Dragonsteel Ingot"
+ },
+ "iceandfire:fire_dragon_heart": {
+  "img": "img/items/iceandfire/fire_dragon_heart.png",
+  "kind": "item",
+  "uk": "Серце вогняного дракона",
+  "en": "Fire Dragon Heart"
+ },
+ "iceandfire:gorgon_head": {
+  "img": "img/items/iceandfire/gorgon_head.png",
+  "kind": "approx",
+  "uk": "Голова горгони",
+  "en": "Gorgon Head"
+ },
+ "integratedcrafting:part_crafting_writer": {
+  "img": "img/items/integratedcrafting/part_crafting_writer.png",
+  "kind": "block",
+  "uk": "",
+  "en": "part crafting writer"
+ },
+ "integratedcrafting:part_interface_crafting": {
+  "img": "img/items/integratedcrafting/part_interface_crafting.png",
+  "kind": "block",
+  "uk": "",
+  "en": "part interface crafting"
+ },
+ "integrateddynamics:cable": {
+  "img": "img/items/integrateddynamics/cable.png",
+  "kind": "approx",
+  "uk": "Логічний кабель",
+  "en": "Logic Cable"
+ },
+ "integrateddynamics:logic_programmer": {
+  "img": "img/items/integrateddynamics/logic_programmer.png",
+  "kind": "block",
+  "uk": "Логічний програматор",
+  "en": "Logic Programmer"
+ },
+ "integrateddynamics:squeezer": {
+  "img": "img/items/integrateddynamics/squeezer.png",
+  "kind": "block",
+  "uk": "Прес",
+  "en": "Squeezer"
+ },
+ "integrateddynamics:variable": {
+  "img": "img/items/integrateddynamics/variable.png",
+  "kind": "item",
+  "uk": "Картка змінної",
+  "en": "Variable Card"
+ },
+ "integratedterminals:part_terminal_storage": {
+  "img": "img/items/integratedterminals/part_terminal_storage.png",
+  "kind": "block",
+  "uk": "",
+  "en": "part terminal storage"
+ },
+ "integratedterminals:terminal_storage_portable": {
+  "img": "img/items/integratedterminals/terminal_storage_portable.png",
+  "kind": "item",
+  "uk": "Портативний термінал сховища",
+  "en": "Portable Storage Terminal"
+ },
+ "integratedtunnels:part_exporter_world_block": {
+  "img": "img/items/integratedtunnels/part_exporter_world_block.png",
+  "kind": "block",
+  "uk": "",
+  "en": "part exporter world block"
+ },
+ "integratedtunnels:part_importer_item": {
+  "img": "img/items/integratedtunnels/part_importer_item.png",
+  "kind": "block",
+  "uk": "",
+  "en": "part importer item"
+ },
+ "integratedtunnels:part_interface_item": {
+  "img": "img/items/integratedtunnels/part_interface_item.png",
+  "kind": "block",
+  "uk": "",
+  "en": "part interface item"
+ },
+ "interdimensionalwirelesstransmitter:interdimensional_wireless_transmitter": {
+  "img": "img/items/interdimensionalwirelesstransmitter/interdimensional_wireless_transmitter.png",
+  "kind": "block",
+  "uk": "Міжвимірний бездротовий передавач",
+  "en": "Interdimensional Wireless Transmitter"
+ },
+ "ironfurnaces:diamond_furnace": {
+  "img": "img/items/ironfurnaces/diamond_furnace.png",
+  "kind": "block",
+  "uk": "Діамантова піч",
+  "en": "Diamond Furnace"
+ },
+ "ironfurnaces:iron_furnace": {
+  "img": "img/items/ironfurnaces/iron_furnace.png",
+  "kind": "block",
+  "uk": "Залізна піч",
+  "en": "Iron Furnace"
+ },
+ "ironfurnaces:million_furnace": {
+  "img": "img/items/ironfurnaces/million_furnace.png",
+  "kind": "block",
+  "uk": "Веселкова піч",
+  "en": "Rainbow Furnace"
+ },
+ "ironfurnaces:netherite_furnace": {
+  "img": "img/items/ironfurnaces/netherite_furnace.png",
+  "kind": "block",
+  "uk": "Незеритова піч",
+  "en": "Netherite Furnace"
+ },
+ "ironjetpacks:basic_coil": {
+  "img": "img/items/ironjetpacks/basic_coil.png",
+  "kind": "item",
+  "uk": "Базова котушка",
+  "en": "Basic Coil"
+ },
+ "ironjetpacks:jetpack": {
+  "img": "img/items/ironjetpacks/jetpack.png",
+  "kind": "item",
+  "uk": "%s реактивний ранець",
+  "en": "%s Jetpack"
+ },
+ "ironjetpacks:ultimate_coil": {
+  "img": "img/items/ironjetpacks/ultimate_coil.png",
+  "kind": "item",
+  "uk": "Ультимативна котушка",
+  "en": "Ultimate Coil"
+ },
+ "irons_artifice:blackpowder_revolver": {
+  "img": "img/items/irons_artifice/blackpowder_revolver.png",
+  "kind": "block",
+  "uk": "Чорно-пороховий револьвер",
+  "en": "Blackpowder Revolver"
+ },
+ "irons_artifice:clockwork_rifle": {
+  "img": "img/items/irons_artifice/clockwork_rifle.png",
+  "kind": "block",
+  "uk": "Заводна гвинтівка",
+  "en": "Clockwork Rifle"
+ },
+ "irons_artifice:flintlock": {
+  "img": "img/items/irons_artifice/flintlock.png",
+  "kind": "block",
+  "uk": "Флінтлок",
+  "en": "Flintlock"
+ },
+ "irons_artifice:musket": {
+  "img": "img/items/irons_artifice/musket.png",
+  "kind": "block",
+  "uk": "Мушкет",
+  "en": "Musket"
+ },
+ "irons_jewelry:jewelcrafting_guide": {
+  "img": "img/items/irons_jewelry/jewelcrafting_guide.png",
+  "kind": "item",
+  "uk": "Ювелірна справа для всіх",
+  "en": "Jewelcrafting and You"
+ },
+ "irons_jewelry:jewelcrafting_station": {
+  "img": "img/items/irons_jewelry/jewelcrafting_station.png",
+  "kind": "block",
+  "uk": "Ювелірний верстат",
+  "en": "Jewelcrafting Station"
+ },
+ "irons_jewelry:moonstone": {
+  "img": "img/items/irons_jewelry/moonstone.png",
+  "kind": "item",
+  "uk": "Місячний камінь",
+  "en": "Moonstone"
+ },
+ "irons_jewelry:ruby": {
+  "img": "img/items/irons_jewelry/ruby.png",
+  "kind": "item",
+  "uk": "Рубін",
+  "en": "Ruby"
+ },
+ "itemcollectors:advanced_collector": {
+  "img": "img/items/itemcollectors/advanced_collector.png",
+  "kind": "block",
+  "uk": "",
+  "en": "advanced collector"
+ },
+ "itemcollectors:basic_collector": {
+  "img": "img/items/itemcollectors/basic_collector.png",
+  "kind": "block",
+  "uk": "",
+  "en": "basic collector"
+ },
+ "justdirethings:celestigem": {
+  "img": "img/items/justdirethings/celestigem.png",
+  "kind": "item",
+  "uk": "Целестигем",
+  "en": "Celestigem"
+ },
+ "justdirethings:ferricore_ingot": {
+  "img": "img/items/justdirethings/ferricore_ingot.png",
+  "kind": "item",
+  "uk": "Феррікоровий злиток",
+  "en": "Ferricore Ingot"
+ },
+ "justdirethings:gooblock_tier1": {
+  "img": "img/items/justdirethings/gooblock_tier1.png",
+  "kind": "block",
+  "uk": "Примогелева маса",
+  "en": "Primogel Goo"
+ },
+ "justdirethings:portalgun": {
+  "img": "img/items/justdirethings/portalgun.png",
+  "kind": "block",
+  "uk": "Портальна гармата",
+  "en": "Portal Gun"
+ },
+ "kubejs:allthemodium_mesh": {
+  "img": "img/items/kubejs/allthemodium_mesh.png",
+  "kind": "item",
+  "uk": "Усемодієва сітка",
+  "en": ""
+ },
+ "kubejs:crystalline_wand": {
+  "img": "img/items/kubejs/crystalline_wand.png",
+  "kind": "item",
+  "uk": "Недосконалий кристалічний резонансний жезл",
+  "en": ""
+ },
+ "kubejs:magical_soil": {
+  "img": "img/items/kubejs/magical_soil.png",
+  "kind": "block",
+  "uk": "§bЧарівний ґрунт",
+  "en": ""
+ },
+ "kubejs:perfected_crystalline_wand": {
+  "img": "img/items/kubejs/perfected_crystalline_wand.png",
+  "kind": "item",
+  "uk": "Досконалий кристалічний резонансний жезл",
+  "en": ""
+ },
+ "laserbridges:laser_fence_source_block": {
+  "img": "img/items/laserbridges/laser_fence_source_block.png",
+  "kind": "block",
+  "uk": "Джерело лазерної огорожі",
+  "en": "Laser Fence Source"
+ },
+ "laserbridges:laser_source_block": {
+  "img": "img/items/laserbridges/laser_source_block.png",
+  "kind": "block",
+  "uk": "Лазерне джерело",
+  "en": "Laser Source"
+ },
+ "laserio:card_item": {
+  "img": "img/items/laserio/card_item.png",
+  "kind": "item",
+  "uk": "Картка предметів",
+  "en": "Item Card"
+ },
+ "laserio:laser_connector": {
+  "img": "img/items/laserio/laser_connector.png",
+  "kind": "block",
+  "uk": "Лазерний з'єднувач",
+  "en": "Laser Connector"
+ },
+ "laserio:laser_node": {
+  "img": "img/items/laserio/laser_node.png",
+  "kind": "block",
+  "uk": "Лазерний вузол",
+  "en": "Laser Node"
+ },
+ "laserio:laser_wrench": {
+  "img": "img/items/laserio/laser_wrench.png",
+  "kind": "item",
+  "uk": "Лазерний ключ",
+  "en": "Laser Wrench"
+ },
+ "logisticsnetworks:computer": {
+  "img": "img/items/logisticsnetworks/computer.png",
+  "kind": "block",
+  "uk": "Комп'ютер",
+  "en": "Computer"
+ },
+ "logisticsnetworks:diamond_upgrade": {
+  "img": "img/items/logisticsnetworks/diamond_upgrade.png",
+  "kind": "item",
+  "uk": "Діамантове покращення",
+  "en": "Diamond Upgrade"
+ },
+ "logisticsnetworks:logistics_node": {
+  "img": "img/items/logisticsnetworks/logistics_node.png",
+  "kind": "block",
+  "uk": "Логістичний вузол",
+  "en": "Logistics Node"
+ },
+ "logisticsnetworks:wrench": {
+  "img": "img/items/logisticsnetworks/wrench.png",
+  "kind": "item",
+  "uk": "Ключ",
+  "en": "Wrench"
+ },
+ "lootr:barrel": {
+  "img": "img/items/lootr/barrel.png",
+  "kind": "block",
+  "uk": "Діжка зі здобиччю",
+  "en": "Loot Barrel"
+ },
+ "lootr:chest": {
+  "img": "img/items/lootr/chest.png",
+  "kind": "approx",
+  "uk": "Скриня зі здобиччю",
+  "en": "Loot Chest"
+ },
+ "lootr:copper_chest": {
+  "img": "img/items/lootr/copper_chest.png",
+  "kind": "approx",
+  "uk": "Мідна скриня зі здобиччю",
+  "en": "Copper Loot Chest"
+ },
+ "lootr:shulker_box": {
+  "img": "img/items/lootr/shulker_box.png",
+  "kind": "approx",
+  "uk": "Шалкер зі здобиччю",
+  "en": "Loot Shulker"
+ },
+ "mahoutsukai:attuned_diamond": {
+  "img": "img/items/mahoutsukai/attuned_diamond.png",
+  "kind": "item",
+  "uk": "Налаштований діамант",
+  "en": "Attuned Diamond"
+ },
+ "mahoutsukai:caliburn": {
+  "img": "img/items/mahoutsukai/caliburn.png",
+  "kind": "item",
+  "uk": "Калібурн",
+  "en": "Caliburn"
+ },
+ "mahoutsukai:dagger": {
+  "img": "img/items/mahoutsukai/dagger.png",
+  "kind": "item",
+  "uk": "Кинджал",
+  "en": "Dagger"
+ },
+ "mahoutsukai:guidebook": {
+  "img": "img/items/mahoutsukai/guidebook.png",
+  "kind": "item",
+  "uk": "Збірник знань Mahou Tsukai",
+  "en": "Mahou Tsukai Knowledge Compendium"
+ },
+ "mahoutsukai:morgan": {
+  "img": "img/items/mahoutsukai/morgan.png",
+  "kind": "item",
+  "uk": "Морган",
+  "en": "Morgan"
+ },
+ "mahoutsukai:mortar_and_pestle": {
+  "img": "img/items/mahoutsukai/mortar_and_pestle.png",
+  "kind": "item",
+  "uk": "Ступка з товкачем",
+  "en": "Mortar and Pestle"
+ },
+ "matc:inferium_crystal": {
+  "img": "img/items/matc/inferium_crystal.png",
+  "kind": "item",
+  "uk": "§eІнферієвий кристал",
+  "en": "§eInferium Crystal"
+ },
+ "matc:supremium_crystal": {
+  "img": "img/items/matc/supremium_crystal.png",
+  "kind": "item",
+  "uk": "§cСупремієвий кристал",
+  "en": "§cSupremium Crystal"
+ },
+ "matc:tertium_crystal": {
+  "img": "img/items/matc/tertium_crystal.png",
+  "kind": "item",
+  "uk": "§6Тертієвий кристал",
+  "en": "§6Tertium Crystal"
+ },
+ "merequester:requester": {
+  "img": "img/items/merequester/requester.png",
+  "kind": "block",
+  "uk": "ME запитувач",
+  "en": "ME Requester"
+ },
+ "merequester:requester_terminal": {
+  "img": "img/items/merequester/requester_terminal.png",
+  "kind": "block",
+  "uk": "ME термінал запитувача",
+  "en": "ME Requester Terminal"
+ },
+ "mffs:coercion_deriver": {
+  "img": "img/items/mffs/coercion_deriver.png",
+  "kind": "block",
+  "uk": "Примусовий деривататор",
+  "en": "Coercion Deriver"
+ },
+ "mffs:fortron_capacitor": {
+  "img": "img/items/mffs/fortron_capacitor.png",
+  "kind": "block",
+  "uk": "Фортронний конденсатор",
+  "en": "Fortron Capacitor"
+ },
+ "mffs:interdiction_matrix": {
+  "img": "img/items/mffs/interdiction_matrix.png",
+  "kind": "block",
+  "uk": "Матриця заборони",
+  "en": "Interdiction Matrix"
+ },
+ "mffs:projector": {
+  "img": "img/items/mffs/projector.png",
+  "kind": "block",
+  "uk": "Проєктор силового поля",
+  "en": "Force Field Projector"
+ },
+ "minecraft:amethyst_shard": {
+  "img": "img/items/minecraft/amethyst_shard.png",
+  "kind": "item",
+  "uk": "Аметистовий уламок",
+  "en": "Amethyst Shard"
+ },
+ "minecraft:ancient_debris": {
+  "img": "img/items/minecraft/ancient_debris.png",
+  "kind": "block",
+  "uk": "Стародавні залишки",
+  "en": "Ancient Debris"
+ },
+ "minecraft:bell": {
+  "img": "img/items/minecraft/bell.png",
+  "kind": "item",
+  "uk": "Дзвін",
+  "en": "Bell"
+ },
+ "minecraft:blaze_rod": {
+  "img": "img/items/minecraft/blaze_rod.png",
+  "kind": "item",
+  "uk": "Стрижень пломеня",
+  "en": "Blaze Rod"
+ },
+ "minecraft:bread": {
+  "img": "img/items/minecraft/bread.png",
+  "kind": "item",
+  "uk": "Хліб",
+  "en": "Bread"
+ },
+ "minecraft:brush": {
+  "img": "img/items/minecraft/brush.png",
+  "kind": "item",
+  "uk": "Щітка",
+  "en": "Brush"
+ },
+ "minecraft:calcite": {
+  "img": "img/items/minecraft/calcite.png",
+  "kind": "block",
+  "uk": "Кальцит",
+  "en": "Calcite"
+ },
+ "minecraft:chorus_flower": {
+  "img": "img/items/minecraft/chorus_flower.png",
+  "kind": "block",
+  "uk": "Квітка хорусу",
+  "en": "Chorus Flower"
+ },
+ "minecraft:cobblestone": {
+  "img": "img/items/minecraft/cobblestone.png",
+  "kind": "block",
+  "uk": "Кругляк",
+  "en": "Cobblestone"
+ },
+ "minecraft:compass": {
+  "img": "img/items/minecraft/compass.png",
+  "kind": "item",
+  "uk": "Компас",
+  "en": "Compass"
+ },
+ "minecraft:crafting_table": {
+  "img": "img/items/minecraft/crafting_table.png",
+  "kind": "block",
+  "uk": "Верстак",
+  "en": "Crafting Table"
+ },
+ "minecraft:crossbow": {
+  "img": "img/items/minecraft/crossbow.png",
+  "kind": "item",
+  "uk": "Арбалет",
+  "en": "Crossbow"
+ },
+ "minecraft:decorated_pot": {
+  "img": "img/items/minecraft/decorated_pot.png",
+  "kind": "approx",
+  "uk": "Оздоблений горщик",
+  "en": "Decorated Pot"
+ },
+ "minecraft:diamond": {
+  "img": "img/items/minecraft/diamond.png",
+  "kind": "item",
+  "uk": "Діамант",
+  "en": "Diamond"
+ },
+ "minecraft:diamond_pickaxe": {
+  "img": "img/items/minecraft/diamond_pickaxe.png",
+  "kind": "item",
+  "uk": "Діамантове кайло",
+  "en": "Diamond Pickaxe"
+ },
+ "minecraft:dragon_egg": {
+  "img": "img/items/minecraft/dragon_egg.png",
+  "kind": "block",
+  "uk": "Яйце дракона",
+  "en": "Dragon Egg"
+ },
+ "minecraft:emerald": {
+  "img": "img/items/minecraft/emerald.png",
+  "kind": "item",
+  "uk": "Смарагд",
+  "en": "Emerald"
+ },
+ "minecraft:emerald_ore": {
+  "img": "img/items/minecraft/emerald_ore.png",
+  "kind": "block",
+  "uk": "Смарагдова руда",
+  "en": "Emerald Ore"
+ },
+ "minecraft:enchanted_book": {
+  "img": "img/items/minecraft/enchanted_book.png",
+  "kind": "item",
+  "uk": "Зачарована книга",
+  "en": "Enchanted Book"
+ },
+ "minecraft:enchanting_table": {
+  "img": "img/items/minecraft/enchanting_table.png",
+  "kind": "block",
+  "uk": "Стіл зачарування",
+  "en": "Enchanting Table"
+ },
+ "minecraft:end_stone": {
+  "img": "img/items/minecraft/end_stone.png",
+  "kind": "block",
+  "uk": "Камінь Енду",
+  "en": "End Stone"
+ },
+ "minecraft:ender_eye": {
+  "img": "img/items/minecraft/ender_eye.png",
+  "kind": "item",
+  "uk": "Око Енду",
+  "en": "Eye of Ender"
+ },
+ "minecraft:ender_pearl": {
+  "img": "img/items/minecraft/ender_pearl.png",
+  "kind": "item",
+  "uk": "Перлина Енду",
+  "en": "Ender Pearl"
+ },
+ "minecraft:filled_map": {
+  "img": "img/items/minecraft/filled_map.png",
+  "kind": "item",
+  "uk": "Мапа",
+  "en": "Map"
+ },
+ "minecraft:flint_and_steel": {
+  "img": "img/items/minecraft/flint_and_steel.png",
+  "kind": "item",
+  "uk": "Кресало",
+  "en": "Flint and Steel"
+ },
+ "minecraft:furnace": {
+  "img": "img/items/minecraft/furnace.png",
+  "kind": "block",
+  "uk": "Піч",
+  "en": "Furnace"
+ },
+ "minecraft:gold_ingot": {
+  "img": "img/items/minecraft/gold_ingot.png",
+  "kind": "item",
+  "uk": "Золотий злиток",
+  "en": "Gold Ingot"
+ },
+ "minecraft:golden_apple": {
+  "img": "img/items/minecraft/golden_apple.png",
+  "kind": "item",
+  "uk": "Золоте яблуко",
+  "en": "Golden Apple"
+ },
+ "minecraft:golden_carrot": {
+  "img": "img/items/minecraft/golden_carrot.png",
+  "kind": "item",
+  "uk": "Золота морква",
+  "en": "Golden Carrot"
+ },
+ "minecraft:iron_ingot": {
+  "img": "img/items/minecraft/iron_ingot.png",
+  "kind": "item",
+  "uk": "Залізний злиток",
+  "en": "Iron Ingot"
+ },
+ "minecraft:iron_sword": {
+  "img": "img/items/minecraft/iron_sword.png",
+  "kind": "item",
+  "uk": "Залізний меч",
+  "en": "Iron Sword"
+ },
+ "minecraft:lantern": {
+  "img": "img/items/minecraft/lantern.png",
+  "kind": "item",
+  "uk": "Ліхтар",
+  "en": "Lantern"
+ },
+ "minecraft:lectern": {
+  "img": "img/items/minecraft/lectern.png",
+  "kind": "block",
+  "uk": "Катедра",
+  "en": "Lectern"
+ },
+ "minecraft:map": {
+  "img": "img/items/minecraft/map.png",
+  "kind": "item",
+  "uk": "Порожня мапа",
+  "en": "Empty Map"
+ },
+ "minecraft:mossy_cobblestone": {
+  "img": "img/items/minecraft/mossy_cobblestone.png",
+  "kind": "block",
+  "uk": "Моховитий кругляк",
+  "en": "Mossy Cobblestone"
+ },
+ "minecraft:mossy_stone_bricks": {
+  "img": "img/items/minecraft/mossy_stone_bricks.png",
+  "kind": "block",
+  "uk": "Моховита кам'яна цегла",
+  "en": "Mossy Stone Bricks"
+ },
+ "minecraft:nether_star": {
+  "img": "img/items/minecraft/nether_star.png",
+  "kind": "item",
+  "uk": "Зірка Незеру",
+  "en": "Nether Star"
+ },
+ "minecraft:netherite_ingot": {
+  "img": "img/items/minecraft/netherite_ingot.png",
+  "kind": "item",
+  "uk": "Незеритовий злиток",
+  "en": "Netherite Ingot"
+ },
+ "minecraft:netherrack": {
+  "img": "img/items/minecraft/netherrack.png",
+  "kind": "block",
+  "uk": "Незерак",
+  "en": "Netherrack"
+ },
+ "minecraft:oak_boat": {
+  "img": "img/items/minecraft/oak_boat.png",
+  "kind": "item",
+  "uk": "Дубовий човен",
+  "en": "Oak Boat"
+ },
+ "minecraft:oak_log": {
+  "img": "img/items/minecraft/oak_log.png",
+  "kind": "block",
+  "uk": "Дубова колода",
+  "en": "Oak Log"
+ },
+ "minecraft:obsidian": {
+  "img": "img/items/minecraft/obsidian.png",
+  "kind": "block",
+  "uk": "Обсидіан",
+  "en": "Obsidian"
+ },
+ "minecraft:ominous_trial_key": {
+  "img": "img/items/minecraft/ominous_trial_key.png",
+  "kind": "item",
+  "uk": "Зловісний ключ випробувань",
+  "en": "Ominous Trial Key"
+ },
+ "minecraft:pointed_dripstone": {
+  "img": "img/items/minecraft/pointed_dripstone.png",
+  "kind": "item",
+  "uk": "Загострений сталактит",
+  "en": "Pointed Dripstone"
+ },
+ "minecraft:prismarine_bricks": {
+  "img": "img/items/minecraft/prismarine_bricks.png",
+  "kind": "block",
+  "uk": "Призмаринова цегла",
+  "en": "Prismarine Bricks"
+ },
+ "minecraft:raw_iron": {
+  "img": "img/items/minecraft/raw_iron.png",
+  "kind": "item",
+  "uk": "Необроблене залізо",
+  "en": "Raw Iron"
+ },
+ "minecraft:sea_lantern": {
+  "img": "img/items/minecraft/sea_lantern.png",
+  "kind": "block",
+  "uk": "Морський ліхтар",
+  "en": "Sea Lantern"
+ },
+ "minecraft:snow_block": {
+  "img": "img/items/minecraft/snow_block.png",
+  "kind": "block",
+  "uk": "Сніговий блок",
+  "en": "Snow Block"
+ },
+ "minecraft:spawner": {
+  "img": "img/items/minecraft/spawner.png",
+  "kind": "block",
+  "uk": "Породжувач монстрів",
+  "en": "Monster Spawner"
+ },
+ "minecraft:spyglass": {
+  "img": "img/items/minecraft/spyglass.png",
+  "kind": "block",
+  "uk": "Підзорна труба",
+  "en": "Spyglass"
+ },
+ "minecraft:stone_pickaxe": {
+  "img": "img/items/minecraft/stone_pickaxe.png",
+  "kind": "item",
+  "uk": "Кам'яне кайло",
+  "en": "Stone Pickaxe"
+ },
+ "minecraft:trial_key": {
+  "img": "img/items/minecraft/trial_key.png",
+  "kind": "item",
+  "uk": "Ключ випробувань",
+  "en": "Trial Key"
+ },
+ "minecraft:trial_spawner": {
+  "img": "img/items/minecraft/trial_spawner.png",
+  "kind": "block",
+  "uk": "Породжувач випробувань",
+  "en": "Trial Spawner"
+ },
+ "minecraft:vault": {
+  "img": "img/items/minecraft/vault.png",
+  "kind": "block",
+  "uk": "Сховище",
+  "en": "Vault"
+ },
+ "minecraft:white_banner": {
+  "img": "img/items/minecraft/white_banner.png",
+  "kind": "approx",
+  "uk": "Білий стяг",
+  "en": "White Banner"
+ },
+ "minecraft:wither_skeleton_skull": {
+  "img": "img/items/minecraft/wither_skeleton_skull.png",
+  "kind": "block",
+  "uk": "Череп візера-скелета",
+  "en": "Wither Skeleton Skull"
+ },
+ "minecraft:wooden_pickaxe": {
+  "img": "img/items/minecraft/wooden_pickaxe.png",
+  "kind": "item",
+  "uk": "Дерев'яне кайло",
+  "en": "Wooden Pickaxe"
+ },
+ "mininggadgets:mininggadget": {
+  "img": "img/items/mininggadgets/mininggadget.png",
+  "kind": "block",
+  "uk": "Гірничий гаджет MK3",
+  "en": "Mining Gadget MK3"
+ },
+ "mininggadgets:mininggadget_simple": {
+  "img": "img/items/mininggadgets/mininggadget_simple.png",
+  "kind": "block",
+  "uk": "Гірничий гаджет MK1",
+  "en": "Mining Gadget MK1"
+ },
+ "mininggadgets:modificationtable": {
+  "img": "img/items/mininggadgets/modificationtable.png",
+  "kind": "block",
+  "uk": "Стіл модифікацій",
+  "en": "Modification Table"
+ },
+ "mininggadgets:upgrade_size_3": {
+  "img": "img/items/mininggadgets/upgrade_size_3.png",
+  "kind": "item",
+  "uk": "Покращення: 7x7",
+  "en": "Upgrade: 7x7"
+ },
+ "modularrouters:breaker_module": {
+  "img": "img/items/modularrouters/breaker_module.png",
+  "kind": "item",
+  "uk": "Модуль руйнування",
+  "en": "Breaker Module"
+ },
+ "modularrouters:modular_router": {
+  "img": "img/items/modularrouters/modular_router.png",
+  "kind": "block",
+  "uk": "Модульний маршрутизатор",
+  "en": "Modular Router"
+ },
+ "modularrouters:sender_module_1": {
+  "img": "img/items/modularrouters/sender_module_1.png",
+  "kind": "item",
+  "uk": "Модуль відправлення Mk1",
+  "en": "Sender Module Mk1"
+ },
+ "modularrouters:vacuum_module": {
+  "img": "img/items/modularrouters/vacuum_module.png",
+  "kind": "item",
+  "uk": "Вакуумний модуль",
+  "en": "Vacuum Module"
+ },
+ "morered:and_gate": {
+  "img": "img/items/morered/and_gate.png",
+  "kind": "block",
+  "uk": "Вентиль AND",
+  "en": "AND Gate"
+ },
+ "morered:red_alloy_wire": {
+  "img": "img/items/morered/red_alloy_wire.png",
+  "kind": "block",
+  "uk": "Дріт із червоного сплаву",
+  "en": "Red Alloy Wire"
+ },
+ "morered:redwire_post": {
+  "img": "img/items/morered/redwire_post.png",
+  "kind": "block",
+  "uk": "Стовпчик червоного дроту",
+  "en": "Redwire Post"
+ },
+ "morered:tube": {
+  "img": "img/items/morered/tube.png",
+  "kind": "block",
+  "uk": "Трубка",
+  "en": "Tube"
+ },
+ "mysticalagradditions:creative_essence": {
+  "img": "img/items/mysticalagradditions/creative_essence.png",
+  "kind": "item",
+  "uk": "Творча есенція",
+  "en": "Creative Essence"
+ },
+ "mysticalagradditions:insanium_essence": {
+  "img": "img/items/mysticalagradditions/insanium_essence.png",
+  "kind": "item",
+  "uk": "Інсанієва есенція",
+  "en": "Insanium Essence"
+ },
+ "mysticalagradditions:nether_star_crux": {
+  "img": "img/items/mysticalagradditions/nether_star_crux.png",
+  "kind": "block",
+  "uk": "Основа із зірки Незеру",
+  "en": "Nether Star Crux"
+ },
+ "mysticalagradditions:withering_soul": {
+  "img": "img/items/mysticalagradditions/withering_soul.png",
+  "kind": "item",
+  "uk": "Висушена душа",
+  "en": "Withering Soul"
+ },
+ "mysticalagriculture:awakened_supremium_essence": {
+  "img": "img/items/mysticalagriculture/awakened_supremium_essence.png",
+  "kind": "item",
+  "uk": "Пробуджена супремієва есенція",
+  "en": "Awakened Supremium Essence"
+ },
+ "mysticalagriculture:inferium_essence": {
+  "img": "img/items/mysticalagriculture/inferium_essence.png",
+  "kind": "item",
+  "uk": "Інферієва есенція",
+  "en": "Inferium Essence"
+ },
+ "mysticalagriculture:infusion_altar": {
+  "img": "img/items/mysticalagriculture/infusion_altar.png",
+  "kind": "block",
+  "uk": "Вівтар наповнення",
+  "en": "Infusion Altar"
+ },
+ "mysticalagriculture:master_infusion_crystal": {
+  "img": "img/items/mysticalagriculture/master_infusion_crystal.png",
+  "kind": "item",
+  "uk": "Майстерський кристал наповнення",
+  "en": "Master Infusion Crystal"
+ },
+ "mysticalagriculture:prosperity_shard": {
+  "img": "img/items/mysticalagriculture/prosperity_shard.png",
+  "kind": "item",
+  "uk": "Уламок процвітання",
+  "en": "Prosperity Shard"
+ },
+ "mysticalagriculture:soulium_dagger": {
+  "img": "img/items/mysticalagriculture/soulium_dagger.png",
+  "kind": "item",
+  "uk": "Соулієвий кинджал",
+  "en": "Soulium Dagger"
+ },
+ "mysticalautomation:awakening_altarnator": {
+  "img": "img/items/mysticalautomation/awakening_altarnator.png",
+  "kind": "block",
+  "uk": "Автовівтар пробудження",
+  "en": "Awakening Altarnator"
+ },
+ "mysticalautomation:farmer": {
+  "img": "img/items/mysticalautomation/farmer.png",
+  "kind": "block",
+  "uk": "Автофермер",
+  "en": "Farmer"
+ },
+ "mysticalautomation:infuser": {
+  "img": "img/items/mysticalautomation/infuser.png",
+  "kind": "block",
+  "uk": "Автонаповнювач",
+  "en": "Infuser"
+ },
+ "mysticalautomation:infusion_altarnator": {
+  "img": "img/items/mysticalautomation/infusion_altarnator.png",
+  "kind": "block",
+  "uk": "Автовівтар наповнення",
+  "en": "Infusion Altarnator"
+ },
+ "naturescompass:naturescompass": {
+  "img": "img/items/naturescompass/naturescompass.png",
+  "kind": "item",
+  "uk": "Компас природи",
+  "en": "Nature's Compass"
+ },
+ "neovitae:ara_vitae": {
+  "img": "img/items/neovitae/ara_vitae.png",
+  "kind": "item",
+  "uk": "Ara Vitae",
+  "en": "Ara Vitae"
+ },
+ "neovitae:blood_orb_master": {
+  "img": "img/items/neovitae/blood_orb_master.png",
+  "kind": "item",
+  "uk": "Сфера Vitae Magus",
+  "en": "Magus Orb of Vitae"
+ },
+ "neovitae:blood_orb_weak": {
+  "img": "img/items/neovitae/blood_orb_weak.png",
+  "kind": "item",
+  "uk": "Сфера Vitae Novicius",
+  "en": "Novicius Orb of Vitae"
+ },
+ "neovitae:master_ritual_stone": {
+  "img": "img/items/neovitae/master_ritual_stone.png",
+  "kind": "block",
+  "uk": "Головний ритуальний камінь",
+  "en": "Master Ritual Stone"
+ },
+ "neovitae:rune_orb": {
+  "img": "img/items/neovitae/rune_orb.png",
+  "kind": "block",
+  "uk": "Руна сфери",
+  "en": "Rune of the Orb"
+ },
+ "neovitae:teleposer": {
+  "img": "img/items/neovitae/teleposer.png",
+  "kind": "block",
+  "uk": "Телепозер",
+  "en": "Teleposer"
+ },
+ "occultism:chalk_rainbow": {
+  "img": "img/items/occultism/chalk_rainbow.png",
+  "kind": "item",
+  "uk": "Райдужна крейда",
+  "en": "Rainbow Chalk"
+ },
+ "occultism:chalk_white": {
+  "img": "img/items/occultism/chalk_white.png",
+  "kind": "item",
+  "uk": "Біла крейда",
+  "en": "White Chalk"
+ },
+ "occultism:datura_seeds": {
+  "img": "img/items/occultism/datura_seeds.png",
+  "kind": "item",
+  "uk": "Насіння сну демона",
+  "en": "Demon's Dream Seeds"
+ },
+ "occultism:dimensional_mineshaft": {
+  "img": "img/items/occultism/dimensional_mineshaft.png",
+  "kind": "block",
+  "uk": "Вимірна шахта",
+  "en": "Dimensional Mineshaft"
+ },
+ "occultism:golden_sacrificial_bowl": {
+  "img": "img/items/occultism/golden_sacrificial_bowl.png",
+  "kind": "block",
+  "uk": "Золота ритуальна чаша",
+  "en": "Golden Ritual Bowl"
+ },
+ "occultism:otherworld_goggles": {
+  "img": "img/items/occultism/otherworld_goggles.png",
+  "kind": "item",
+  "uk": "Потойбічні окуляри",
+  "en": "Otherworld Goggles"
+ },
+ "occultism:storage_controller": {
+  "img": "img/items/occultism/storage_controller.png",
+  "kind": "block",
+  "uk": "Вимірний актуатор сховища",
+  "en": "Dimensional Storage Actuator"
+ },
+ "oritech:adamant_ingot": {
+  "img": "img/items/oritech/adamant_ingot.png",
+  "kind": "item",
+  "uk": "Адамантовий злиток",
+  "en": "Adamant Ingot"
+ },
+ "oritech:assembler": {
+  "img": "img/items/oritech/assembler.png",
+  "kind": "block",
+  "uk": "Збирач",
+  "en": "Assembler"
+ },
+ "oritech:enderic_laser": {
+  "img": "img/items/oritech/enderic_laser.png",
+  "kind": "block",
+  "uk": "Ендеровий лазер",
+  "en": "Enderic Laser"
+ },
+ "oritech:nuclear_reactor_controller": {
+  "img": "img/items/oritech/nuclear_reactor_controller.png",
+  "kind": "block",
+  "uk": "Контролер ядерного реактора",
+  "en": "Nuclear Reactor Controller"
+ },
+ "oritech:pulverizer": {
+  "img": "img/items/oritech/pulverizer.png",
+  "kind": "block",
+  "uk": "Подрібнювач",
+  "en": "Pulverizer"
+ },
+ "pipe_connector:pipe_connector": {
+  "img": "img/items/pipe_connector/pipe_connector.png",
+  "kind": "item",
+  "uk": "З'єднувач труб",
+  "en": "Pipe Connector"
+ },
+ "pipez:energy_pipe": {
+  "img": "img/items/pipez/energy_pipe.png",
+  "kind": "block",
+  "uk": "Труба для енергії",
+  "en": "Energy Pipe"
+ },
+ "pipez:fluid_pipe": {
+  "img": "img/items/pipez/fluid_pipe.png",
+  "kind": "block",
+  "uk": "Труба для рідин",
+  "en": "Fluid Pipe"
+ },
+ "pipez:item_pipe": {
+  "img": "img/items/pipez/item_pipe.png",
+  "kind": "block",
+  "uk": "Труба для предметів",
+  "en": "Item Pipe"
+ },
+ "pipez:universal_pipe": {
+  "img": "img/items/pipez/universal_pipe.png",
+  "kind": "block",
+  "uk": "Універсальна труба",
+  "en": "Universal Pipe"
+ },
+ "potionsmaster:bezoar": {
+  "img": "img/items/potionsmaster/bezoar.png",
+  "kind": "item",
+  "uk": "Безоар",
+  "en": "Bezoar"
+ },
+ "potionsmaster:ender_powder": {
+  "img": "img/items/potionsmaster/ender_powder.png",
+  "kind": "item",
+  "uk": "Порошок Енду",
+  "en": "Ender Powder"
+ },
+ "potionsmaster:pestle": {
+  "img": "img/items/potionsmaster/pestle.png",
+  "kind": "item",
+  "uk": "Товкач",
+  "en": "Pestle"
+ },
+ "potionsmaster:tile_mortar": {
+  "img": "img/items/potionsmaster/tile_mortar.png",
+  "kind": "block",
+  "uk": "Ступка",
+  "en": "Mortar"
+ },
+ "powah:crystal_nitro": {
+  "img": "img/items/powah/crystal_nitro.png",
+  "kind": "item",
+  "uk": "Нітро-кристал",
+  "en": "Nitro Crystal"
+ },
+ "powah:energizing_orb": {
+  "img": "img/items/powah/energizing_orb.png",
+  "kind": "block",
+  "uk": "Сфера заряджання",
+  "en": "Energizing Orb"
+ },
+ "powah:furnator_starter": {
+  "img": "img/items/powah/furnator_starter.png",
+  "kind": "block",
+  "uk": "Генерапіч (Початкова)",
+  "en": "Furnator (Starter)"
+ },
+ "powah:reactor_basic": {
+  "img": "img/items/powah/reactor_basic.png",
+  "kind": "block",
+  "uk": "Реактор (Базовий)",
+  "en": "Reactor (Basic)"
+ },
+ "powah:reactor_nitro": {
+  "img": "img/items/powah/reactor_nitro.png",
+  "kind": "block",
+  "uk": "Реактор (Нітро)",
+  "en": "Reactor (Nitro)"
+ },
+ "powah:thermo_generator_basic": {
+  "img": "img/items/powah/thermo_generator_basic.png",
+  "kind": "block",
+  "uk": "Термогенератор (Базовий)",
+  "en": "Thermo Generator (Basic)"
+ },
+ "powah:uraninite": {
+  "img": "img/items/powah/uraninite.png",
+  "kind": "item",
+  "uk": "Уранініт",
+  "en": "Uraninite"
+ },
+ "power_armor:armor_modification_table": {
+  "img": "img/items/power_armor/armor_modification_table.png",
+  "kind": "block",
+  "uk": "Стіл модифікації броні",
+  "en": "Armor Modification Table"
+ },
+ "power_armor:armor_module_laser": {
+  "img": "img/items/power_armor/armor_module_laser.png",
+  "kind": "item",
+  "uk": "Модуль броні: лазер",
+  "en": "Laser Armor Module"
+ },
+ "power_armor:power_armor_chestplate": {
+  "img": "img/items/power_armor/power_armor_chestplate.png",
+  "kind": "item",
+  "uk": "Нагрудник силової броні",
+  "en": "Power Armor Chestplate"
+ },
+ "power_armor:power_armor_helmet": {
+  "img": "img/items/power_armor/power_armor_helmet.png",
+  "kind": "item",
+  "uk": "Шолом силової броні",
+  "en": "Power Armor Helmet"
+ },
+ "productivebees:advanced_oak_beehive": {
+  "img": "img/items/productivebees/advanced_oak_beehive.png",
+  "kind": "block",
+  "uk": "Покращений дубовий вулик",
+  "en": "Advanced Oak Beehive"
+ },
+ "productivebees:centrifuge": {
+  "img": "img/items/productivebees/centrifuge.png",
+  "kind": "block",
+  "uk": "Центрифуга",
+  "en": "Centrifuge"
+ },
+ "productivebees:heated_centrifuge": {
+  "img": "img/items/productivebees/heated_centrifuge.png",
+  "kind": "block",
+  "uk": "Нагрівна центрифуга",
+  "en": "Heated Centrifuge"
+ },
+ "productivebees:incubator": {
+  "img": "img/items/productivebees/incubator.png",
+  "kind": "block",
+  "uk": "Інкубатор для бджіл",
+  "en": "BaBee Incubator"
+ },
+ "productivebees:sturdy_bee_cage": {
+  "img": "img/items/productivebees/sturdy_bee_cage.png",
+  "kind": "item",
+  "uk": "Міцна клітка для бджіл",
+  "en": "Sturdy Bee Cage"
+ },
+ "productivefarming:beefsteak_tomato": {
+  "img": "img/items/productivefarming/beefsteak_tomato.png",
+  "kind": "item",
+  "uk": "Помідор Біфштекс",
+  "en": "Beefsteak Tomato"
+ },
+ "productivefarming:farm_controller": {
+  "img": "img/items/productivefarming/farm_controller.png",
+  "kind": "block",
+  "uk": "Контролер ферми",
+  "en": "Farm Controller"
+ },
+ "productivefarming:rainbow_corn": {
+  "img": "img/items/productivefarming/rainbow_corn.png",
+  "kind": "item",
+  "uk": "Веселкова кукурудза",
+  "en": "Rainbow Corn"
+ },
+ "productivefarming:watering_trough": {
+  "img": "img/items/productivefarming/watering_trough.png",
+  "kind": "block",
+  "uk": "Напувалка",
+  "en": "Watering Trough"
+ },
+ "productivemetalworks:brown_foundry_controller": {
+  "img": "img/items/productivemetalworks/brown_foundry_controller.png",
+  "kind": "block",
+  "uk": "Коричневий контролер ливарні",
+  "en": "Brown Foundry Controller"
+ },
+ "productivemetalworks:casting_table": {
+  "img": "img/items/productivemetalworks/casting_table.png",
+  "kind": "block",
+  "uk": "Ливарний стіл",
+  "en": "Casting Table"
+ },
+ "productivemetalworks:ingot_cast": {
+  "img": "img/items/productivemetalworks/ingot_cast.png",
+  "kind": "item",
+  "uk": "Форма для злитка",
+  "en": "Ingot Cast"
+ },
+ "productivemetalworks:liquid_heating_coil": {
+  "img": "img/items/productivemetalworks/liquid_heating_coil.png",
+  "kind": "block",
+  "uk": "Рідинна нагрівальна спіраль",
+  "en": "Liquid Heating Coil"
+ },
+ "productivetrees:maple_syrup": {
+  "img": "img/items/productivetrees/maple_syrup.png",
+  "kind": "item",
+  "uk": "Кленовий сироп",
+  "en": "Maple Syrup"
+ },
+ "productivetrees:moonlight_magic_crepe_myrtle_sapling": {
+  "img": "img/items/productivetrees/moonlight_magic_crepe_myrtle_sapling.png",
+  "kind": "item",
+  "uk": "Паросток лагерстремії «Місячна магія»",
+  "en": "Moonlight Magic Crepe Myrtle Sapling"
+ },
+ "productivetrees:pollen_sifter": {
+  "img": "img/items/productivetrees/pollen_sifter.png",
+  "kind": "block",
+  "uk": "Сито для пилку",
+  "en": "Pollen Sifter"
+ },
+ "productivetrees:sawmill": {
+  "img": "img/items/productivetrees/sawmill.png",
+  "kind": "block",
+  "uk": "Лісопилка",
+  "en": "Sawmill"
+ },
+ "pylons:harvester_pylon": {
+  "img": "img/items/pylons/harvester_pylon.png",
+  "kind": "block",
+  "uk": "Жниварний пілон",
+  "en": "Harvester Pylon"
+ },
+ "pylons:infusion_pylon": {
+  "img": "img/items/pylons/infusion_pylon.png",
+  "kind": "block",
+  "uk": "Пілон настоювання",
+  "en": "Infusion Pylon"
+ },
+ "pylons:interdiction_pylon": {
+  "img": "img/items/pylons/interdiction_pylon.png",
+  "kind": "block",
+  "uk": "Пілон заборони",
+  "en": "Interdiction Pylon"
+ },
+ "pylons:protection_pylon": {
+  "img": "img/items/pylons/protection_pylon.png",
+  "kind": "block",
+  "uk": "Пілон захисту",
+  "en": "Protection Pylon"
+ },
+ "quarryplus:marker": {
+  "img": "img/items/quarryplus/marker.png",
+  "kind": "item",
+  "uk": "Маркер+",
+  "en": "Marker Plus"
+ },
+ "quarryplus:pump_module": {
+  "img": "img/items/quarryplus/pump_module.png",
+  "kind": "item",
+  "uk": "Модуль помпи кар'єра",
+  "en": "Quarry Pump Module"
+ },
+ "quarryplus:quarry": {
+  "img": "img/items/quarryplus/quarry.png",
+  "kind": "block",
+  "uk": "Кар'єр+",
+  "en": "Quarry Plus"
+ },
+ "railcraft:coke_oven_bricks": {
+  "img": "img/items/railcraft/coke_oven_bricks.png",
+  "kind": "block",
+  "uk": "Цегла коксової печі",
+  "en": "Coke Oven Bricks"
+ },
+ "railcraft:iron_crowbar": {
+  "img": "img/items/railcraft/iron_crowbar.png",
+  "kind": "item",
+  "uk": "Залізний лом",
+  "en": "Iron Crowbar"
+ },
+ "railcraft:reinforced_track": {
+  "img": "img/items/railcraft/reinforced_track.png",
+  "kind": "item",
+  "uk": "Зміцнені рейки",
+  "en": "Reinforced Track"
+ },
+ "railcraft:steam_locomotive": {
+  "img": "img/items/railcraft/steam_locomotive.png",
+  "kind": "item",
+  "uk": "Паротяг",
+  "en": "Steam Locomotive"
+ },
+ "rangedpumps:pump": {
+  "img": "img/items/rangedpumps/pump.png",
+  "kind": "block",
+  "uk": "Помпа",
+  "en": "Pump"
+ },
+ "refinedflowanalytics:flow_detector": {
+  "img": "img/items/refinedflowanalytics/flow_detector.png",
+  "kind": "block",
+  "uk": "Детектор потоку",
+  "en": "Flow Detector"
+ },
+ "refinedflowanalytics:flow_grid": {
+  "img": "img/items/refinedflowanalytics/flow_grid.png",
+  "kind": "block",
+  "uk": "Сітка потоків",
+  "en": "Flow Grid"
+ },
+ "refinedflowanalytics:flow_monitor": {
+  "img": "img/items/refinedflowanalytics/flow_monitor.png",
+  "kind": "block",
+  "uk": "Монітор потоку",
+  "en": "Flow Monitor"
+ },
+ "refinedfluidsubstitution:fluid_substitution_pattern": {
+  "img": "img/items/refinedfluidsubstitution/fluid_substitution_pattern.png",
+  "kind": "item",
+  "uk": "Шаблон заміни рідини",
+  "en": "Fluid Substitution Pattern"
+ },
+ "refinedstorage:1k_storage_disk": {
+  "img": "img/items/refinedstorage/1k_storage_disk.png",
+  "kind": "item",
+  "uk": "1K диск сховища",
+  "en": "1k Storage Disk"
+ },
+ "refinedstorage:controller": {
+  "img": "img/items/refinedstorage/controller.png",
+  "kind": "block",
+  "uk": "Контролер",
+  "en": "Controller"
+ },
+ "refinedstorage:disk_drive": {
+  "img": "img/items/refinedstorage/disk_drive.png",
+  "kind": "block",
+  "uk": "Дисковод",
+  "en": "Disk Drive"
+ },
+ "refinedstorage:grid": {
+  "img": "img/items/refinedstorage/grid.png",
+  "kind": "block",
+  "uk": "Сітка",
+  "en": "Grid"
+ },
+ "refinedstorage_quartz_arsenal:wireless_crafting_grid": {
+  "img": "img/items/refinedstorage_quartz_arsenal/wireless_crafting_grid.png",
+  "kind": "item",
+  "uk": "Бездротова сітка майстрування",
+  "en": "Wireless Crafting Grid"
+ },
+ "refinedtypes:8192k_energy_storage_disk": {
+  "img": "img/items/refinedtypes/8192k_energy_storage_disk.png",
+  "kind": "item",
+  "uk": "8192K диск енергосховища",
+  "en": "8192K Energy Storage Disk"
+ },
+ "refinedtypes:infinite_energy_storage_disk": {
+  "img": "img/items/refinedtypes/infinite_energy_storage_disk.png",
+  "kind": "item",
+  "uk": "Нескінченний диск енергосховища",
+  "en": "Infinite Energy Storage Disk"
+ },
+ "refinedtypes:network_energizer": {
+  "img": "img/items/refinedtypes/network_energizer.png",
+  "kind": "block",
+  "uk": "Мережевий енергізатор",
+  "en": "Network Energizer"
+ },
+ "regions_unexplored:baobab_sapling": {
+  "img": "img/items/regions_unexplored/baobab_sapling.png",
+  "kind": "item",
+  "uk": "Паросток баобаба",
+  "en": "Baobab Sapling"
+ },
+ "regions_unexplored:blue_bioshroom": {
+  "img": "img/items/regions_unexplored/blue_bioshroom.png",
+  "kind": "item",
+  "uk": "Синій біошрум",
+  "en": "Blue Bioshroom"
+ },
+ "regions_unexplored:cobalt_earlight": {
+  "img": "img/items/regions_unexplored/cobalt_earlight.png",
+  "kind": "item",
+  "uk": "Кобальтовий вухосвіт",
+  "en": "Cobalt Earlight"
+ },
+ "regions_unexplored:prismoss": {
+  "img": "img/items/regions_unexplored/prismoss.png",
+  "kind": "block",
+  "uk": "Призмох",
+  "en": "Prismoss"
+ },
+ "reliquary:alkahestry_tome": {
+  "img": "img/items/reliquary/alkahestry_tome.png",
+  "kind": "item",
+  "uk": "Том алкагестрії",
+  "en": "Tome of Alkahestry"
+ },
+ "reliquary:fertile_lily_pad": {
+  "img": "img/items/reliquary/fertile_lily_pad.png",
+  "kind": "item",
+  "uk": "Лілія родючості",
+  "en": "Lilypad of Fertility"
+ },
+ "reliquary:fortune_coin": {
+  "img": "img/items/reliquary/fortune_coin.png",
+  "kind": "item",
+  "uk": "Монета удачі",
+  "en": "Coin of Fortune"
+ },
+ "reliquary:rending_gale": {
+  "img": "img/items/reliquary/rending_gale.png",
+  "kind": "item",
+  "uk": "Розривна буря",
+  "en": "Rending Gale"
+ },
+ "rootsclassic:altar": {
+  "img": "img/items/rootsclassic/altar.png",
+  "kind": "block",
+  "uk": "Вівтар заклять",
+  "en": "Casting Altar"
+ },
+ "rootsclassic:crystal_staff": {
+  "img": "img/items/rootsclassic/crystal_staff.png",
+  "kind": "item",
+  "uk": "Кришталевий посох",
+  "en": "Crystal Staff"
+ },
+ "rootsclassic:growth_powder": {
+  "img": "img/items/rootsclassic/growth_powder.png",
+  "kind": "item",
+  "uk": "Порошок росту",
+  "en": "Growth Powder"
+ },
+ "rootsclassic:mortar": {
+  "img": "img/items/rootsclassic/mortar.png",
+  "kind": "item",
+  "uk": "Ступка",
+  "en": "Mortar"
+ },
+ "rootsclassic:pestle": {
+  "img": "img/items/rootsclassic/pestle.png",
+  "kind": "item",
+  "uk": "Товкач",
+  "en": "Pestle"
+ },
+ "rootsclassic:runic_tablet": {
+  "img": "img/items/rootsclassic/runic_tablet.png",
+  "kind": "item",
+  "uk": "Рунічна табличка",
+  "en": "Runic Tablet"
+ },
+ "rootsclassic:staff": {
+  "img": "img/items/rootsclassic/staff.png",
+  "kind": "item",
+  "uk": "Посох",
+  "en": "Staff"
+ },
+ "routers:connector": {
+  "img": "img/items/routers/connector.png",
+  "kind": "item",
+  "uk": "З'єднувач",
+  "en": "Connector"
+ },
+ "routers:exporter": {
+  "img": "img/items/routers/exporter.png",
+  "kind": "block",
+  "uk": "Експортер",
+  "en": "Exporter"
+ },
+ "routers:importer": {
+  "img": "img/items/routers/importer.png",
+  "kind": "block",
+  "uk": "Імпортер",
+  "en": "Importer"
+ },
+ "routers:item_upgrade_1": {
+  "img": "img/items/routers/item_upgrade_1.png",
+  "kind": "item",
+  "uk": "Покращення предметів I",
+  "en": "Item Upgrade I"
+ },
+ "selling_bin:selling_bin": {
+  "img": "img/items/selling_bin/selling_bin.png",
+  "kind": "block",
+  "uk": "Скриня продажу",
+  "en": "Selling Bin"
+ },
+ "sfm:cable": {
+  "img": "img/items/sfm/cable.png",
+  "kind": "block",
+  "uk": "Інвентарний кабель",
+  "en": "Inventory Cable"
+ },
+ "sfm:disk": {
+  "img": "img/items/sfm/disk.png",
+  "kind": "item",
+  "uk": "Програмний диск фабричного менеджера",
+  "en": "Factory Manager Program Disk"
+ },
+ "sfm:labelgun": {
+  "img": "img/items/sfm/labelgun.png",
+  "kind": "item",
+  "uk": "Пістолет для етикеток",
+  "en": "Label Gun"
+ },
+ "sfm:manager": {
+  "img": "img/items/sfm/manager.png",
+  "kind": "block",
+  "uk": "Фабричний менеджер",
+  "en": "Factory Manager"
+ },
+ "sgearmetalworks:pickaxe_cast": {
+  "img": "img/items/sgearmetalworks/pickaxe_cast.png",
+  "kind": "item",
+  "uk": "Ливарна форма кайла",
+  "en": "Pickaxe Cast"
+ },
+ "sgearmetalworks:sword_cast": {
+  "img": "img/items/sgearmetalworks/sword_cast.png",
+  "kind": "item",
+  "uk": "Ливарна форма меча",
+  "en": "Sword Cast"
+ },
+ "sgearmetalworks:uru_metal_ingot": {
+  "img": "img/items/sgearmetalworks/uru_metal_ingot.png",
+  "kind": "item",
+  "uk": "Злиток металу уру",
+  "en": "Uru Metal Ingot"
+ },
+ "silentgear:blueprint_book": {
+  "img": "img/items/silentgear/blueprint_book.png",
+  "kind": "item",
+  "uk": "Книга креслень",
+  "en": "Blueprint Book"
+ },
+ "silentgear:blueprint_paper": {
+  "img": "img/items/silentgear/blueprint_paper.png",
+  "kind": "item",
+  "uk": "Креслярський папір",
+  "en": "Blueprint Paper"
+ },
+ "silentgear:crimson_steel_ingot": {
+  "img": "img/items/silentgear/crimson_steel_ingot.png",
+  "kind": "item",
+  "uk": "Злиток багряної сталі",
+  "en": "Crimson Steel Ingot"
+ },
+ "silentgear:pickaxe": {
+  "img": "img/items/silentgear/pickaxe.png",
+  "kind": "item",
+  "uk": "Кайло",
+  "en": "Pickaxe"
+ },
+ "silentgear:starlight_charger": {
+  "img": "img/items/silentgear/starlight_charger.png",
+  "kind": "block",
+  "uk": "Зоряний зарядник",
+  "en": "Starlight Charger"
+ },
+ "silentgear:stone_anvil": {
+  "img": "img/items/silentgear/stone_anvil.png",
+  "kind": "block",
+  "uk": "Кам'яне ковадло",
+  "en": "Stone Anvil"
+ },
+ "silentgear:tyrian_steel_ingot": {
+  "img": "img/items/silentgear/tyrian_steel_ingot.png",
+  "kind": "item",
+  "uk": "Злиток тирійської сталі",
+  "en": "Tyrian Steel Ingot"
+ },
+ "silentgems:chaos_essence": {
+  "img": "img/items/silentgems/chaos_essence.png",
+  "kind": "item",
+  "uk": "Есенція хаосу",
+  "en": "Chaos Essence"
+ },
+ "silentgems:chaos_ore": {
+  "img": "img/items/silentgems/chaos_ore.png",
+  "kind": "block",
+  "uk": "Руда хаосу",
+  "en": "Chaos Ore"
+ },
+ "silentgems:teleporter_anchor": {
+  "img": "img/items/silentgems/teleporter_anchor.png",
+  "kind": "block",
+  "uk": "Якір телепорта",
+  "en": "Teleporter Anchor"
+ },
+ "silentgems:teleporter_linker": {
+  "img": "img/items/silentgems/teleporter_linker.png",
+  "kind": "item",
+  "uk": "Зв'язувач телепортів",
+  "en": "Teleporter Linker"
+ },
+ "simplemagnets:advancedmagnet": {
+  "img": "img/items/simplemagnets/advancedmagnet.png",
+  "kind": "item",
+  "uk": "",
+  "en": "advancedmagnet"
+ },
+ "simplemagnets:basicmagnet": {
+  "img": "img/items/simplemagnets/basicmagnet.png",
+  "kind": "item",
+  "uk": "",
+  "en": "basicmagnet"
+ },
+ "solcarrot:food_book": {
+  "img": "img/items/solcarrot/food_book.png",
+  "kind": "item",
+  "uk": "Книга їжі",
+  "en": "Food Book"
+ },
+ "sophisticatedbackpacks:backpack": {
+  "img": "img/items/sophisticatedbackpacks/backpack.png",
+  "kind": "block",
+  "uk": "Ранець",
+  "en": "Backpack"
+ },
+ "sophisticatedbackpacks:iron_backpack": {
+  "img": "img/items/sophisticatedbackpacks/iron_backpack.png",
+  "kind": "block",
+  "uk": "Залізний ранець",
+  "en": "Iron Backpack"
+ },
+ "sophisticatedbackpacks:magnet_upgrade": {
+  "img": "img/items/sophisticatedbackpacks/magnet_upgrade.png",
+  "kind": "item",
+  "uk": "Покращення «Магніт»",
+  "en": "Magnet Upgrade"
+ },
+ "sophisticatedbackpacks:netherite_backpack": {
+  "img": "img/items/sophisticatedbackpacks/netherite_backpack.png",
+  "kind": "block",
+  "uk": "Незеритовий ранець",
+  "en": "Netherite Backpack"
+ },
+ "sophisticatedstorage:auto_smelting_upgrade": {
+  "img": "img/items/sophisticatedstorage/auto_smelting_upgrade.png",
+  "kind": "item",
+  "uk": "Покращення «Авто-виплавка»",
+  "en": "Auto-smelting Upgrade"
+ },
+ "sophisticatedstorage:barrel": {
+  "img": "img/items/sophisticatedstorage/barrel.png",
+  "kind": "block",
+  "uk": "Діжка %s",
+  "en": "%s%sBarrel"
+ },
+ "sophisticatedstorage:basic_tier_upgrade": {
+  "img": "img/items/sophisticatedstorage/basic_tier_upgrade.png",
+  "kind": "item",
+  "uk": "Покращення рівня: базове",
+  "en": "Basic Tier Upgrade"
+ },
+ "sophisticatedstorage:iron_barrel": {
+  "img": "img/items/sophisticatedstorage/iron_barrel.png",
+  "kind": "block",
+  "uk": "Залізна діжка %s",
+  "en": "%s%sIron Barrel"
+ },
+ "sophisticatedstorageinmotion:storage_boat": {
+  "img": "img/items/sophisticatedstorageinmotion/storage_boat.png",
+  "kind": "item",
+  "uk": "Човен (%s) зі сховищем: %s",
+  "en": "%s Boat with %s"
+ },
+ "sophisticatedstorageinmotion:storage_minecart": {
+  "img": "img/items/sophisticatedstorageinmotion/storage_minecart.png",
+  "kind": "item",
+  "uk": "Вагонетка (%s)",
+  "en": "%s Minecart"
+ },
+ "spider_overhaul:birch_nest": {
+  "img": "img/items/spider_overhaul/birch_nest.png",
+  "kind": "block",
+  "uk": "Гніздо березових павуків",
+  "en": "Birch Spider Nest"
+ },
+ "spider_overhaul:bottle_of_spider_pollen": {
+  "img": "img/items/spider_overhaul/bottle_of_spider_pollen.png",
+  "kind": "item",
+  "uk": "Пляшка павукового пилку",
+  "en": "Bottle of Spider Pollen"
+ },
+ "spider_overhaul:cactus_spine": {
+  "img": "img/items/spider_overhaul/cactus_spine.png",
+  "kind": "item",
+  "uk": "Кактусова голка",
+  "en": "Cactus Spine"
+ },
+ "spider_overhaul:ice_shard": {
+  "img": "img/items/spider_overhaul/ice_shard.png",
+  "kind": "item",
+  "uk": "Уламок льоду",
+  "en": "Ice Shard"
+ },
+ "starcatcher:aurora": {
+  "img": "img/items/starcatcher/aurora.png",
+  "kind": "item",
+  "uk": "Аврора",
+  "en": "Aurora"
+ },
+ "starcatcher:starcatcher_guide": {
+  "img": "img/items/starcatcher/starcatcher_guide.png",
+  "kind": "item",
+  "uk": "Посібник зореловця",
+  "en": "Starcatcher's Guide"
+ },
+ "starcatcher:starcatcher_rod": {
+  "img": "img/items/starcatcher/starcatcher_rod.png",
+  "kind": "item",
+  "uk": "Вудка зореловця",
+  "en": "Starcatcher's Rod"
+ },
+ "starcatcher:tackle_box": {
+  "img": "img/items/starcatcher/tackle_box.png",
+  "kind": "block",
+  "uk": "Скринька для снастей",
+  "en": "Tackle Box"
+ },
+ "stellaris:antenna": {
+  "img": "img/items/stellaris/antenna.png",
+  "kind": "block",
+  "uk": "Антена",
+  "en": "Antenna"
+ },
+ "stellaris:astrum_vitreus_cluster": {
+  "img": "img/items/stellaris/astrum_vitreus_cluster.png",
+  "kind": "item",
+  "uk": "Друза Astrum Vitreus",
+  "en": "Astrum Vitreus Cluster"
+ },
+ "stellaris:casus_astrum_grass": {
+  "img": "img/items/stellaris/casus_astrum_grass.png",
+  "kind": "block",
+  "uk": "Трава Casus Astrum",
+  "en": "Casus Astrum Grass"
+ },
+ "stellaris:desh_ingot": {
+  "img": "img/items/stellaris/desh_ingot.png",
+  "kind": "item",
+  "uk": "Злиток дешу",
+  "en": "Desh Ingot"
+ },
+ "stellaris:oxygen_distributor": {
+  "img": "img/items/stellaris/oxygen_distributor.png",
+  "kind": "block",
+  "uk": "Розподільник кисню",
+  "en": "Oxygen Distributor"
+ },
+ "stellaris:rocket": {
+  "img": "img/items/stellaris/rocket.png",
+  "kind": "item",
+  "uk": "Ракета",
+  "en": "Rocket"
+ },
+ "stellaris:space_suit_helmet": {
+  "img": "img/items/stellaris/space_suit_helmet.png",
+  "kind": "item",
+  "uk": "Шолом скафандра",
+  "en": "Space Suit Helmet"
+ },
+ "stepcrafter:step_crafter": {
+  "img": "img/items/stepcrafter/step_crafter.png",
+  "kind": "block",
+  "uk": "Покроковий майструвальник",
+  "en": "Step Crafter"
+ },
+ "stepcrafter:step_requester": {
+  "img": "img/items/stepcrafter/step_requester.png",
+  "kind": "block",
+  "uk": "Покроковий запитувач",
+  "en": "Step Requester"
+ },
+ "strainers:diamond_mesh": {
+  "img": "img/items/strainers/diamond_mesh.png",
+  "kind": "item",
+  "uk": "Діамантова сітка",
+  "en": "Diamond Mesh"
+ },
+ "strainers:netherite_mesh": {
+  "img": "img/items/strainers/netherite_mesh.png",
+  "kind": "item",
+  "uk": "Незеритова сітка",
+  "en": "Netherite Mesh"
+ },
+ "strainers:strainer": {
+  "img": "img/items/strainers/strainer.png",
+  "kind": "block",
+  "uk": "Сито",
+  "en": "Strainer"
+ },
+ "thaumaturge:alumentum": {
+  "img": "img/items/thaumaturge/alumentum.png",
+  "kind": "item",
+  "uk": "Alumentum",
+  "en": "Alumentum"
+ },
+ "thaumaturge:amber": {
+  "img": "img/items/thaumaturge/amber.png",
+  "kind": "item",
+  "uk": "Бурштин",
+  "en": "Amber"
+ },
+ "thaumaturge:arcane_workbench": {
+  "img": "img/items/thaumaturge/arcane_workbench.png",
+  "kind": "block",
+  "uk": "Арканний верстак",
+  "en": "Arcane Workbench"
+ },
+ "thaumaturge:crucible": {
+  "img": "img/items/thaumaturge/crucible.png",
+  "kind": "block",
+  "uk": "Тигель",
+  "en": "Crucible"
+ },
+ "thaumaturge:goggles_revealing": {
+  "img": "img/items/thaumaturge/goggles_revealing.png",
+  "kind": "item",
+  "uk": "Окуляри виявлення",
+  "en": "Goggles of Revealing"
+ },
+ "thaumaturge:infusion_matrix": {
+  "img": "img/items/thaumaturge/infusion_matrix.png",
+  "kind": "block",
+  "uk": "Рунічна матриця",
+  "en": "Runic Matrix"
+ },
+ "thaumaturge:thaumonomicon": {
+  "img": "img/items/thaumaturge/thaumonomicon.png",
+  "kind": "item",
+  "uk": "Thaumonomicon",
+  "en": "Thaumonomicon"
+ },
+ "theurgy:calcination_oven": {
+  "img": "img/items/theurgy/calcination_oven.png",
+  "kind": "block",
+  "uk": "Піч кальцинації",
+  "en": "Calcination Oven"
+ },
+ "theurgy:divination_rod_t1": {
+  "img": "img/items/theurgy/divination_rod_t1.png",
+  "kind": "item",
+  "uk": "Скляний жезл ворожіння",
+  "en": "Glass Divination Rod"
+ },
+ "theurgy:incubator": {
+  "img": "img/items/theurgy/incubator.png",
+  "kind": "block",
+  "uk": "Інкубатор",
+  "en": "Incubator"
+ },
+ "theurgy:liquefaction_cauldron": {
+  "img": "img/items/theurgy/liquefaction_cauldron.png",
+  "kind": "block",
+  "uk": "Казан розрідження",
+  "en": "Liquefaction Cauldron"
+ },
+ "theurgy:mercury_shard": {
+  "img": "img/items/theurgy/mercury_shard.png",
+  "kind": "item",
+  "uk": "Уламок ртуті",
+  "en": "Mercury Shard"
+ },
+ "theurgy:the_hermetica": {
+  "img": "img/items/theurgy/the_hermetica.png",
+  "kind": "item",
+  "uk": "Герметика",
+  "en": "The Hermetica"
+ },
+ "toolbelt:belt": {
+  "img": "img/items/toolbelt/belt.png",
+  "kind": "item",
+  "uk": "Інструментальний пояс",
+  "en": "Tool Belt"
+ },
+ "toolbelt:pouch": {
+  "img": "img/items/toolbelt/pouch.png",
+  "kind": "item",
+  "uk": "Поясний чохол",
+  "en": "Belt Pouch"
+ },
+ "trainingdummy:dummy_spawner": {
+  "img": "img/items/trainingdummy/dummy_spawner.png",
+  "kind": "item",
+  "uk": "Тренувальний манекен",
+  "en": "Training Dummy"
+ },
+ "trainingdummy:scoreboard_dummy_spawner": {
+  "img": "img/items/trainingdummy/scoreboard_dummy_spawner.png",
+  "kind": "item",
+  "uk": "Манекен рекордів",
+  "en": "Scoreboard Dummy"
+ },
+ "transmog:transmogrification_table": {
+  "img": "img/items/transmog/transmogrification_table.png",
+  "kind": "block",
+  "uk": "Стіл трансмогрифікації",
+  "en": "Transmogrification Table"
+ },
+ "transmog:void_fragment": {
+  "img": "img/items/transmog/void_fragment.png",
+  "kind": "item",
+  "uk": "Уламок порожнечі",
+  "en": "Void Fragment"
+ },
+ "trashcans:energy_trash_can": {
+  "img": "img/items/trashcans/energy_trash_can.png",
+  "kind": "block",
+  "uk": "",
+  "en": "energy trash can"
+ },
+ "trashcans:item_trash_can": {
+  "img": "img/items/trashcans/item_trash_can.png",
+  "kind": "block",
+  "uk": "",
+  "en": "item trash can"
+ },
+ "trashcans:liquid_trash_can": {
+  "img": "img/items/trashcans/liquid_trash_can.png",
+  "kind": "block",
+  "uk": "",
+  "en": "liquid trash can"
+ },
+ "trashcans:ultimate_trash_can": {
+  "img": "img/items/trashcans/ultimate_trash_can.png",
+  "kind": "block",
+  "uk": "",
+  "en": "ultimate trash can"
+ },
+ "trophymanager:trophy": {
+  "img": "img/items/trophymanager/trophy.png",
+  "kind": "approx",
+  "uk": "Трофей",
+  "en": "Trophy"
+ },
+ "undergarden:catalyst": {
+  "img": "img/items/undergarden/catalyst.png",
+  "kind": "item",
+  "uk": "Каталізатор",
+  "en": "Catalyst"
+ },
+ "undergarden:cloggrum_ingot": {
+  "img": "img/items/undergarden/cloggrum_ingot.png",
+  "kind": "item",
+  "uk": "Клоґрумовий злиток",
+  "en": "Cloggrum Ingot"
+ },
+ "undergarden:deepturf_block": {
+  "img": "img/items/undergarden/deepturf_block.png",
+  "kind": "block",
+  "uk": "Глиботорфовий блок",
+  "en": "Deepturf Block"
+ },
+ "undergarden:forgotten_ingot": {
+  "img": "img/items/undergarden/forgotten_ingot.png",
+  "kind": "item",
+  "uk": "Забутий злиток",
+  "en": "Forgotten Ingot"
+ },
+ "undergarden:utherium_crystal": {
+  "img": "img/items/undergarden/utherium_crystal.png",
+  "kind": "item",
+  "uk": "Кристал утерію",
+  "en": "Utherium Crystal"
+ },
+ "universalgrid:wireless_universal_grid": {
+  "img": "img/items/universalgrid/wireless_universal_grid.png",
+  "kind": "item",
+  "uk": "Бездротова універсальна сітка",
+  "en": "Wireless Universal Grid"
+ },
+ "utilitarian:angel_block": {
+  "img": "img/items/utilitarian/angel_block.png",
+  "kind": "block",
+  "uk": "Ангельський блок",
+  "en": "Angel Block"
+ },
+ "utilitarian:magnet": {
+  "img": "img/items/utilitarian/magnet.png",
+  "kind": "block",
+  "uk": "Магніт",
+  "en": "Magnet"
+ },
+ "utilitarian:redstone_clock": {
+  "img": "img/items/utilitarian/redstone_clock.png",
+  "kind": "block",
+  "uk": "Редстоуновий годинник",
+  "en": "Redstone Clock"
+ },
+ "utilitarian:snad": {
+  "img": "img/items/utilitarian/snad.png",
+  "kind": "block",
+  "uk": "Пісак",
+  "en": "Snad"
+ },
+ "waystones:amethyst_warp_stone": {
+  "img": "img/items/waystones/amethyst_warp_stone.png",
+  "kind": "item",
+  "uk": "Аметистовий мандрівний камінь",
+  "en": "Amethyst Warp Stone"
+ },
+ "waystones:andesite_waystone": {
+  "img": "img/items/waystones/andesite_waystone.png",
+  "kind": "block",
+  "uk": "Дороговказ",
+  "en": "Waystone"
+ },
+ "waystones:bound_scroll": {
+  "img": "img/items/waystones/bound_scroll.png",
+  "kind": "item",
+  "uk": "Прив'язаний сувій",
+  "en": "Bound Scroll"
+ },
+ "waystones:warp_plate": {
+  "img": "img/items/waystones/warp_plate.png",
+  "kind": "block",
+  "uk": "Мандрівна плита",
+  "en": "Warp Plate"
+ },
+ "waystones:warp_stone": {
+  "img": "img/items/waystones/warp_stone.png",
+  "kind": "item",
+  "uk": "Мандрівний камінь",
+  "en": "Warp Stone"
+ },
+ "witchery:broom": {
+  "img": "img/items/witchery/broom.png",
+  "kind": "item",
+  "uk": "Мітла",
+  "en": "Broom"
+ },
+ "witchery:cauldron": {
+  "img": "img/items/witchery/cauldron.png",
+  "kind": "block",
+  "uk": "Відьомський казан",
+  "en": "Cauldron"
+ },
+ "witchery:guidebook": {
+  "img": "img/items/witchery/guidebook.png",
+  "kind": "item",
+  "uk": "Посібник",
+  "en": "Guidebook"
+ },
+ "witchery:mandrake_root": {
+  "img": "img/items/witchery/mandrake_root.png",
+  "kind": "item",
+  "uk": "Корінь мандрагори",
+  "en": "Mandrake Root"
+ },
+ "witchery:mutandis": {
+  "img": "img/items/witchery/mutandis.png",
+  "kind": "item",
+  "uk": "Мутандіс",
+  "en": "Mutandis"
+ },
+ "wstweaks:fragment": {
+  "img": "img/items/wstweaks/fragment.png",
+  "kind": "item",
+  "uk": "Фрагмент черепа візера-скелета",
+  "en": "Wither Skull Fragment"
+ },
+ "wstweaks:immolation_blade": {
+  "img": "img/items/wstweaks/immolation_blade.png",
+  "kind": "item",
+  "uk": "Жертовний клинок",
+  "en": "Immolation Blade"
+ }
+}

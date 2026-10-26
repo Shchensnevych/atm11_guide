@@ -1,0 +1,191 @@
+клавіш 462 | призначено 341 | не призначено 121 | однакових сполучень 65 (у 268 діях)
+
+== Однакові сполучення (конфлікт лише якщо діють в одному контексті: гра / GUI) ==
+Лівий Shift: minecraft: Крастися | aether_ii: Дозволити висадку пасажира | silentgear: Показати описи рис | libtooltips: Розгорнути підказку | sfm: Затисніть для більшої інформації | sfm: Дія очищення пістолетом для етикеток | sfm: Дія перемикання пістолетом для етикеток | sfm: Дія забирання пістолетом для етикеток | inventoryessentials: Переносити під курсором (утримувати) | apotheosis: Порівняти наведене спорядження | jade: Показати деталі | chisel: Вибрати режим різця | jei: Призупинити чергування інгредієнтів | ae2: Модифікатор для предметів із коліщатком миші | logisticsnetworks: Клавіша-модифікатор 1
+C: minecraft: Зберегти панель швидкого доступу | minecraft: Збій для налагодження | minecraft: Копіювати розташування | integratedterminals: Очистити сітку створення в сховище | integratedterminals: Відкрити перший портативний термінал сховища | evilcraft: Відкрити піднесений верстак | silentgear: Перемкнути далі | modernui: Збільшення | sophisticatedbackpacks: Запустити покращення взаємодії з інвентарем | journeymap: Позиція в чат (під курсором) | easy_villagers: Цикл торгів | modularrouters: Налаштувати встановлений модуль | modularrouters: Додаткова інформація в підказці | advanced_ae: Відкрити портативний верстак
+G: minecraft: Показати межі чанків | oritech: Керування імплантами [утримуйте] | iceandfire: Драконячий удар | railcraft: Змінити ауру | irons_artifice: Відкрити модифікатори зброї | journeymap: Перемкнути імена сутностей | guideme: Відкрити посібник для предметів | enderio: Посох мандрування | buildinggadgets2: Меню налаштувань | logisticsnetworks: Налаштування ключа | advanced_ae: Перемкнути магніт квантової броні | thaumaturge: Перемикач жезла (інше)
+V: minecraft: Зберегти інформацію про версію | energizedpower: Використати телепортер | crafting_on_a_stick: Відкрити «Створення на паличці» | crystalix: Відкрити редактор жезла | luminax: Відкрити вибір кольору | occultism: Відкрити сумку Енду | justdirethings: Перемкнути здібності інструменту | easy_villagers: Підібрати | witchery: Відкрити вибір здібностей | advanced_ae: Спробувати змайструвати блок, на який дивитеся | stellaris: Змінити режим реактивного ранця
+ЛКМ: minecraft: Атакувати / знищувати | inventoryessentials: Перенести всі такого типу | inventoryessentials: Перенести один | inventoryessentials: Викинути все за межі екрана | inventoryessentials: Перенести все | mahoutsukai: Fire Nobu | deepnullreforged: Основна кнопка інтерфейсу DeepNull | jei: Показати рецепт (альтернативно) | jei: Узяти 1 предмет | logisticsnetworks: Основна взаємодія
+Лівий Alt: keybindbundles: Відкрити кругове меню наборів | silentgear: Показати будову й матеріали | sfm: Перемкнути перегляд пістолета для етикеток | sfm: Дія обирання блока пістолетом для етикеток | sfm: Перемкнути оверлей мережевого інструмента | modonomicon: Відкрити пов'язану сторінку книги | witchery: Службова кнопка | logisticsnetworks: Клавіша-модифікатор 3
+ПКМ: minecraft: Використати предмет / розмістити блок | neovitae: Кривавий щит (Сфера Vitae) | inventoryessentials: Перенести по одному | deepnullreforged: Додаткова кнопка інтерфейсу DeepNull | jei: Показати використання (альтернативно) | jei: Очистити фільтр пошуку | jei: Узяти 1 предмет (альтернативно) | logisticsnetworks: Додаткова взаємодія
+Tab: minecraft: Список гравців | integratedterminals: Наступна вкладка термінала | refinedstorage: Фокус на рядок пошуку | craftingtweaks: Поповнити останнє | craftingtweaks: Поповнити останнє (Стос) | ftbquests: Наступний розділ | starcatcher: Перемкнути накладання турніру
+СКМ: minecraft: Вибрати блок | minecraft: Вибрати на панелі швидкого доступу | inventoryessentials: Сортувати інвентар | sophisticatedcore: Сортувати сховище/ранець | deepnullreforged: Третя кнопка інтерфейсу DeepNull | jei: Узяти 1 стос (альтернативно) | extendedae: Задати кількість
+H: minecraft: Показати розширені підказки | simplemagnets: Перемкнути магніт | ironjetpacks: Перемкнути режим планерування | mahoutsukai: Вибіркове переміщення | buildinggadgets2: Якір | logisticsnetworks: Перемкнути HUD ключа | thaumaturge: Увімкнути упряж для ширяння
+R: iceandfire: Дихання дракона | crystalix: Підсвітити блоки | irons_artifice: Перезарядити | toolbelt: Замінити інструмент | buildinggadgets2: Радіус | jei: Показати рецепт | logisticsnetworks: Утримувати колесо режимів ключа
+Лівий Ctrl: minecraft: Біг | silentgear: Показати властивості й риси | framedblocks: Розблокувати перебір станів розміщення | sfm: Суміжна дія пістолетом для етикеток | ae2: Ставити частини з протилежного боку | logisticsnetworks: Клавіша-модифікатор 2
+X: minecraft: Завантажити панель швидкого доступу | silentgear: Відкрити предмет | iceandfire: Спуск униз | crystalix: Взяти властивості з блока | luminax: Перемкнути світіння | witchery: Злізти з мітли
+M: minecraft: Cycle Attack Type Down | railcraft: Змінити режим локомотива | mahoutsukai: Малюнок Mahoujin | ftbchunks: Відкрити мапу | enderio: Перемкнути електромагніт | stellaris: Увімкнути нічне бачення
+↓: railcraft: Спати у вагонетці з ліжком | ftbquests: Перемістити вибір / прокрутити вниз | ftbultimine: Попередня форма | journeymap: Зсунути на південь (16 блоків) | mahoutsukai: Nobu Guns Down | jei: Наступний пошук
+B: minecraft: Показати гітбокси | integratedterminals: Вирівняти сітку створення | railcraft: Гудок локомотива | occultism: Відкрити сумку | journeymap: Створити маршрутну точку під курсором
+N: minecraft: Перемкнути режим глядача | railcraft: Змінити напрямок локомотива | occultism: Відкрити медіум сховища | journeymap: Диспетчер маршрутних точок | thaumaturge: Відкрити Thaumonomicon
+.: ironjetpacks: Збільшити газ | arsmagicalegacy: Наступна група форм | neovitae: Lex Vitae: змінити режим | railcraft: Збільшити швидкість локомотива | mahoutsukai: Mahou налаштування GUI
+↑: ftbquests: Перемістити вибір / прокрутити вгору | ftbultimine: Наступна форма | journeymap: Зсунути на північ (16 блоків) | mahoutsukai: Nobu Guns Up | jei: Попередній пошук
+Пробіл: minecraft: Стрибок | ftbquests: Центрувати інтерфейс | starcatcher: Удар у мінігрі | stellaris: Запустити ракету
+T: minecraft: Відкрити чат | minecraft: Перезавантажити пакети ресурсів | trashslot: Показати/Приховати корзину | ftbquests: Редагувати назву
+P: minecraft: Екран соціальних взаємодій | minecraft: Перемикати призупинення при переході до іншого вікна | ftbquests: Вставити розрив сторінки | extendedae: Переглянути шаблон
+K: minecraft: Cycle Attack Type Up | craftingtweaks: Стиснути предмет | craftingtweaks: Стиснути всі | craftingtweaks: Стиснути стос
+Ctrl+I: sfm: Перемкнути інспектор контейнерів | constructionstick: Параметри палички | justdirethings: Відкрити налаштування інструменту | mininggadgets: Open Mining Gadget Settings
+A: minecraft: Ліворуч | minecraft: Перезавантажити чанки | jei: Додати/видалити закладку
+S: minecraft: Іти назад | minecraft: Зберегти динамічні текстури | ftbquests: Редагувати підзаголовок
+D: minecraft: Праворуч | minecraft: Очистити чат | ftbquests: Редагувати опис
+Q: minecraft: Викинути вибраний предмет | inventoryessentials: Викинути все | ftbquests: Редагувати властивості квесту
+F: minecraft: Поміняти місцями предмети в руках | journeymap: Стежити за гравцем | thaumaturge: Змінити фокус жезла
+L: minecraft: Досягнення | minecraft: Почати/зупинити профілювання | ftbquests: Вставити лінію
+I: minecraft: Копіювати дані | ftbquests: Вставити зображення | inventoryhud: Перемикає режим відображення Inventory HUD+ ON/OFF
+,: ironjetpacks: Зменшити газ | arsmagicalegacy: Попередня група форм | railcraft: Зменшити швидкість локомотива
+Z: silentgear: Перемкнути назад | justzoom: Зум | advanced_ae: Відкрити налаштування квантової броні
+Ctrl+E: sfm: Екран менеджера - Відкрити текстовий редактор | sfm: Головний екран - Відкрити текстовий редактор | ae2: Відкрити бездротовий термінал
+Delete: trashslot: Видалити всі предмети цього типу | trashslot: Видалити предмет | ftbquests: Видалити наведене / вибране
+=: ftbquests: Наблизити | journeymap: Збільшити | ftbchunks: Наблизити мінімапу
+-: ftbquests: Віддалити | journeymap: Зменшити | ftbchunks: Віддалити мінімапу
+U: hostilenetworks: Відкрити глибинного учня (Curio) | buildinggadgets2: Скасувати | jei: Показати використання
+Shift+ЛКМ: jei: Змайстр. із закладкою один раз | jei: Швидко перемістити предмет-привид | jei: Узяти 1 стос
+Ctrl+ЛКМ: jei: Змайстр. із закладкою багато разів | jei: Перемкнути режим шахрайства | jei: Приховати інгредієнт
+F1: minecraft: Перемикати графічний інтерфейс | ftbquests: Розширена інформація про квест
+F4: minecraft: Перемикати ефекти шейдерів глядача | minecraft: Перемикач режиму гри
+F5: minecraft: Перемкнути перспективу | ftbquests: Перезавантажити тему
+F3: minecraft: Перемкнути накладення | minecraft: Клавіша-модифікатор налагодження
+1: minecraft: Слот швидкого доступу 1 | minecraft: Діаграма профілювання
+2: minecraft: Слот швидкого доступу 2 | minecraft: Діаграми частоти кадрів
+3: minecraft: Слот швидкого доступу 3 | minecraft: Діаграми мережі
+4: minecraft: Слот швидкого доступу 4 | minecraft: Текстура мапи освітлення
+Shift+Tab: integratedterminals: Попередня вкладка термінала | ftbquests: Попередній розділ
+Shift+C: integratedterminals: Очистити сітку створення в інвентар | arsmagicalegacy: Налаштувати закляття
+O: iris: Екран вибору пакету шейдерів | journeymap: Диспетчер налаштувань
+Ctrl+X: refinedstorage: Очистити сітку майстрування в мережу | deepnullreforged: Відкрити/закрити DeepNull на панелі швидкого доступу
+Ctrl+R: refinedstorage: Відкрити бездротову сітку | ftbquests: Перемкнути перехрестя
+0: minecraft: Laser Attack | ftbquests: Скинути масштаб
+Y: framedblocks: Перемкнути перебір станів розміщення | mahoutsukai: Зміна Містичного коду
+\: sfm: Текстовий редактор - Прийняти пропозицію Інтелісенсу | journeymap: Змінити пресет мінімапи
+F7: iceandfire: Камера дракона від третьої особи | moreoverlays: Перемкнути накладку освітлення
+Alt+R: integrateddynamics: Логічний програматор: перейменувати змінну | ftbquests: Примусово скинути наведене
+[: sophisticatedcore: Перенести в сховище | journeymap: Змінити тип мапи
+←: ftbquests: Перемістити вибір / прокрутити ліворуч | journeymap: Зсунути на захід (16 блоків)
+→: ftbquests: Перемістити вибір / прокрутити праворуч | journeymap: Зсунути на схід (16 блоків)
+Ctrl+C: ftbquests: Копіювати | theurgy: Змінити режим предмета
+Ctrl+V: ftbquests: Вставити | toolbelt: Відкрити інвентар слотів пояса
+Ctrl+T: ftbquests: Відкрити редактор таблиць винагород | apotheosis: Відкрити екран вибору світових рівнів
+J: journeymap: Показати/приховати мапу повного екрана | advanced_ae: Перемкнути автопоповнення квантової броні
+
+== Не призначено ==
+advanced_ae: Відкрити поліпшений кодувальник шаблонів  [key.advanced_ae.pattern_encoder_action]
+advanced_ae: Перемкнути нічне бачення квантової броні  [key.advanced_ae.quantum_night_vision_upgrade]
+advanced_ae: Відкрити бездротовий термінал квантового майструвача  [key.ae2.wireless_quantum_crafter_terminal]
+ae2: Відкрити портативну комірку рідин  [key.ae2.portable_fluid_cell]
+ae2: Відкрити портативну комірку предметів  [key.ae2.portable_item_cell]
+ae2wtlib: Відкрити бездротовий термінал доступу до шаблонів  [key.ae2.wireless_pattern_access_terminal]
+ae2wtlib: Відкрити бездротовий термінал кодування шаблонів  [key.ae2.wireless_pattern_encoding_terminal]
+appliedthaumaturge: Відкрити бездротовий термінал арканного створення  [key.ae2.appliedthaumaturge.wireless_arcane_terminal]
+appliedthaumaturge: Відкрити бездротовий термінал Essentia  [key.ae2.appliedthaumaturge.wireless_essentia_terminal]
+artifacts: Перемкнути амулет зменшення  [artifacts.key.charm_of_shrinking.toggle]
+artifacts: Перемкнути амулет занурення  [artifacts.key.charm_of_sinking.toggle]
+artifacts: Активувати гелієвого фламінго  [artifacts.key.helium_flamingo.activate]
+artifacts: Перемкнути шарф-невидимку  [artifacts.key.scarf_of_invisibility.toggle]
+configured: Відкрити список модів  [key.configured.open_mod_list]
+constructionstick: Перемкнути напрямок  [key.constructionstick.change_direction]
+constructionstick: Перемкнути обмеження  [key.constructionstick.change_restriction]
+constructionstick: Перемкнути покращення  [key.constructionstick.change_upgrade]
+constructionstick: Показати попереднє  [key.constructionstick.show_previous]
+craftingtweaks: Розподілити сітку  [key.craftingtweaks.balance]
+craftingtweaks: Очистити сітку  [key.craftingtweaks.clear]
+craftingtweaks: Розпакувати всі  [key.craftingtweaks.decompress_all]
+craftingtweaks: Розпакувати предмет  [key.craftingtweaks.decompress_one]
+craftingtweaks: Розпакувати стос  [key.craftingtweaks.decompress_stack]
+craftingtweaks: Примусово очистити сітку  [key.craftingtweaks.force_clear]
+craftingtweaks: Обернути сітку  [key.craftingtweaks.rotate]
+craftingtweaks: Обернути сітку (CCW)  [key.craftingtweaks.rotate_counter_clockwise]
+craftingtweaks: Розповсюдити по всій сітці  [key.craftingtweaks.spread]
+craftingtweaks: Перенести до сітки створення  [key.craftingtweaks.transfer_stack]
+crashutilities: Copy Container Class  [crashutils.copycontainer]
+crashutilities: Show Slot Index Tooltips  [crashutils.slottooltips]
+deepnullreforged: Перемкнути тип каменю DampNull  [key.cycle_stone_generator.desc]
+deepnullreforged: Увімкнути/вимкнути автохарчування DeepNull  [key.toggle_auto_feeding.desc]
+deepnullreforged: Увімкнути/вимкнути автопереплавлення DeepNull  [key.toggle_auto_smelting.desc]
+deepnullreforged: Увімкнути/вимкнути глобальне автопідбирання Null  [key.toggle_global_auto_pickup.desc]
+deepnullreforged: Увімкнути/вимкнути HUD DeepNull  [key.toggle_hud.desc]
+deepnullreforged: Увімкнути/вимкнути губку DampNull  [key.toggle_sponge.desc]
+deepnullreforged: Перемкнути напрямок передавання DeepNull  [key.toggle_transfer_direction.desc]
+deepnullreforged: Перемкнути режим виводу DeepNull  [key.toggle_transfer_lock.desc]
+evilcraft: Перемкнути пукання  [key.evilcraft.fart]
+extremesoundmuffler: Відкрити екран глушника звуків  [key.open_muffler_gui]
+framedblocks: Оновити кеш відсікання  [framedblocks.key.update_cull]
+framedblocks: Очистити кеш моделей  [framedblocks.key.wipe_cache]
+ftbchunks: Швидко додати мітку  [key.ftbchunks.keys.add_waypoint]
+ftbchunks: Перемкнути мінімапу  [key.ftbchunks.keys.toggle_minimap]
+ftbchunks: Менеджер міток  [key.ftbchunks.keys.waypoint_manager]
+ftbquests: Видимість відстеження закріплених квестів  [key.ftbquests.keys.cycle_pinned_tracker]
+ftbteams: Відкрити GUI Команд  [key.ftbteams.open_gui]
+inventoryessentials: Вивантажити в контейнер  [key.inventoryessentials.dump_to_container]
+inventoryessentials: Поповнити контейнер  [key.inventoryessentials.restock_container]
+inventoryessentials: Поповнити інвентар  [key.inventoryessentials.restock_inventory]
+inventoryhud: Перемикає всі HUD ON/OFF  [key.inventoryhud.toggleall]
+inventoryhud: Перемикає HUD Броні ON/OFF  [key.inventoryhud.togglearm]
+inventoryhud: Перемикає HUD Ефектів ON/OFF  [key.inventoryhud.togglepot]
+iris: Каркасний режим (лише одиночна гра)  [iris.keybind.wireframe]
+ironjetpacks: Підйом  [keybind.ironjetpacks.ascend]
+ironjetpacks: Спуститися  [keybind.ironjetpacks.descend]
+ironjetpacks: Перемкнути HUD  [keybind.ironjetpacks.hud]
+jade: Використати профіль #0  [key.jade.profile.0]
+jade: Використати профіль #1  [key.jade.profile.1]
+jade: Використати профіль #2  [key.jade.profile.2]
+jade: Використати профіль #3  [key.jade.profile.3]
+jei: Копіювати ID рецепта в буфер обміну  [key.jei.copy.recipe.id]
+jei: Змайструвати рецепт під курсором (багато)  [key.jei.maxTransferRecipeGui]
+jei: Наступна сторінка  [key.jei.nextPage]
+jei: Попередня сторінка  [key.jei.previousPage]
+jei: Наступний рецепт  [key.jei.recipeForward]
+jei: Поділитися предметом у чаті  [key.jei.shareToChat]
+jei: Показ./прихов. інгредієнти із закладкою  [key.jei.toggleBookmarkOverlay]
+jei: Перемкнути режим шахрайства  [key.jei.toggleCheatMode]
+jei: Перемкнути режим прихов. інгредієнтів  [key.jei.toggleEditMode]
+jei: Змайструвати рецепт під курсором (один)  [key.jei.transferRecipeGui]
+journeymap: Вимкнути кнопки повного екрана  [key.journeymap.fullscreen.disable_buttons]
+journeymap: Перемкнути показ маршрутних точок  [key.journeymap.toggle_render_waypoints]
+journeymap: Перемкнути показ маршрутних точок на мапі  [key.journeymap.toggle_render_waypoints_map]
+journeymap: Перемкнути показ маршрутних точок у світі  [key.journeymap.toggle_render_waypoints_world]
+journeymap: Перемкнути всі маршрутні точки  [key.journeymap.toggle_waypoints]
+keybindbundles: Відкрити екран призначень клавіш  [key.keybindbundles.open_screen]
+merequester: Відкрити бездротовий термінал запитувача  [key.ae2.wireless_requester_terminal]
+minecraft: key.occultism.familiar.drikwing  [key.occultism.familiar.drikwing]
+minecraft: key.occultism.familiar.wingnis  [key.occultism.familiar.wingnis]
+minecraft: Швидкі дії  [key.quickActions]
+minecraft: Перемкнути режим кінокамери  [key.smoothCamera]
+minecraft: Підсвічувати гравців  [key.spectatorOutlines]
+neovitae: Lex Vitae: вогняний промінь  [key.neovitae.lex_beam]
+neovitae: Відкрити Scriptura Vitae для предмета під курсором  [key.neovitae.open_guide]
+occultism: Перемкнути здібності: Кажан  [key.occultism.familiar.bat_familiar]
+occultism: Перемкнути здібності: Бобер  [key.occultism.familiar.beaver_familiar]
+occultism: Перемкнути здібності: Споглядач  [key.occultism.familiar.beholder_familiar]
+occultism: Перемкнути здібності: Коваль  [key.occultism.familiar.blacksmith_familiar]
+occultism: Перемкнути здібності: Химера  [key.occultism.familiar.chimera_familiar]
+occultism: Перемкнути здібності: Ктулху  [key.occultism.familiar.cthulhu_familiar]
+occultism: Перемкнути здібності: Олень  [key.occultism.familiar.deer_familiar]
+occultism: Перемкнути здібності: Диявол  [key.occultism.familiar.devil_familiar]
+occultism: Перемкнути здібності: Дракон  [key.occultism.familiar.dragon_familiar]
+occultism: Перемкнути здібності: Фея  [key.occultism.familiar.fairy_familiar]
+occultism: Перемкнути здібності: Коза  [key.occultism.familiar.goat_familiar]
+occultism: Перемкнути здібності: Жадюга  [key.occultism.familiar.greedy_familiar]
+occultism: Перемкнути здібності: Хоронитель  [key.occultism.familiar.guardian_familiar]
+occultism: Перемкнути здібності: Безголова щуролюдина  [key.occultism.familiar.headless_familiar]
+occultism: Перемкнути здібності: Мумія  [key.occultism.familiar.mummy_familiar]
+occultism: Перемкнути здібності: Шуб Ніггурат  [key.occultism.familiar.shub_niggurath_familiar]
+oracle_index: Відкрити пошук Oracle  [key.oracle_index.search]
+refinedstorage: Очистити сітку майстрування в інвентар  [key.refinedstorage.clear_crafting_grid_matrix_to_inventory]
+refinedstorage: Відкрити портативну сітку  [key.refinedstorage.open_portable_grid]
+refinedstorage: Відкрити бездротовий монітор автомайстрування  [key.refinedstorage.open_wireless_autocrafting_monitor]
+reliquary: Увімкнути/вимкнути монету удачі  [key.reliquary.fortune_coin]
+sfm: (WIP) Скопіювати дані наведеного предмета до буфера обміну  [key.sfm.item_inspector.activation_key]
+sfm: Наступна етикетка пістолета для етикеток  [key.sfm.label_gun.next_label]
+sfm: Відкрити інтерфейс маркувального пістолета  [key.sfm.label_gun.open_gui]
+sfm: Попередня етикетка пістолета для етикеток  [key.sfm.label_gun.previous_label]
+sky_aesthetics: Відкрити редактор неба  [key.sky_aesthetics.open_editor]
+sophisticatedbackpacks: Увімкнути/вимкнути покращення в 3-му слоті  [key.sophisticatedbackpacks.toggle_upgrade_3]
+sophisticatedbackpacks: Увімкнути/вимкнути покращення в 4-му слоті  [key.sophisticatedbackpacks.toggle_upgrade_4]
+sophisticatedbackpacks: Увімкнути/вимкнути покращення в 5-му слоті  [key.sophisticatedbackpacks.toggle_upgrade_5]
+sophisticatedbackpacks: Змінити інструмент на основі поточного блоку/сутності  [key.sophisticatedbackpacks.tool_swap]
+starcatcher: Відкрити посібник  [key.starcatcher.open_guide]
+theurgy: Показати контур розміщення стосу в руці  [key.theurgy.show_held_stack_fit_outline]
+toolbelt: Спорядити попередній інструмент  [key.toolbelt.cycle.left]
+toolbelt: Спорядити наступний інструмент  [key.toolbelt.cycle.right]
+trashslot: Заблокувати/розблокувати TrashSlot  [key.trashslot.toggle_lock]
+universalgrid: Перемкнути тип бездротової універсальної сітки  [key.universalgrid.switch_wireless_universal_grid_type]

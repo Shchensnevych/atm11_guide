@@ -1,0 +1,25 @@
+/* Токени теми: кольори, відступи, шрифти. Кольори класів модів — з data/classes.json (ставляться змінними --c-<id> у JS). */
+:root {
+  --bg: #0b0f14;
+  --bg-2: #111821;
+  --panel: #151d28;
+  --panel-2: #1b2532;
+  --line: #263243;
+  --line-2: #33435a;
+  --text: #e6edf3;
+  --muted: #8b98a9;
+  --accent: #facc15;
+  --accent-2: #f59e0b;
+  --link: #7cc4ff;
+  --ok: #4ade80;
+  --warn: #fbbf24;
+  --bad: #f87171;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --gap: 16px;
+  --shadow: 0 6px 24px rgb(0 0 0 / 35%);
+  --font: "Segoe UI", system-ui, -apple-system, Roboto, "Noto Sans", sans-serif;
+  --mono: "Cascadia Code", Consolas, ui-monospace, monospace;
+  --pixel: "Minecraft", "Press Start 2P", var(--mono);
+  --topbar-h: 56px;
+}

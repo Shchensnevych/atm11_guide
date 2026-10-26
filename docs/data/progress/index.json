@@ -1,0 +1,38 @@
+{
+ "default": "novyy_svit",
+ "updated": "2026-10-25 12:01",
+ "worlds": [
+  {
+   "slug": "novyy_svit",
+   "world": "Новий світ",
+   "folder": "Новий світ",
+   "mode": "survival",
+   "mode_uk": "Виживання",
+   "last_played": "2026-10-24 23:57",
+   "last_played_ts": 1792875450,
+   "updated": "2026-10-25 12:01",
+   "play_hours": 1.37,
+   "quests_done": 7,
+   "quests_visible_done": 7,
+   "quests_started": 4,
+   "advancements_done": 14,
+   "items_obtained": 13
+  },
+  {
+   "slug": "tvorchist",
+   "world": "Творчість",
+   "folder": "Творчість",
+   "mode": "creative",
+   "mode_uk": "Творчість",
+   "last_played": "2026-10-25 00:03",
+   "last_played_ts": 1792875811,
+   "updated": "2026-10-25 12:01",
+   "play_hours": 7.97,
+   "quests_done": 7,
+   "quests_visible_done": 7,
+   "quests_started": 8,
+   "advancements_done": 20,
+   "items_obtained": 37
+  }
+ ]
+}

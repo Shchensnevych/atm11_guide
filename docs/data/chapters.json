@@ -1,0 +1,1200 @@
+{
+ "groups": [
+  {
+   "id": "2084F3F6FB861C5B",
+   "title": "Основна сюжетна лінія",
+   "order": 0
+  },
+  {
+   "id": "15E5B587D291A4AA",
+   "title": "Інструменти та спорядження",
+   "order": 1
+  },
+  {
+   "id": "1AC60211DE7427FC",
+   "title": "Сховище",
+   "order": 2
+  },
+  {
+   "id": "3D4E23B1100491AB",
+   "title": "Логістика",
+   "order": 3
+  },
+  {
+   "id": "6614EE2378B8AFB9",
+   "title": "Ресурси",
+   "order": 4
+  },
+  {
+   "id": "2B51AC12041E3F89",
+   "title": "Техніка",
+   "order": 5
+  },
+  {
+   "id": "6700DB960E16A321",
+   "title": "Modern Industrialization",
+   "order": 6
+  },
+  {
+   "id": "49AECADBA9E79A3B",
+   "title": "Енергія",
+   "order": 7
+  },
+  {
+   "id": "02FE661031A105D8",
+   "title": "Магія",
+   "order": 8
+  },
+  {
+   "id": "5A4775CCD6D26C80",
+   "title": "Дослідження",
+   "order": 9
+  }
+ ],
+ "chapters": [
+  {
+   "id": "7DD267962EF04024",
+   "file": "chapter_1_the_beginning",
+   "group": "2084F3F6FB861C5B",
+   "title": "Розділ 1: Новий початок",
+   "icon": "minecraft:crafting_table",
+   "quests": 47,
+   "mods": [
+    "ftbfiltersystem",
+    "naturescompass",
+    "sophisticatedbackpacks",
+    "artifacts",
+    "silentgear",
+    "mysticalagriculture"
+   ]
+  },
+  {
+   "id": "4293754F9B2D05F0",
+   "file": "allthemodium",
+   "group": "2084F3F6FB861C5B",
+   "order": 1,
+   "title": "Розділ 2: Усемодій",
+   "icon": "allthemodium:allthemodium_ingot",
+   "quests": 28,
+   "mods": [
+    "allthemodium",
+    "ftbfiltersystem",
+    "quarryplus"
+   ]
+  },
+  {
+   "id": "5103E2D95685ADFF",
+   "file": "chapter_2_the_star",
+   "group": "2084F3F6FB861C5B",
+   "order": 2,
+   "title": "Chapter 3: The ATM Star",
+   "icon": "allthetweaks:atm_star",
+   "quests": 128,
+   "hidden": true,
+   "mods": [
+    "ftbquests",
+    "forbidden_arcanus",
+    "allthecompressed",
+    "mysticalagradditions",
+    "evilcraft",
+    "mysticalagriculture"
+   ],
+   "missing": [
+    "modern_industrialization",
+    "pneumaticcraft",
+    "industrialforegoing",
+    "irons_spellbooks"
+   ]
+  },
+  {
+   "id": "792AD692F1468B1F",
+   "file": "chapter_2_the_atm_star",
+   "group": "2084F3F6FB861C5B",
+   "order": 3,
+   "title": "Chapter 4: Creative",
+   "sub": "Plus Star Automation!",
+   "icon": "modularrouters:creative_module",
+   "quests": 39,
+   "hidden": true,
+   "mods": [
+    "forbidden_arcanus",
+    "ftbquests",
+    "kubejs",
+    "powah",
+    "ironjetpacks",
+    "integrateddynamics"
+   ],
+   "missing": [
+    "modern_industrialization",
+    "actuallyadditions",
+    "mekanism",
+    "pneumaticcraft"
+   ]
+  },
+  {
+   "id": "0731FA8830F28280",
+   "file": "apotheosis_gear",
+   "group": "15E5B587D291A4AA",
+   "title": "Спорядження Apotheosis",
+   "icon": "apotheosis:godforged_pearl",
+   "quests": 30,
+   "mods": [
+    "apotheosis",
+    "ftbfiltersystem",
+    "gateways"
+   ]
+  },
+  {
+   "id": "7AF827D2D101D343",
+   "file": "artifacts",
+   "group": "15E5B587D291A4AA",
+   "order": 1,
+   "title": "Артефакти",
+   "icon": "artifacts:umbrella",
+   "quests": 50,
+   "mods": [
+    "artifacts"
+   ]
+  },
+  {
+   "id": "4791C8461B1B4D5F",
+   "file": "basic_armor",
+   "group": "15E5B587D291A4AA",
+   "order": 2,
+   "title": "Basic Armor",
+   "icon": "minecraft:diamond_chestplate",
+   "quests": 129,
+   "hidden": true,
+   "mods": [
+    "ftbquests",
+    "mysticalagriculture",
+    "undergarden",
+    "allthemodium",
+    "justdirethings",
+    "rootsclassic",
+    "aquaculture"
+   ],
+   "missing": [
+    "irons_spellbooks",
+    "twilightforest",
+    "eternal_starlight",
+    "mekanismtools"
+   ]
+  },
+  {
+   "id": "4B9D26E0087CD163",
+   "file": "basic_tools",
+   "group": "15E5B587D291A4AA",
+   "order": 3,
+   "title": "Базові інструменти",
+   "icon": "minecraft:diamond_pickaxe",
+   "quests": 78,
+   "hidden": true,
+   "mods": [
+    "ftbfiltersystem",
+    "ftbquests",
+    "mysticalagriculture",
+    "allthemodium",
+    "justdirethings",
+    "ae2",
+    "undergarden"
+   ],
+   "missing": [
+    "mekanismtools",
+    "naturesaura",
+    "eternal_starlight",
+    "everythingcopper"
+   ]
+  },
+  {
+   "id": "43BB00A7A7E1042C",
+   "file": "mahou_tsukai",
+   "group": "15E5B587D291A4AA",
+   "order": 4,
+   "title": "Mahou Tsukai",
+   "icon": "mahoutsukai:morgan",
+   "quests": 35,
+   "mods": [
+    "mahoutsukai"
+   ]
+  },
+  {
+   "id": "11919EBB416B2BD0",
+   "file": "relics",
+   "group": "15E5B587D291A4AA",
+   "order": 5,
+   "title": "Реліквії",
+   "icon": "ftbquests:custom_icon",
+   "quests": 23,
+   "hidden": true,
+   "mods": [
+    "ftbquests"
+   ],
+   "missing": [
+    "relics"
+   ]
+  },
+  {
+   "id": "1D42B373285DEF81",
+   "file": "silent_gear",
+   "group": "15E5B587D291A4AA",
+   "order": 6,
+   "title": "Silent Gear",
+   "sub": "Та Productive Metalworks",
+   "icon": "silentgear:pickaxe_blueprint",
+   "quests": 69,
+   "mods": [
+    "sgearmetalworks",
+    "silentgear",
+    "productivemetalworks",
+    "ftbfiltersystem"
+   ]
+  },
+  {
+   "id": "1DB294A8F8686321",
+   "file": "storage",
+   "group": "1AC60211DE7427FC",
+   "title": "Базове зберігання",
+   "icon": "minecraft:chest",
+   "quests": 89,
+   "mods": [
+    "sophisticatedbackpacks",
+    "functionalstorage",
+    "ftbfiltersystem",
+    "sophisticatedstorage",
+    "trashcans",
+    "dimstorage"
+   ]
+  },
+  {
+   "id": "07210DDF872160BA",
+   "file": "applied_energistics_2",
+   "group": "1AC60211DE7427FC",
+   "order": 1,
+   "title": "Applied Energistics 2",
+   "icon": "ftbquests:custom_icon",
+   "quests": 75,
+   "mods": [
+    "ae2",
+    "ftbfiltersystem",
+    "ftbquests",
+    "aeinfinitybooster",
+    "ae2wtlib",
+    "occultism"
+   ],
+   "missing": [
+    "megacells"
+   ]
+  },
+  {
+   "id": "51A2FE60D8B76FC6",
+   "file": "extended_and_advanced_ae",
+   "group": "1AC60211DE7427FC",
+   "order": 2,
+   "title": "Extended & Advanced AE",
+   "icon": "advanced_ae:shattered_singularity",
+   "quests": 56,
+   "mods": [
+    "advanced_ae",
+    "extendedae",
+    "ftbfiltersystem",
+    "ae2"
+   ]
+  },
+  {
+   "id": "15AAF17B6665223D",
+   "file": "refined_storage",
+   "group": "1AC60211DE7427FC",
+   "order": 3,
+   "title": "Refined Storage",
+   "icon": "refinedstorage:creative_controller",
+   "quests": 72,
+   "mods": [
+    "refinedstorage",
+    "cabletiers",
+    "extradisks",
+    "refinedstorage_quartz_arsenal",
+    "ftbfiltersystem",
+    "interdimensionalwirelesstransmitter",
+    "refinedtypes",
+    "universalgrid"
+   ]
+  },
+  {
+   "id": "3DEB33F78398EAD6",
+   "file": "basic_logistics",
+   "group": "3D4E23B1100491AB",
+   "title": "Базова логістика",
+   "sub": "Та LaserIO",
+   "icon": "pipez:wrench",
+   "quests": 33,
+   "mods": [
+    "laserio",
+    "pipez",
+    "integratedtunnels",
+    "ftbfiltersystem",
+    "integrateddynamics"
+   ]
+  },
+  {
+   "id": "4D13E185C0A57681",
+   "file": "bbl_routers",
+   "group": "3D4E23B1100491AB",
+   "order": 1,
+   "title": "BBL Routers",
+   "sub": "Інший BBL",
+   "icon": "routers:exporter",
+   "quests": 23,
+   "mods": [
+    "routers"
+   ]
+  },
+  {
+   "id": "69299302373C4CBC",
+   "file": "integrated_dynamics",
+   "group": "3D4E23B1100491AB",
+   "order": 2,
+   "title": "Integrated Dynamics",
+   "icon": "integrateddynamics:crystalized_menril_chunk",
+   "quests": 28,
+   "mods": [
+    "integrateddynamics",
+    "ftbfiltersystem",
+    "integratedcrafting",
+    "integratedterminals",
+    "mysticalagriculture",
+    "productivebees"
+   ]
+  },
+  {
+   "id": "0AB4F9AED808DE48",
+   "file": "modular_router",
+   "group": "3D4E23B1100491AB",
+   "order": 3,
+   "title": "Modular Routers",
+   "icon": "modularrouters:modular_router",
+   "quests": 55,
+   "mods": [
+    "modularrouters",
+    "ftbfiltersystem"
+   ]
+  },
+  {
+   "id": "5712300EF4E5E846",
+   "file": "pylons",
+   "group": "3D4E23B1100491AB",
+   "order": 4,
+   "title": "Pylons",
+   "icon": "pylons:infusion_pylon",
+   "quests": 13,
+   "mods": [
+    "pylons",
+    "ftbfiltersystem"
+   ]
+  },
+  {
+   "id": "0E81CBCD6B1D1895",
+   "file": "apotheosis_2",
+   "group": "6614EE2378B8AFB9",
+   "title": "Apothic Spawners",
+   "sub": "Та інші породжувачі",
+   "icon": "minecraft:spawner",
+   "quests": 35,
+   "mods": [
+    "apotheosis",
+    "ftbquests",
+    "ftbfiltersystem",
+    "evilcraft",
+    "enderio",
+    "mysticalagriculture",
+    "apothic_enchanting"
+   ],
+   "missing": [
+    "mob_grinding_utils",
+    "pneumaticcraft",
+    "draconicevolution",
+    "industrialforegoing"
+   ]
+  },
+  {
+   "id": "05E614FDA677D85E",
+   "file": "food_and_farming",
+   "group": "6614EE2378B8AFB9",
+   "order": 1,
+   "title": "Food and Farming",
+   "icon": "minecraft:cake",
+   "quests": 35,
+   "mods": [
+    "cookingforblockheads",
+    "ftbfiltersystem",
+    "aquaculture",
+    "silentgear",
+    "farmingforblockheads"
+   ]
+  },
+  {
+   "id": "0A52D0932DA3F809",
+   "file": "hostile_neural_networks",
+   "group": "6614EE2378B8AFB9",
+   "order": 2,
+   "title": "Hostile Neural Networks",
+   "icon": "hostilenetworks:data_model",
+   "quests": 50,
+   "hidden": true,
+   "mods": [
+    "hostilenetworks",
+    "ftbquests"
+   ]
+  },
+  {
+   "id": "0F96DC3563DA78EF",
+   "file": "mystical_agriculture",
+   "group": "6614EE2378B8AFB9",
+   "order": 3,
+   "title": "Mystical Agriculture",
+   "icon": "mysticalagradditions:insanium_essence",
+   "quests": 168,
+   "mods": [
+    "mysticalagriculture",
+    "mysticalagradditions",
+    "ftbfiltersystem",
+    "kubejs",
+    "productivebees"
+   ]
+  },
+  {
+   "id": "26E6ED94168A05C4",
+   "file": "productive_bees",
+   "group": "6614EE2378B8AFB9",
+   "order": 4,
+   "title": "Productive Bees",
+   "icon": "minecraft:honeycomb",
+   "quests": 256,
+   "mods": [
+    "productivebees",
+    "productivelib",
+    "ftbfiltersystem"
+   ]
+  },
+  {
+   "id": "69787DE8D64CBDF0",
+   "file": "productive_farming",
+   "group": "6614EE2378B8AFB9",
+   "order": 5,
+   "title": "Productive Farming",
+   "icon": "productivefarming:feeding_trough",
+   "quests": 185,
+   "mods": [
+    "productivefarming",
+    "ftbfiltersystem"
+   ]
+  },
+  {
+   "id": "1FAAEF0B9FD05CB9",
+   "file": "productive_trees",
+   "group": "6614EE2378B8AFB9",
+   "order": 6,
+   "title": "Productive Trees",
+   "icon": "minecraft:oak_sapling",
+   "quests": 167,
+   "mods": [
+    "productivetrees",
+    "ftbfiltersystem"
+   ]
+  },
+  {
+   "id": "100C477F4E63F20A",
+   "file": "create",
+   "group": "2B51AC12041E3F89",
+   "title": "Create",
+   "icon": "ftbquests:missing_item",
+   "quests": 91,
+   "hidden": true,
+   "mods": [
+    "ftbquests",
+    "ftbfiltersystem"
+   ],
+   "missing": [
+    "create"
+   ]
+  },
+  {
+   "id": "0B826D13BAD43EEB",
+   "file": "draconic_evolution",
+   "group": "2B51AC12041E3F89",
+   "order": 1,
+   "title": "Draconic Evolution",
+   "icon": "ftbquests:missing_item",
+   "quests": 141,
+   "hidden": true,
+   "mods": [
+    "ftbquests",
+    "draconicevolution",
+    "ftbfiltersystem"
+   ],
+   "missing": [
+    "draconicevolution"
+   ]
+  },
+  {
+   "id": "22C20C1827FE6805",
+   "file": "immersive_engineering",
+   "group": "2B51AC12041E3F89",
+   "order": 2,
+   "title": "Immersive Engineering",
+   "icon": "ftbquests:missing_item",
+   "quests": 128,
+   "hidden": true,
+   "mods": [
+    "ftbquests",
+    "ftbfiltersystem",
+    "alltheores",
+    "immersiveengineering"
+   ],
+   "missing": [
+    "immersiveengineering"
+   ]
+  },
+  {
+   "id": "193F91842D2ED7D9",
+   "file": "industrial_foregoing",
+   "group": "2B51AC12041E3F89",
+   "order": 3,
+   "title": "Industrial Foregoing",
+   "icon": "ftbquests:missing_item",
+   "quests": 79,
+   "hidden": true,
+   "mods": [
+    "ftbquests",
+    "ftbfiltersystem",
+    "ae2",
+    "advanced_ae"
+   ],
+   "missing": [
+    "industrialforegoing",
+    "industrialforegoingsouls"
+   ]
+  },
+  {
+   "id": "4EAAE0CEB26378A6",
+   "file": "justdirethings",
+   "group": "2B51AC12041E3F89",
+   "order": 4,
+   "title": "Just Dire Things",
+   "icon": "justdirethings:fuel_canister",
+   "quests": 154,
+   "mods": [
+    "justdirethings",
+    "ftbfiltersystem"
+   ]
+  },
+  {
+   "id": "23983F4DC524B14B",
+   "file": "mekanism",
+   "group": "2B51AC12041E3F89",
+   "order": 5,
+   "title": "Mekanism",
+   "icon": "ftbquests:missing_item",
+   "quests": 91,
+   "hidden": true,
+   "mods": [
+    "ftbquests",
+    "ftbfiltersystem",
+    "alltheores"
+   ],
+   "missing": [
+    "mekanism",
+    "mekanismgenerators"
+   ]
+  },
+  {
+   "id": "0A093D8C4429B627",
+   "file": "mekanism_reactors",
+   "group": "2B51AC12041E3F89",
+   "order": 6,
+   "title": "Mekanism: Реактори",
+   "icon": "ftbquests:missing_item",
+   "quests": 95,
+   "hidden": true,
+   "mods": [
+    "ftbquests",
+    "ftbfiltersystem",
+    "alltheores",
+    "cookingforblockheads",
+    "trashcans"
+   ],
+   "missing": [
+    "mekanism",
+    "mekanismgenerators",
+    "gmut"
+   ]
+  },
+  {
+   "id": "4EEDECACDE8F5A67",
+   "file": "oritech",
+   "group": "2B51AC12041E3F89",
+   "order": 7,
+   "title": "Oritech",
+   "icon": "oritech:powered_furnace",
+   "quests": 56,
+   "mods": [
+    "oritech",
+    "ftbfiltersystem",
+    "alltheores"
+   ]
+  },
+  {
+   "id": "5E31DF282998B992",
+   "file": "pneumaticcraft",
+   "group": "2B51AC12041E3F89",
+   "order": 8,
+   "title": "PneumaticCraft",
+   "icon": "ftbquests:missing_item",
+   "quests": 128,
+   "hidden": true,
+   "mods": [
+    "ftbquests",
+    "ftbfiltersystem"
+   ],
+   "missing": [
+    "pneumaticcraft"
+   ]
+  },
+  {
+   "id": "2FB24A5A597459FC",
+   "file": "railcraft",
+   "group": "2B51AC12041E3F89",
+   "order": 9,
+   "title": "RailCraft",
+   "icon": "railcraft:steam_locomotive",
+   "quests": 52,
+   "mods": [
+    "railcraft",
+    "ftbfiltersystem"
+   ]
+  },
+  {
+   "id": "3240E735E45E643E",
+   "file": "enderio",
+   "group": "2B51AC12041E3F89",
+   "order": 10,
+   "title": "EnderIO",
+   "icon": "enderio:alloy_smelter",
+   "quests": 35,
+   "mods": [
+    "enderio",
+    "ftbfiltersystem"
+   ]
+  },
+  {
+   "id": "219B7A003658D24F",
+   "file": "xycraft",
+   "group": "2B51AC12041E3F89",
+   "order": 11,
+   "title": "XyCraft",
+   "icon": "ftbquests:missing_item",
+   "quests": 28,
+   "hidden": true,
+   "mods": [
+    "ftbquests",
+    "ftbfiltersystem"
+   ],
+   "missing": [
+    "xycraft_machines",
+    "xycraft_world"
+   ]
+  },
+  {
+   "id": "0D990A1D1E088701",
+   "file": "mi_steam",
+   "group": "6700DB960E16A321",
+   "title": "Парова доба: новий початок",
+   "icon": "alltheores:bronze_ingot",
+   "quests": 31,
+   "hidden": true,
+   "mods": [
+    "ftbquests",
+    "alltheores",
+    "ftbfiltersystem"
+   ],
+   "missing": [
+    "modern_industrialization",
+    "extended_industrialization"
+   ]
+  },
+  {
+   "id": "5C4F10E65D86ED0E",
+   "file": "mi_electric",
+   "group": "6700DB960E16A321",
+   "order": 1,
+   "title": "Електрична доба: вже не новачок",
+   "icon": "ftbquests:missing_item",
+   "quests": 51,
+   "hidden": true,
+   "mods": [
+    "ftbquests",
+    "ftbfiltersystem"
+   ],
+   "missing": [
+    "modern_industrialization",
+    "extended_industrialization"
+   ]
+  },
+  {
+   "id": "56B11606F5F4DAB2",
+   "file": "mi_digital",
+   "group": "6700DB960E16A321",
+   "order": 2,
+   "title": "Цифрова доба",
+   "icon": "ftbquests:missing_item",
+   "quests": 67,
+   "hidden": true,
+   "mods": [
+    "ftbquests",
+    "ftbfiltersystem"
+   ],
+   "missing": [
+    "modern_industrialization",
+    "extended_industrialization"
+   ]
+  },
+  {
+   "id": "25344A9254E02C8E",
+   "file": "mi_endgame",
+   "group": "6700DB960E16A321",
+   "order": 3,
+   "title": "Фінальний етап",
+   "icon": "ftbquests:missing_item",
+   "quests": 26,
+   "hidden": true,
+   "mods": [
+    "ftbquests"
+   ],
+   "missing": [
+    "modern_industrialization"
+   ]
+  },
+  {
+   "id": "5D045EF1AB73DF70",
+   "file": "basic_power",
+   "group": "49AECADBA9E79A3B",
+   "title": "Базова енергія",
+   "icon": "ftbquests:missing_item",
+   "quests": 35,
+   "hidden": true,
+   "mods": [
+    "ftbquests",
+    "ftbfiltersystem",
+    "pipez",
+    "alltheores",
+    "integrateddynamics",
+    "powah",
+    "productivebees"
+   ],
+   "missing": [
+    "fluxnetworks",
+    "mekanismgenerators",
+    "dysoncubeproject",
+    "mekanism"
+   ]
+  },
+  {
+   "id": "3C78926E5D301BA0",
+   "file": "extreme_reactors",
+   "group": "49AECADBA9E79A3B",
+   "order": 1,
+   "title": "Extreme Reactors",
+   "icon": "ftbquests:missing_item",
+   "quests": 34,
+   "hidden": true,
+   "mods": [
+    "ftbquests",
+    "alltheores"
+   ],
+   "missing": [
+    "bigreactors"
+   ]
+  },
+  {
+   "id": "73180B829B960E63",
+   "file": "generators",
+   "group": "49AECADBA9E79A3B",
+   "order": 2,
+   "title": "Generators N Furnaces",
+   "icon": "ironfurnaces:million_furnace",
+   "quests": 47,
+   "mods": [
+    "ironfurnaces",
+    "generatorgalore",
+    "ftbfiltersystem"
+   ]
+  },
+  {
+   "id": "2A6EBEEBAB882679",
+   "file": "powah",
+   "group": "49AECADBA9E79A3B",
+   "order": 3,
+   "title": "Powah",
+   "icon": "powah:energizing_orb",
+   "quests": 109,
+   "mods": [
+    "powah",
+    "ftbfiltersystem"
+   ]
+  },
+  {
+   "id": "12AD9789D962B179",
+   "file": "apothic_enchanting",
+   "group": "02FE661031A105D8",
+   "title": "Apothic Enchanting",
+   "icon": "apothic_enchanting:apothic_enchanting_table",
+   "quests": 58,
+   "mods": [
+    "apothic_enchanting",
+    "ftbfiltersystem",
+    "apotheosis"
+   ]
+  },
+  {
+   "id": "3456E0C530C0038E",
+   "file": "evilcraft",
+   "group": "02FE661031A105D8",
+   "order": 1,
+   "title": "EvilCraft",
+   "icon": "evilcraft:dark_power_gem",
+   "quests": 45,
+   "mods": [
+    "evilcraft"
+   ]
+  },
+  {
+   "id": "4EBB2171D5A3AAAC",
+   "file": "forbidden_and_arcanus",
+   "group": "02FE661031A105D8",
+   "order": 2,
+   "title": "Forbidden Arcanus",
+   "icon": "forbidden_arcanus:hephaestus_forge",
+   "quests": 63,
+   "mods": [
+    "forbidden_arcanus",
+    "justdirethings",
+    "ftbquests",
+    "ftbfiltersystem",
+    "evilcraft",
+    "kubejs",
+    "productivebees"
+   ],
+   "missing": [
+    "modern_industrialization",
+    "starbunclemania",
+    "sauce"
+   ]
+  },
+  {
+   "id": "76DF5FAA7961E5E7",
+   "file": "iron_spells_and_spellbooks",
+   "group": "02FE661031A105D8",
+   "order": 3,
+   "title": "Iron's Spells 'n Spellbooks",
+   "icon": "ftbquests:missing_item",
+   "quests": 103,
+   "hidden": true,
+   "mods": [
+    "ftbquests",
+    "irons_spellbooks",
+    "ftbfiltersystem"
+   ],
+   "missing": [
+    "irons_spellbooks",
+    "allthewizardgear"
+   ]
+  },
+  {
+   "id": "7A72E12C3839D165",
+   "file": "natures_aura",
+   "group": "02FE661031A105D8",
+   "order": 4,
+   "title": "Nature's Aura",
+   "icon": "ftbquests:missing_item",
+   "quests": 26,
+   "hidden": true,
+   "mods": [
+    "ftbquests",
+    "ftbfiltersystem"
+   ],
+   "missing": [
+    "naturesaura"
+   ]
+  },
+  {
+   "id": "76A0FBADACAD322B",
+   "file": "neo_vitae",
+   "group": "02FE661031A105D8",
+   "order": 5,
+   "title": "Neo Vitae",
+   "icon": "neovitae:crystallarium_maleficum",
+   "quests": 49,
+   "mods": [
+    "neovitae"
+   ]
+  },
+  {
+   "id": "4C507C004144BFEE",
+   "file": "occultism",
+   "group": "02FE661031A105D8",
+   "order": 6,
+   "title": "Occultism",
+   "icon": "occultism:ritual_dummy/summon_foliot_crusher",
+   "quests": 62,
+   "mods": [
+    "occultism",
+    "ftbfiltersystem",
+    "alltheores"
+   ]
+  },
+  {
+   "id": "007B547630FF0478",
+   "file": "theurgy",
+   "group": "02FE661031A105D8",
+   "order": 7,
+   "title": "Theurgy",
+   "icon": "theurgy:alchemical_sulfur_sulfur",
+   "quests": 45,
+   "mods": [
+    "theurgy",
+    "ftbfiltersystem"
+   ]
+  },
+  {
+   "id": "2F7606A5942D110C",
+   "file": "aether_2",
+   "group": "5A4775CCD6D26C80",
+   "title": "Aether 2",
+   "icon": "aether_ii:aether_portal_frame",
+   "quests": 103,
+   "mods": [
+    "aether_ii",
+    "ftbfiltersystem"
+   ]
+  },
+  {
+   "id": "48410B67C276ED1F",
+   "file": "bumblezone",
+   "group": "5A4775CCD6D26C80",
+   "order": 1,
+   "title": "The Bumblezone",
+   "icon": "minecraft:bee_nest",
+   "quests": 115,
+   "hidden": true,
+   "mods": [
+    "ftbquests",
+    "the_bumblezone",
+    "ftbfiltersystem"
+   ],
+   "missing": [
+    "the_bumblezone"
+   ]
+  },
+  {
+   "id": "44F441765D7CB182",
+   "file": "auroral",
+   "group": "5A4775CCD6D26C80",
+   "order": 2,
+   "title": "Auroral",
+   "icon": "auroral:aurora_bloom",
+   "quests": 21,
+   "mods": [
+    "auroral",
+    "ftbfiltersystem"
+   ]
+  },
+  {
+   "id": "59395B6806F2A98A",
+   "file": "cataclysm",
+   "group": "5A4775CCD6D26C80",
+   "order": 3,
+   "title": "Cataclysm",
+   "icon": "ftbquests:missing_item",
+   "quests": 97,
+   "hidden": true,
+   "mods": [
+    "ftbquests",
+    "cataclysm"
+   ],
+   "missing": [
+    "cataclysm"
+   ]
+  },
+  {
+   "id": "13B172FA69904D9F",
+   "file": "deeper_and_darker",
+   "group": "5A4775CCD6D26C80",
+   "order": 4,
+   "title": "Deeper and Darker",
+   "icon": "ftbquests:missing_item",
+   "quests": 46,
+   "hidden": true,
+   "mods": [
+    "ftbquests",
+    "deeperdarker",
+    "ftbfiltersystem"
+   ],
+   "missing": [
+    "deeperdarker"
+   ]
+  },
+  {
+   "id": "6AEC23C6D526F362",
+   "file": "eternal_starlight",
+   "group": "5A4775CCD6D26C80",
+   "order": 5,
+   "title": "Eternal Starlight",
+   "icon": "ftbquests:missing_item",
+   "quests": 131,
+   "hidden": true,
+   "mods": [
+    "ftbquests",
+    "eternal_starlight",
+    "ftbfiltersystem"
+   ],
+   "missing": [
+    "eternal_starlight"
+   ]
+  },
+  {
+   "id": "7732CF7AAA63DB3A",
+   "file": "twilight_forest",
+   "group": "5A4775CCD6D26C80",
+   "order": 6,
+   "title": "The Twilight Forest",
+   "icon": "ftbquests:missing_item",
+   "quests": 57,
+   "hidden": true,
+   "mods": [
+    "ftbquests"
+   ],
+   "missing": [
+    "twilightforest"
+   ]
+  },
+  {
+   "id": "5D8E83698AEF1092",
+   "file": "ice_and_fire",
+   "group": "5A4775CCD6D26C80",
+   "order": 7,
+   "title": "Ice and Fire",
+   "icon": "iceandfire:dragon_skull_fire",
+   "quests": 87,
+   "mods": [
+    "iceandfire",
+    "ftbfiltersystem",
+    "allthemodium"
+   ]
+  },
+  {
+   "id": "65A95C2312976E49",
+   "file": "undergarden",
+   "group": "5A4775CCD6D26C80",
+   "order": 8,
+   "title": "The Undergarden",
+   "icon": "undergarden:catalyst",
+   "quests": 82,
+   "mods": [
+    "undergarden"
+   ]
+  },
+  {
+   "id": "5B00676D79306EA2",
+   "file": "welcome",
+   "title": "Ласкаво просимо",
+   "icon": "ftbquests:book",
+   "quests": 6
+  },
+  {
+   "id": "18A429E7F56AF5A9",
+   "file": "bounty_board",
+   "order": 1,
+   "title": "Дошка Винагород",
+   "icon": "minecraft:creeper_spawn_egg",
+   "quests": 53,
+   "mods": [
+    "undergarden",
+    "aether_ii",
+    "allthemodium"
+   ]
+  },
+  {
+   "id": "7A5C327771634A7D",
+   "file": "building_tips",
+   "order": 2,
+   "title": "Building Tips",
+   "icon": "framedblocks:framed_cube",
+   "quests": 92,
+   "hidden": true,
+   "mods": [
+    "ftbfiltersystem",
+    "ftbquests",
+    "artifacts",
+    "justdirethings",
+    "refurbished_furniture",
+    "camol"
+   ],
+   "missing": [
+    "rechiseled",
+    "domum_ornamentum",
+    "compactmachines"
+   ]
+  },
+  {
+   "id": "1BE666F01EFFC00D",
+   "file": "tips_and_tricks",
+   "order": 3,
+   "title": "Поради та хитрощі",
+   "icon": "minecraft:recovery_compass",
+   "quests": 24,
+   "mods": [
+    "ftbfiltersystem",
+    "ftbquests",
+    "cookingforblockheads",
+    "toolbelt",
+    "easy_villagers",
+    "utilitarian",
+    "simplemagnets",
+    "ironjetpacks"
+   ],
+   "missing": [
+    "mob_grinding_utils",
+    "shrink",
+    "multipiston",
+    "modern_industrialization"
+   ]
+  }
+ ],
+ "links": [
+  {
+   "from": "apotheosis_gear",
+   "to": "apothic_enchanting",
+   "n": 4
+  },
+  {
+   "from": "mi_digital",
+   "to": "mi_endgame",
+   "n": 9
+  },
+  {
+   "from": "mi_electric",
+   "to": "mi_digital",
+   "n": 1
+  },
+  {
+   "from": "mi_electric",
+   "to": "mi_endgame",
+   "n": 3
+  },
+  {
+   "from": "mi_steam",
+   "to": "mi_electric",
+   "n": 1
+  }
+ ]
+}

@@ -1,0 +1,191 @@
+{
+ "slug": "novyy_svit",
+ "world": "Новий світ",
+ "folder": "Новий світ",
+ "mode": "survival",
+ "mode_uk": "Виживання",
+ "game_type": 0,
+ "last_played": "2026-10-24 23:57",
+ "last_played_ts": 1792875450,
+ "updated": "2026-10-25 12:01",
+ "play_hours": 1.37,
+ "player": {
+  "uuid": "832ceed6-e820-31f9-aa40-6acd5077a2ac",
+  "xp_level": 8,
+  "dimension": "minecraft:overworld",
+  "world_tier": "haven",
+  "unique_foods": 0,
+  "name": "Nexius"
+ },
+ "quests": {
+  "done": [
+   "196312DF0D2E2CB6",
+   "3BC0A50886A3222B",
+   "3CBF4D703AA17199",
+   "4B5FCDD5FC705903",
+   "637EF6D9DFC59EE8",
+   "6ECB27052FCB874E",
+   "79DD4CCCECC3F974"
+  ],
+  "done_visible": [
+   "196312DF0D2E2CB6",
+   "3BC0A50886A3222B",
+   "3CBF4D703AA17199",
+   "4B5FCDD5FC705903",
+   "637EF6D9DFC59EE8",
+   "6ECB27052FCB874E",
+   "79DD4CCCECC3F974"
+  ],
+  "started": [
+   "18AA64DF63F68762",
+   "1F748ACA3976A92F",
+   "3DBDF0350DC69A70",
+   "6CA3111E5B9FE80B"
+  ],
+  "tasks_done": [
+   "0A3853BD4F62B78E",
+   "0AAE5F971117AEE2",
+   "13F86953093670F6",
+   "17393180EFF15717",
+   "33218EFDD498E9DB",
+   "3DF1F367C3EA9631",
+   "52A3EC00B0885573",
+   "6B38E9AF8B97B65E",
+   "774A3D949E44C19D",
+   "7AD8269107F61422"
+  ],
+  "rewards_claimed": 7,
+  "by_chapter": {
+   "apotheosis_gear": {
+    "done": [
+     "196312DF0D2E2CB6"
+    ],
+    "started": []
+   },
+   "welcome": {
+    "done": [
+     "3BC0A50886A3222B"
+    ],
+    "started": []
+   },
+   "productive_farming": {
+    "done": [
+     "3CBF4D703AA17199",
+     "4B5FCDD5FC705903"
+    ],
+    "started": []
+   },
+   "auroral": {
+    "done": [
+     "637EF6D9DFC59EE8"
+    ],
+    "started": []
+   },
+   "ice_and_fire": {
+    "done": [
+     "6ECB27052FCB874E"
+    ],
+    "started": []
+   },
+   "chapter_1_the_beginning": {
+    "done": [
+     "79DD4CCCECC3F974"
+    ],
+    "started": [
+     "3DBDF0350DC69A70",
+     "6CA3111E5B9FE80B"
+    ]
+   },
+   "apothic_enchanting": {
+    "done": [],
+    "started": [
+     "18AA64DF63F68762",
+     "1F748ACA3976A92F"
+    ]
+   }
+  }
+ },
+ "advancements": {
+  "done": [
+   "apotheosis:progression/root",
+   "auroral:root",
+   "dungeons_arise:wda_root",
+   "iceandfire:iceandfire/root",
+   "lootr:root",
+   "mffs:grant_book_on_first_join",
+   "minecraft:story/root",
+   "occultism:chalks/root",
+   "occultism:occultism/root",
+   "regions_unexplored:parent",
+   "silentgear:root",
+   "theurgy:book_root",
+   "undergarden:undergarden/root",
+   "witchery:root"
+  ]
+ },
+ "items": {
+  "obtained": [
+   "auroral:guide",
+   "minecraft:bone_meal",
+   "minecraft:cooked_beef",
+   "minecraft:crafting_table",
+   "minecraft:dirt",
+   "minecraft:fern",
+   "minecraft:grass_block",
+   "minecraft:jungle_leaves",
+   "minecraft:jungle_log",
+   "minecraft:jungle_planks",
+   "minecraft:jungle_slab",
+   "minecraft:vine",
+   "regions_unexplored:elephant_ear"
+  ],
+  "crafted": {
+   "minecraft:crafting_table": 1,
+   "minecraft:jungle_planks": 8,
+   "minecraft:jungle_slab": 6
+  },
+  "inventory": {
+   "auroral:guide": 1,
+   "minecraft:bone_meal": 3,
+   "minecraft:cooked_beef": 8,
+   "minecraft:dirt": 3,
+   "minecraft:jungle_planks": 1,
+   "minecraft:jungle_slab": 6
+  }
+ },
+ "default": "novyy_svit",
+ "worlds": [
+  {
+   "slug": "novyy_svit",
+   "world": "Новий світ",
+   "folder": "Новий світ",
+   "mode": "survival",
+   "mode_uk": "Виживання",
+   "last_played": "2026-10-24 23:57",
+   "last_played_ts": 1792875450,
+   "updated": "2026-10-25 12:01",
+   "play_hours": 1.37,
+   "quests_done": 7,
+   "quests_visible_done": 7,
+   "quests_started": 4,
+   "advancements_done": 14,
+   "items_obtained": 13
+  },
+  {
+   "slug": "tvorchist",
+   "world": "Творчість",
+   "folder": "Творчість",
+   "mode": "creative",
+   "mode_uk": "Творчість",
+   "last_played": "2026-10-25 00:03",
+   "last_played_ts": 1792875811,
+   "updated": "2026-10-25 12:01",
+   "play_hours": 7.97,
+   "quests_done": 7,
+   "quests_visible_done": 7,
+   "quests_started": 8,
+   "advancements_done": 20,
+   "items_obtained": 37
+  }
+ ]
+}

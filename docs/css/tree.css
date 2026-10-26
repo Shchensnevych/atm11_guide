@@ -1,0 +1,143 @@
+/* Дерево розвитку v2: полотно з масштабом, смуги етапів, картки віх з іконками, лінії, мінікарта, піктограми можливостей */
+.tv { position: absolute; inset: 0; overflow: hidden; cursor: grab; touch-action: none; user-select: none;
+  background: radial-gradient(circle, rgb(255 255 255 / 4.5%) 1px, transparent 1px) 0 0 / 24px 24px, var(--bg); }
+.tv.panning { cursor: grabbing; }
+.tv-stage { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+.tv-edges { position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none; z-index: 1; }
+
+/* етапи: rail — лінії-межі + рейка зліва у вікні; frame — рамки з вкладкою (stage-bands.js). Без заливок. */
+.tv-sep { position: absolute; left: 0; height: 0; border-top: 1px dashed rgb(148 163 184 / 22%); }
+.tv-rail { position: absolute; left: 0; top: 0; bottom: 0; width: 176px; z-index: 4; pointer-events: none;
+  background: rgb(11 15 20 / 86%); border-right: 1px solid var(--line); backdrop-filter: blur(2px); }
+.tv-rail::before { content: ''; position: absolute; left: 25px; top: 0; bottom: 0; border-left: 2px solid rgb(250 204 21 / 22%); }
+.tv-rail-item { position: absolute; left: 0; right: 0; border-top: 1px dashed rgb(148 163 184 / 22%); pointer-events: auto; cursor: pointer; overflow: hidden; }
+.tv-rail-item:first-child { border-top: 0; }
+.tv-rail-lab { position: relative; padding: 8px 10px 8px 44px; will-change: transform; }
+.tv-rail-lab .n { position: absolute; left: 14px; top: 8px; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--bg); border: 2px solid var(--accent); color: var(--accent); font: 700 12px var(--mono); }
+.tv-rail-lab b { display: block; color: var(--text); font-size: 13px; line-height: 1.25; margin-top: 3px; }
+.tv-rail-lab .g { display: block; color: var(--muted); font-size: 11.5px; line-height: 1.3; margin-top: 3px; }
+.tv-rail-item:hover .n { background: var(--accent); color: var(--bg); }
+.tv-zone { position: absolute; left: 12px; border: 1px solid rgb(148 163 184 / 20%); border-radius: 18px; }
+.tv-zone-tab { position: absolute; left: 18px; top: -13px; display: flex; align-items: center; gap: 8px; padding: 2px 12px 2px 4px; max-width: 70%;
+  background: var(--bg); border: 1px solid rgb(148 163 184 / 28%); border-radius: 999px; white-space: nowrap; font-size: 13px; }
+.tv-zone-tab .n { width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: var(--bg); font: 700 11px var(--mono); }
+.tv-zone-tab b { color: var(--text); }
+.tv-zone-tab .g { color: var(--muted); font-size: 12px; overflow: hidden; text-overflow: ellipsis; }
+
+/* картка віхи */
+.ncard { --c: var(--muted); position: absolute; z-index: 3; width: 220px; height: 86px; box-sizing: border-box; padding: 7px 9px 7px 14px; border-radius: 10px;
+  background: linear-gradient(180deg, #1e2a39, #151d28); border: 1.5px solid color-mix(in srgb, var(--c) 45%, var(--line-2));
+  box-shadow: 0 4px 14px rgb(0 0 0 / 40%); cursor: pointer; transition: opacity .35s cubic-bezier(.3,.7,.3,1), filter .35s, box-shadow .3s ease, transform .2s ease; }
+.ncard::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; border-radius: 9px 0 0 9px; background: var(--c); }
+.ncard:hover { transform: translateY(-1px); box-shadow: 0 0 0 1px var(--c), 0 8px 22px rgb(0 0 0 / 50%); }
+.ncard.trunk { width: 240px; height: 92px; border-width: 2px; background: linear-gradient(180deg, #2b2612, #1a1a14); }
+.nc-title { font-size: 13px; font-weight: 650; line-height: 1.17; color: var(--text); padding-right: 46px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.ncard.trunk .nc-title { font-size: 14px; color: #fde68a; }
+.nc-logos { position: absolute; right: 8px; top: 7px; display: flex; gap: 3px; }
+.nc-logos img { width: 18px; height: 18px; border-radius: 4px; image-rendering: pixelated; background: var(--bg-2); }
+.nc-icons { position: absolute; left: 14px; bottom: 7px; display: flex; gap: 4px; }
+.nc-ic { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 7px; background: rgb(0 0 0 / 35%); border: 1px solid rgb(255 255 255 / 7%); }
+.nc-ic img { width: 32px; height: 32px; image-rendering: pixelated; }
+.nc-q { color: var(--muted); font-weight: 700; }
+.nc-feat { position: absolute; right: 8px; bottom: 9px; }
+.nc-state { position: absolute; left: -8px; top: -8px; width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center;
+  font-size: 12px; font-weight: 800; line-height: 1; border: 2px solid var(--bg); }
+.nc-state svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2.4; }
+.ncard.done { border-color: var(--c); box-shadow: 0 0 0 1px var(--c), 0 0 22px color-mix(in srgb, var(--c) 40%, transparent); }
+.ncard.done .nc-state { background: var(--ok); color: #052e16; }
+.ncard.avail .nc-state { background: var(--accent); color: #2a1f00; animation: tv-pulse 2.2s ease-in-out infinite; }
+.ncard.locked { filter: saturate(.3) brightness(.72); }
+.ncard.locked .nc-state { background: #334155; color: #cbd5e1; }
+@keyframes tv-pulse { 50% { box-shadow: 0 0 0 5px rgb(250 204 21 / 25%); } }
+
+/* лінії */
+.edge { transition: opacity .35s cubic-bezier(.3,.7,.3,1); }
+.edge .e-line { fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; opacity: .55; transition: opacity .35s ease, stroke-width .3s ease; }
+.edge .e-glow { fill: none; stroke: transparent; stroke-width: 7; }
+.edge .port { opacity: .8; }
+.edge.lit .e-line { opacity: 1; }
+.edge.lit .e-glow { stroke: rgb(250 204 21 / 10%); }
+.e-label-bg { fill: #0e141c; stroke: var(--line-2); }
+.e-label { fill: #e2e8f0; font: 600 11px var(--font); }
+
+/* підсвітка шляху: наведення на картку */
+.tv.hl-mode .ncard:not(.hl) { opacity: .4; filter: saturate(.5); }
+.tv.hl-mode .edge:not(.hl) { opacity: .18; }
+.tv.hl-mode .edge.hl .e-line { opacity: 1; stroke-width: 3.2; }
+.tv.hl-mode .ncard.hl-self { box-shadow: 0 0 0 2px var(--accent), 0 0 26px rgb(250 204 21 / 35%); }
+
+/* кнопки й мінікарта */
+.tv-ctrl { position: absolute; right: 12px; top: 12px; display: flex; flex-direction: column; gap: 4px; z-index: 5; }
+.tv-ctrl button { width: 34px; height: 34px; font-size: 18px; padding: 0; }
+.minimap { position: absolute; right: 12px; bottom: 12px; z-index: 5; padding: 4px; border-radius: 8px; background: rgb(11 15 20 / 88%); border: 1px solid var(--line-2); cursor: pointer; }
+.minimap canvas { display: block; width: 200px; }
+.tv-legend { position: absolute; left: 12px; bottom: 12px; z-index: 5; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; font-size: 12px; color: var(--muted);
+  background: rgb(11 15 20 / 85%); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; max-width: calc(100% - 260px); }
+.tv-legend svg { vertical-align: middle; margin-right: 4px; }
+/* легенда над картою (рядок під панеллю інструментів) */
+.rm { display: flex; flex-direction: column; height: calc(100vh - var(--topbar-h)); width: 100%; }
+.rm .split { flex: 1; height: auto; min-height: 0; }
+.rm-legend { border-bottom: 1px solid var(--line); background: var(--bg-2); padding: 5px 14px; }
+.tv-legend.top { position: static; max-width: none; background: none; border: 0; padding: 0; gap: 6px 14px; }
+.tv-legend .lg-h { color: var(--text); font-weight: 600; }
+.tv-legend .lg-sep { width: 1px; height: 16px; background: var(--line-2); }
+.feat-legend { display: inline-flex; flex-wrap: wrap; gap: 4px 12px; align-items: center; }
+.fl-item { display: inline-flex; align-items: center; gap: 4px; }
+.fl-item.pick { cursor: pointer; padding: 1px 6px; border-radius: 999px; border: 1px solid transparent; }
+.fl-item.pick:hover { border-color: var(--line-2); } .fl-item.pick.on { border-color: var(--accent); color: var(--text); background: rgb(250 204 21 / 10%); }
+.rm-cls { flex: 1; display: flex; flex-wrap: wrap; gap: 5px; min-width: 0; align-items: center; }
+.rm-cls .chip { font-size: .78rem; padding: 3px 9px; }
+.rm-cls .chip.on { border: 2px dashed var(--c); padding: 2px 8px; }
+
+/* піктограми можливостей (feat.js) */
+.feats { display: inline-flex; gap: 3px; align-items: center; }
+.feat { --fc: var(--muted); display: inline-grid; place-items: center; width: 18px; height: 18px; color: var(--fc); }
+.feat svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.feat svg .f { fill: currentColor; stroke: none; }
+.feats.labeled { gap: 6px; flex-wrap: wrap; }
+.feats.labeled .feat { width: auto; display: inline-flex; gap: 4px; padding: 1px 8px 1px 5px; border-radius: 999px; font-size: .75rem; font-weight: 600;
+  background: color-mix(in srgb, var(--fc) 14%, transparent); border: 1px solid color-mix(in srgb, var(--fc) 40%, transparent); }
+.nc-mono { width: 18px; height: 18px; border-radius: 4px; display: grid; place-items: center; font: 700 8.5px/1 var(--font); letter-spacing: -.2px;
+  color: var(--c); background: color-mix(in srgb, var(--c) 16%, #0e141c); border: 1px solid color-mix(in srgb, var(--c) 40%, transparent); }
+.tv.hl-mode .ncard.locked:not(.hl) { filter: saturate(.25) brightness(.6); }
+
+/* сторінка карти: панель інструментів, перемикач виглядів, хост полотна */
+.rm { display: flex; flex-direction: column; width: 100%; }
+.tv-host { position: absolute; inset: 0; }
+.tv-loading { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); }
+.ncard.sel { outline: 2px solid var(--accent); outline-offset: 3px; }
+.nc-feat { display: flex; gap: 2px; align-items: center; }
+.nc-star { color: var(--accent); font-size: 15px; line-height: 1; width: 18px; text-align: center; text-shadow: 0 0 8px rgb(250 204 21 / 60%); }
+.nc-logo { display: block; line-height: 0; border-radius: 4px; }
+.nc-logo:hover { outline: 1px solid var(--accent); }
+.lg-kind { cursor: pointer; } .lg-kind.off { opacity: .35; text-decoration: line-through; }
+.tv.hide-req .edge.req, .tv.hide-syn .edge.syn, .tv.hide-opt .edge.opt { display: none; }
+/* «За модами»: рамки сузір'їв, хаби, промені */
+.tv-cframe { position: absolute; border: 1px dashed rgb(148 163 184 / 16%); border-radius: 40px; }
+.tv-spokes { position: absolute; left: 0; top: 0; pointer-events: none; }
+.spoke line { stroke-width: 2; opacity: .3; transition: opacity .35s ease; }
+.spoke circle { opacity: .5; }
+.tv.hl-mode .spoke:not(.hl) { opacity: .25; } .spoke.hl line { opacity: .85; }
+.hub { --c: var(--accent); position: absolute; z-index: 2; width: 190px; height: 100px; box-sizing: border-box; border-radius: 50px; padding: 10px 16px; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-align: center;
+  background: radial-gradient(circle at 50% 30%, color-mix(in srgb, var(--c) 22%, #151d28), #10161f 75%); border: 2px solid var(--c);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--c) 12%, transparent), 0 6px 20px rgb(0 0 0 / 45%); transition: opacity .35s ease, box-shadow .3s ease; }
+.hub:hover { box-shadow: 0 0 0 6px color-mix(in srgb, var(--c) 25%, transparent), 0 6px 20px rgb(0 0 0 / 45%); }
+.hub-logos { display: flex; gap: 4px; } .hub-logos img, .hub-logos .nc-mono { width: 26px; height: 26px; border-radius: 6px; image-rendering: pixelated; }
+.hub-logos .nc-mono { font-size: 10px; --c: inherit; } .hub-ic { font-size: 22px; }
+.hub-title { font-weight: 700; font-size: 14px; color: var(--text); line-height: 1.1; }
+.hub-n { font-size: 11px; color: var(--muted); }
+.tv.hl-mode .hub:not(.hl) { opacity: .4; }
+/* бічна панель віхи */
+.rm-items { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px; margin: 10px 0; }
+.rm-item { display: flex; align-items: center; gap: 8px; font-size: .85rem; padding: 4px 6px; border-radius: 6px; background: var(--bg-2); border: 1px solid var(--line); }
+.rm-item img { width: 32px; height: 32px; image-rendering: pixelated; flex: none; }
+.rm-mod { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+@media (max-width: 800px) {
+  .rm .split-main { flex: none; height: 72vh; }
+  .tv-rail { width: 46px; } .tv-rail::before { left: 21px; }
+  .tv-rail-lab { padding: 8px 0 8px 46px; } .tv-rail-lab .n { left: 10px; } .tv-rail-lab b, .tv-rail-lab .g { display: none; }
+  .tv-legend:not(.top) { display: none; } .minimap { display: none; } .rm { height: auto; } .rm-legend { font-size: 11px; }
+}

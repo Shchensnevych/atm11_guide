@@ -1,0 +1,8677 @@
+[
+ {
+  "id": "advanced_ae",
+  "name": "Advanced AE",
+  "version": "26.1.7",
+  "jar": "AdvancedAE-26.1.7.jar",
+  "primary": true,
+  "authors": "Pedroksl",
+  "url": "https://github.com/pedroksl/AdvancedAE",
+  "desc_en": "An AE2 addon that adds a lot of utilities and quality of life.",
+  "deps": [
+   "ae2",
+   "ae2addonlib",
+   "geckolib"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "block": 17,
+   "fluid": 2,
+   "item": 51
+  },
+  "uk_keys": 240,
+  "books": [],
+  "guideme": true,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "ae2",
+  "name": "Applied Energistics 2",
+  "version": "26.1.13-beta",
+  "jar": "appliedenergistics2-26.1.13-beta.jar",
+  "primary": true,
+  "authors": "Team AppliedEnergistics",
+  "url": "https://appliedenergistics.org",
+  "desc_en": "A Mod about Matter, Energy and using them to conquer the world...",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "biome": 1,
+   "block": 102,
+   "entity": 1,
+   "item": 262
+  },
+  "uk_keys": 355,
+  "books": [],
+  "guideme": true,
+  "logo": "img/mods/ae2.png",
+  "world": {
+   "dims": [],
+   "structures": 1,
+   "biomes": 1,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 1,
+   "bosses": []
+  }
+ },
+ {
+  "id": "ae2importexportcard",
+  "name": "AE2 Import Export Card",
+  "version": "26.1.2-2.3.1",
+  "jar": "ae2importexportcard-26.1.2-2.3.1.jar",
+  "primary": true,
+  "authors": "Ultramega",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/ae2-import-export-card",
+  "desc_en": "This mod adds an import, export and block picker card to wireless terminals from Applied Energistics 2.",
+  "deps": [
+   "ae2"
+  ],
+  "deps_opt": [
+   "curios"
+  ],
+  "counts": {
+   "item": 3
+  },
+  "uk_keys": 3,
+  "books": [],
+  "guideme": true,
+  "logo": "img/mods/ae2importexportcard.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "ae2netanalyser",
+  "name": "AE2NetworkAnalyzer",
+  "version": "26.1-1.0.0-neoforge",
+  "jar": "AE2NetworkAnalyzer-26.1-1.0.0-neoforge.jar",
+  "primary": true,
+  "authors": "GlodBlock",
+  "url": "https://github.com/GlodBlock/ExtendedAE",
+  "desc_en": "Add a tool to analyze your AE network easily.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 2
+  },
+  "uk_keys": 38,
+  "books": [],
+  "guideme": true,
+  "logo": "img/mods/ae2netanalyser.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "ae2wtlib",
+  "name": "AE2WTLib",
+  "version": "26.1.2-beta",
+  "jar": "ae2wtlib-26.1.2-beta.jar",
+  "primary": true,
+  "authors": "mari_023, Ridanisaurus",
+  "url": "",
+  "desc_en": "Adds Wireless versions of ae2 Terminals with infinite range capabilities.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 5
+  },
+  "uk_keys": 17,
+  "books": [],
+  "guideme": true,
+  "logo": "img/mods/ae2wtlib.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "aeinfinitybooster",
+  "name": "AEInfinityBooster",
+  "version": "26.1.2-1.0.0.57",
+  "jar": "aeinfinitybooster-neoforge-26.1.2-1.0.0.57.jar",
+  "primary": true,
+  "authors": "Hexeption",
+  "url": "",
+  "desc_en": "Adds Infinite Range Card and Dimension Card to AE2",
+  "deps": [
+   "ae2"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "item": 2
+  },
+  "uk_keys": 4,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "aether_ii",
+  "name": "The Aether II",
+  "version": "1.0-alpha.4.1",
+  "jar": "aether_ii-26.1.2-alpha.4.1-neoforge.jar",
+  "primary": true,
+  "authors": "bconlon, Builderdog, bagu_chan, Blodhgarm, Drullkus, Hugo Payn, Jaryt, Jasper, Katie 'Oz' Payn, Mercedes, Raptor, reetamb, RENREN, sunsette",
+  "url": "https://modrinth.com/mod/aether-ii",
+  "desc_en": "The Iconic Dimension Mod Returns! Step into a renewed and expanded Aether Dimension with The Aether II! The sequel to the quintessential dimension mod. Begin your journey with a Glowstone Portal and Water, and ascend to The Aether's Holy Isles for a new and exciting adventure!",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "biome": 15,
+   "block": 610,
+   "effect": 19,
+   "entity": 50,
+   "item": 250
+  },
+  "uk_keys": 1688,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/aether_ii.png",
+  "world": {
+   "dims": [
+    {
+     "id": "aether_ii:aether_holy_isles",
+     "key": "dimension.aether_ii.aether_holy_isles",
+     "name": "Aether Holy Isles"
+    }
+   ],
+   "structures": 18,
+   "biomes": 16,
+   "ores": 16,
+   "eggs": 33,
+   "entities": 50,
+   "bosses": [
+    "aether_ii:slider"
+   ]
+  }
+ },
+ {
+  "id": "agritechevolved",
+  "name": "Agritech: Evolved",
+  "version": "2.2.0.5+neoforge-mc26.1.2",
+  "jar": "agritechevolved-2.2.0.5+neoforge-mc26.1.2.jar",
+  "primary": true,
+  "authors": "MisterD Modding",
+  "url": "",
+  "desc_en": "AgriTech: Evolved is a comprehensive agricultural automation mod for Minecraft that enhances farming with advanced machines, modules, and extensive mod compatibility.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 40,
+   "item": 13
+  },
+  "uk_keys": 158,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "allthecompressed",
+  "name": "AllTheCompressed",
+  "version": "5.0.1",
+  "jar": "allthecompressed-26.1.2-5.0.1.jar",
+  "primary": true,
+  "authors": "Pdiddy973",
+  "url": "",
+  "desc_en": "Adds 1-9x compressed versions of blocks, and recipes.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 1578
+  },
+  "uk_keys": 1580,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/allthecompressed.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "allthemodium",
+  "name": "AllTheModium",
+  "version": "26.1.2-4.2.0",
+  "jar": "allthemodium-26.1.2-4.2.0.jar",
+  "primary": true,
+  "authors": "thevortex, whatthedrunk",
+  "url": "",
+  "desc_en": "Allthemodium!.\nBrought to you by AllTheMods!",
+  "deps": [
+   "alltheores",
+   "geckolib"
+  ],
+  "deps_opt": [
+   "lootr"
+  ],
+  "counts": {
+   "biome": 9,
+   "block": 104,
+   "entity": 2,
+   "item": 85
+  },
+  "uk_keys": 232,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/allthemodium.png",
+  "world": {
+   "dims": [
+    {
+     "id": "allthemodium:mining",
+     "key": "dimension.allthemodium.mining",
+     "name": "Mining Dimension"
+    },
+    {
+     "id": "allthemodium:the_beyond",
+     "key": "dimension.allthemodium.the_beyond",
+     "name": "The Beyond"
+    },
+    {
+     "id": "allthemodium:the_other",
+     "key": "dimension.allthemodium.the_other",
+     "name": "The Other"
+    }
+   ],
+   "structures": 3,
+   "biomes": 9,
+   "ores": 50,
+   "eggs": 1,
+   "entities": 2,
+   "bosses": []
+  }
+ },
+ {
+  "id": "alltheores",
+  "name": "AllTheOres",
+  "version": "4.0.4",
+  "jar": "alltheores-4.0.4.jar",
+  "primary": true,
+  "authors": "thevortex, whatthedrunk, Satherov",
+  "url": "",
+  "desc_en": "Commonly found modded ores in one easy spot!.\nBrought to you by AllTheMods!",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 121,
+   "item": 161
+  },
+  "uk_keys": 5,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/alltheores.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 17,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "allthetweaks",
+  "name": "AllTheTweaks",
+  "version": "3.1.1",
+  "jar": "allthetweaks-26.1.2-3.1.1.jar",
+  "primary": true,
+  "authors": "thevortex, whatthedrunk",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/all-the-tweaks",
+  "desc_en": "Tweaks for ATM Modpacks!.\nBrought to you by AllTheMods!",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 8,
+   "item": 13
+  },
+  "uk_keys": 50,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/allthetweaks.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "apotheosis",
+  "name": "Apotheosis",
+  "version": "9.1.0",
+  "jar": "Apotheosis-26.1.2-9.1.0.jar",
+  "primary": true,
+  "authors": "Shadows_of_Fire",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/apotheosis",
+  "desc_en": "All things that should have been",
+  "deps": [
+   "apothic_attributes",
+   "placebo"
+  ],
+  "deps_opt": [
+   "apothic_enchanting",
+   "apothic_spawners",
+   "gateways",
+   "patchouli"
+  ],
+  "counts": {
+   "item": 48,
+   "block": 8,
+   "advancements": 15
+  },
+  "uk_keys": 94,
+  "books": [
+   "apoth_chronicle"
+  ],
+  "guideme": false,
+  "logo": "img/mods/apotheosis.png",
+  "world": {
+   "dims": [],
+   "structures": 4,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "apothic_attributes",
+  "name": "Apothic Attributes",
+  "version": "3.1.0",
+  "jar": "ApothicAttributes-26.1.2-3.1.0.jar",
+  "primary": true,
+  "authors": "Shadows_of_Fire",
+  "url": "",
+  "desc_en": "A library mod providing Attributes and related things.",
+  "deps": [
+   "placebo"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "effect": 7
+  },
+  "uk_keys": 25,
+  "books": [
+   "apoth_chronicle"
+  ],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "apothic_enchanting",
+  "name": "Apothic Enchanting",
+  "version": "2.1.0",
+  "jar": "ApothicEnchanting-26.1.2-2.1.0.jar",
+  "primary": true,
+  "authors": "Shadows_of_Fire",
+  "url": "",
+  "desc_en": "The Enchanting Module of Apotheosis, overhauling major enchanting systems.",
+  "deps": [
+   "apothic_attributes",
+   "placebo"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "block": 31,
+   "enchantment": 142,
+   "item": 22,
+   "advancements": 30
+  },
+  "uk_keys": 135,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "apothic_spawners",
+  "name": "Apothic Spawners",
+  "version": "2.0.1",
+  "jar": "ApothicSpawners-26.1.2-2.0.1.jar",
+  "primary": true,
+  "authors": "Shadows_of_Fire",
+  "url": "",
+  "desc_en": "The Spawner Module of Apotheosis, allowing for silk-touching and modification.",
+  "deps": [
+   "placebo"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "item": 1,
+   "enchantment": 2,
+   "advancements": 15
+  },
+  "uk_keys": 10,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "appleskin",
+  "name": "AppleSkin",
+  "version": "3.0.9+mc26.1",
+  "jar": "appleskin-neoforge-mc26.1-3.0.9.jar",
+  "primary": true,
+  "authors": "squeek",
+  "url": "https://github.com/squeek502/AppleSkin",
+  "desc_en": "Adds various food-related HUD improvements",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 11,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/appleskin.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "appliedsticks",
+  "name": "Applied Construction Sticks",
+  "version": "2.0.4",
+  "jar": "appliedsticks-26.1.2-2.0.4.jar",
+  "primary": true,
+  "authors": "benbenlaw",
+  "url": "",
+  "desc_en": "Connecting Construction Sticks to AE2.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 2,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/appliedsticks.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "appliedthaumaturge",
+  "name": "Applied Thaumaturge",
+  "version": "1.0.0",
+  "jar": "appliedthaumaturge-1.0.0.jar",
+  "primary": true,
+  "authors": "Traverse_Joe",
+  "url": "",
+  "desc_en": "A bridge between Thaumaturge and Applied Energistics 2. A Succesor of Thaumic Energistics.",
+  "deps": [
+   "ae2",
+   "thaumaturge"
+  ],
+  "deps_opt": [
+   "ae2wtlib",
+   "ae2wtlib_api",
+   "curios"
+  ],
+  "counts": {
+   "item": 32,
+   "block": 3
+  },
+  "uk_keys": 125,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/appliedthaumaturge.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "aquaculture",
+  "name": "Aquaculture 2",
+  "version": "2.9.2",
+  "jar": "Aquaculture-26.1.1-2.9.2.jar",
+  "primary": true,
+  "authors": "Shadowclaimer, Girafi",
+  "url": "https://minecraft.curseforge.com/projects/aquaculture",
+  "desc_en": "Welcome to Aquaculture! An expansion of Minecraft's fishing system.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 5,
+   "item": 121,
+   "entity": 36
+  },
+  "uk_keys": 30,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 3,
+   "entities": 36,
+   "bosses": []
+  }
+ },
+ {
+  "id": "architectury",
+  "name": "Architectury",
+  "version": "20.1.17",
+  "jar": "architectury-neoforge-20.1.17.jar",
+  "primary": true,
+  "authors": "shedaniel",
+  "url": "",
+  "desc_en": "A intermediary api aimed to ease developing multiplatform mods.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/architectury.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "arsmagicalegacy",
+  "name": "Ars Magica: Legacy",
+  "version": "1.7.0",
+  "jar": "arsmagicalegacy-26.1.2-1.7.0.jar",
+  "primary": true,
+  "authors": "Minecraftschurli, IchHabeHunger54",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/ars-magica-legacy",
+  "desc_en": "Continuation of Ars Magica 2 by Mithion",
+  "deps": [
+   "geckolib",
+   "patchouli"
+  ],
+  "deps_opt": [
+   "curios",
+   "jade",
+   "jei"
+  ],
+  "counts": {
+   "block": 58,
+   "effect": 19,
+   "enchantment": 1,
+   "entity": 28,
+   "item": 81
+  },
+  "uk_keys": 1629,
+  "books": [
+   "arcane_compendium"
+  ],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 5,
+   "eggs": 12,
+   "entities": 28,
+   "bosses": [
+    "arsmagicalegacy:air_guardian",
+    "arsmagicalegacy:arcane_guardian",
+    "arsmagicalegacy:earth_guardian",
+    "arsmagicalegacy:ender_guardian",
+    "arsmagicalegacy:fire_guardian",
+    "arsmagicalegacy:ice_guardian",
+    "arsmagicalegacy:life_guardian",
+    "arsmagicalegacy:lightning_guardian",
+    "arsmagicalegacy:nature_guardian",
+    "arsmagicalegacy:water_guardian"
+   ]
+  }
+ },
+ {
+  "id": "artifacts",
+  "name": "Artifacts",
+  "version": "15.1.3",
+  "jar": "artifacts-neoforge-15.1.3.jar",
+  "primary": true,
+  "authors": "Wouter",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/artifacts",
+  "desc_en": "Adds various new powerful uncraftable items to make exploration a bit more rewarding",
+  "deps": [],
+  "deps_opt": [
+   "accessories",
+   "cloth_config",
+   "curios",
+   "trinkets_updated"
+  ],
+  "counts": {
+   "effect": 1,
+   "entity": 1,
+   "item": 49
+  },
+  "uk_keys": 158,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/artifacts.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 1,
+   "entities": 1,
+   "bosses": []
+  }
+ },
+ {
+  "id": "athena",
+  "name": "Athena",
+  "version": "4.7.3",
+  "jar": "athena-4.7.3.jar",
+  "primary": true,
+  "authors": "ThatGravyBoat",
+  "url": "https://modrinth.com/mod/athena-ctm",
+  "desc_en": "Crossplatform Baked Model Loader",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "atlas_api",
+  "name": "Atlas API",
+  "version": "26.1.2-1.2.0",
+  "jar": "atlas_api-26.1.2-1.2.0.jar",
+  "primary": true,
+  "authors": "Iron431",
+  "url": "",
+  "desc_en": "Provides an API for generating atlases during game runtime, and helpers for loading custom item models using the dynamic atlas sprites",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "attributefix",
+  "name": "AttributeFix",
+  "version": "26.1.2.3",
+  "jar": "AttributeFix-neoforge-MC26.1.2-26.1.2.3.jar",
+  "primary": true,
+  "authors": "Darkhax",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/attributefix",
+  "desc_en": "Extends the maximum attribute ranges to allow for higher values.",
+  "deps": [
+   "prickle"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/attributefix.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "auroral",
+  "name": "Auroral",
+  "version": "26.1.2-1.5.9",
+  "jar": "auroral-26.1.2-1.5.9.jar",
+  "primary": true,
+  "authors": "Saereth",
+  "url": "",
+  "desc_en": "Auroral - A winter expansion mod centered around celestial energy and cozy vibes.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 13,
+   "effect": 2,
+   "entity": 4,
+   "item": 29
+  },
+  "uk_keys": 160,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 2,
+   "entities": 4,
+   "bosses": []
+  }
+ },
+ {
+  "id": "balm",
+  "name": "Balm",
+  "version": "26.1.2.15",
+  "jar": "balm-neoforge-26.1.2-26.1.2.15.jar",
+  "primary": true,
+  "authors": "BlayTheNinth",
+  "url": "https://balm.twelveiterations.com/",
+  "desc_en": "Abstraction Layer (but not really) for Blay's multiplatform mods",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 6,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/balm.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "bblcore",
+  "name": "BBL Core",
+  "version": "12.6.12",
+  "jar": "bblcore-26.1.2-12.6.12.jar",
+  "primary": true,
+  "authors": "benbenlaw",
+  "url": "",
+  "desc_en": "Provide a lot of useful utilities and feature for mods and modpacks",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 1
+  },
+  "uk_keys": 9,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/bblcore.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "bcc",
+  "name": "Better Compatibility Checker",
+  "version": "26.1.2.1",
+  "jar": "better-compatability-checker-neoforge-26.1.2.1.jar",
+  "primary": true,
+  "authors": "Gaz(Gaz492)",
+  "url": "https://github.com/nanite/BetterCompatibilityChecker",
+  "desc_en": "Modpack compatibility checker for servers",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 2,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/bcc.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "betteradvancedtooltips",
+  "name": "Better Advanced Tooltips",
+  "version": "2601.1.0-build.11",
+  "jar": "better-advanced-tooltips-2601.1.0-build.11.jar",
+  "primary": true,
+  "authors": "latvian.dev",
+  "url": "",
+  "desc_en": "Adds tag, component and other tooltips to items in F3+H mode",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 5,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/betteradvancedtooltips.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "betteradvancements",
+  "name": "Better Advancements",
+  "version": "0.6.0.76",
+  "jar": "BetterAdvancements-NeoForge-26.1.2-0.6.0.76.jar",
+  "primary": true,
+  "authors": "way2muchnoise",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/better-advancements",
+  "desc_en": "Improvements to the advancements screen.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 1,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "bhc",
+  "name": "Baubley Heart Canisters",
+  "version": "26.1.2-1.7.3",
+  "jar": "baubley-heart-canisters-26.1.2-1.7.3.jar",
+  "primary": true,
+  "authors": "Traverse_Joe",
+  "url": "https://www.curseforge.com/projects/282947",
+  "desc_en": "Heart Canisters for Curios, enjoy! :D",
+  "deps": [
+   "curios"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "item": 29,
+   "entity": 3
+  },
+  "uk_keys": 37,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 3,
+   "bosses": []
+  }
+ },
+ {
+  "id": "buildinggadgets2",
+  "name": "Building Gadgets 2",
+  "version": "1.4.6",
+  "jar": "buildinggadgets2-1.4.6.jar",
+  "primary": true,
+  "authors": "Direwolf20",
+  "url": "https://github.com/Direwolf20-MC/BuildingGadgets2",
+  "desc_en": "We can build it better, stronger, faster.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 2,
+   "item": 8
+  },
+  "uk_keys": 113,
+  "books": [
+   "buildinggadgets2book"
+  ],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "cabletiers",
+  "name": "Cable Tiers",
+  "version": "26.1.2-1.0.3",
+  "jar": "cabletiers-neoforge-26.1.2-1.0.3.jar",
+  "primary": true,
+  "authors": "Ultramega",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/cable-tiers",
+  "desc_en": "Cable Tiers is an addon for Refined Storage which adds better Importer, Exporter, Constructor, Destructor, Disk Manipulator, Interface.",
+  "deps": [
+   "refinedstorage"
+  ],
+  "deps_opt": [
+   "refinedtypes"
+  ],
+  "counts": {
+   "block": 28
+  },
+  "uk_keys": 188,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/cabletiers.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "camol",
+  "name": "Camol",
+  "version": "26.1.2-0.4.1",
+  "jar": "camol-26.1.2-0.4.1.jar",
+  "primary": true,
+  "authors": "LobsterJonn",
+  "url": "",
+  "desc_en": "Camouflage blocks",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 2
+  },
+  "uk_keys": 10,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "charginggadgets",
+  "name": "Charging Gadgets",
+  "version": "1.16.1",
+  "jar": "charginggadgets-1.16.1.jar",
+  "primary": true,
+  "authors": "Direwolf20, ErrorMikey",
+  "url": "https://github.com/Direwolf20-MC/ChargingGadgets",
+  "desc_en": "It's a gadget (or a block?) that charges things, what more could you ask for?",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 1,
+   "item": 1
+  },
+  "uk_keys": 6,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "chisel",
+  "name": "Chisel",
+  "version": "26.1.2.19",
+  "jar": "chisel-26.1.2.19.jar",
+  "primary": true,
+  "authors": "Cricket, Joshy",
+  "url": "https://chiselteam.github.io",
+  "desc_en": "A mod that adds in many fancy blocks for decoration, which are crafted using the Chisel.",
+  "deps": [
+   "ctm"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "block": 11826,
+   "item": 14
+  },
+  "uk_keys": 23719,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/chisel.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "classicpipes",
+  "name": "Classic Pipes",
+  "version": "1.1.7",
+  "jar": "classicpipes-neoforge-26.1.2-1.1.7.jar",
+  "primary": true,
+  "authors": "Jagm",
+  "url": "",
+  "desc_en": "A simple but versatile item transport system.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 57
+  },
+  "uk_keys": 173,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/classicpipes.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "cleanswing",
+  "name": "Clean Swing",
+  "version": "1.9.1",
+  "jar": "cleanswing-1.9-26.1.jar",
+  "primary": true,
+  "authors": "Raycoms",
+  "url": "",
+  "desc_en": "Stop hitting Grass instead of Creepers",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "clickadv",
+  "name": "Clickable Advancements mod",
+  "version": "3.9",
+  "jar": "clickadv-26.1-3.9.jar",
+  "primary": true,
+  "authors": "Someaddon",
+  "url": "",
+  "desc_en": "Clickable Advancements lets you click on advancements in chat",
+  "deps": [
+   "cupboard"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "cloth_config",
+  "name": "Cloth Config v26.1 API",
+  "version": "26.1.154",
+  "jar": "cloth-config-26.1.154.jar",
+  "primary": true,
+  "authors": "shedaniel",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/cloth-config-forge/",
+  "desc_en": "An API for config screens.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/cloth_config.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "clumps",
+  "name": "Clumps",
+  "version": "26.1.2.1",
+  "jar": "Clumps-neoforge-26.1.2-26.1.2.1.jar",
+  "primary": true,
+  "authors": "Jaredlll08",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/clumps",
+  "desc_en": "Clumps xp orbs together.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/clumps.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "cobblegengalore",
+  "name": "Cobblegen Galore",
+  "version": "26.1.2-0.2.9",
+  "jar": "cobblegengalore-26.1.2-0.2.9.jar",
+  "primary": true,
+  "authors": "LobsterJonn",
+  "url": "",
+  "desc_en": "Adds block generator blocks for cobble and other block generators",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 7
+  },
+  "uk_keys": 10,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "comforts",
+  "name": "Comforts",
+  "version": "15.0.0+26.1.2",
+  "jar": "comforts-neoforge-15.0.0+26.1.2.jar",
+  "primary": true,
+  "authors": "Illusive Soulworks",
+  "url": "https://github.com/illusivesoulworks/comforts",
+  "desc_en": "Adds sleeping bags and hammocks for, respectively, portability and turning day to night, without setting new spawns.\nComes in 16 different colors!",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 34
+  },
+  "uk_keys": 5,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/comforts.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "commoncapabilities",
+  "name": "CommonCapabilities",
+  "version": "2.11.8-377",
+  "jar": "commoncapabilities-26.1.2-neoforge-2.11.8-377.jar",
+  "primary": true,
+  "authors": "rubensworks (aka kroeser)",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/commoncapabilities",
+  "desc_en": "Capabilities that can be shared by multiple mods.",
+  "deps": [
+   "cyclopscore"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 9,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/commoncapabilities.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "configured",
+  "name": "Configured",
+  "version": "2.7.5",
+  "jar": "configured-neoforge-26.1.2-2.7.5.jar",
+  "primary": true,
+  "authors": "MrCrayfish",
+  "url": "https://mrcrayfish.com/mods?id=configured",
+  "desc_en": "Creates a simple GUI config for every mod!",
+  "deps": [],
+  "deps_opt": [
+   "framework",
+   "jei"
+  ],
+  "counts": {},
+  "uk_keys": 72,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/configured.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "constructionstick",
+  "name": "Construction Sticks",
+  "version": "3.2.1",
+  "jar": "ConstructionSticks-26.1.2-3.2.1.jar",
+  "primary": true,
+  "authors": "Mrbysco, ShyNieke",
+  "url": "https://github.com/Mrbysco/ConstructionSticks",
+  "desc_en": "Construction Sticks make building easier!\n\nWith a Construction Stick you can place multiple blocks (up to 1024) at once, extending your build on the side you're\nfacing. If that's not enough: you can upgrade your wand with additional cores, allowing you to place a block\nbehind the block you are facing, conjure blocks in mid air or destroy lots of blocks very fast.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 11
+  },
+  "uk_keys": 142,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "controlling",
+  "name": "Controlling",
+  "version": "26.1.2.7",
+  "jar": "Controlling-neoforge-26.1.2-26.1.2.7.jar",
+  "primary": true,
+  "authors": "Jaredlll08",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/controlling",
+  "desc_en": "Adds the ability to search for keybinds using their name in the KeyBinding menu, this allows players to easily find a key binding in the menu.",
+  "deps": [
+   "searchables"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 2,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/controlling.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "cookingforblockheads",
+  "name": "Cooking for Blockheads",
+  "version": "26.1.2.6",
+  "jar": "cookingforblockheads-neoforge-26.1.2-26.1.2.6.jar",
+  "primary": true,
+  "authors": "BlayTheNinth",
+  "url": "https://mods.twelveiterations.com/minecraft/cookingforblockheads",
+  "desc_en": "Adds a cooking book and multiblock kitchens that only shows recipes you can make with what you currently have in your inventory.",
+  "deps": [
+   "balm"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "item": 9,
+   "block": 159
+  },
+  "uk_keys": 295,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/cookingforblockheads.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "crafting_on_a_stick",
+  "name": "Crafting on a Stick",
+  "version": "26.1-1.1",
+  "jar": "crafting_on_a_stick-neoforge-26.1-1.1.jar",
+  "primary": true,
+  "authors": "OfekN",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/crafting-on-a-stick",
+  "desc_en": "Multiple workbenches on a stick",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 10
+  },
+  "uk_keys": 4,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/crafting_on_a_stick.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "craftingtweaks",
+  "name": "Crafting Tweaks",
+  "version": "26.1.2.3",
+  "jar": "craftingtweaks-neoforge-26.1.2-26.1.2.3.jar",
+  "primary": true,
+  "authors": "BlayTheNinth",
+  "url": "https://mods.twelveiterations.com/minecraft/craftingtweaks",
+  "desc_en": "Allows you to rotate, balance or clear the crafting matrix by the press of a button, in any (supported) crafting window.",
+  "deps": [
+   "balm"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 20,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/craftingtweaks.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "crash_assistant",
+  "name": "Crash Assistant",
+  "version": "1.11.12",
+  "jar": "CrashAssistant-neoforge-26.1-1.11.12.jar",
+  "primary": true,
+  "authors": "KostromDan",
+  "url": "",
+  "desc_en": "Shows a GUI after Minecraft crashes, immediately showing all affected logs, crash reports, or hs_err files. Provides a one-click solution to upload them, copy the link, and perform other actions for easier reporting, debugging, and troubleshooting, like analysis log for the most common crash reasons.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "crashutilities",
+  "name": "Crash Utilities",
+  "version": "10.0.1",
+  "jar": "crashutilities-10.0.1.jar",
+  "primary": true,
+  "authors": "Darkere",
+  "url": "",
+  "desc_en": "Mod for debugging and fixing Modded Minecraft Issues",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 4,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "cristellib",
+  "name": "Cristel Lib",
+  "version": "3.1.13",
+  "jar": "cristellib-neoforge-26.1.2-3.1.13.jar",
+  "primary": true,
+  "authors": "Cristelknight",
+  "url": "https://modrinth.com/mod/cristel-lib",
+  "desc_en": "A Library mod for easy structure config and runtime datapacks.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 4,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/cristellib.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "croptopia",
+  "name": "Croptopia",
+  "version": "4.3.2",
+  "jar": "croptopia-neoforge-26.1.2-4.3.2.jar",
+  "primary": true,
+  "authors": "iThonk",
+  "url": "",
+  "desc_en": "Adding New Foods to the game!",
+  "deps": [
+   "epherolib"
+  ],
+  "deps_opt": [
+   "patchouli"
+  ],
+  "counts": {
+   "item": 444,
+   "block": 117
+  },
+  "uk_keys": 117,
+  "books": [
+   "guide"
+  ],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "crystalix",
+  "name": "Crystalix",
+  "version": "4.1.0",
+  "jar": "crystalix-4.1.0+26.1.2.jar",
+  "primary": true,
+  "authors": "Satherov",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/crystalix",
+  "desc_en": "A mod that adds super customizable glass blocks",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 1,
+   "item": 1
+  },
+  "uk_keys": 90,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "ctm",
+  "name": "CTM",
+  "version": "26.1.2.11",
+  "jar": "ctm-26.1.2.11.jar",
+  "primary": true,
+  "authors": "Cricket",
+  "url": "",
+  "desc_en": "A NeoForge connected-texture library for reusable CTM models, overlays, multiblock patterns, and datagen support.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "cucumber",
+  "name": "Cucumber Library",
+  "version": "9.0.6",
+  "jar": "Cucumber-26.1.2-9.0.6.jar",
+  "primary": true,
+  "authors": "BlakeBr0",
+  "url": "https://blakesmods.com/cucumber",
+  "desc_en": "A library of shared code that all of my mods depend on.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 3,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "cupboard",
+  "name": "Cupboard mod",
+  "version": "4.1",
+  "jar": "cupboard-26.1-4.1.jar",
+  "primary": true,
+  "authors": "Someaddon",
+  "url": "",
+  "desc_en": "Cupboard library for utilities and configs",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "curios",
+  "name": "Curios API",
+  "version": "15.0.0+26.1.2",
+  "jar": "curios-neoforge-15.0.0+26.1.2.jar",
+  "primary": true,
+  "authors": "C4",
+  "url": "https://github.com/TheIllusiveC4/Curios",
+  "desc_en": "A flexible and expandable accessory/equipment API for users and developers.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 7,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/curios.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "cyclopscore",
+  "name": "Cyclops Core",
+  "version": "1.31.3",
+  "jar": "cyclopscore-26.1.2-neoforge-1.31.3.jar",
+  "primary": true,
+  "authors": "rubensworks (aka kroeser)",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/cyclops-core",
+  "desc_en": "Coremod for Integrated Dynamics, EvilCraft and others.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 41,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/cyclopscore.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "deepnullreforged",
+  "name": "DeepNull Reforged",
+  "version": "4.2.1",
+  "jar": "deepnull-reforged-4.2.1-beta.jar",
+  "primary": true,
+  "authors": "",
+  "url": "",
+  "desc_en": "DeepNull Reforged ports the classic DeepNull storage tool to NeoForge for Minecraft 26.1.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 40,
+   "block": 2
+  },
+  "uk_keys": 252,
+  "books": [],
+  "guideme": true,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "defaultoptions",
+  "name": "Default Options",
+  "version": "26.1.2.2",
+  "jar": "defaultoptions-neoforge-26.1.2-26.1.2.2.jar",
+  "primary": true,
+  "authors": "BlayTheNinth",
+  "url": "https://mods.twelveiterations.com/mc/defaultoptions",
+  "desc_en": "A way for modpacks to ship a default (key) configuration without having to include an options.txt file. Also allows local options from any mod .cfg file.",
+  "deps": [
+   "balm"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 7,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/defaultoptions.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "deimos",
+  "name": "Deimos",
+  "version": "2.7",
+  "jar": "deimos-26.1.2-neoforge-2.7.jar",
+  "primary": true,
+  "authors": "Mars",
+  "url": "https://modrinth.com/mod/deimos",
+  "desc_en": "Configuration and data generation library",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/deimos.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "dimstorage",
+  "name": "DimStorage",
+  "version": "10.0.1",
+  "jar": "DimStorage-26.1.2-10.0.1.jar",
+  "primary": true,
+  "authors": "Edivad99",
+  "url": "",
+  "desc_en": "DimStorage add a technologic version of ender chest system with owner, frequence selection and lock system.",
+  "deps": [
+   "edivadlib"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "advancements": 4,
+   "block": 2,
+   "item": 4
+  },
+  "uk_keys": 36,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "drippyloadingscreen",
+  "name": "Drippy Loading Screen",
+  "version": "3.1.5",
+  "jar": "drippyloadingscreen_neoforge_3.1.5_MC_26.1.2.jar",
+  "primary": true,
+  "authors": "Keksuccino",
+  "url": "",
+  "desc_en": "Addon for FancyMenu to customize the loading screen.",
+  "deps": [
+   "fancymenu",
+   "konkrete"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 46,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/drippyloadingscreen.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "dungeoncrawl",
+  "name": "Dungeon Crawl",
+  "version": "2.3.17",
+  "jar": "DungeonCrawl-NeoForge-26.1-2.3.17.jar",
+  "primary": true,
+  "authors": "xiroc",
+  "url": "",
+  "desc_en": "Dungeon Crawl, a spiritual successor to Roguelike Dungeons.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 1,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "dungeons_arise",
+  "name": "When Dungeons Arise",
+  "version": "2.1.71",
+  "jar": "DungeonsArise-26.1.2-2.1.71-release.jar",
+  "primary": true,
+  "authors": "Aureljz, DiamondTown & Zephyrusjz",
+  "url": "",
+  "desc_en": "Elegant - and likely dangerous - structures and roguelike dungeons to lose yourself in...",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "enchantment": 5
+  },
+  "uk_keys": 119,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 40,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "dyenamics",
+  "name": "Dyenamics",
+  "version": "26.1.2-3.5.0",
+  "jar": "dyenamics-26.1.2-3.5.0.jar",
+  "primary": true,
+  "authors": "LobsterJonn, Hekera, Reda, Cait",
+  "url": "",
+  "desc_en": "Minecraft gets dyenamic! Contains various dye options for colorful gameplay!",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 234,
+   "entity": 1,
+   "item": 18
+  },
+  "uk_keys": 36,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 1,
+   "bosses": []
+  }
+ },
+ {
+  "id": "easy_piglins",
+  "name": "Easy Piglins",
+  "version": "1.1.7+26.1.2",
+  "jar": "easy-piglins-neoforge-1.1.7+26.1.2.jar",
+  "primary": true,
+  "authors": "Max Henkel",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/easy-piglins",
+  "desc_en": "Easy Piglins",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 1
+  },
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/easy_piglins.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "easy_villagers",
+  "name": "Easy Villagers",
+  "version": "1.1.47+26.1.2",
+  "jar": "easy-villagers-neoforge-1.1.47+26.1.2.jar",
+  "primary": true,
+  "authors": "Max Henkel",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/easy-villagers",
+  "desc_en": "Easy Villagers",
+  "deps": [],
+  "deps_opt": [
+   "jade",
+   "jei",
+   "theoneprobe"
+  ],
+  "counts": {
+   "item": 2,
+   "block": 8
+  },
+  "uk_keys": 5,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/easy_villagers.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "edivadlib",
+  "name": "EdivadLib",
+  "version": "4.0.1",
+  "jar": "EdivadLib-26.1.2-4.0.1.jar",
+  "primary": true,
+  "authors": "Edivad99",
+  "url": "",
+  "desc_en": "Just a common library for all my mods",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "elevatorid",
+  "name": "ElevatorMod",
+  "version": "26.1-1.16.2",
+  "jar": "elevatorid-neoforge-26.1-1.16.2.jar",
+  "primary": true,
+  "authors": "VsnGamer",
+  "url": "https://github.com/VsnGamer/ElevatorMod",
+  "desc_en": "Simple port of the elevator from OpenBlocks to 1.8+",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 16
+  },
+  "uk_keys": 6,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/elevatorid.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "enchdesc",
+  "name": "EnchantmentDescriptions",
+  "version": "26.1.2.6",
+  "jar": "EnchantmentDescriptions-neoforge-MC26.1.2-26.1.2.6.jar",
+  "primary": true,
+  "authors": "Darkhax",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/enchantment-descriptions",
+  "desc_en": "Adds descriptions of enchantment effects to their descriptions.",
+  "deps": [
+   "prickle"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "enchantment": 1
+  },
+  "uk_keys": 140,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/enchdesc.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "enderio",
+  "name": "Ender IO",
+  "version": "9.0.6-alpha",
+  "jar": "enderio-9.0.6-alpha.jar",
+  "primary": true,
+  "authors": "CrazyPants, tterrag, HenryLoenwind, MatthiasM, CyanideX, EpicSquid, Rover656, HypherionSA, liliandev, Ferri_Arnus, dphaldes",
+  "url": "https://enderio.com/",
+  "desc_en": "Compact conduits, painted things and all sorts of stuff and bling. This is the monolithic jar, containing all core modules.",
+  "deps": [
+   "endercore"
+  ],
+  "deps_opt": [
+   "curios",
+   "ftbultimine"
+  ],
+  "counts": {
+   "block": 208,
+   "entity": 1,
+   "item": 127
+  },
+  "uk_keys": 98,
+  "books": [
+   "guide"
+  ],
+  "guideme": false,
+  "logo": "img/mods/enderio.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 1,
+   "bosses": []
+  }
+ },
+ {
+  "id": "enderio_endergy",
+  "name": "Ender IO - Endergy",
+  "version": "9.0.1-alpha",
+  "jar": "enderio_endergy-9.0.1-alpha.jar",
+  "primary": true,
+  "authors": "CrazyPants, tterrag, HenryLoenwind, MatthiasM, CyanideX, EpicSquid, Rover656, HypherionSA, liliandev, Ferri_Arnus, dphaldes",
+  "url": "https://enderio.com/",
+  "desc_en": "Endergy expands on the Ender IO experience with more of the balanced* content you love! If you want higher powered conduits, or faster machines, then this is the mod for you!",
+  "deps": [
+   "endercore",
+   "enderio"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "block": 5,
+   "item": 21
+  },
+  "uk_keys": 35,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "enderthing",
+  "name": "Enderthing",
+  "version": "1.10.2",
+  "jar": "Enderthing-26.1.2-1.10.2.jar",
+  "primary": true,
+  "authors": "gigaherz",
+  "url": "https://github.com/gigaherz/Enderthing",
+  "desc_en": "Shared inventories with chests and keys",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 2,
+   "item": 7
+  },
+  "uk_keys": 30,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/enderthing.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "energizedpower",
+  "name": "Energized Power",
+  "version": "3.0.1+26.1.x-neoforge",
+  "jar": "energizedpower-3.0.1+26.1.x-neoforge.jar",
+  "primary": true,
+  "authors": "JDDev0",
+  "url": "https://github.com/JDDev0/EnergizedPower",
+  "desc_en": "This is a technology mod with many machines.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 150,
+   "entity": 3,
+   "item": 352
+  },
+  "uk_keys": 1789,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/energizedpower.png",
+  "world": {
+   "dims": [],
+   "structures": 2,
+   "biomes": 0,
+   "ores": 1,
+   "eggs": 0,
+   "entities": 3,
+   "bosses": []
+  }
+ },
+ {
+  "id": "energymeter",
+  "name": "Energy Meter",
+  "version": "26.1.2-0.5.0",
+  "jar": "energymeter-neoforge-26.1.2-0.5.0.jar",
+  "primary": true,
+  "authors": "Almost Reliable",
+  "url": "",
+  "desc_en": "Easily measure your energy rates.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 2,
+   "item": 3
+  },
+  "uk_keys": 64,
+  "books": [],
+  "guideme": true,
+  "logo": "img/mods/energymeter.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "epherolib",
+  "name": "EpheroLib",
+  "version": "1.3.0",
+  "jar": "epherolib-neoforge-26.1-1.3.0.jar",
+  "primary": true,
+  "authors": "iThonk",
+  "url": "https://discord.gg/GZjtAn3F6W",
+  "desc_en": "Epherolib for all Epherical Mods",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "epitaphs",
+  "name": "Epitaphs",
+  "version": "2.4.0",
+  "jar": "epitaphs-2.4.0+26.1.2.jar",
+  "primary": true,
+  "authors": "Satherov",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/epitaphs",
+  "desc_en": "A simple grave mod that does just that",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 1,
+   "enchantment": 2,
+   "item": 1
+  },
+  "uk_keys": 90,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/epitaphs.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "euphoria_patcher",
+  "name": "Euphoria Patcher",
+  "version": "1.10.5-r5.9.3-neoforge",
+  "jar": "EuphoriaPatcher-1.10.5-r5.9.3-neoforge.jar",
+  "primary": true,
+  "authors": "SpacEagle17",
+  "url": "https://euphoriapatches.com",
+  "desc_en": "A mod that applies the Euphoria Patches add-on to Complementary Shaders.\nEnable and Change Euphoria Patches Settings in the shaderpack settings menu\nReport issues on discord!",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 17,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/euphoria_patcher.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "evilcraft",
+  "name": "EvilCraft",
+  "version": "1.2.107",
+  "jar": "evilcraft-26.1.2-neoforge-1.2.107.jar",
+  "primary": true,
+  "authors": "rubensworks (aka kroeser)",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/evilcraft",
+  "desc_en": "An evil mod for Minecraft.",
+  "deps": [
+   "cyclopscore"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "block": 53,
+   "item": 90,
+   "entity": 6,
+   "enchantment": 5,
+   "biome": 1,
+   "effect": 1
+  },
+  "uk_keys": 628,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/evilcraft.png",
+  "world": {
+   "dims": [],
+   "structures": 1,
+   "biomes": 1,
+   "ores": 4,
+   "eggs": 5,
+   "entities": 6,
+   "bosses": []
+  }
+ },
+ {
+  "id": "evilcraftcompat",
+  "name": "EvilCraft-Compat",
+  "version": "1.1.0-135",
+  "jar": "evilcraft-26.1.2-neoforge-1.2.107.jar",
+  "primary": false,
+  "authors": "rubensworks (aka kroeser)",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/evilcraft",
+  "desc_en": "EvilCraft compatibility with other mods.",
+  "deps": [
+   "cyclopscore",
+   "evilcraft"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 28,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/evilcraftcompat.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "exoconfig",
+  "name": "ExoConfig",
+  "version": "0.3.5",
+  "jar": "ExoConfig-26.1.2-neoforge-0.3.5.jar",
+  "primary": true,
+  "authors": "TATHAN, St0x0ef",
+  "url": "",
+  "desc_en": "A Simple config lib based on auto screen config",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "explorerscompass",
+  "name": "Explorer's Compass",
+  "version": "26.1-3.3.0-neoforge",
+  "jar": "ExplorersCompass-26.1-3.3.0-neoforge.jar",
+  "primary": true,
+  "authors": "ChaosTheDude",
+  "url": "https://github.com/MattCzyr/ExplorersCompass",
+  "desc_en": "Search for and locate structures anywhere in the world.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 1
+  },
+  "uk_keys": 1,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "extendedae",
+  "name": "ExtendedAE",
+  "version": "26.1-1.0.5-neoforge",
+  "jar": "ExtendedAE-26.1-1.0.5-neoforge.jar",
+  "primary": true,
+  "authors": "GlodBlock",
+  "url": "https://github.com/GlodBlock/ExtendedAE",
+  "desc_en": "Add some QoL extended contents for AE2",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 35,
+   "item": 45
+  },
+  "uk_keys": 264,
+  "books": [],
+  "guideme": true,
+  "logo": "img/mods/extendedae.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "extradisks",
+  "name": "Extra Disks",
+  "version": "26.1.1",
+  "jar": "ExtraDisks-26.1.1.jar",
+  "primary": true,
+  "authors": "MelanX",
+  "url": "https://github.com/ChaoticTrials/ExtraDisks",
+  "desc_en": "Extra Disks adds bigger disks to Refined Storage",
+  "deps": [
+   "refinedstorage"
+  ],
+  "deps_opt": [
+   "refinedstorage_mekanism_integration"
+  ],
+  "counts": {
+   "item": 39,
+   "block": 19
+  },
+  "uk_keys": 126,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "extremesoundmuffler",
+  "name": "Extreme Sound Muffler",
+  "version": "4.04",
+  "jar": "ExtremeSoundMuffler-4.04_NeoForge-26.1.jar",
+  "primary": true,
+  "authors": "LeoBeliik",
+  "url": "",
+  "desc_en": "This mod allows you to muffle (almost) any sound selectively,\nallowing you to choose the volume of the sound you want between mute and 90%.\nThis mod also works Clientside only.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 97,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/extremesoundmuffler.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "fancymenu",
+  "name": "FancyMenu",
+  "version": "3.9.14",
+  "jar": "fancymenu_neoforge_3.9.14_MC_26.1.2.jar",
+  "primary": true,
+  "authors": "Keksuccino",
+  "url": "",
+  "desc_en": "Customize Minecraft's menus with ease!",
+  "deps": [
+   "konkrete",
+   "melody"
+  ],
+  "deps_opt": [
+   "drippyloadingscreen",
+   "fancy_entity_renderer",
+   "findme",
+   "rinku",
+   "watermedia",
+   "wm_binaries"
+  ],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/fancymenu.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "fancytabsections",
+  "name": "Fancy Tab Sections",
+  "version": "6.2-NEOFORGE-26.1.2",
+  "jar": "fancytabsections-6.2-NEOFORGE-26.1.2.jar",
+  "primary": true,
+  "authors": "wdiscute, Kaupenjoe, nanoattack, NicciCage, SockyWocky7",
+  "url": "",
+  "desc_en": "A library to allow for easy control of Sections inside Creative Mode Tabs",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 13,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "farmingforblockheads",
+  "name": "Farming for Blockheads",
+  "version": "26.1.2.5",
+  "jar": "farmingforblockheads-neoforge-26.1.2-26.1.2.5.jar",
+  "primary": true,
+  "authors": "BlayTheNinth",
+  "url": "https://mods.twelveiterations.com/mc/farming-for-blockheads",
+  "desc_en": "Adds a seed market with a search bar and a scrolling grid and more farming utilities.",
+  "deps": [
+   "balm"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "block": 12,
+   "item": 6,
+   "entity": 3
+  },
+  "uk_keys": 5,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/farmingforblockheads.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 3,
+   "bosses": []
+  }
+ },
+ {
+  "id": "fastbench",
+  "name": "Fast Workbench",
+  "version": "10.0.0",
+  "jar": "FastWorkbench-26.1.2-10.0.0.jar",
+  "primary": true,
+  "authors": "Shadows_of_Fire",
+  "url": "",
+  "desc_en": "Speeding up crafting operations - massively.",
+  "deps": [
+   "placebo"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 7,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "fastfurnace",
+  "name": "FastFurnace",
+  "version": "10.0.0",
+  "jar": "FastFurnace-26.1.2-10.0.0.jar",
+  "primary": true,
+  "authors": "Shadows_of_Fire",
+  "url": "",
+  "desc_en": "Furnacing things faster, performance-wise",
+  "deps": [
+   "placebo"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "fastsuite",
+  "name": "Fast Suite",
+  "version": "7.0.0",
+  "jar": "FastSuite-26.1.2-7.0.0.jar",
+  "primary": true,
+  "authors": "Shadows_of_Fire",
+  "url": "",
+  "desc_en": "Introduces multithreading to the json recipe system.",
+  "deps": [
+   "placebo"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "ferritecore",
+  "name": "Ferrite Core",
+  "version": "9.0.0",
+  "jar": "ferritecore-9.0.0-neoforge.jar",
+  "primary": true,
+  "authors": "malte0811",
+  "url": "",
+  "desc_en": "Reduces memory usage.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/ferritecore.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "fireproofboats",
+  "name": "Fireproof Boats",
+  "version": "26.1.2-1.0.4",
+  "jar": "fireproofboats-26.1.2-1.0.4.jar",
+  "primary": true,
+  "authors": "LobsterJonn",
+  "url": "",
+  "desc_en": "Makes boats made from nether wood fireproof, just like the planks they are made from, so you can boat on lava.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 4,
+   "entity": 4
+  },
+  "uk_keys": 8,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 4,
+   "bosses": []
+  }
+ },
+ {
+  "id": "flickerfix",
+  "name": "FlickerFix",
+  "version": "7.0.0",
+  "jar": "flickerfix-26.1-7.0.0.jar",
+  "primary": true,
+  "authors": "",
+  "url": "",
+  "desc_en": "Disables nightvision flickering when duration goes below 10 seconds.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "forbidden_arcanus",
+  "name": "Forbidden Arcanus",
+  "version": "2.8.0-beta.2",
+  "jar": "forbidden_arcanus-26.1.2-2.8.0-beta.2.jar",
+  "primary": true,
+  "authors": "",
+  "url": "",
+  "desc_en": "",
+  "deps": [
+   "valhelsia_core"
+  ],
+  "deps_opt": [
+   "jei"
+  ],
+  "counts": {
+   "block": 122,
+   "enchantment": 2,
+   "entity": 4,
+   "item": 117
+  },
+  "uk_keys": 59,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 1,
+   "eggs": 0,
+   "entities": 4,
+   "bosses": []
+  }
+ },
+ {
+  "id": "forgeconfigapiport",
+  "name": "Forge Config API Port",
+  "version": "26.1.5",
+  "jar": "ForgeConfigAPIPort-v26.1.5-mc26.1.x-NeoForge.jar",
+  "primary": true,
+  "authors": "Fuzs",
+  "url": "https://modrinth.com/mod/forge-config-api-port",
+  "desc_en": "Provides NeoForge's & Forge's config systems to other modding ecosystems. Designed for a multi-loader architecture.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/forgeconfigapiport.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "framedblocks",
+  "name": "FramedBlocks",
+  "version": "11.4.0",
+  "jar": "FramedBlocks-11.4.0.jar",
+  "primary": true,
+  "authors": "XFactHD",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/framedblocks",
+  "desc_en": "Fancy building blocks",
+  "deps": [],
+  "deps_opt": [
+   "additionalplacements",
+   "ae2",
+   "amendments",
+   "atlasviewer",
+   "buildinggadgets",
+   "create",
+   "diagonalblocks",
+   "jade",
+   "jei",
+   "searchables"
+  ],
+  "counts": {
+   "block": 251,
+   "item": 12
+  },
+  "uk_keys": 681,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/framedblocks.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "framework",
+  "name": "Framework",
+  "version": "0.13.23",
+  "jar": "framework-neoforge-26.1.2-0.13.23.jar",
+  "primary": true,
+  "authors": "MrCrayfish",
+  "url": "https://mrcrayfish.com/mods?id=framework",
+  "desc_en": "A library providing powerful utilities for developers",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 5,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/framework.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "ftbchunks",
+  "name": "FTB Chunks",
+  "version": "26.1.2.8",
+  "jar": "ftb-chunks-neoforge-26.1.2.8.jar",
+  "primary": true,
+  "authors": "FTB Team",
+  "url": "",
+  "desc_en": "Claim chunks to protect your base from griefers!",
+  "deps": [
+   "ftblibrary",
+   "ftbteams"
+  ],
+  "deps_opt": [
+   "ftbbackups3"
+  ],
+  "counts": {},
+  "uk_keys": 347,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "ftbessentials",
+  "name": "FTB Essentials",
+  "version": "26.1.2.5",
+  "jar": "ftb-essentials-neoforge-26.1.2.5.jar",
+  "primary": true,
+  "authors": "FTB Team",
+  "url": "",
+  "desc_en": "Adds many essential utility commands for servers",
+  "deps": [
+   "ftblibrary"
+  ],
+  "deps_opt": [
+   "ftbranks",
+   "luckperms"
+  ],
+  "counts": {},
+  "uk_keys": 95,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "ftbfiltersystem",
+  "name": "FTB Filter System",
+  "version": "26.1.2.2",
+  "jar": "ftb-filter-system-neoforge-26.1.2.2.jar",
+  "primary": true,
+  "authors": "FTB Team",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/ftb-filter-system",
+  "desc_en": "Smart and highly configurable item filtering system with useful GUI configuration",
+  "deps": [
+   "ftblibrary"
+  ],
+  "deps_opt": [
+   "jei"
+  ],
+  "counts": {
+   "item": 1
+  },
+  "uk_keys": 65,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "ftblibrary",
+  "name": "FTB Library",
+  "version": "26.1.2.9",
+  "jar": "ftb-library-neoforge-26.1.2.9.jar",
+  "primary": true,
+  "authors": "FTB Team",
+  "url": "",
+  "desc_en": "FTB Library adds nothing.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 2
+  },
+  "uk_keys": 115,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "ftbquests",
+  "name": "FTB Quests",
+  "version": "26.1.2.9",
+  "jar": "ftb-quests-neoforge-26.1.2.9.jar",
+  "primary": true,
+  "authors": "FTB Team",
+  "url": "",
+  "desc_en": "Lets you easily create and play with quests",
+  "deps": [
+   "ftblibrary",
+   "ftbteams"
+  ],
+  "deps_opt": [
+   "ftbxmodcompat"
+  ],
+  "counts": {
+   "block": 7,
+   "item": 11
+  },
+  "uk_keys": 265,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "ftbranks",
+  "name": "FTB Ranks",
+  "version": "26.1.2.4",
+  "jar": "ftb-ranks-neoforge-26.1.2.4.jar",
+  "primary": true,
+  "authors": "FTB Team",
+  "url": "",
+  "desc_en": "A simple mod that lets you create ranks for players, similar to Discord roles, and manage permissions for them",
+  "deps": [
+   "ftblibrary"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "ftbteams",
+  "name": "FTB Teams",
+  "version": "26.1.2.4",
+  "jar": "ftb-teams-neoforge-26.1.2.4.jar",
+  "primary": true,
+  "authors": "FTB Team",
+  "url": "",
+  "desc_en": "FTB Teams adds ability to create your own teams that can be used for quests etc.",
+  "deps": [
+   "ftblibrary"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 24,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "ftbultimine",
+  "name": "FTB Ultimine",
+  "version": "26.1.2.5",
+  "jar": "ftb-ultimine-neoforge-26.1.2.5.jar",
+  "primary": true,
+  "authors": "FTB Team",
+  "url": "",
+  "desc_en": "Allows you to break multiple blocks at once",
+  "deps": [
+   "ftblibrary"
+  ],
+  "deps_opt": [
+   "accelerateddecay"
+  ],
+  "counts": {
+   "item": 1
+  },
+  "uk_keys": 89,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "ftbxmodcompat",
+  "name": "FTB XMod Compat",
+  "version": "26.1.2.4",
+  "jar": "ftb-xmod-compat-neoforge-26.1.2.4.jar",
+  "primary": true,
+  "authors": "FTB Team",
+  "url": "",
+  "desc_en": "Provides cross-mod compatibilty/integration for all main FTB mods",
+  "deps": [
+   "ftblibrary"
+  ],
+  "deps_opt": [
+   "ftbchunks",
+   "ftbquests",
+   "ftbranks",
+   "jei",
+   "kubejs",
+   "luckperms",
+   "sg_economy",
+   "waystones"
+  ],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "functionalstorage",
+  "name": "Functional Storage",
+  "version": "26.1.2-1.6.4",
+  "jar": "functionalstorage-26.1.2-1.6.4.jar",
+  "primary": true,
+  "authors": "Buuz135, Rid",
+  "url": "",
+  "desc_en": "Functional Storage",
+  "deps": [
+   "titanium"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "block": 52,
+   "item": 20
+  },
+  "uk_keys": 20,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "gateways",
+  "name": "Gateways To Eternity",
+  "version": "6.0.2",
+  "jar": "GatewaysToEternity-26.1.2-6.0.2.jar",
+  "primary": true,
+  "authors": "Shadows_of_Fire",
+  "url": "",
+  "desc_en": "Adds combat-based events which provide various rewards and challenges.",
+  "deps": [
+   "apothic_attributes",
+   "placebo"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "entity": 1,
+   "item": 1
+  },
+  "uk_keys": 100,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 1,
+   "bosses": []
+  }
+ },
+ {
+  "id": "geckolib",
+  "name": "GeckoLib 5",
+  "version": "5.5.2",
+  "jar": "geckolib-neoforge-26.1.2-5.5.2.jar",
+  "primary": true,
+  "authors": "Tslat",
+  "url": "http://geckolib.com/",
+  "desc_en": "GeckoLib is an animation engine for Minecraft Mods, with support for complex 3D keyframe-based animations, 30+ easings, concurrent animation support, sound and particle keyframes, event keyframes, and more.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/geckolib.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "generatorgalore",
+  "name": "Generator Galore",
+  "version": "26.1.2-1.7.0",
+  "jar": "generatorgalore-26.1.2-1.7.0.jar",
+  "primary": true,
+  "authors": "LobsterJonn",
+  "url": "",
+  "desc_en": "Adds a variety of configurable generators",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 45,
+   "item": 14
+  },
+  "uk_keys": 74,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "geore",
+  "name": "GeOre",
+  "version": "8.1.0",
+  "jar": "GeOre-26.1.2-8.1.0.jar",
+  "primary": true,
+  "authors": "ShyNieke, Mrbysco",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/geore",
+  "desc_en": "This mod takes heavy inspiration of the vanilla amethyst geode feature and applies it to other valuables to.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 203,
+   "item": 58
+  },
+  "uk_keys": 457,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/geore.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "getittogetherdrops",
+  "name": "Get It Together, Drops!",
+  "version": "1.5",
+  "jar": "getittogetherdrops-neoforge-26.1.1-1.5.jar",
+  "primary": true,
+  "authors": "bl4ckscor3",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/get-it-together-drops",
+  "desc_en": "Adds configuration options for defining how dropped items should combine.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 6,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/getittogetherdrops.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "glodium",
+  "name": "Glodium",
+  "version": "26.1-1.2-neoforge",
+  "jar": "Glodium-26.1-1.2-neoforge.jar",
+  "primary": true,
+  "authors": "GlodBlock",
+  "url": "https://github.com/GlodBlock/Glodium",
+  "desc_en": "Codelib",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/glodium.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "guideme",
+  "name": "GuideME",
+  "version": "26.1.15-beta",
+  "jar": "guideme-26.1.15-beta.jar",
+  "primary": true,
+  "authors": "shartte",
+  "url": "https://github.com/AppliedEnergistics/GuideME/",
+  "desc_en": "GuideME offers the foundation for your mods or modpacks guidebook.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 1
+  },
+  "uk_keys": 36,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/guideme.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "hellish_trials",
+  "name": "Hellish Trials",
+  "version": "1.0.7",
+  "jar": "HellishTrials-neoforge-1.0.7.jar",
+  "primary": true,
+  "authors": "Aureljz, Kaapre",
+  "url": "",
+  "desc_en": "Generates unique Trial Chambers in the Nether dimension!",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 1,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "hostilenetworks",
+  "name": "Hostile Neural Networks",
+  "version": "7.0.0",
+  "jar": "HostileNeuralNetworks-26.1.2-7.0.0.jar",
+  "primary": true,
+  "authors": "Shadows_of_Fire",
+  "url": "",
+  "desc_en": "Defeating hostile entities - but in simulations!",
+  "deps": [
+   "placebo"
+  ],
+  "deps_opt": [
+   "curios"
+  ],
+  "counts": {
+   "block": 4,
+   "item": 10,
+   "enchantment": 1
+  },
+  "uk_keys": 277,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "iceandfire",
+  "name": "Ice And Fire Community Edition",
+  "version": "2.2-beta.4",
+  "jar": "iceandfire-2.2-beta.4.jar",
+  "primary": true,
+  "authors": "IAFEnvoy, xiaowu, uoay",
+  "url": "",
+  "desc_en": "An unofficial fork of Ice And Fire.\nDragons and other mythological creatures in minecraft.",
+  "deps": [
+   "jupiter",
+   "uranus"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "block": 114,
+   "effect": 3,
+   "entity": 53,
+   "fluid": 2,
+   "item": 411
+  },
+  "uk_keys": 989,
+  "books": [
+   "iceandfire"
+  ],
+  "guideme": false,
+  "logo": "img/mods/iceandfire.png",
+  "world": {
+   "dims": [],
+   "structures": 13,
+   "biomes": 0,
+   "ores": 2,
+   "eggs": 25,
+   "entities": 53,
+   "bosses": []
+  }
+ },
+ {
+  "id": "imfast",
+  "name": "imfast",
+  "version": "1.0.3",
+  "jar": "imfast-NEOFORGE-26.1.2-1.0.3.jar",
+  "primary": true,
+  "authors": "Bielhiss",
+  "url": "",
+  "desc_en": "A modern solution using mixin to remove minecraft speed limit",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 1,
+   "item": 1
+  },
+  "uk_keys": 3,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "immediatelyfast",
+  "name": "ImmediatelyFast",
+  "version": "1.15.3+26.1",
+  "jar": "ImmediatelyFast-NeoForge-1.15.3+26.1.jar",
+  "primary": true,
+  "authors": "RK_01",
+  "url": "https://github.com/RaphiMC/ImmediatelyFast",
+  "desc_en": "Speed up and optimize immediate mode rendering in Minecraft",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/immediatelyfast.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "integratedcrafting",
+  "name": "IntegratedCrafting",
+  "version": "1.7.1-830",
+  "jar": "integratedcrafting-26.1.2-neoforge-1.7.1-830.jar",
+  "primary": true,
+  "authors": "rubensworks (aka kroeser)",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/integrated-crafting",
+  "desc_en": "Craft stuff in Integrated Dynamics networks.",
+  "deps": [
+   "commoncapabilities",
+   "cyclopscore",
+   "integrateddynamics"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 134,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/integratedcrafting.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "integrateddynamics",
+  "name": "IntegratedDynamics",
+  "version": "1.36.1",
+  "jar": "integrateddynamics-26.1.2-neoforge-1.36.1.jar",
+  "primary": true,
+  "authors": "rubensworks (aka kroeser)",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/integrated-dynamics",
+  "desc_en": "Take full and automated control of your appliances.",
+  "deps": [
+   "commoncapabilities",
+   "cyclopscore"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "block": 43,
+   "item": 17,
+   "biome": 1
+  },
+  "uk_keys": 1871,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/integrateddynamics.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 1,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "integrateddynamicscompat",
+  "name": "IntegratedDynamics-Compat",
+  "version": "1.0.0-199",
+  "jar": "integrateddynamics-26.1.2-neoforge-1.36.1.jar",
+  "primary": false,
+  "authors": "rubensworks (aka kroeser)",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/integrated-dynamics",
+  "desc_en": "Integrated Dynamics compatibility with other mods.",
+  "deps": [
+   "cyclopscore",
+   "integrateddynamics"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 212,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/integrateddynamicscompat.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "integratedterminals",
+  "name": "IntegratedTerminals",
+  "version": "1.10.0",
+  "jar": "integratedterminals-26.1.2-neoforge-1.10.0.jar",
+  "primary": true,
+  "authors": "rubensworks (aka kroeser)",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/integrated-terminals",
+  "desc_en": "Terminals for managing and overviewing Integrated Dynamics networks.",
+  "deps": [
+   "commoncapabilities",
+   "cyclopscore",
+   "integrateddynamics"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "block": 2,
+   "item": 1
+  },
+  "uk_keys": 215,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/integratedterminals.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "integratedterminalscompat",
+  "name": "IntegratedTerminals-Compat",
+  "version": "1.0.0-211",
+  "jar": "integratedterminals-26.1.2-neoforge-1.10.0.jar",
+  "primary": false,
+  "authors": "rubensworks (aka kroeser)",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/integrated-terminals",
+  "desc_en": "Integrated Terminals compatibility with other mods. This mod is automatically packaged with Integrated Terminals.",
+  "deps": [
+   "cyclopscore",
+   "integratedterminals"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 18,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/integratedterminalscompat.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "integratedtunnels",
+  "name": "IntegratedTunnels",
+  "version": "1.13.1",
+  "jar": "integratedtunnels-26.1.2-neoforge-1.13.1.jar",
+  "primary": true,
+  "authors": "rubensworks (aka kroeser)",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/integrated-tunnels",
+  "desc_en": "Transfer other stuff over Integrated Dynamics networks.",
+  "deps": [
+   "commoncapabilities",
+   "cyclopscore",
+   "integrateddynamics"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 500,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/integratedtunnels.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "integratedtunnelscompat",
+  "name": "IntegratedTunnels-Compat",
+  "version": "1.0.0-86",
+  "jar": "integratedtunnels-26.1.2-neoforge-1.13.1.jar",
+  "primary": false,
+  "authors": "rubensworks (aka kroeser)",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/integrated-tunnels",
+  "desc_en": "Integrated Tunnels compatibility with other mods.",
+  "deps": [
+   "cyclopscore",
+   "integratedtunnels"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/integratedtunnelscompat.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "interdimensionalwirelesstransmitter",
+  "name": "Interdimensional Wireless Transmitter",
+  "version": "26.1.2-1.0.1",
+  "jar": "interdimensionalwirelesstransmitter-neoforge-26.1.2-1.0.1.jar",
+  "primary": true,
+  "authors": "Ultramega",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/interdimensional-wireless-transmitter",
+  "desc_en": "Interdimensional Wireless Transmitter is an addon for Refined Storage which adds a cross-dimensional transmitter with infinite range.",
+  "deps": [
+   "refinedstorage"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "block": 1,
+   "advancements": 1
+  },
+  "uk_keys": 10,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/interdimensionalwirelesstransmitter.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "inventoryessentials",
+  "name": "Inventory Essentials",
+  "version": "26.1.2.7",
+  "jar": "inventoryessentials-neoforge-26.1.2-26.1.2.7.jar",
+  "primary": true,
+  "authors": "BlayTheNinth",
+  "url": "https://mods.twelveiterations.com/mc/inventory-essentials",
+  "desc_en": "Basic inventory tweaks. Lightweight and compatible.",
+  "deps": [
+   "balm"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 45,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/inventoryessentials.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "inventoryhud",
+  "name": "Inventory HUD+",
+  "version": "3.4.31",
+  "jar": "inventoryhud.neoforge.26.1.2-3.4.31.jar",
+  "primary": true,
+  "authors": "DmitryLovin",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/inventory-hud-forge",
+  "desc_en": "This mod will show you your inventory while playing. Enjoy!",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 15,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/inventoryhud.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "inworldrecipes",
+  "name": "In World Recipes",
+  "version": "2.6.1",
+  "jar": "inworldrecipes-26.1.2-2.6.1.jar",
+  "primary": true,
+  "authors": "benbenlaw",
+  "url": "",
+  "desc_en": "A bunch of useful in world recipes",
+  "deps": [],
+  "deps_opt": [
+   "jei"
+  ],
+  "counts": {},
+  "uk_keys": 44,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/inworldrecipes.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "iris",
+  "name": "Iris",
+  "version": "1.11.4+mc26.1.2",
+  "jar": "iris-neoforge-1.11.4+mc26.1.2.jar",
+  "primary": true,
+  "authors": "coderbot, IMS212",
+  "url": "",
+  "desc_en": "Iris is a modern shaders mod for Minecraft intended to be compatible with existing OptiFine shader packs.",
+  "deps": [
+   "sodium"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 14,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "iris_search",
+  "name": "IrisSearch",
+  "version": "1.8.3-neoforge",
+  "jar": "IrisSearch-1.8.3-neoforge.jar",
+  "primary": true,
+  "authors": "SpacEagle17",
+  "url": "https://github.com/SpacEagle17/IrisSearch",
+  "desc_en": "A mod which adds a search bar to the Iris mod.",
+  "deps": [
+   "iris"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 6,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/iris_search.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "ironfurnaces",
+  "name": "Iron Furnaces",
+  "version": "4.4.2",
+  "jar": "ironfurnaces-neoforge-26.1.2-4.4.2.jar",
+  "primary": true,
+  "authors": "Qelifern (pizzaatime), XenoMustache, Astryxion",
+  "url": "",
+  "desc_en": "IronFurnaces introduces a selection of metal furnaces, offering different tiers to fulfill your smelting needs effortlessly.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 44,
+   "block": 14
+  },
+  "uk_keys": 156,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "ironjetpacks",
+  "name": "Iron Jetpacks",
+  "version": "9.0.3",
+  "jar": "IronJetpacks-26.1.2-9.0.3.jar",
+  "primary": true,
+  "authors": "BlakeBr0",
+  "url": "https://blakesmods.com/iron-jetpacks",
+  "desc_en": "A fully customizable FE powered jetpacks mod!",
+  "deps": [
+   "cucumber"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "item": 9
+  },
+  "uk_keys": 6,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "irons_artifice",
+  "name": "Iron's Arms 'n Artifice",
+  "version": "26.1.2-1.1.0",
+  "jar": "irons_artifice-26.1.2-1.1.0.jar",
+  "primary": true,
+  "authors": "",
+  "url": "",
+  "desc_en": "Explore the game as an Artificer: Craft, tinker, and engineer historical-fantasy firearm builds!",
+  "deps": [
+   "geckolib",
+   "irons_lib"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "item": 50,
+   "entity": 3
+  },
+  "uk_keys": 26,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/irons_artifice.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 1,
+   "entities": 3,
+   "bosses": []
+  }
+ },
+ {
+  "id": "irons_jewelry",
+  "name": "Iron's Gems 'n Jewelry",
+  "version": "26.1.2-2.0.2.1",
+  "jar": "irons_jewelry-26.1.2-2.0.2.1.jar",
+  "primary": true,
+  "authors": "Iron431",
+  "url": "",
+  "desc_en": "Iron's Gems 'n Jewelry adds a dynamic jewelcrafting system with supporting content and mechanics",
+  "deps": [
+   "curios",
+   "irons_lib"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "item": 12,
+   "block": 1
+  },
+  "uk_keys": 262,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/irons_jewelry.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "irons_lib",
+  "name": "Iron's Lib",
+  "version": "26.1.2-2.2.0",
+  "jar": "irons_lib-26.1.2-2.2.0.jar",
+  "primary": true,
+  "authors": "",
+  "url": "",
+  "desc_en": "Provides common functionality and content for Iron431's mods.",
+  "deps": [
+   "geckolib"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "block": 2
+  },
+  "uk_keys": 72,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "itemcollectors",
+  "name": "Item Collectors",
+  "version": "1.1.12+a",
+  "jar": "itemcollectors-1.1.12a-neoforge-mc26.1.jar",
+  "primary": true,
+  "authors": "SuperMartijn642",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/item-collectors",
+  "desc_en": "Item Collectors adds Collectors which collect items in a specified range! Item Collectors range can be changed and items can be whitelisted or blacklisted!",
+  "deps": [
+   "supermartijn642configlib",
+   "supermartijn642corelib"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 15,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/itemcollectors.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "jade",
+  "name": "Jade",
+  "version": "26.1.12+neoforge",
+  "jar": "Jade-mc26.1-NeoForge-26.1.12.jar",
+  "primary": true,
+  "authors": "Snownee",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/jade",
+  "desc_en": "Minecraft mod shows what you are looking at. (Hwyla fork)",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 58,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/jade.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "jearchaeology",
+  "name": "Just Enough Archaeology",
+  "version": "26.1.2-1.3.0",
+  "jar": "jearchaeology-26.1.2-1.3.0.jar",
+  "primary": true,
+  "authors": "LobsterJonn",
+  "url": "",
+  "desc_en": "JEI integration for the archaeology system and for sniffers added in 1.20",
+  "deps": [],
+  "deps_opt": [
+   "jei"
+  ],
+  "counts": {},
+  "uk_keys": 156,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "jei",
+  "name": "Just Enough Items",
+  "version": "29.47.0.109",
+  "jar": "jei-26.1.2-neoforge-29.47.0.109.jar",
+  "primary": true,
+  "authors": "mezz",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/jei",
+  "desc_en": "JEI is an item and recipe viewing mod for Minecraft, built from the ground up for stability and performance.",
+  "deps": [
+   "mezz_config"
+  ],
+  "deps_opt": [
+   "mezz_config_gui"
+  ],
+  "counts": {},
+  "uk_keys": 425,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "jeistuff",
+  "name": "Just Enough Stuff",
+  "version": "26.1.2-1.3.0",
+  "jar": "jeistuff-26.1.2-1.3.0.jar",
+  "primary": true,
+  "authors": "LobsterJonn",
+  "url": "",
+  "desc_en": "Shows more stuff in JEI",
+  "deps": [],
+  "deps_opt": [
+   "jei"
+  ],
+  "counts": {},
+  "uk_keys": 70,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "journeymap",
+  "name": "Journeymap",
+  "version": "26.1.2-6.0.10",
+  "jar": "journeymap-neoforge-26.1.2-6.0.10.jar",
+  "primary": true,
+  "authors": "Techbrew, Mysticdrew",
+  "url": "http://journeymap.info",
+  "desc_en": "JourneyMap: Real-time map in-game or in a web browser as you explore. JourneyMap API: v2.0.0-26.1. Built: 2026-10-03-17:44:24.",
+  "deps": [
+   "commonnetworking"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 372,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/journeymap.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "jumpboat",
+  "name": "Jumpy Boats",
+  "version": "26.1.2-1.0.6",
+  "jar": "jumpboat-26.1.2-1.0.6.jar",
+  "primary": true,
+  "authors": "LobsterJonn",
+  "url": "",
+  "desc_en": "Makes it possible to jump a little while in a boat to transition from water to ground.\n\nSee if you can find a boat.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "jupiter",
+  "name": "Jupiter",
+  "version": "2.4.3",
+  "jar": "jupiter-2.4.3-26.1.2-universal.jar",
+  "primary": true,
+  "authors": "IAFEnvoy",
+  "url": "",
+  "desc_en": "A powerful, auto sync config library.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 45,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/jupiter.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "justdirethings",
+  "name": "Just Dire Things",
+  "version": "1.6.11",
+  "jar": "justdirethings-1.6.11.jar",
+  "primary": true,
+  "authors": "Direwolf20",
+  "url": "",
+  "desc_en": "Just some things that Direwolf20 wanted.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 67,
+   "entity": 8,
+   "item": 131
+  },
+  "uk_keys": 112,
+  "books": [
+   "justdirethingsbook"
+  ],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 8,
+   "bosses": []
+  }
+ },
+ {
+  "id": "justenoughprofessions",
+  "name": "Just Enough Professions (JEP)",
+  "version": "11.0.2",
+  "jar": "JustEnoughProfessions-neoforge-26.1.2-11.0.2.jar",
+  "primary": true,
+  "authors": "Mrbysco, ShyNieke",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/just-enough-professions-jep",
+  "desc_en": "Adds info about professions to JEI",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 1,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "justenoughrecipesharing",
+  "name": "Just Enough Recipe Sharing (JERS)",
+  "version": "26.1.2-1.1.2",
+  "jar": "justenoughrecipesharing-neoforge-26.1.2-1.1.2.jar",
+  "primary": true,
+  "authors": "Ultramega",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/just-enough-recipe-sharing",
+  "desc_en": "A JEI addon which allows sharing recipes in chat.",
+  "deps": [
+   "jei"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 6,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/justenoughrecipesharing.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "justzoom",
+  "name": "Just Zoom",
+  "version": "2.1.4",
+  "jar": "justzoom_neoforge_2.1.4_MC_1.21.11.jar",
+  "primary": true,
+  "authors": "Keksuccino",
+  "url": "",
+  "desc_en": "Zoom by pressing a hotkey and adjust the zoom factor with your mouse wheel!",
+  "deps": [
+   "konkrete"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 3,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/justzoom.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "keybindbundles",
+  "name": "KeyBind Bundles",
+  "version": "2.0.0",
+  "jar": "keybindbundles-2.0.0.jar",
+  "primary": true,
+  "authors": "Matyrobbrt",
+  "url": "",
+  "desc_en": "Bundle keybinds into radial menus",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 26,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "keybindspurger",
+  "name": "KeybindsPurger",
+  "version": "1.4.0",
+  "jar": "KeybindsPurger-1.4.0-neoforge-26.1.2.jar",
+  "primary": true,
+  "authors": "ZedDevStuff",
+  "url": "https://modrinth.com/mod/keybindspurger",
+  "desc_en": "Unset all keybinds for a clean slate",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 4,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/keybindspurger.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "konkrete",
+  "name": "Konkrete",
+  "version": "1.10.1",
+  "jar": "konkrete_neoforge_1.10.1_MC_26.1.1.jar",
+  "primary": true,
+  "authors": "Keksuccino",
+  "url": "",
+  "desc_en": "Core library for Keksuccino's mods.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/konkrete.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "kotlinforforge",
+  "name": "kotlinforforge-6.4.0-all",
+  "jar": "kotlinforforge-6.4.0-all.jar",
+  "kind": "library-jar"
+ },
+ {
+  "id": "kubejs",
+  "name": "KubeJS",
+  "version": "26.1.2-8.0.6",
+  "jar": "kubejs-neoforge-26.1.2-8.0.6.jar",
+  "primary": true,
+  "authors": "latvian.dev",
+  "url": "https://kubejs.com",
+  "desc_en": "Customize your modpack or server with JavaScript!",
+  "deps": [
+   "rhino"
+  ],
+  "deps_opt": [
+   "betteradvancedtooltips",
+   "emi",
+   "jei",
+   "roughlyenoughitems"
+  ],
+  "counts": {},
+  "uk_keys": 354,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/kubejs.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "laserbridges",
+  "name": "Laser Bridges",
+  "version": "6.2",
+  "jar": "laserbridges-26.1.2-neoforge-6.2.jar",
+  "primary": true,
+  "authors": "Mars",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/laser-bridges-doors",
+  "desc_en": "Adds laser sources that create laser platforms and doors when powered",
+  "deps": [
+   "deimos"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "block": 6,
+   "item": 4
+  },
+  "uk_keys": 13,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/laserbridges.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "laserio",
+  "name": "LaserIO",
+  "version": "1.10.2",
+  "jar": "laserio-1.10.2.jar",
+  "primary": true,
+  "authors": "Direwolf20, ErrorMikey",
+  "url": "https://github.com/Direwolf20-MC/LaserIO",
+  "desc_en": "Can't have DireWire without Wire!",
+  "deps": [],
+  "deps_opt": [
+   "mekanism"
+  ],
+  "counts": {
+   "block": 3,
+   "item": 19
+  },
+  "uk_keys": 97,
+  "books": [
+   "laseriobook"
+  ],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "libtooltips",
+  "name": "wd's Tooltips Library",
+  "version": "2.3-NEOFORGE-26.1.2",
+  "jar": "libtooltips-2.3-NEOFORGE-26.1.2.jar",
+  "primary": true,
+  "authors": "wdiscute",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/libtooltips",
+  "desc_en": "A Minecraft library that adds tooltips \nto items through translation keys and (a bit) more!\n\nSpecial text effects are powered by Ember's Text API.\nDocumentation available at tysontheember.dev.\nJar-in-jar inclusion has been explicitly approved for this mod.\nSee Ember's Modding License for details.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 23,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/libtooltips.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "lithostitched",
+  "name": "Lithostitched",
+  "version": "1.8.1",
+  "jar": "lithostitched-1.8.1-neoforge-26.1.jar",
+  "primary": true,
+  "authors": "Apollo",
+  "url": "",
+  "desc_en": "A library mod with new configurability and compatibility enhancements for worldgen",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "logisticsnetworks",
+  "name": "LogisticsNetworks",
+  "version": "1.13.0",
+  "jar": "logisticsnetworks-26.1.2-1.13.0.jar",
+  "primary": true,
+  "authors": "AlmanX21",
+  "url": "",
+  "desc_en": "High level, extremely lag friendly logistics mod",
+  "deps": [],
+  "deps_opt": [
+   "ae2",
+   "buildinggadgets2",
+   "computercraft",
+   "ftbteams",
+   "guideme",
+   "jade",
+   "jei",
+   "refinedstorage"
+  ],
+  "counts": {
+   "block": 2,
+   "item": 21,
+   "entity": 1
+  },
+  "uk_keys": 738,
+  "books": [],
+  "guideme": true,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 1,
+   "bosses": []
+  }
+ },
+ {
+  "id": "lootr",
+  "name": "Lootr",
+  "version": "1.23.38.123",
+  "jar": "lootr-neoforge-26.1.2-1.23.38.123.jar",
+  "primary": true,
+  "authors": "Noobanidus",
+  "url": "https://minecraft.curseforge.com/projects/lootr",
+  "desc_en": "Generates unique loot for each player that opens a loot container.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 12,
+   "entity": 2
+  },
+  "uk_keys": 230,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 2,
+   "bosses": []
+  }
+ },
+ {
+  "id": "luminax",
+  "name": "Luminax",
+  "version": "2.0.1",
+  "jar": "luminax-2.0.1+26.1.2.jar",
+  "primary": true,
+  "authors": "Satherov",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/crystalix",
+  "desc_en": "Adds simple glowing blocks to the game.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 6,
+   "item": 1
+  },
+  "uk_keys": 19,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/luminax.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "mahoutsukai",
+  "name": "Mahou Tsukai",
+  "version": "26.1.2-v1.36.36",
+  "jar": "mahoutsukai-26.1.2-v1.36.36.jar",
+  "primary": true,
+  "authors": "stepsword",
+  "url": "",
+  "desc_en": "A magic mod inspired loosely by Fate/stay night and other media.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "advancements": 38,
+   "biome": 1,
+   "block": 61,
+   "effect": 33,
+   "enchantment": 1,
+   "entity": 4,
+   "fluid": 2,
+   "item": 82
+  },
+  "uk_keys": 354,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [
+    {
+     "id": "mahoutsukai:reality_marble",
+     "key": "dimension.mahoutsukai.reality_marble",
+     "name": "Reality Marble"
+    }
+   ],
+   "structures": 0,
+   "biomes": 1,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 4,
+   "bosses": []
+  }
+ },
+ {
+  "id": "matc",
+  "name": "Mystical Agriculture Tiered Crystals",
+  "version": "1.8.0",
+  "jar": "matc-1.8.0.jar",
+  "primary": true,
+  "authors": "Electrolyte",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/mystical-agriculture-tiered-crystals",
+  "desc_en": "Adds Tiered Crystals to Mystical Agriculture",
+  "deps": [
+   "mysticalagriculture"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "item": 5
+  },
+  "uk_keys": 40,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "maxhealthfix",
+  "name": "MaxHealthFix",
+  "version": "26.1.2.3",
+  "jar": "MaxHealthFix-neoforge-MC26.1.2-26.1.2.3.jar",
+  "primary": true,
+  "authors": "Darkhax",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/max-health-fix",
+  "desc_en": "Fixes the infamous MC-17876 bug. This bug would cause players with above 20 health to be reset when the restart the game.",
+  "deps": [
+   "prickle"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/maxhealthfix.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "mcwbridges",
+  "name": "Macaw's Bridges",
+  "version": "3.1.2",
+  "jar": "mcw-bridges-3.1.2-mc26.1neoforge.jar",
+  "primary": true,
+  "authors": "Sketch Macaw & Peachy Macaw",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/macaws-bridges",
+  "desc_en": "Connect the world with bridges!",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 152
+  },
+  "uk_keys": 152,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/mcwbridges.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "mcwdoors",
+  "name": "Macaw's Doors",
+  "version": "1.1.5",
+  "jar": "mcw-doors-1.1.5-mc26.1neoforge.jar",
+  "primary": true,
+  "authors": "Sketch Macaw & Sketch Peachy",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/macaws-doors",
+  "desc_en": "Adds a lot of new Doors! With vanila and unique styles.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 282
+  },
+  "uk_keys": 284,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/mcwdoors.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "mcwfences",
+  "name": "Macaw's Fences and Walls",
+  "version": "1.2.1",
+  "jar": "mcw-fences-1.2.1-mc26.1neoforge.jar",
+  "primary": true,
+  "authors": "Sketch Macaw & Peachy Macaw",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/macaws-fences-and-walls",
+  "desc_en": "Adds new vanila styled fences, walls and gates.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 188
+  },
+  "uk_keys": 189,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/mcwfences.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "mcwfurnitures",
+  "name": "Macaw's Furniture",
+  "version": "3.4.2",
+  "jar": "mcw-furniture-3.4.2-mc26.1neoforge.jar",
+  "primary": true,
+  "authors": "Sketch Macaw",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/macaws-furniture",
+  "desc_en": "Chairs, Wardrobes, Drawers, Tables, Desks and more..!",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 716
+  },
+  "uk_keys": 721,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/mcwfurnitures.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "mcwlights",
+  "name": "Macaw's Lights and Lamps",
+  "version": "1.1.5",
+  "jar": "mcw-lights-1.1.5-mc26.1neoforge.jar",
+  "primary": true,
+  "authors": "Sketch Macaw & Peachy Macaw",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/macaws-lights-and-lamps",
+  "desc_en": "Make your worlds brighter with lamps, tiki torches, paper lamps and more!",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 143
+  },
+  "uk_keys": 146,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/mcwlights.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "mcwpaths",
+  "name": "Macaw's Paths and Pavings",
+  "version": "1.1.1",
+  "jar": "mcw-paths-1.1.1-mc26.1neoforge.jar",
+  "primary": true,
+  "authors": "Sketch Macaw & Peachy Macaw",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/macaws-paths-and-pavings",
+  "desc_en": "Adds new vanila styled paths and pavings!",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 316
+  },
+  "uk_keys": 318,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/mcwpaths.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "mcwroofs",
+  "name": "Macaw's Roofs",
+  "version": "2.3.2",
+  "jar": "mcw-roofs-2.3.2-mc26.1neoforge.jar",
+  "primary": true,
+  "authors": "Sketch Macaw & Sketch Peachy",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/macaws-roofs",
+  "desc_en": "Build roofs, awnings, rain gutters and more!",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 621
+  },
+  "uk_keys": 621,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/mcwroofs.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "mcwstairs",
+  "name": "Macaw's Stairs and Balconies",
+  "version": "1.0.2",
+  "jar": "mcw-stairs-1.0.2-mc26.1neoforge.jar",
+  "primary": true,
+  "authors": "Sketch Macaw & Sketch Peachy",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/macaws-stairs",
+  "desc_en": "New Stairs, Handrails for Stairs, Balconies!",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 232
+  },
+  "uk_keys": 236,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/mcwstairs.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "mcwtrpdoors",
+  "name": "Macaw's Trapdoors",
+  "version": "1.1.5",
+  "jar": "mcw-trapdoors-1.1.5-mc26.1neoforge.jar",
+  "primary": true,
+  "authors": "Sketch Macaw & Peachy Macaw",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/macaws-trapdoors",
+  "desc_en": "Adds lots of different Trapdoors! With vanila and unique styles.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 215
+  },
+  "uk_keys": 215,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/mcwtrpdoors.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "mcwwindows",
+  "name": "Macaw's Windows",
+  "version": "2.4.2",
+  "jar": "mcw-windows-2.4.2-mc26.1neoforge.jar",
+  "primary": true,
+  "authors": "Sketch Macaw & Peachy Macaw",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/macaws-windows",
+  "desc_en": "Build Windows, Sills, Blinds, Shutters, Mosaic Windows and more!",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 333
+  },
+  "uk_keys": 334,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/mcwwindows.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "measurements",
+  "name": "Measurements",
+  "version": "4.0.0",
+  "jar": "Measurements-neoforge-26.1-4.0.0.jar",
+  "primary": true,
+  "authors": "Mrbysco",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/measurements",
+  "desc_en": "Measure the distance between positions :)",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 1
+  },
+  "uk_keys": 14,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "melody",
+  "name": "Melody",
+  "version": "1.0.16",
+  "jar": "melody_neoforge_1.0.16_MC_26.1.1.jar",
+  "primary": true,
+  "authors": "Keksuccino",
+  "url": "",
+  "desc_en": "OpenAL-based library mod to play background music.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/melody.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "merequester",
+  "name": "ME Requester",
+  "version": "26.1.2-1.5.1",
+  "jar": "merequester-neoforge-26.1.2-1.5.1.jar",
+  "primary": true,
+  "authors": "Almost Reliable",
+  "url": "",
+  "desc_en": "Keep resources in your ME-System in stock.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 2,
+   "block": 1
+  },
+  "uk_keys": 10,
+  "books": [],
+  "guideme": true,
+  "logo": "img/mods/merequester.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "mezz_config",
+  "name": "mezz_config-26.1.2-neoforge-0.6.8-standalone",
+  "jar": "mezz_config-26.1.2-neoforge-0.6.8-standalone.jar",
+  "kind": "library-jar"
+ },
+ {
+  "id": "mffs",
+  "name": "Modular Force Field System",
+  "version": "5.8.39",
+  "jar": "mffs-5.8.39.jar",
+  "primary": true,
+  "authors": "Su5eD, Built Broken Modding",
+  "url": "https://github.com/BuiltBrokenModding/MFFS_Classic",
+  "desc_en": "Modular Force Field System is a mod that adds force fields, high tech machinery and defensive measures to Minecraft.\nEver tired of nuclear explosions blowing up your house or want to keep people out of your secret bases? May the force (fields) be with you!",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 7,
+   "item": 40
+  },
+  "uk_keys": 186,
+  "books": [
+   "handbook"
+  ],
+  "guideme": false,
+  "logo": "img/mods/mffs.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "mininggadgets",
+  "name": "Mining Gadgets",
+  "version": "1.19.3",
+  "jar": "mininggadgets-1.19.3.jar",
+  "primary": true,
+  "authors": "Direwolf20, ErrorMikey",
+  "url": "https://github.com/Direwolf20-MC/MiningGadgets/",
+  "desc_en": "Mining is better with lasers.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 3,
+   "item": 28
+  },
+  "uk_keys": 86,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/mininggadgets.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "modernfix",
+  "name": "ModernFix",
+  "version": "5.27.24+mc26.1.2",
+  "jar": "modernfix-neoforge-5.27.24+mc26.1.2.jar",
+  "primary": true,
+  "authors": "embeddedt",
+  "url": "https://modrinth.com/mod/modernfix",
+  "desc_en": "Egregious, yet effective performance improvements for modern Minecraft",
+  "deps": [],
+  "deps_opt": [
+   "jei"
+  ],
+  "counts": {},
+  "uk_keys": 155,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/modernfix.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "modernui",
+  "name": "Modern UI",
+  "version": "3.13.0.5",
+  "jar": "ModernUI-NeoForge-26.1.2-3.13.0.5-universal.jar",
+  "primary": true,
+  "authors": "BloCamLimb",
+  "url": "https://curseforge.com/minecraft/mc-mods/modern-ui",
+  "desc_en": "Modern desktop framework from low-level 3D graphics API to high-level view model, for development of 2D/3D rendering software or game engine, with internationalization support and many new technologies.\n    Modern UI is a desktop application framework designed for standalone 2D and 3D rendering software development. It makes use of modern 3D graphical APIs and technologies to provide high real-time rendering performance. For good measure, Modern UI improves and optimizes a set of features used by Android and its own set of internationalization supporting text layout engine meeting Unicode specification.\n    This version is an official version that extends to Minecraft and NeoForge, which combines Modern UI with Minecraft and provides a large number of additional features and modding APIs.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 74,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/modernui.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "modonomicon",
+  "name": "Modonomicon",
+  "version": "2.17.1",
+  "jar": "modonomicon-26.1.2-neoforge-2.17.1.jar",
+  "primary": true,
+  "authors": "Kli Kli",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/modonomicon",
+  "desc_en": "Data-driven minecraft in-game documentation with progress visualization.",
+  "deps": [],
+  "deps_opt": [
+   "jei",
+   "patchouli"
+  ],
+  "counts": {
+   "item": 1
+  },
+  "uk_keys": 124,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/modonomicon.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "modularrouters",
+  "name": "Modular Routers",
+  "version": "26.1.2.2",
+  "jar": "modular-routers-26.1.2.2.jar",
+  "primary": true,
+  "authors": "Des Herriott",
+  "url": "https://minecraft.curseforge.com/projects/modular-routers",
+  "desc_en": "Modular Routers is a highly flexible mod for moving items/fluids/energy around the world in various ways.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 2,
+   "item": 53
+  },
+  "uk_keys": 371,
+  "books": [
+   "book"
+  ],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "moredragoneggs",
+  "name": "More Dragon Eggs",
+  "version": "6.0",
+  "jar": "moredragoneggs-6.0.jar",
+  "primary": true,
+  "authors": "Darkere",
+  "url": "",
+  "desc_en": "This mod makes it so a dragon egg spawns every time the dragon dies.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "moreoverlays",
+  "name": "More Overlays Updated",
+  "version": "1.24.4",
+  "jar": "moreoverlays-1.24.4-mc26.1.2-neoforge.jar",
+  "primary": true,
+  "authors": "feldim2425, RiDGo8",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/more-overlays-updated",
+  "desc_en": "Adds some of the overlays from the old (MC 1.7.x) NotEnoughItems Mod:\n    * Chunk and Region borders\n    * Mob spawn / Light overlay\n    * Item search when JEI (JustEnoughItems by Mezz) is installed\n\nBuilt for MC 26.1.2 (NeoForge)",
+  "deps": [],
+  "deps_opt": [
+   "jei"
+  ],
+  "counts": {},
+  "uk_keys": 40,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/moreoverlays.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "morered",
+  "name": "More Red",
+  "version": "26.1.2.3",
+  "jar": "morered-26.1.2.3.jar",
+  "primary": true,
+  "authors": "Commoble",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/more-red",
+  "desc_en": "This mod adds a bunch of redstone logic gate plate blocks.\n\nOnce you've crafted and placed the blocks, you can rotate them\nby poking them with a stick.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 129,
+   "item": 4
+  },
+  "uk_keys": 152,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/morered.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "mousetweaks",
+  "name": "Mouse Tweaks",
+  "version": "2.31",
+  "jar": "MouseTweaks-neoforge-mc26.1-2.31.jar",
+  "primary": true,
+  "authors": "Ivan Molodetskikh (YaLTeR)",
+  "url": "https://minecraft.curseforge.com/projects/mouse-tweaks",
+  "desc_en": "A mod that enhances the inventory management by adding various additional functions to the usual mouse buttons.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/mousetweaks.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "mysticalagradditions",
+  "name": "Mystical Agradditions",
+  "version": "9.0.4",
+  "jar": "MysticalAgradditions-26.1.2-9.0.4.jar",
+  "primary": true,
+  "authors": "BlakeBr0",
+  "url": "https://blakesmods.com/mystical-agradditions",
+  "desc_en": "Grow all your resources!",
+  "deps": [
+   "cucumber",
+   "mysticalagriculture"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "block": 29,
+   "item": 36
+  },
+  "uk_keys": 42,
+  "books": [
+   "guide"
+  ],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 4,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "mysticalagriculture",
+  "name": "Mystical Agriculture",
+  "version": "9.0.10",
+  "jar": "MysticalAgriculture-26.1.2-9.0.10.jar",
+  "primary": true,
+  "authors": "BlakeBr0",
+  "url": "https://blakesmods.com/mystical-agriculture",
+  "desc_en": "Grow all your resources!",
+  "deps": [
+   "cucumber"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "block": 75,
+   "item": 193,
+   "enchantment": 2
+  },
+  "uk_keys": 150,
+  "books": [
+   "guide"
+  ],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 2,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "mysticalautomation",
+  "name": "Mystical Automation",
+  "version": "2.0.7",
+  "jar": "MysticalAutomation-26.1.2-2.0.7.jar",
+  "primary": true,
+  "authors": "BlakeBr0",
+  "url": "https://blakesmods.com/mystical-automation",
+  "desc_en": "Adds machines for automating different aspects of Mystical Agriculture!",
+  "deps": [
+   "cucumber",
+   "mysticalagriculture"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "block": 7
+  },
+  "uk_keys": 42,
+  "books": [
+   "guide"
+  ],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "mysticalcustomization",
+  "name": "Mystical Customization",
+  "version": "7.0.0",
+  "jar": "MysticalCustomization-26.1.2-7.0.0.jar",
+  "primary": true,
+  "authors": "BlakeBr0",
+  "url": "https://blakesmods.com/mystical-customization",
+  "desc_en": "Allows modpack creators to add new content and modify existing content in Mystical Agriculture.",
+  "deps": [
+   "cucumber",
+   "mysticalagriculture"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "naturescompass",
+  "name": "Nature's Compass",
+  "version": "26.1-3.3.0-neoforge",
+  "jar": "NaturesCompass-26.1-3.3.0-neoforge.jar",
+  "primary": true,
+  "authors": "ChaosTheDude",
+  "url": "https://github.com/MattCzyr/NaturesCompass",
+  "desc_en": "Search for a biome and get information about it.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 1
+  },
+  "uk_keys": 1,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "neovitae",
+  "name": "Neo Vitae",
+  "version": "1.1.38",
+  "jar": "neovitae-26.1.2-1.1.38.jar",
+  "primary": true,
+  "authors": "WayofTime, Saereth",
+  "url": "https://github.com/breakinblocks/NeoVitae",
+  "desc_en": "A magical mod that focuses on the power of blood.",
+  "deps": [
+   "geckolib",
+   "modonomicon"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "block": 237,
+   "effect": 18,
+   "entity": 19,
+   "fluid": 3,
+   "item": 291
+  },
+  "uk_keys": 3707,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [
+    {
+     "id": "neovitae:dungeon",
+     "key": "dimension.neovitae.dungeon",
+     "name": "The Demon Realm"
+    }
+   ],
+   "structures": 0,
+   "biomes": 1,
+   "ores": 0,
+   "eggs": 11,
+   "entities": 19,
+   "bosses": []
+  }
+ },
+ {
+  "id": "netherportalfix",
+  "name": "NetherPortalFix",
+  "version": "26.1.0.1",
+  "jar": "netherportalfix-neoforge-26.1-26.1.0.1.jar",
+  "primary": true,
+  "authors": "BlayTheNinth",
+  "url": "https://mods.twelveiterations.com/",
+  "desc_en": "Ensures correct destinations when travelling back and forth through Nether Portals in Multiplayer.",
+  "deps": [
+   "balm"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/netherportalfix.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "nochatreports",
+  "name": "No Chat Reports",
+  "version": "26.1-v2.19.0",
+  "jar": "NoChatReports-NEOFORGE-26.1-v2.19.0.jar",
+  "primary": true,
+  "authors": "Aizistral",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/no-chat-reports",
+  "desc_en": "Strips cryptographic signatures from player messages, making it impossible to track and associate them with your Mojang/Microsoft account, as well as use Player Chat Reporting feature.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 13,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/nochatreports.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "nomorecraters",
+  "name": "No More Craters",
+  "version": "1.0.0",
+  "jar": "nomorecraters-1.0.0.jar",
+  "primary": true,
+  "authors": "thevortex",
+  "url": "",
+  "desc_en": "Removes/negates AE2 hostile crater generation",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 1,
+   "item": 1
+  },
+  "uk_keys": 10,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "nullscape",
+  "name": "Nullscape",
+  "version": "1.2.20",
+  "jar": "Nullscape_26.1.2_v1.2.20.jar",
+  "primary": true,
+  "authors": "Stardust Labs",
+  "url": "https://www.stardustlabs.net/",
+  "desc_en": "Transforms the boring Vanilla end into an alien dimension with the most surreal terrain imaginable. Topped with a couple of new biomes to add to the experience, whilst keeping the end desolate.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/nullscape.png",
+  "world": {
+   "dims": [],
+   "structures": 2,
+   "biomes": 3,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "occultism",
+  "name": "Occultism",
+  "version": "1.256.1",
+  "jar": "occultism-26.1.2-neoforge-1.256.1.jar",
+  "primary": true,
+  "authors": "Kli Kli",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/occultism",
+  "desc_en": "A magic mod inspired by the world of Jonathan Stroud's Bartimaeus. With the help of occult rituals players can summon entities from the \"Other Side\" to perform magic.",
+  "deps": [
+   "codedefinedgui",
+   "curios",
+   "geckolib",
+   "modonomicon"
+  ],
+  "deps_opt": [
+   "almostunified",
+   "apothic_enchanting",
+   "create",
+   "emi",
+   "immersiveengineering",
+   "jei",
+   "theurgy"
+  ],
+  "counts": {
+   "block": 167,
+   "effect": 18,
+   "enchantment": 1,
+   "entity": 68,
+   "item": 194
+  },
+  "uk_keys": 1011,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/occultism.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 3,
+   "eggs": 56,
+   "entities": 68,
+   "bosses": []
+  }
+ },
+ {
+  "id": "oracle_index",
+  "name": "Oracle Index",
+  "version": "2.0.0",
+  "jar": "oracle_index-neoforge-2.0.0.jar",
+  "primary": true,
+  "authors": "Me! - Rearth",
+  "url": "",
+  "desc_en": "Multiplatform Wiki / Documentation mod for content from moddedmc.wiki",
+  "deps": [
+   "architectury"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 45,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "oritech",
+  "name": "Oritech",
+  "version": "2.0.0-exp11",
+  "jar": "oritech-2.0.0-exp11.jar",
+  "primary": true,
+  "authors": "rearth_neosample",
+  "url": "",
+  "desc_en": "Simple tech mod",
+  "deps": [
+   "athena"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "advancements": 28,
+   "item": 139,
+   "block": 208,
+   "fluid": 17
+  },
+  "uk_keys": 139,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 3,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "patchouli",
+  "name": "Patchouli",
+  "version": "26.1-94",
+  "jar": "patchouli-neoforge-26.1-94.jar",
+  "primary": true,
+  "authors": "Vazkii, williewillus",
+  "url": "",
+  "desc_en": "Accessible, Data-Driven, Dependency-Free Documentation for Minecraft Modders and Pack Makers",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 12
+  },
+  "uk_keys": 13,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/patchouli.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "pipe_connector",
+  "name": "Pipe Connector",
+  "version": "0.6.8",
+  "jar": "pipe_connector-neoforge-0.6.8.jar",
+  "primary": true,
+  "authors": "Heaser, PotatoPoweredWizard",
+  "url": "",
+  "desc_en": "This tries to solve a long lasting issue of digging some blocks to put your pipes underground.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 1
+  },
+  "uk_keys": 99,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "pipez",
+  "name": "Pipez",
+  "version": "1.2.31+26.1.2",
+  "jar": "pipez-neoforge-1.2.31+26.1.2.jar",
+  "primary": true,
+  "authors": "Max Henkel",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/pipez",
+  "desc_en": "Simple and efficient pipes",
+  "deps": [],
+  "deps_opt": [
+   "jade",
+   "jei",
+   "mekanism",
+   "theoneprobe"
+  ],
+  "counts": {
+   "block": 5,
+   "item": 7
+  },
+  "uk_keys": 84,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/pipez.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "placebo",
+  "name": "Placebo",
+  "version": "10.0.2",
+  "jar": "Placebo-26.1.2-10.0.2.jar",
+  "primary": true,
+  "authors": "Shadows_of_Fire",
+  "url": "",
+  "desc_en": "1 (one) library boi",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 1,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "portingdeadlibs",
+  "name": "Porting Dead Libs",
+  "version": "1.1.14",
+  "jar": "portingdeadlibs-1.1.14-26.1.jar",
+  "primary": true,
+  "authors": "Thepigcat, Reclipse",
+  "url": "",
+  "desc_en": "A modding library for the mod's of Porting dead Mods\nIncludes a Multiblock api, BlockEntity, Screen, Menu Wrapper and a lot more",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 6,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/portingdeadlibs.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "potentials",
+  "name": "Potentials",
+  "version": "0.11.1",
+  "jar": "potentials-neoforge-26.1.2-0.11.1.jar",
+  "primary": true,
+  "authors": "Fej1Fun",
+  "url": "",
+  "desc_en": "Library to allow mod developers to use cross platform capabilities",
+  "deps": [
+   "architectury"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "potionsmaster",
+  "name": "PotionsMaster",
+  "version": "2.0.0",
+  "jar": "potionsmaster-26.1.2.100-2.0.0.jar",
+  "primary": true,
+  "authors": "thevortex, whatthedrunk",
+  "url": "",
+  "desc_en": "Potions Master",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 7,
+   "block": 2
+  },
+  "uk_keys": 15,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "powah",
+  "name": "Powah",
+  "version": "7.0.4-alpha",
+  "jar": "Powah-7.0.4-alpha.jar",
+  "primary": true,
+  "authors": "owmii,Technici4n,shartte",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/powah-rearchitected",
+  "desc_en": "Various ways to generate, store and transmit FE power.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 106,
+   "item": 42
+  },
+  "uk_keys": 11,
+  "books": [],
+  "guideme": true,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 3,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "power_armor",
+  "name": "Power Armor",
+  "version": "1.0.7",
+  "jar": "power_armor-1.0.7.jar",
+  "primary": true,
+  "authors": "Thepigcat76",
+  "url": "",
+  "desc_en": "A mod adding a modular power armor with different modules",
+  "deps": [
+   "portingdeadlibs"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "block": 3,
+   "item": 17
+  },
+  "uk_keys": 57,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/power_armor.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "prickle",
+  "name": "PrickleMC",
+  "version": "26.1.2.6",
+  "jar": "PrickleMC-neoforge-MC26.1.2-26.1.2.6.jar",
+  "primary": true,
+  "authors": "Darkhax",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/prickle",
+  "desc_en": "Bringing Prickle, the JSON based configuration file format to Minecraft.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/prickle.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "productivebees",
+  "name": "Productive Bees",
+  "version": "26.1.2-15.3.0",
+  "jar": "productivebees-26.1.2-15.3.0.jar",
+  "primary": true,
+  "authors": "LobsterJonn",
+  "url": "",
+  "desc_en": "Useful bees",
+  "deps": [
+   "productivelib"
+  ],
+  "deps_opt": [
+   "geckolib"
+  ],
+  "counts": {
+   "block": 303,
+   "entity": 475,
+   "item": 65
+  },
+  "uk_keys": 1142,
+  "books": [
+   "guide"
+  ],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 26,
+   "entities": 475,
+   "bosses": []
+  }
+ },
+ {
+  "id": "productivefarming",
+  "name": "Productive Farming",
+  "version": "26.1.2-0.13.0",
+  "jar": "productivefarming-26.1.2-0.13.0.jar",
+  "primary": true,
+  "authors": "LobsterJonn",
+  "url": "",
+  "desc_en": "Crops, flowers and stuff",
+  "deps": [
+   "productivelib"
+  ],
+  "deps_opt": [
+   "agritechevolved",
+   "agritechtwo",
+   "productivebees"
+  ],
+  "counts": {
+   "block": 356,
+   "item": 294
+  },
+  "uk_keys": 870,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "productivemetalworks",
+  "name": "Productive Metalworks",
+  "version": "26.1.2-1.17.1",
+  "jar": "productivemetalworks-26.1.2-1.17.1.jar",
+  "primary": true,
+  "authors": "LobsterJonn",
+  "url": "",
+  "desc_en": "Look, it's hot metal! Just the way daddy used to make it.",
+  "deps": [
+   "productivelib"
+  ],
+  "deps_opt": [
+   "productivebees"
+  ],
+  "counts": {
+   "block": 149,
+   "item": 54
+  },
+  "uk_keys": 75,
+  "books": [
+   "guide"
+  ],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "productivetrees",
+  "name": "Productive Trees",
+  "version": "26.1.2-1.3.1",
+  "jar": "productivetrees-26.1.2-1.3.1.jar",
+  "primary": true,
+  "authors": "LobsterJonn",
+  "url": "",
+  "desc_en": "Trees for Bees",
+  "deps": [
+   "productivelib"
+  ],
+  "deps_opt": [
+   "productivebees",
+   "treetap"
+  ],
+  "counts": {
+   "block": 3604,
+   "entity": 1,
+   "item": 105
+  },
+  "uk_keys": 4143,
+  "books": [
+   "guide"
+  ],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "pylons",
+  "name": "Pylons",
+  "version": "6.0.1",
+  "jar": "pylons-26.1-6.0.1.jar",
+  "primary": true,
+  "authors": "",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/pylons",
+  "desc_en": "Utility Pylons",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 5,
+   "item": 5
+  },
+  "uk_keys": 11,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "quarryplus",
+  "name": "QuarryPlus",
+  "version": "26.12.160",
+  "jar": "AdditionalEnchantedMiner-26.1.2-neoforge-26.12.160.jar",
+  "primary": true,
+  "authors": "Kotori316",
+  "url": "https://github.com/Kotori316/QuarryPlus",
+  "desc_en": "Adds some machines to make a big hole in your world.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 33,
+   "enchantment": 1,
+   "item": 22
+  },
+  "uk_keys": 240,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/quarryplus.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "railcraft",
+  "name": "Railcraft Reborn",
+  "version": "1.4.5",
+  "jar": "railcraft-reborn-26.1.2-1.4.5.jar",
+  "primary": true,
+  "authors": "Sm0keySa1m0n, Edivad99",
+  "url": "",
+  "desc_en": "",
+  "deps": [],
+  "deps_opt": [
+   "jei"
+  ],
+  "counts": {
+   "block": 374,
+   "effect": 1,
+   "enchantment": 4,
+   "entity": 14,
+   "item": 165
+  },
+  "uk_keys": 605,
+  "books": [
+   "guide_book"
+  ],
+  "guideme": false,
+  "logo": "img/mods/railcraft.png",
+  "world": {
+   "dims": [],
+   "structures": 1,
+   "biomes": 0,
+   "ores": 11,
+   "eggs": 0,
+   "entities": 14,
+   "bosses": []
+  }
+ },
+ {
+  "id": "rangedpumps",
+  "name": "Ranged Pumps",
+  "version": "2.0.0",
+  "jar": "rangedpumps-2.0.0.jar",
+  "primary": true,
+  "authors": "Refined Mods",
+  "url": "https://refinedmods.com/ranged-pumps",
+  "desc_en": "Ranged Pumps is a simple mod that adds a pump that pumps liquids in a range",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 1
+  },
+  "uk_keys": 9,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "refinedflowanalytics",
+  "name": "Refined Flow Analytics",
+  "version": "26.1.2-2.0.0",
+  "jar": "refinedflowanalytics-neoforge-26.1.2-2.0.0.jar",
+  "primary": true,
+  "authors": "Ultramega, XaMi",
+  "url": "https://github.com/starforcraft/Refined-Flow-Analytics",
+  "desc_en": "Track and visualize resource movement within your Refined Storage network!",
+  "deps": [
+   "refinedstorage"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "block": 18
+  },
+  "uk_keys": 99,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/refinedflowanalytics.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "refinedfluidsubstitution",
+  "name": "Refined Fluid Substitution",
+  "version": "26.1.2-1.0.1",
+  "jar": "refinedfluidsubstitution-neoforge-26.1.2-1.0.1.jar",
+  "primary": true,
+  "authors": "Ultramega",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/refined-fluid-substitution",
+  "desc_en": "Adds a fluid substitution pattern, allowing fluids to be used directly instead of buckets to Refined Storage.",
+  "deps": [
+   "refinedstorage"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "item": 1
+  },
+  "uk_keys": 3,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "refinedsticks",
+  "name": "Refined Construction Sticks",
+  "version": "2.0.7",
+  "jar": "refinedsticks-26.1.2-2.0.7.jar",
+  "primary": true,
+  "authors": "benbenlaw",
+  "url": "",
+  "desc_en": "Connecting Construction Sticks to Refined Storage.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 2,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/refinedsticks.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "refinedstorage",
+  "name": "Refined Storage",
+  "version": "3.2.1",
+  "jar": "refinedstorage-neoforge-3.2.1.jar",
+  "primary": true,
+  "authors": "Refined Mods",
+  "url": "https://refinedmods.com/refined-storage",
+  "desc_en": "Refined Storage is a mass storage mod for Minecraft that offers the player a network-based storage system, allowing them to store items and fluids on a massively expandable device network.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 37,
+   "item": 51,
+   "advancements": 26
+  },
+  "uk_keys": 499,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/refinedstorage.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "refinedstorage_curios_integration",
+  "name": "Refined Storage - Curios Integration",
+  "version": "2.0.1",
+  "jar": "refinedstorage-curios-integration-2.0.1.jar",
+  "primary": true,
+  "authors": "Refined Mods",
+  "url": "https://refinedmods.com/refined-storage/addons/curios.html",
+  "desc_en": "Curios integration for Refined Storage.",
+  "deps": [
+   "curios",
+   "refinedstorage"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 1,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "refinedstorage_jei_integration",
+  "name": "Refined Storage - JEI Integration",
+  "version": "2.0.1",
+  "jar": "refinedstorage-jei-integration-neoforge-2.0.1.jar",
+  "primary": true,
+  "authors": "Refined Mods",
+  "url": "https://refinedmods.com/refined-storage/addons/just-enough-items.html",
+  "desc_en": "JEI integration for Refined Storage.",
+  "deps": [
+   "jei",
+   "refinedstorage"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 11,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "refinedstorage_quartz_arsenal",
+  "name": "Refined Storage - Quartz Arsenal",
+  "version": "2.0.6",
+  "jar": "refinedstorage-quartz-arsenal-neoforge-2.0.6.jar",
+  "primary": true,
+  "authors": "Refined Mods",
+  "url": "https://refinedmods.com/refined-storage/addons/quartz-arsenal.html",
+  "desc_en": "Quartz Arsenal is an addon for Refined Storage that adds various new tools.",
+  "deps": [
+   "refinedstorage"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "item": 2
+  },
+  "uk_keys": 23,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "refinedtypes",
+  "name": "Refined Types",
+  "version": "26.1.2-1.0.2",
+  "jar": "refined-types-26.1.2-1.0.2.jar",
+  "primary": true,
+  "authors": "Ultramega",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/refined-types",
+  "desc_en": "Refined Types is an addon for Refined Storage which adds FE, Source and Souls Storage Disks.",
+  "deps": [
+   "refinedstorage"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "block": 1,
+   "item": 116,
+   "advancements": 4
+  },
+  "uk_keys": 223,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "refurbished_furniture",
+  "name": "MrCrayfish's Furniture Mod: Refurbished",
+  "version": "1.0.23",
+  "jar": "refurbished_furniture-neoforge-26.1.2-1.0.23.jar",
+  "primary": true,
+  "authors": "MrCrayfish",
+  "url": "https://mrcrayfish.com/mods/furniture_refurbished",
+  "desc_en": "The next generation of MrCrayfish's Furniture Mod, built from the ground up with brand-new blocks, models, original sounds, and gameplay mechanics. Experience the new yet familiar charm of the original mod, and furnish your house with the hundreds of new and original decorations and functional blocks. Jump into new gameplay mechanics with the introduction of the electricity system to power all your appliances and electronics.",
+  "deps": [
+   "framework"
+  ],
+  "deps_opt": [
+   "jei"
+  ],
+  "counts": {
+   "block": 469,
+   "item": 25
+  },
+  "uk_keys": 679,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/refurbished_furniture.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "regions_unexplored",
+  "name": "Regions Unexplored",
+  "version": "0.7.0+beta2",
+  "jar": "regions-unexplored-0.7.0+beta2-neoforge.jar",
+  "primary": true,
+  "authors": "Apollo, UHQ_Games",
+  "url": "https://modrinth.com/mod/regions-unexplored",
+  "desc_en": "A stack of new biomes spread across the Overworld and Nether!",
+  "deps": [
+   "lithostitched"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "advancements": 2,
+   "biome": 78,
+   "block": 699,
+   "entity": 33,
+   "item": 36
+  },
+  "uk_keys": 239,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/regions_unexplored.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 78,
+   "ores": 1,
+   "eggs": 0,
+   "entities": 33,
+   "bosses": []
+  }
+ },
+ {
+  "id": "reliquary",
+  "name": "Reliquary Reincarnations",
+  "version": "2.0.92",
+  "jar": "reliquary-26.1.2-2.0.92.1563.jar",
+  "primary": true,
+  "authors": "P3pp3rF1y",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/reliquary-reincarnations",
+  "desc_en": "Two words: magical swag. Oh, and a gun.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 8,
+   "item": 68,
+   "effect": 2,
+   "enchantment": 1,
+   "fluid": 1
+  },
+  "uk_keys": 333,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/reliquary.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "rhino",
+  "name": "Rhino",
+  "version": "2101.2.8-build.91",
+  "jar": "rhino-2101.2.8-build.91.jar",
+  "primary": true,
+  "authors": "latvian.dev, Mozilla",
+  "url": "https://kubejs.com",
+  "desc_en": "A fork of Mozilla's Rhino library, modified for use in mods",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/rhino.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "rootsclassic",
+  "name": "Roots Classic",
+  "version": "26.1.2-1.6.7",
+  "jar": "RootsClassic-26.1.2-1.6.7.jar",
+  "primary": true,
+  "authors": "Elucent, Lothrazar, Mrbysco",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/roots-classic",
+  "desc_en": "Classic port of Roots, the Druidic Magic Mod",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 17,
+   "entity": 3,
+   "item": 46
+  },
+  "uk_keys": 489,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 3,
+   "bosses": []
+  }
+ },
+ {
+  "id": "routers",
+  "name": "BBL Routers",
+  "version": "2.14.2",
+  "jar": "routers-26.1.2-2.14.2.jar",
+  "primary": true,
+  "authors": "benbenlaw",
+  "url": "",
+  "desc_en": "Moving your stuff since 25.",
+  "deps": [],
+  "deps_opt": [
+   "rifts",
+   "thaumaturge"
+  ],
+  "counts": {
+   "block": 5,
+   "item": 38
+  },
+  "uk_keys": 160,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/routers.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "scalablecatsforce",
+  "name": "ScalableCatsForce-NeoForge-6.1.1-mc26.1.2-3.9.0-all",
+  "jar": "ScalableCatsForce-NeoForge-6.1.1-mc26.1.2-3.9.0-all.jar",
+  "kind": "library-jar"
+ },
+ {
+  "id": "searchables",
+  "name": "Searchables",
+  "version": "1.0.2",
+  "jar": "Searchables-neoforge-26.1.2-1.0.2.jar",
+  "primary": true,
+  "authors": "Jaredlll08",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/searchables",
+  "desc_en": "A library mod to facilitate adding search bars with auto complete and search types.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 1,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/searchables.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "selling_bin",
+  "name": "wd's Selling Bin",
+  "version": "1.6-NEOFORGE-26.1.2",
+  "jar": "selling_bin-1.6-NEOFORGE-26.1.2.jar",
+  "primary": true,
+  "authors": "",
+  "url": "http://curseforge.com/minecraft/mc-mods/wds-selling-bin",
+  "desc_en": "A data-driven Selling Bin mod\n\nCredits:\nwdiscute - Main Developer\nDayTheMagpie - Selling Bin UI Art\nRedeix - Selling Bin model\nNikdo53 - Tiny Multiblock Lib",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 1
+  },
+  "uk_keys": 49,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/selling_bin.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "sfm",
+  "name": "Super Factory Manager (SFM)",
+  "version": "4.34.0",
+  "jar": "Super Factory Manager (SFM)-MC26.1.2-4.34.0.jar",
+  "primary": true,
+  "authors": "TeamDman",
+  "url": "",
+  "desc_en": "Adds a certain magical factory manager to the game.\nAutomation is within your grasp!",
+  "deps": [],
+  "deps_opt": [
+   "mekanism"
+  ],
+  "counts": {
+   "block": 19,
+   "item": 6
+  },
+  "uk_keys": 14,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "sgearmetalworks",
+  "name": "Silent Gear Metalworks",
+  "version": "26.1.2-1.6.0",
+  "jar": "sgearmetalworks-26.1.2-1.6.0.jar",
+  "primary": true,
+  "authors": "LobsterJonn",
+  "url": "",
+  "desc_en": "Makes Silent Gear parts crafting require foundry casting for meltable materials",
+  "deps": [
+   "productivemetalworks",
+   "silentgear"
+  ],
+  "deps_opt": [
+   "silentgems"
+  ],
+  "counts": {
+   "block": 29,
+   "entity": 1,
+   "item": 64
+  },
+  "uk_keys": 139,
+  "books": [
+   "guide"
+  ],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "shogi",
+  "name": "Shogi",
+  "version": "26.1.2.12",
+  "jar": "shogi-neoforge-26.1.2-26.1.2.12.jar",
+  "primary": true,
+  "authors": "BlayTheNinth",
+  "url": "https://balm.twelveiterations.com/",
+  "desc_en": "Rule-based properties and configuration for everything",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 4,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/shogi.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "silentgear",
+  "name": "Silent Gear",
+  "version": "4.2.3",
+  "jar": "silent-gear-26.1.2-neoforge-4.2.3.jar",
+  "primary": true,
+  "authors": "SilentChaos512",
+  "url": "https://github.com/SilentChaos512/Silent-Gear/blob/26.1.x/README.md",
+  "desc_en": "Modular and upgradeable tools, weapons, and armor. Allows full customization of materials and parts used in gear crafting, even user-defined ones!",
+  "deps": [
+   "silentlib"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "block": 63,
+   "enchantment": 1,
+   "item": 172
+  },
+  "uk_keys": 1200,
+  "books": [
+   "gears_guide"
+  ],
+  "guideme": false,
+  "logo": "img/mods/silentgear.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 3,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "silentgems",
+  "name": "Silent's Gems",
+  "version": "5.1.4",
+  "jar": "silentgems-26.1.2-neoforge-5.1.4.jar",
+  "primary": true,
+  "authors": "SilentChaos512",
+  "url": "https://github.com/SilentChaos512/SilentGems/blob/26.1.x/README.md",
+  "desc_en": "Adds gems, ores, and other trinkets. Complete with Silent Gear compatibility!",
+  "deps": [],
+  "deps_opt": [
+   "silentgear"
+  ],
+  "counts": {
+   "block": 25,
+   "item": 23
+  },
+  "uk_keys": 75,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 65,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "silentlib",
+  "name": "Silent Lib",
+  "version": "11.2.0",
+  "jar": "silent-lib-26.1.2-neoforge-11.2.0.jar",
+  "primary": true,
+  "authors": "SilentChaos512",
+  "url": "https://github.com/SilentChaos512/SilentLib/blob/26.1.x/README.md",
+  "desc_en": "Shared library for SilentChaos512's mods",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 5,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "simplebackups",
+  "name": "Simple Backups",
+  "version": "26.1.6",
+  "jar": "SimpleBackups-26.1.6.jar",
+  "primary": true,
+  "authors": "MelanX",
+  "url": "https://github.com/ChaoticTrials/SimpleBackups",
+  "desc_en": "A simple mod to create scheduled backups.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 42,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "simplemagnets",
+  "name": "Simple Magnets",
+  "version": "1.1.12",
+  "jar": "simplemagnets-1.1.12-neoforge-mc26.1.jar",
+  "primary": true,
+  "authors": "SuperMartijn642",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/simple-magnets",
+  "desc_en": "Simple Magnets adds Magnets that pickup items around the player!",
+  "deps": [
+   "supermartijn642configlib",
+   "supermartijn642corelib"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 9,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/simplemagnets.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "sky_aesthetics",
+  "name": "Sky Aesthetics",
+  "version": "2.1.4",
+  "jar": "sky_aesthetics-neoforge-2.1.4.jar",
+  "primary": true,
+  "authors": "The Stellaris Team",
+  "url": "",
+  "desc_en": "Change the skybox of Minecraft like you want !",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 36,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/sky_aesthetics.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "sodium",
+  "name": "Sodium",
+  "version": "0.9.2+mc26.1.2",
+  "jar": "sodium-neoforge-0.9.2+mc26.1.2.jar",
+  "primary": true,
+  "authors": "JellySquid (jellysquid3), IMS212",
+  "url": "",
+  "desc_en": "Sodium is a powerful rendering engine for Minecraft which improves frame rates and reduces lag spikes.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 105,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/sodium.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "sodium_extra",
+  "name": "Sodium Extra",
+  "version": "0.9.4+mc26.1.2",
+  "jar": "sodium-extra-neoforge-0.9.4+mc26.1.2.jar",
+  "primary": true,
+  "authors": "FlashyReese",
+  "url": "",
+  "desc_en": "Features that shouldn't be in Sodium.",
+  "deps": [
+   "sodium"
+  ],
+  "deps_opt": [
+   "greenlight"
+  ],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/sodium_extra.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "solcarrot",
+  "name": "Spice of Life: Carrot Edition",
+  "version": "1.19.0",
+  "jar": "solcarrot-26.1-1.19.0.jar",
+  "primary": true,
+  "authors": "Cazsius, Talonos, juliand665, Mrbysco",
+  "url": "https://curseforge.com/minecraft/mc-mods/spice-of-life-carrot-edition",
+  "desc_en": "A mod designed to encourage dietary variety!\n\nIt does so by rewarding the player for eating a variety of foods instead of punishing them for failing to diversify.\nInstead of using the stick, we use the carrot!",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "item": 1
+  },
+  "uk_keys": 64,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/solcarrot.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "sophisticatedbackpacks",
+  "name": "Sophisticated Backpacks",
+  "version": "3.26.11",
+  "jar": "sophisticatedbackpacks-26.1.2-3.26.11.2198.jar",
+  "primary": true,
+  "authors": "P3pp3rF1y, Ridanisaurus",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/sophisticated-backpacks",
+  "desc_en": "Fancy and functional backpacks.",
+  "deps": [
+   "sophisticatedcore"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "item": 71,
+   "block": 6
+  },
+  "uk_keys": 83,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/sophisticatedbackpacks.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "sophisticatedcore",
+  "name": "Sophisticated Core",
+  "version": "1.5.13",
+  "jar": "sophisticatedcore-26.1.2-1.5.13.2403.jar",
+  "primary": true,
+  "authors": "P3pp3rF1y",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/sophisticated-core",
+  "desc_en": "A library / shared functionality mod for Sophisticated Storage and Backpacks",
+  "deps": [],
+  "deps_opt": [
+   "jei"
+  ],
+  "counts": {
+   "item": 2
+  },
+  "uk_keys": 186,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "sophisticatedstorage",
+  "name": "Sophisticated Storage",
+  "version": "1.5.121",
+  "jar": "sophisticatedstorage-26.1.2-1.5.121.2180.jar",
+  "primary": true,
+  "authors": "P3pp3rF1y, Ridanisaurus",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/sophisticated-storage",
+  "desc_en": "Fancy and functional storage containers.",
+  "deps": [
+   "sophisticatedcore"
+  ],
+  "deps_opt": [
+   "jei"
+  ],
+  "counts": {
+   "item": 91,
+   "block": 49
+  },
+  "uk_keys": 334,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/sophisticatedstorage.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "sophisticatedstorageinmotion",
+  "name": "Sophisticated Storage In Motion",
+  "version": "0.10.37",
+  "jar": "sophisticatedstorageinmotion-26.1.2-0.10.37.378.jar",
+  "primary": true,
+  "authors": "P3pp3rF1y",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/sophisticated-storage-in-motion",
+  "desc_en": "Sophisticated Storage on moving entities.",
+  "deps": [
+   "sophisticatedstorage"
+  ],
+  "deps_opt": [
+   "jei"
+  ],
+  "counts": {
+   "item": 3,
+   "entity": 4
+  },
+  "uk_keys": 8,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/sophisticatedstorageinmotion.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 4,
+   "bosses": []
+  }
+ },
+ {
+  "id": "spark",
+  "name": "spark",
+  "version": "1.10.187",
+  "jar": "spark-1.10.187-neoforge.jar",
+  "primary": true,
+  "authors": "Luck",
+  "url": "",
+  "desc_en": "spark is a performance profiling plugin/mod for Minecraft clients, servers and proxies.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "spider_overhaul",
+  "name": "Spider Overhaul",
+  "version": "0.0.6-NeoForge-v26.1",
+  "jar": "SpiderOverhaul-0.0.6-NeoForge-v26.1.jar",
+  "primary": true,
+  "authors": "Chybx",
+  "url": "",
+  "desc_en": "A mod that overhauls spiders in Minecraft, adding new behaviors and features.",
+  "deps": [
+   "cloth_config"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "entity": 11,
+   "block": 3,
+   "item": 20,
+   "effect": 3
+  },
+  "uk_keys": 85,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/spider_overhaul.png",
+  "world": {
+   "dims": [],
+   "structures": 1,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 11,
+   "entities": 11,
+   "bosses": []
+  }
+ },
+ {
+  "id": "starcatcher",
+  "name": "Starcatcher",
+  "version": "3.3.8.1-NEOFORGE-26.1.2",
+  "jar": "starcatcher-3.3.8.1-NEOFORGE-26.1.2.jar",
+  "primary": true,
+  "authors": "",
+  "url": "http://curseforge.com/minecraft/mc-mods/starcatcher",
+  "desc_en": "A fishing mod with lots of fishes to collect!\n\nCredits:\nwdiscute - Main Developer\nKapitencraft, DuckXYZ, Nikdo53 - Miscellaneous code contribuitions\nNikdo53 - Fishing minigame art & miscellaneous texture tweeks\nScribbleDemon - Guide book, Fish radar and \"Fish Caught!\" notification art\nDayTheMagpie - Trophy Models, Tournament UI & models, Secret Notes art, Fisherman's Hats, Selling Bin UI, Bobbers Models, & various other Items and UI art\nSpring - 3D Fish models and some item sprite tweaks\nPure - 3D Fish models (v3+)\nRedeix - Icy minigame tank texture, Selling Bin model, Tackle Box model and animations, Farmer's delight food sprites, and several item textures\nIdentidade470 - Conches & Clams textures and models\nBurning Sulphur - Aiding in adding compatibility with mods\nAxtro - Help with Farmer's Delight Addon, and Curios support\nHappyMeek - Miscellaneous Bobbers & Hooks Sprites\nMonachrome - Create-themed fish item sprites\nNifastGreentail - Miscellaneous fish item sprites\n\nThank you to all the translators who contribuited their time to make the mod accessible to everyone! If you'd like to translate reach out to me on discord!\n\nThank you everyone who stopped by my streams as I developed the mod and followed along the journey ♥",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "fluid": 6,
+   "entity": 2,
+   "item": 295
+  },
+  "uk_keys": 1539,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/starcatcher.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 2,
+   "bosses": []
+  }
+ },
+ {
+  "id": "stellaris",
+  "name": "Stellaris",
+  "version": "2.0.7",
+  "jar": "stellaris-26.1.2-neoforge-2.0.7.jar",
+  "primary": true,
+  "authors": "Exodus Studio",
+  "url": "https://github.com/st0x0ef/stellaris-2.0",
+  "desc_en": "Stellaris introduces an expansive and immersive space exploration experience within the familiar Minecraft universe. Players can discover new planets, moon and galaxies !",
+  "deps": [
+   "architectury",
+   "exoconfig",
+   "potentials",
+   "sky_aesthetics"
+  ],
+  "deps_opt": [
+   "jade",
+   "jei",
+   "roughlyenoughitems"
+  ],
+  "counts": {
+   "entity": 14,
+   "item": 244,
+   "fluid": 16,
+   "block": 140,
+   "biome": 6,
+   "effect": 2
+  },
+  "uk_keys": 946,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/stellaris.png",
+  "world": {
+   "dims": [
+    {
+     "id": "stellaris:earth_orbit",
+     "key": null,
+     "name": "Earth Orbit"
+    },
+    {
+     "id": "stellaris:moon",
+     "key": null,
+     "name": "Moon"
+    }
+   ],
+   "structures": 14,
+   "biomes": 6,
+   "ores": 4,
+   "eggs": 9,
+   "entities": 14,
+   "bosses": []
+  }
+ },
+ {
+  "id": "stepcrafter",
+  "name": "Step Crafter",
+  "version": "26.1.2-1.0.3",
+  "jar": "stepcrafter-neoforge-26.1.2-1.0.3.jar",
+  "primary": true,
+  "authors": "Ultramega",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/step-crafter",
+  "desc_en": "Step Crafter is an addon for Refined Storage.",
+  "deps": [
+   "refinedstorage"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "block": 5,
+   "item": 1
+  },
+  "uk_keys": 80,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/stepcrafter.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "strainers",
+  "name": "BBL Strainers",
+  "version": "6.13.0",
+  "jar": "strainers-26.1.2-6.13.0.jar",
+  "primary": true,
+  "authors": "benbenlaw",
+  "url": "",
+  "desc_en": "Adds a strainer and some meshes to get items.",
+  "deps": [
+   "bblcore"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "block": 17,
+   "item": 47
+  },
+  "uk_keys": 92,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/strainers.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "supermartijn642configlib",
+  "name": "SuperMartijn642's Config Library",
+  "version": "1.1.8",
+  "jar": "supermartijn642configlib-1.1.8-neoforge-mc26.1.jar",
+  "primary": true,
+  "authors": "SuperMartijn642",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/supermartijn642s-config-lib",
+  "desc_en": "Config Lib makes dealing with config files just a bit easier.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/supermartijn642configlib.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "supermartijn642corelib",
+  "name": "SuperMartijn642's Core Lib",
+  "version": "1.1.25",
+  "jar": "supermartijn642corelib-1.1.25-neoforge-mc26.1.jar",
+  "primary": true,
+  "authors": "SuperMartijn642",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/supermartijn642s-core-lib",
+  "desc_en": "SuperMartijn642's Core Lib adds lots of basic implementations for guis that allow for similar code between Minecraft 1.12, 1.14, 1.15, and 1.16!",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 1,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/supermartijn642corelib.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "t_and_t",
+  "name": "Towns and Towers",
+  "version": "1.13.11",
+  "jar": "t_and_t-fabric-neoforge-1.13.11.jar",
+  "primary": true,
+  "authors": "Kubek and Biban_Auriu, Cristelknight999",
+  "url": "https://modrinth.com/mod/towns-and-towers",
+  "desc_en": "Spice up your world with new villages, pillager outposts, and even new ships!",
+  "deps": [
+   "cristellib"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/t_and_t.png",
+  "world": {
+   "dims": [],
+   "structures": 60,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "tectonic",
+  "name": "Tectonic",
+  "version": "3.0.28",
+  "jar": "tectonic-3.0.28-neoforge-26.1.jar",
+  "primary": true,
+  "authors": "Apollo",
+  "url": "",
+  "desc_en": "Terrain shaping brought to new heights, grander and more varied than ever before!",
+  "deps": [
+   "apollib"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 109,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/tectonic.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "terralith",
+  "name": "Terralith",
+  "version": "2.6.1",
+  "jar": "Terralith_26.1_v2.6.1_Neoforge.jar",
+  "primary": true,
+  "authors": "Starmute, catter1, Apollo, TheKingWhale",
+  "url": "https://www.stardustlabs.net/",
+  "desc_en": "Explore almost 100 new biomes consisting of both realism and light fantasy, using just Vanilla blocks. Complete with several immersive structures to compliment the overhauled terrain.",
+  "deps": [
+   "lithostitched"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "biome": 99
+  },
+  "uk_keys": 135,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/terralith.png",
+  "world": {
+   "dims": [],
+   "structures": 28,
+   "biomes": 95,
+   "ores": 2,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "thaumaturge",
+  "name": "Thaumaturge",
+  "version": "1.0.2",
+  "jar": "thaumaturge-26.1.2-NeoForge-1.0.2.jar",
+  "primary": true,
+  "authors": "Leclowndu93150, Iglee42, Saereth, Reclipse, DeadSix, Azanor13",
+  "url": "",
+  "desc_en": "Become a thaumaturge: fill your journal with the secrets of the aura, bend vis to your will, and discover what the Crimson Cult already knows about the eldritch.",
+  "deps": [
+   "curios",
+   "lithostitched"
+  ],
+  "deps_opt": [
+   "dynamictrees",
+   "jade"
+  ],
+  "counts": {
+   "biome": 5,
+   "block": 311,
+   "effect": 9,
+   "enchantment": 8,
+   "entity": 52,
+   "item": 243
+  },
+  "uk_keys": 1414,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/thaumaturge.png",
+  "world": {
+   "dims": [
+    {
+     "id": "thaumaturge:outer_lands",
+     "key": null,
+     "name": "Outer Lands"
+    }
+   ],
+   "structures": 2,
+   "biomes": 5,
+   "ores": 3,
+   "eggs": 25,
+   "entities": 52,
+   "bosses": []
+  }
+ },
+ {
+  "id": "theurgy",
+  "name": "Theurgy",
+  "version": "1.116.0",
+  "jar": "theurgy-26.1.2-neoforge-1.116.0.jar",
+  "primary": true,
+  "authors": "Kli Kli",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/theurgy",
+  "desc_en": "An open-source magic mod built around classical alchemy to replicate and transmute matter, and create magical artifacts.",
+  "deps": [
+   "codedefinedgui",
+   "geckolib"
+  ],
+  "deps_opt": [
+   "almostunified",
+   "emi",
+   "jade",
+   "jei",
+   "modonomicon"
+  ],
+  "counts": {
+   "block": 31,
+   "item": 361
+  },
+  "uk_keys": 2873,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/theurgy.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 1,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "theurgy_kubejs",
+  "name": "Theurgy KubeJS",
+  "version": "1.6.0",
+  "jar": "theurgy_kubejs-26.1.2-neoforge-1.6.0.jar",
+  "primary": true,
+  "authors": "Kli Kli",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/theurgy-kubejs",
+  "desc_en": "KubeJS Support for Theurgy",
+  "deps": [
+   "kubejs",
+   "theurgy"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "titanium",
+  "name": "Titanium",
+  "version": "4.0.12",
+  "jar": "titanium-26.1.2-4.0.12.jar",
+  "primary": true,
+  "authors": "TheCodedOne, Buuz135",
+  "url": "",
+  "desc_en": "A Lib",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 4
+  },
+  "uk_keys": 53,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "toastcontrol",
+  "name": "Toast Control",
+  "version": "10.0.0",
+  "jar": "ToastControl-26.1.2-10.0.0.jar",
+  "primary": true,
+  "authors": "Shadows_of_Fire",
+  "url": "",
+  "desc_en": "Blocking annoying popups since 1.12",
+  "deps": [
+   "placebo"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 2,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "toolbelt",
+  "name": "Tool Belt",
+  "version": "2.9.5",
+  "jar": "ToolBelt-26.1.2-2.9.5.jar",
+  "primary": true,
+  "authors": "gigaherz",
+  "url": "https://github.com/gigaherz/ToolBelt",
+  "desc_en": "Declutter your inventory of tools",
+  "deps": [],
+  "deps_opt": [
+   "sewingkit"
+  ],
+  "counts": {
+   "item": 2
+  },
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/toolbelt.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "trainingdummy",
+  "name": "Training Dummy",
+  "version": "1.9.0+mc26.1.2",
+  "jar": "trainingdummy-1.9.0+mc26.1.2.jar",
+  "primary": true,
+  "authors": "",
+  "url": "",
+  "desc_en": "Adds a training dummy: an invulnerable player-shaped target you can gear up\n(armor, shield, Curios accessories) that reports the damage dealt to it.",
+  "deps": [],
+  "deps_opt": [
+   "curios"
+  ],
+  "counts": {
+   "item": 3,
+   "entity": 2
+  },
+  "uk_keys": 100,
+  "books": [],
+  "guideme": true,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 2,
+   "bosses": []
+  }
+ },
+ {
+  "id": "transmog",
+  "name": "Transmog",
+  "version": "1.8.0",
+  "jar": "transmog-neoforge-1.8.0+26.1.jar",
+  "primary": true,
+  "authors": "Hidoni",
+  "url": "",
+  "desc_en": "Change the appearance of your items without modifying their behavior/stats!",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 1,
+   "item": 1
+  },
+  "uk_keys": 25,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/transmog.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "trashcans",
+  "name": "Trash Cans",
+  "version": "1.1.1+a",
+  "jar": "trashcans-1.1.1a-neoforge-mc26.1.jar",
+  "primary": true,
+  "authors": "SuperMartijn642",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/trash-cans",
+  "desc_en": "Trash Cans adds Trash Cans which can be used to void items, liquids and energy!",
+  "deps": [
+   "supermartijn642configlib",
+   "supermartijn642corelib"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 5,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/trashcans.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "trashslot",
+  "name": "TrashSlot",
+  "version": "26.1.2.4",
+  "jar": "trashslot-neoforge-26.1.2-26.1.2.4.jar",
+  "primary": true,
+  "authors": "BlayTheNinth",
+  "url": "https://mods.twelveiterations.com/mc/trashslot",
+  "desc_en": "Adds a trash slot to the inventory screen that allows deletion of unwanted items.",
+  "deps": [
+   "balm"
+  ],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 22,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/trashslot.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "trophymanager",
+  "name": "Jonn's Trophies",
+  "version": "26.1.2-3.0.0",
+  "jar": "trophymanager-26.1.2-3.0.0.jar",
+  "primary": true,
+  "authors": "LobsterJonn",
+  "url": "",
+  "desc_en": "Highly configurable trophies for all entities and items",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 1
+  },
+  "uk_keys": 13,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "undergarden",
+  "name": "The Undergarden",
+  "version": "0.9.8",
+  "jar": "The_Undergarden-26.1.2-0.9.8.jar",
+  "primary": true,
+  "authors": "quek",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/the-undergarden",
+  "desc_en": "Deep underground, a forgotten land awaits.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "biome": 19,
+   "block": 249,
+   "effect": 7,
+   "enchantment": 3,
+   "entity": 37,
+   "item": 133
+  },
+  "uk_keys": 282,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/undergarden.png",
+  "world": {
+   "dims": [
+    {
+     "id": "undergarden:undergarden",
+     "key": null,
+     "name": "Undergarden"
+    }
+   ],
+   "structures": 4,
+   "biomes": 20,
+   "ores": 14,
+   "eggs": 21,
+   "entities": 37,
+   "bosses": [
+    "undergarden:forgotten_guardian"
+   ]
+  }
+ },
+ {
+  "id": "underground_villages",
+  "name": "Underground Villages Mod",
+  "version": "11.0.0",
+  "jar": "UndergroundVillages-neoforge-26.1.2-11.0.0.jar",
+  "primary": true,
+  "authors": "Mrbysco, ShyNieke",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/underground-villages",
+  "desc_en": "Ever wanted to be a tunnel dweller? Wanted villages to also be underground? Well then this mod is for you!\nThis mod adds Underground Villages to your world.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 7,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 1,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "underwater_village",
+  "name": "Underwater Village",
+  "version": "1.0.0",
+  "jar": "underwater_village-1.0.0 Neoforge 26.1.2.jar",
+  "primary": true,
+  "authors": "Leonxkingx",
+  "url": "",
+  "desc_en": "Discover a lot of new oceanic structures!",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {
+   "block": 1,
+   "item": 1
+  },
+  "uk_keys": 10,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 17,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "universalgrid",
+  "name": "Universal Grid",
+  "version": "26.1.2-1.0.2",
+  "jar": "universalgrid-neoforge-26.1.2-1.0.2.jar",
+  "primary": true,
+  "authors": "Ultramega",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/universal-grid",
+  "desc_en": "Universal Grid is an addon for Refined Storage.",
+  "deps": [
+   "refinedstorage",
+   "refinedstorage_quartz_arsenal"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "item": 2
+  },
+  "uk_keys": 16,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/universalgrid.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "uranus",
+  "name": "Uranus",
+  "version": "3.0-alpha.1",
+  "jar": "uranus-3.0-alpha.1.jar",
+  "primary": true,
+  "authors": "IAFEnvoy",
+  "url": "",
+  "desc_en": "A Library contains animation engine, object helper and so on. Partly based on LLibrary and Citadel.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/uranus.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "utilitarian",
+  "name": "Utilitarian",
+  "version": "26.1.2-0.22.0",
+  "jar": "utilitarian-26.1.2-0.22.0.jar",
+  "primary": true,
+  "authors": "LobsterJonn",
+  "url": "",
+  "desc_en": "Various features and changes to the base game.",
+  "deps": [],
+  "deps_opt": [
+   "letmedespawn"
+  ],
+  "counts": {
+   "block": 50,
+   "item": 8
+  },
+  "uk_keys": 110,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "valhelsia_core",
+  "name": "Valhelsia Core",
+  "version": "1.1.6",
+  "jar": "valhelsia_core-neoforge-26.1.2-1.1.6.jar",
+  "primary": true,
+  "authors": "",
+  "url": "",
+  "desc_en": "",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "villagesandpillages",
+  "name": "Villages&Pillages",
+  "version": "2.0.0",
+  "jar": "villagesandpillages-neoforge-2.0.0+mc26.1.2.jar",
+  "primary": true,
+  "authors": "Faboslav",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/villages-and-pillages",
+  "desc_en": "Structure mod that brings an exciting twist to Minecraft by introducing hostile and unfriendly pillages, providing a thrilling contrast to the peaceful villages.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 1,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "waystones",
+  "name": "Waystones",
+  "version": "26.1.2.16",
+  "jar": "waystones-neoforge-26.1.2-26.1.2.16.jar",
+  "primary": true,
+  "authors": "BlayTheNinth",
+  "url": "https://mods.twelveiterations.com/mc/waystones",
+  "desc_en": "Teleport back to activated waystones. For Survival, Adventure or Servers.",
+  "deps": [
+   "balm",
+   "shogi"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "block": 31,
+   "item": 20
+  },
+  "uk_keys": 100,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/waystones.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "witchery",
+  "name": "Witchery",
+  "version": "0.5.17+mc26.1.2",
+  "jar": "witchery-0.5.17+mc26.1.2.jar",
+  "primary": true,
+  "authors": "mrsterner",
+  "url": "",
+  "desc_en": "A modern, data-driven Witchery remake.",
+  "deps": [
+   "curios",
+   "kotlinforforge",
+   "lithostitched",
+   "modonomicon"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "block": 143,
+   "effect": 1,
+   "entity": 48,
+   "item": 212
+  },
+  "uk_keys": 2244,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/witchery.png",
+  "world": {
+   "dims": [
+    {
+     "id": "witchery:dream_world",
+     "key": null,
+     "name": "Dream World"
+    },
+    {
+     "id": "witchery:mirror_world",
+     "key": null,
+     "name": "Mirror World"
+    },
+    {
+     "id": "witchery:nightmare_world",
+     "key": null,
+     "name": "Nightmare World"
+    }
+   ],
+   "structures": 3,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 21,
+   "entities": 48,
+   "bosses": []
+  }
+ },
+ {
+  "id": "wits",
+  "name": "Wits",
+  "version": "1.4.3+26.1-neoforge",
+  "jar": "wits-1.4.3+26.1-neoforge.jar",
+  "primary": true,
+  "authors": "TelepathicGrunt",
+  "url": "https://www.curseforge.com/projects/909375",
+  "desc_en": "Use `wits` command to get registry name of all structures where you are standing.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/wits.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "wstweaks",
+  "name": "Wither Skeleton Tweaks",
+  "version": "11.0.1",
+  "jar": "WitherSkeletonTweaks-26.1.2-11.0.1.jar",
+  "primary": true,
+  "authors": "Shadows_of_Fire",
+  "url": "",
+  "desc_en": "Turns all Skeletons in the Nether into Wither Skeletons, and adds Skull Fragments.",
+  "deps": [
+   "placebo"
+  ],
+  "deps_opt": [],
+  "counts": {
+   "item": 2
+  },
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": null,
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ },
+ {
+  "id": "yeetusexperimentus",
+  "name": "Yeetus Experimentus",
+  "version": "99.0.0",
+  "jar": "yeetusexperimentus-neoforge-99.0.0.jar",
+  "primary": true,
+  "authors": "Sunekaer",
+  "url": "",
+  "desc_en": "Disables the Experimental Settings popup, which appears when you create or load world.",
+  "deps": [],
+  "deps_opt": [],
+  "counts": {},
+  "uk_keys": 0,
+  "books": [],
+  "guideme": false,
+  "logo": "img/mods/yeetusexperimentus.png",
+  "world": {
+   "dims": [],
+   "structures": 0,
+   "biomes": 0,
+   "ores": 0,
+   "eggs": 0,
+   "entities": 0,
+   "bosses": []
+  }
+ }
+]

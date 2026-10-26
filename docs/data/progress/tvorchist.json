@@ -1,0 +1,226 @@
+{
+ "slug": "tvorchist",
+ "world": "Творчість",
+ "folder": "Творчість",
+ "mode": "creative",
+ "mode_uk": "Творчість",
+ "game_type": 1,
+ "last_played": "2026-10-25 00:03",
+ "last_played_ts": 1792875811,
+ "updated": "2026-10-25 12:01",
+ "play_hours": 7.97,
+ "player": {
+  "uuid": "832ceed6-e820-31f9-aa40-6acd5077a2ac",
+  "xp_level": 1,
+  "dimension": "minecraft:overworld",
+  "world_tier": "haven",
+  "unique_foods": 0,
+  "name": "Nexius"
+ },
+ "quests": {
+  "done": [
+   "0790D3BB481162A6",
+   "196312DF0D2E2CB6",
+   "3BC0A50886A3222B",
+   "3DBDF0350DC69A70",
+   "637EF6D9DFC59EE8",
+   "6ECB27052FCB874E",
+   "79DD4CCCECC3F974"
+  ],
+  "done_visible": [
+   "0790D3BB481162A6",
+   "196312DF0D2E2CB6",
+   "3BC0A50886A3222B",
+   "3DBDF0350DC69A70",
+   "637EF6D9DFC59EE8",
+   "6ECB27052FCB874E",
+   "79DD4CCCECC3F974"
+  ],
+  "started": [
+   "18AA64DF63F68762",
+   "1F748ACA3976A92F",
+   "233C7CAA573D6045",
+   "4E895C54651A3CB3",
+   "4E9B35DCA018FD42",
+   "553C44F85E508DE3",
+   "6C1BBA559963B3DF",
+   "6CA3111E5B9FE80B"
+  ],
+  "tasks_done": [
+   "0A3853BD4F62B78E",
+   "13F86953093670F6",
+   "15CDE30E1F7EBAD5",
+   "17393180EFF15717",
+   "32E6C837728B2EF1",
+   "33218EFDD498E9DB",
+   "3B06163129B8276F",
+   "3CAD6AD06BE4C3D3",
+   "3DF1F367C3EA9631",
+   "52A3EC00B0885573",
+   "6038387EA35404CD",
+   "6AAF612711A3A7AA",
+   "6B38E9AF8B97B65E",
+   "70D108356F710F9B",
+   "7AD8269107F61422"
+  ],
+  "rewards_claimed": 2,
+  "by_chapter": {
+   "tips_and_tricks": {
+    "done": [
+     "0790D3BB481162A6"
+    ],
+    "started": []
+   },
+   "apotheosis_gear": {
+    "done": [
+     "196312DF0D2E2CB6"
+    ],
+    "started": []
+   },
+   "welcome": {
+    "done": [
+     "3BC0A50886A3222B"
+    ],
+    "started": []
+   },
+   "chapter_1_the_beginning": {
+    "done": [
+     "3DBDF0350DC69A70",
+     "79DD4CCCECC3F974"
+    ],
+    "started": [
+     "6CA3111E5B9FE80B"
+    ]
+   },
+   "auroral": {
+    "done": [
+     "637EF6D9DFC59EE8"
+    ],
+    "started": []
+   },
+   "ice_and_fire": {
+    "done": [
+     "6ECB27052FCB874E"
+    ],
+    "started": []
+   },
+   "apothic_enchanting": {
+    "done": [],
+    "started": [
+     "18AA64DF63F68762",
+     "1F748ACA3976A92F",
+     "4E895C54651A3CB3"
+    ]
+   },
+   "modular_router": {
+    "done": [],
+    "started": [
+     "233C7CAA573D6045",
+     "553C44F85E508DE3"
+    ]
+   },
+   "justdirethings": {
+    "done": [],
+    "started": [
+     "4E9B35DCA018FD42"
+    ]
+   },
+   "occultism": {
+    "done": [],
+    "started": [
+     "6C1BBA559963B3DF"
+    ]
+   }
+  }
+ },
+ "advancements": {
+  "done": [
+   "ae2:main/portable_cell",
+   "ae2:main/storage_cell",
+   "apotheosis:progression/root",
+   "auroral:root",
+   "dungeons_arise:wda_root",
+   "iceandfire:iceandfire/root",
+   "logisticsnetworks:root",
+   "lootr:1barrel",
+   "lootr:1chest",
+   "lootr:root",
+   "lootr:trapped_chest",
+   "mffs:grant_book_on_first_join",
+   "minecraft:story/root",
+   "occultism:chalks/root",
+   "occultism:occultism/root",
+   "regions_unexplored:parent",
+   "silentgear:root",
+   "theurgy:book_root",
+   "undergarden:undergarden/root",
+   "witchery:root"
+  ]
+ },
+ "items": {
+  "obtained": [
+   "ae2:cell_workbench",
+   "ae2:drive",
+   "ae2:spatial_anchor",
+   "auroral:guide",
+   "croptopia:guide",
+   "energymeter:meter",
+   "energymeter:monitor",
+   "guideme:guide",
+   "integrateddynamics:on_the_dynamics_of_integration",
+   "logisticsnetworks:computer",
+   "logisticsnetworks:server_rack",
+   "mahoutsukai:guidebook",
+   "merequester:requester",
+   "minecraft:book",
+   "minecraft:crafting_table",
+   "minecraft:flower_pot",
+   "minecraft:loom",
+   "minecraft:oak_log",
+   "minecraft:oak_planks",
+   "minecraft:sandstone_stairs",
+   "neovitae:experience_tome",
+   "neovitae:guide_book",
+   "neovitae:ritual_ledger",
+   "occultism:book_of_calling_foliot_transport_items",
+   "occultism:dictionary_of_spirits",
+   "occultism:taboo_book",
+   "oritech:machine_yield_addon",
+   "patchouli:guide_book",
+   "powah:book",
+   "regions_unexplored:kapok_boat",
+   "reliquary:mob_charm",
+   "silentgear:material_book",
+   "starcatcher:starcatcher_guide",
+   "thaumaturge:ingot_thaumium",
+   "thaumaturge:thaumonomicon",
+   "theurgy:the_hermetica",
+   "witchery:guidebook"
+  ],
+  "crafted": {
+   "minecraft:oak_planks": 78
+  },
+  "inventory": {
+   "auroral:guide": 1,
+   "croptopia:guide": 1,
+   "guideme:guide": 1,
+   "integrateddynamics:on_the_dynamics_of_integration": 1,
+   "mahoutsukai:guidebook": 1,
+   "minecraft:book": 1,
+   "minecraft:oak_log": 1,
+   "neovitae:experience_tome": 1,
+   "neovitae:guide_book": 1,
+   "neovitae:ritual_ledger": 1,
+   "occultism:book_of_calling_foliot_transport_items": 1,
+   "occultism:dictionary_of_spirits": 1,
+   "occultism:taboo_book": 1,
+   "patchouli:guide_book": 10,
+   "powah:book": 1,
+   "silentgear:material_book": 1,
+   "starcatcher:starcatcher_guide": 1,
+   "thaumaturge:thaumonomicon": 1,
+   "theurgy:the_hermetica": 1,
+   "witchery:guidebook": 1
+  }
+ }
+}

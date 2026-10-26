@@ -1,0 +1,15 @@
+/* Полотна графів (Cytoscape) і схем (jsPlumb) */
+.cy { position: absolute; inset: 0; background:
+  radial-gradient(circle, rgb(255 255 255 / 4%) 1px, transparent 1px) 0 0 / 22px 22px, var(--bg); }
+.graph-hint { position: absolute; left: 12px; bottom: 10px; font-size: .78rem; color: var(--muted); pointer-events: none; }
+.graph-legend { position: absolute; right: 12px; top: 10px; display: flex; flex-direction: column; gap: 4px; font-size: .78rem; background: rgb(11 15 20 / 80%);
+  border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 8px 10px; }
+.graph-legend i { display: inline-block; width: 22px; height: 0; border-top: 2px solid; vertical-align: middle; margin-right: 6px; }
+/* jsPlumb-схеми гілок */
+.scheme { position: relative; min-height: 420px; background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); overflow: auto; }
+.scheme-node { position: absolute; width: 200px; padding: 10px 12px; border-radius: var(--radius-sm); background: var(--panel-2); border: 1px solid var(--line-2);
+  border-left: 4px solid var(--c, var(--accent)); box-shadow: var(--shadow); font-size: .86rem; cursor: pointer; }
+.scheme-node b { display: block; margin-bottom: 2px; }
+.scheme-node.done { opacity: .55; }
+.scheme-node.sel { outline: 2px solid var(--accent); }
+.jtk-connector path { stroke: #5b6b82; stroke-width: 2; }
