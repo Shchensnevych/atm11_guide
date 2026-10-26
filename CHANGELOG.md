@@ -241,3 +241,9 @@
 
 
 
+
+## Безпека екосистеми — 2026-10-26
+- Директива безпеки для всіх сесій і агентів: `.agent/workflows/security.md` (той самий текст — `SECURITY.md` в ATM11-Companion і ATM11-UA): ключі й особисті дані, локальні сервери, Electron, неперевірений текст у HTML, ШІ, KubeJS, чекліст перед комітом. GUIDE_HANDOFF §0 — крок «Безпека».
+- ATM11-Companion: міст `:8812` — замість відкритого `cors()` захист `services/security.js` (Host лише 127.0.0.1/localhost, білий список Origin: локальний путівник і GitHub Pages, `COMPANION_ORIGINS` у `.env`, токен сесії для вікон Electron; чужі сайти — 403 до виконання дії). Перевірено curl: чужий Origin / Host → 403, путівник і вікна з токеном → 200.
+- ATM11-Companion: вікна `index.html` / `hud.html` без Node (`nodeIntegration: false`, `contextIsolation: true`, `sandbox: true`), доступ до головного процесу — лише через `preload.js` (`window.companion`: білий список IPC-каналів і токен); заборонено переходи й нові вікна; усі підстановки в `innerHTML` — через `esc()`.
+- ATM11-Companion: чат-команди з гри (`!як`, `!що`, `!клавіші`) виконуються лише від власника (ім'я з `latest.log` → «Setting user»).
