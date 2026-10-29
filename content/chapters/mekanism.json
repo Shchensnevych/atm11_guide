@@ -1,0 +1,11 @@
+{
+ "why": "Модів Mekanism і Mekanism Generators у збірці 0.12.0-beta немає — 69 з 91 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+ "ref": [
+  "file:config/ftbquests/quests/chapters/mekanism.json5~always_invisible: true",
+  "count:stubs:mekanism=69",
+  "count:qall:mekanism=91",
+  "count:items:mekanism=0",
+  "count:items:mekanismgenerators=0"
+ ],
+ "_src": "config/ftbquests/quests/chapters/<глава>.json5 (always_invisible), docs/data/quests (missing — ftbquests:missing_item), реєстр предметів (raw/registry_index.json)"
+}

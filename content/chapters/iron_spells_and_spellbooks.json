@@ -1,0 +1,11 @@
+{
+ "why": "Модів Iron's Spells 'n Spellbooks і All the Wizard Gear у збірці 0.12.0-beta немає — 75 з 103 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+ "ref": [
+  "file:config/ftbquests/quests/chapters/iron_spells_and_spellbooks.json5~always_invisible: true",
+  "count:stubs:iron_spells_and_spellbooks=75",
+  "count:qall:iron_spells_and_spellbooks=103",
+  "count:items:irons_spellbooks=0",
+  "count:items:allthewizardgear=0"
+ ],
+ "_src": "config/ftbquests/quests/chapters/<глава>.json5 (always_invisible), docs/data/quests (missing — ftbquests:missing_item), реєстр предметів (raw/registry_index.json)"
+}

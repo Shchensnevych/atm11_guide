@@ -1,0 +1,20 @@
+{
+ "ov": "Їжа й фермерство: кухня Cooking for Blockheads (кухонний стіл, холодильники, раковина з нескінченною водою), ринок Farming for Blockheads (насіння й паростки за смарагди), льон Silent Gear, риболовля Aquaculture — вудки з гачками, волосінню й поплавцями.",
+ "ref": [
+  "quest:45F83C2750F70F9B",
+  "item:cookingforblockheads:cooking_table",
+  "quest:791AE62ACACBD5BA",
+  "quest:0EFF1AA37772156B",
+  "config:config/cookingforblockheads-common.toml#sinkRequiresWater=false",
+  "quest:1F114EB0AAB86DB4",
+  "jarfile:farmingforblockheads!data/farmingforblockheads/farmingforblockheads/defaults.json~\"minecraft:emerald\"",
+  "jarfile:farmingforblockheads!data/farmingforblockheads/farmingforblockheads/market_categories/seeds.json",
+  "jarfile:farmingforblockheads!data/farmingforblockheads/farmingforblockheads/market_categories/saplings.json",
+  "quest:56550CD12C681B0F",
+  "quest:16D0F1E3CEB60ABF",
+  "item:aquaculture:iron_hook",
+  "item:aquaculture:fishing_line",
+  "item:aquaculture:bobber"
+ ],
+ "_src": "квести глави, jar farmingforblockheads (defaults.json — оплата смарагдами), конфіг Cooking for Blockheads, реєстр aquaculture"
+}

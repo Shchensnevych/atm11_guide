@@ -1,0 +1,12 @@
+{
+ "ov": "Машини на конденсаторах і провідники «все в одному» (предмети, рідини, енергія й редстоун в одному блоці); старт — крихти нескінченності (підпалена корінна порода) і плавильник сплавів — одне з джерел сталі.",
+ "ref": [
+  "item:enderio:basic_capacitor",
+  "item:enderio:conduit",
+  "quest:0061B0577B1C4AEF",
+  "item:enderio:grains_of_infinity",
+  "quest:5D327D85B91E5032",
+  "recipe:alltheores:alloy_smelting/steel_ingot"
+ ],
+ "_src": "квести глави, реєстр enderio, рецепт сталі в плавильнику (факт steel)"
+}

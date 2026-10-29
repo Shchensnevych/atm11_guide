@@ -1,0 +1,10 @@
+{
+ "why": "Мод Hostile Neural Networks у збірці є (KubeJS додає йому рецепти), квестів-заглушок у главі немає, але глава позначена невидимою (always_invisible) — у грі не відкривається. Механіки мода працюють — квестів за них поки немає; читати главу тут можна.",
+ "ref": [
+  "file:config/ftbquests/quests/chapters/hostile_neural_networks.json5~always_invisible: true",
+  "count:stubs:hostile_neural_networks=0",
+  "kjs:server_scripts/mods/hostilenetworks/recipes.js#L6",
+  "item:hostilenetworks:sim_chamber"
+ ],
+ "_src": "config/ftbquests/quests/chapters/<глава>.json5 (always_invisible), docs/data/quests (missing), реєстр предметів, KubeJS"
+}

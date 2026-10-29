@@ -1,0 +1,10 @@
+{
+ "why": "Мода Draconic Evolution у збірці 0.12.0-beta немає — 134 з 141 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+ "ref": [
+  "file:config/ftbquests/quests/chapters/draconic_evolution.json5~always_invisible: true",
+  "count:stubs:draconic_evolution=134",
+  "count:qall:draconic_evolution=141",
+  "count:items:draconicevolution=0"
+ ],
+ "_src": "config/ftbquests/quests/chapters/<глава>.json5 (always_invisible), docs/data/quests (missing — ftbquests:missing_item), реєстр предметів (raw/registry_index.json)"
+}

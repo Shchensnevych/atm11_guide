@@ -1,0 +1,11 @@
+{
+ "why": "Глава-довідка з декоративних модів. Заглушок 3 (Rechiseled, Domum Ornamentum, Compact Machines — їх у збірці немає), решта модів є — поради можна читати тут. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+ "ref": [
+  "file:config/ftbquests/quests/chapters/building_tips.json5~always_invisible: true",
+  "count:stubs:building_tips=3",
+  "count:items:rechiseled=0",
+  "count:items:domum_ornamentum=0",
+  "count:items:compactmachines=0"
+ ],
+ "_src": "config/ftbquests/quests/chapters/<глава>.json5 (always_invisible), docs/data/quests (missing), реєстр предметів, KubeJS"
+}

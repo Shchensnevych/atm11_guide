@@ -1,0 +1,13 @@
+{
+ "ov": "Простіше цифрове сховище без каналів: контролер, диски в дисководах, сітки й автокрафт; доповнення — швидші пристрої Cable Tiers (імпортери, експортери, автокрафтери елітного, ультра й мега рівнів) і більші диски Extra Disks.",
+ "ref": [
+  "item:refinedstorage:controller",
+  "item:refinedstorage:disk_drive",
+  "item:refinedstorage:grid",
+  "item:refinedstorage:autocrafter",
+  "item:cabletiers:elite_importer",
+  "item:cabletiers:mega_disk_interface",
+  "item:extradisks:256k_item_storage_disk"
+ ],
+ "_src": "реєстр refinedstorage / cabletiers / extradisks (Cable Tiers — пристрої, а не кабелі)"
+}

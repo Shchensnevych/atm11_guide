@@ -1,0 +1,14 @@
+{
+ "ov": "Логічні мережі: кабелі, картки змінних і логічний програматор зчитують стан машин і блоків та керують ними; на них стоять Integrated Tunnels (передача), Terminals (термінали) і Crafting (автомайстрування). Дерева менрілу ростуть у біомі Менеґлін.",
+ "ref": [
+  "item:integrateddynamics:cable",
+  "item:integrateddynamics:variable",
+  "item:integrateddynamics:logic_programmer",
+  "item:integratedtunnels:part_importer_item",
+  "item:integratedterminals:part_terminal_storage",
+  "item:integratedcrafting:part_interface_crafting",
+  "item:integrateddynamics:menril_log",
+  "jarfile:IntegratedDynamics!data/integrateddynamics/worldgen/biome/meneglin.json"
+ ],
+ "_src": "реєстр предметів Integrated-модів, біом meneglin у jar, описи модів у довіднику"
+}

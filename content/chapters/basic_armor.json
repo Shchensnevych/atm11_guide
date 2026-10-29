@@ -1,0 +1,13 @@
+{
+ "why": "66 з 129 квестів — обладунки модів, яких у збірці 0.12.0-beta немає: Iron's Spells, Twilight Forest, Eternal Starlight, Mekanism Tools. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+ "ref": [
+  "file:config/ftbquests/quests/chapters/basic_armor.json5~always_invisible: true",
+  "count:stubs:basic_armor=66",
+  "count:qall:basic_armor=129",
+  "count:items:irons_spellbooks=0",
+  "count:items:twilightforest=0",
+  "count:items:eternal_starlight=0",
+  "count:items:mekanismtools=0"
+ ],
+ "_src": "config/ftbquests/quests/chapters/<глава>.json5 (always_invisible), docs/data/quests (missing), реєстр предметів, KubeJS"
+}

@@ -11,15 +11,16 @@
     "features": [
       "boss",
       "dungeon",
-      "ores",
       "mobs"
     ],
-    "uk": "Вогняні, крижані й громові дракони (стадії 1–5), драконячі кузні для сплавів усемодію, горгони, гідри, циклопи, левіафани та спорядження з драконесталі",
+    "uk": "Міфічні чудовиська — вогняні, крижані й громові дракони, гідри, горгони, циклопи, сирени, тролі, гіпогрифи — і драконячі кузні для драконесталі. У ATM11 гнізда, печери й більшість мобів перенесено в біоми Іншого світу. Глава квестів «Ice and Fire».",
     "what": [
-      "Легендарний бестіарій міфічних чудовиськ і босів",
-      "Додає три роди драконів — вогняних, крижаних і громових (стадії 1–3 у наземних гніздах драконів, стадії 4–5 з 500+ серцями у велетенських підземних печерах драконів, з яких можна здобути яйце для приручення власного дракона), а також горгон (`iceandfire:gorgon` у храмах горгони), гідр (`iceandfire:hydra` у печерах гідри), циклопів (`iceandfire:cyclops`), сирен (`iceandfire:siren`), морських левіафанів (`Sea Serpent`), гіпогрифів, амфіптерів, кокатрісів, хробаків смерті, стімфалійських птахів, тролів, піксі, комах мірмексів та нежить мавзолеїв на чолі з лічем жаху (`Dread Lich`)",
-      "Зібравши з драконів кістки, луску, серце та кров, будують багатоблокові вогняну, крижану й громову драконячі кузні (3×3×3), де приручений дракон своїм диханням виплавляє вогняну, крижану та громову драконесталь (`iceandfire:dragonsteel_fire_ingot`, `dragonsteel_ice_ingot`, `dragonsteel_lightning_ingot`)",
-      "Вбудований посібник — бестіарій (`iceandfire:bestiary`), який доповнюється главами на катедрі бестіарію (`iceandfire:lectern`) за допомогою рукописів"
+      "дракони трьох стихій — боси путівника (рішення користувача; тегу c:bosses у них немає): стадії 1–3 — у гніздах на поверхні, стадії 4–5 — у підземних печерах (квести глави); максимальне здоров'я дракона в конфігу — 500",
+      "датапак збірки (kubejs/dynamic_data/iceandfire) переносить структури в Інший світ: вогняні дракони й селища піксі — Стародавній багряний ліс, крижані дракони й печери гідр — Стародавній химерний ліс, громові дракони й печери циклопів — пустеля й пагорби пустелі Іншого світу, храми горгон, острови сирен і мавзолеї — Долина піску душ, цвинтарі — Інші землі",
+      "гіпокампи й левіафани лишилися в океанах Верхнього світу (квест «Ми ще не переїхали!»)",
+      "драконяча кузня 3×3×3 (цегла кузні, блоки кісток дракона, отвір, ядро з серцем дракона): кров дракона + залізний злиток → драконесталь своєї стихії; кров — з луски дракона в тій самій кузні",
+      "бестіарій доповнюється рукописами на катедрі бестіарію",
+      "руди срібла й сапфіра Ice and Fire датапак вимикає — срібні інструменти й обладунки крафтяться зі срібла AllTheOres (тег c:ingots/silver)"
     ],
     "stage": [
       "s2",
@@ -29,25 +30,42 @@
     "synergy": [
       {
         "mod": "allthemodium",
-        "why": "У ATM11 усі структури драконів, горгон, гідр, циклопів, сирен і мавзолеїв перенесені до виміру Інший світ (allthemodium:the_other), а драконячі кузні є альтернативним способом виплавлення блоків сплавів усемодію-вібранію-унобтанію!"
-      },
-      {
-        "mod": "kubejs",
-        "why": "Скрипти KubeJS додають до скелетів драконів випадіння 4 стихійних перлин (kubejs:fire_pearl, ice_pearl, lightning_pearl), з яких крафтяться Очі драконів (kubejs:fire_eye, ice_eye, lightning_eye) для пошуку живих драконів і гнізд"
+        "why": "Драконячі кузні сплавляють відра розплавлених металів ATM у блоки сплавів (1000 тактів): усемодій + вібраній — у вогняній, усемодій + унобтаній — у крижаній, вібраній + унобтаній — у громовій. Дракони й структури — у біомах Іншого світу.",
+        "src": "KubeJS dynamic_data/iceandfire/recipe/dragonforge/*; dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/*",
+        "ref": [
+          "recipe:iceandfire:dragonforge/allthemodium-vibranium",
+          "recipe:iceandfire:dragonforge/allthemodium-unobtainium",
+          "recipe:iceandfire:dragonforge/vibranium-unobtainium",
+          "kjs:dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/fire.json~allthemodium:crimson_forest"
+        ]
       },
       {
         "mod": "occultism",
-        "why": "Срібні інструменти й мечі Ice and Fire використовуються у ритуалах джинів Occultism (craft_infused_*) замість вилучених предметів occultism:silver_*"
+        "why": "Просякнені інструменти й обладунки Occultism (ритуал із прив'язаним джином) збірка робить із срібних інструментів і срібних обладунків Ice and Fire.",
+        "src": "KubeJS server_scripts/unification/tools.js — ритуали occultism:ritual/craft_infused_*",
+        "ref": [
+          "recipe:occultism:ritual/craft_infused_pickaxe",
+          "recipe:occultism:ritual/craft_infused_helmet"
+        ]
+      },
+      {
+        "mod": "productivebees",
+        "why": "Бджоли вогняної, крижаної й громової драконесталі: яйце бджоли перетворюється в драконячій кузні з кров'ю дракона; стільники дають драконесталь.",
+        "src": "рецепти iceandfire:dragonforge/*_dragonsteel_bee (з jar Productive Bees); квести глави «Productive Bees»",
+        "ref": [
+          "quest:1C0F4D1610530FEC",
+          "quest:019CC48531E7759B",
+          "quest:3EB6CBA0B1374BDD"
+        ]
       }
     ],
     "tips": [
-      "Де шукати драконів і босів у ATM11: датапак `kubejs/dynamic_data/iceandfire` переносить більшість структур і мобів до біомів Іншого світу (`allthemodium:the_other`): у Стародавньому багряному лісі (`allthemodium:crimson_forest`) — вогняні дракони, селища піксі й лісові тролі; у Стародавньому химерному лісі (`warped_forest`) — крижані дракони, печери гідр і стімфалійські птахи; у Пустелі Іншого світу (`desert`) — громові дракони, печери циклопів, амфіптери, кокатріси й хробаки смерті; у Долині піску душ (`soul_sand_valley`) — храми горгон, острови сирен і мавзолеї; в Інших землях (`the_other`) — цвинтарі з примарами. Натомість левіафани та гіпокампи залишилися в океанах Верхнього світу!",
-      "Як швидко знайти дракона: знайдіть у пустелях чи лісах Іншого світу скелет дракона — з нього гарантовано випадають 4 вогняні / крижані / блискавичні перлини (`kubejs:fire_pearl`, `ice_pearl`, `lightning_pearl`). З 1 перлини та 1 драконячої кістки (`iceandfire:dragonbone`) крафтяться `8x` вогняних / крижаних / блискавичних очей (`kubejs:fire_eye`, `ice_eye`, `lightning_eye`), які за ПКМ летять (як око Енду) до найближчого живого дикого дракона в радіусі 32 чанків або гнізда в радіусі 16 чанків!",
-      "Сплави ATM у драконячих кузнях: окрім драконесталі, кузні за 1000 тактів сплавляють відра розплавлених металів ATM у блоки сплавів: відро розплавленого усемодію + відро вібранію у вогняній кузні → `allthemodium:vibranium_allthemodium_block`; усемодій + унобтаній у крижаній кузні → `unobtainium_allthemodium_block`; вібраній + унобтаній у громовій кузні → `unobtainium_vibranium_block`.",
-      "Клавіші керування прирученим драконом у польоті: `R` — вогняне/крижане/громове дихання, `G` — укус або удар у ближньому бою, `X` — зниження / спішування, `F7` — перемикання камери від третьої особи.",
-      "Проти горгони обов'язково вдягніть пов'язку на очі (`iceandfire:blindfold`), а проти сирен — беруші (`iceandfire:earplugs`). Усі істоти `@iceandfire` додані до `#allthemods:jank_blacklist` (їх не можна клонувати у породжувачах чи захоплювати у флакони душ)."
+      "Скелет дракона (скрипт збірки) дає 2 випадіння: кістку дракона або 4 стихійні перлини. 1 перлина + кістка дракона = 8 очей (вогняних, крижаних, громових); око летить до найближчого неприрученого дракона своєї стихії в межах 32 чанків, а якщо його немає — до гнізда в межах 16 чанків.",
+      "Керування драконом у польоті (поточний options.txt): R — дихання, G — удар, X — зниження, F7 — вигляд камери.",
+      "Усі істоти Ice and Fire — у тегу allthemods:jank_blacklist: їх не можна вкласти в породжувачі Apothic Spawners і флакони душ Ender IO.",
+      "Пов'язка на очі й беруші — предмети мода проти погляду горгони та співу сирен."
     ],
-    "spoiler": "Вбивши дракона 4–5 стадії у підземній печері та забравши з його тіла кров дракона, не забудьте ще раз обшукати тушу порожніми пляшками? Ні — якщо спершу злити всю кров у пляшки, луска з дракона не випаде! Якщо потрібні саме яйце й луска для перших обладунків, обробіть тушу порожньою рукою, а кров набирайте вже з наступних драконів. Саме яйце вилуплюється у вогні на незераку (вогняне), у воді під кригою (крижане) або просто неба під час дощу/грози (громове).",
+    "spoiler": "Яйце дракона вилуплюється так: вогняне — у вогні на незераку, крижане — у воді, громове — просто неба під дощем (квести «Готуємо ваше яйце», «Крижаний виклик!», «Залиште яйце під дощем»).",
     "chapter": "ice_and_fire",
     "book": "Бестіарій",
     "icons": [
@@ -55,6 +73,40 @@
       "iceandfire:bestiary",
       "iceandfire:dragonsteel_fire_ingot",
       "iceandfire:gorgon_head"
+    ],
+    "ref": [
+      "config:config/iceandfire/iaf-common.json#dragon.maxHealth=500",
+      "quest:765CD913CC3896B2",
+      "quest:32992E3534B86521",
+      "quest:6ECB27052FCB874E",
+      "kjs:dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/fire.json~allthemodium:crimson_forest",
+      "kjs:dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/ice.json~allthemodium:warped_forest",
+      "kjs:dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/lightning.json~allthemodium:desert",
+      "kjs:dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/gorgon_temple.json~allthemodium:soul_sand_valley",
+      "kjs:dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/graveyard.json~allthemodium:the_other",
+      "quest:176D31AF1B0925AA",
+      "recipe:iceandfire:dragonforge/dragonsteel_fire_ingot",
+      "recipe:iceandfire:dragonforge/fire_dragon_blood",
+      "item:iceandfire:bestiary",
+      "item:iceandfire:lectern",
+      "item:iceandfire:blindfold",
+      "item:iceandfire:earplugs",
+      "kjs:dynamic_data/iceandfire/neoforge/biome_modifier/silver_ore.json~neoforge:never",
+      "kjs:dynamic_data/iceandfire/neoforge/biome_modifier/sapphire_ore.json~neoforge:never",
+      "recipe:iceandfire:silver_axe",
+      "kjs:dynamic_data/iceandfire/loot_table/entities/dragon/fire_dragon_skeleton.json~kubejs:fire_pearl",
+      "recipe:kjs:mods/iceandfire/recipes.js#L5",
+      "kjs:startup_scripts/custom_additions.js~let radiusEntity = 32",
+      "kjs:startup_scripts/custom_additions.js~let radiusStructure = 16",
+      "file:options.txt~key_key.dragon_fireAttack:key.keyboard.r",
+      "file:options.txt~key_key.dragon_strike:key.keyboard.g",
+      "file:options.txt~key_key.dragon_down:key.keyboard.x",
+      "file:options.txt~key_key.dragon_change_view:key.keyboard.f7",
+      "kjs:server_scripts/tweaks/tags.js~\"@iceandfire\"",
+      "quest:77793642678CB886",
+      "quest:2B2BB53FA86A07B7",
+      "quest:0481E975F317F64D",
+      "kjs:dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/lightning.json~allthemodium:desert_hills"
     ]
   },
   "uranus": {
@@ -64,15 +116,18 @@
     "role": "library",
     "parent": "iceandfire",
     "features": [],
-    "uk": "Бібліотека скелетної анімації, штучного інтелекту та світових структур для Ice and Fire Community Edition",
+    "uk": "Бібліотека анімацій і допоміжного коду (частково на основі LLibrary і Citadel) — потрібна Ice and Fire. Сама гравцю нічого не дає.",
     "what": [
-      "Сучасний наступник класичної бібліотеки Citadel для NeoForge 26.1",
-      "Відповідає за багатосегментні хітбокси драконів, плавну анімацію польоту й дихання, ШІ босів та рендеринг моделей у Ice and Fire Community Edition"
+      "Обов'язкова залежність Ice and Fire"
     ],
     "stage": [
       "s2",
       "s3",
       "s4"
+    ],
+    "ref": [
+      "jarfile:uranus-3.0-alpha.1!META-INF/neoforge.mods.toml~Partly based on LLibrary and Citadel",
+      "jarfile:iceandfire-2.2-beta.4!META-INF/neoforge.mods.toml~modId = \"uranus\""
     ]
   },
   "jupiter": {
@@ -82,14 +137,20 @@
     "role": "library",
     "parent": "iceandfire",
     "features": [],
-    "uk": "Бібліотека конфігурації та синхронізації налаштувань для Ice and Fire Community Edition",
+    "uk": "Бібліотека конфігів з автоматичною синхронізацією сервера й клієнта — потрібна Ice and Fire.",
     "what": [
-      "Технічна бібліотека керування JSON-конфігами (`minecraft/config/iceandfire/iaf-common.json`, `iaf-client.json`) та мережевої синхронізації параметрів сервера і клієнта для Ice and Fire"
+      "Обов'язкова залежність Ice and Fire; налаштування Ice and Fire — config/iceandfire/iaf-common.json і iaf-client.json"
     ],
     "stage": [
       "s2",
       "s3",
       "s4"
+    ],
+    "ref": [
+      "jarfile:jupiter-2.4.3-26.1.2-universal!META-INF/neoforge.mods.toml~auto sync config library",
+      "jarfile:iceandfire-2.2-beta.4!META-INF/neoforge.mods.toml~modId = \"jupiter\"",
+      "file:config/iceandfire/iaf-common.json",
+      "file:config/iceandfire/iaf-client.json"
     ]
   },
   "gateways": {
@@ -98,15 +159,12 @@
       "resources"
     ],
     "role": "content",
-    "features": [
-      "boss"
-    ],
-    "uk": "Хвильові бойові портали-арени для фарму ресурсів мобів, афіксних босів Apotheosis та нескінченних випробувань",
+    "features": [],
+    "uk": "Брами до вічності — портали-арени з хвилями мобів і нагородами за кожну хвилю. Брама відкривається перлиною брами. Apotheosis додає рівневі брами світових рівнів і Нескінченну браму загарбників (глава «Спорядження Apotheosis»).",
     "what": [
-      "Дозволяє відкривати у світі брами до вічності за допомогою перлин брами (`gateways:gate_pearl`)",
-      "Клацнувши перлиною по блоку на відкритому майданчику, ви запускаєте кілька хвиль ворогів з обмеженням у часі та наростаючими модифікаторами сили",
-      "За кожну хвилю та фінальну перемогу брама викидає гори ресурсів мобів (перлини Енду, стрижні пломеня, сльози гаста, смарагди) або рідкісне спорядження",
-      "Окрім базових і великих брам мобів, у збірці є спеціальні рівневі брами Apotheosis (`Gate Pearl - Frontier`, `Ascent`, `Summit`, `Pinnacle`) та нескінченні брами (`Endless Gateways`)"
+      "перлини власних брам мода крафтяться: пломені, ендермени, слизи, «Смарагдовий гай», «Пекельна фортеця», «Залізний автоматон», «Ночі Верхнього світу», нескінченні брами пломенів і фабрикатора автоматонів",
+      "рівневі брами Apotheosis — Кордон, Сходження, Вершина, Пік: хвилі зомбі й скелетів зі спорядженням світового рівня й афіксами",
+      "Нескінченна брама апофеотичних загарбників — після проходження брами Піку (квест глави)"
     ],
     "stage": [
       "s1",
@@ -117,20 +175,42 @@
     "synergy": [
       {
         "mod": "apotheosis",
-        "why": "Рівневі брами (Frontier → Ascent → Summit → Pinnacle) прикликають хвилі апофеотичних загарбників відповідного рівня світу, а після проходження брами Піку відкривається Нескінченна брама апофеотичних загарбників!"
-      },
-      {
-        "mod": "hostilenetworks",
-        "why": "Вбивство мобів під час хвиль брами швидко прокачує моделі даних у Глибокому учні (hostilenetworks:deep_learner) до самодостатнього рівня"
+        "why": "Рівневі брами Apotheosis (Кордон → Сходження → Вершина → Пік) крафтяться з пилу самоцвітів і реагентів Apotheosis; за браму Піку — перлина Нескінченної брами загарбників.",
+        "src": "рецепти apotheosis:gateways/tiered/*; дані apotheosis/gateways/gateways/*; квести «Апофеотичні брами», «Перлина брами — Нескінченна брама апофеотичних загарбників»",
+        "ref": [
+          "recipe:apotheosis:gateways/tiered/frontier",
+          "recipe:apotheosis:gateways/tiered/pinnacle",
+          "quest:22E57BF23B9BA2C5",
+          "quest:6B5B01C612951BAF"
+        ]
       }
     ],
     "tips": [
-      "Критичне обмеження в ATM11: рівневі брами Apotheosis (`apotheosis:tiered/frontier`, `ascent`, `summit`, `pinnacle`) вибухають і закриваються на 3-й хвилі, якщо відкрити їх поза Верхнім світом, Незером або Ендом! Скрипт KubeJS (`client_scripts/CustomTooltips.js`) додає червоне попередження про це в опис перлин.",
-      "Перед відкриттям брами розчистіть рівний майданчик без глибоких ям і печер поруч: якщо моб провалиться в печеру, відійде надто далеко або таймер хвилі вичерпається — брама зникне ударом блискавки."
+      "Підказка збірки на перлинах рівневих брам Apotheosis: поза Верхнім світом, Незером і Ендом брама схлопнеться на 3-й хвилі."
     ],
     "icons": [
       "gateways:gate_pearl",
       "minecraft:ender_pearl"
+    ],
+    "ref": [
+      "recipe:gateways:basic/blaze",
+      "recipe:gateways:basic/enderman",
+      "recipe:gateways:basic/slime",
+      "recipe:gateways:emerald_grove",
+      "recipe:gateways:hellish_fortress",
+      "recipe:gateways:iron_automaton",
+      "recipe:gateways:overworldian_nights",
+      "recipe:gateways:endless/blaze",
+      "recipe:gateways:endless/automaton_fabricator",
+      "recipe:apotheosis:gateways/tiered/frontier",
+      "recipe:apotheosis:gateways/tiered/ascent",
+      "recipe:apotheosis:gateways/tiered/summit",
+      "recipe:apotheosis:gateways/tiered/pinnacle",
+      "jarfile:data/apotheosis/gateways/gateways/tiered/frontier.json~apotheosis:affix",
+      "jarfile:data/apotheosis/gateways/gateways/endless_invader.json",
+      "quest:6B5B01C612951BAF",
+      "file:kubejs/client_scripts/tooltips.js~apotheosis:tiered/frontier",
+      "file:resourcepacks/ATM11-UA/assets/atm11ua/lang/en_us.json~Will implode at wave 3 outside of the following dimensions"
     ]
   },
   "hellish_trials": {
@@ -142,28 +222,29 @@
     "features": [
       "dungeon"
     ],
-    "uk": "Унікальні незерські палати випробувань із породжувачами випробувань, сховищами, пломенями та візер-скелетами",
+    "uk": "Пекельні палати випробувань у Незері — аналог ванільних палат: породжувачі випробувань із незерськими мобами, сховища й скрині.",
     "what": [
-      "Генерує у Незері пекельний аналог ванільних палат випробувань — структуру `hellish_trials:nether_trial`",
-      "Всередині на гравця чекають пастки, лавові зали, породжувачі випробувань (`minecraft:trial_spawner`) з незерськими мобами та сховища (`minecraft:vault`) з цінною здобиччю"
+      "структура hellish_trials:nether_trial — у біомах Незеру",
+      "породжувачі випробувань: скелети, візер-скелети, пломені, вітрюки, магмові куби, печерні павуки",
+      "звичайні й зловісні сховища, скрині й горщики з власними таблицями здобичі"
     ],
     "stage": [
       "s1",
       "s2"
     ],
-    "synergy": [
-      {
-        "mod": "apothic_spawners",
-        "why": "Породжувачі випробувань із Hellish Trials можна покращувати рунами або забирати Шовковим дотиком"
-      },
-      {
-        "mod": "explorerscompass",
-        "why": "Структуру hellish_trials:nether_trial легко знайти в Незері через Компас дослідника"
-      }
-    ],
+    "synergy": [],
     "icons": [
       "minecraft:trial_spawner",
       "minecraft:vault"
+    ],
+    "ref": [
+      "jarfile:data/hellish_trials/worldgen/structure/nether_trial.json",
+      "jarfile:data/hellish_trials/tags/worldgen/biome/has_structure/nether_trial_biomes.json~#minecraft:is_nether",
+      "jarfile:data/hellish_trials/trial_spawner/nether_trial/nether_trial_spawner_2_normal.json~minecraft:wither_skeleton",
+      "jarfile:data/hellish_trials/trial_spawner/nether_trial/nether_trial_spawner_4_normal.json~minecraft:blaze",
+      "jarfile:data/hellish_trials/trial_spawner/nether_trial/nether_trial_spawner_5_normal.json~minecraft:breeze",
+      "jarfile:data/hellish_trials/trial_spawner/nether_trial/nether_trial_spawner_6_normal.json~minecraft:magma_cube",
+      "jarfile:data/hellish_trials/loot_table/chests/nether_trial/nether_trial_vault_ominous.json"
     ]
   },
   "spider_overhaul": {
@@ -176,24 +257,42 @@
       "dungeon",
       "mobs"
     ],
-    "uk": "Переробка павуків: 11 біомних видів із власними механіками бою, гнізда березових павуків та скалкові й печерні павуки-велетні",
+    "uk": "Біомні павуки: пустельні, крижані, джунглеві, болотяні, березові, тайгові, саванні, грибні, океанські, скалкові й печерні (аметистові, смарагдові, діамантові). Ванільних павуків там, де є нові, прибрано.",
     "what": [
-      "Замінює та доповнює звичайних павуків 11 спеціалізованими видами залежно від біому й глибини: пустельний павук (стріляє кактусовими голками, `spider_overhaul:cactus_spine`), крижаний павук (атакує уламками льоду й крижаними сніжками), тропічний, тайговий, саванний, болотяний (маскується під заражене латаття, `spider_overhaul:spider_lily_pad`), березовий (живе у структурі гнізда березових павуків, `spider_overhaul:birch_spidernest`), грибний, океанський (з якого випадає їстівна крабова ніжка, `spider_overhaul:crab_leg`), а в глибинах — скалковий павук та печерний павук-велетень (аметистовий, смарагдовий і діамантовий різновиди)"
+      "11 видів павуків із власними яйцями виклику; печерні павуки — у всіх біомах Верхнього світу",
+      "гніздо березових павуків (spider_overhaul:birch_spidernest)",
+      "павуче латаття на болотах і в мангрових болотах",
+      "предмети: кактусова голка, крижаний уламок і сніжка, крабова ніжка (з океанського павука, смажиться в краба)"
     ],
     "stage": [
       "s0",
       "s1"
     ],
+    "synergy": [],
     "tips": [
-      "Дивіться під ноги на болотах: заражене латаття (`spider_overhaul:spider_lily_pad`) оживає, коли на нього наступити.",
-      "У глибоких печерах аметистові, смарагдові та діамантові печерні павуки-велетні (`cavern_spider`) значно міцніші за звичайних, але залишають відповідні самоцвіти."
+      "Печерні павуки-«самоцвіти» лише виглядають цінно — з них падає тільки нитка."
     ],
     "icons": [
       "spider_overhaul:birch_nest",
       "spider_overhaul:bottle_of_spider_pollen",
       "spider_overhaul:cactus_spine",
       "spider_overhaul:ice_shard"
-    ]
+    ],
+    "ref": [
+      "jarfile:data/spider_overhaul/neoforge/biome_modifier/remove_vanilla_spider_spawn.json~minecraft:cave_spider",
+      "jarfile:data/spider_overhaul/neoforge/biome_modifier/add_cavern_spider_spawn.json~#minecraft:is_overworld",
+      "jarfile:data/spider_overhaul/worldgen/structure/birch_spidernest.json",
+      "jarfile:data/spider_overhaul/neoforge/biome_modifier/spider_lily_pad.json~minecraft:mangrove_swamp",
+      "item:spider_overhaul:cactus_spine",
+      "item:spider_overhaul:ice_shard",
+      "item:spider_overhaul:crab_leg",
+      "item:spider_overhaul:cooked_crab",
+      "jarfile:data/spider_overhaul/loot_table/entities/ocean_spider.json~spider_overhaul:crab_leg",
+      "jarfile:data/spider_overhaul/loot_table/entities/cavern_spider.json~minecraft:string",
+      "lang:entity.spider_overhaul.cavern_spider.type.diamond",
+      "count:items:spider_overhaul|_spawn_egg$=11"
+    ],
+    "abs_ok": "«у всіх біомах Верхнього світу» — biome_modifier add_cavern_spider_spawn → #minecraft:is_overworld; «тільки нитка» — loot_table entities/cavern_spider.json має один запис: minecraft:string"
   },
   "wstweaks": {
     "cls": [
@@ -203,35 +302,34 @@
     ],
     "role": "content",
     "features": [],
-    "uk": "Перетворення всіх скелетів у Незері на візер-скелетів, гарантовані фрагменти черепів та клинки зі 100% обезголовленням",
+    "uk": "Візер-скелети частіше: скелети в Незері стають візер-скелетами, а з візер-скелета без черепа завжди падає фрагмент черепа (9 фрагментів — череп).",
     "what": [
-      "Полегшує фарм черепів візер-скелетів для прикликання Візера та крафту незерських зірок",
-      "Будь-який звичайний скелет, що спавниться у Незері, автоматично перетворюється на візер-скелета",
-      "Якщо при вбивстві візер-скелета не випав цілий череп, зі 100% шансом (`Fragment Drop Chance = 1`) випадає фрагмент черепа візера-скелета (`wstweaks:fragment`), і з 9 фрагментів на верстаті складається цілий череп",
-      "Також додає жертовний клинок (`wstweaks:immolation_blade` — палаючий та лавовий варіанти на 4096 міцності й 11 шкоди), який підпалює ворогів і гарантовано відрубує голови будь-яким скелетам одним ударом!"
+      "фрагмент черепа візер-скелета: шанс 1,0 (конфіг «Shard Drop Chance»); 9 фрагментів → череп візер-скелета",
+      "лише Незер: «Convert All Biomes» = false",
+      "візер-скелети отримують луки замість кам'яних мечів («Delete Swords», «Give Bows»)",
+      "жертовний клинок: стрижень пломеня + зірка Незеру + палиця; 4096 міцності, 11 шкоди (конфіг)"
     ],
     "stage": [
       "s1",
       "s2",
       "s3"
     ],
-    "synergy": [
-      {
-        "mod": "mysticalagradditions",
-        "why": "Швидкий збір черепів і незерських зірок через Жертовний клинок відкриває крафт зіркових круксів та автоматизацію Візера"
-      },
-      {
-        "mod": "hostilenetworks",
-        "why": "Потрібно лише 6 вбивств візер-скелета із Глибоким учнем у руці, щоб запустити цифровий фарм черепів у Камері симуляції"
-      }
-    ],
-    "tips": [
-      "Змайструйте жертовний клинок (`wstweaks:immolation_blade`) перед походом у Незерську фортецю: кожен убитий ним візер-скелет дасть цілий череп зі 100% шансом, а звичайні скелети в Незері під час удару цим мечем миттєво перетворюються на візер-скелетів і теж віддають череп візера!"
-    ],
+    "synergy": [],
     "icons": [
       "wstweaks:fragment",
       "wstweaks:immolation_blade"
-    ]
+    ],
+    "ref": [
+      "file:config/wstweaks.cfg~S:\"Shard Drop Chance\"=1.0",
+      "file:config/wstweaks.cfg~B:\"Convert All Biomes\"=false",
+      "file:config/wstweaks.cfg~B:\"Delete Swords\"=true",
+      "file:config/wstweaks.cfg~B:\"Give Bows\"=true",
+      "file:config/wstweaks.cfg~I:Durability=4096",
+      "file:config/wstweaks.cfg~S:\"Attack Damage\"=11.0",
+      "recipe:wstweaks:wither_skeleton_skull",
+      "recipe:wstweaks:immolation_blade"
+    ],
+    "abs_ok": "«завжди падає» — config/wstweaks.cfg «Shard Drop Chance» = 1.0; «лише Незер» — «Convert All Biomes» = false"
   },
   "moredragoneggs": {
     "cls": [
@@ -241,10 +339,9 @@
     ],
     "role": "qol",
     "features": [],
-    "uk": "Гарантоване випадіння нового яйця дракона після кожного повторного вбивства Дракона Енду",
+    "uk": "Яйце дракона з'являється й після повторних убивств Дракона Енду.",
     "what": [
-      "Виправляє ванільне обмеження, за яким яйце дракона (`minecraft:dragon_egg`) генерується лише один раз на світ",
-      "З цим модом кожне прикликання і вбивство Дракона Енду створює нове яйце на порталі"
+      "нове яйце на порталі й після повторних убивств дракона (опис мода); голова дракона додатково не з'являється (spawnHead = false)"
     ],
     "stage": [
       "s2",
@@ -253,16 +350,45 @@
     ],
     "synergy": [
       {
-        "mod": "apothic_enchanting",
-        "why": "Яйця дракона потрібні для крафту Драконячих ендполиць (apothic_enchanting:draconic_endshelf), що дають +20 Eterna до столу зачарувань"
+        "mod": "productivebees",
+        "why": "Яйце дракона + вулик → вулик-яйце дракона (гніздо для бджіл Енду).",
+        "src": "рецепт productivebees:nests/dragon_egg_hive",
+        "ref": [
+          "recipe:productivebees:nests/dragon_egg_hive"
+        ]
       },
       {
-        "mod": "mysticalagradditions",
-        "why": "Дозволяє легко зібрати луску й яйця дракона для круксу яйця дракона та насіння 6-го рівня"
+        "mod": "theurgy",
+        "why": "Theurgy розкладає яйце дракона на сіль і сірку та виводить нове в інкубаторі — повторні яйця йдуть на алхімію.",
+        "src": "рецепти theurgy:liquefaction/alchemical_sulfur_dragon_egg_from_dragon_egg, theurgy:incubation/dragon_egg",
+        "ref": [
+          "recipe:theurgy:liquefaction/alchemical_sulfur_dragon_egg_from_dragon_egg",
+          "recipe:theurgy:incubation/dragon_egg"
+        ]
+      },
+      {
+        "mod": "forbidden_arcanus",
+        "why": "Яйце дракона + золота луска дракона → чарівне яйце дракона Forbidden Arcanus.",
+        "src": "рецепт forbidden_arcanus:arcane_dragon_egg",
+        "ref": [
+          "recipe:forbidden_arcanus:arcane_dragon_egg"
+        ]
+      },
+      {
+        "mod": "allthetweaks",
+        "why": "Яйце дракона — у рецепті мініатюрного порталу виходу (ATM).",
+        "src": "KubeJS server_scripts/modpack/mini_portals.js",
+        "ref": [
+          "recipe:allthemods:allthetweaks/mini_exit"
+        ]
       }
     ],
     "icons": [
       "minecraft:dragon_egg"
+    ],
+    "ref": [
+      "jarfile:moredragoneggs!META-INF/neoforge.mods.toml~a dragon egg spawns every time the dragon dies",
+      "config:config/moredragoneggs-server.toml#spawnHead=false"
     ]
   },
   "trainingdummy": {
@@ -272,28 +398,29 @@
     ],
     "role": "qol",
     "features": [],
-    "uk": "Тренувальний манекен і манекен рекордів для точного вимірювання разової шкоди та DPS зброї й заклять",
+    "uk": "Тренувальний манекен для перевірки шкоди зброї й заклять; манекен рекордів веде таблицю найкращих результатів.",
     "what": [
-      "Додає тренувальний манекен (`trainingdummy:dummy_spawner`) та манекен рекордів (`trainingdummy:scoreboard_dummy_spawner`)",
-      "Після встановлення на блок манекен показує спливаючі числа шкоди від кожного удару, пострілу чи закляття та виводить точний показник шкоди за секунду (DPS)"
+      "тренувальний манекен: опудало + блок сіна; манекен рекордів: манекен + діамант",
+      "шкода від ударів показується в чаті (клієнтський конфіг displayLocation = CHAT)"
     ],
     "stage": [
       "s0",
       "s1"
     ],
-    "synergy": [
-      {
-        "mod": "kubejs",
-        "why": "Скрипт KubeJS (mods/trainingdummy/recipes.js) вимикає рецепт приманки мобів (trainingdummy:lure_bait) для балансу"
-      }
-    ],
+    "synergy": [],
     "tips": [
-      "Натисніть ПКМ порожньою рукою зі `Shift` по манекену або вдаріть його мечем зі `Shift`, щоб зняти манекен назад у предмет.",
-      "На манекен можна вдягати будь-які обладунки, щоб перевірити реальну шкоду зброї з урахуванням броні та пробиття захисту з Apotheosis."
+      "Приманку для мобів (lure_bait) збірка вимикає — KubeJS mods/trainingdummy/recipes.js."
     ],
     "icons": [
       "trainingdummy:dummy_spawner",
       "trainingdummy:scoreboard_dummy_spawner"
+    ],
+    "ref": [
+      "recipe:trainingdummy:dummy_spawner",
+      "recipe:trainingdummy:scoreboard_dummy_spawner",
+      "config:config/trainingdummy-client.toml#displayLocation=CHAT",
+      "!recipe:trainingdummy:lure_bait",
+      "kjs:server_scripts/mods/trainingdummy/recipes.js"
     ]
   },
   "trophymanager": {
@@ -303,22 +430,28 @@
     ],
     "role": "content",
     "features": [],
-    "uk": "Колекційні статуетки-трофеї всіх мобів і босів гри з можливістю налаштування підставки й масштабу",
+    "uk": "Трофеї-статуетки мобів і босів: падають з убитих істот, ставляться як блок, розмір, поза й підставка налаштовуються.",
     "what": [
-      "Додає універсальний блок трофея (`trophymanager:trophy`), який зберігає 3D-модель будь-якої істоти",
-      "За конфігом `trophymanager-common.toml` трофеї випадають зі звичайних мобів із базовим шансом 2% (`dropChanceMobs = 0.02`, +0,5% за кожен рівень Здобичі), а з босів — із шансом 20% (`dropChanceBoss = 0.2`, +2% за рівень Здобичі), причому випадіння дозволене навіть від автоматичних вбивць мобів (`allowFakePlayer = true`)!"
+      "шанс трофея (конфіг): з мобів — 0,02 (2 %), з босів — 0,2 (20 %); діє зачарування «Здобич» (applyLooting = true), трофеї падають і від фальшивих гравців — автоматичних убивць (allowFakePlayer = true)",
+      "налаштування трофея (розмір, зсув, поза, підставка) доступні без прав оператора (allowNonOpEdit = true)",
+      "трофей предмета: редстоун + залізний самородок + підставка"
     ],
     "stage": [
       "s0",
       "s1",
       "s2"
     ],
-    "tips": [
-      "Встановлений трофей можна налаштувати (змінити блок основи, масштаб чи поворот фігурки), не витрачаючи сам блок-підставку (`keepBaseBlock = true`)."
-    ],
     "icons": [
       "trophymanager:trophy",
       "minecraft:obsidian"
+    ],
+    "ref": [
+      "config:config/trophymanager-server.toml#dropChanceMobs=0.02",
+      "config:config/trophymanager-server.toml#dropChanceBoss=0.2",
+      "config:config/trophymanager-server.toml#applyLooting=true",
+      "config:config/trophymanager-server.toml#allowFakePlayer=true",
+      "config:config/trophymanager-server.toml#allowNonOpEdit=true",
+      "recipe:trophymanager:item_trophy"
     ]
   },
   "cleanswing": {
@@ -328,15 +461,18 @@
     ],
     "role": "qol",
     "features": [],
-    "uk": "Удари зброєю проходять крізь високу траву й папороть без її ламання і влучають просто у ворога",
+    "uk": "Удари зброєю проходять крізь траву й інші прохідні рослини та влучають у моба за ними.",
     "what": [
-      "Невеликий клієнтсько-серверний QoL-мод: коли ви розмахуєте мечем чи сокирою в заростях, удар ігнорує блоки без колізії (траву, квіти, папороть, павутиння) і влучає в моба позаду них"
+      "опис мода: «Stop hitting Grass instead of Creepers» — удар не застрягає в траві"
     ],
     "stage": [
       "s0"
     ],
     "icons": [
       "minecraft:iron_sword"
+    ],
+    "ref": [
+      "jarfile:cleanswing!META-INF/neoforge.mods.toml~Stop hitting Grass instead of Creepers"
     ]
   }
 }

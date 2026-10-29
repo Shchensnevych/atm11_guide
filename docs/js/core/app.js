@@ -4,6 +4,9 @@ import { h, mount } from './dom.js';
 import { route } from './router.js';
 import { load, switchWorld, applyBrowserGameState } from './store.js';
 import { pickGameFolder, rescanSavedGameFolder, getBrowserGameState } from './game-folder.js';
+import { initTheme } from './theme.js';
+
+initTheme();
 
 window.addEventListener('hashchange', route);
 // кнопка «нагору»: з'являється після прокрутки на ~1,5 екрана

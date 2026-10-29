@@ -1,0 +1,275 @@
+{
+ "_doc": "Гілка Ice and Fire (G6): кроки — квести глави «Ice and Fire» (quests), згруповані за темами; перенесення в Інший світ — датапак збірки kubejs/dynamic_data/iceandfire (ref), числа — конфіг iaf-common.json / скрипти KubeJS (сито).",
+ "id": "iceandfire",
+ "title": "Ice and Fire — дракони й чудовиська",
+ "icon": "🐉",
+ "cls": "combat",
+ "mods": [
+  "iceandfire"
+ ],
+ "chapter": "ice_and_fire",
+ "book": "Бестіарій",
+ "enter": "s5",
+ "summary": "Інший світ (телепорт-плита з Незеру) → біоми, де живуть мешканці мода → гнізда драконів стадій 1–3 → луска, кров і серце → яйце й власний дракон, драконячі кузні й драконесталь → печери драконів стадій 4–5. Паралельно — гідри, горгони, циклопи, сирени, тролі, піксі й трофеї з них. Гіпокампи й левіафани лишилися в океанах Верхнього світу.",
+ "gives": [
+  "Драконесталь (вогняна, крижана, громова) і драконячі кузні",
+  "Сплави ATM із розплавлених металів у драконячих кузнях",
+  "Власний дракон, гіпогриф, амфіптер, гіпокамп",
+  "Зброя й обладунки з трофеїв чудовиськ"
+ ],
+ "_src": "квести глави ice_and_fire (tools/quests_dump.py ice_and_fire); KubeJS dynamic_data/iceandfire/*, startup_scripts/custom_additions.js, server_scripts/mods/iceandfire/recipes.js; config/iceandfire/iaf-common.json",
+ "steps": [
+  {
+   "id": "start",
+   "x": 0,
+   "y": 1,
+   "title": "Інший світ",
+   "quests": [
+    "7B21D2FAD5F3246A",
+    "02DEAB3F1198BFBE",
+    "59D91C5E11F67FC3",
+    "10CA52D15EAB71A3",
+    "48B1BD7D86CAC4A0",
+    "703790CCCE440946"
+   ],
+   "text": "Мешканці мода в ATM11 живуть в Іншому світі: вогняні дракони й піксі — у Стародавньому багряному лісі, крижані дракони й гідри — у Стародавньому химерному лісі, громові дракони й циклопи — у Пустелі, горгони, сирени й мавзолеї — у Долині піску душ, цвинтарі — в Інших землях.",
+   "src": "квести «Ice and Fire», «Стародавній химерний ліс», «Стародавній багряний ліс», «Пустеля Іншого світу», «Долина піску душ Іншого світу», «Інші землі»; KubeJS dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/*",
+   "ref": [
+    "kjs:dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/fire.json~allthemodium:crimson_forest",
+    "kjs:dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/ice.json~allthemodium:warped_forest",
+    "kjs:dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/lightning.json~allthemodium:desert",
+    "kjs:dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/gorgon_temple.json~allthemodium:soul_sand_valley"
+   ]
+  },
+  {
+   "id": "book",
+   "x": 0,
+   "y": 0,
+   "title": "Бестіарій і приручення",
+   "quests": [
+    "2B90982E3B1E545C",
+    "3166CA00032C18F7",
+    "2E0FBBE43D92CA42"
+   ],
+   "text": "Бестіарій доповнюється рукописами на катедрі бестіарію. Більшістю приручених мобів керують палицею; ланцюг прив'язує мобів, зокрема небезпечних.",
+   "src": "квести «Довідник у грі», «Приручення мобів Ice and Fire», «Ланцюг»"
+  },
+  {
+   "id": "roost",
+   "x": 1,
+   "y": 1,
+   "title": "Гнізда й дракони 1–3",
+   "quests": [
+    "6800E0113DE9A4DB",
+    "7FA9EA93602A98EC",
+    "42626A0CD814353D",
+    "70AD5D79881EE1B5",
+    "32992E3534B86521",
+    "4B65720872B062F8",
+    "43922DB543DC05C0"
+   ],
+   "text": "Дракони стадій 1–3 — у гніздах на поверхні. З них — луска, кров і серце. Скелети драконів (скрипт збірки) дають кістки або 4 стихійні перлини; перлина + кістка = 8 очей, що ведуть до неприрученого дракона (32 чанки) або гнізда (16 чанків).",
+   "src": "квести «Дракони та їхні стадії», «Гніздо вогняного / громового / крижаного дракона», «Стадії 1–3 …»; KubeJS dynamic_data/iceandfire/loot_table/entities/dragon/*, startup_scripts/custom_additions.js",
+   "ref": [
+    "kjs:dynamic_data/iceandfire/loot_table/entities/dragon/fire_dragon_skeleton.json~kubejs:fire_pearl",
+    "recipe:kjs:mods/iceandfire/recipes.js#L5",
+    "kjs:startup_scripts/custom_additions.js~let radiusEntity = 32",
+    "kjs:startup_scripts/custom_additions.js~let radiusStructure = 16"
+   ]
+  },
+  {
+   "id": "egg",
+   "x": 2,
+   "y": 0,
+   "title": "Яйце й свій дракон",
+   "quests": [
+    "77793642678CB886",
+    "2B2BB53FA86A07B7",
+    "0481E975F317F64D",
+    "0DABAD0803DCEA1E",
+    "47A7F4972D58A7D5"
+   ],
+   "spoiler": true,
+   "text": "Яйце вилуплюється: вогняне — у вогні на незераку, крижане — у воді, громове — під дощем. Скіпетр — накази, ріг — перенесення, флейта; дракона треба годувати. Клавіші польоту: R — дихання, G — удар, X — зниження, F7 — камера.",
+   "src": "квести «Готуємо ваше яйце», «Крижаний виклик!», «Залиште яйце під дощем», «Керування драконом», «Годування дракона»; options.txt",
+   "ref": [
+    "file:options.txt~key_key.dragon_fireAttack:key.keyboard.r",
+    "file:options.txt~key_key.dragon_strike:key.keyboard.g",
+    "file:options.txt~key_key.dragon_down:key.keyboard.x",
+    "file:options.txt~key_key.dragon_change_view:key.keyboard.f7"
+   ]
+  },
+  {
+   "id": "forge",
+   "x": 3,
+   "y": 1,
+   "title": "Драконячі кузні й драконесталь",
+   "quests": [
+    "176D31AF1B0925AA",
+    "45068FB6758D3BA1",
+    "210542B036255FBF",
+    "0C176F04D32B75DD",
+    "406433F7FF3B0E7B",
+    "72FB345F3A7E7288"
+   ],
+   "text": "Кузня 3×3×3: цегла кузні, блоки кісток дракона, отвір і ядро із серцем дракона. Кров дракона + залізний злиток → драконесталь своєї стихії. Ті самі кузні сплавляють відра розплавлених металів ATM у блоки сплавів.",
+   "src": "квести «Вогняна / Крижана / Громова драконяча кузня», «… драконесталь»; рецепти iceandfire:dragonforge/*",
+   "ref": [
+    "recipe:iceandfire:dragonforge/dragonsteel_fire_ingot",
+    "recipe:iceandfire:dragonforge_fire_core_disabled",
+    "recipe:iceandfire:dragonforge/allthemodium-vibranium"
+   ]
+  },
+  {
+   "id": "cave",
+   "x": 2,
+   "y": 1,
+   "title": "Печери драконів 4–5",
+   "quests": [
+    "43630EF0B85AE7E1",
+    "1CB063BBEC35712B",
+    "70099F9B69F9D055",
+    "765CD913CC3896B2",
+    "1042A0DC0A9321BB",
+    "0B3AC4E923332AC6"
+   ],
+   "spoiler": true,
+   "text": "Дракони стадій 4–5 — найсильніші боси мода — сплять у великих підземних печерах зі скарбами; звідти — яйця драконів. Максимальне здоров'я дракона в конфігу — 500.",
+   "src": "квести «Печера вогняного / громового / крижаного дракона», «Стадії 4–5 …»; config/iceandfire/iaf-common.json",
+   "ref": [
+    "config:config/iceandfire/iaf-common.json#dragon.maxHealth=500"
+   ]
+  },
+  {
+   "id": "beasts",
+   "x": 1,
+   "y": 2,
+   "title": "Чудовиська",
+   "quests": [
+    "05113AC92BC1B192",
+    "0FE94BE5ADB6E595",
+    "41C7DEAB41F4B700",
+    "121DE9824813D558",
+    "3C0671BE5E94730E",
+    "435890CE1A1B3C04",
+    "1713E5D74658F095",
+    "136C40D8350651DC",
+    "661114AFCBBD5F28",
+    "14CF23064A6035CD",
+    "5D6A4E574823446F",
+    "4ED6B18DF7D51E13",
+    "666FFDFDB7C869F5",
+    "38CAB3EF0D89B8F4",
+    "2D71532A99C167AA",
+    "617C6D6C35B4917D",
+    "5E45C9C2D72EDBCC",
+    "6009E239E2E15236",
+    "4AFDC9ACAC926654"
+   ],
+   "text": "Гідри й печери гідр, горгони й храми, циклопи, сирени й острови, цвинтарі з примарами, тролі, хробаки смерті, стімфалійські птахи, кокатріси, амфіптери, піксі та їхні селища, гіпогрифи. Проти горгони — пов'язка на очі, проти сирен — беруші. Здоров'я в конфігу: гідра 250, циклоп 150, горгона 100.",
+   "src": "квести «Гідра», «Горгона», «Циклоп», «Сирени», «Цвинтар», «Тролі» та ін.; config/iceandfire/iaf-common.json",
+   "ref": [
+    "item:iceandfire:blindfold",
+    "item:iceandfire:earplugs",
+    "config:config/iceandfire/iaf-common.json#hydra.maxHealth=250",
+    "config:config/iceandfire/iaf-common.json#cyclops.maxHealth=150",
+    "config:config/iceandfire/iaf-common.json#gorgon.maxHealth=100"
+   ]
+  },
+  {
+   "id": "trophy",
+   "x": 2,
+   "y": 2,
+   "title": "Трофеї й приручення",
+   "quests": [
+    "09ABD5D978373A54",
+    "65E98FCE27B552F4",
+    "2E7D6A54B361B727",
+    "6774BBE7C7C5D7EB",
+    "2738184B6A688D2C",
+    "4A84C8578C2F7F71",
+    "315913D32319F010",
+    "3804364077F4BAD4",
+    "2A26CE0E88B62002",
+    "7C5FC2015F1E6DB1",
+    "45084D3A3E5DB63B",
+    "07AF1D5C24B069DD",
+    "445DB66B81146E91",
+    "7D086BC5AC152E27",
+    "10642351AD9A9907",
+    "395417A7ABC3658F",
+    "69211D34F8182976",
+    "43008E93B34F4F06",
+    "39107884D6C80D41",
+    "6FE6F50029D690C0",
+    "0F9DCF36112C9922",
+    "03326C2FF16F64C3",
+    "7CBF22CCCF599F26",
+    "47E4BA6643A4BA85",
+    "46AADB01BBD156D2",
+    "32C45C6C811FB5F9",
+    "131164DA08BB87B3",
+    "06ECF443FBCC12FC"
+   ],
+   "text": "Із чудовиськ — серце гідри, голова горгони, око циклопа, хітин хробака смерті, шкіра й зброя тролів, луска сирени й морських вартових; з них — стріли, зброя, обладунки, флейта сирени. Приручити можна амфіптера, кокатріса, піксі, гіпогрифа й хробака смерті.",
+   "src": "квести «Серце гідри», «Голова горгони», «Око циклопа», «Обладунки зі шкіри троля», «Приручення амфіптера», «Пануйте в небі на гіпогрифі» та ін."
+  },
+  {
+   "id": "ocean",
+   "x": 0,
+   "y": 2,
+   "title": "Океани Верхнього світу",
+   "quests": [
+    "6ECB27052FCB874E",
+    "760864EE43FB33AC",
+    "37DB7871590921CF",
+    "41F9CC26C7D86AE9",
+    "74C648FC8733310B",
+    "2B84A4377688B189"
+   ],
+   "text": "Гіпокампи й левіафани не переїхали в Інший світ — шукайте їх в океанах Верхнього світу. Гіпокампа приручають ламінарією й осідлують.",
+   "src": "квести «Ми ще не переїхали!», «Гіпокамп», «Приручення ламантина гіпокампа», «Левіафани»; jar Ice and Fire neoforge/biome_modifier/spawn_sea_serpent.json",
+   "ref": [
+    "jarfile:data/iceandfire/neoforge/biome_modifier/spawn_sea_serpent.json~#iceandfire:entity_gen/sea_serpent"
+   ]
+  }
+ ],
+ "links": [
+  [
+   "start",
+   "book"
+  ],
+  [
+   "start",
+   "roost"
+  ],
+  [
+   "roost",
+   "egg"
+  ],
+  [
+   "roost",
+   "cave"
+  ],
+  [
+   "roost",
+   "forge"
+  ],
+  [
+   "cave",
+   "forge"
+  ],
+  [
+   "start",
+   "beasts"
+  ],
+  [
+   "beasts",
+   "trophy"
+  ],
+  [
+   "start",
+   "ocean"
+  ]
+ ]
+}

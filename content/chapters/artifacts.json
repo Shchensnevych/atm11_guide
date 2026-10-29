@@ -1,0 +1,12 @@
+{
+ "ov": "Артефакти-аксесуари для слотів Curios (48, без яйця виклику міміка): їх вибивають із міміків і знаходять у скринях підземних таборів — від черевиків страйдера (стояти на лаві, присівши) до парасольки. Квести глави — каталог артефактів з описом дії.",
+ "ref": [
+  "count:items:artifacts|^(?!mimic_spawn_egg)=48",
+  "jarfile:artifacts!data/artifacts/loot_table/entities/mimic.json",
+  "jarfile:artifacts!data/artifacts/loot_table/chests/campsite_chest.json~\"artifacts:artifact\"",
+  "item:artifacts:strider_shoes",
+  "lang:artifacts.tooltip.ability.fluid_collision.sneaking.lava",
+  "item:artifacts:umbrella"
+ ],
+ "_src": "реєстр предметів artifacts, лут-таблиці jar (мімік, скриня табору), квести глави"
+}

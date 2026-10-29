@@ -1,8 +1,9 @@
 // @ts-check
-// Сторінка гілки: опис, що дає, схема кроків (jsPlumb) і панель кроку з позначкою «зроблено».
+// Сторінка гілки: опис, що дає, схема кроків (jsPlumb) і панель кроку: текст, квести FTB, джерело (src), позначка «зроблено».
+// Крок виконано автоматично, якщо в сейві виконано всі його квести (q — з build_data), інакше — ручна позначка.
 import { h, mount } from '../core/dom.js';
 import { drawScheme } from '../graph/scheme-plumb.js';
-import { isDone, setDone } from '../core/progress.js';
+import { isDone, setDone, isQuestDone } from '../core/progress.js';
 import { stageBadge } from '../components/badge.js';
 import { modLinks } from '../components/modcard.js';
 import { spoiler } from '../components/spoiler.js';
@@ -28,6 +29,9 @@ export function render(el, [id], s) {
     ch ? h('p.small', { style: { marginTop: '8px' } }, '📜 Глава квестів: ', h('a', { href: `#/chapter/${ch.file}` }, ch.title), b.book ? ` · 📖 Книга: «${b.book}»` : '') : null,
     b.verify ? h('p.small', { style: { color: 'var(--warn)' } }, '⚑ Чернетка: кроки звіряються з книгою мода.') : null,
     h('h2.section', null, 'Схема'), box, panel);
+  /** @param {any} st */
+  const autoDone = (st) => !!st.q?.length && st.q.every((/** @type {any} */ x) => isQuestDone(x.id));
+  const doneOf = (/** @type {string} */ sid) => { const st = (b.steps || []).find((x) => x.id === sid); return isDone(`${b.id}:${sid}`) || (!!st && autoDone(st)); };
   const onStep = (sid) => {
     const st = (b.steps || []).find((x) => x.id === sid);
     if (!st) return;
@@ -35,8 +39,12 @@ export function render(el, [id], s) {
     sch.select(sid);
     const key = `${b.id}:${sid}`;
     mount(panel, h('h3', null, st.title), st.spoiler ? spoiler(h('p', null, st.text)) : h('p', null, st.text),
-      h('label.check', null, h('input', { type: 'checkbox', checked: isDone(key), onchange: (e) => { setDone(key, e.target.checked); sch.mark(sid); } }), 'Зроблено'));
+      st.q?.length ? h('p.small', null, '📜 Квести: ', st.q.map((/** @type {any} */ x, /** @type {number} */ i) => [i ? ' · ' : '', h('a', { href: `#/chapter/${x.chapter}/${x.id}` }, (isQuestDone(x.id) ? '✔ ' : '') + x.title)])) : null,
+      st.src ? h('p.small.muted', null, 'Джерело: ', st.src) : null,
+      st.ingame ? h('p.small', { style: { color: 'var(--warn)' } }, '⚑ Перевірити в грі: ', st.ingame) : null,
+      autoDone(st) ? h('p.small', null, '✔ Квести кроку виконано (із сейву)')
+        : h('label.check', null, h('input', { type: 'checkbox', checked: isDone(key), onchange: (e) => { setDone(key, e.target.checked); sch.mark(sid); } }), 'Зроблено'));
   };
-  const sch = drawScheme(box, b.steps || [], b.links || [], c?.color || '#facc15', onStep, b.id);
+  const sch = drawScheme(box, b.steps || [], b.links || [], c?.color || '#facc15', onStep, b.id, doneOf);
   if (saved.sid) onStep(saved.sid);
 }

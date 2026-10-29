@@ -50,12 +50,14 @@
 .ncard.avail .nc-state { background: var(--accent); color: #2a1f00; animation: tv-pulse 2.2s ease-in-out infinite; }
 .ncard.locked { filter: saturate(.3) brightness(.72); }
 .ncard.locked .nc-state { background: #334155; color: #cbd5e1; }
+.ncard.na { filter: grayscale(1) brightness(.6); border-style: dashed; }
+.ncard.na .nc-state { background: #3f3f46; color: #e4e4e7; font-weight: 700; }
 @keyframes tv-pulse { 50% { box-shadow: 0 0 0 5px rgb(250 204 21 / 25%); } }
 
 /* лінії */
 .edge { transition: opacity .35s cubic-bezier(.3,.7,.3,1); }
 .edge .e-line { fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; opacity: .55; transition: opacity .35s ease, stroke-width .3s ease; }
-.edge .e-glow { fill: none; stroke: transparent; stroke-width: 7; }
+.edge .e-glow { fill: none; stroke: transparent; stroke-width: 9; pointer-events: stroke; cursor: help; }   /* підказка: тип, підпис, джерело (src) */
 .edge .port { opacity: .8; }
 .edge.lit .e-line { opacity: 1; }
 .edge.lit .e-glow { stroke: rgb(250 204 21 / 10%); }
@@ -73,16 +75,189 @@
 .tv-ctrl button { width: 34px; height: 34px; font-size: 18px; padding: 0; }
 .minimap { position: absolute; right: 12px; bottom: 12px; z-index: 5; padding: 4px; border-radius: 8px; background: rgb(11 15 20 / 88%); border: 1px solid var(--line-2); cursor: pointer; }
 .minimap canvas { display: block; width: 200px; }
-.tv-legend { position: absolute; left: 12px; bottom: 12px; z-index: 5; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; font-size: 12px; color: var(--muted);
-  background: rgb(11 15 20 / 85%); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; max-width: calc(100% - 260px); }
-.tv-legend svg { vertical-align: middle; margin-right: 4px; }
-/* легенда над картою (рядок під панеллю інструментів) */
-.rm { display: flex; flex-direction: column; height: calc(100vh - var(--topbar-h)); width: 100%; }
-.rm .split { flex: 1; height: auto; min-height: 0; }
-.rm-legend { border-bottom: 1px solid var(--line); background: var(--bg-2); padding: 5px 14px; }
-.tv-legend.top { position: static; max-width: none; background: none; border: 0; padding: 0; gap: 6px 14px; }
-.tv-legend .lg-h { color: var(--text); font-weight: 600; }
-.tv-legend .lg-sep { width: 1px; height: 16px; background: var(--line-2); }
+.tv-legend {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  z-index: 10;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 12px;
+  color: var(--muted);
+  background: rgba(11, 15, 20, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px 14px;
+  max-width: calc(100% - 240px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  user-select: none;
+}
+.tv-legend svg {
+  vertical-align: middle;
+  margin-right: 4px;
+}
+.tv-legend .lg-h {
+  color: var(--text);
+  font-weight: 600;
+}
+.tv-legend .lg-sep {
+  width: 1px;
+  height: 14px;
+  background: var(--line-2);
+}
+.tv-legend .lg-kind {
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  transition: background .15s ease, opacity .15s ease;
+}
+.tv-legend .lg-kind:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+}
+.tv-legend .lg-kind.off {
+  opacity: 0.4;
+  text-decoration: line-through;
+}
+
+/* Макет Дорожньої карти: 3 панелі (ліва панель фільтрів, полотно карти, правий інспектор) */
+.rm-layout {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - var(--topbar-h));
+  overflow: hidden;
+  position: relative;
+}
+
+.rm-sidebar {
+  flex: 0 0 260px;
+  width: 260px;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: var(--panel);
+  border-right: 1px solid var(--line);
+  padding: 16px 14px;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-2) transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+.rm-sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+.rm-sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.rm-sidebar::-webkit-scrollbar-thumb {
+  background: var(--line-2);
+  border-radius: 4px;
+}
+.rm-sidebar::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+.rm-seg {
+  display: flex;
+  background: var(--bg-2);
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+  padding: 3px;
+  gap: 3px;
+  margin-bottom: 12px;
+}
+.rm-seg a,
+.rm-seg-btn {
+  flex: 1;
+  text-align: center;
+  padding: 6px 8px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--muted);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all .15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.rm-seg a:hover,
+.rm-seg-btn:hover {
+  color: var(--text);
+  background: var(--panel-hover, rgba(255, 255, 255, 0.05));
+}
+.rm-seg a.on,
+.rm-seg-btn.on {
+  color: #0b0f14 !important;
+  background: var(--accent) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+[data-theme="light"] .rm-seg a.on,
+[data-theme="light"] .rm-seg-btn.on {
+  color: #ffffff !important;
+  background: var(--accent) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.rm-layout .rm-main {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.rm-layout .rm-body {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  overflow: hidden;
+}
+
+.rm-layout .tv-host {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  inset: auto;
+  overflow: hidden;
+}
+
+.rm-layout .tv-host > .tv {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.rm-layout .split-side {
+  width: 380px;
+  max-width: 40vw;
+  height: 100%;
+  overflow-y: auto;
+  border-left: 1px solid var(--line);
+  background: var(--panel);
+  padding: 18px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
 .feat-legend { display: inline-flex; flex-wrap: wrap; gap: 4px 12px; align-items: center; }
 .fl-item { display: inline-flex; align-items: center; gap: 4px; }
 .fl-item.pick { cursor: pointer; padding: 1px 6px; border-radius: 999px; border: 1px solid transparent; }
@@ -116,12 +291,12 @@
 .tv.hide-req .edge.req, .tv.hide-syn .edge.syn, .tv.hide-opt .edge.opt { display: none; }
 /* «За модами»: рамки сузір'їв, хаби, промені */
 .tv-cframe { position: absolute; border: 1px dashed rgb(148 163 184 / 16%); border-radius: 40px; }
-.tv-spokes { position: absolute; left: 0; top: 0; pointer-events: none; }
+.tv-spokes { position: absolute; left: 0; top: 0; pointer-events: none; overflow: visible; }
 .spoke line { stroke-width: 2; opacity: .3; transition: opacity .35s ease; }
 .spoke circle { opacity: .5; }
 .tv.hl-mode .spoke:not(.hl) { opacity: .25; } .spoke.hl line { opacity: .85; }
-.hub { --c: var(--accent); position: absolute; z-index: 2; width: 190px; height: 100px; box-sizing: border-box; border-radius: 50px; padding: 10px 16px; cursor: pointer;
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-align: center;
+.hub { --c: var(--accent); position: absolute; z-index: 2; width: 220px; height: 142px; box-sizing: border-box; border-radius: 71px; padding: 10px 22px; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-align: center;
   background: radial-gradient(circle at 50% 30%, color-mix(in srgb, var(--c) 22%, #151d28), #10161f 75%); border: 2px solid var(--c);
   box-shadow: 0 0 0 5px color-mix(in srgb, var(--c) 12%, transparent), 0 6px 20px rgb(0 0 0 / 45%); transition: opacity .35s ease, box-shadow .3s ease; }
 .hub:hover { box-shadow: 0 0 0 6px color-mix(in srgb, var(--c) 25%, transparent), 0 6px 20px rgb(0 0 0 / 45%); }
@@ -130,14 +305,77 @@
 .hub-title { font-weight: 700; font-size: 14px; color: var(--text); line-height: 1.1; }
 .hub-n { font-size: 11px; color: var(--muted); }
 .tv.hl-mode .hub:not(.hl) { opacity: .4; }
+/* сузір'я: кільця етапів, ключові предмети мода, розгортання групи (ROADMAP_V2 §6) */
+.tv-spokes .ring { fill: none; stroke-width: 1.2; stroke-dasharray: 3 7; opacity: .35; }
+.tv-spokes .ring-lab { fill: var(--rc); font-size: 12px; font-weight: 600; opacity: .7; paint-order: stroke; stroke: var(--bg); stroke-width: 4px; }
+.hub-chip { --c: var(--muted); position: absolute; z-index: 2; width: 30px; height: 30px; box-sizing: border-box; border-radius: 8px; padding: 3px;
+  border: 1px solid color-mix(in srgb, var(--c) 45%, transparent); background: var(--bg-2); }
+.hub-chip img { width: 100%; height: 100%; image-rendering: pixelated; display: block; }
+.hub.sub .hub-title a { color: inherit; text-decoration: none; } .hub.sub .hub-title a:hover { text-decoration: underline; }
+.hub.compact { opacity: .75; } .hub.compact:hover { opacity: 1; }
+/* прогрес-смуга хаба: сегмент на віху (понад 14 — суцільна) */
+.hub-bar { display: flex; gap: 4px; justify-content: center; width: 78%; margin-top: 2px; }
+.hub-bar i { flex: 1 1 0; max-width: 22px; height: 5px; border-radius: 3px; background: color-mix(in srgb, var(--c) 18%, #1b2532); }
+.hub-bar i.on { background: var(--c); box-shadow: 0 0 6px color-mix(in srgb, var(--c) 55%, transparent); }
+.hub-bar.solid { display: block; height: 5px; border-radius: 3px; background: color-mix(in srgb, var(--c) 18%, #1b2532); overflow: hidden; }
+.hub-bar.solid i { display: block; max-width: none; height: 100%; }
+/* дія в нижньому рядку хаба: «Розгорнути ⤢» / «Згорнути ↩» з легкою пульсацією */
+.hub-act { margin-top: 4px; padding: 5px 10px 0; width: 82%; border: 0; border-top: 1px dashed color-mix(in srgb, var(--c) 45%, transparent); background: none;
+  color: var(--c); font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; display: flex; gap: 7px; justify-content: center; align-items: center;
+  animation: hub-pulse 2.6s ease-in-out infinite; }
+.hub-act-ic { font-size: 15px; line-height: 1; }
+.hub-act:hover { animation: none; opacity: 1; text-shadow: 0 0 8px color-mix(in srgb, var(--c) 70%, transparent); }
+@keyframes hub-pulse { 0%, 100% { opacity: .7; text-shadow: none; } 50% { opacity: 1; text-shadow: 0 0 9px color-mix(in srgb, var(--c) 75%, transparent); } }
+@media (prefers-reduced-motion: reduce) { .hub-act { animation: none; } }
 /* бічна панель віхи */
 .rm-items { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px; margin: 10px 0; }
 .rm-item { display: flex; align-items: center; gap: 8px; font-size: .85rem; padding: 4px 6px; border-radius: 6px; background: var(--bg-2); border: 1px solid var(--line); }
 .rm-item img { width: 32px; height: 32px; image-rendering: pixelated; flex: none; }
 .rm-mod { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-@media (max-width: 800px) {
-  .rm .split-main { flex: none; height: 72vh; }
+@media (max-width: 900px) {
+  .rm-layout {
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
+  }
+  .rm-sidebar {
+    width: 100%;
+    flex: none;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+  .rm-layout .rm-main {
+    width: 100%;
+    flex: none;
+    height: auto;
+  }
+  .rm-layout .rm-body {
+    flex-direction: column;
+    height: auto;
+  }
+  .rm-layout .tv-host {
+    height: 65vh;
+    flex: none;
+  }
+  .rm-layout .split-side {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    border-left: none;
+    border-top: 1px solid var(--line);
+  }
+  .tv-legend {
+    max-width: calc(100% - 28px);
+    font-size: 11px;
+    gap: 8px;
+    padding: 4px 8px;
+  }
   .tv-rail { width: 46px; } .tv-rail::before { left: 21px; }
   .tv-rail-lab { padding: 8px 0 8px 46px; } .tv-rail-lab .n { left: 10px; } .tv-rail-lab b, .tv-rail-lab .g { display: none; }
-  .tv-legend:not(.top) { display: none; } .minimap { display: none; } .rm { height: auto; } .rm-legend { font-size: 11px; }
+  .minimap { display: none; }
 }
+.rm-links ul { margin: 2px 0 8px; }
+.rm-links li { margin: 3px 0; }
+.rm-src { font-size: 11.5px; line-height: 1.35; margin: 1px 0 0 10px; }
+.na-note { border-left: 3px solid #71717a; padding: 4px 8px; background: rgb(113 113 122 / 12%); border-radius: 4px; }

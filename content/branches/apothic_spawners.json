@@ -1,0 +1,147 @@
+{
+ "_doc": "Гілка Apothic Spawners (G5): кроки — квести глави «Apothic Spawners» (apotheosis_2); квести модів-заглушок (Mob Grinding Utils, PneumaticCraft, Draconic Evolution, Industrial Foregoing) — лише реченням у summary; ref — рецепти spawner_modifiers і apothic_spawners.cfg.",
+ "id": "apothic_spawners",
+ "title": "Породжувачі й руни",
+ "icon": "🕯",
+ "cls": "resources",
+ "mods": [
+  "apothic_spawners"
+ ],
+ "chapter": "apotheosis_2",
+ "enter": "s2",
+ "summary": "Породжувач монстрів можна викопати й переробити рунами Apotheosis: швидкість, кількість, дальність, робота без світла, гравців чи ШІ мобів, рівні покращення. Тип моба змінює яйце виклику (чари «Захоплення»). Квести породжувачів модів, яких у збірці немає (Mob Grinding Utils, PneumaticCraft, Draconic Evolution, Industrial Foregoing), — заглушки.",
+ "gives": [
+  "Моб-ферми на породжувачах без ШІ й без гравця поруч",
+  "Рідкісний дроп (руна відлуння)",
+  "Яйця виклику для зміни моба"
+ ],
+ "_src": "квести глави apotheosis_2 (tools/quests_dump.py apotheosis_2); config/apotheosis/apothic_spawners.cfg; рецепти apotheosis:spawner_modifiers/*",
+ "steps": [
+  {
+   "id": "start",
+   "x": 0,
+   "y": 1,
+   "title": "Добуваємо породжувач",
+   "quests": [
+    "310969B8FE0A94DE",
+    "321C15EBBE2D3D30"
+   ],
+   "text": "Породжувач копається кайлом із Шовковим дотиком I, кайло втрачає 100 міцності (конфіг). Підірваний породжувач випускає багато мобів і лишає ланцюги породжувача.",
+   "src": "квести «Апотичні спавнери», «Підриваємо породжувачі»; config/apotheosis/apothic_spawners.cfg",
+   "ref": [
+    "file:config/apotheosis/apothic_spawners.cfg~I:\"Spawner Silk Level\"=1",
+    "file:config/apotheosis/apothic_spawners.cfg~I:\"Spawner Silk Damage\"=100",
+    "item:apotheosis:spawner_chain"
+   ]
+  },
+  {
+   "id": "eggs",
+   "x": 1,
+   "y": 0,
+   "title": "Яйця виклику",
+   "quests": [
+    "78E94C386B1E7359",
+    "223A5BDB5056B781",
+    "77A8E8122870BBCE"
+   ],
+   "text": "ПКМ яйцем виклику по породжувачу міняє моба. Яйця дає чари «Захоплення» на мечі (рідкісні — шукайте з Apothic Enchanting); окультний повідець Енду теж прив'язує мобів до породжувача.",
+   "src": "квести «Яйця виклику», «Книги «Захоплення»», «Окультний повідець Енду»"
+  },
+  {
+   "id": "runes",
+   "x": 1,
+   "y": 1,
+   "title": "Руни породжувача",
+   "quests": [
+    "17C87EB8ED8A27AB",
+    "0E02CE4469FCA4C9",
+    "00C26068B55F4FD9",
+    "186593EBCE3FE8D8",
+    "6F71FD826C29C31A",
+    "7F6B66566C211735",
+    "4F7F8F4ED1CA0550",
+    "167E1474644C9908"
+   ],
+   "text": "Базові руни (ПКМ по породжувачу): контроль редстоуном, тиша, дальність породження, молодість, знесилення, спалення. Незерський кварц у другій руці обертає дію руни.",
+   "src": "квести «Руна породжувача», «Активація редстоуном», «Тихіше…», «Діапазон спавну», «Молодість», «Здоров'я», «Палаючі», «День навпаки»",
+   "ref": [
+    "recipe:apotheosis:spawner_modifiers/redstone_control",
+    "recipe:apotheosis:spawner_modifiers/_inverse/silent"
+   ]
+  },
+  {
+   "id": "infused",
+   "x": 2,
+   "y": 1,
+   "title": "Просякнені руни",
+   "quests": [
+    "503AC506720FC59E",
+    "0F89BFD4A3F63A48",
+    "18E0F5A78F696FA3",
+    "40096ED0B04C3EC5",
+    "30EB438C66324213",
+    "42D7C8CD8E6F5CD7"
+   ],
+   "text": "Просякнення — на столі зачарувань (за квестом щонайменше 70 Етерни, 30 % Кванти, 50 % Аркани). Руни: вічні сутінки (світло), відлуння, непокора (ігнорує умови появи), усамітнення (без гравців), остовпіння (без ШІ).",
+   "src": "квести «Просякнена руна породжувача», «Ігнорувати світло», «Відлуння», «Ігнорувати всі умови», «Ігнорувати гравців», «Без ШІ»",
+   "ref": [
+    "recipe:apotheosis:spawner_modifiers/no_ai",
+    "recipe:apotheosis:spawner_modifiers/ignore_players"
+   ]
+  },
+  {
+   "id": "tiers",
+   "x": 3,
+   "y": 1,
+   "title": "Руни покращення",
+   "quests": [
+    "3F1430ADB648102F",
+    "17410BE15A81DD96",
+    "7AC6A958936636D9",
+    "0E90577AC72749C4"
+   ],
+   "text": "Першопрохідця, мандрівника, підкорювача гір, громова: руна змінює кілька характеристик одразу й встановлює їм конкретні значення.",
+   "src": "квести рун покращення породжувача",
+   "ref": [
+    "recipe:apotheosis:spawner_modifiers/tier/frontier",
+    "recipe:apotheosis:spawner_modifiers/tier/pinnacle"
+   ]
+  },
+  {
+   "id": "other",
+   "x": 1,
+   "y": 2,
+   "title": "Інші породжувачі",
+   "quests": [
+    "0F0E227FC3EC0D90",
+    "263860CADB3D76C6",
+    "3F55F3CC8519D783",
+    "76A3A2A97AB66C43"
+   ],
+   "text": "Електризований породжувач Ender IO, соулієвий породжувач Mystical Agriculture, реаніматор духів EvilCraft.",
+   "src": "квести «Інші породжувачі», «Електризований породжувач», «Соулієвий породжувач», «Реаніматор духів»"
+  }
+ ],
+ "links": [
+  [
+   "start",
+   "eggs"
+  ],
+  [
+   "start",
+   "runes"
+  ],
+  [
+   "runes",
+   "infused"
+  ],
+  [
+   "infused",
+   "tiers"
+  ],
+  [
+   "start",
+   "other"
+  ]
+ ]
+}

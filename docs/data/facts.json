@@ -1,0 +1,308 @@
+{
+ "_doc": "Перевірені факти збірки, яких немає в окремих полях модів чи карти (знахідки G1b–G1e у KubeJS і конфігах). Єдине джерело для сайту (#/assistant) і ШІ-компаньйона: build_data.py → docs/data/facts.json. Клавіш тут НЕ писати — клавіші лише з options.txt (keys.json). href — сторінка путівника (build_data перевіряє вузли й моди).",
+ "facts": [
+  {
+   "id": "steel",
+   "title": "Як зробити сталь (сталь MFFS і Oritech крафтом не робиться)",
+   "stage": "s2",
+   "href": "#/roadmap?node=t_ep",
+   "text": "Ручні рецепти сталі MFFS і Oritech (залізо + вугілля на верстаті) прибрано KubeJS. Сталь виплавляють: 1) у Печі для сплавів Energized Power (сталь EP), 2) у Плавильнику сплавів Ender IO (сталь AllTheOres), 3) у Домні Railcraft Reborn (сталь Railcraft), 4) у ливарні Productive Metalworks: рідке залізо 9 + рідкий вуглець 10 → рідка сталь 9, злиток відливають у формі для злитка (90 mB, сталь AllTheOres). Усі вони в тезі c:ingots/steel — у рецептах взаємозамінні. Шестерні Railcraft (залізна, сталева) з верстата прибрано — шестерні беруть з AllTheOres.",
+   "keywords": "сталь сталевий steel ingot злиток сплав піч домна плавильник mffs oritech energizedpower enderio railcraft ливарня productivemetalworks foundry рідка",
+   "ref": [
+    "recipe:energizedpower:alloy_furnace/steel_ingot",
+    "recipe:alltheores:alloy_smelting/steel_ingot",
+    "recipe:railcraft:blast_furnace/blasting_iron_ingot",
+    "recipe:productivemetalworks:alloying/molten_steel",
+    "recipe:productivemetalworks:casting/ingots/alltheores/steel",
+    "tag:c:ingots/steel",
+    "!recipe:mffs:steel_ingot",
+    "!recipe:mffs:steel_compound",
+    "!recipe:oritech:steel_ingot",
+    "!recipe:railcraft:steel_gear",
+    "!recipe:railcraft:iron_gear",
+    "tag:c:gears/steel"
+   ]
+  },
+  {
+   "id": "quarry",
+   "title": "Кар'єр QuarryPlus — ендгейм; Руйнівник чанків не крафтиться",
+   "stage": "s7",
+   "href": "#/mod/quarryplus",
+   "text": "Рецепт кар'єра QuarryPlus (quarryplus:quarry) у KubeJS перенесено в ендгейм (етап 7): усемодій, унобтанієве кайло, кайло зі сплаву затемнення (Just Dire Things), покращений руйнівник JDT і два «Покращення: продуктивність омега». «Руйнівник чанків» (quarryplus:adv_quarry, покращений кар'єр) вимкнено скриптом KubeJS — не крафтиться зовсім. Ранній видобуток: генератори Cobblegen Galore, сита BBL Strainers, жеоди GeOre, бджоли, Mystical Agriculture.",
+   "keywords": "кар'єр карєр quarry quarryplus руйнівник чанків adv_quarry видобуток копати руди автовидобуток не крафтиться",
+   "ref": [
+    "kjs:server_scripts/mods/quarryplus/recipes.js#L10",
+    "!recipe:quarryplus:quarry",
+    "!recipe:quarryplus:adv_quarry",
+    "item:justdirethings:eclipsealloy_pickaxe",
+    "item:justdirethings:blockbreakert2"
+   ]
+  },
+  {
+   "id": "atm_star",
+   "title": "ATM Star (Зірка ATM) у цій версії не зібрати",
+   "stage": "s7",
+   "href": "#/roadmap?node=z_star",
+   "text": "Фінальний рецепт ATM Star прив'язаний до зоряного вівтаря Modern Industrialization, якого в збірці 26.1.2 ще немає. Активні лише частини: насіння вимірів, творча есенція (Mystical Agriculture), блоки зірки Незеру 3x. Глава ATM Star прихована (always_invisible).",
+   "keywords": "atm star зірка атм ендгейм фінал не крафтиться modern industrialization",
+   "ref": [
+    "!kjs:server_scripts/modpack/runic_multis/recipes/star_altar.js",
+    "!kjs:server_scripts/modpack/atm_star.js",
+    "recipe:allthemods:allthetweaks/dimensional_seed",
+    "recipe:allthemods:allthetweaks/creative_essence",
+    "recipe:allthecompressed:compress/nether_star_block_3x",
+    "!quest:05850541675B2493"
+   ]
+  },
+  {
+   "id": "atm_alloys",
+   "title": "Сплави ATM (усемодій / вібраній / унобтаній)",
+   "stage": "s6",
+   "href": "#/mod/powah",
+   "text": "Вібранієво-усемодієвий сплав (злиток і блок) збірка робить у сфері заряджання Powah (злиток — 1 млрд FE, блок — 9 млрд FE). Блоки всіх трьох сплавів ATM також виплавляють драконячі кузні Ice and Fire з відер розплавлених металів, а блок крафтиться в 9 злитків. Інші рецепти ATM-сплавів розраховані на Ars Nouveau / Industrial Foregoing, яких у збірці немає.",
+   "keywords": "сплав alloy усемодій allthemodium вібраній vibranium унобтаній unobtainium powah сфера заряджання",
+   "ref": [
+    "recipe:kubejs:energizing/vibranium_allthemodium_alloy_ingot",
+    "recipe:kubejs:energizing/vibranium_allthemodium_block",
+    "recipe:iceandfire:dragonforge/allthemodium-vibranium",
+    "recipe:iceandfire:dragonforge/allthemodium-unobtainium",
+    "!kjs:server_scripts/modpack/atm_alloys.js#L53",
+    "!kjs:server_scripts/modpack/atm_alloys.js#L171",
+    "recipe:allthemodium:vibranium_allthemodium_alloy_ingot_from_block"
+   ]
+  },
+  {
+   "id": "gadgets",
+   "title": "Mining Gadgets і Building Gadgets 2 — після усемодію",
+   "stage": "s5",
+   "href": "#/mod/mininggadgets",
+   "text": "Порожнє покращення Mining Gadgets у KubeJS потребує самородків усемодію (+ блоки лазуриту й редстоуну, діамант, скляні панелі) — тобто доступне після першої руди усемодію (Темні глибини, кайло не нижче незеритового; етап 5). Будівельний гаджет Building Gadgets 2 KubeJS теж перероблено, але без усемодію: залізо, редстоун, лазурит і алмазна шестерня AllTheOres.",
+   "keywords": "гаджет gadget mininggadgets buildinggadgets копальний будівельний усемодій",
+   "ref": [
+    "kjs:server_scripts/mods/mininggadgets/recipes.js#L6",
+    "!recipe:mininggadgets:upgrade_empty",
+    "kjs:server_scripts/mods/buildinggadgets2/recipes.js#L6",
+    "!recipe:buildinggadgets2:gadget_building",
+    "tag:c:nuggets/allthemodium"
+   ]
+  },
+  {
+   "id": "magic_tweaks",
+   "title": "Особливості магії ATM11 (Forbidden Arcanus, Occultism, Neo Vitae, Mahou Tsukai)",
+   "stage": "s3",
+   "href": "#/mods?cls=magic",
+   "text": "Вічна Стелла (Forbidden Arcanus) — ритуал Кузні Гефеста 3 рівня з усемодієвим злитком; накладає незламність ритуалом Occultism на пентаклі «Контакт Ронази» (+ ієснієвий і незеритовий злитки, скупчення самоцвітів корінної породи, жертва — заклинач). На Кузні 3 рівня реліквії подвоюються за злитки деоруму / усемодію / вібранію / унобтанію. Ритуал метеора Neo Vitae скидає метеорит AE2 (за кристал істинного кварцу) і метеорити 22 руд GeOre (до унобтанію, до 5 млн EV); каталізатори роблять на Кристалічному вівтарі насичення Occultism. Метеоричне насичення Occultism — нескінченні частина, диск і блок енергосховища Refined Types. Mahou Tsukai: максимум мани 20 000, атака Калібурна обмежена 60.",
+   "keywords": "магія ритуал вічна стелла незламність occultism neovitae forbidden_arcanus mahoutsukai метеорит geore метеор кристалічний вівтар refinedtypes енергосховище реліквії",
+   "ref": [
+    "kjs:dynamic_data/forbidden_arcanus/forbidden_arcanus/hephaestus_forge/ritual/eternal_stella.json~allthemodium:allthemodium_ingot",
+    "recipe:occultism:ritual/misc_unbreakable",
+    "kjs:server_scripts/mods/forbidden_arcanus/hephaestus_forge.js",
+    "recipe:neovitae:meteor/ae2",
+    "kjs:server_scripts/mods/neovitae/meteor.js",
+    "recipe:allthemods:meteoric_infusion/inf_part",
+    "config:config/mahoutsukai-server.toml#mana.MAX_MANA_CAP=20000",
+    "config:config/mahoutsukai-server.toml#POWER_CONSOLIDATION_ATTACK_CAP=60",
+    "count:rx:kubejs/server_scripts/mods/neovitae/meteor.js|ore: '=22"
+   ]
+  },
+  {
+   "id": "kuma",
+   "title": "Клавіші модів на Balm: без Ctrl/Shift/Alt",
+   "stage": "s0",
+   "href": "#/keys",
+   "text": "Після призначення модифікаторів Ctrl/Shift/Alt діям модів на бібліотеці Balm (Crafting Tweaks, Inventory Essentials, Trash Slot, Waystones, Cooking/Farming for Blockheads) гра падала при запуску (StackOverflowError у NativeKeyModifierReconciler, звіт про краш 2026-10-24) — у options.txt їм модифікатори не призначаємо. Crafting Tweaks: у бета-версії 0.12.0 кнопок біля сітки в грі не видно, за конфігу mode = BUTTONS (перевірено в грі 2026-10-28: кнопки приховані, причину не знайдено); зараз у конфігу mode = DEFAULT — кнопки й гарячі клавіші.",
+   "keywords": "balm kuma краш crash модифікатор ctrl shift alt craftingtweaks inventoryessentials клавіші не працює",
+   "ref": [
+    "file:crash-reports/crash-2026-10-24_22.33.01-client.txt~NativeKeyModifierReconciler",
+    "jarfile:balm!META-INF/neoforge.mods.toml",
+    "config:config/craftingtweaks-common.toml#mode=DEFAULT"
+   ]
+  },
+  {
+   "id": "hidden_chapters",
+   "title": "Приховані глави квестів",
+   "stage": "s1",
+   "href": "#/chapters",
+   "text": "Частина глав квестів (Create, Mekanism, Immersive Engineering, Modern Industrialization, Twilight Forest, Iron's Spells та ін.) прихована назавжди (always_invisible): цих модів у збірці 26.1.2 ще немає. Квести з їхніми предметами — заглушки (missing_item).",
+   "keywords": "прихована глава квести немає мода create mekanism заглушка missing",
+   "ref": [
+    "!quest:57A7A5C79389A96A",
+    "!quest:162CE44400A63575",
+    "!quest:2E9D1131DC21CC5B",
+    "!quest:5CCF92238B23EDC9",
+    "!quest:4193303999597249",
+    "!quest:615C3E012B2DECD3"
+   ]
+  },
+  {
+   "id": "first_power",
+   "title": "Перша енергія: що рахує квест і з чого почати",
+   "stage": "s2",
+   "href": "#/roadmap?node=e_gen",
+   "text": "Глава «Базова енергія» в цій версії прихована (Mekanism, Flux Networks, Dyson Cube Project та ін. у збірці немає). Перший енергетичний квест — «Вироблення енергії» в «Розділі 1»: зараховує генерапіч Powah (Початкову), генератор Integrated Dynamics або генератор Стірлінга Ender IO. Найдешевша стартова FE — мідний генератор Generator Galore: 8 FE/такт на твердому паливі (конфіг); 8 однакових генераторів + уламок відлуння зливаються в генератор 8x.",
+   "keywords": "енергія fe генератор перший старт базова енергія генерапіч стірлінг generator galore мідний powah enderio integrated dynamics",
+   "ref": [
+    "quest:3FE25E22AFBC52E1",
+    "!quest:4AB0DD227471FDBF",
+    "config:config/generatorgalore/generator/copper.json#generationRate=8",
+    "quest:618F1434757C8E69",
+    "quest:7CE86300AF8E9BCA"
+   ]
+  },
+  {
+   "id": "powah_numbers",
+   "title": "Powah: числа збірки (конфіг), а не з квестів",
+   "stage": "s3",
+   "href": "#/mod/powah",
+   "text": "Квест «Ласкаво просимо до Powah!!!» обіцяє реактори на 250 тис. FE/такт, але конфіг збірки дає більше: реактор Початковий — 250 FE/такт, Нітро — 500 000 FE/такт. Сфера заряджання бере енергію зі стрижнів заряджання на відстані до 4 блоків. Заряджання: діамант → ніотичний кристал — 300 000 FE, смарагд → надзаряджений — 1 000 000 FE. Мережа Енду: 1 канал на Початковому рівні, 12 — на Нітро.",
+   "keywords": "powah реактор нітро fe такт сфера заряджання стрижні радіус ніотичний надзаряджений кристал мережа енду канали ворота батарея конфіг",
+   "ref": [
+    "quest:6B2027DA7AA6FF34",
+    "config:config/powah.json5#generators.reactors.generation_rates.starter=250",
+    "config:config/powah.json5#generators.reactors.generation_rates.nitro=500000",
+    "config:config/powah.json5#general.energizing_range=4",
+    "jarfile:data/powah/recipe/energizing/niotic_crystal.json~300000",
+    "jarfile:data/powah/recipe/energizing/spirited_crystal.json~1000000",
+    "config:config/powah.json5#devices.ender_cells.channels.starter=1",
+    "config:config/powah.json5#devices.ender_cells.channels.nitro=12"
+   ]
+  },
+  {
+   "id": "charging",
+   "title": "Як заряджати FE-предмети (жетпаки, гаджети, броню)",
+   "stage": "s2",
+   "href": "#/mod/charginggadgets",
+   "text": "Зарядна станція Charging Gadgets (буфер 1 000 000 FE, конфіг) заряджає покладений предмет від палива або від кабелю — доступна з першого заліза. Зарядний маяк Powah заряджає предмети гравця бездротово після прив'язки карткою (міжвимірна картка — в інших вимірах); Початковий маяк — 500 FE/такт. Бездротовий зарядник Ender IO заряджає спорядження гравця поруч (базовий радіус 16 блоків, конфіг), дротовий — покладений у нього предмет.",
+   "keywords": "заряджання зарядити жетпак гаджет броня fe зарядна станція charging маяк powah бездротовий зарядник enderio картка прив'язки",
+   "ref": [
+    "config:config/charginggadgets-server.toml#general.chargerMaxEnergy=1000000",
+    "quest:637981B64BBE0D92",
+    "quest:677365A816994C8B",
+    "config:config/powah.json5#devices.player_transmitters.charging_rates.starter=500",
+    "quest:0EAB51C9B13A959B",
+    "config:config/enderio/machines-common.toml#wirelessCharger.baseRange=16",
+    "quest:448CCD89539AEBAC"
+   ]
+  },
+  {
+   "id": "ma_atm_crops",
+   "title": "Насіння усемодію, вібранію й унобтанію (Mystical Agriculture)",
+   "stage": "s6",
+   "href": "#/mod/mysticalcustomization",
+   "text": "Збірка додала Mystical Agriculture рівень культур «Magical» (7): насіння усемодію, вібранію й унобтанію. Рілля — інсанієва, а під нею обов'язково основа «Чарівний ґрунт» (kubejs:magical_soil); добрива на ці культури не діють, другого насіння немає. «Чарівний ґрунт» — верстат (блок інсанію, блок зірок Незеру 2x, ґрунт 3x, пробуджений супремієвий прискорювач, інсанієва рілля, голова дракона, серце піґліча, блок перлин Енду 3x, паросток лагерстремії «Місячна магія» з Productive Trees) або вівтар наповнення (інсанієва рілля, луска дракона, блоки інсанію). Есенції крафтяться в самородки металів. У садильнику Agritech: Evolved «Чарівний ґрунт» кладуть у слот ґрунту.",
+   "keywords": "чарівний магічний ґрунт magical soil насіння усемодію вібранію унобтанію allthemodium seeds mystical agriculture есенція magical рівень 7 agritech садильник",
+   "ref": [
+    "config:config/mysticalcustomization/tiers/magical.json#value=7",
+    "config:config/mysticalcustomization/tiers/magical.json#farmland=mysticalagradditions:insanium_farmland",
+    "config:config/mysticalcustomization/crops/allthemodium.json#crux=kubejs:magical_soil",
+    "config:config/mysticalcustomization/tiers/magical.json#fertilizable=false",
+    "recipe:allthemods:kjs/magical_soil",
+    "recipe:kubejs:kubejs/magical_soil/infusion",
+    "recipe:kubejs:mysticalagriculture/allthemodium_essence_crafting",
+    "file:kubejs/server_scripts/mods/mysticalagriculture/mysticalcustomization_agritech.js~soil: \"kubejs:magical_soil\""
+   ]
+  },
+  {
+   "id": "ma_second_seed",
+   "title": "Друге насіння Mystical Agriculture — 1 % і лише до рівня 4",
+   "stage": "s2",
+   "href": "#/mod/mysticalagriculture",
+   "text": "Конфіг вимикає випадіння другого насіння (secondarySeedDrops = false), але скрипт збірки повертає шанс 1 % культурам рівнів 1–4. Насіння рівня 5 і вище розмножують лише крафтом на вівтарі наповнення. Насіння сталі, бронзи, латуні, кристалів Powah, істинного кварцу, флюїксу й сплавів Ender IO збірка робить не зі злитків, а з блоків (стиснених блоків 1x AllTheCompressed, якщо є).",
+   "keywords": "друге насіння secondary seed шанс розмноження mystical agriculture насіння сталі блоки compressed вівтар наповнення",
+   "ref": [
+    "config:config/mysticalagriculture-common.toml#General.secondarySeedDrops=false",
+    "file:kubejs/server_scripts/mods/mysticalagriculture/crops.js~let SecondarySeed = 0.01",
+    "file:kubejs/server_scripts/mods/mysticalagriculture/crops.js~let TierSecondaryCutoff = 5",
+    "recipe:kjs:mods/mysticalagriculture/compatibility.js#L128"
+   ],
+   "abs_ok": "«лише крафтом» — kubejs mods/mysticalagriculture/crops.js: TierSecondaryCutoff = 5 (друге насіння лише нижче рівня 5), secondarySeedDrops = false"
+  },
+  {
+   "id": "geore_meteors",
+   "title": "Модові жеоди GeOre — з метеоритів Neo Vitae або збирача Oritech",
+   "stage": "s3",
+   "href": "#/mod/geore",
+   "text": "У світі генеруються лише ванільні жеоди GeOre (вугілля, мідь, залізо, золото, діамант, смарагд, лазурит, редстоун, кварц і стародавні уламки); модові (метали AllTheOres, уранініт, усемодій, вібраній, унобтаній) вимкнено конфігом. Їх дає ритуал метеорита Neo Vitae з каталізатором (уламок GeOre → каталізатор, ритуал Occultism → метеорит із родючими блоками; 22 руди) і збирач Oritech (2 уламки + ендерний склад + перезаряджений кристал → родючий блок; 29 рецептів). Знайдений родючий блок забирають кристалічним резонансним жезлом (ПКМ): недосконалим — з шансом 50 %, досконалим — завжди.",
+   "keywords": "geore жеода родючий блок budding метеорит neo vitae каталізатор occultism жезл crystalline wand усемодій кристали",
+   "ref": [
+    "config:config/geore-common.toml#ModdedGeneration.generateAllthemodiumGeore=false",
+    "config:config/geore-common.toml#General.generateIronGeore=true",
+    "recipe:kjs:mods/neovitae/meteor.js#L127",
+    "recipe:occultism:allthemodium_catalyst",
+    "file:kubejs/server_scripts/mods/geore/crystalline_wand.js~chance: 0.5",
+    "file:kubejs/server_scripts/mods/geore/crystalline_wand.js~chance: 1.0",
+    "count:rx:config/geore-common.toml|generate\\w+ = true=11",
+    "recipe:oritech:compat/geore/assembler/budding_allthemodium",
+    "count:recipes:^oritech:compat/geore/assembler/budding_=29",
+    "count:rx:kubejs/server_scripts/mods/neovitae/meteor.js|ore: '=22"
+   ],
+   "abs_ok": "«лише ванільні» — у config/geore-common.toml увімкнено 11 generate… (ванільні + стародавні уламки), модові = false; «досконалим — завжди» — crystalline_wand.js chance: 1.0"
+  },
+  {
+   "id": "spawner_runes",
+   "title": "Породжувачі змінюються рунами Apotheosis",
+   "stage": "s2",
+   "href": "#/mod/apothic_spawners",
+   "text": "Породжувач монстрів копається кайлом із Шовковим дотиком I (кайло втрачає 100 міцності). Змінюють його рунами Apotheosis (ПКМ руною): спалення, відлуння, непокора, вічні сутінки, усамітнення, остовпіння (без ШІ), контроль редстоуном, тиша, молодість, знесилення, дальність породження, а рівень — рунами покращення. Незерський кварц у другій руці обертає дію. Глава квестів «Apothic Spawners».",
+   "keywords": "породжувач спавнер spawner руна rune apotheosis шовковий дотик модифікація без ші кварц яйце виклику захоплення",
+   "ref": [
+    "file:config/apotheosis/apothic_spawners.cfg~I:\"Spawner Silk Level\"=1",
+    "file:config/apotheosis/apothic_spawners.cfg~I:\"Spawner Silk Damage\"=100",
+    "recipe:apotheosis:spawner_modifiers/no_ai",
+    "recipe:apotheosis:spawner_modifiers/_inverse/no_ai",
+    "recipe:apotheosis:spawner_modifiers/tier/pinnacle",
+    "quest:310969B8FE0A94DE"
+   ]
+  },
+  {
+   "id": "iaf_other_world",
+   "title": "Ice and Fire живе в Іншому світі",
+   "stage": "s5",
+   "href": "#/branch/iceandfire",
+   "text": "Датапак збірки переносить структури й мобів Ice and Fire в біоми Іншого світу (AllTheModium, телепорт-плита з Незеру): вогняні дракони й піксі — Стародавній багряний ліс, крижані дракони й гідри — Стародавній химерний ліс, громові дракони й циклопи — Пустеля, горгони, сирени й мавзолеї — Долина піску душ, цвинтарі — Інші землі. Гіпокампи й левіафани лишилися в океанах Верхнього світу. Руди срібла й сапфіра Ice and Fire вимкнено.",
+   "keywords": "ice and fire дракон dragon гідра горгона циклоп сирена інший світ the other де знайти драконів",
+   "ref": [
+    "kjs:dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/fire.json~allthemodium:crimson_forest",
+    "kjs:dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/ice.json~allthemodium:warped_forest",
+    "kjs:dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/lightning.json~allthemodium:desert",
+    "kjs:dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/gorgon_temple.json~allthemodium:soul_sand_valley",
+    "kjs:dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/graveyard.json~allthemodium:the_other",
+    "quest:6ECB27052FCB874E",
+    "kjs:dynamic_data/iceandfire/neoforge/biome_modifier/silver_ore.json~neoforge:never"
+   ]
+  },
+  {
+   "id": "dim_portals",
+   "title": "Як потрапити у виміри збірки",
+   "stage": "s2",
+   "href": "#/branches",
+   "text": "Етер (Aether II): рамка з 10 блоків світлокаменю + відро води. Підземний вимір (Undergarden): рамка з кам'яної цегли, запалити каталізатором (мідь, камінь, перлина Енду). Виміри ATM: телепорт-плита (4 самородки усемодію + перлина Енду), Shift + ПКМ порожніми руками — з Верхнього світу у Вимір видобутку, з Незеру в Інший світ, з Енду в Позамежжя. Stellaris: ракета (Земна орбіта, Місяць).",
+   "keywords": "портал вимір етер aether undergarden підземний вимір телепорт плита інший світ позамежжя вимір видобутку місяць ракета",
+   "ref": [
+    "quest:78C86403B4F8D382",
+    "quest:6C4B93FE64BD418D",
+    "recipe:undergarden:catalyst",
+    "recipe:allthemodium:teleport_pad",
+    "quest:07FDA46D83F8360D",
+    "jarfile:data/stellaris/dimension/moon.json"
+   ]
+  },
+  {
+   "id": "world_bosses",
+   "title": "Боси збірки",
+   "stage": "s4",
+   "href": "#/mods?feat=boss",
+   "text": "Тегом c:bosses позначено Ковзуна (Aether II, лабіринт руїн вартових — шкодить лише кайло) і Забутого вартового (Undergarden, катакомби). Путівник також вважає босами драконів Ice and Fire (стадії 4–5 — у печерах в Іншому світі; рішення користувача, тегу немає). Інші великі вороги без тегу: Піґліч (Стародавня піраміда в Іншому світі, серце піґліча для сплавів), Матка зоряних повзунів (місячні підземелля Stellaris), ванільні Візер і Дракон Енду.",
+   "keywords": "бос boss ковзун slider забутий вартовий forgotten guardian піґліч piglich дракон візер матка зоряних повзунів",
+   "ref": [
+    "jarfile:aether_ii!data/c/tags/entity_type/bosses.json~aether_ii:slider",
+    "jarfile:The_Undergarden!data/c/tags/entity_type/bosses.json~undergarden:forgotten_guardian",
+    "quest:5BA986D7928BF09F",
+    "lang:entity.stellaris.star_crawler_boss",
+    "quest:765CD913CC3896B2",
+    "quest:2CAA538587D78A8F",
+    "quest:2CAA538587D78A8F~can only be Damaged with a Pickaxe"
+   ]
+  }
+ ]
+}

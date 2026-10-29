@@ -1,0 +1,15 @@
+{
+ "ov": "Селекція дерев: пилок з листя одного дерева запилює інше — і виростає паросток нової породи (у збірці 163 паростки й 149 рецептів запилення): фрукти, горіхи, прянощі, каучук, деревообробні машини — лісопилка, очищувач кори, деревообробний верстат.",
+ "ref": [
+  "item:productivetrees:pollen",
+  "recipe:productivetrees:pollination/alder",
+  "count:items:productivetrees|_sapling$=163",
+  "count:recipes:^productivetrees:pollination/=149",
+  "quest:6DAECA44E28DA9BA",
+  "item:productivetrees:rubber",
+  "item:productivetrees:sawmill",
+  "item:productivetrees:stripper",
+  "item:productivetrees:wood_worker"
+ ],
+ "_src": "реєстр і рецепти productivetrees (було «понад 160 порід бджолиним пилком», «магічна деревина» — пилок з листя, порід 163)"
+}

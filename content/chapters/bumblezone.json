@@ -1,0 +1,10 @@
+{
+ "why": "Мода The Bumblezone у збірці 0.12.0-beta немає — 46 з 115 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+ "ref": [
+  "file:config/ftbquests/quests/chapters/bumblezone.json5~always_invisible: true",
+  "count:stubs:bumblezone=46",
+  "count:qall:bumblezone=115",
+  "count:items:the_bumblezone=0"
+ ],
+ "_src": "config/ftbquests/quests/chapters/<глава>.json5 (always_invisible), docs/data/quests (missing — ftbquests:missing_item), реєстр предметів (raw/registry_index.json)"
+}

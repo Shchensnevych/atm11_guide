@@ -1,7 +1,7 @@
 // @ts-check
 // Сторінка «🤖 Помічник» (#/assistant):
 //   1) Радник «Наступні кроки за сейвом» (стовбур, розпочаті квести, відкриті віхи, інвентар з NBT, latest.log);
-//   2) Швидкий гібридний пошук (RAG: BM25 + укр. стемер + двомовні синоніми ATM11 + триграми) без важких ONNX-моделей у браузері;
+//   2) Автономний пошук по базі путівника (BM25 + укр. стемер + словник понять + триграми) — без ШІ;
 //   3) Жива синергія з десктопним компаньйоном ATM11-Companion (http://127.0.0.1:8812/events та /state):
 //      синхронізація моделі, радар «Інвентар + Curios → Гарячі клавіші», останній скріншот F2 (Vision Qwen 2.5 VL 72B) і стрічка подій.
 import { h, mount } from '../core/dom.js';
@@ -21,32 +21,64 @@ import {
 } from '../core/rag.js';
 import { stageBadge, clsBadge } from '../components/badge.js';
 
-/** Простий рендер markdown-подібного тексту у безпечний DOM. @param {string} md */
+/** Безпечний рендер Markdown-відповіді ШІ: лише DOM через h() / textContent, без innerHTML (SECURITY §4).
+ * Підтримує заголовки #–####, абзаци, марковані й нумеровані списки (зокрема впереміш з текстом), **жирний**, *курсив*, `код`
+ * і посилання [текст](#/…) на сторінки путівника або https://. @param {string} md */
 function renderMd(md) {
-  const blocks = (md || '').trim().split(/\n{2,}/);
-  return h('div.ai-md', null, blocks.map((b) => {
-    const t = b.trim();
-    if (t.startsWith('### ')) return h('h3', null, t.slice(4));
-    if (t.startsWith('## ')) return h('h2', null, t.slice(3));
-    const lines = t.split('\n');
-    if (lines.every((l) => /^(\d+\.|-|\*)\s+/.test(l.trim()))) {
-      return h('ul.ai-list', null, lines.map((l) => h('li', null, inlineMd(l.replace(/^\s*(\d+\.|-|\*)\s+/, '')))));
+  const lines = String(md || '').replace(/\r/g, '').split('\n');
+  /** @type {any[]} */
+  const out = [];
+  /** @type {{ ordered: boolean, items: any[] } | null} */
+  let list = null;
+  /** @type {string[]} */
+  let para = [];
+  const flushPara = () => {
+    if (para.length) out.push(h('p', null, inlineMd(para.join(' '))));
+    para = [];
+  };
+  const flushList = () => {
+    if (list) out.push(h(list.ordered ? 'ol.ai-list' : 'ul.ai-list', null, list.items));
+    list = null;
+  };
+  for (const raw of lines) {
+    const line = raw.trim();
+    if (!line) { flushPara(); flushList(); continue; }
+    const hm = /^(#{1,4})\s+(.*)$/.exec(line);
+    if (hm) { flushPara(); flushList(); out.push(h(hm[1].length <= 2 ? 'h2' : 'h3', null, inlineMd(hm[2]))); continue; }
+    const lm = /^(\d+[.)]|[-*•])\s+(.*)$/.exec(line);
+    if (lm) {
+      flushPara();
+      const ordered = /^\d/.test(lm[1]);
+      if (!list || list.ordered !== ordered) { flushList(); list = { ordered, items: [] }; }
+      list.items.push(h('li', null, inlineMd(lm[2])));
+      continue;
     }
-    return h('p', null, inlineMd(t));
-  }));
+    if (/^>\s?/.test(line)) { flushPara(); flushList(); out.push(h('blockquote', null, inlineMd(line.replace(/^>\s?/, '')))); continue; }
+    flushList();
+    para.push(line);
+  }
+  flushPara();
+  flushList();
+  return h('div.ai-md', null, out);
 }
 
 /** @param {string} line */
 function inlineMd(line) {
   const out = [];
-  const re = /\*\*(.+?)\*\*|\*(.+?)\*|`(.+?)`/g;
+  const re = /\*\*(.+?)\*\*|\[([^\]]+)\]\(([^)\s]+)\)|\*(.+?)\*|`(.+?)`/g;
   let last = 0;
   let m;
   while ((m = re.exec(line)) !== null) {
     if (m.index > last) out.push(line.slice(last, m.index));
     if (m[1]) out.push(h('b', null, m[1]));
-    else if (m[2]) out.push(h('em', null, m[2]));
-    else if (m[3]) out.push(h('code', null, m[3]));
+    else if (m[2]) {
+      const href = m[3];
+      // Лише сторінки путівника (#/…) і https:// — інше показуємо текстом
+      if (/^#\//.test(href)) out.push(h('a', { href }, m[2]));
+      else if (/^https:\/\//i.test(href)) out.push(h('a', { href, target: '_blank', rel: 'noopener noreferrer' }, m[2]));
+      else out.push(m[2]);
+    } else if (m[4]) out.push(h('em', null, m[4]));
+    else if (m[5]) out.push(h('code', null, m[5]));
     last = re.lastIndex;
   }
   if (last < line.length) out.push(line.slice(last));
@@ -174,14 +206,39 @@ export async function render(el, _p, s) {
     }
   }
 
+  /**
+   * Чи на одній базі сайт і міст (C2): відбиток docs/data/meta.json сайту ↔ base.fingerprint з /state моста.
+   * Повертає попередження (рядок) або '' — бази однакові або порівняти нема з чим.
+   */
+  function baseMismatch() {
+    if (!st.liveConnected) return '';
+    const mine = s.meta?.fingerprint || '';
+    const br = st.liveState?.base;
+    if (!br || !br.fingerprint) return mine ? 'Міст старої версії — не повідомляє версію бази путівника. Оновіть ATM11-Companion.' : '';
+    if (!mine || br.fingerprint === mine) return '';
+    const bt = String(br.built || ''); const mt = String(s.meta?.built || '');
+    return bt && mt && bt < mt
+      ? `Міст на старій базі путівника (зібрано ${bt}, сайт — ${mt}): перезапустіть компаньйон або start.bat → «Оновити все».`
+      : `Сайт на іншій базі, ніж міст (сайт — ${mt || '?'}, міст — ${bt || '?'}): оновіть сторінку; онлайн-копія сайту оновлюється після git push.`;
+  }
+
   /** @param {any} data @param {boolean} isInitial */
   function applyLiveCompanionState(data, isInitial = false) {
     if (!data || !data.ok) return;
+    const prevFolder = st.liveState?.world?.folder;
     st.liveState = data;
     st.liveConnected = true;
+    // Один вибір світу: сайт іде за світом, вибраним у мості (автовибір — останній зіграний)
+    const folder = data.world?.folder;
+    if (folder && folder !== prevFolder) {
+      const pw = (s.progress?.worlds || []).find((w) => w.folder === folder || w.world === data.world?.name);
+      if (pw && pw.slug !== s.progress?.slug) {
+        switchWorld(pw.slug).then(async () => { an = await analyzePlayerState(s); drawAll(); }).catch(() => {});
+      }
+    }
     st.bridgeInfo = {
       ok: true,
-      providers: Object.entries(data.providers || {}).filter(([, v]) => v).map(([k]) => k),
+      providers: Array.isArray(data.providers) ? data.providers : [],
     };
     if (data.selectedModel && st.cfg.openaiModel !== data.selectedModel) {
       st.cfg.openaiModel = data.selectedModel;
@@ -307,9 +364,10 @@ export async function render(el, _p, s) {
     try {
       const hits = await searchGuide(s, qText || 'наступні кроки головний шлях початок', an, 7);
       st.hits = hits;
-      if (useExternal && (st.cfg.mode !== 'local' || st.liveConnected)) {
+      if (useExternal && st.cfg.mode !== 'local') {
         const logTail = st.liveState?.logTail || bState()?.logTail || '';
-        const res = await askExternalPipeline(qText, hits, an, s, st.cfg, logTail);
+        // Режим мосту: шлемо лише питання й світ, вибраний у мосту (база й стан світу — на боці моста)
+        const res = await askExternalPipeline(qText, hits, an, s, st.cfg, logTail, { world: st.liveState?.world?.folder });
         st.answerMd = res.answer;
         st.answerProvider = `🤖 ШІ-компаньйон: ${res.provider}`;
       } else {
@@ -357,9 +415,10 @@ export async function render(el, _p, s) {
     const lv = st.liveState;
     const modeUk = lv?.world?.modeUk || p?.mode_uk || p?.mode || '';
     const activeWorldName = lv?.world?.name || p?.world || '';
-    const ollamaList = (lv?.ollamaModels || []).map((/** @type {any} */ m) => ({
-      id: m.id || `local/${m.name}`,
-      label: `Ollama · ${m.name} (локальна)`,
+    // міст повертає список назв моделей Ollama (рядки)
+    const ollamaList = (lv?.ollamaModels || []).map((/** @type {string} */ name) => ({
+      id: `local/${name}`,
+      label: `Ollama · ${name} (локальна)`,
       provider: 'Ollama',
     }));
     const allModels = [...COMPANION_MODELS, ...ollamaList];
@@ -372,8 +431,9 @@ export async function render(el, _p, s) {
             activeWorldName
               ? `Активний світ: «${activeWorldName}» (${modeUk}) · остання гра: ${p?.last_played || 'сьогодні'} · у грі: ${p?.play_hours || 0} год`
               : 'Світ не вибрано',
+            baseMismatch() ? h('span.badge', { style: { '--c': 'var(--warn)' }, title: baseMismatch() }, `⚠ ${baseMismatch()}`) : null,
             st.liveConnected
-              ? h('span.badge', { style: { '--c': 'var(--ok)' } }, `🟢 ATM11-Companion Live (:8812 · словник ATM11-UA: ${lv?.dictStats?.totalEntries || 83240} рядків)`)
+              ? h('span.badge', { style: { '--c': 'var(--ok)' } }, `🟢 ATM11-Companion Live (:8812)`)
               : bs
                 ? h('span.badge', { style: { '--c': 'var(--ok)' } }, `📂 Живі дані з браузера (${bs.folderName} · ${bs.updated})`)
                 : h('span.badge.ghost', null, `Знімок збірки (${p?.updated || 'data/progress.json'})`))),
@@ -384,22 +444,28 @@ export async function render(el, _p, s) {
               'aria-label': 'Модель ШІ',
               onchange: (e) => syncModelWithBridge(e.target.value),
             }, allModels.map((m) => h('option', { value: m.id, selected: m.id === st.cfg.openaiModel }, m.label)))),
-          worlds.length > 1 ? h('select.wb-select', {
+          st.liveConnected && (lv?.worlds || []).length ? h('select.wb-select', {
+            'aria-label': 'Світ (спільний вибір моста ATM11-Companion)',
+            title: 'Світ вибирається в мості — один для HUD, панелі й сайту. Автовибір — світ, у який грали останнім.',
+            onchange: async (e) => {
+              try {
+                const r = await fetch(`${baseBridgeUrl()}/api/world`, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ world: e.target.value }),
+                });
+                if (r.ok) applyLiveCompanionState(await r.json(), false);
+              } catch { /* ignore */ }
+            },
+          },
+          h('option', { value: '', selected: lv?.worldSelection?.auto !== false }, `Автовибір (останній зіграний${lv?.worldSelection?.auto !== false && lv?.world ? `: ${lv.world.name}` : ''})`),
+          (lv?.worlds || []).map((/** @type {any} */ w) => h('option', { value: w.folder, selected: lv?.worldSelection?.auto === false && w.folder === lv?.world?.folder }, `${w.name} (${w.modeUk})`)))
+          : worlds.length > 1 ? h('select.wb-select', {
             'aria-label': 'Світ для аналізу',
             onchange: async (e) => {
               const slug = e.target.value;
               await switchWorld(slug);
               an = await analyzePlayerState(s);
-              if (st.liveConnected) {
-                const wObj = worlds.find((w) => w.slug === slug);
-                if (wObj) {
-                  fetch(`${baseBridgeUrl()}/set-world`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ world: wObj.world }),
-                  }).catch(() => {});
-                }
-              }
               drawAll();
               runQuery(st.query, false);
             },
@@ -471,7 +537,9 @@ export async function render(el, _p, s) {
         h('div.ai-rag-head', null,
           h('div', null,
             h('h2', { style: { margin: 0 } }, '🔎 Гібридний пошук (RAG) і ШІ-чат компаньйона'),
-            h('div.small.muted', null, `База знань: ${corpus.length} статей (BM25 + укр. стемер + двомовні синоніми ATM11 + триграми)`)),
+            h('div.small.muted', null, st.cfg.mode === 'bridge' && st.liveState?.knowledge?.mods
+              ? `ШІ відповідає через міст: база путівника — модів ${st.liveState.knowledge.mods}, клавіш ${st.liveState.knowledge.keys}, квестів ${st.liveState.knowledge.quests}, віх ${st.liveState.knowledge.nodes} + стан світу «${st.liveState.world?.name || '—'}»`
+              : `База знань сайту: ${corpus.length} статей (BM25 + укр. стемер + двомовні синоніми ATM11 + триграми)`)),
           h('div.ai-mode-bar', null,
             h('div.seg', null,
               h(`button${st.cfg.mode === 'local' ? '.on' : ''}`, {
@@ -481,7 +549,7 @@ export async function render(el, _p, s) {
               h(`button${st.cfg.mode !== 'local' ? '.on' : ''}`, {
                 onclick: () => { if (st.cfg.mode === 'local') st.cfg.mode = 'bridge'; saveAssistantConfig(st.cfg); drawRight(); },
                 title: 'Живий міст ATM11-Companion (:8812) з DeepSeek V4.1 Flash / Qwen 2.5 72B / Vision VL',
-              }, h('span.btn-ic', null, st.liveConnected ? '🟢' : '🔌'), st.liveConnected ? ' Міст ATM11-Companion' : ' Зовнішній API (.env)')),
+              }, h('span.btn-ic', null, st.liveConnected ? '🟢' : '🔌'), st.liveConnected ? ' Міст ATM11-Companion' : ' Міст (не запущено)')),
             h('button.btn.small', {
               onclick: () => { st.showCfg = !st.showCfg; drawRight(); },
               title: 'Налаштування моста ATM11-Companion (:8812), моделей Together AI / OpenRouter / Ollama',
@@ -491,8 +559,8 @@ export async function render(el, _p, s) {
           inp,
           h('button.btn.primary', {
             disabled: st.busyAsk,
-            onclick: () => runQuery(inp.value, st.cfg.mode !== 'local' || st.liveConnected),
-          }, st.busyAsk ? '⏳ Аналіз…' : st.liveConnected || st.cfg.mode !== 'local' ? [h('span.btn-ic', null, '🤖'), ' Запитати ШІ'] : 'Запитати'),
+            onclick: () => runQuery(inp.value, st.cfg.mode !== 'local'),
+          }, st.busyAsk ? '⏳ Аналіз…' : st.cfg.mode !== 'local' ? [h('span.btn-ic', null, '🤖'), ' Запитати ШІ'] : 'Запитати'),
           st.liveConnected ? h('button.btn', {
             disabled: st.busyVision,
             title: 'Розібрати останній скріншот F2 через Vision AI (Qwen 2.5 VL 72B)',
@@ -501,7 +569,7 @@ export async function render(el, _p, s) {
         h('div.chips.ai-presets', null, PRESET_QUESTIONS.map(([label, q]) =>
           h(`span.chip${st.query === q ? '.on' : ''}`, {
             style: { '--c': 'var(--accent)' },
-            onclick: () => runQuery(q, st.cfg.mode !== 'local' || st.liveConnected),
+            onclick: () => runQuery(q, st.cfg.mode !== 'local'),
           }, label))),
         st.answerMd ? (() => {
           const savedH = localStorage.getItem('atm11_ai_answer_h');
@@ -615,7 +683,7 @@ function renderRadarAndVisionTab(s, _an, st, radarItems, runQuery, runVisionF2) 
             h('span.badge', { style: { '--c': statusColor } }, statusText),
             h('button.wb-btn', {
               title: 'Запитати ШІ як користуватися цим предметом і налаштувати клавішу',
-              onclick: () => runQuery(`Як користуватися «${r.itemUk || r.actionUk}» (${r.itemId}) та яка клавіша рекомендована?`, st.liveConnected || st.cfg.mode !== 'local'),
+              onclick: () => runQuery(`Як користуватися «${r.itemUk || r.actionUk}» (${r.itemId}) та яка клавіша рекомендована?`, st.cfg.mode !== 'local'),
             }, '❓ Як користуватись')));
       })) : h('p.small.muted', null, 'У поточному інвентарі немає спеціальних модових хоткеїв.')),
 
@@ -832,7 +900,7 @@ function renderLogTab(s, an, logTail, liveState) {
 }
 
 /**
- * Блок налаштувань підключення до ATM11-Companion (:8812) / assistant.py --serve / Ollama.
+ * Налаштування підключення до моста ATM11-Companion (:8812). Ключі API — лише в .env компаньйона, не в браузері.
  * @param {any} st
  * @param {() => void} redraw
  * @param {(m: string, v?: string) => void} syncModelWithBridge
@@ -843,18 +911,9 @@ function renderConfigBox(st, redraw, syncModelWithBridge, reconnectBridge) {
   const upd = (/** @type {string} */ k, /** @type {any} */ v) => { cfg[k] = v; saveAssistantConfig(cfg); };
   return h('div.ai-cfg-box', null,
     h('div.small', { style: { marginBottom: '8px' } },
-      h('b', null, '🔌 Підключення до живого моста ATM11-Companion (:8812) '),
-      h('span.muted', null, '(ключі TOGETHER_API_KEY та OPENROUTER_API_KEY підхоплюються локально з Server/.env без публікації в репо)')),
-    h('div.ai-cfg-row', null,
-      h('label.small', null, 'Джерело генерації: ',
-        h('select.wb-select', {
-          onchange: (e) => { upd('mode', e.target.value); redraw(); },
-        },
-        h('option', { value: 'local', selected: cfg.mode === 'local' }, '⚡ Лише локальний радник + Гібридний RAG (без API)'),
-        h('option', { value: 'bridge', selected: cfg.mode === 'bridge' }, '🟢 Живий міст ATM11-Companion / assistant.py (:8812)'),
-        h('option', { value: 'ollama', selected: cfg.mode === 'ollama' }, '🦙 Локальна Ollama (http://localhost:11434)'),
-        h('option', { value: 'openai', selected: cfg.mode === 'openai' }, '☁ Прямий OpenAI-сумісний API (Together / OpenRouter)')))),
-    cfg.mode === 'bridge' ? h('div.ai-cfg-row.small', null,
+      h('b', null, '🔌 Міст ATM11-Companion (:8812) '),
+      h('span.muted', null, '— запускається разом із компаньйоном; ключі API зберігаються лише в його .env')),
+    h('div.ai-cfg-row.small', null,
       h('label', null, 'URL мосту: ', h('input', { type: 'text', value: cfg.bridgeUrl, oninput: (e) => upd('bridgeUrl', e.target.value) })),
       h('label', null, 'Текстова модель: ',
         h('select.wb-select', {
@@ -871,12 +930,5 @@ function renderConfigBox(st, redraw, syncModelWithBridge, reconnectBridge) {
         },
       }, 'Перевірити міст'),
       st.bridgeInfo ? h('span.small', { style: { color: st.bridgeInfo.ok ? 'var(--ok)' : 'var(--bad)' } },
-        st.bridgeInfo.ok ? `✔ Активний (${(st.bridgeInfo.providers || []).join(', ') || 'локальний'})` : `✕ Не запущено (${st.bridgeInfo.error})`) : null) : null,
-    cfg.mode === 'ollama' ? h('div.ai-cfg-row.small', null,
-      h('label', null, 'Ollama URL: ', h('input', { type: 'text', value: cfg.ollamaUrl, oninput: (e) => upd('ollamaUrl', e.target.value) })),
-      h('label', null, 'Модель: ', h('input', { type: 'text', value: cfg.ollamaModel, oninput: (e) => upd('ollamaModel', e.target.value) }))) : null,
-    cfg.mode === 'openai' ? h('div.ai-cfg-row.small', null,
-      h('label', null, 'Endpoint: ', h('input', { type: 'text', value: cfg.openaiUrl, oninput: (e) => upd('openaiUrl', e.target.value) })),
-      h('label', null, 'Модель: ', h('input', { type: 'text', value: cfg.openaiModel, oninput: (e) => upd('openaiModel', e.target.value) })),
-      h('label', null, 'Ключ (лише в localStorage браузера): ', h('input', { type: 'password', value: cfg.openaiKey, placeholder: 'Рекомендовано через .env + ATM11-Companion', oninput: (e) => upd('openaiKey', e.target.value) }))) : null);
+        st.bridgeInfo.ok ? `✔ Активний (${(st.bridgeInfo.providers || []).join(', ') || 'локальний'})` : `✕ Не запущено (${st.bridgeInfo.error})`) : h('span.small.muted', null, st.liveConnected ? '' : 'міст не знайдено')));
 }

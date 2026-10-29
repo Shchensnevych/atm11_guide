@@ -1,0 +1,134 @@
+{
+ "_doc": "Гілка Productive Farming (G5): кроки — квести глави «Productive Farming» (quests); 159 квестів культур згруповано; числа — config/productivefarming-*.toml (ref, сито).",
+ "id": "productivefarming",
+ "title": "Productive Farming — культури й автоферма",
+ "icon": "🌾",
+ "cls": "farming",
+ "mods": [
+  "productivefarming"
+ ],
+ "chapter": "productive_farming",
+ "book": "Посібник Productive Farming",
+ "enter": "s0",
+ "summary": "Понад 150 культур, квіти, мультиблокова автоферма й годівниця з напувалкою. Насіння продають селяни-фермери; нові сорти з'являються мутаціями, коли бджоли запилюють посіви. 159 квестів глави — по одному на культуру (більшість необов'язкові).",
+ "gives": [
+  "Автоферма, що сама збирає й пересаджує",
+  "Годівниця й напувалка для тварин",
+  "Сотні культур для кухні й бонусних сердець"
+ ],
+ "_src": "квести глави productive_farming (tools/quests_dump.py productive_farming); config/productivefarming-server.toml, productivefarming-startup.toml",
+ "steps": [
+  {
+   "id": "start",
+   "x": 0,
+   "y": 1,
+   "title": "Productive Farming",
+   "quests": [
+    "3CBF4D703AA17199"
+   ],
+   "text": "Ще один мод серії Productive: автоферма, нові культури й квіти.",
+   "src": "квест «Productive Farming»"
+  },
+  {
+   "id": "farm",
+   "x": 1,
+   "y": 0,
+   "title": "Автоферма",
+   "quests": [
+    "2AFB12E742596864",
+    "2CFD0DF119CC5E85"
+   ],
+   "text": "Контролер ферми — серце мультиблока, далі — блоки ферми (квест «Будуємо» перелічує, якими можна будувати). Об'єм — до 1024 блоків, висота — до 20 (конфіг).",
+   "src": "квести «Автоферма», «Будуємо»; config/productivefarming-server.toml",
+   "ref": [
+    "config:config/productivefarming-server.toml#General.farmMaxVolume=1024",
+    "config:config/productivefarming-server.toml#General.farmMaxHeight=20"
+   ]
+  },
+  {
+   "id": "animals",
+   "x": 1,
+   "y": 2,
+   "title": "Годівниця й напувалка",
+   "quests": [
+    "540F3CA118762DDB",
+    "46932B57EF21D346"
+   ],
+   "text": "9 комірок корму, подача трубами; спрацьовують раз на 1200 тактів (конфіг).",
+   "src": "квести «Годівниця», «Напувалка»; config/productivefarming-server.toml",
+   "ref": [
+    "config:config/productivefarming-server.toml#General.feedingTroughTickRate=1200",
+    "config:config/productivefarming-server.toml#General.wateringTroughTickRate=1200"
+   ]
+  },
+  {
+   "id": "crops",
+   "x": 1,
+   "y": 1,
+   "title": "Культури",
+   "quests": [
+    "699F91BC5CA58FE2",
+    "44816DC131B9E5AC",
+    "665F5D34A6282117",
+    "4FB3047EBF555455"
+   ],
+   "text": "Насіння й культури продають селяни-фермери (villagersTradeSeeds = true). У главі — окремі квести культур (помідор черрі, зелений виноград, малина…).",
+   "src": "квести «Культури», «Помідор черрі», «Зелений виноград», «Малина»; config/productivefarming-startup.toml",
+   "ref": [
+    "config:config/productivefarming-startup.toml#General.villagersTradeSeeds=true"
+   ]
+  },
+  {
+   "id": "flowers",
+   "x": 2,
+   "y": 2,
+   "title": "Квіти",
+   "quests": [
+    "4B5FCDD5FC705903",
+    "4B2754CD11FFE247",
+    "01B7B66FAAAAEAE5"
+   ],
+   "text": "Нові квіти — і з них барвники різних кольорів (кольори в підзаголовках квестів).",
+   "src": "квести «Квіти», «Амарилис», «Анемона»"
+  },
+  {
+   "id": "mut",
+   "x": 2,
+   "y": 1,
+   "title": "Мутації",
+   "quests": [
+    "06B197EB778C17AC",
+    "507821D8F9C064CF",
+    "5B21A7A5ED1DDABB",
+    "3111C0CA63A82E7A"
+   ],
+   "text": "Коли бджоли запилюють ділянку з певними культурами, деякі мутують у нові сорти — пари для мутацій у JEI.",
+   "src": "квести «Мутації», «Виноград Конкорд», «Помідор Біфштекс», «Кукурудза Синій нефрит»",
+   "ref": [
+    "item:productivebees:sturdy_bee_cage"
+   ]
+  }
+ ],
+ "links": [
+  [
+   "start",
+   "farm"
+  ],
+  [
+   "start",
+   "crops"
+  ],
+  [
+   "start",
+   "animals"
+  ],
+  [
+   "crops",
+   "mut"
+  ],
+  [
+   "start",
+   "flowers"
+  ]
+ ]
+}

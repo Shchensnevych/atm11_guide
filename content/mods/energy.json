@@ -1,58 +1,291 @@
 {
  "_doc": "G1b (2026-10-24): група «Енергія» — генератори, накопичувачі, вимірювання й заряджання. Ender IO, Energized Power, Oritech — у tech.json (головний клас — техніка). Факти звірено з файлами збірки: конфіги (powah.json5, generatorgalore/generator/*.json, energymeter, charginggadgets), KubeJS (mods/powah/energizing.js, modpack/atm_alloys.js), рецепти jar, квести «Powah» і «Generators N Furnaces», посібники. features — явно для кожного мода.",
-
  "_— генератори й мережі —": "",
  "powah": {
-  "cls": ["energy", "tech", "resources"],
+  "cls": [
+   "energy",
+   "tech",
+   "resources"
+  ],
   "role": "content",
-  "features": ["ores"],
+  "features": [
+   "ores"
+  ],
   "uk": "Головний енергетичний мод збірки: генератори семи рівнів (від Початкового до Нітро), сфера заряджання для кристалів, бездротова «Мережа Енду» й реактори до 500 тис. FE/такт. У квестах — найбільша енергетична глава.",
-  "what": ["генератори: генерапіч (тверде паливо), магматор (лава), термогенератор (над джерелом тепла + вода), сонячна панель, реактор 3x4x3 на уранініті (вугілля, редстоун і охолоджувачі — рідкі й тверді, як-от сухий лід — підвищують вихід)", "сфера заряджання + стрижні заряджання поруч (на кабелях): заряджена сталь (залізо + золото), пломеніючий кристал (пломінь), ніотичний (діамант), надзаряджений (смарагд), нітро (зірка Незеру)", "рівні: Початковий → Базовий → Загартований → Пломеніючий → Ніотичний → Надзаряджений → Нітро; реактор Нітро — до 500 000 FE/такт, генерапіч Нітро — 40 000 (конфіг)", "Мережа Енду: ворота Енду й батареї Енду — бездротова енергія каналами (1 канал на Початковому рівні, 12 — на Нітро)", "зарядний маяк заряджає предмети гравця (картка прив'язки; міжвимірна — для інших вимірів), енерголійка, енергорозрядник, батареї й кабелі", "руда уранініту — у світі та у Вимірі добування; сухий лід генерується у світі"],
-  "stage": ["s2", "s3", "s4", "s5", "s6"],
-  "synergy": [{"mod": "mysticalagriculture", "why": "есенції заряджених кристалів і сталі крафтяться прямо в матеріали Powah, без сфери заряджання"}, {"mod": "allthemodium", "why": "вібранієво-усемодієвий сплав роблять у сфері заряджання (рецепт збірки)"}, {"mod": "ae2", "why": "сфера заряджання масово заряджає істинний кварц (рецепти збірки — до 6 шт. за раз)"}, {"mod": "allthecompressed", "why": "блоки нітро-кристала 1x — інгредієнт ATM-сплаву"}, {"mod": "ironjetpacks", "why": "зарядний маяк тримає жетпак зарядженим у польоті"}],
-  "tips": ["Реактор: тримаючи в руці всі 36 блоків реактора, поставте один — структура збудується сама.", "Кристали Powah дешевше брати з есенцій Mystical Agriculture, ніж заряджати діаманти (300 000 FE) і смарагди (1 000 000 FE).", "Сонячній панелі потрібне чисте небо; Лінза Енду дає «бачити» небо крізь блоки.", "Зарядний маяк працює лише після прив'язки карткою до гравця."],
-  "spoiler": "Вібранієво-усемодієвий сплав (для ендгейм-інструментів) збірка дозволяє крафтити лише у сфері заряджання: усемодій, вібраній, 2 серця піґліча й блок нітро-кристала 1x — 1 000 000 000 FE за злиток. Без реакторів Нітро не обійтися.",
+  "what": [
+   "генератори: генерапіч (тверде паливо), магматор (лава), термогенератор (над джерелом тепла + вода), сонячна панель, реактор 3x4x3 на уранініті (вугілля, редстоун і охолоджувачі — рідкі й тверді, як-от сухий лід — підвищують вихід)",
+   "сфера заряджання + стрижні заряджання поруч (на кабелях): заряджена сталь (залізо + золото), палаючий кристал (пломінь), ніотичний (діамант), надзаряджений (смарагд), нітро (зірка Незеру)",
+   "рівні: Початковий → Базовий → Загартований → Палаючий → Ніотичний → Надзаряджений → Нітро; реактор Нітро — до 500 000 FE/такт, генерапіч Нітро — 40 000 (конфіг)",
+   "Мережа Енду: ворота Енду й батареї Енду — бездротова енергія каналами (1 канал на Початковому рівні, 12 — на Нітро)",
+   "зарядний маяк заряджає предмети гравця (картка прив'язки; міжвимірна — для інших вимірів), енерголійка, енергорозрядник, батареї й кабелі",
+   "руда уранініту — у світі та у Вимірі добування; сухий лід генерується у світі"
+  ],
+  "stage": [
+   "s2",
+   "s3",
+   "s4",
+   "s5",
+   "s6"
+  ],
+  "synergy": [
+   {
+    "mod": "mysticalagriculture",
+    "why": "У відкритій главі «Mystical Agriculture» є насіння матеріалів Powah (заряджена сталь, палаючий, ніотичний, надзаряджений і нітро-кристали): есенції крафтяться в кристали без сфери заряджання, нітро — ще й із зіркою Незеру.",
+    "src": "квести «Насіння електросталі», «Насіння нітро-кристалу» (глава «Mystical Agriculture»); рецепти mysticalagriculture:essence/powah/*, mysticalagradditions:essence/nitro_crystal",
+    "ref": [
+     "quest:31EC6244E4A3CBD6",
+     "quest:31A370550BD592B6",
+     "recipe:mysticalagriculture:essence/powah/blazing_crystal",
+     "recipe:mysticalagradditions:essence/nitro_crystal"
+    ]
+   },
+   {
+    "mod": "allthemodium",
+    "why": "Вібранієво-усемодієвий сплав збірка робить у сфері заряджання: усемодієвий і вібранієвий злитки, серце піґліча й блок нітро-кристала 1x (блок сплаву — ще й у драконячій кузні Ice and Fire).",
+    "src": "KubeJS server_scripts/mods/powah/energizing.js (vibranium_allthemodium_alloy_ingot)",
+    "ref": [
+     "recipe:kubejs:energizing/vibranium_allthemodium_alloy_ingot",
+     "kjs:server_scripts/mods/powah/energizing.js"
+    ]
+   },
+   {
+    "mod": "ae2",
+    "why": "Сфера заряджання заряджає кристали істинного кварцу AE2 партіями — рецепти збірки на 1…6 кристалів за раз.",
+    "src": "KubeJS server_scripts/mods/powah/energizing.js (1x…6x_charged_certus_quartz_crystal)",
+    "ref": [
+     "recipe:kubejs:energizing/1x_charged_certus_quartz_crystal",
+     "recipe:kubejs:energizing/6x_charged_certus_quartz_crystal"
+    ]
+   },
+   {
+    "mod": "allthecompressed",
+    "why": "Стиснені блоки нітро-кристала AllTheCompressed (1x…8x) — інгредієнти сплаву й стиснених блоків вібранієво-усемодієвого сплаву у сфері заряджання.",
+    "src": "KubeJS server_scripts/mods/powah/energizing.js (vibranium_allthemodium_*)",
+    "ref": [
+     "recipe:kubejs:energizing/vibranium_allthemodium_alloy_ingot",
+     "recipe:kubejs:energizing/vibranium_allthemodium_block_6x"
+    ]
+   },
+   {
+    "mod": "ironjetpacks",
+    "why": "Зарядний маяк, прив'язаний карткою до гравця, заряджає FE-предмети в інвентарі на ходу — зокрема реактивні ранці (дерев'яний — 20 000 FE); Початковий маяк дає 500 FE/такт (конфіг).",
+    "src": "квест «Зарядний маяк (Початковий)»; config/powah.json5: devices.player_transmitters.charging_rates; config/ironjetpacks/jetpacks/wood.json",
+    "ref": [
+     "quest:677365A816994C8B",
+     "config:config/powah.json5#devices.player_transmitters.charging_rates.starter=500",
+     "config:config/ironjetpacks/jetpacks/wood.json#capacity=20000"
+    ]
+   }
+  ],
+  "tips": [
+   "Реактор: тримаючи в руці 36 блоків реактора, поставте один — структура збудується сама.",
+   "Кристали Powah дешевше брати з есенцій Mystical Agriculture, ніж заряджати діаманти (300 000 FE) і смарагди (1 000 000 FE).",
+   "Сонячній панелі потрібне чисте небо; Лінза Енду дає «бачити» небо крізь блоки.",
+   "Зарядний маяк працює після прив'язки карткою до гравця."
+  ],
+  "spoiler": "Вібранієво-усемодієвий сплав (для ендгейм-інструментів) збірка крафтить у сфері заряджання: усемодій, вібраній, 2 серця піґліча й блок нітро-кристала 1x — 1 000 000 000 FE за злиток. Без реакторів Нітро не обійтися. Блок сплаву виплавляє й вогняна драконяча кузня Ice and Fire.",
   "chapter": "powah",
   "book": "Посібник (Powah!) (GuideME)",
-  "icons": ["powah:energizing_orb", "powah:reactor_nitro", "powah:crystal_nitro", "powah:furnator_starter"]
+  "icons": [
+   "powah:energizing_orb",
+   "powah:reactor_nitro",
+   "powah:crystal_nitro",
+   "powah:furnator_starter"
+  ],
+  "ref": [
+   "config:config/powah.json5#generators.reactors.generation_rates.nitro=500000",
+   "config:config/powah.json5#generators.furnators.generation_rates.nitro=40000",
+   "config:config/powah.json5#devices.ender_cells.channels.starter=1",
+   "config:config/powah.json5#devices.ender_cells.channels.nitro=12",
+   "jarfile:data/powah/recipe/energizing/niotic_crystal.json~300000",
+   "jarfile:data/powah/recipe/energizing/spirited_crystal.json~1000000",
+   "quest:1B0087400B0B8B49",
+   "quest:677365A816994C8B",
+   "jarfile:data/powah/neoforge/biome_modifier/dry_ice.json",
+   "jarfile:data/powah/neoforge/biome_modifier/uraninite_ore.json",
+   "recipe:kubejs:energizing/vibranium_allthemodium_alloy_ingot",
+   "recipe:iceandfire:dragonforge/allthemodium-vibranium"
+  ]
  },
  "generatorgalore": {
-  "cls": ["energy"],
+  "cls": [
+   "energy"
+  ],
   "role": "content",
   "features": [],
   "uk": "Прості генератори-«печі» від автора Productive Bees: кладете паливо — отримуєте FE. Генератор покращується на місці до наступного рівня, а 8 однакових зливаються в один генератор 8x (і далі в 64x).",
-  "what": ["тверде паливо: мідний (8 FE/такт) → залізний (16) → золотий (32) → діамантовий (64) → обсидіановий (128) / смарагдовий і незеритовий (256)", "особливі: кулінарний (їжа), медовий (рідкий мед), генератор зілля, чар (зачаровані книги), магматичний (лава), Енду (перлини Енду), галітозний (дихання дракона), зірки Незеру (4092 FE/такт)", "предмети «Покращення: X → Y» переводять генератор на наступний рівень, не ламаючи його", "8 генераторів + уламок відлуння = генератор 8x; 8 генераторів 8x + провідник = 64x — потужність 64 генераторів в одному блоці"],
-  "stage": ["s1", "s2", "s3", "s4", "s5"],
-  "synergy": [{"mod": "productivebees", "why": "рідкий мед з бджіл — паливо медового генератора (той самий автор)"}, {"mod": "hostilenetworks", "why": "зірки Незеру із симуляцій — паливо генератора зірки Незеру"}, {"mod": "ironfurnaces", "why": "спільна глава квестів «Generators N Furnaces»; піч з доповненням «Генератор» — ще одне джерело FE"}],
-  "tips": ["Числа з конфігу збірки — у FE/такт; ендер-генератор дає 96, магматичний 40, медовий 64.", "Генератор 8x займає один блок — так будують компактну енергоферму."],
+  "what": [
+   "тверде паливо: мідний (8 FE/такт) → залізний (16) → золотий (32) → діамантовий (64) → обсидіановий (128) / смарагдовий і незеритовий (256)",
+   "особливі: кулінарний (їжа), медовий (рідкий мед), генератор зілля, чар (зачаровані книги), магматичний (лава), Енду (перлини Енду), галітозний (дихання дракона), зірки Незеру (4092 FE/такт)",
+   "предмети «Покращення: X → Y» переводять генератор на наступний рівень, не ламаючи його",
+   "8 генераторів + уламок відлуння = генератор 8x; 8 генераторів 8x + провідник = 64x — потужність 64 генераторів в одному блоці"
+  ],
+  "stage": [
+   "s1",
+   "s2",
+   "s3",
+   "s4",
+   "s5"
+  ],
+  "synergy": [
+   {
+    "mod": "productivebees",
+    "why": "Медовий генератор спалює рідкий мед (тег рідин c:honey — мед Productive Bees) і дає 64 FE/такт (конфіг).",
+    "src": "квест «Медовий генератор»; config/generatorgalore/generator/honey.json: fuelTag c:honey",
+    "ref": [
+     "quest:68972BA647FDCF8F",
+     "tag:fluid:c:honey",
+     "config:config/generatorgalore/generator/honey.json#generationRate=64"
+    ]
+   },
+   {
+    "mod": "hostilenetworks",
+    "why": "Генератор зірки Незеру — найпотужніший (4092 FE/такт, конфіг) і їсть зірки Незеру; їх фабрикує модель даних візера Hostile Neural Networks (мод працює, хоча його глава квестів прихована).",
+    "src": "квест «Генератор зірки Незеру»; config/generatorgalore/generator/netherstar.json; data_models/wither.json у jar HNN",
+    "ref": [
+     "quest:1843C79133DFB024",
+     "config:config/generatorgalore/generator/netherstar.json#generationRate=4092",
+     "jarfile:data/hostilenetworks/hostilenetworks/data_models/wither.json~minecraft:nether_star"
+    ]
+   }
+  ],
+  "tips": [
+   "Числа з конфігу збірки — у FE/такт; ендер-генератор дає 96, магматичний 40, медовий 64.",
+   "Генератор 8x займає один блок — так будують компактну енергоферму."
+  ],
   "spoiler": "Квест обіцяє, що для ATM Star потрібен 64x магматичний генератор (через «Філософське паливо»), але цей рецепт збірки зараз неактивний — бракує Extreme Reactors та інших модів.",
   "chapter": "generators",
-  "icons": ["generatorgalore:iron_generator", "generatorgalore:culinary_generator", "generatorgalore:magmatic_generator", "generatorgalore:netherstar_generator"]
+  "icons": [
+   "generatorgalore:iron_generator",
+   "generatorgalore:culinary_generator",
+   "generatorgalore:magmatic_generator",
+   "generatorgalore:netherstar_generator"
+  ],
+  "ref": [
+   "config:config/generatorgalore/generator/copper.json#generationRate=8",
+   "config:config/generatorgalore/generator/iron.json#generationRate=16",
+   "config:config/generatorgalore/generator/gold.json#generationRate=32",
+   "config:config/generatorgalore/generator/diamond.json#generationRate=64",
+   "config:config/generatorgalore/generator/obsidian.json#generationRate=128",
+   "config:config/generatorgalore/generator/emerald.json#generationRate=256",
+   "config:config/generatorgalore/generator/netherite.json#generationRate=256",
+   "config:config/generatorgalore/generator/netherstar.json#generationRate=4092",
+   "config:config/generatorgalore/generator/ender.json#generationRate=96",
+   "config:config/generatorgalore/generator/magmatic.json#generationRate=40",
+   "config:config/generatorgalore/generator/honey.json#generationRate=64",
+   "quest:7CE86300AF8E9BCA",
+   "quest:72A287DCAEEFE49F"
+  ]
  },
-
  "_— вимірювання й заряджання —": "",
  "energymeter": {
-  "cls": ["energy", "qol"],
+  "cls": [
+   "energy",
+   "qol"
+  ],
   "role": "qol",
   "features": [],
   "uk": "Лічильник енергії: ставиться в розрив кабелю й показує, скільки FE за такт проходить; зовнішній монітор виводить показ на стіну.",
-  "what": ["працює як шматок кабелю: вхід, виходи й пріоритет виходів задаються в інтерфейсі", "поточний потік, середнє за інтервал (типово 5 тактів) і загальна передана енергія (скидається кнопкою)", "зовнішній монітор — до 32×18 блоків"],
-  "stage": ["s2", "s3"],
-  "synergy": [{"mod": "powah", "why": "налагодити реактор і Мережу Енду — видно, скільки реально йде"}, {"mod": "pipez", "why": "лічильник у розриві енергетичної труби"}],
-  "tips": ["Лічильники між собою не з'єднуються (так налаштовано в збірці) — ставте по одному на ділянку."],
+  "what": [
+   "працює як шматок кабелю: вхід, виходи й пріоритет виходів задаються в інтерфейсі",
+   "поточний потік, середнє за інтервал (типово 5 тактів, конфіг) і загальна передана енергія (скидається кнопкою)",
+   "зовнішній монітор — до 32×18 блоків"
+  ],
+  "stage": [
+   "s2",
+   "s3"
+  ],
+  "synergy": [
+   {
+    "mod": "powah",
+    "why": "Лічильник у розриві кабелю Powah показує, чи не впирається потік у пропускну здатність кабелю: Початковий — 500 FE/такт, Нітро — 1 000 000 (конфіг Powah).",
+    "src": "config/powah.json5: devices.cables.transfer_rates",
+    "ref": [
+     "config:config/powah.json5#devices.cables.transfer_rates.starter=500",
+     "config:config/powah.json5#devices.cables.transfer_rates.nitro=1000000"
+    ]
+   },
+   {
+    "mod": "pipez",
+    "why": "Лічильник у розриві енергетичної труби Pipez: без покращення труба пропускає 256 FE/такт, з остаточним — 131 072 (конфіг).",
+    "src": "config/pipez-server.toml: energy_pipe.amount",
+    "ref": [
+     "config:config/pipez-server.toml#energy_pipe.amount.no_upgrade=256",
+     "config:config/pipez-server.toml#energy_pipe.amount.ultimate=131072"
+    ]
+   }
+  ],
+  "tips": [
+   "Лічильники між собою не з'єднуються (так налаштовано в збірці) — ставте по одному на ділянку."
+  ],
   "book": "Посібник лічильника енергії (GuideME)",
-  "icons": ["energymeter:meter", "energymeter:monitor"]
+  "icons": [
+   "energymeter:meter",
+   "energymeter:monitor"
+  ],
+  "ref": [
+   "config:config/energymeter-common.toml#meter.default_interval=5",
+   "config:config/energymeter-common.toml#monitor.max_width=32",
+   "config:config/energymeter-common.toml#monitor.max_height=18",
+   "config:config/energymeter-common.toml#meter.allow_meter_connections=false"
+  ]
  },
  "charginggadgets": {
-  "cls": ["energy", "qol"],
+  "cls": [
+   "energy",
+   "qol"
+  ],
   "role": "qol",
   "features": [],
   "uk": "Зарядна станція: спалює звичайне пічне паливо або бере FE ззовні й заряджає покладений у неї предмет. Найпростіший спосіб зарядити гаджет чи жетпак на початку.",
-  "what": ["пічне паливо → FE у внутрішній буфер (1 000 000 FE, конфіг)", "можна живити кабелями чи трубами замість палива", "слот для заряджуваного предмета"],
-  "stage": ["s1", "s2"],
-  "synergy": [{"mod": "ironjetpacks", "why": "зарядити жетпак перед першим польотом"}, {"mod": "buildinggadgets2", "why": "гаджети працюють на FE"}, {"mod": "mininggadgets", "why": "гірничий гаджет вміщує 1 млн FE"}],
-  "tips": ["Рецепт — залізо, редстоун, лазурит і блок вугілля: доступна з першого заліза."],
+  "what": [
+   "пічне паливо → FE у внутрішній буфер (1 000 000 FE, конфіг)",
+   "можна живити кабелями чи трубами замість палива",
+   "слот для заряджуваного предмета"
+  ],
+  "stage": [
+   "s1",
+   "s2"
+  ],
+  "synergy": [
+   {
+    "mod": "ironjetpacks",
+    "why": "Реактивні ранці Iron Jetpacks літають на FE (дерев'яний вміщує 20 000 FE, конфіг) — зарядна станція заряджає їх ще до першого генератора.",
+    "src": "квест «Зарядні ґаджети» (глава «Поради та хитрощі»); config/ironjetpacks/jetpacks/wood.json: capacity",
+    "ref": [
+     "quest:637981B64BBE0D92",
+     "config:config/ironjetpacks/jetpacks/wood.json#capacity=20000"
+    ]
+   },
+   {
+    "mod": "buildinggadgets2",
+    "why": "Будівельні гаджети працюють на FE: будівельний вміщує 500 000 FE і витрачає від 50 FE на блок (конфіг) — заряджайте на станції.",
+    "src": "config/buildinggadgets2-common.toml: power.building_gadget",
+    "ref": [
+     "config:config/buildinggadgets2-common.toml#power.building_gadget.maxPower=500000",
+     "config:config/buildinggadgets2-common.toml#power.building_gadget.baseCost=50"
+    ]
+   },
+   {
+    "mod": "mininggadgets",
+    "why": "Гірничий гаджет вміщує 1 000 000 FE, базова витрата — 200 FE (конфіг): станція заряджає його повністю.",
+    "src": "config/mininggadgets-common.toml: power.mining_gadget",
+    "ref": [
+     "config:config/mininggadgets-common.toml#power.mining_gadget.maxPower=1000000",
+     "config:config/mininggadgets-common.toml#power.mining_gadget.baseCost=200"
+    ]
+   }
+  ],
+  "tips": [
+   "Рецепт — залізо, редстоун, лазурит і блок вугілля: доступна з першого заліза."
+  ],
   "chapter": "tips_and_tricks",
-  "icons": ["charginggadgets:charging_station"]
+  "icons": [
+   "charginggadgets:charging_station"
+  ],
+  "ref": [
+   "config:config/charginggadgets-server.toml#general.chargerMaxEnergy=1000000",
+   "quest:637981B64BBE0D92"
+  ]
  }
 }

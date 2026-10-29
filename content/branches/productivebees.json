@@ -1,0 +1,224 @@
+{
+ "_doc": "Гілка Productive Bees (G5): кроки — квести глави «Productive Bees» (quests), згруповані за темами; числа — config/productivebees-server.toml; бджоли з умовою bee_exists — лише для модів, що є в збірці (ref, сито).",
+ "id": "productivebees",
+ "title": "Productive Bees — ресурсні бджоли",
+ "icon": "🐝",
+ "cls": "farming",
+ "mods": [
+  "productivebees"
+ ],
+ "chapter": "productive_bees",
+ "book": "Посібник Productive Bees",
+ "enter": "s1",
+ "summary": "Ловимо бджіл у гніздах → покращений вулик → центрифуга перетворює стільники на ресурси → схрещування, інкубація й гени → покращення вулика → бджоли ATM. Частина квестів глави — бджоли модів, яких у збірці немає (Tinkers' Construct, Mekanism, Thermal тощо): види бджіл мають умову «бджола існує», тож такі бджоли не з'являться.",
+ "gives": [
+  "Стільники майже всіх ресурсів збірки — метали, кристали Powah, флюїкс, есенції Mystical Agriculture",
+  "Бджоли усемодію, вібранію й унобтанію",
+  "Пилок для селекції дерев Productive Trees і мутацій культур Productive Farming"
+ ],
+ "_src": "квести глави productive_bees (tools/quests_dump.py productive_bees); config/productivebees-server.toml; KubeJS server_scripts/mods/productivebees/recipes.js; рецепти productivebees:centrifuge/*",
+ "steps": [
+  {
+   "id": "start",
+   "x": 0,
+   "y": 1,
+   "title": "Ловимо бджіл",
+   "quests": [
+    "13AA91D39A2CABF2",
+    "29EE878BC8D3A742",
+    "68CE30097BADE20E",
+    "109AD73F016D576B"
+   ],
+   "text": "Клітка для бджіл, перший вулик. Шукач гнізд показує гнізда в радіусі 100 блоків (конфіг).",
+   "src": "квести «Productive Bees!», «Ловимо бджіл!», «Пошук гнізд», «Ваш перший вулик»; config/productivebees-server.toml",
+   "ref": [
+    "config:config/productivebees-server.toml#General.nestLocatorDistance=100"
+   ]
+  },
+  {
+   "id": "hive",
+   "x": 1,
+   "y": 1,
+   "title": "Покращений вулик",
+   "quests": [
+    "7C169A4A39F37FAC",
+    "47CEFA06392C4211",
+    "196E55B64667AE35",
+    "131EC039435B8878"
+   ],
+   "text": "Покращений вулик з розширювальним коробом; годівна плита перед вуликом — для квітів чи блоків, які бджолам треба запилювати; медові частунки.",
+   "src": "квести «Покращений вулик», «Розширювальний короб», «Годівна плита», «Медовий частунок»"
+  },
+  {
+   "id": "nests",
+   "x": 1,
+   "y": 0,
+   "title": "Гнізда й бджоли світу",
+   "quests": [
+    "120BDCB70AD352AC",
+    "3155E4212045BC8E",
+    "00A17728A387B426",
+    "5F1784E562C29B66"
+   ],
+   "text": "Гнізда, поставлені в потрібних біомах і підгодовані медовими частунками, приманюють нові види бджіл (обсидіанове, дерев'яні, з каменю Енду тощо).",
+   "src": "квести «Поява з гнізд», «Обсидіанове гніздо», «Дерев'яні гнізда», «Бджола Енду»"
+  },
+  {
+   "id": "centr",
+   "x": 2,
+   "y": 0,
+   "title": "Центрифуги",
+   "quests": [
+    "33A0E06FE5CFD8F3"
+   ],
+   "text": "Звичайна центрифуга — 300 тактів на стільник, електрична — 100 тактів і 10 FE/такт (конфіг); нагрівна потребує неактивного яйця дракона.",
+   "src": "квест «Центрифуги»; config/productivebees-server.toml; рецепт productivebees:heated_centrifuge",
+   "ref": [
+    "config:config/productivebees-server.toml#General.centrifugeProcessingTime=300",
+    "config:config/productivebees-server.toml#General.centrifugePoweredProcessingTime=100",
+    "config:config/productivebees-server.toml#General.centrifugePowerUse=10",
+    "recipe:productivebees:heated_centrifuge"
+   ]
+  },
+  {
+   "id": "breed",
+   "x": 2,
+   "y": 1,
+   "title": "Схрещування й інкубація",
+   "quests": [
+    "1B79F794EDAA810A",
+    "3E301F3EEC8C763A",
+    "17419401147B5C02",
+    "6F978C4D561F35EC"
+   ],
+   "text": "Більшість бджіл — схрещуванням двох видів або перетворенням (згодувати бджолі блок). Камера схрещування — 50 FE/такт, інкубатор витрачає 20 медових частунків (конфіг); розливач.",
+   "src": "квести «Камера схрещування», «Інкубатор для бджіл», «Схрещування й перетворення бджіл», «Розливач»; config/productivebees-server.toml",
+   "ref": [
+    "config:config/productivebees-server.toml#General.breedingChamberPowerUse=50",
+    "config:config/productivebees-server.toml#General.incubatorTreatUse=20"
+   ]
+  },
+  {
+   "id": "genes",
+   "x": 3,
+   "y": 1,
+   "title": "Гени",
+   "quests": [
+    "30A238E87F013CBB",
+    "419DD6FE84B91749",
+    "5A9B2246E33065A5",
+    "1404BB8956D5F8C7",
+    "06B6786122F3DAF9",
+    "421851D4D39910DB",
+    "65A7307F9858ECB5"
+   ],
+   "text": "Продуктивність, стійкість до погоди, поведінка (денна / нічна / цілодобова), витривалість і норов. Зразки генів збирає індексатор генів; бджола може й сама набути стійкості й поведінки — спроба раз на 1337 тактів (конфіг), квест радить прив'язати її до паркана під час грози.",
+   "src": "квести «Зразки генів», «Індексатор генів», «Продуктивність», «Стійкість до погоди», «Поведінка», «Витривалість», «Норов»; config/productivebees-server.toml",
+   "ref": [
+    "config:config/productivebees-server.toml#Bee attributes.ticks=1337"
+   ]
+  },
+  {
+   "id": "upg",
+   "x": 2,
+   "y": 2,
+   "title": "Покращення вулика",
+   "quests": [
+    "66324D7D0C51AEAC",
+    "128A14A3842325FE",
+    "6DBF9CAB37B9BBF3",
+    "500BEAD94C97DF96",
+    "4DDF647FE6494DE1"
+   ],
+   "text": "Симулятор — бджоли не вилітають, політ до квітки симулюється (квіти все одно потрібні перед вуликом). Продуктивність альфа / бета / гамма / омега — ×1.2 / ×1.5 / ×2 / ×2.6 (конфіг); омега в збірці — з самородками унобтанію.",
+   "src": "квести «Основа покращення», «Покращення: симулятор», покращення продуктивності й швидкості; config/productivebees-server.toml; KubeJS mods/productivebees/recipes.js",
+   "ref": [
+    "config:config/productivebees-server.toml#Hive Upgrades.productivityMultiplier=1.2",
+    "config:config/productivebees-server.toml#Hive Upgrades.productivityMultiplier4=2.6",
+    "recipe:kjs:mods/productivebees/recipes.js#L6"
+   ]
+  },
+  {
+   "id": "res",
+   "x": 3,
+   "y": 0,
+   "title": "Ресурсні бджоли",
+   "quests": [
+    "114D668C691A2BDF",
+    "029AA03790F055E8",
+    "1D720AC88431BD70",
+    "33422FBDAE11AE82",
+    "28AE3B536D23E138"
+   ],
+   "text": "Залізна, золота, діамантова, флюїксова, інферієва та десятки інших: центрифуга дає ресурс виду. Бджоли модів, яких у збірці немає, не з'являться — квести з ними не виконати.",
+   "src": "квести «Залізна / Золота / Діамантова / Флюїксова / Інферієва бджола»; рецепти productivebees:centrifuge/*",
+   "ref": [
+    "recipe:productivebees:centrifuge/ae2/honeycomb_fluix",
+    "recipe:productivebees:centrifuge/mysticalagriculture/honeycomb_inferium",
+    "!recipe:productivebees:tconstruct/amethyst_bronze_bee"
+   ]
+  },
+  {
+   "id": "atm",
+   "x": 4,
+   "y": 0,
+   "title": "Шлях до усемодію",
+   "quests": [
+    "4C0302FF4F63B52E",
+    "2CA3707BEE2E3C0D",
+    "6EFFF0DC80C1C8A3",
+    "6E819CCD57B15D54",
+    "2BE538246C672689"
+   ],
+   "text": "Стародавня бджола (діамантовій бджолі згодувати блок незериту) → в ливарні Productive Metalworks розплавлений усемодій на її яйце виклику → усемодієва бджола; так само вібраній і унобтаній. Центрифуга дає самородки металів.",
+   "src": "квести «Шлях до Усемодію», «Стародавня бджола», «Усемодієва / Вібранієва / Унобтанієва бджола»; рецепти productivebees:centrifuge/atm/*, productivemetalworks:casting/pbees/*",
+   "ref": [
+    "jarfile:data/productivemetalworks/recipe/casting/pbees/allthemodium_bee.json",
+    "recipe:productivebees:centrifuge/atm/honeycomb_allthemodium",
+    "recipe:productivebees:centrifuge/atm/honeycomb_unobtainium"
+   ]
+  }
+ ],
+ "links": [
+  [
+   "start",
+   "hive"
+  ],
+  [
+   "start",
+   "nests"
+  ],
+  [
+   "hive",
+   "centr"
+  ],
+  [
+   "hive",
+   "breed"
+  ],
+  [
+   "breed",
+   "genes"
+  ],
+  [
+   "hive",
+   "upg"
+  ],
+  [
+   "nests",
+   "res"
+  ],
+  [
+   "breed",
+   "res"
+  ],
+  [
+   "res",
+   "atm"
+  ],
+  [
+   "centr",
+   "atm"
+  ]
+ ]
+}

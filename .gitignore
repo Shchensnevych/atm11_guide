@@ -5,3 +5,10 @@ __pycache__/
 .env
 .env.*
 !.env.example
+# індекси сита (S) — великі, генеруються з файлів гри: tools/extract_recipes.py, tools/extract_kubejs.py
+raw/recipes_index.json
+raw/tags_index.json
+raw/lang_index.json
+raw/registry_index.json
+raw/config_index.json
+raw/kubejs_index.json

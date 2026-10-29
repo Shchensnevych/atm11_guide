@@ -21,3 +21,4 @@ input:focus, select:focus { border-color: var(--accent); }
 ::selection { background: rgb(250 204 21 / 30%); }
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-thumb { background: var(--line-2); border-radius: 6px; }
+.ftb-c { color: var(--hc); }                                 /* кольори FTB Quests (&a, &#RRGGBB) — core/fmt.js */

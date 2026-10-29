@@ -1,0 +1,257 @@
+{
+ "_doc": "Гілка «Generators N Furnaces» (G4): кроки — квести глави «Generators N Furnaces» (quests); числа — з config/generatorgalore/generator/*.json і config/ironfurnaces-common.toml (ref, сито).",
+ "id": "generators",
+ "title": "Генератори й печі — перша енергія",
+ "icon": "🔥",
+ "cls": "energy",
+ "mods": [
+  "generatorgalore",
+  "ironfurnaces"
+ ],
+ "chapter": "generators",
+ "enter": "s1",
+ "summary": "Найпростіший старт енергетики: генератори Generator Galore (паливо → FE, покращення на місці, злиття 8 однакових у 8x і 64x) і швидші печі Iron Furnaces з доповненнями (домна, коптильня, фабрика на FE, генератор). Глава «Базова енергія» в цій версії прихована — тож перша FE тут або в Powah.",
+ "gives": [
+  "Генератори на будь-якому паливі: мідний 8 FE/такт → смарагдовий і незеритовий 256, зірки Незеру 4092 (конфіг)",
+  "Генератор 8x і 64x — потужність 64 генераторів в одному блоці",
+  "Печі від 180 тактів на предмет (мідна) до 1 такту (унобтанієва)",
+  "Печі на FE: доповнення «Фабрика» й бездротовий передавач тепла"
+ ],
+ "_src": "квести глави generators (tools/quests_dump.py generators); config/generatorgalore/generator/*.json; config/ironfurnaces-common.toml",
+ "steps": [
+  {
+   "id": "furnace",
+   "x": 0,
+   "y": 1,
+   "title": "Мідна й залізна печі",
+   "quests": [
+    "47750F3CB020104C",
+    "661C072E48F8D41F",
+    "2748ACEAB96A5F60"
+   ],
+   "text": "Звичайна піч плавить предмет за 200 тактів, мідна — за 180, залізна — за 160 (конфіг). Вищі печі крафтять із попередніх або покращують на місці предметами «Покращення печі».",
+   "src": "квести «Піч», «Мідна піч», «Залізна піч»; config/ironfurnaces-common.toml: furnaces.*.speed",
+   "ref": [
+    "config:config/ironfurnaces-common.toml#furnaces.copper_furnace.speed=180",
+    "config:config/ironfurnaces-common.toml#furnaces.iron_furnace.speed=160"
+   ]
+  },
+  {
+   "id": "gen",
+   "x": 1,
+   "y": 0,
+   "title": "Перші генератори",
+   "quests": [
+    "618F1434757C8E69",
+    "61F265D9A5713A4D"
+   ],
+   "text": "Генератор працює як піч із доповненням «Генератор»: паливо → FE. Мідний дає 8 FE/такт, залізний — 16 (конфіг); покращення підвищує вироблення, запас і передачу.",
+   "src": "квести «Мідний генератор», «Залізний генератор»; config/generatorgalore/generator/copper.json, iron.json",
+   "ref": [
+    "config:config/generatorgalore/generator/copper.json#generationRate=8",
+    "config:config/generatorgalore/generator/iron.json#generationRate=16"
+   ]
+  },
+  {
+   "id": "augments",
+   "x": 1,
+   "y": 2,
+   "title": "Доповнення печей",
+   "quests": [
+    "78D1C97A542133D8",
+    "73FF01D830A669AA",
+    "33436ED0D9F128BD",
+    "49F08DE190AAD0D8",
+    "07753C5D94312A50",
+    "7F67849DE9F700D8",
+    "538821E23E39BE97"
+   ],
+   "text": "Кнопка доповнень — у правому верхньому куті інтерфейсу печі. Домна плавить лише руди, зате вдвічі швидше; коптильня — лише їжу; «Фабрика» плавить за FE замість палива; «Генератор» — навпаки, палить паливо в FE; ще є швидкість і ощадливість палива.",
+   "src": "квести «Доповнення», «Доповнення: Домна / Коптильня / Фабрика / Генератор / Швидкість / Ощадливість палива»",
+   "ref": [
+    "quest:73FF01D830A669AA~It will now only smelt Ores but at twice the speed!",
+    "quest:33436ED0D9F128BD~Now it will only smoke Food items but twice as fast!"
+   ]
+  },
+  {
+   "id": "settings",
+   "x": 2,
+   "y": 2,
+   "title": "Налаштування й тепло без кабелів",
+   "quests": [
+    "757B14D08A9A03C4",
+    "20EC8001A05CE2C8"
+   ],
+   "text": "Налаштування граней (автоввід, автовивід, редстоун) — кнопка в лівому верхньому куті печі, копіювальник переносить їх на інші печі. Бездротовий передавач тепла живлять FE, прив'язаний до нього приймач кладуть у комірку палива печі — і піч працює без палива.",
+   "src": "квести «Налаштування», «Бездротовий приймач тепла»"
+  },
+  {
+   "id": "tiers",
+   "x": 2,
+   "y": 1,
+   "title": "Вищі печі",
+   "quests": [
+    "61847F47CCA225D9",
+    "420FE84DEE12CCE0",
+    "21EA29A8C7F950CE",
+    "711DDD55CEC439E5",
+    "2354BC5330350DF6",
+    "32C7D8AE859BF89E",
+    "79C4CF8D7312FC28"
+   ],
+   "text": "Час плавки (конфіг): срібна — 140 тактів, золота — 120, діамантова — 80, смарагдова й кришталева — 40, обсидіанова — 20, незеритова — 5.",
+   "src": "квести «Срібна / Золота / Діамантова / Смарагдова / Кришталева / Обсидіанова / Незеритова піч»; config/ironfurnaces-common.toml",
+   "ref": [
+    "config:config/ironfurnaces-common.toml#furnaces.silver_furnace.speed=140",
+    "config:config/ironfurnaces-common.toml#furnaces.gold_furnace.speed=120",
+    "config:config/ironfurnaces-common.toml#furnaces.diamond_furnace.speed=80",
+    "config:config/ironfurnaces-common.toml#furnaces.emerald_furnace.speed=40",
+    "config:config/ironfurnaces-common.toml#furnaces.obsidian_furnace.speed=20",
+    "config:config/ironfurnaces-common.toml#furnaces.netherite_furnace.speed=5"
+   ]
+  },
+  {
+   "id": "gentiers",
+   "x": 2,
+   "y": 0,
+   "title": "Вищі генератори",
+   "quests": [
+    "25A3E30F722B38B6",
+    "28FEB4C11AD1AE7C",
+    "311F43D48B9C26FF",
+    "076A648E3E3245C9",
+    "07BEB974DF1E5AD3"
+   ],
+   "text": "Тверде паливо, FE/такт за конфігом: золотий — 32, діамантовий — 64, обсидіановий — 128, смарагдовий і незеритовий — 256.",
+   "src": "квести «Золотий / Діамантовий / Обсидіановий / Смарагдовий / Незеритовий генератор»; config/generatorgalore/generator/*.json",
+   "ref": [
+    "config:config/generatorgalore/generator/gold.json#generationRate=32",
+    "config:config/generatorgalore/generator/diamond.json#generationRate=64",
+    "config:config/generatorgalore/generator/obsidian.json#generationRate=128",
+    "config:config/generatorgalore/generator/emerald.json#generationRate=256",
+    "config:config/generatorgalore/generator/netherite.json#generationRate=256"
+   ]
+  },
+  {
+   "id": "special",
+   "x": 3,
+   "y": 0,
+   "title": "Особливі генератори",
+   "quests": [
+    "1C73E60FC70408D4",
+    "68972BA647FDCF8F",
+    "7297391D026EE9A6",
+    "69201157ECFBB426",
+    "6A1145678E80FB8E",
+    "552CA2ABE659A507",
+    "40DB6E3DE87F16EF",
+    "1843C79133DFB024"
+   ],
+   "text": "Вони спалюють своє: кулінарний — їжу (8 FE/такт), медовий — рідкий мед Productive Bees (64), зілля — зілля (8), Енду — перлини Енду (96), чар — зачаровані книги (40), магматичний — лаву (40), галітозний — дихання дракона (128), зірки Незеру — зірки Незеру (4092, найпотужніший).",
+   "src": "квести особливих генераторів; config/generatorgalore/generator/*.json (fuelType, fuelTag, generationRate)",
+   "ref": [
+    "config:config/generatorgalore/generator/culinary.json#generationRate=8",
+    "config:config/generatorgalore/generator/honey.json#generationRate=64",
+    "tag:fluid:c:honey",
+    "config:config/generatorgalore/generator/potion.json#generationRate=8",
+    "config:config/generatorgalore/generator/ender.json#generationRate=96",
+    "config:config/generatorgalore/generator/enchantment.json#generationRate=40",
+    "config:config/generatorgalore/generator/magmatic.json#generationRate=40",
+    "config:config/generatorgalore/generator/halitosis.json#generationRate=128",
+    "config:config/generatorgalore/generator/netherstar.json#generationRate=4092"
+   ]
+  },
+  {
+   "id": "stack",
+   "x": 3,
+   "y": 1,
+   "title": "Генератори 8x і 64x",
+   "quests": [
+    "7CE86300AF8E9BCA",
+    "72A287DCAEEFE49F"
+   ],
+   "text": "8 однакових генераторів + уламок відлуння = генератор 8x (як 8 генераторів, але в одному блоці); 8 генераторів 8x + провідник = 64x. Так будують компактну енергоферму.",
+   "src": "квести «8x — оце так угода!», «Генератори 64x»"
+  },
+  {
+   "id": "rainbow",
+   "x": 4,
+   "y": 1,
+   "title": "Веселкова піч і генератор",
+   "quests": [
+    "0AD2B11565B484E7",
+    "7A615E2A152917AD",
+    "2EE8FCB63A338BC4",
+    "062AA943A1629A86",
+    "0ADBE90B33ACC9FB"
+   ],
+   "text": "Веселкова піч збирається з усіх печей. Веселковий генератор — та сама піч із доповненням «Генератор»: якщо навколо неї працюють решта 9 печей (без ATM-печей) теж із «Генератором», вона дає на 2 kFE за такт більше.",
+   "src": "квести «Веселкова обшивка», «Веселкове ядро», «Веселкова піч», «Веселкове вугілля», «Веселковий генератор»",
+   "ref": [
+    "quest:2EE8FCB63A338BC4~The Rainbow Furnace needs quite literally every other Furnace to Craft."
+   ]
+  },
+  {
+   "id": "atm",
+   "x": 4,
+   "y": 0,
+   "title": "Печі з ATM-металів",
+   "quests": [
+    "3A4C17878FC8315B",
+    "2E85D6E2CFCC356E",
+    "25080E3295B1DF01"
+   ],
+   "text": "Усемодієва → вібранієва → унобтанієва печі (необов'язкові квести) крафтяться з ATM-злитків і попередньої печі: 5, 3 і 1 такт на предмет (конфіг).",
+   "src": "квести «Усемодієва / Вібранієва / Унобтанієва піч»; рецепти ironfurnaces:furnaces/*; config/ironfurnaces-common.toml: modded_furnaces",
+   "ref": [
+    "recipe:ironfurnaces:furnaces/allthemodium_furnace",
+    "recipe:ironfurnaces:furnaces/unobtainium_furnace",
+    "config:config/ironfurnaces-common.toml#modded_furnaces.allthemodium_furnace.speed=5",
+    "config:config/ironfurnaces-common.toml#modded_furnaces.vibranium_furnace.speed=3",
+    "config:config/ironfurnaces-common.toml#modded_furnaces.unobtainium_furnace.speed=1"
+   ]
+  }
+ ],
+ "links": [
+  [
+   "furnace",
+   "gen"
+  ],
+  [
+   "furnace",
+   "augments"
+  ],
+  [
+   "furnace",
+   "tiers"
+  ],
+  [
+   "augments",
+   "settings"
+  ],
+  [
+   "gen",
+   "gentiers"
+  ],
+  [
+   "gentiers",
+   "special"
+  ],
+  [
+   "gentiers",
+   "stack"
+  ],
+  [
+   "tiers",
+   "rainbow"
+  ],
+  [
+   "augments",
+   "rainbow"
+  ],
+  [
+   "tiers",
+   "atm"
+  ]
+ ]
+}

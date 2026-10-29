@@ -1,0 +1,12 @@
+{
+ "ov": "Спагірична алхімія: розклад речовини на Сіль, Сірку й Ртуть; у казані розрідження блок руди дає 5 алхімічних сірок, сира руда — 3, злиток — 1, а інкубатор збирає сірку назад у злиток; реформація перетворює одні сірки на інші.",
+ "ref": [
+  "recipe:theurgy:liquefaction/alchemical_sulfur_iron_from_ores_iron",
+  "recipe:theurgy:liquefaction/alchemical_sulfur_iron_from_raw_materials_iron",
+  "recipe:theurgy:liquefaction/alchemical_sulfur_iron_from_ingots_iron",
+  "recipe:theurgy:incubation/ingots_iron_from_alchemical_sulfur_iron",
+  "quest:7878F190BC8ADC82",
+  "lang:book.theurgy.the_hermetica.apparatus.liquefaction_cauldron.usage.text"
+ ],
+ "_src": "рецепти theurgy liquefaction / incubation (числа — з рецептів, не з квесту; глибока звірка магії — G6e)"
+}

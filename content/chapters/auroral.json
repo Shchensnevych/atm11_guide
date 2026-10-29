@@ -1,0 +1,14 @@
+{
+ "ov": "Аврора — рідкісна нічна подія в засніжених біомах (шанс 0,33 за ніч, конфіг): нові рослини й моби, рідка аврора в льодовиковій чаші, спорядження з мерехтливої сталі й тканини, ковзани.",
+ "ref": [
+  "quest:637EF6D9DFC59EE8",
+  "config:config/auroral-server.toml#aurora_chance=0.33",
+  "quest:1F880C6A777B4199",
+  "quest:5C2AE7715B3A8EED",
+  "recipe:auroral:glacial_basin",
+  "quest:58799D0038E198DF",
+  "quest:2AB2456B6B8EEAD8",
+  "item:auroral:shimmerweave_skates"
+ ],
+ "_src": "квести глави, config/auroral-server.toml, реєстр предметів auroral"
+}

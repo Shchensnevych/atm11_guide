@@ -29,5 +29,18 @@
  "easy_villagers:auto_trader": {"models": ["easy_villagers:block/auto_trader"]},
  "easy_villagers:converter": {"models": ["easy_villagers:block/converter"]},
  "easy_villagers:breeder": {"models": ["easy_villagers:block/breeder"]},
- "easy_piglins:barterer": {"models": ["easy_piglins:block/barterer"]}
+ "easy_piglins:barterer": {"models": ["easy_piglins:block/barterer"]},
+ "sophisticatedbackpacks:copper_backpack": {"models": ["sophisticatedbackpacks:block/backpack_base", "sophisticatedbackpacks:block/backpack_straps", "sophisticatedbackpacks:block/backpack_front_pouch", "sophisticatedbackpacks:block/backpack_left_pouch", "sophisticatedbackpacks:block/backpack_right_pouch"], "tints": [-3382982, -4034497]},
+ "sophisticatedbackpacks:gold_backpack": {"models": ["sophisticatedbackpacks:block/backpack_base", "sophisticatedbackpacks:block/backpack_straps", "sophisticatedbackpacks:block/backpack_front_pouch", "sophisticatedbackpacks:block/backpack_left_pouch", "sophisticatedbackpacks:block/backpack_right_pouch"], "tints": [-3382982, -670398]},
+ "sophisticatedbackpacks:diamond_backpack": {"models": ["sophisticatedbackpacks:block/backpack_base", "sophisticatedbackpacks:block/backpack_straps", "sophisticatedbackpacks:block/backpack_front_pouch", "sophisticatedbackpacks:block/backpack_left_pouch", "sophisticatedbackpacks:block/backpack_right_pouch"], "tints": [-3382982, -11738926]},
+ "kubejs:liquid_souls_bucket": {"bucket": "#c9eaff"},
+ "kubejs:liquid_aureal_bucket": {"bucket": "#7abaff"},
+ "mysticalagriculture:unexplored_wood_seeds": {"texture": "mysticalagriculture:item/mystical_seeds", "tints": [4290746653]},
+ "mysticalagriculture:darkstone_seeds": {"texture": "mysticalagriculture:item/mystical_seeds", "tints": [4280163625]},
+ "mysticalagriculture:azure_silver_seeds": {"texture": "mysticalagriculture:item/mystical_seeds", "tints": [4294622972]},
+ "mysticalagriculture:crimson_iron_seeds": {"texture": "mysticalagriculture:item/mystical_seeds", "tints": [4294729863]},
+ "mysticalagriculture:entro_seeds": {"texture": "mysticalagriculture:item/mystical_seeds", "tints": [4294967295]},
+ "mysticalagriculture:allthemodium_seeds": {"texture": "mysticalagriculture:item/mystical_seeds", "tints": [4294769725]},
+ "mysticalagriculture:vibranium_seeds": {"texture": "mysticalagriculture:item/mystical_seeds", "tints": [4280736646]},
+ "mysticalagriculture:unobtainium_seeds": {"texture": "mysticalagriculture:item/mystical_seeds", "tints": [4291711456]}
 }

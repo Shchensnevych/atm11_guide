@@ -1,0 +1,20 @@
+{
+ "ov": "Ритуальна Кузня Гефеста (5 рівнів, чотири есенції — ауреал, ектоплазма («душі» у квестах), кров, досвід) й арканне ремесло: деорум, рунічні й містичні кристали, Вічна Стелла. Старт — глибоко під землею: містичні кристали — на висотах від -40 до 14, рунічний камінь — нижче 2, темнокамінь — біля дна світу.",
+ "ref": [
+  "quest:185DBBDD252CBA0C",
+  "quest:15849165CA8C00F9",
+  "quest:4BE209D5DAF1F321",
+  "quest:539266A1C03C2EBA",
+  "quest:40B757772D0FBAC9",
+  "quest:2ADA491A2485061C",
+  "quest:29434DB0CC2E30E6",
+  "quest:31AD9826FB036C98",
+  "quest:62C60FF24B2F7290",
+  "quest:5A6FF0D4BA894306",
+  "jarfile:forbidden_arcanus!data/forbidden_arcanus/worldgen/placed_feature/arcane_crystal_ore.json",
+  "jarfile:forbidden_arcanus!data/forbidden_arcanus/worldgen/placed_feature/runic_stone.json",
+  "jarfile:forbidden_arcanus!data/forbidden_arcanus/worldgen/placed_feature/darkstone.json~above_bottom",
+  "lang:essence.forbidden_arcanus.ectoplasm"
+ ],
+ "_src": "квести глави (рівні Кузні, есенції), placed_feature у jar forbidden_arcanus (висоти руд — не з квесту)"
+}

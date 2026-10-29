@@ -1,342 +1,782 @@
 {
  "_doc": "G1d (2026-10-25): група «Ферми, бджоли та їжа» (farming) — екосистема Productive (Productive Bees + вбудована Productive Lib, Productive Trees, Productive Farming), високотехнологічні садильники Agritech: Evolved, кулінарія й багатоблокова кухня (Croptopia + EpheroLib, Farming for Blockheads, Cooking for Blockheads), бонусні серця Spice of Life: Carrot Edition та AppleSkin, риболовля Aquaculture 2 і Starcatcher (+ LibTooltips), одноблокова автоматизація селян і піґлінів (Easy Villagers, Easy Piglins, Just Enough Professions). Факти звірено з KubeJS, конфігами, квестами та jar-файлами збірки. features — явно для кожного мода.",
-
  "_— екосистема Productive (бджоли, дерева, багатоблокові ферми) —": "",
  "productivebees": {
-  "cls": ["farming", "resources"],
-  "role": "content",
-  "features": ["mobs"],
-  "uk": "Понад 200 видів ресурсних бджіл (від заліза й кварцу до усемодію, унобтанію та стелариту), покращені вулики з симуляцією без лагів, генна інженерія та вбудована бібліотека покращень Productive Lib.",
-  "what": [
-   "природні гнізда (`*_nest`, шукаються шукачем гнізд `productivebees:nest_locator` у радіусі 100 блоків) із бджолами-одиначками, клітки для перенесення (`bee_cage` і багаторазова `sturdy_bee_cage`), покращені вулики (`advanced_*_beehive`) з розширювальними коробами (`expansion_box_*`) на 5 бджіл і 4 слоти покращень та годівні плити (`feeder`), на які кладуть блоки чи предмети ресурсів для запилення",
-   "переробка стільників: звичайна центрифуга (`centrifuge`, 300 тактів), електрична центрифуга (`powered_centrifuge`, 100 тактів, 10 FE/такт) і нагрівна центрифуга (`heated_centrifuge`, переробляє одразу цілі блоки стільників удвічі швидше й без побічного воску!)",
-   "селекція та генетика: камера схрещування (`breeding_chamber`, 50 FE/такт), інкубатор для бджіл (`incubator`, 20 медових частунків), розливач (`bottler`), індексатор генів (`gene_indexer`, автоматично збирає 100% зразки генів) і 5 ключових характеристик — продуктивність (до «дуже високої»), поведінка (до «цілодобової»), стійкість до погоди (до «будь-якої»), витривалість та норов",
-   "вбудована бібліотека Productive Lib (`productivelib`, упакована всередину jar-файлу мода): додає покращення швидкості, пробник генів (`upgrade_gene_sampler`), симулятор (`upgrade_simulator` — бджоли не вилітають із вулика й не навантажують сервер!) та 4 рівні продуктивності: альфа (`×1.2`), бета (`×1.5`), гамма (`×2.0` + вбудований симулятор) і омега (`×2.6` + вбудований симулятор + видача одразу блоків стільників!)"
+  "cls": [
+   "farming",
+   "resources"
   ],
-  "stage": ["s1", "s2", "s3", "s4", "s5", "s6"],
+  "role": "content",
+  "features": [
+   "mobs"
+  ],
+  "uk": "Ресурсні бджоли: гнізда у світі, вулики, центрифуги для стільників, схрещування й генетика. Види бджіл задано даними з умовою «бджола існує», тож бджоли модів, яких у збірці немає, не з'являються; квести глави «Productive Bees» ведуть від перших гнізд до усемодієвої, вібранієвої й унобтанієвої бджіл.",
+  "what": [
+   "гнізда у світі (шукач гнізд — радіус 100 блоків, конфіг), клітки для бджіл, покращені вулики з розширювальними коробами, годівна плита для ресурсних блоків",
+   "центрифуги: звичайна — 300 тактів, електрична — 100 тактів і 10 FE/такт (конфіг), нагрівна (рецепт потребує неактивного яйця дракона)",
+   "камера схрещування (50 FE/такт), інкубатор (20 медових частунків), розливач, індексатор генів; гени — продуктивність, поведінка, стійкість до погоди, витривалість, норов",
+   "покращення вулика (Productive Lib): симулятор, швидкість, фільтр, радіус, малюк, блок, продуктивність альфа / бета / гамма / омега — ×1.2 / ×1.5 / ×2 / ×2.6 (конфіг)"
+  ],
+  "stage": [
+   "s1",
+   "s2",
+   "s3",
+   "s4",
+   "s5",
+   "s6"
+  ],
   "synergy": [
-   {"mod": "allthemodium", "why": "покращення продуктивності омега (`productivelib:upgrade_productivity_4`) крафтиться з 2 самородків унобтанію (`mods/productivebees/recipes.js`), а бджоли генерують усемодій, вібраній та унобтаній"},
-   {"mod": "forbidden_arcanus", "why": "стеларитова бджола створюється ритуалом на кузні Гефеста 5-го рівня з яйця незеритової бджоли, 2 блоків вібранію, 4 вічних стел і 2 шматків стелариту"},
-   {"mod": "justdirethings", "why": "стільники досвіду в центрифузі дають по 100 мБ рідкого досвіду (`justdirethings:xp_fluid_source`)"},
-   {"mod": "mysticalagradditions", "why": "стільники візерової бджоли входять до мирного крафту висушеної душі (`withering_soul`)"},
-   {"mod": "productivetrees", "why": "бджоли (або покращення «сито для пилку» у вулику) запилюють листя дерев для виведення нових порід"}
+   {
+    "mod": "allthemodium",
+    "why": "Усемодієва, вібранієва й унобтанієва бджоли: центрифуга дає самородки цих металів.",
+    "src": "рецепти productivebees:centrifuge/atm/honeycomb_allthemodium, _vibranium, _unobtainium; квести «Усемодієва / Вібранієва / Унобтанієва бджола»",
+    "ref": [
+     "recipe:productivebees:centrifuge/atm/honeycomb_allthemodium",
+     "recipe:productivebees:centrifuge/atm/honeycomb_unobtainium",
+     "quest:6EFFF0DC80C1C8A3"
+    ]
+   },
+   {
+    "mod": "mysticalagriculture",
+    "why": "Бджоли есенцій: центрифуга дає есенції від інферію до пробудженого супремію та уламки процвітання.",
+    "src": "рецепти productivebees:centrifuge/mysticalagriculture/*",
+    "ref": [
+     "recipe:productivebees:centrifuge/mysticalagriculture/honeycomb_awakened_supremium",
+     "recipe:productivebees:centrifuge/mysticalagriculture/honeycomb_prosperity"
+    ]
+   },
+   {
+    "mod": "powah",
+    "why": "Бджоли Powah: центрифуга дає уранініт, заряджену сталь і кристали Powah аж до нітро.",
+    "src": "рецепти productivebees:centrifuge/powah/*",
+    "ref": [
+     "recipe:productivebees:centrifuge/powah/honeycomb_uraninite",
+     "recipe:productivebees:centrifuge/powah/honeycomb_nitro_crystal"
+    ]
+   },
+   {
+    "mod": "ae2",
+    "why": "Флюїксова бджола: центрифуга дає кристали й пил флюїксу.",
+    "src": "рецепт productivebees:centrifuge/ae2/honeycomb_fluix",
+    "ref": [
+     "recipe:productivebees:centrifuge/ae2/honeycomb_fluix"
+    ]
+   },
+   {
+    "mod": "productivetrees",
+    "why": "Покращення «Сито для пилку» у вулику збирає пилок дерев (шанс 2 %, конфіг Productive Trees) для селекції нових порід.",
+    "src": "рецепт productivetrees:pollen_sieve; config/productivetrees-server.toml: pollenChanceFromSieve",
+    "ref": [
+     "recipe:productivetrees:pollen_sieve",
+     "config:config/productivetrees-server.toml#General.pollenChanceFromSieve=2",
+     "quest:5577F49A93ADB19C",
+     "item:productivebees:advanced_oak_beehive"
+    ]
+   },
+   {
+    "mod": "productivemetalworks",
+    "why": "Бджоли ATM робляться в ливарні Productive Metalworks: розплавлений усемодій (вібраній, унобтаній) виливають на яйце виклику попередньої бджоли — так за квестами «Усемодієва / Вібранієва / Унобтанієва бджола».",
+    "src": "квести «Усемодієва бджола» та ін. (глава «Productive Bees»); рецепти productivemetalworks:casting/pbees/*",
+    "ref": [
+     "quest:6EFFF0DC80C1C8A3",
+     "jarfile:data/productivemetalworks/recipe/casting/pbees/allthemodium_bee.json"
+    ]
+   }
   ],
   "tips": [
-   "Обов'язково ставте у кожен покращений вулик покращення «симулятор» (`productivelib:upgrade_simulator`) або продуктивність гамма/омега, а годівну плиту (`productivebees:feeder`) розміщуйте на 1 блок нижче й на 1 блок попереду від лицьового боку вулика!",
-   "Найшвидший спосіб здобути гени «Поведінка: цілодобова» та «Стійкість до погоди: будь-яка» на старті — прив'язати кількох бджіл повідцем до паркану просто неба вночі та в дощ (у `productivebees-server.toml` інтервал адаптації становить 1337 тактів ≈ 67 с)."
+   "З покращенням «Симулятор» бджоли не вилітають із вулика — політ до квітки симулюється, але квіти чи блок для запилення все одно мають стояти перед вуликом (квест «Покращення: симулятор»).",
+   "Гени «Стійкість до погоди: будь-яка» й «Поведінка: цілодобова» бджола може набути сама — квест радить прив'язати її до паркана під час грози; спроба раз на 1337 тактів (конфіг).",
+   "Покращення «Продуктивність омега» збірка крафтить з покращення гамма, покращення «Блок», серця моря й самородків унобтанію (mods/productivebees/recipes.js)."
   ],
-  "spoiler": "Чотири покращення продуктивності омега (`productivelib:upgrade_productivity_4`) в одному вулику дають множник і одразу видають цілі блоки стільників для нагрівної центрифуги без жодної бджоли-сутності у світі.",
   "chapter": "productive_bees",
   "book": "Великий посібник з бджільництва",
-  "icons": ["productivebees:advanced_oak_beehive", "productivebees:heated_centrifuge", "productivebees:sturdy_bee_cage", "productivebees:incubator"]
+  "icons": [
+   "productivebees:advanced_oak_beehive",
+   "productivebees:heated_centrifuge",
+   "productivebees:sturdy_bee_cage",
+   "productivebees:incubator"
+  ],
+  "ref": [
+   "config:config/productivebees-server.toml#General.nestLocatorDistance=100",
+   "item:productivebees:nest_locator",
+   "item:productivebees:sturdy_bee_cage",
+   "item:productivebees:advanced_oak_beehive",
+   "item:productivebees:expansion_box_oak",
+   "item:productivebees:feeder",
+   "config:config/productivebees-server.toml#General.centrifugeProcessingTime=300",
+   "config:config/productivebees-server.toml#General.centrifugePoweredProcessingTime=100",
+   "config:config/productivebees-server.toml#General.centrifugePowerUse=10",
+   "recipe:productivebees:heated_centrifuge",
+   "config:config/productivebees-server.toml#General.breedingChamberPowerUse=50",
+   "config:config/productivebees-server.toml#General.incubatorTreatUse=20",
+   "item:productivebees:gene_indexer",
+   "quest:5A9B2246E33065A5",
+   "config:config/productivebees-server.toml#Hive Upgrades.productivityMultiplier=1.2",
+   "config:config/productivebees-server.toml#Hive Upgrades.productivityMultiplier2=1.5",
+   "config:config/productivebees-server.toml#Hive Upgrades.productivityMultiplier3=2.0",
+   "config:config/productivebees-server.toml#Hive Upgrades.productivityMultiplier4=2.6",
+   "quest:128A14A3842325FE",
+   "quest:1404BB8956D5F8C7",
+   "config:config/productivebees-server.toml#Bee attributes.ticks=1337",
+   "recipe:kjs:mods/productivebees/recipes.js#L6",
+   "!recipe:productivebees:bee_produce/shiny_bee"
+  ]
  },
  "productivetrees": {
-  "cls": ["farming", "resources", "decor"],
+  "cls": [
+   "farming",
+   "resources",
+   "decor"
+  ],
   "role": "content",
   "features": [],
-  "uk": "Селекція понад 160 видів дерев за допомогою бджолиного пилку: фруктові, горіхові, пряні, каучукові та магічні породи з унікальною деревиною й власними деревообробними верстатами.",
+  "uk": "Селекція дерев: пилок з листя одного дерева запилює інше — і виростає паросток нової породи: фруктові, горіхові, пряні, будівельні й рідкісні. У збірці 163 паростки й 149 рецептів запилення; деревообробні машини дають більше деревини.",
   "what": [
-   "виведення понад 160 порід дерев через запилення листя бджолами (або встановлення у вулик покращення `productivelib:upgrade_pollen_sieve` із шансом 2%) чи через сито для пилку (`productivetrees:pollen_sifter`, 300 тактів, 20 FE/такт)",
-   "десятки плодових, горіхових і пряних культур (лайм, лимон, апельсин, грейпфрут, манго, банан, кокос, авокадо, кавове дерево, мускатний горіх, кориця, гвоздика, бадьян, фісташка, волоський горіх, цукровий клен для кленового сиропу, гевея для каучуку)",
-   "рідкісні скарбові й магічні дерева (чорна жарина в бастіонах, блакитна далечінь у кораблях, петарда в стародавніх містах, дерево душ в Енді, лагерстремія «Місячна магія») та деревообробні машини — лісопилка (`sawmill`), окорювач (`stripper`) і столярний верстат (`wood_worker`)"
+   "пилок: сито для пилку (машина) або покращення «Сито для пилку» у вулику Productive Bees (шанс 2 %, конфіг); запилене листя дає паросток нової породи (рецепти productivetrees:pollination/*)",
+   "рідкісні паростки — у скринях структур (бастіони, стародавні міста, кораблі тощо — квести глави); деякі паростки самі мутують в інші (квест «Самомутація»)",
+   "окорювач обтісує колоди сокирами, лісопилка дає тирсу й більше дощок, ніж крафт; столярний верстат",
+   "плоди, горіхи й кленовий сироп"
   ],
-  "stage": ["s1", "s2", "s3", "s4"],
+  "stage": [
+   "s1",
+   "s2",
+   "s3",
+   "s4"
+  ],
   "synergy": [
-   {"mod": "productivebees", "why": "бджоли переносять пилок між кронами дерев або збирають його у вулику з покращенням сита для пилку"},
-   {"mod": "mysticalcustomization", "why": "паросток лагерстремії «Місячна магія» (`productivetrees:moonlight_magic_crepe_myrtle_sapling`) є обов'язковим компонентом крафту `§bЧарівного ґрунту` (`kubejs:magical_soil`) для насіння усемодію!"},
-   {"mod": "solcarrot", "why": "десятки фруктів, горіхів і смажених страв Productive Trees швидко додають нові позиції у Книгу їжі"}
+   {
+    "mod": "agritechevolved",
+    "why": "Садильники Agritech вирощують усі породи Productive Trees — рецепти для кожного паростка.",
+    "src": "рецепти productivetrees:agritech_evolved/*",
+    "ref": [
+     "recipe:productivetrees:agritech_evolved/alder",
+     "count:recipes:^productivetrees:agritech_evolved/=163",
+     "count:items:productivetrees|_sapling$=163"
+    ],
+    "abs_ok": "«усі породи» — 163 рецепти productivetrees:agritech_evolved/* = 163 паростки (count:)"
+   },
+   {
+    "mod": "mysticalcustomization",
+    "why": "Паросток лагерстремії «Місячна магія» — інгредієнт «Чарівного ґрунту» для ATM-насіння Mystical Agriculture.",
+    "src": "KubeJS mods/mysticalagriculture/recipes.js (allthemods:kjs/magical_soil)",
+    "ref": [
+     "recipe:allthemods:kjs/magical_soil",
+     "config:config/mysticalcustomization/crops/allthemodium.json#crux=kubejs:magical_soil"
+    ]
+   }
   ],
   "tips": [
-   "Повне дерево схрещувань усіх 160+ порід наочно викладене в розділі квестів «Productive Trees» (167 квестів) та вкладці JEI «Запилення дерев».",
-   "Щоб не чекати природного перельоту бджіл між деревами, зріжте листя ножицями й проженіть його через сито для пилку (`productivetrees:pollen_sifter`), а отриманим пилком клацніть ПКМ по листю другого дерева."
+   "Повне дерево схрещувань — у главі «Productive Trees» (166 квестів) і в JEI."
   ],
   "chapter": "productive_trees",
-  "icons": ["productivetrees:pollen_sifter", "productivetrees:sawmill", "productivetrees:moonlight_magic_crepe_myrtle_sapling", "productivetrees:maple_syrup"]
+  "icons": [
+   "productivetrees:pollen_sifter",
+   "productivetrees:sawmill",
+   "productivetrees:moonlight_magic_crepe_myrtle_sapling",
+   "productivetrees:maple_syrup"
+  ],
+  "ref": [
+   "item:productivetrees:pollen_sifter",
+   "item:productivelib:upgrade_pollen_sieve",
+   "config:config/productivetrees-server.toml#General.pollenChanceFromSieve=2",
+   "recipe:productivetrees:pollination/alder",
+   "quest:18A2F6BA778D96B1",
+   "quest:0661E9669E639621",
+   "quest:543F00603790AD3E",
+   "quest:76A0592F4C294545",
+   "item:productivetrees:wood_worker",
+   "item:productivetrees:maple_syrup",
+   "quest:5577F49A93ADB19C",
+   "count:items:productivetrees|_sapling$=163",
+   "count:recipes:^productivetrees:pollination/=149",
+   "count:quests:productive_trees=166"
+  ]
  },
  "productivefarming": {
-  "cls": ["farming", "decor"],
+  "cls": [
+   "farming",
+   "decor"
+  ],
   "role": "content",
   "features": [],
-  "uk": "Понад 150 видів овочів, зернових, ягід, трав і квітів із власною генетикою культур, багатоблоковими рослинними й рибними фермами та аквапонікою.",
+  "uk": "Понад 150 культур — овочі, зернові, ягоди, трави й квіти — з характеристиками росту й урожаю, мультиблокова автоферма, годівниця й напувалка для тварин; насіння продають селяни-фермери.",
   "what": [
-   "понад 150 садово-городніх культур (десятки сортів помідорів, кукурудзи, винограду, перцю, ягід, зелені й лікарських трав) та гібридних квітів із можливістю перефарбування",
-   "генетика рослин (`traitsOnCrops = true`): кожна культура має показники росту, урожайності, стійкості та мінливості, які підвищуються під час селекції й запилення бджолами",
-   "багатоблокова ферма на базі контролера ферми (`productivefarming:farm_controller`) та люка ферми (`farm_hatch`, розмір від 3×3 до об'єму 1024 блоки): низька конструкція автоматично збирає й пересаджує посіви, а висока водна конструкція працює як рибна ферма та аквапонна система з поживною водою; також є годівниця (`feeding_trough`) й напувалка (`watering_trough`) для тварин"
+   "автоферма: контролер ферми й блоки ферми, об'єм до 1024 блоків, висота до 20 (конфіг); збирає й пересаджує врожай",
+   "годівниця й напувалка: корм і воду подають трубами, спрацьовують раз на 1200 тактів (конфіг)",
+   "мутації: культури мутують, коли бджоли запилюють ділянку з певними культурами (квест «Мутації», JEI); квіти й їх перефарбовування",
+   "насіння й культури продають селяни-фермери (villagersTradeSeeds = true)"
   ],
-  "stage": ["s0", "s1", "s2", "s3"],
+  "stage": [
+   "s0",
+   "s1",
+   "s2",
+   "s3"
+  ],
   "synergy": [
-   {"mod": "productivebees", "why": "бджоли запилюють посіви й допомагають прокачувати генетичні характеристики культур"},
-   {"mod": "solcarrot", "why": "величезне різноманіття овочів, салатів і ягід для швидкого здобуття +10 бонусних сердець"},
-   {"mod": "cookingforblockheads", "why": "врожай Productive Farming інтегрується в рецепти багатоблокової кухні"}
+   {
+    "mod": "productivebees",
+    "why": "Бджоли запилюють посіви — так з'являються мутації культур (квест «Мутації» дає міцну клітку для бджіл).",
+    "src": "квест «Мутації» (глава «Productive Farming»)",
+    "ref": [
+     "quest:06B197EB778C17AC"
+    ]
+   },
+   {
+    "mod": "agritechevolved",
+    "why": "Садильники Agritech вирощують культури Productive Farming — для них є рецепти садильника.",
+    "src": "рецепти productivefarming:agritech_evolved/*",
+    "ref": [
+     "recipe:productivefarming:agritech_evolved/agave"
+    ]
+   }
   ],
   "tips": [
-   "Наведіть курсор на контролер ферми (`productivefarming:farm_controller`) і затисніть клавішу Ponder (`W`), щоб переглянути покрокову 3D-схему побудови рослинної, рибної та аквапонної ферми.",
-   "Якщо різні рівні генетики на зібраних овочах займають зайві слоти в сховищі, вставте в контролер ферми покращення стабільності (`productivelib:upgrade_stability`) — воно очищує NBT-характеристики зібраного врожаю."
+   "Як будувати автоферму — квести «Автоферма» й «Будуємо» глави «Productive Farming»."
   ],
   "chapter": "productive_farming",
-  "icons": ["productivefarming:farm_controller", "productivefarming:watering_trough", "productivefarming:beefsteak_tomato", "productivefarming:rainbow_corn"]
+  "icons": [
+   "productivefarming:farm_controller",
+   "productivefarming:watering_trough",
+   "productivefarming:beefsteak_tomato",
+   "productivefarming:rainbow_corn"
+  ],
+  "ref": [
+   "config:config/productivefarming-server.toml#General.farmMaxVolume=1024",
+   "config:config/productivefarming-server.toml#General.farmMaxHeight=20",
+   "quest:2AFB12E742596864",
+   "quest:2CFD0DF119CC5E85",
+   "config:config/productivefarming-server.toml#General.feedingTroughTickRate=1200",
+   "config:config/productivefarming-server.toml#General.wateringTroughTickRate=1200",
+   "item:productivefarming:feeding_trough",
+   "item:productivefarming:watering_trough",
+   "quest:06B197EB778C17AC",
+   "config:config/productivefarming-startup.toml#General.villagersTradeSeeds=true",
+   "quest:699F91BC5CA58FE2"
+  ]
  },
-
  "_— технологічна агрономія —": "",
  "agritechevolved": {
-  "cls": ["farming", "tech", "energy", "resources"],
+  "cls": [
+   "farming",
+   "tech",
+   "energy",
+   "resources"
+  ],
   "role": "content",
   "features": [],
-  "uk": "Одноблокові садильники з куполами-ковпаками, модулями швидкості й урожайності MK1–MK3, безтрубним силосом і біоенергетикою (повна підтримка Mystical Agriculture та насіння усемодію!).",
+  "uk": "Одноблокові садильники для культур, дерев і насіння Mystical Agriculture: модулі швидкості, урожаю й радіуса MK1–MK3, купол-ковпак, силос, що збирає врожай без труб, і біоенергетика.",
   "what": [
-   "базові дерев'яні й керамічні садильники (`agritechevolved:basic_planter`, цикл 1200 тактів без енергії) та покращений садильник (`advanced_planter`, базовий цикл 600 тактів, 128 FE/такт, буфер 100 тис. FE) для вирощування рослин, дерев і ресурсного насіння в одному блоці",
-   "купол-ковпак (`cloche_dome`, ставиться зверху на садильник і дає мультиплікативний бонус ×1.15 до швидкості та ×1.1 до врожайності), насичена рілля (`infused_farmland` — +100% швидкості росту) та мульча (`mulch` — +50%)",
-   "модулі покращення MK1 / MK2 / MK3: швидкість (`sm_mk1`–`sm_mk3`, ×1.5 / ×1.75 / ×2.0), урожайність (`ym_mk1`–`ym_mk3`, ×1.5 / ×1.75 / ×2.0) та радіус (`rm_mk1`–`rm_mk3`, +16 / +32 / +64 блоки)",
-   "силос (`silo` — автоматично збирає врожай з усіх садильників у радіусі 16–80 блоків кожні 60 тактів без жодних труб!), розкидач добрив (`fertilizer_spreader`), компостер (`composter`), пальник біомаси (`biomass_burner`, до 225 тис. FE з пресованої біомаси) і конденсатори Tier 1–3 (до 4 млн FE)"
+   "садильники: базові (без енергії) і покращений садильник — 128 FE/такт, буфер 100000 FE; базовий час обробки 1200 тактів, у покращеного — 600 (конфіг)",
+   "купол-ковпак зверху на садильнику: ×1.15 до швидкості й ×1.1 до врожаю (конфіг); ґрунти — рілля, насичена рілля, мульча, для насіння MA — рілля свого рівня (теги agritechevolved:ma_tier*_soils)",
+   "модулі MK1 / MK2 / MK3: швидкість ×1.5 / ×1.75 / ×2 (у стільки ж разів більше енергії), урожай ×1.5 / ×1.75 / ×2 (зі сповільненням до 0.75 на MK3), радіус (конфіг)",
+   "силос збирає врожай із садильників довкола (базовий радіус 16, раз на 60 тактів), розкидач добрив, компостер, пальник біомаси (блок пресованої біомаси — 225000 FE) і конденсатори Tier 1–3 (до 4000000 FE)"
   ],
-  "stage": ["s1", "s2", "s3", "s4"],
+  "stage": [
+   "s1",
+   "s2",
+   "s3",
+   "s4"
+  ],
   "synergy": [
-   {"mod": "mysticalagriculture", "why": "найчистіший одноблоковий спосіб вирощувати есенції Mystical Agriculture з множниками модулів MK3"},
-   {"mod": "mysticalcustomization", "why": "скрипт `mods/agritechevolved/mysticalcustomization_agritech.js` додає в садильники підтримку всіх 11 кастомних культур ATM11 (включно з усемодієм, вібранієм і унобтанієм на `kubejs:magical_soil`!)"},
-   {"mod": "ae2", "why": "достатньо підключити шину зберігання або імпорту AE2 до одного силоса (`agritechevolved:silo`), щоб збирати врожай із десятків садильників у залі"}
+   {
+    "mod": "mysticalagriculture",
+    "why": "Рецепти садильника для культур MA (142 рецепти): есенції ростуть в одному блоці, з модулями MK3 і куполом; насінню рівня 6 у слот ґрунту кладуть його основу (crux).",
+    "src": "рецепти agritechevolved:planter/crop/mysticalagriculture/*",
+    "ref": [
+     "recipe:agritechevolved:planter/crop/mysticalagriculture/inferium_seeds",
+     "tag:agritechevolved:ma_tier1_soils",
+     "count:recipes:^agritechevolved:planter/crop/mysticalagriculture/=142",
+     "recipe:agritechevolved:planter/crop/mysticalagriculture/nether_star_seeds"
+    ]
+   },
+   {
+    "mod": "croptopia",
+    "why": "Насіння й культури Croptopia ростуть у садильнику.",
+    "src": "рецепти agritechevolved:planter/crop/croptopia/*",
+    "ref": [
+     "recipe:agritechevolved:planter/crop/croptopia/artichoke_seed"
+    ]
+   }
   ],
   "tips": [
-   "Поставте на покращений садильник купол-ковпак (`cloche_dome`), покладіть усередину насичену ріллю (`infused_farmland`) або `§bЧарівний ґрунт` (`kubejs:magical_soil`) і вставте модулі MK3 — садильник працюватиме в рази швидше без жодного навантаження на FPS і TPS.",
-   "Один силос (`agritechevolved:silo`) із модулем радіуса MK3 покриває квадрат радіусом 80 блоків, повністю замінюючи предметні труби під садильниками."
+   "ATM-насіння Mystical Agriculture (усемодій, вібраній, унобтаній) росте в садильнику на «Чарівному ґрунті» в слоті ґрунту, насіння рівня 6 — на своїй основі (crux)."
   ],
-  "icons": ["agritechevolved:advanced_planter", "agritechevolved:cloche_dome", "agritechevolved:silo", "agritechevolved:ym_mk3"]
+  "icons": [
+   "agritechevolved:advanced_planter",
+   "agritechevolved:cloche_dome",
+   "agritechevolved:silo",
+   "agritechevolved:ym_mk3"
+  ],
+  "ref": [
+   "config:config/agritechevolved-common.toml#machines.advanced_planter.base_power_consumption=128",
+   "config:config/agritechevolved-common.toml#machines.advanced_planter.energy_buffer=100000",
+   "config:config/agritechevolved-common.toml#machines.advanced_planter.base_processing_time=1200",
+   "config:config/agritechevolved-common.toml#machines.advanced_planter.advanced_base_processing_time=600",
+   "config:config/agritechevolved-common.toml#machines.advanced_planter.cloche_speed_multiplier=1.15",
+   "config:config/agritechevolved-common.toml#machines.advanced_planter.cloche_yield_multiplier=1.1",
+   "tag:agritechevolved:ma_tier1_soils",
+   "config:config/agritechevolved-common.toml#modules.speed_modules.mk1_speed_multiplier=1.5",
+   "config:config/agritechevolved-common.toml#modules.speed_modules.mk2_speed_multiplier=1.75",
+   "config:config/agritechevolved-common.toml#modules.speed_modules.mk3_speed_multiplier=2.0",
+   "config:config/agritechevolved-common.toml#modules.yield_modules.mk3_yield_multiplier=2.0",
+   "config:config/agritechevolved-common.toml#modules.yield_modules.mk3_speed_penalty=0.75",
+   "item:agritechevolved:rm_mk3",
+   "config:config/agritechevolved-common.toml#machines.silo.base_range=16",
+   "config:config/agritechevolved-common.toml#machines.silo.pull_interval=60",
+   "config:config/agritechevolved-common.toml#machines.burner.compacted_biomass_block_rf_value=225000",
+   "config:config/agritechevolved-common.toml#machines.capacitors.tier_3.buffer_capacity=4000000",
+   "item:agritechevolved:fertilizer_spreader",
+   "file:kubejs/server_scripts/mods/mysticalagriculture/mysticalcustomization_agritech.js~soil: \"kubejs:magical_soil\"",
+   "recipe:agritechevolved:planter/crop/mysticalagriculture/nether_star_seeds"
+  ]
  },
-
  "_— кулінарія, багатоблокова кухня та бонусні серця —": "",
  "croptopia": {
-  "cls": ["farming"],
+  "cls": [
+   "farming"
+  ],
   "role": "content",
   "features": [],
-  "uk": "Понад 440 видів насіння, плодових дерев, спецій, кухонного приладдя та ситних страв — основна база кулінарії для швидкого здобуття +10 бонусних сердець.",
+  "uk": "Сотні культур, фруктових і горіхових дерев, спецій та страв (у збірці 468 предметів мода) і кухонне приладдя, що не витрачається під час крафту.",
   "what": [
-   "десятки польових культур, ягід і фруктових та горіхових дерев у різних біомах (яблуко, апельсин, персик, манго, авокадо, банан, мигдаль, кеш'ю, волоський горіх, кориця, ваніль тощо)",
-   "5 предметів кухонного приладдя, що не витрачаються під час крафту: каструля (`croptopia:cooking_pot`), сковорідка (`frying_pan`), універсальний харчовий прес (`food_press`), ступка з товкачем (`mortar_and_pestle`) та ніж (`knife`)",
-   "сотні кулінарних інгредієнтів (сир, масло, борошно, локшина, тофу, шоколад, соєвий соус, оливкова олія) і поживних страв — від піци «Супрім», тако й бурито до торта «Три молока»"
+   "польові культури, ягоди, фруктові й горіхові дерева в різних біомах",
+   "приладдя: каструля, сковорідка, харчовий прес, ступка з товкачем, ніж — залишаються в сітці після крафту",
+   "інгредієнти (сир, борошно, локшина, тофу, шоколад, соуси, олія) і страви — від піци й тако до тортів"
   ],
-  "stage": ["s0", "s1", "s2"],
+  "stage": [
+   "s0",
+   "s1",
+   "s2"
+  ],
   "synergy": [
-   {"mod": "cookingforblockheads", "why": "підвісьте всі 5 кухонних інструментів Croptopia на стійки для інструментів над кухонним столом, щоб готувати багатоступеневі страви в 1 клік"},
-   {"mod": "farmingforblockheads", "why": "усе насіння та саджанці Croptopia можна купити за смарагди в блоці «Ринок» без пошуку біомів"},
-   {"mod": "solcarrot", "why": "найпростіше джерело 25 різних страв для отримання +10 постійних сердець здоров'я"}
+   {
+    "mod": "farmingforblockheads",
+    "why": "Насіння Croptopia продається на ринку Farming for Blockheads (сумісність у jar Croptopia).",
+    "src": "jar Croptopia: data/croptopia/farmingforblockheads_compat/croptopia_seeds.json",
+    "ref": [
+     "jarfile:data/croptopia/farmingforblockheads_compat/croptopia_seeds.json"
+    ]
+   },
+   {
+    "mod": "cookingforblockheads",
+    "why": "Тостер Cooking for Blockheads робить тост Croptopia з хліба.",
+    "src": "рецепт cookingforblockheads:croptopia/toast",
+    "ref": [
+     "recipe:cookingforblockheads:croptopia/toast"
+    ]
+   }
   ],
   "tips": [
-   "Скрипт `mods/croptopia/recipes.js` виправляє конфлікт рецепта ножа (`croptopia:knife`): він крафтиться з 2 залізних злитків по діагоналі та палиці."
+   "Насіння Croptopia продається на ринку Farming for Blockheads — подорожувати біомами не обов'язково."
   ],
   "chapter": "food_and_farming",
   "book": "Croptopia",
-  "icons": ["croptopia:cooking_pot", "croptopia:food_press", "croptopia:supreme_pizza", "croptopia:tres_leche_cake"]
+  "icons": [
+   "croptopia:cooking_pot",
+   "croptopia:food_press",
+   "croptopia:supreme_pizza",
+   "croptopia:tres_leche_cake"
+  ],
+  "ref": [
+   "item:croptopia:cooking_pot",
+   "item:croptopia:frying_pan",
+   "item:croptopia:food_press",
+   "item:croptopia:mortar_and_pestle",
+   "item:croptopia:knife",
+   "item:croptopia:supreme_pizza",
+   "jarfile:data/croptopia/farmingforblockheads_compat/croptopia_seeds.json",
+   "count:items:croptopia=468"
+  ]
  },
  "epherolib": {
-  "cls": ["library"],
+  "cls": [
+   "library"
+  ],
   "role": "library",
   "parent": "croptopia",
   "features": [],
-  "uk": "Службова бібліотека реєстрації та генерації світу для мода Croptopia.",
+  "uk": "Спільна бібліотека модів Epherical — потрібна Croptopia.",
   "what": [
-   "базове ядро генерації рослин і спільного коду для Croptopia"
+   "Обов'язкова залежність Croptopia"
+  ],
+  "ref": [
+   "jarfile:epherolib-neoforge-26.1-1.3.0!META-INF/neoforge.mods.toml~Epherolib for all Epherical Mods",
+   "jarfile:croptopia-neoforge-26.1.2-4.3.2!META-INF/neoforge.mods.toml~modId = \"epherolib\""
   ]
  },
  "farmingforblockheads": {
-  "cls": ["farming"],
+  "cls": [
+   "farming"
+  ],
   "role": "content",
   "features": [],
-  "uk": "Блок «Ринок» для купівлі будь-якого насіння, саджанців і яєць тварин за смарагди, три комбіновані види добрив для ріллі, годівниця та куряче гніздо.",
+  "uk": "Ринок, де селянин продає насіння, паростки й інше за смарагди, три добрива для ріллі, годівниця й куряче гніздо.",
   "what": [
-   "ринок (`farmingforblockheads:market`): спавнить торговця з пошуком і фільтрами, який за смарагди продає ванільне й модове насіння (Croptopia, Productive Farming), саджанці дерев, квіти, кісткове борошно та яйця мирних тварин",
-   "три види добрив для зораної ріллі (їх можна наносити одночасно на ту саму грядку!): червоне добриво (`red_fertilizer` — прискорює ріст), зелене добриво (`green_fertilizer` — подвоює врожай) і жовте добриво (`yellow_fertilizer` — захищає грядку від витоптування)",
-   "куряче гніздо (`chicken_nest` — автоматично збирає знесені курми яйця в радіусі 8 блоків) та годівниця (`feeding_trough` — автоматично розмножує до 24 тварин одного виду в радіусі 8 блоків)"
+   "ринок: насіння, паростки, квіти, ґрунти тощо (категорії ринку в jar); сумісність додає насіння Croptopia й паростки Productive Trees, збірка — насіння Silent Gear",
+   "добрива для ріллі: червоне, зелене, жовте",
+   "годівниця розмножує тварин у радіусі 8 блоків (до 24 тварин), куряче гніздо збирає яйця в радіусі 8 (конфіг)"
   ],
-  "stage": ["s0", "s1", "s2"],
+  "stage": [
+   "s0",
+   "s1",
+   "s2"
+  ],
   "synergy": [
-   {"mod": "croptopia", "why": "дозволяє купити будь-яке насіння чи саджанець Croptopia за 1 смарагд просто вдома"},
-   {"mod": "cookingforblockheads", "why": "куплені на ринку культури й зібрані курячим гніздом яйця одразу йдуть у багатоблокову кухню"},
-   {"mod": "easy_villagers", "why": "автоторговець селян або скриня продажу забезпечують нескінченні смарагди для ринку"}
+   {
+    "mod": "productivetrees",
+    "why": "Паростки Productive Trees — на ринку.",
+    "src": "jar Productive Trees: data/productivetrees/farmingforblockheads_compat/productivetrees_seeds.json",
+    "ref": [
+     "jarfile:data/productivetrees/farmingforblockheads_compat/productivetrees_seeds.json"
+    ]
+   },
+   {
+    "mod": "silentgear",
+    "why": "Насіння льону й пухнасте насіння Silent Gear збірка додала на ринок.",
+    "src": "KubeJS mods/silentgear/recipes.js",
+    "ref": [
+     "recipe:kjs:mods/silentgear/recipes.js#L15"
+    ]
+   }
   ],
   "tips": [
-   "Поставте ринок (`farmingforblockheads:market`) у перший же день гри: за жменю смарагдів ви зберете повну колекцію насіння та дерев без багатокілометрових подорожей."
+   "За квестом «Купуємо фермерське приладдя» селянин ринку зазвичай бере 1 смарагд за предмет."
   ],
   "chapter": "food_and_farming",
-  "icons": ["farmingforblockheads:market", "farmingforblockheads:green_fertilizer", "farmingforblockheads:red_fertilizer", "farmingforblockheads:chicken_nest"]
+  "icons": [
+   "farmingforblockheads:market",
+   "farmingforblockheads:green_fertilizer",
+   "farmingforblockheads:red_fertilizer",
+   "farmingforblockheads:chicken_nest"
+  ],
+  "ref": [
+   "item:farmingforblockheads:market",
+   "jarfile:data/farmingforblockheads/farmingforblockheads/market_categories/seeds.json",
+   "jarfile:data/farmingforblockheads/farmingforblockheads/market_categories/saplings.json",
+   "item:farmingforblockheads:red_fertilizer",
+   "item:farmingforblockheads:green_fertilizer",
+   "item:farmingforblockheads:yellow_fertilizer",
+   "config:config/farmingforblockheads-common.toml#feedingTroughRange=8",
+   "config:config/farmingforblockheads-common.toml#feedingTroughMaxAnimals=24",
+   "config:config/farmingforblockheads-common.toml#chickenNestRange=8",
+   "quest:1F114EB0AAB86DB4"
+  ]
  },
  "cookingforblockheads": {
-  "cls": ["farming", "storage"],
+  "cls": [
+   "farming",
+   "storage"
+  ],
   "role": "content",
   "features": [],
-  "uk": "Багатоблокова кухня зі спільним інвентарем, кулінарним столом, духовкою, нескінченною раковиною (подає воду без джерела!) та «Коровою в банці».",
+  "uk": "Багатоблокова кухня зі спільним інвентарем: кухонний стіл бачить продукти в холодильниках, шафках і стільницях; духовка, раковина з нескінченною водою й «Корова в банці».",
   "what": [
-   "кухонний стіл (`cookingforblockheads:cooking_table`): бачить усі продукти в під'єднаних холодильниках (`white_fridge`), кухонних стільницях (`counter`), шафках (`cabinet`) і полицях для спецій (`spice_rack`), а також інструменти на стійках (`tool_rack`), дозволяючи готувати складні страви з проміжними кроками в 1 клік",
-   "духовка (`white_oven`, смажить 9 страв одночасно й приймає покращення на FE) та тостер (`toaster`)",
-   "раковина (`sink`): у `cookingforblockheads-common.toml` установлено `sinkRequiresWater = false`, тож вона є необмеженим джерелом нескінченної води як для рецептів кухні, так і для будь-яких рідинних труб і насосів!",
-   "«Корова в банці» (`cow_jar`, пасивно генерує молоко зі швидкістю 1 мБ/такт без годування) та куряча раковина (`chicken_sink` для яєць)"
+   "кухонний стіл показує страви, які можна приготувати з продуктів в інвентарі й кухні",
+   "холодильники, кухонні стільниці, шафки, стійки для інструментів; духовка з покращеннями «Нагрів» і «Лід»; тостер",
+   "раковина дає воду без джерела (sinkRequiresWater = false) — і трубам, і кухні",
+   "«Корова в банці» виробляє молоко — 1 mB за такт (конфіг)"
   ],
-  "stage": ["s0", "s1", "s2", "s3"],
-  "synergy": [
-   {"mod": "croptopia", "why": "автоматично використовує каструлю, сковорідку, прес, ступку й ніж зі стійок для інструментів та молоко з «Корови в банці»"},
-   {"mod": "solcarrot", "why": "кухонний стіл сортує страви й дозволяє за лічені хвилини приготувати 25 нових позицій для +10 сердець"},
-   {"mod": "powah", "why": "раковина (`cookingforblockheads:sink`) із трубою Pipez або краном Integrated Dynamics — ідеальне компактне джерело нескінченної води для термогенераторів і реакторів Powah та парових турбін Oritech"}
+  "stage": [
+   "s0",
+   "s1",
+   "s2",
+   "s3"
   ],
   "tips": [
-   "Щоб зробити «Корову в банці» (`cookingforblockheads:cow_jar`), поставте на землю звичайну банку молока (`milk_jar`), заведіть на неї корову й скиньте зверху ковадло!",
-   "Якщо блоки кухні стоять на різних стінах кімнати, з'єднайте їх підлогою з кухонної плитки (`kitchen_floor`) або кухонними з'єднувачами (`connector`)."
+   "Як посадити корову в банку — квест «Корова в банці» глави «Food and Farming»."
   ],
   "chapter": "food_and_farming",
   "book": "Готуємо для чайників I та II",
-  "icons": ["cookingforblockheads:cooking_table", "cookingforblockheads:white_oven", "cookingforblockheads:sink", "cookingforblockheads:cow_jar"]
+  "icons": [
+   "cookingforblockheads:cooking_table",
+   "cookingforblockheads:white_oven",
+   "cookingforblockheads:sink",
+   "cookingforblockheads:cow_jar"
+  ],
+  "ref": [
+   "item:cookingforblockheads:cooking_table",
+   "item:cookingforblockheads:tool_rack",
+   "item:cookingforblockheads:toaster",
+   "quest:1515B32545F51266",
+   "quest:13AFCD3B6F62B986",
+   "config:config/cookingforblockheads-common.toml#sinkRequiresWater=false",
+   "quest:0EFF1AA37772156B",
+   "config:config/cookingforblockheads-common.toml#cowJarMilkPerTick=1",
+   "quest:47764EFC822E462A",
+   "quest:28C9EDBF6607E180"
+  ]
  },
  "solcarrot": {
-  "cls": ["farming", "gear", "qol"],
+  "cls": [
+   "farming",
+   "gear",
+   "qol"
+  ],
   "role": "qol",
   "features": [],
-  "uk": "Spice of Life: Carrot Edition — до +10 постійних бонусних сердець здоров'я за куштування 25 різних видів їжі (не скидаються після смерті!).",
+  "uk": "Spice of Life: Carrot Edition — постійні бонусні серця за куштування різних страв: +2 серця за 5 нових страв, до +10 сердець за 25.",
   "what": [
-   "5 порогів дегустації в `solcarrot-server.toml`: за 5, 10, 15, 20 та 25 різних скуштованих страв (з поживністю від 1 одиниці голоду) гравець назавжди отримує по +2 серця за кожен поріг — загалом +10 додаткових сердець (повні 20 сердець здоров'я!)",
-   "бонусні серця зберігаються після смерті (`resetOnDeath = false`), а прогрес і список ще не скуштованих страв зручно переглядати у Книзі їжі (`solcarrot:food_book`, крафтиться з книги та морквини)"
+   "пороги — 5, 10, 15, 20, 25 різних страв (поживність від 1), за поріг +2 серця; базово 10 сердець — разом до 20 (конфіг)",
+   "бонус не скидається після смерті (resetOnDeath = false); прогрес — у Книзі їжі"
   ],
-  "stage": ["s0", "s1"],
-  "synergy": [
-   {"mod": "croptopia", "why": "сотні простих страв і соків дозволяють закрити всі 25 порогів на самому старті гри"},
-   {"mod": "cookingforblockheads", "why": "кухонний стіл показує всі доступні для приготування страви в одному вікні"},
-   {"mod": "appleskin", "why": "у підказці кожного продукту видно його поживність і те, чи куштували ви його раніше"}
+  "stage": [
+   "s0",
+   "s1"
   ],
+  "synergy": [],
   "tips": [
-   "Зробіть Книгу їжі (`solcarrot:food_book`) та приготуйте 25 простих соків, смузі й бутербродів Croptopia перед першим походом у Незер — подвійний запас здоров'я (40 ОЗ) радикально підвищує виживаність."
+   "25 різних простих страв до першого походу в Незер — і в гравця вдвічі більше здоров'я."
   ],
   "chapter": "food_and_farming",
   "book": "Книга їжі",
-  "icons": ["solcarrot:food_book"]
+  "icons": [
+   "solcarrot:food_book"
+  ],
+  "ref": [
+   "config:config/solcarrot-server.toml#milestones.milestones",
+   "config:config/solcarrot-server.toml#milestones.heartsPerMilestone=2",
+   "config:config/solcarrot-server.toml#milestones.baseHearts=10",
+   "config:config/solcarrot-server.toml#filtering.minimumFoodValue=1",
+   "config:config/solcarrot-server.toml#miscellaneous.resetOnDeath=false",
+   "item:solcarrot:food_book"
+  ]
  },
  "appleskin": {
-  "cls": ["farming", "qol"],
+  "cls": [
+   "farming",
+   "qol"
+  ],
   "role": "qol",
   "features": [],
-  "uk": "Наочне відображення насичення (золотий контур), виснаження й точного відновлення голоду та здоров'я на панелі гравця і в підказках їжі.",
+  "uk": "Показує насичення (золотий контур на шкалі голоду), виснаження й відновлення голоду та здоров'я — на HUD і в підказках їжі.",
   "what": [
-   "золота рамка поточного запасу насичення (saturation) поверх поділок голоду, індикатор виснаження та попередній перегляд відновлення ситості й здоров'я під час тримання їжі в руці",
-   "детальна шкала голоду й насичення у спливній підказці кожного харчового предмета"
+   "золотий контур насичення поверх шкали голоду й прев'ю відновлення, коли тримаєте їжу",
+   "поживність і насичення в підказці їжі (конфіг клієнта)"
   ],
-  "stage": ["s0"],
-  "synergy": [
-   {"mod": "solcarrot", "why": "допомагає вибирати страви з достатньою поживністю для заліку у Книзі їжі"},
-   {"mod": "ftbultimine", "why": "дозволяє контролювати запас насичення під час жильного копання руд і тунелів"}
+  "stage": [
+   "s0"
   ],
-  "tips": [
-   "Доки на шкалі голоду світиться золотий контур насичення, ваше здоров'я швидко регенерує, а FTB Ultimine витрачає спершу саме насичення, не зменшуючи основні ніжки голоду."
+  "synergy": [],
+  "tips": [],
+  "icons": [
+   "minecraft:golden_carrot"
   ],
-  "icons": ["minecraft:golden_carrot"]
+  "ref": [
+   "config:config/appleskin-client.toml#client.showSaturationHudOverlay=true",
+   "config:config/appleskin-client.toml#client.showFoodValuesHudOverlay=true",
+   "config:config/appleskin-client.toml#client.showFoodValuesInTooltip=true"
+  ]
  },
-
  "_— риболовля, скарби та колекції риб —": "",
  "aquaculture": {
-  "cls": ["farming", "gear", "resources"],
+  "cls": [
+   "farming",
+   "gear",
+   "resources"
+  ],
   "role": "content",
-  "features": ["mobs"],
-  "uk": "Понад 30 біомних видів риб і черепах, модульні вудки зі скринькою для снастей, філейні ножі та підводне нептунієве спорядження.",
+  "features": [
+   "mobs"
+  ],
+  "uk": "Риби за біомами, черепахи, модульні вудки зі скринькою для снастей, філейні ножі та нептунієве спорядження зі скрині «Подарунок Нептуна».",
   "what": [
-   "понад 30 видів риб, прив'язаних до конкретних груп біомів (прісноводні, арктичні, пустельні, тропічні, морські та грибні), яких можна розрізати філейним ножем (`aquaculture:*_fillet_knife`) на рибне філе",
-   "скринька для снастей (`aquaculture:tackle_box`) та ферма черв'яків (`worm_farm`) для оснащення залізної, золотої, діамантової чи нептунієвої вудки спеціальними гачками (подвійний улов, важкий, золотий, діамантовий, незеритовий), наживкою, волосінню та поплавцями",
-   "скриня скарбів «Подарунок Нептуна» (`neptunes_bounty`), з якої випадають нептунієві злитки (`neptunium_ingot`), інструменти та обладунки з бонусами підводного дихання, плавання й копання під водою без штрафу швидкості"
+   "риби прісноводні, арктичні, пустельні, тропічні, морські тощо; філейний ніж розрізає рибу на філе",
+   "вудки — залізна, золота, діамантова, нептунієва (квести глави «Food and Farming»); скринька для снастей і ферма черв'яків: гачки, наживка, волосінь, поплавці",
+   "«Подарунок Нептуна» трапляється в улові; з нього нептунієві злитки, рецепти нептунієвих інструментів і броні ввімкнені (конфіг)"
   ],
-  "stage": ["s0", "s1", "s2"],
+  "stage": [
+   "s0",
+   "s1",
+   "s2"
+  ],
   "synergy": [
-   {"mod": "mysticalcustomization", "why": "усі 28 видів риб Aquaculture 2 зареєстровані в ATM11 як джерела душ риб (`mysticalagriculture:fish`)"},
-   {"mod": "starcatcher", "why": "доповнює колекційну риболовлю Starcatcher біомною рибою та нептунієвим спорядженням"}
+   {
+    "mod": "mysticalcustomization",
+    "why": "Риби Aquaculture наповнюють банки для душ типу «риба» Mystical Agriculture (28 видів, конфіг збірки).",
+    "src": "config/mysticalcustomization/configure-mobsoultypes.json",
+    "ref": [
+     "config:config/mysticalcustomization/configure-mobsoultypes.json#mysticalagriculture:fish.entities.add",
+     "item:aquaculture:atlantic_cod",
+     "count:config:config/mysticalcustomization/configure-mobsoultypes.json#mysticalagriculture:fish.entities.add=28"
+    ]
+   }
   ],
-  "tips": [
-   "Нептунієве кайло та лопата копають під водою з повною наземною швидкістю навіть без чар Водної спорідненості."
+  "tips": [],
+  "icons": [
+   "aquaculture:neptunium_fishing_rod",
+   "aquaculture:neptunes_bounty",
+   "aquaculture:tackle_box",
+   "aquaculture:arapaima"
   ],
-  "icons": ["aquaculture:neptunium_fishing_rod", "aquaculture:neptunes_bounty", "aquaculture:tackle_box", "aquaculture:arapaima"]
+  "ref": [
+   "item:aquaculture:iron_fillet_knife",
+   "item:aquaculture:tackle_box",
+   "item:aquaculture:worm_farm",
+   "item:aquaculture:neptunes_bounty",
+   "item:aquaculture:neptunium_ingot",
+   "quest:5A1DCD6C7F712A78",
+   "quest:16D0F1E3CEB60ABF",
+   "config:config/aquaculture-common.toml#neptunium_options.Enable recipes for Neptunium items?=true",
+   "config:config/aquaculture-common.toml#neptunium_options.Add Neptune's Bounty as loot?=true"
+  ]
  },
  "starcatcher": {
-  "cls": ["farming", "exploration"],
+  "cls": [
+   "farming",
+   "exploration"
+  ],
   "role": "content",
   "features": [],
-  "uk": "Динамічна міні-гра риболовлі з круговою шкалою влучань, понад 100 колекційних риб (за біомами, висотою, погодою і фазами місяця), скарби, акваріуми й турніри.",
+  "uk": "Риболовля з міні-грою: стрілка біжить по колу, натискайте клавішу, коли вона в кольоровій зоні. Колекційні риби за біомами, висотою, погодою й часом, скарби, акваріуми й турніри.",
   "what": [
-   "вудка зореловця (`starcatcher:starcatcher_rod`, без зносу міцності!) та посібник зореловця (`starcatcher_guide`), які автоматично видаються під час першого вилову звичайною вудкою",
-   "кругова міні-гра риболовлі: натискайте клавішу підсікання (`key.starcatcher.minigame_hit`), коли стрілка проходить через кольорові зони (звичайні, золоті для скарбів, крижані, глибосланцеві тощо), щоб витягнути рибу з оцінкою точності, довжини й ваги",
-   "понад 100 колекційних риб у Верхньому світі, Незері й Енді з власними умовами (біом, висота, час доби, дощ, фаза місяця, наживка), скриньки для снастей (`starcatcher:tackle_box` із місткістю до 900 риб!), гачки, поплавці, наживки (включно з риболовлею в лаві), декоративні акваріуми та стенд для рибальських турнірів"
+   "вудка зореловця без зносу (enable_rod_durability = false); вудку гра видає сама (give_rod = true), посібник — ні (give_guide = false)",
+   "міні-гра: удар — Пробіл (options.txt); риби в Верхньому світі, Незері й Енді, гачки, поплавці, наживки, черв'яки (enable_worms = true)",
+   "скринька для снастей — до 900 риб (конфіг); акваріуми й стенд турнірів"
   ],
-  "stage": ["s0", "s1", "s2"],
-  "synergy": [
-   {"mod": "selling_bin", "why": "скриня продажу (`selling_bin:selling_bin`) автоматично скуповує рибу Starcatcher за смарагди з урахуванням її рідкісності та розміру"},
-   {"mod": "libtooltips", "why": "показує розширені багатосторінкові підказки модифікаторів снастей та трофеїв"}
+  "stage": [
+   "s0",
+   "s1",
+   "s2"
   ],
-  "tips": [
-   "У `starcatcher-common.toml` місткість скриньки для снастей збільшено до 900 риб (`max_tackle_box_fish_storage = 900`), а знос міцності вудок вимкнено (`enable_rod_durability = false`).",
-   "Щоб швидко добути черв'яків для наживки (`almighty_worm`, `seeking_worm`), застосуйте кісткове борошно на звичайний блок землі або трави."
-  ],
+  "tips": [],
   "book": "Посібник зореловця",
-  "icons": ["starcatcher:starcatcher_rod", "starcatcher:starcatcher_guide", "starcatcher:tackle_box", "starcatcher:aurora"]
+  "icons": [
+   "starcatcher:starcatcher_rod",
+   "starcatcher:starcatcher_guide",
+   "starcatcher:tackle_box",
+   "starcatcher:aurora"
+  ],
+  "ref": [
+   "item:starcatcher:starcatcher_rod",
+   "item:starcatcher:starcatcher_guide",
+   "config:config/starcatcher-server.toml#enable_rod_durability=false",
+   "config:config/starcatcher-server.toml#give_rod=true",
+   "config:config/starcatcher-server.toml#give_guide=false",
+   "file:options.txt~key_key.starcatcher.minigame_hit:key.keyboard.space",
+   "config:config/starcatcher-server.toml#enable_worms=true",
+   "config:config/starcatcher-server.toml#max_tackle_box_fish_storage=900",
+   "item:starcatcher:tackle_box"
+  ]
  },
  "libtooltips": {
-  "cls": ["library", "qol"],
+  "cls": [
+   "library",
+   "qol"
+  ],
   "role": "library",
   "parent": "starcatcher",
   "features": [],
-  "uk": "Бібліотека розгортних багатосторінкових підказок предметів для Starcatcher та Selling Bin.",
+  "uk": "Бібліотека розширених підказок предметів (через ключі перекладу) — вбудована в Starcatcher.",
   "what": [
-   "розширені підказки з прокруткою сторінок (утримання клавіші `key.libtooltips.expand` над предметом) для снастей Starcatcher і цін у Selling Bin"
+   "Утримання `Left Shift` над предметом розгортає підказку (options.txt)"
+  ],
+  "ref": [
+   "jarfile:libtooltips-2.3-NEOFORGE-26.1.2!META-INF/neoforge.mods.toml~through translation keys",
+   "jarfile:starcatcher!META-INF/jarjar/metadata.json~libtooltips",
+   "file:options.txt~key_key.libtooltips.expand:key.keyboard.left.shift"
   ]
  },
-
  "_— одноблокова автоматизація селян і піґлінів —": "",
  "easy_villagers": {
-  "cls": ["farming", "resources", "qol"],
+  "cls": [
+   "farming",
+   "resources",
+   "qol"
+  ],
   "role": "content",
   "features": [],
-  "uk": "Підбирання селян у предмет (`Shift + ПКМ` або `V`), кнопка миттєвого оновлення торгів (`C`) та 7 одноблокових машин: автоторговець, ферма заліза, конвертер зомбі, фермер, розмножувач та інкубатор.",
+  "uk": "Селяни як предмети (клавіша V або Shift+ПКМ), кнопка оновлення торгів (C) і одноблокові машини: торговець, автоторговець, ферма заліза, конвертер, фермер, розмножувач, інкубатор.",
   "what": [
-   "підбирання будь-якого селянина в інвентар як предмета (`easy_villagers:villager`) комбінацією `Shift + ПКМ` порожньою рукою або клавішею `V` (`key.easy_villagers.pick_up`) та кнопка «Оновити торги» (клавіша `C`, `trade_cycling = true`) просто у вікні торгівлі селянина 1-го рівня",
-   "торговець (`easy_villagers:trader`) та автоматичний торговець (`auto_trader`): селянин + робочий блок професії всередині одного блока 1×1×1 з автоматичним поповненням запасів і обміном через труби кожні 20 тактів",
-   "ферма заліза (`iron_farm` — кожні 4 хвилини беззвучно генерує залізні злитки й маки з вбудованого залізного голема!), конвертер (`converter` — за 5 хвилин заражає й лікує селянина золотим яблуком і зіллям слабкості для максимальних знижок), фермер (`farmer`), розмножувач (`breeder`) та інкубатор (`incubator`)"
+   "підібрати селянина — V, оновити торги — C (options.txt); оновлення торгів увімкнено (trade_cycling = true)",
+   "торговець і автоторговець — селянин із робочим блоком в одному блоці; автоторговець торгує трубами кожні 20 тактів (конфіг)",
+   "ферма заліза — злитки кожні 4800 тактів (4 хв), конвертер — лікує зомбі-селянина за 6000 тактів (5 хв), фермер, розмножувач, інкубатор (конфіг)"
   ],
-  "stage": ["s0", "s1", "s2", "s3"],
-  "synergy": [
-   {"mod": "justenoughprofessions", "why": "вкладка JEI показує, який саме робочий блок потрібно покласти в блок торговця для кожної модової професії"},
-   {"mod": "farmingforblockheads", "why": "автоторговець забезпечує потік смарагдів для купівлі насіння й саджанців на ринку"},
-   {"mod": "pipez", "why": "предметна труба під кількома блоками ферми заліза (`easy_villagers:iron_farm`) дає нескінченне залізо з першого дня гри без жодних мобів у світі"}
+  "stage": [
+   "s0",
+   "s1",
+   "s2",
+   "s3"
   ],
+  "synergy": [],
   "tips": [
-   "Не ламайте й не ставте кафедру десятки разів: відкрийте вікно торгівлі з бібліотекарем 1-го рівня й натискайте кнопку оновлення торгів або клавішу `C`, доки не випаде потрібна зачарована книга!",
-   "У `easy_villagers-common.toml` увімкнено `universal_reputation = true`, тому селянин, вилікуваний у блоці конвертера (`easy_villagers:converter`), дає максимальні знижки всім гравцям і в автоторговці."
+   "Репутація селян спільна для гравців (universal_reputation = true) — знижки від лікування в конвертері отримує кожен."
   ],
-  "icons": ["easy_villagers:iron_farm", "easy_villagers:auto_trader", "easy_villagers:converter", "easy_villagers:breeder"]
+  "icons": [
+   "easy_villagers:iron_farm",
+   "easy_villagers:auto_trader",
+   "easy_villagers:converter",
+   "easy_villagers:breeder"
+  ],
+  "ref": [
+   "file:options.txt~key_key.easy_villagers.pick_up:key.keyboard.v",
+   "file:options.txt~key_key.easy_villagers.cycle_trades:key.keyboard.c",
+   "config:config/easy_villagers-server.toml#villager.trade_cycling=true",
+   "config:config/easy_villagers-server.toml#auto_trader.trade_cooldown=20",
+   "config:config/easy_villagers-server.toml#iron_farm.spawn_time=4800",
+   "config:config/easy_villagers-server.toml#converter.converting_time=6000",
+   "config:config/easy_villagers-server.toml#villager.universal_reputation=true",
+   "item:easy_villagers:auto_trader",
+   "item:easy_villagers:iron_farm",
+   "item:easy_villagers:converter",
+   "item:easy_villagers:breeder",
+   "item:easy_villagers:farmer",
+   "item:easy_villagers:incubator",
+   "config:config/easy_villagers-server.toml#universal_reputation=true"
+  ],
+  "abs_ok": "«кожен» — config/easy_villagers-server.toml universal_reputation = true"
  },
  "easy_piglins": {
-  "cls": ["farming", "resources", "qol"],
+  "cls": [
+   "farming",
+   "resources",
+   "qol"
+  ],
   "role": "content",
   "features": [],
-  "uk": "Підбирання піґлінів у інвентар (`Shift + ПКМ`) і одноблоковий «Торговець» для повної автоматизації піґлінського бартеру золотими злитками.",
+  "uk": "Піґліни як предмети й одноблоковий «Торговець» для бартеру золотими злитками без мобів у світі.",
   "what": [
-   "підбирання неагресивного дорослого піґліна в предмет (`easy_piglins:piglin`) комбінацією `Shift + ПКМ` порожньою рукою (обов'язково будьте в золотій броні!)",
-   "блок торговця (`easy_piglins:barterer`): автоматично обмінює подані трубами золоті злитки на весь спектр піґлінського бартеру (перлини Енду, кварц, обсидіан, плачучий обсидіан, пісок душ, шкіру, вогнестійкість тощо)"
+   "піґліна можна підібрати в предмет (easy_piglins:piglin)",
+   "блок торговця (easy_piglins:barterer): піґлін усередині обмінює подане трубами золото на піґлінський бартер"
   ],
-  "stage": ["s1", "s2", "s3"],
-  "synergy": [
-   {"mod": "easy_villagers", "why": "спільна механіка одноблокової автоматизації торгівлі без мобів у світі"},
-   {"mod": "pipez", "why": "дозволяє подавати золото й забирати перлини Енду та кварц прямо в шухляди Functional Storage"}
+  "stage": [
+   "s1",
+   "s2",
+   "s3"
   ],
-  "tips": [
-   "Клацніть ПКМ важким золотим блоком або іншим цінним предметом по скляній вітрині блока торговця (`easy_piglins:barterer`), щоб піґлін усередині милувався ним під час роботи."
+  "synergy": [],
+  "tips": [],
+  "icons": [
+   "easy_piglins:barterer",
+   "minecraft:gold_ingot"
   ],
-  "icons": ["easy_piglins:barterer", "minecraft:gold_ingot"]
+  "ref": [
+   "item:easy_piglins:barterer",
+   "item:easy_piglins:piglin"
+  ]
  },
  "justenoughprofessions": {
-  "cls": ["farming", "qol"],
+  "cls": [
+   "farming",
+   "qol"
+  ],
   "role": "qol",
   "features": [],
-  "uk": "Довідкова вкладка в JEI з усіма ванільними та модовими професіями селян і їхніми робочими блоками.",
+  "uk": "Вкладка JEI з професіями селян (ванільних і модових) та їхніми робочими блоками.",
   "what": [
-   "показує в JEI точні робочі станції для кожної професії селянина (включно з пасічником Productive Bees, тауматургом Thaumaturge, інженером тощо)"
+   "для професій — робочий блок, який її дає (також для модових професій)"
   ],
-  "stage": ["s0", "s1"],
-  "synergy": [
-   {"mod": "easy_villagers", "why": "допомагає швидко дізнатися, який робочий блок вставити у блок торговця Easy Villagers"},
-   {"mod": "productivebees", "why": "показує робоче місце селянина-пасічника"}
+  "stage": [
+   "s0",
+   "s1"
   ],
-  "tips": [
-   "Натисніть `U` (застосування) на предметі селянина (`easy_villagers:villager`) або смарагді в JEI, щоб відкрити повний список професій."
+  "synergy": [],
+  "tips": [],
+  "icons": [
+   "minecraft:emerald",
+   "minecraft:lectern"
   ],
-  "icons": ["minecraft:emerald", "minecraft:lectern"]
+  "ref": [
+   "jarfile:assets/justenoughprofessions/lang/en_us.json"
+  ]
  }
 }

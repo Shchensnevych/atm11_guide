@@ -1,0 +1,10 @@
+{
+ "why": "Мода Immersive Engineering у збірці 0.12.0-beta немає — 97 з 128 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+ "ref": [
+  "file:config/ftbquests/quests/chapters/immersive_engineering.json5~always_invisible: true",
+  "count:stubs:immersive_engineering=97",
+  "count:qall:immersive_engineering=128",
+  "count:items:immersiveengineering=0"
+ ],
+ "_src": "config/ftbquests/quests/chapters/<глава>.json5 (always_invisible), docs/data/quests (missing — ftbquests:missing_item), реєстр предметів (raw/registry_index.json)"
+}

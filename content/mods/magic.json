@@ -1,440 +1,2019 @@
 {
  "_doc": "G1c (2026-10-25): група «Магія» — великі магічні моди (Occultism, Theurgy, Thaumaturge, Ars Magica: Legacy, Neo Vitae, EvilCraft, Forbidden Arcanus, Witchery, Mahou Tsukai), друїдизм і реліквії (Roots Classic, Reliquary), зачарування й зілля руд (Apothic Enchanting, PotionsMaster) та їхні доповнення, помічники й бібліотеки. Applied Thaumaturge описано в storage.json — тут згадано в синергії. Факти звірено з файлами збірки: KubeJS (kubejs/server_scripts/mods/*, modpack/*, tweaks/*, unification/*, data/occultism/*, dynamic_data/*), конфіги minecraft/config, options.txt / docs/data/keys.json, jar-рецепти й lang (tools/jarq.py), квести та внутрішньоігрові книги. features — явно для кожного мода.",
-
  "_— ритуали, алхімія й тауматургія —": "",
  "occultism": {
-  "cls": ["magic", "storage", "resources", "logistics", "gear"],
-  "role": "content",
-  "features": ["ores", "mobs"],
-  "uk": "Магія виклику духів за мотивами «Трилогії Бартімеуса»: «сон демона» й вогонь духів відкривають потойбічні матеріали, а крейдяні пентаграми навколо золотих жертовних чаш прив'язують чотири ранги духів — фоліотів, джинні, афрітів і марідів. Духи подрібнюють і плавлять руди, носять предмети без труб, копають у вимірній шахті, дають бонуси як фамільяри й обслуговують безканальне магічне сховище; у збірці додано власні пентаклі ATM для викувування незламності та примноження клітин сховищ.",
-  "what": [
-   "старт: насіння «сну демона» з трави → ефект «Третє око» (або потойбічні окуляри) для бачення іншокаменю, потойбічного дерева та ієснієвої руди в Незері; вогонь духів (кинути плід сну демона й підпалити) перетворює крейду, камінь, саджанці та незерак",
-   "16 кольорових крейд + універсальна райдужна й пустотна крейда, щітка для стирання, жертовні чаші й золота ритуальна чаша; ритуальні сумки учня (окремі клітинки) та ремісника (автоматично ставить потрібні символи пентаграми з одного предмета)",
-   "духи-працівники 4 рангів (фоліот → джинні → афріт → марід): дробильники руд (від ×2 до ×6 пилу з 1 сирої руди), плавильники, лісоруби, фермери, прибиральники, перевізники предметів і машинні оператори",
-   "вимірна шахта + магічні світильники з духами-шахтарями: фоліот-шахтар → джинні-шахтар → афріт-глибинний шахтар → марід-майстер шахтар → незбагненний стародавній шахтар (міцність 1000, копає стиснуті блоки руд і сирий усемодій/вібраній/унобтаній!)",
-   "магічне сховище: вимірний актуатор сховища (базовий — 128 слотів по 2048 предметів) + до 6 стабілізаторів Tier 1–5 з усіх боків (Tier 5 додає по +512 слотів і +512 тис. місткості кожен; стабілізований актуатор — 3968 слотів на 3+ млрд предметів), червоточини для труб і міжвимірний медіум сховища",
-   "17 видів фамільярів (коваль, хоронитель, бобер, дракон, ктулху, бегемот, кажан, фея тощо, яких можна ховати в перстень фамільяра у слот Curios), ритуали одержимості мобів із гарантованим рідкісним дропом, крихкий/звичайний самоцвіт душ і самоцвіт триєдності (захоплює до 3 будь-яких істот для спавнера чи ритуалів)",
-   "ексклюзивні пентаклі й ритуали ATM11 (KubeJS): «Контакт Ронази» накладає незламність на будь-який предмет за Вічну Стеллу (замість ковальського столу Forbidden Arcanus!); «Небесна інфузія Ельдрита» перетворює сонячну панель Tier V на Tier VI та заряджає жезли; Кристалічний вівтар насичення (потребує ритуального каміння Neo Vitae й цегли Just Dire Things) кує Досконалий кристалічний жезл, ядра стазису й підсилювачі та робить розширене клонування дисків AE2/RS (1 заповнений + 2 порожні → 2 заповнені без втрати оригіналу!)"
+  "cls": [
+   "magic",
+   "storage",
+   "resources",
+   "logistics",
+   "gear"
   ],
-  "stage": ["s2", "s3", "s4", "s5", "s6"],
+  "role": "content",
+  "features": [
+   "ores",
+   "mobs"
+  ],
+  "uk": "Магія виклику духів за мотивами «Трилогії Бартімеуса»: «сон демона» й вогонь духів відкривають потойбічні матеріали, а крейдяні пентаклі навколо золотої ритуальної чаші прив'язують чотири ранги духів — фоліотів, джинні, афрітів і марідів. Духи дроблять і плавлять руди, носять предмети без труб, копають у вимірній шахті, дають бонуси як фамільяри й обслуговують магічне сховище; у збірці через Occultism ще й накладають незламність Вічною Стеллою та готують каталізатори метеоритів Neo Vitae.",
+  "what": [
+   {
+    "t": "старт: насіння «сну демона» — з трави; плід (з певною ймовірністю) дає «Третє око» — видно й можна добувати іншокамінь і потойбічне дерево; ієснієву руду в Незері видно в потойбічних окулярах (Третє око сну демона її не показує); вогонь духів (кинути плід сну демона й підпалити) не спалює, а перетворює: діамант → самоцвіт, налаштований на духів, андезит → іншокамінь, діорит → іншоскелю, дубовий паросток → потойбічний, нечисту крейду → чисту",
+    "ref": [
+     "lang:book.occultism.dictionary_of_spirits.getting_started.demons_dream.spotlight.text",
+     "lang:book.occultism.dictionary_of_spirits.getting_started.demons_dream.harvest_effect.text",
+     "lang:book.occultism.dictionary_of_spirits.getting_started.iesnium.where.text",
+     "recipe:occultism:spirit_fire/spirit_attuned_gem",
+     "recipe:occultism:spirit_fire/otherstone",
+     "recipe:occultism:spirit_fire/otherrock",
+     "recipe:occultism:spirit_fire/otherworld_sapling_natural",
+     "recipe:occultism:spirit_fire/chalk_white",
+     "lang:book.occultism.dictionary_of_spirits.getting_started.third_eye.otherworld_goggles.text"
+    ]
+   },
+   "16 кольорових крейд + універсальна райдужна й пустотна крейда, щітка для стирання, жертовні чаші й золота ритуальна чаша; ритуальні сумки учня (окремі клітинки) та ремісника (розставляє весь пентакль: ПКМ по блоку прев'ю пентакля; ПКМ по золотій чаші — прибрати пентакль і зібрати інгредієнти в сумку)",
+   "духи-працівники 4 рангів (фоліот → джинні → афріт → марід): дробильники (з сирої руди 2 / 3 / 4 / 6 пилу — множник 1 / 1,5 / 2 / 3 у конфігу), плавильники, кристалізатори, лісоруби, фермери, прибиральники, перевізники предметів, оператор машин (джинні)",
+   "вимірна шахта + демон-шахтар у лампі: фоліот (базові руди) → джинні («залізний» рівень) → афріт глибин («діамантовий»: ієсній, незеритовий брухт) → марід-майстер («незеритовий»: руда усемодію, ядро вимірної шахти) → незбагненний стародавній шахтар (ритуал ATM11; руди вібранію й унобтанію, брухт корінної породи)",
+   "магічне сховище: вимірний актуатор сховища (128 типів предметів, 256 000 предметів разом) + стабілізатори Tier 1–5 (+64 / 128 / 256 / 512 / 1024 типи відповідно, до 5 блоків, гранню до матриці), стабільні червоточини й медіум сховища для віддаленого доступу",
+   {
+    "t": "16 фамільярів з ритуалів виклику (коваль, хоронитель, бобер, дракон, ктулху, фея, кажан, мумія…; ще двох — Шуб-Ніґґурата й Вінґніса — отримують перетворенням), перстень фамільяра (слот Curios); ритуали одержимості мобів; самоцвіт душ (не ловить босів і великих істот) і самоцвіт триєдності (без чорного списку — ловить і босів)",
+    "ref": [
+     "count:recipes:^occultism:ritual/familiar_=16",
+     "lang:book.occultism.dictionary_of_spirits.familiar_rituals.familiar_shub_niggurath.ritual.text",
+     "lang:book.occultism.dictionary_of_spirits.familiar_rituals.familiar_wingnis.ritual.text",
+     "lang:book.occultism.dictionary_of_spirits.crafting_rituals.craft_soul_gem.spotlight.text",
+     "lang:book.occultism.dictionary_of_spirits.crafting_rituals.trinity_gem.spotlight.text"
+    ]
+   },
+   "пентаклі ATM11 (KubeJS): незламність на «Контакті Ронази» для предмета з тегу atm:unbreakable — інструменти й броня модів, спорядження ATM туди не входить (Вічна Стелла, ієснієвий і незеритовий злитки, скупчення самоцвітів корінної породи; жертва — заклинач); Кристалічний вівтар насичення (з ритуальних каменів Neo Vitae) — каталізатори метеоритів, трансмутація злитків в уламки GeOre, кристалічні резонансні жезли; Метеоричне насичення — нескінченні частина, диск і блок енергосховища Refined Types"
+  ],
+  "stage": [
+   "s2",
+   "s3",
+   "s4",
+   "s5",
+   "s6"
+  ],
   "synergy": [
-   {"mod": "forbidden_arcanus", "why": "Вічна Стелла робить предмети незламними саме через ритуал «Контакт Ронази» в Occultism; з нечистої білої крейди й містичного кристала роблять рунічну крейду"},
-   {"mod": "neovitae", "why": "ритуальне каміння сутінок/світанку Neo Vitae і телепозер потрібні для Кристалічного вівтаря насичення та Досконалого кристалічного жезла"},
-   {"mod": "ae2", "why": "шина зберігання на вимірному актуаторі або червоточині перетворює сховище духів на величезний безканальний буфер ME-мережі; ритуал клонує ME-комірки"},
-   {"mod": "theurgy", "why": "KubeJS додає алхімічну сірку ієснію для розмноження рідкісного металу Occultism у Theurgy"}
+   {
+    "mod": "forbidden_arcanus",
+    "why": "Вічна Стелла — інгредієнт ритуалу незламності ATM11 на пентаклі «Контакт Ронази»: предмет з тегу atm:unbreakable (інструменти й броня модів) стає незламним. Духи-дробильники перетирають містичний кристал на пил, кристалізатори вирощують його з руди, шахтарі (від джинні) добувають.",
+    "src": "KubeJS data/occultism/recipe/ritual/misc_unbreakable.json; рецепти occultism crushing/arcane_crystal_dust_from_gem, crystallize/arcane_crystal_from_ore, miners/iron/arcane_crystal",
+    "ref": [
+     "kjs:data/occultism/recipe/ritual/misc_unbreakable.json~forbidden_arcanus:eternal_stella",
+     "recipe:occultism:crushing/arcane_crystal_dust_from_gem",
+     "recipe:occultism:crystallize/arcane_crystal_from_ore",
+     "recipe:occultism:miners/iron/arcane_crystal",
+     "tag:c:gems/arcane_crystal",
+     "tag:occultism:miners/iron",
+     "recipe:occultism:ritual/misc_unbreakable",
+     "tag:atm:unbreakable",
+     "kjs:server_scripts/tweaks/tags.js#L71"
+    ]
+   },
+   {
+    "mod": "neovitae",
+    "why": "Кристалічний вівтар насичення (пентакль ATM11) складають із ритуальних каменів Neo Vitae (повітря, вогню, води, Tenebrae, головний); на ньому роблять каталізатори для ритуалу метеора Neo Vitae і досконалий кристалічний жезл (з телепозером).",
+    "src": "KubeJS data/occultism/modonomicon/multiblocks/crystalline_infusion.json; server_scripts/mods/neovitae/meteor.js; mods/geore/crystalline_wand.js",
+    "ref": [
+     "kjs:data/occultism/modonomicon/multiblocks/crystalline_infusion.json~neovitae:master_ritual_stone",
+     "recipe:neovitae:meteor/ae2",
+     "recipe:occultism:copper_catalyst",
+     "recipe:allthemods:crystalline_infusion/perfect_crystalline_wand"
+    ]
+   },
+   {
+    "mod": "geore",
+    "why": "На Кристалічному вівтарі насичення уламки GeOre стають каталізаторами метеоритів, а злитки (мідь…унобтаній) перетворюються на уламки GeOre.",
+    "src": "KubeJS server_scripts/mods/neovitae/meteor.js (occultism:<руда>_catalyst, occultism:<руда>_transumtation)",
+    "ref": [
+     "kjs:server_scripts/mods/neovitae/meteor.js",
+     "recipe:occultism:copper_catalyst",
+     "recipe:occultism:copper_transumtation"
+    ]
+   },
+   {
+    "mod": "ae2",
+    "why": "Жезл ворожіння Occultism, заряджений у зарядному пристрої AE2, стає жезлом ворожіння метеоритів — шукає таємничий куб метеорита AE2.",
+    "src": "KubeJS server_scripts/mods/ae2/recipes.js: ae2:charger → occultism:divination_rod (divination_linked_block = ae2:mysterious_cube)",
+    "ref": [
+     "recipe:allthemods:ae2/charger/meteorite_divination_rod"
+    ]
+   },
+   {
+    "mod": "theurgy",
+    "why": "Theurgy розмножує ієсній: KubeJS додає алхімічну сірку ієснію й інкубацію ієснієвого злитка.",
+    "src": "KubeJS server_scripts/mods/theurgy/incubation.js; startup_scripts/theurgy/sulfur_additions.js",
+    "ref": [
+     "kjs:server_scripts/mods/theurgy/incubation.js~occultism:iesnium_ingot",
+     "kjs:startup_scripts/theurgy/sulfur_additions.js"
+    ]
+   },
+   {
+    "mod": "refinedtypes",
+    "why": "Пентакль «Метеоричне насичення» (ATM11) — єдиний спосіб зробити нескінченну частину, диск і блок енергосховища Refined Types.",
+    "src": "KubeJS server_scripts/mods/refined_storage/refined_types.js (meteoricInfusion inf_part, inf_disk, inf_block)",
+    "ref": [
+     "recipe:allthemods:meteoric_infusion/inf_part",
+     "recipe:allthemods:meteoric_infusion/inf_disk",
+     "recipe:allthemods:meteoric_infusion/inf_block",
+     "!recipe:refinedtypes:infinite_energy_storage_disk"
+    ]
+   }
   ],
   "tips": [
-   "Срібна руда та глибосланцева срібна руда генеруються у Верхньому світі (також під землею трапляються потойбічні гаї з готовим потойбічним деревом та іншокаменем), а ієснієва руда — у Незері (копається лише кайлом з іншокаменю або ієснієвим кайлом; жезл ворожіння підсвічує її крізь незерак).",
-   "Не малюйте десятки кольорів вручну: зробіть райдужну крейду (підходить замість будь-якої кольорової крейди) і ритуальну сумку ремісника — один клік ПКМ по золотій чаші з вибраним у «Словнику духів» пентаграмом миттєво розставить або замінить усі символи!",
-   "Клавіша B відкриває інвентар надійної ранця або віддалений медіум сховища (перевірте можливий перетин з іншими діями на B). Щоб стабілізатори сховища працювали, ставте їх на відстані до 5 блоків і спрямовуйте гранями точно в бік матриці над актуатором."
+   {
+    "t": "Срібну руду Occultism (і глибосланцеву) та підземні потойбічні гаї збірка вимикає (KubeJS dynamic_data, neoforge:never) — срібло беріть з руди AllTheOres; потойбічні дерева ростуть на поверхні Верхнього світу, а ієснієва руда — у Незері (Y 0–128): щоб її побачити, потрібні потойбічні окуляри, копають насиченим або ієснієвим кайлом (з шовковим дотиком — стабілізована руда, яку бере будь-яке кайло); налаштований на неї жезл ворожіння підсвічує найближчу.",
+    "ref": [
+     "file:kubejs/dynamic_data/occultism/neoforge/biome_modifier/add_ore_silver.json~neoforge:never",
+     "file:kubejs/dynamic_data/occultism/neoforge/biome_modifier/add_grove_underground.json~neoforge:never",
+     "jarfile:data/occultism/neoforge/biome_modifier/add_tree_otherworld_natural.json~stronghold_biased_to",
+     "jarfile:data/occultism/worldgen/placed_feature/ore_iesnium.json~\"absolute\": 128",
+     "lang:book.occultism.dictionary_of_spirits.getting_started.iesnium.how.text",
+     "lang:book.occultism.dictionary_of_spirits.getting_started.iesnium.processing.text",
+     "lang:book.occultism.dictionary_of_spirits.getting_started.iesnium.where.text",
+     "tag:c:ores/silver"
+    ]
+   },
+   "Не малюйте десятки кольорів вручну: райдужна крейда замінює будь-яку кольорову, а сумка ремісника розставляє весь пентакль за один клік ПКМ по блоку прев'ю (прев'ю — зі «Словника духів»); ПКМ сумкою по золотій чаші прибирає пентакль назад у сумку.",
+   {
+    "t": "Стабілізатори сховища ставте не далі 5 блоків по прямій і спрямовуйте точно на вимірну матрицю (блок над актуатором), а не на основу; годяться й напрямки згори / знизу. Кожен ще й додає місткості (Tier 1 — 512 000 предметів).",
+    "ref": [
+     "lang:book.occultism.dictionary_of_spirits.storage.storage_stabilizer.build_instructions.text",
+     "lang:book.occultism.dictionary_of_spirits.storage.storage_stabilizer.demo.text",
+     "config:config/occultism-server.toml#storage.stabilizerTier1AdditionalMaxTotalItemCount=512000"
+    ]
+   }
   ],
-  "spoiler": "Творча скриня перемоги (`occultism:creative_chest`) та стабілізований темний актуатор задумані у квестах ендгейму, а в ритуалі Кристалічного вівтаря насичення з білої крейди й супримієвої есенції створюють рунічну та квантову крейди для найвищих ритуалів ATM11.",
+  "spoiler": "Стародавній незбагненний шахтар (ATM11): ритуал на «Контакті Ронази» з ядром вимірної шахти, серцем піґліча, унобтанієвим і ієснієвим кайлами та п'ятьма марідами-майстрами.",
   "chapter": "occultism",
   "book": "Словник духів",
   "branch": "occultism",
-  "icons": ["occultism:golden_sacrificial_bowl", "occultism:storage_controller", "occultism:dimensional_mineshaft", "occultism:chalk_rainbow"]
+  "icons": [
+   "occultism:golden_sacrificial_bowl",
+   "occultism:storage_controller",
+   "occultism:dimensional_mineshaft",
+   "occultism:chalk_rainbow"
+  ],
+  "ref": [
+   "kjs:data/occultism/recipe/ritual/misc_unbreakable.json~forbidden_arcanus:eternal_stella",
+   "recipe:occultism:crushing/arcane_crystal_dust_from_gem",
+   "recipe:occultism:crystallize/arcane_crystal_from_ore",
+   "recipe:occultism:miners/iron/arcane_crystal",
+   "tag:c:gems/arcane_crystal",
+   "tag:occultism:miners/iron",
+   "recipe:occultism:ritual/misc_unbreakable",
+   "kjs:data/occultism/modonomicon/multiblocks/crystalline_infusion.json~neovitae:master_ritual_stone",
+   "recipe:neovitae:meteor/ae2",
+   "recipe:occultism:copper_catalyst",
+   "recipe:allthemods:crystalline_infusion/perfect_crystalline_wand",
+   "kjs:server_scripts/mods/neovitae/meteor.js",
+   "recipe:occultism:copper_transumtation",
+   "recipe:allthemods:ae2/charger/meteorite_divination_rod",
+   "kjs:server_scripts/mods/theurgy/incubation.js~occultism:iesnium_ingot",
+   "kjs:startup_scripts/theurgy/sulfur_additions.js",
+   "recipe:allthemods:meteoric_infusion/inf_part",
+   "recipe:allthemods:meteoric_infusion/inf_disk",
+   "recipe:allthemods:meteoric_infusion/inf_block",
+   "recipe:occultism:crushing/iron_dust_from_raw",
+   "config:config/occultism-server.toml#spirit_job.crusher_tier1.outputMultiplier=1.0",
+   "config:config/occultism-server.toml#spirit_job.crusher_tier2.outputMultiplier=1.5",
+   "config:config/occultism-server.toml#spirit_job.crusher_tier3.outputMultiplier=2.0",
+   "config:config/occultism-server.toml#spirit_job.crusher_tier4.outputMultiplier=3.0",
+   "config:config/occultism-server.toml#storage.controllerMaxItemTypes=128",
+   "config:config/occultism-server.toml#storage.controllerMaxTotalItemCount=256000",
+   "config:config/occultism-server.toml#storage.stabilizerTier1AdditionalMaxItemTypes=64",
+   "config:config/occultism-server.toml#storage.stabilizerTier2AdditionalMaxItemTypes=128",
+   "config:config/occultism-server.toml#storage.stabilizerTier3AdditionalMaxItemTypes=256",
+   "config:config/occultism-server.toml#storage.stabilizerTier4AdditionalMaxItemTypes=512",
+   "config:config/occultism-server.toml#storage.stabilizerTier5AdditionalMaxItemTypes=1024",
+   "tag:atm:unbreakable",
+   "recipe:occultism:ritual/misc_miner_ancient_eldritch",
+   "kjs:server_scripts/mods/geore/crystalline_wand.js",
+   "config:config/occultism-client.toml",
+   "config:config/occultism-server.toml",
+   "config:config/occultism-startup.toml",
+   "quest:690B89D23134B624~counts as any of them",
+   "lang:item.occultism.ritual_satchel_t2.auto_tooltip"
+  ]
  },
  "theurgy": {
-  "cls": ["magic", "resources", "logistics"],
-  "role": "content",
-  "features": ["ores"],
-  "uk": "Класична герметична алхімія (спагірія) з розкладанням матерії на три першооснови — Сіль (тіло), Сірку (душа) та Ртуть (дух). Дозволяє примножувати руди до ×4 без високих енерговитрат, перетворювати дешеві ресурси на рідкісні метали чи самоцвіти однієї категорії та передавати предмети й ртутний потік по повітрю.",
-  "what": [
-   "спагіричне примноження: піч кальцинації (перепалює породу, культури чи мінерали на алхімічну сіль) + казан розрідження з розчинником нашатирю (перетворює 1 руду на 3–5 одиниць специфічної алхімічної сірки) + дистилятор (витягує ртутні уламки з будь-яких предметів) → інкубатор із 3 посудинами збирає їх назад у готові злитки або самоцвіти",
-   "видобуток нашатирю: накопичувач нашатирю збирає його просто з води (або в рази швидше з кристалів нашатирної руди, що генерується у світі) й подає в резервуар нашатирю під казаном",
-   "трансмутація (реформація й ферментація): масив реформації з сірчаного виснажувача, джерельного, цільового та результативного п'єдесталів переносить «рівень і тип» алхімічної сірки з дешевих джерел на цільовий зразок; чан бродіння змінює категорію сірки (метали ↔ самоцвіти ↔ мінерали)",
-   "алхімічна енергетика та логістика: піромантична жаровня гріє апарати знизу на вугіллі, а ртутний каталізатор перетворює алхімічну ртуть на ртутний потік, яким sulphuric flux emitter живить апарати на відстані; логістичні вузли з мідними/залізними проводами й фільтрами переносять предмети між посудинами",
-   "жезли ворожіння T1–T4 (скляний, залізний, діамантовий, незеритовий; 96 блоків радіуса, 16–32 заряди): налаштовуються на знайдений блок руди або на алхімічну сірку в сітці крафту й вказують шлях до покладів, включно з потойбічними рудами"
+  "cls": [
+   "magic",
+   "resources",
+   "logistics"
   ],
-  "stage": ["s2", "s3", "s4"],
+  "role": "content",
+  "features": [
+   "ores"
+  ],
+  "uk": "Класична герметична алхімія (спагірія) з розкладанням матерії на три першооснови — Сіль (тіло), Сірку (душа) та Ртуть (дух). Блок руди дає 5 алхімічних сірок (тобто 5 злитків), сира руда — 3; реформація перетворює одну сірку на іншу, а ртуть — ще й енергія й логістика.",
+  "what": [
+   {
+    "t": "спагіричне примноження: піч кальцинації на піромантичній жаровні (солі з породи, рослин, тварин, мінералів) + казан розрідження з нашатирем (блок руди → 5 сірок, сира руда → 3, злиток → 1) + ртутний дистилятор → інкубатор із 3 посудинами збирає сірку, сіль і ртуть назад у злиток чи самоцвіт (1 сірка → 1 злиток)",
+    "ref": [
+     "recipe:theurgy:incubation/ingots_iron_from_alchemical_sulfur_iron",
+     "recipe:theurgy:liquefaction/alchemical_sulfur_iron_from_ores_iron",
+     "recipe:theurgy:liquefaction/alchemical_sulfur_iron_from_raw_materials_iron",
+     "lang:book.theurgy.the_hermetica.apparatus.calcination_oven.usage.text"
+    ]
+   },
+   {
+    "t": "видобуток нашатирю: накопичувач нашатирю ставлять на резервуар нашатирю й наливають воду — з 1000 mB води виходить 100 mB нашатирю, а з кристалом нашатирю (руда — у Верхньому світі) — 1000 mB за той самий час",
+    "ref": [
+     "recipe:theurgy:accumulation/sal_ammoniac_from_water",
+     "recipe:theurgy:accumulation/sal_ammoniac_from_water_and_sal_ammoniac_crystal",
+     "lang:book.theurgy.the_hermetica.apparatus.sal_ammoniac_accumulator.usage.text",
+     "jarfile:data/theurgy/neoforge/biome_modifier/add_sal_ammoniac_ore.json"
+    ]
+   },
+   {
+    "t": "трансмутація: реформація — п'єдестали джерела, цілі й результату + випромінювач сірчаного потоку (сірка → інша сірка того самого типу й рівня, селітра → сірка); чан ферментації (сірка + цукристе → алхімічна селітра — зміна типу, напр. самоцвіт → метал); чан дигестії (4 селітри звичайних металів + очищене золото → 1 селітра рідкісних — «піднесення», напр. залізо → золото)",
+    "ref": [
+     "lang:book.theurgy.the_hermetica.apparatus.reformation_array.about.text",
+     "lang:book.theurgy.the_hermetica.apparatus.fermentation_vat.intro.text",
+     "lang:book.theurgy.the_hermetica.apparatus.fermentation_vat.usage.text",
+     "lang:book.theurgy.the_hermetica.getting_started.digestion_exaltation.intro.text",
+     "lang:book.theurgy.the_hermetica.apparatus.digestion_vat.intro.text"
+    ]
+   },
+   {
+    "t": "алхімічна енергетика й логістика: піромантична жаровня або випромінювач теплового потоку гріють апарати; ртутний каталізатор повільно перетворює уламки ртуті на ртутний потік (MF) — енергію апаратів; випромінювач теплового потоку гріє на відстані до 8 блоків; ртутні мідні дроти з вузлами, вставлячі й витягувачі предметів і рідин, фільтр-список і фільтр атрибутів",
+    "ref": [
+     "lang:book.theurgy.the_hermetica.apparatus.mercury_catalyst.intro.text",
+     "lang:book.theurgy.the_hermetica.apparatus.caloric_flux_emitter.usage.text"
+    ]
+   },
+   {
+    "t": "жезли ворожіння: скляний, залізний, діамантовий, незеритовий — Shift-клік налаштовує на будь-яку руду, камінь, пісковик чи колоду (від залізного — ще й обсидіан); попередньо налаштовані жезли з алхімічною сіркою (поширені → звичайні → рідкісні → коштовні: від міді й вугілля до діаманта, усемодію, вібранію й унобтанію) міцніші, але не переналаштовуються",
+    "ref": [
+     "jarfile:data/theurgy/tags/block/divination_rod_t1_allowed_blocks.json~#c:ores",
+     "jarfile:data/theurgy/tags/block/divination_rod_t2_allowed_blocks.json~#c:obsidians",
+     "lang:item.theurgy.divination_rod_t4",
+     "lang:book.theurgy.the_hermetica.getting_started.abundant_and_common_sulfur_attuned_divination_rod.intro.text",
+     "recipe:theurgy:crafting/shaped/sulfur_attuned_divination_rod_precious",
+     "tag:theurgy:alchemical_sulfurs/precious"
+    ]
+   }
+  ],
+  "stage": [
+   "s2",
+   "s3",
+   "s4"
+  ],
   "synergy": [
-   {"mod": "theurgy_kubejs", "why": "додає в ATM11 алхімічні сірки для стелариту, рун і містичного кристала Forbidden Arcanus, ієснію Occultism, борту Silent Gear та уламка процвітання"},
-   {"mod": "allthemodium", "why": "аметистовий/сірчаний жезл ворожіння з алхімічною сіркою усемодію, вібранію чи унобтанію безпомилково знаходить ці руди задовго до амулета бачення чи зілля"},
-   {"mod": "mysticalagriculture", "why": "розрідження й реформація дозволяють розмножувати уламки процвітання з алхімічної сірки самоцвітів"}
+   {
+    "mod": "theurgy_kubejs",
+    "why": "Аддон дає ATM11 алхімічні сірки модових матеріалів (ієсній, містичний кристал, руна, стеларит, борт, уламок процвітання) — без нього їх не інкубувати.",
+    "src": "KubeJS server_scripts/mods/theurgy/incubation.js (Platform.isLoaded(\"theurgy_kubejs\")); startup_scripts/theurgy/sulfur_additions.js",
+    "ref": [
+     "kjs:server_scripts/mods/theurgy/incubation.js",
+     "kjs:startup_scripts/theurgy/sulfur_additions.js",
+     "kjs:server_scripts/mods/theurgy/liquefaction.js"
+    ]
+   },
+   {
+    "mod": "allthemodium",
+    "why": "Попередньо налаштований жезл ворожіння «коштовні» робиться з алхімічної сірки коштовного матеріалу — серед них сірки усемодію, вібранію й унобтанію (а також ієснію, стелариту); сірку усемодію Theurgy й інкубує назад у злиток.",
+    "src": "квест «Жезл ворожіння: коштовні матеріали» (глава Theurgy)",
+    "ref": [
+     "quest:7878F190BC8ADC82",
+     "item:theurgy:alchemical_sulfur_allthemodium",
+     "tag:theurgy:alchemical_sulfurs/precious",
+     "recipe:theurgy:incubation/ingots_allthemodium_from_alchemical_sulfur_allthemodium",
+     "recipe:theurgy:crafting/shaped/sulfur_attuned_divination_rod_precious"
+    ]
+   },
+   {
+    "mod": "mysticalagriculture",
+    "why": "Уламок процвітання інкубують з алхімічної сірки процвітання.",
+    "src": "KubeJS server_scripts/mods/theurgy/incubation.js (mysticalagriculture:prosperity_shard)",
+    "ref": [
+     "kjs:server_scripts/mods/theurgy/incubation.js~mysticalagriculture:prosperity_shard"
+    ]
+   },
+   {
+    "mod": "forbidden_arcanus",
+    "why": "Містичний кристал, руну й шматок стелариту можна інкубувати з алхімічних сірок.",
+    "src": "KubeJS server_scripts/mods/theurgy/incubation.js (arcane_sulfur, runic_sulfur, stellarite_sulfur)",
+    "ref": [
+     "kjs:server_scripts/mods/theurgy/incubation.js~forbidden_arcanus:arcane_crystal"
+    ]
+   }
   ],
   "tips": [
    "Не обов'язково шукати рідкісну руду фізично, щоб налаштувати на неї жезл ворожіння: зробіть її алхімічну сірку (наприклад, через реформацію) і поєднайте із жезлом у сітці крафту.",
-   "Для безперервної роботи казана розрідження поставте поруч накопичувач нашатирю з водою зверху — він сам наповнюватиме сусідній резервуар нашатирю.",
-   "Сірчаний фільтр логістики вміє порівнювати предмети за категорією й типом (метали, самоцвіти, дорогоцінні чи поширені), тож одну лінію інкубації легко налаштувати на всі руди одразу."
+   "Казан розрідження ставлять на пиромантичну жаровню й заповнюють розчинником із відра; накопичувач нашатирю — на резервуар нашатирю, наповнюйте накопичувач водою.",
+   {
+    "t": "Ртутна паличка: Shift + коліщатко перемикає режими (увімкнути / вимкнути блок, напрямок вставки / витягування, частота, сторони конденсатора), ПКМ — застосувати режим, без розбирання ліній.",
+    "ref": [
+     "lang:item.theurgy.mercurial_wand.tooltip.usage",
+     "lang:book.theurgy.the_hermetica.logistics.mercurial_wand.enable.text",
+     "lang:book.theurgy.the_hermetica.logistics.mercurial_wand.rotate.text",
+     "lang:book.theurgy.the_hermetica.apparatus.mercury_capacitor.wand.text"
+    ]
+   }
   ],
   "chapter": "theurgy",
   "book": "Герметика",
-  "icons": ["theurgy:the_hermetica", "theurgy:calcination_oven", "theurgy:liquefaction_cauldron", "theurgy:incubator"]
+  "icons": [
+   "theurgy:the_hermetica",
+   "theurgy:calcination_oven",
+   "theurgy:liquefaction_cauldron",
+   "theurgy:incubator"
+  ],
+  "ref": [
+   "kjs:server_scripts/mods/theurgy/incubation.js",
+   "kjs:startup_scripts/theurgy/sulfur_additions.js",
+   "kjs:server_scripts/mods/theurgy/liquefaction.js",
+   "quest:7878F190BC8ADC82",
+   "item:theurgy:alchemical_sulfur_allthemodium",
+   "tag:theurgy:alchemical_sulfurs/precious",
+   "kjs:server_scripts/mods/theurgy/incubation.js~mysticalagriculture:prosperity_shard",
+   "kjs:server_scripts/mods/theurgy/incubation.js~forbidden_arcanus:arcane_crystal",
+   "quest:19A2016B54C6FA34~you can only use these two Machines as Heat sources.",
+   "config:config/theurgy-client.toml",
+   "config:config/theurgy-server.toml",
+   "kjs:server_scripts/mods/theurgy/tags.js",
+   "lang:block.theurgy.sal_ammoniac_accumulator.tooltip.usage",
+   "lang:book.theurgy.the_hermetica.apparatus.liquefaction_cauldron.usage.text"
+  ]
  },
  "theurgy_kubejs": {
-  "cls": ["magic", "resources"],
+  "cls": [
+   "magic",
+   "resources"
+  ],
   "role": "addon",
   "parent": "theurgy",
   "features": [],
-  "uk": "Міст між Theurgy та KubeJS, завдяки якому збірка додає власні алхімічні сірки й рецепти розрідження, інкубації та реформації для модових ресурсів.",
+  "uk": "Міст між Theurgy та KubeJS, завдяки якому збірка додає власні алхімічні сірки й рецепти розрідження й інкубації для модових ресурсів.",
   "what": [
    "додані в ATM11 алхімічні сірки: стеларит, містичний кристал і руна (Forbidden Arcanus), ієсній (Occultism), борт (Silent Gear), уламок процвітання (Mystical Agriculture), сіль і сірка (AllTheOres)",
    "рецепти інкубації та розрідження для модових самоцвітів і рідкісних металів"
   ],
-  "stage": ["s2", "s3"],
-  "synergy": [
-   {"mod": "theurgy", "why": "реєструє модові предмети в апаратах Theurgy"},
-   {"mod": "forbidden_arcanus", "why": "дозволяє алхімічно розмножувати стеларит без ризику підірвати руду в шахті"}
+  "stage": [
+   "s2",
+   "s3"
   ],
-  "chapter": "theurgy"
+  "synergy": [
+   {
+    "mod": "forbidden_arcanus",
+    "why": "Сірки стелариту, руни й містичного кристала — розмноження матеріалів Forbidden Arcanus в інкубаторі.",
+    "src": "KubeJS server_scripts/mods/theurgy/incubation.js",
+    "ref": [
+     "kjs:server_scripts/mods/theurgy/incubation.js~forbidden_arcanus:stellarite_piece"
+    ]
+   }
+  ],
+  "chapter": "theurgy",
+  "ref": [
+   "kjs:server_scripts/mods/theurgy/incubation.js~forbidden_arcanus:stellarite_piece",
+   "quest:19A2016B54C6FA34~you can only use these two Machines as Heat sources."
+  ]
  },
  "thaumaturge": {
-  "cls": ["magic", "tech", "resources", "logistics", "gear", "exploration", "combat"],
-  "role": "content",
-  "features": ["dimension", "boss", "dungeon", "biome", "ores", "mobs"],
-  "dims": [{"id": "thaumaturge:outer_lands", "name": "Зовнішні землі"}],
-  "uk": "Повноцінне відродження класичного Thaumcraft для 26.1.2: 6 первісних та десятки складених аспектів, саліс мундус і дослідження в Thaumonomicon, аура Vis і розриви Flux, алхімічний тигель, рунічна матриця інфузії, модульні ґолеми-помічники, викривлення розуму (Warp) та лабіринти виміру «Зовнішні землі» з п'ятьма босами за Первісну перлину.",
-  "what": [
-   "старт: кристали аспектів і руди кіновару та бурштину у світі → саліс мундус → клік ПКМ по книжковій полиці дає Thaumonomicon, по верстаку — арканний верстак; таумометр сканує предмети й істот, відкриваючи підказки та очки знань для столу досліджень",
-   "аура Vis і Flux: арканний верстак і рукавиця заклинателя (клавіша F — радіальне меню лінз заклять, V — інформація про зброю) черпають Vis із чанка; надлишок викидів утворює Flux у стратосфері та просторові розриви (Flux Rifts), з яких добувають насіння порожнечі й колапсери",
-   "алхімія й есенція: тигель над джерелом тепла (нітор, лава) для алюментуму, таумію, магічного жиру та очищення руд у грона; алхімічна піч + перегінні куби переганяють предмети в рідку Essentia для банок, труб, трансфузерів і thaumatorium",
-   "інфузія на рунічній матриці: центральний п'єдестал і кільце арканних п'єдесталів + банки есенції створюють чоботи мандрівника, пробуджені інструменти стихій, меч бурі, прадавню й фортечну броню та пустотний метал (Void Metal, що сам відновлює міцність)",
-   "модульні ґолеми в пресі для големів: вибір матеріалу, голови, рук, ніг і додатків + печатки керування (жнива, лісоруб, збір, спустошення/наповнення скринь, охорона, різник) та дзвіночок големансера — безпровідна логістика на коротких відстанях",
-   "світ, викривлення й Зовнішні землі: 5 біомів (магічний ліс з деревами великодерева й сріблодерева, печери магічного лісу, моторошний, заражені землі, прадавній), кургани й багряні культисти з «Багряними обрядами»; активація прадавнього обеліска сингулярними перлинами відкриває портал у смертельний лабіринт Зовнішніх земель (політ заблоковано!) із 5 босами залів за Первісну перлину"
+  "cls": [
+   "magic",
+   "tech",
+   "resources",
+   "logistics",
+   "gear",
+   "exploration",
+   "combat"
   ],
-  "stage": ["s2", "s3", "s4", "s5"],
+  "role": "content",
+  "features": [
+   "dimension",
+   "boss",
+   "dungeon",
+   "biome",
+   "ores",
+   "mobs"
+  ],
+  "dims": [
+   {
+    "id": "thaumaturge:outer_lands",
+    "name": "Зовнішні землі"
+   }
+  ],
+  "uk": "Повноцінне відродження класичного Thaumcraft для 26.1.2: 6 первісних та десятки складених аспектів, саліс мундус і дослідження в Thaumonomicon, аура Vis і розриви Flux, алхімічний тигель, рунічна матриця інфузії, модульні ґолеми-помічники, викривлення розуму (Warp) та лабіринти виміру «Зовнішні землі»: у залі лабіринту — один із п'яти босів, нагорода — Первісна перлина.",
+  "what": [
+   {
+    "t": "старт: кристали аспектів і руди кіновару та бурштину у світі → саліс мундус → ПКМ ним по книжковій полиці дає Thaumonomicon, по верстаку — арканний верстак, по казану — тигель; таумометр сканує предмети й істот, відкриваючи підказки та очки знань для столу досліджень",
+    "ref": [
+     "jarfile:data/thaumaturge/recipe/dust_trigger/bookshelf_to_thaumonomicon.json",
+     "jarfile:data/thaumaturge/recipe/dust_trigger/crafting_tables_to_arcane_workbench.json",
+     "jarfile:data/thaumaturge/recipe/dust_trigger/cauldron_to_crucible.json",
+     "jarfile:data/thaumaturge/neoforge/biome_modifier/add_ores.json",
+     "jarfile:data/thaumaturge/neoforge/biome_modifier/add_crystals.json",
+     "item:thaumaturge:research_table"
+    ]
+   },
+   "аура Vis і Flux: арканний верстак і жезл (`thaumaturge:wand`) черпають Vis із чанка; клавіші — `F` зміна фокуса жезла, `N` Thaumonomicon, `G` допоміжний перемикач жезла, `H` підвісна збруя (див. «Клавіші»); Flux накопичується в аурі, з розривів Flux добувають насіння порожнечі, а закривають розрив кинутим колапсером причинності (`causality_collapser`, рецепт інфузії)",
+   {
+    "t": "алхімія й есенція: тигель над джерелом тепла (лава, вогонь, багаття, магмовий блок, нітор) для алюментуму, таумію, магічного жиру та очищення руд у грона; алхімічна піч + перегінні куби переганяють предмети в рідку Essentia для банок, труб, трансфузерів і thaumatorium",
+    "ref": [
+     "jarfile:data/thaumaturge/tags/block/crucible_heat_sources.json~minecraft:magma_block",
+     "recipe:thaumaturge:crucible/alumentum",
+     "recipe:thaumaturge:crucible/cluster_iron",
+     "item:thaumaturge:thaumatorium",
+     "item:thaumaturge:essentia_input"
+    ]
+   },
+   {
+    "t": "інфузія на рунічній матриці: центральний п'єдестал і кільце арканних п'єдесталів + банки есенції створюють чоботи мандрівника, інструменти стихій (зокрема Меч Зефіру), фортечну броню з таумію й робу з металу порожнечі; сам метал порожнечі (Void Metal) роблять у тиглі — спорядження з нього потроху відновлює міцність",
+    "ref": [
+     "lang:item.thaumaturge.elemental_sword",
+     "lang:item.thaumaturge.fortress_chest",
+     "item:thaumaturge:void_robe_chest",
+     "lang:research.thaumaturge.base_eldritch.stage_1"
+    ]
+   },
+   "модульні ґолеми в пресі для големів: вибір матеріалу, голови, рук, ніг і додатків + печатки керування (жнива, лісоруб, збір, спустошення/наповнення скринь, охорона, різник) та дзвіночок големансера — безпровідна логістика на коротких відстанях",
+   {
+    "t": "світ, викривлення й Зовнішні землі: 5 біомів (магічний ліс з деревами Greatwood і Silverwood, печери магічного лісу, моторошний, землі, уражені Taint, Eldritch — біом Зовнішніх земель), кургани й багряні культисти з «Багряними обрядами»; Очі Eldritch, вставлені в обеліск Eldritch, і ритуал біля нього (100 Vis з аури) відкривають портал у смертельний лабіринт Зовнішніх земель (політ не працює!); у залі лабіринту — один із 5 босів, учасники бою отримують Первісну перлину",
+    "ref": [
+     "config:config/thaumaturge-server.toml#labyrinth.entry.ritualVisCost=100.0",
+     "lang:item.thaumaturge.eldritch_eye",
+     "lang:block.thaumaturge.eldritch_obelisk",
+     "count:files:thaumaturge!data/thaumaturge/thaumaturge/labyrinth_encounter/|\\.json$=5",
+     "config:config/thaumaturge-server.toml#labyrinth.rewards.pearlPolicy=EACH_ELIGIBLE"
+    ]
+   }
+  ],
+  "stage": [
+   "s2",
+   "s3",
+   "s4",
+   "s5"
+  ],
   "synergy": [
-   {"mod": "appliedthaumaturge", "why": "зберігає Essentia в ME-комірках (1K–64K) і повністю автоматизує арканний верстак та рунічну матрицю інфузії без труб і банок"},
-   {"mod": "ae2", "why": "інтерфейс ретранслятора Vis та постачальник інфузії вбудовують тауматургію в автокрафт ME"},
-   {"mod": "occultism", "why": "на дорожній карті відкривається слідом за базовими ритуалами й дає сильніші бойові та інфузійні артефакти"}
+   {
+    "mod": "appliedthaumaturge",
+    "why": "Есенція в ME-комірках есенції 1K–64K, шини імпорту / експорту / зберігання й термінал есенції; арканний збирач і постачальник інфузії автоматизують арканний крафт та інфузію.",
+    "src": "предмети appliedthaumaturge (jar): essentia_cell_1k…64k, essentia_storage_bus, essentia_terminal, arcane_assembler, infusion_provider",
+    "ref": [
+     "item:appliedthaumaturge:essentia_cell_1k",
+     "item:appliedthaumaturge:essentia_cell_64k",
+     "item:appliedthaumaturge:essentia_storage_bus",
+     "item:appliedthaumaturge:essentia_terminal",
+     "item:appliedthaumaturge:arcane_assembler",
+     "item:appliedthaumaturge:infusion_provider"
+    ]
+   },
+   {
+    "mod": "ae2",
+    "why": "Через Applied Thaumaturge: інтерфейс ретранслятора Vis і бездротовий арканний термінал (прив'язка до бездротової точки доступу, заряджання в зарядному пристрої AE2).",
+    "src": "appliedthaumaturge (jar): предмети vis_relay_interface, wireless_arcane_terminal; lang research.appliedthaumaturge.wireless_arcane_terminal",
+    "ref": [
+     "item:appliedthaumaturge:vis_relay_interface",
+     "item:appliedthaumaturge:wireless_arcane_terminal",
+     "lang:research.appliedthaumaturge.wireless_arcane_terminal.stage_1",
+     "recipe:appliedthaumaturge:arcane_workbench/arcane_terminal"
+    ]
+   }
   ],
   "tips": [
-   "У конфігу збірки `wussMode = false` — це означає, що викривлення (Warp), розриви Flux і поширення Зарази (Taint) увімкнені! Очищуйте себе в магічній ванні з очищувальними солями та тримайте стабілізатори навколо рунічної матриці (симетрично розставлені свічки, черепи й кристали підвищують стабільність інфузії).",
+   {
+    "t": "У конфігу збірки `wussMode = false` — викривлення (Warp) і поширення Зарази (Taint) увімкнені. Сіль для ванни, кинута у воду (або залита в арканну лазню), дає тимчасовий захист від ефектів Warp; мило розсудку знімає тимчасовий Warp; постійний Warp не знімається нічим. Стабільність інфузії дають стабілізатори з редстоунового блока (п'єдестали з'єднують з ними — розряди йдуть у стабілізатор), а свічки, черепи тощо допомагають слабше, і що більше однакових — то менше.",
+    "ref": [
+     "config:config/thaumaturge-common.toml#world.wussMode=false",
+     "lang:research.thaumaturge.bath_salts.stage_1",
+     "lang:research.thaumaturge.arcane_spa.stage_1",
+     "lang:research.thaumaturge.sane_soap.stage_1",
+     "lang:research.thaumaturge.warp.stage_0",
+     "lang:research.thaumaturge.infusion_stable.stage_0",
+     "lang:research.thaumaturge.infusion_stable.stage_1"
+    ]
+   },
    "Окуляри виявлення (можна носити в слоті голови Curios) показують аспекти в тиглі й банках, стан стабільності матриці та рівень Vis/Flux у чанку, а також дають знижку витрат Vis.",
-   "У лабіринті «Зовнішні землі» примусово вимкнено творчий політ і елітри (`disruptFlight = true`), але кожен учасник бою з босом гарантовано отримує власну Первісну перлину."
+   {
+    "t": "У Зовнішніх землях польотне й левітаційне спорядження не працює (`disruptFlight = true`); Первісну перлину з реліквії боса отримують учасники бою, що пробули в залі 10 с (200 тактів) або завдав 2 % здоров'я боса (`pearlPolicy = \"EACH_ELIGIBLE\"`).",
+    "ref": [
+     "config:config/thaumaturge-server.toml#labyrinth.encounter.disruptFlight=true",
+     "config:config/thaumaturge-server.toml#labyrinth.rewards.pearlPolicy=EACH_ELIGIBLE",
+     "config:config/thaumaturge-server.toml#labyrinth.rewards.participationMinPresenceTicks=200",
+     "config:config/thaumaturge-server.toml#labyrinth.rewards.participationMinDamageFraction=0.02",
+     "lang:message.thaumaturge.hover_disrupted"
+    ]
+   }
   ],
-  "spoiler": "П'ять босів залів Зовнішніх земель — Прадавній ієрофант, Прадавній вартовий, Прадавній ґолем, Ватажок багряних культистів із порталом та Первинне насіння зарази; Первісна перлина не витрачається в частині рецептів, а лише втрачає цілісність і відкриває найвищі дослідження Eldritch.",
+  "spoiler": "П'ять можливих випробувань залу (у лабіринті — одне): Ієрофант Eldritch, Вартовий Eldritch, Голем Eldritch, Великий багряний портал і Рій зарази (3 гігантські Taint-щупальця). Первісна перлина — компонент інфузій найвищого рівня: порожній великий фокус, первинна дробарка, перлина провидця порожнечі.",
   "book": "Thaumonomicon",
-  "icons": ["thaumaturge:thaumonomicon", "thaumaturge:goggles_revealing", "thaumaturge:infusion_matrix", "thaumaturge:crucible"]
+  "icons": [
+   "thaumaturge:thaumonomicon",
+   "thaumaturge:goggles_revealing",
+   "thaumaturge:infusion_matrix",
+   "thaumaturge:crucible"
+  ],
+  "ref": [
+   "item:appliedthaumaturge:essentia_cell_1k",
+   "item:appliedthaumaturge:essentia_cell_64k",
+   "item:appliedthaumaturge:essentia_storage_bus",
+   "item:appliedthaumaturge:essentia_terminal",
+   "item:appliedthaumaturge:arcane_assembler",
+   "item:appliedthaumaturge:infusion_provider",
+   "item:appliedthaumaturge:vis_relay_interface",
+   "item:appliedthaumaturge:wireless_arcane_terminal",
+   "lang:research.appliedthaumaturge.wireless_arcane_terminal.stage_1",
+   "recipe:appliedthaumaturge:arcane_workbench/arcane_terminal",
+   "config:config/thaumaturge-client.toml",
+   "config:config/thaumaturge-common.toml",
+   "config:config/thaumaturge-server.toml",
+   "item:thaumaturge:wand",
+   "lang:key.thaumaturge.change_focus",
+   "lang:key.thaumaturge.toggle_hover",
+   "file:options.txt~key_key.thaumaturge.change_focus:key.keyboard.f",
+   "file:options.txt~key_key.thaumaturge.thaumonomicon:key.keyboard.n",
+   "file:options.txt~key_key.thaumaturge.misc_toggle:key.keyboard.g",
+   "file:options.txt~key_key.thaumaturge.toggle_hover:key.keyboard.h",
+   "recipe:thaumaturge:infusion/causality_collapser"
+  ]
  },
  "arsmagicalegacy": {
-  "cls": ["magic", "resources", "gear", "combat"],
-  "role": "content",
-  "features": ["boss", "ores", "mobs"],
-  "uk": "Спадкоємець легендарної Ars Magica 2: глибокий конструктор власних заклять із форм, компонентів і модифікаторів на столі написання та багатоблоковому вівтарі створення, дерево талантів в окулюсі, система спорідненості зі стихіями (афінітети), енергетична мережа етерію та 10 босів-Вартових стихій.",
-  "what": [
-   "старт і руди: вінтеумова руда, хімерит, блакитний топаз, сонячний камінь, метеорити місячного каменю (падають уночі), 5 магічних квітів (аум, церублоссом, пустельна нова, корінь тарми, водноцвіт) і відьомське дерево; киньте книгу в рамку над конструкцією з рідкого етерію та кварцу, щоб отримати «Таємний компендіум»",
-   "прокачування в окулюсі: 3 гілки талантів (Напад, Захист, Корисність), які вивчаються за сині, зелені й червоні очки навичок із нескінченних сфер; кожне використане закляття підвищує ваш магічний рівень, запас мани й максимальне виснаження (burnout)",
-   "конструктор заклять: у столі написання поєднують форми (снаряд, промінь, дотик, на себе, область, руна, зона, хвиля, конфігурація) з десятками компонентів (вогонь, блискавка, морозна шкода, копання, політ, зцілення, телепорт, прискорення росту…) та модифікаторами (сила, дальність, радіус, тривалість, видобуток, шовковий дотик), після чого збирають закляття на багатоблоковому вівтарі створення (матеріали стін і шпилів визначають максимальну кількість ефектів!)",
-   "мережа етерію (Etherium) і машини: обеліск етерію (спалює вінтеумовий пил чи рідкий етерій), небесна призма (денний етерій) і чорний ауреум (темний етерій з мобів) живлять через кристалічні стовпи рафінатор есенцій, калефактор (подвоює переплавку й дає попіл Vinteum), астральний бар'єр, чарівну мітлу та вівтар",
-   "спорідненість зі стихіями (Affinities): часте чаклування однією стихією закріплює її пасивні бонуси й вразливості (наприклад, вогонь дає імунітет до лави, але шкоду від води; земля — додатковий захист, але важкість у воді)",
-   "10 босів — Вартові стихій (Землі, Води, Повітря, Вогню, Природи, Блискавки, Льоду, Життя, Енду та Таємниць), яких викликають спеціальними ритуалами заради нескінченних сфер (Infinity Orbs) і рідкісних есенцій"
+  "cls": [
+   "magic",
+   "resources",
+   "gear",
+   "combat"
   ],
-  "stage": ["s2", "s3", "s4", "s5"],
+  "role": "content",
+  "features": [
+   "boss",
+   "ores",
+   "mobs"
+  ],
+  "uk": "Спадкоємець Ars Magica 2: конструктор власних заклять із форм, компонентів і модифікаторів (стіл написання + багатоблоковий вівтар створення), навички в окулюсі за очки магічного рівня, спорідненість зі стихіями, етерій трьох видів для вівтаря та 10 босів-Вартових.",
+  "what": [
+   {
+    "t": "старт і ресурси: руди вінтеуму, хімериту, топазу, сонячного й місячного каменю (місячний — ще й уламки-метеорити у світі), 5 магічних квітів (аум, церуцвіт, пустельна нова, корінь тарми, пробудоцвіт), відьомське дерево (у темних лісах) й озера рідкого етерію на рівнинах — книга в рамці поруч із ним стає «Таємним компендіумом»",
+    "ref": [
+     "item:arsmagicalegacy:vinteum_ore",
+     "item:arsmagicalegacy:chimerite_ore",
+     "item:arsmagicalegacy:topaz_ore",
+     "item:arsmagicalegacy:sunstone_ore",
+     "item:arsmagicalegacy:moonstone_ore",
+     "jarfile:data/arsmagicalegacy/worldgen/placed_feature/moonstone_meteorite.json",
+     "jarfile:data/arsmagicalegacy/worldgen/placed_feature/wakebloom.json",
+     "lang:item.arsmagicalegacy.arcane_compendium.blocks.witchwood.page0.text",
+     "lang:item.arsmagicalegacy.arcane_compendium.mechanics.liquid_etherium.page0.text",
+     "lang:item.arsmagicalegacy.arcane_compendium.mechanics.liquid_etherium.page2.text"
+    ]
+   },
+   {
+    "t": "окулюс: навички на вкладках Напад, Захист і Корисність (форми, компоненти, модифікатори) та Таланти — за сині, зелені й червоні очки навичок, які дає магічний рівень (досвід від чаклування); рівень збільшує запас мани й межу виснаження (burnout); «Забути все» повертає очки за блок вінтеуму",
+    "ref": [
+     "lang:occulus_tab.arsmagicalegacy.offense",
+     "lang:occulus_tab.arsmagicalegacy.talent",
+     "lang:skill_point.arsmagicalegacy.red",
+     "lang:arsmagicalegacy.configuration.extra_skill_points.tooltip",
+     "lang:arsmagicalegacy.configuration.mana_base.tooltip",
+     "lang:arsmagicalegacy.configuration.burnout_base.tooltip",
+     "lang:gui.arsmagicalegacy.occulus.forget_all.tooltip"
+    ]
+   },
+   {
+    "t": "конструктор заклять: у столі написання поєднують форми (снаряд, промінь, дотик, на себе, область, руна, зона, хвиля, стіна, ланцюг, канал, умовні — при падінні, вогні, смерті…) з компонентами (вогонь, блискавка, мороз, копання, політ, зцілення, телепорт, прискорення росту…) і модифікаторами (сила, дальність, тривалість, швидкість, сила копання, процвітання, шовковий дотик); рецепт закляття потім збирають на вівтарі створення",
+    "ref": [
+     "count:files:arsmagicalegacy!assets/arsmagicalegacy/patchouli_books/arcane_compendium/en_us/entries/shapes/|\\.json$=16",
+     "jarfile:assets/arsmagicalegacy/patchouli_books/arcane_compendium/en_us/entries/modifiers/velocity.json",
+     "jarfile:assets/arsmagicalegacy/patchouli_books/arcane_compendium/en_us/entries/components/grow.json",
+     "lang:item.arsmagicalegacy.arcane_compendium.mechanics.getting_started.page13.text"
+    ]
+   },
+   {
+    "t": "етерій трьох видів: нейтральний — обеліск (вінтеумовий пил, відро рідкого етерію = 1000), світлий — небесна призма (сонце), темний — чорний ауреум (життя істот); призму й ауреум не крафтять, а отримують ритуалами з обеліска (місячний / сонячний камінь); генератор прив'язують до ядра вівтаря кристалічним ключем",
+    "ref": [
+     "lang:item.arsmagicalegacy.arcane_compendium.mechanics.etherium.page0.text",
+     "lang:item.arsmagicalegacy.arcane_compendium.mechanics.etherium.page1.text",
+     "lang:item.arsmagicalegacy.arcane_compendium.mechanics.liquid_etherium.page1.text",
+     "lang:item.arsmagicalegacy.arcane_compendium.blocks.celestial_prism.page2.text",
+     "lang:item.arsmagicalegacy.arcane_compendium.blocks.black_aurem.page0.text"
+    ]
+   },
+   {
+    "t": "спорідненість: часте чаклування компонентами однієї стихії зсуває вас у неї — пасивні вміння й вади (вогонь: менше шкоди від вогню, але шкода від води; вода: швидше плавання, але шкода в Незері); повний зсув закріплює спорідненість — скинути її можна томом спорідненості",
+    "ref": [
+     "lang:item.arsmagicalegacy.arcane_compendium.affinities.affinities.page0.text",
+     "lang:item.arsmagicalegacy.arcane_compendium.affinities.affinities.page2.text",
+     "jarfile:data/arsmagicalegacy/arsmagicalegacy/ability/fire_resistance.json",
+     "jarfile:data/arsmagicalegacy/arsmagicalegacy/ability/water_damage_fire.json",
+     "jarfile:data/arsmagicalegacy/arsmagicalegacy/ability/swim_speed.json",
+     "jarfile:data/arsmagicalegacy/arsmagicalegacy/ability/nether_damage_water.json"
+    ]
+   },
+   {
+    "t": "10 босів-Вартових (Води, Землі, Повітря, Таємниць, Життя, Льоду, Природи, Блискавки, Вогню, Енду; рекомендований магічний рівень — від 10 до 100) викликають ритуальними конструкціями; з них падають есенції спорідненості (потрібні в рецептах частин заклять) і унікальні речі — водяні сфери, земляна броня, оберіг життя, черевики Енду…",
+    "ref": [
+     "jarfile:arsmagicalegacy!data/c/tags/entity_type/bosses.json~arsmagicalegacy:water_guardian",
+     "jarfile:assets/arsmagicalegacy/patchouli_books/arcane_compendium/en_us/entries/bosses/water_guardian.json~Recommended magic level: 10",
+     "jarfile:assets/arsmagicalegacy/patchouli_books/arcane_compendium/en_us/entries/bosses/ender_guardian.json~Recommended magic level: 100",
+     "lang:item.arsmagicalegacy.arcane_compendium.affinities.affinities.page3.text",
+     "jarfile:data/arsmagicalegacy/loot_table/entities/water_guardian.json~arsmagicalegacy:water_orbs",
+     "jarfile:data/arsmagicalegacy/loot_table/entities/earth_guardian.json~arsmagicalegacy:earth_armor"
+    ]
+   }
+  ],
+  "stage": [
+   "s2",
+   "s3",
+   "s4",
+   "s5"
+  ],
   "synergy": [
-   {"mod": "integrateddynamics", "why": "KubeJS додає рецепти витискання барвників з магічних квітів Ars Magica у витискачах Integrated Dynamics"},
-   {"mod": "apothic_enchanting", "why": "книга заклять тримає цілий арсенал копальних, бойових і допоміжних чар в одному слоті без витрати міцності інструментів"}
+   {
+    "mod": "integrateddynamics",
+    "why": "Квіти Ars Magica (пустельна нова, церуцвіт, аум, корінь тарми, пробудоцвіт) вичавлюються в барвники у витискачах Integrated Dynamics.",
+    "src": "KubeJS server_scripts/tweaks/recipes_fix.js (arsmagicalegacy 1.7.0: integrateddynamics:squeezer / mechanical_squeezer)",
+    "ref": [
+     "recipe:arsmagicalegacy:compat/integrateddynamics/squeezer/desert_nova",
+     "recipe:arsmagicalegacy:compat/integrateddynamics/mechanical_squeezer/aum",
+     "kjs:server_scripts/tweaks/recipes_fix.js#L196"
+    ]
+   }
   ],
   "tips": [
-   "Матеріал конструкції вівтаря створення (дерево + камінь → незерська цегла + обсидіан → пурпур + кварц тощо) та вид наконечників шпилів (вугілля → залізо → золото → діамант → смарагд → місячний/сонячний камінь) обмежують максимальну кількість модифікаторів у заклятті — звіряйте таблицю матеріалів у «Таємному компендіумі».",
-   "У книзі заклять клавіші X / Z перемикають активне закляття без відкриття інвентаря (перевірте можливий перетин з іншими діями на X і Z).",
-   "Вартовий Землі та Вартовий Води — найпростіші перші боси для здобуття синіх нескінченних сфер; перед викликом обов'язково зніміть зайве виснаження мани."
+   {
+    "t": "Скільки різних інгредієнтів може мати рецепт закляття, визначає сила вівтаря: матеріал конструкції (дубові дошки — 1, камінь — 2, кварц — 4, пурпур — 6…) плюс навершя (вугілля — 2, залізо — 4, золото — 9, діамант — 11, сонячний камінь — 15…); повний перелік — у JEI.",
+    "ref": [
+     "lang:item.arsmagicalegacy.arcane_compendium.mechanics.crafting_altar.page5.text",
+     "jarfile:data/arsmagicalegacy/arsmagicalegacy/altar_material/oak_planks.json~\"power\": 1",
+     "jarfile:data/arsmagicalegacy/arsmagicalegacy/altar_material/stone.json~\"power\": 2",
+     "jarfile:data/arsmagicalegacy/arsmagicalegacy/altar_material/quartz_block.json~\"power\": 4",
+     "jarfile:data/arsmagicalegacy/arsmagicalegacy/altar_material/purpur_block.json~\"power\": 6",
+     "jarfile:data/arsmagicalegacy/arsmagicalegacy/altar_cap_material/coal.json~\"power\": 2",
+     "jarfile:data/arsmagicalegacy/arsmagicalegacy/altar_cap_material/iron.json~\"power\": 4",
+     "jarfile:data/arsmagicalegacy/arsmagicalegacy/altar_cap_material/gold.json~\"power\": 9",
+     "jarfile:data/arsmagicalegacy/arsmagicalegacy/altar_cap_material/diamond.json~\"power\": 11",
+     "jarfile:data/arsmagicalegacy/arsmagicalegacy/altar_cap_material/sunstone.json~\"power\": 15"
+    ]
+   },
+   {
+    "t": "Клавіші Ars Magica — наступна / попередня група форм і налаштування закляття — дивіться у вкладці «Клавіші» (за options.txt збірки).",
+    "ref": [
+     "lang:item.arsmagicalegacy.arcane_compendium.mechanics.shape_groups.page0.text",
+     "file:options.txt~key_key.arsmagicalegacy.next_shape_group"
+    ]
+   },
+   {
+    "t": "Найлегші перші боси — Вартовий Води (рекомендований рівень 10) і Вартовий Землі (20): з них перші есенції спорідненості. Вартовий Природи з'являється, коли поруч убито 20 дріад.",
+    "ref": [
+     "jarfile:assets/arsmagicalegacy/patchouli_books/arcane_compendium/en_us/entries/bosses/earth_guardian.json~Recommended magic level: 20",
+     "jarfile:assets/arsmagicalegacy/patchouli_books/arcane_compendium/en_us/entries/bosses/water_guardian.json~Recommended magic level: 10",
+     "config:config/arsmagicalegacy-server.toml#dryad_kills_for_nature_guardian_spawn=20"
+    ]
+   }
   ],
-  "spoiler": "Найвищі компоненти заклять («Зорепад», «Морозна буря», «Божественне втручання», «Розщеплення») відкриваються за червоні нескінченні сфери зі старших Вартових (Життя, Блискавки, Таємниць, Енду).",
+  "spoiler": "Найсильніші «срібні» частини заклять (зокрема «Зорепад», «Хуртовина», «Вогняний дощ») не купуються за очки: їх відкриває закляття з певною тематичною комбінацією від двох до шести інших частин; у книзі — загальні підказки.",
   "book": "Таємний компендіум",
-  "icons": ["arsmagicalegacy:occulus", "arsmagicalegacy:inscription_table", "arsmagicalegacy:altar_core", "arsmagicalegacy:spell_book"]
+  "icons": [
+   "arsmagicalegacy:occulus",
+   "arsmagicalegacy:inscription_table",
+   "arsmagicalegacy:altar_core",
+   "arsmagicalegacy:spell_book"
+  ],
+  "ref": [
+   "lang:item.arsmagicalegacy.arcane_compendium.mechanics.silver_spell_parts.page0.text",
+   "lang:item.arsmagicalegacy.arcane_compendium.mechanics.silver_spell_parts.page1.text",
+   "jarfile:data/arsmagicalegacy/arsmagicalegacy/skill/falling_star.json~\"hidden\": true",
+   "recipe:arsmagicalegacy:compat/integrateddynamics/squeezer/desert_nova",
+   "count:files:arsmagicalegacy!assets/arsmagicalegacy/patchouli_books/arcane_compendium/en_us/entries/bosses/|\\.json$=10"
+  ]
  },
-
  "_— магія крові, темні мистецтва й реліквії кузні —": "",
  "neovitae": {
-  "cls": ["magic", "resources", "logistics", "gear", "exploration", "combat"],
-  "role": "content",
-  "features": ["dimension", "dungeon", "mobs"],
-  "dims": [{"id": "neovitae:dungeon", "name": "Царство демонів"}],
-  "uk": "Сучасне переосмислення класичної Blood Magic для 26.1.2: вівтар Ara Vitae 5 рівнів, персональна мережа крові (EV) у Сферах Vitae, горно пекельного вогню й атанор, аура демонічної волі Spiritus 5 аспектів, чуттєве спорядження, сигіли, телепозери та ритуали — включно з викликом рудних метеоритів GeOre і походом у процедурне «Царство демонів».",
-  "what": [
-   "вівтар Ara Vitae (5 рівнів піраміди з 11 типами рун: швидкості, жертовності, самопожертви, місткості, витіснення, сфери, прискорення, заряджання…) та Сфери Vitae (Novicius → Discipulus → Veneficus → Magus → Dominus → Divinus), що зберігають персональний запас есенції крові (EV)",
-   "горно пекельного вогню (Hellfire Forge), винні камені (Tartaric Gems) і аура демонічної волі Spiritus: пастка душ ловить волю з мобів, а тигель і кристаларій вирощують кристали 5 аспектів (Raw, Ruina — руйнівний, Nihilum — корозійний, Vindicta — мстивий, Invictus — непохитний), від яких змінюються властивості чуттєвого меча, інструментів і живої/чуттєвої броні",
-   "сигіли та масиви: сигіли води, лави, порожнечі, швидкого гірника, зеленого гаю, магнетизму, польоту (повітря), придушення рідин, кривавого світильника й утримання (до 5 сигілів в одному предметі); алхімічний стіл та атанор для переробки руд і варіння еліксирів",
-   "ритуали на головному ритуальному камені (налаштовувач ритуалів + жезл активації): Well of Suffering (добуває кров з мобів для вівтаря), Serenade of the Nether (генерує лаву), Green Grove (прискорює посіви), Crushing / Zephyr / Magnetism (копальний кар'єр), Torment Nexus (симулює вбивства у спавнерах поруч за 75 EV/моб, до 8000 EV за цикл без лагів!)",
-   "ексклюзивні метеорити ATM11 у ритуалі Falling Tower (KubeJS): істинний кварц викликає метеорит AE2 з небесного каменю й пресів (50 тис. EV), а каталізатори GeOre з відповідними блоками скидають величезні метеорити всіх 22 руд GeOre та жеод — аж до усемодію, вібранію й унобтанію (5 млн EV)!",
-   "телепозери (миттєво міняють місцями блоки або структуру до 7×7×7 разом із гравцями та сутностями між вимірами!) і вузли маршрутизації предметів",
-   "Царство демонів: ритуал Edge of the Hidden Realm відкриває портал у мале підземелля, а Pathway to the Endless Realm — у безкрає процедурне підземелля з демонітом і пекельнокутим металом (Hellforged Ingot) для вівтаря 5 рівня"
+  "cls": [
+   "magic",
+   "resources",
+   "logistics",
+   "gear",
+   "exploration",
+   "combat"
   ],
-  "stage": ["s2", "s3", "s4", "s5", "s6"],
+  "role": "content",
+  "features": [
+   "dimension",
+   "dungeon",
+   "mobs"
+  ],
+  "dims": [
+   {
+    "id": "neovitae:dungeon",
+    "name": "Царство демонів"
+   }
+  ],
+  "uk": "Сучасне переосмислення класичної Blood Magic: вівтар Ara Vitae 5 рівнів, персональна мережа есенції (EV) у Сферах Vitae, горно пекельного вогню й атанор, аура Spiritus 5 аспектів, чуттєве спорядження, сигіли, телепозери й ритуали — зокрема виклик рудних метеоритів GeOre та підземелля Царства демонів.",
+  "what": [
+   {
+    "t": "вівтар Ara Vitae: 5 рівнів піраміди з рун (швидкості, жертви, самопожертви, місткості, посиленої місткості, витіснення, сфери, прискорення, заряджання; для рун є й загартовані версії) — для 3-го рівня потрібен плід тау з Царства демонів, для 4-го — пекельнокуті блоки; Сфери Vitae (Novicius → Discipulus → Veneficus → Magus → Dominus → Divinus) зберігають вашу мережу есенції (EV)",
+    "ref": [
+     "lang:block.neovitae.rune_speed",
+     "lang:block.neovitae.rune_dislocation",
+     "lang:book.neovitae.guide.altar.ara_vitae.tier4_text.text",
+     "lang:book.neovitae.guide.altar.ara_vitae.tier5_text.text",
+     "lang:book.neovitae.guide.altar.ara_vitae.tier6_text.text",
+     "lang:item.neovitae.blood_orb_weak",
+     "lang:item.neovitae.blood_orb_transcendent"
+    ]
+   },
+   {
+    "t": "горно пекельного вогню, самоцвіти Spiritus (від дрібного до великого) й аура Spiritus: тигель Spiritus випускає волю в ауру чанка, де ростуть кристали; аспекти — сирий, Ruina, Nihilum, Vindicta, Invictus — змінюють властивості чуттєвих зброї, інструментів і броні та ритуалів",
+    "ref": [
+     "lang:block.neovitae.hellfire_forge",
+     "lang:item.neovitae.spiritus_gem_petty",
+     "lang:item.neovitae.spiritus_gem_grand",
+     "lang:book.neovitae.guide.spiritus.aura.intro.text",
+     "lang:spiritus.neovitae.vindicta",
+     "lang:item.neovitae.sentient_sword",
+     "lang:ritual.neovitae.magnetism.spiritus.invictus"
+    ]
+   },
+   {
+    "t": "сигіли й масиви: води, лави, порожнечі, швидкого гірника, зеленого гаю, магнетизму, повітря, придушення, кривавого світильника, утримання (до 5 сигілів в одному); Tabula Vitae для реагентів і атанор (утроєння руд, розбирання сфер і незериту)",
+    "ref": [
+     "lang:item.neovitae.sigil_fast_miner",
+     "lang:item.neovitae.sigil_suppression",
+     "lang:book.neovitae.guide.alchemy_arrays.sigil_holding.intro.text",
+     "lang:book.neovitae.guide.spiritus.athanor.intro.text"
+    ]
+   },
+   {
+    "t": "ритуали на головному ритуальному камені (налаштовувач ритуалів, кристал активації): Well of Suffering (кров з ворожих мобів), Serenade of the Nether (ставить лаву), Ritual of Overgrowth (прискорює рослини), The Endless Quarry (руда з-під каменя, 50 EV за руду), The Gathering, Torment Nexus (уявні вбивства мобів зі спавнерів поруч — 75 EV за вбивство, понад 8000 EV за операцію — безкоштовно)",
+    "ref": [
+     "lang:ritual.neovitae.well_of_suffering.desc",
+     "lang:ritual.neovitae.lava.desc",
+     "lang:ritual.neovitae.green_grove.desc",
+     "lang:ritual.neovitae.magnetism.desc",
+     "lang:ritual.neovitae.zephyr",
+     "lang:ritual.neovitae.torment_nexus.desc",
+     "config:config/neovitae-server.toml#torment_nexus.ev_per_kill=75",
+     "config:config/neovitae-server.toml#torment_nexus.max_ev_per_operation=8000"
+    ]
+   },
+   {
+    "t": "метеорити ATM11 у ритуалі Meteo (KubeJS): кристал істинного кварцу викликає метеорит AE2 з небесного каменю, флюїкс- і кварцових блоків (500 000 EV), а каталізатори GeOre — метеорити з блоків і жеод 22 руд GeOre: від міді (500 000 EV) до усемодію, вібранію й унобтанію (5 000 000 EV)",
+    "ref": [
+     "recipe:neovitae:meteor/ae2",
+     "file:kubejs/server_scripts/mods/neovitae/meteor.js~syphon: 500000",
+     "count:rx:kubejs/server_scripts/mods/neovitae/meteor.js|ore: '=22",
+     "file:kubejs/server_scripts/mods/neovitae/meteor.js~drain: 5000000",
+     "lang:ritual.neovitae.meteor"
+    ]
+   },
+   {
+    "t": "телепозери (міняють місцями все над двома прив'язаними точками — блоки, предмети, істот і вас; фокуси 1×1×1, 3×3×3, 5×5×5) і вузли маршрутизації предметів, рідин, енергії й аури",
+    "ref": [
+     "lang:book.neovitae.guide.utility.teleposer.intro.text",
+     "lang:book.neovitae.guide.utility.teleposer.focus.text",
+     "lang:book.neovitae.guide.utility.teleposer.enhanced_focus.text",
+     "lang:book.neovitae.guide.utility.teleposer.reinforced_focus.text",
+     "lang:book.neovitae.guide.spiritus.routing_nodes.description"
+    ]
+   },
+   {
+    "t": "Царство демонів: ритуал Breaching the Edge of Demon Realm одноразово будує стартове підземелля (там росте плід тау), а Highway to Hell відкриває постійну браму в безкрає процедурне підземелля (шахти, бій з Бригадиром) — звідти демоніт, з якого виплавляють пекельнокутий злиток",
+    "ref": [
+     "lang:ritual.neovitae.simple_dungeon.desc",
+     "lang:ritual.neovitae.standard_dungeon.desc",
+     "quest:5785D68A5F1ED2D2~Only the Antechamber, past the veil, grows this strange fruit.",
+     "lang:advancements.neovitae.hellforged_ingot.description"
+    ]
+   }
+  ],
+  "stage": [
+   "s2",
+   "s3",
+   "s4",
+   "s5",
+   "s6"
+  ],
   "synergy": [
-   {"mod": "geore", "why": "ритуал Falling Tower у ATM11 скидає цілі метеорити з блоків і квітучих жеод GeOre (залізо, діамант, платина, уранініт, усемодій, вібраній, унобтаній)"},
-   {"mod": "ae2", "why": "за істинний кварц Falling Tower скидає готовий метеорит AE2 прямо біля бази"},
-   {"mod": "occultism", "why": "ритуальне каміння сутінок і світанку та телепозер Neo Vitae потрібні для Кристалічного вівтаря насичення і Досконалого кристалічного жезла Occultism"},
-   {"mod": "evilcraft", "why": "на дорожній карті пов'язані спільною тематикою магії крові; регенерація й сигіли добре доповнюють одне одного"}
+   {
+    "mod": "geore",
+    "why": "Ритуал метеора скидає метеорит із блоків і родючих жеод GeOre — 22 руди від міді до унобтанію (0,5–5 млн EV); каталізатор — уламок GeOre, насичений на Кристалічному вівтарі Occultism.",
+    "src": "KubeJS server_scripts/mods/neovitae/meteor.js (neovitae:meteor, georeMeteor)",
+    "ref": [
+     "kjs:server_scripts/mods/neovitae/meteor.js",
+     "recipe:occultism:copper_catalyst",
+     "count:rx:kubejs/server_scripts/mods/neovitae/meteor.js|ore: '=22",
+     "recipe:kjs:mods/neovitae/meteor.js#L127",
+     "config:config/geore-common.toml#ModdedGeneration.generateAllthemodiumGeore=false"
+    ]
+   },
+   {
+    "mod": "ae2",
+    "why": "За кристал істинного кварцу ритуал метеора скидає метеорит AE2: флюїкс і кварцові блоки в небесному камені, бездоганний родючий кварц (500 000 EV).",
+    "src": "KubeJS server_scripts/mods/neovitae/meteor.js (neovitae:meteor/ae2)",
+    "ref": [
+     "recipe:neovitae:meteor/ae2"
+    ]
+   }
   ],
   "tips": [
-   "Прив'яжіть кожну Сферу Vitae та сигіл правим кліком у повітрі — без прив'язки сигіли не братимуть EV з вашої мережі душі, а черпатимуть ваше власне здоров'я!",
-   "Новий ритуал Torment Nexus працює напряму зі спавнерами (зокрема покращеними Apothic Spawners) у радіусі 5 блоків і генерує дроп без фактичного спавну сутностей у світі — ідеально для TPS сервера.",
-   "Перед викликом метеорита Falling Tower накрийте ритуал горизонтальною платформою високо в небі — метеорит вріжеться в неї й не зруйнує вашу базу."
+   {
+    "t": "Сфера чи сигіл прив'язується до вашої мережі есенції при першому використанні — далі витрати EV ідуть з мережі; якщо EV бракує, сигіл бере плату вашим здоров'ям.",
+    "ref": [
+     "lang:book.neovitae.guide.altar.anima.binding.text",
+     "jarfile:neovitae!assets/neovitae/lang/en_us.json~the sigil draws the toll from your own blood instead"
+    ]
+   },
+   {
+    "t": "Torment Nexus прив'язує спавнери й спавнери випробувань у зоні 11×11×11 (радіус 5) і замість справжніх мобів «уявляє» вбивства: лут — у скриню на камені, без появи істот у світі, — тому ритуал щадить TPS; потрібен пробуджений кристал активації.",
+    "ref": [
+     "lang:book.neovitae.guide.rituals.ritual_torment_nexus.operation.text",
+     "lang:ritual.neovitae.torment_nexus.desc",
+     "config:config/neovitae-server.toml#torment_nexus.horizontal_range=5",
+     "config:config/neovitae-server.toml#torment_nexus.vertical_range=5"
+    ]
+   },
+   {
+    "t": "Метеор падає згори: якщо понад 10 % місця, яке він займе, зайнято блоками, ритуал чекає, доки його звільнять — ставте ритуал на відкритому місці подалі від бази.",
+    "ref": [
+     "lang:ritual.neovitae.meteor.desc"
+    ]
+   }
   ],
-  "spoiler": "Найдорожчі метеорити Falling Tower в ATM11 потребують аметистово-усемодієвий, вібранієвий та унобтанієвий каталізатори GeOre і по 5 000 000 EV у мережі душі, натомість приносять десятки рудних і квітучих блоків GeOre за один раз.",
+  "spoiler": "Найдорожчі метеорити ритуалу Meteo в ATM11 — з каталізаторами GeOre усемодію, вібранію й унобтанію, по 5 000 000 EV; падає куля радіусом 5 із блоків GeOre і жеод цієї руди в оболонці з гладкого базальту.",
   "chapter": "neo_vitae",
   "book": "Lex Vitae",
-  "icons": ["neovitae:ara_vitae", "neovitae:blood_orb_master", "neovitae:master_ritual_stone", "neovitae:teleposer"]
+  "icons": [
+   "neovitae:ara_vitae",
+   "neovitae:blood_orb_master",
+   "neovitae:master_ritual_stone",
+   "neovitae:teleposer"
+  ],
+  "ref": [
+   "kjs:server_scripts/mods/neovitae/meteor.js",
+   "file:kubejs/server_scripts/mods/neovitae/meteor.js~shell: 'minecraft:smooth_basalt'",
+   "file:kubejs/server_scripts/mods/neovitae/meteor.js~radius: 5",
+   "file:kubejs/server_scripts/mods/neovitae/meteor.js~ore: 'unobtainium'",
+   "recipe:occultism:copper_catalyst",
+   "kjs:data/occultism/modonomicon/multiblocks/crystalline_infusion.json~neovitae:master_ritual_stone"
+  ]
  },
  "evilcraft": {
-  "cls": ["magic", "storage", "resources", "gear", "exploration", "combat", "qol"],
-  "role": "content",
-  "features": ["dungeon", "biome", "ores", "mobs"],
-  "uk": "Похмура й дуже практична техно-магія крові: темні самоцвіти, екстрактор крові й шипи, кривавий насичувач із рівнянням Божа (обіцянки Tier 1–3), скрині ремонту інструментів за кров, піч духів для фарму дропу мобів у коробці, очищувач для зняття чар на книги, блок вічної води та модульні літальні мітли.",
-  "what": [
-   "старт: темна руда у світі; киньте темний самоцвіт у калюжу крові (від падіння мобів на шипи або з екстрактора крові, міни. 5 блоків рідкої крові), щоб отримати темний силовий самоцвіт; киньте книгу й гниле яблуко — отримаєте посібник «Витоки темряви»",
-   "машини на крові (+ обіцянки наполегливості Tier 1–3, швидкості та ефективності): кривавий насичувач (просякнення предметів і ріст рівнів у рівнянні Божа), кривава скриня й колосальна кривава скриня (ремонтують будь-які пошкоджені предмети за кров!), піч духів (багатоблокова камера, що «спалює» зловленого в коробку вічного замикання моба за кров і видає його лут без ферм!), реаніматор духів (клонує яйця виклику мобів з коробки!)",
-   "зняття чар і утиліти: очищувач (Purifier) з відром крові та «Блуком» (Blook) знімає зачарування з будь-якого предмета чи зброї на чисті книги; блок і відро вічної води (миттєво відновлюють воду та самі заливають сусідні машини/котли без труб і насосів!), заплутана чаша (спільний міжвимірний резервуар рідини в інвентарі чи світі)",
-   "спорядження та мітли: піднесений верстак (портативний верстак із вбудованою скринею й автоповерненням у сітку, клавіша C), булава руйнування та венозна булава, некромантичний викликач, перстень і кайло помсти (одразу з «Удачею V», але пробуджує духів помсти!), модульні мітли з десятками комбінацій держаків, щіток і наверш для швидкого польоту",
-   "світ: темні храми на поверхні з природним накопичувачем довкілля (керує погодою в пляшках і заряджає предмети променями; зловживання перетворює місцевість на деградований біом!), криваві підземелля зі спавнерами під землею, перевертні, отруйні бабки та примарні духи помсти"
+  "cls": [
+   "magic",
+   "storage",
+   "resources",
+   "gear",
+   "exploration",
+   "combat",
+   "qol"
   ],
-  "stage": ["s2", "s3", "s4"],
+  "role": "content",
+  "features": [
+   "dungeon",
+   "biome",
+   "ores",
+   "mobs"
+  ],
+  "uk": "Похмура й дуже практична техно-магія крові: темні самоцвіти, екстрактор крові й шипи, кривавий насичувач з обітницями (наполегливості, швидкості, ефективності), скрині ремонту інструментів за кров, піч духів для фарму дропу мобів без ферми, очищувач для перенесення чар на книги, блок вічної води та модульні мітли для польоту.",
+  "what": [
+   {
+    "t": "старт: темна руда у світі; темний самоцвіт, кинутий у калюжу щонайменше з 5 блоків рідкої крові (кров — з плям від падіння мобів, шипів, екстрактора), стає темним силовим самоцвітом (пізніше — у кривавому насичувачі); посібник «Витоки темряви» — нагодуйте моба затемненим яблуком і швидко киньте книгу в аномалію",
+    "ref": [
+     "lang:item.evilcraft.dark_power_gem.info",
+     "lang:item.evilcraft.origins_of_darkness.info",
+     "lang:info_book.evilcraft.second_age.blood_extraction.text1",
+     "lang:info_book.evilcraft.second_age.blood_infusion.blood_infuser.text2"
+    ]
+   },
+   {
+    "t": "машини на крові (обітниці наполегливості, швидкості й ефективності — у приймачах обітниць): кривавий насичувач (заповнює й перетворює предмети кров'ю), кривава скриня й колосальна кривава скриня (ремонтують предмети за кров), піч духів (багатоблокова камера з закривавленої темної цегли — оживляє духа з коробки вічного замикання й одразу «готує» його: лут моба без ферми, коробка не витрачається), реаніматор духів (робить з духа яйце виклику — дух витрачається)",
+    "ref": [
+     "lang:info_book.evilcraft.second_age.blood_infusion.advanced_blood_infusion.text2",
+     "lang:info_book.evilcraft.second_age.blood_infusion.blood_chest.text",
+     "lang:info_book.evilcraft.second_age.abusing_spirits.spirit_furnace.text1",
+     "lang:info_book.evilcraft.second_age.abusing_spirits.spirit_furnace.text2",
+     "lang:info_book.evilcraft.second_age.abusing_spirits.spirit_reanimator.text2"
+    ]
+   },
+   {
+    "t": "очищувач і утиліти: очищувач з відром крові знімає з предмета шкідливі чари (прокляття), а повністю заповнений кров'ю з блуком переносить випадкову чару з предмета на блук (3 відра крові); блок і відро вічної води — нескінченна вода; заплутані чаші, зроблені з однієї сльози, мають спільний вміст рідини (у світі чи в інвентарі)",
+    "ref": [
+     "lang:info_book.evilcraft.second_age.evolved_blood_machinery.purifier.text1",
+     "lang:info_book.evilcraft.second_age.evolved_blood_machinery.purifier.text2",
+     "lang:block.evilcraft.eternal_water.info",
+     "lang:info_book.evilcraft.second_age.evolved_blood_machinery.entangled_chalice.text1"
+    ]
+   },
+   {
+    "t": "спорядження й мітли: піднесений верстак (верстак в інвентарі з прикріпленою скринею, клавіша C), булави викривлення й руйнування, посох некроманта (зомбі-помічники), перстень і кайло помсти (кайло крафтиться з «Удачею V», але з «Прокляттям помсти III» — кличе духів помсти), мітли з держака, щітки й навершя різних матеріалів + модифікатори",
+    "ref": [
+     "lang:info_book.evilcraft.first_age.items.exalted_crafter.text1",
+     "file:options.txt~key_key.evilcraft.exaltedCrafting:key.keyboard.c",
+     "lang:item.evilcraft.mace_of_distortion",
+     "lang:item.evilcraft.necromancer_staff.info",
+     "jarfile:data/evilcraft/recipe/crafting/vengeance_pickaxe.json~\"minecraft:fortune\": 5",
+     "lang:info_book.evilcraft.second_age.tools.broom.introduction.text2"
+    ]
+   },
+   {
+    "t": "світ: темні храми з накопичувачем довкілля (погода в пляшках, підсилення предметів грозою; часте використання псує біом), «злі» підземелля в печерах, перевертні, отруйні бабки й духи помсти",
+    "ref": [
+     "lang:info_book.evilcraft.first_age.new_world.dark_temple.text1",
+     "lang:info_book.evilcraft.first_age.new_world.dark_temple.text2",
+     "lang:info_book.evilcraft.first_age.new_world.biome_extract.text3",
+     "lang:info_book.evilcraft.first_age.new_world.evil_dungeon.text",
+     "lang:entity.evilcraft.werewolf",
+     "lang:entity.evilcraft.poisonous_libelle",
+     "lang:entity.evilcraft.vengeance_spirit"
+    ]
+   }
+  ],
+  "stage": [
+   "s2",
+   "s3",
+   "s4"
+  ],
   "synergy": [
-   {"mod": "apothic_enchanting", "why": "очищувач із «Блуком» знімає рідкісні чари з трофейної зброї на книги, які одразу можна складати в Бібліотеку чар"},
-   {"mod": "powah", "why": "блок вічної води EvilCraft миттєво подає максимальний потік води в термогенератори, реактори й парові котли без жодної труби чи насоса"},
-   {"mod": "mysticalagriculture", "why": "у рецептах ATM11 есенції води та скелета дозволяють швидко крафтити компоненти EvilCraft"}
+   {
+    "mod": "apothic_enchanting",
+    "why": "Очищувач переносить чари з трофейних предметів на блук (книгу, насичену кров'ю), а Бібліотека чар Apothic зберігає їх і видає потрібний рівень.",
+    "src": "квести «Знімаємо чари і прокляття» (EvilCraft) і «Бібліотека чар» (Apothic Enchanting)",
+    "ref": [
+     "quest:5A8F4CA0F09F4842",
+     "quest:6884E25641A1020C"
+    ]
+   },
+   {
+    "mod": "powah",
+    "why": "Блок вічної води — нескінченне джерело з автовиводом води в сусідні блоки; вода — охолоджувач термогенераторів Powah.",
+    "src": "lang evilcraft block.evilcraft.eternal_water.info / .auto_output; powah data_maps/fluid/fluid_coolant.json (#c:water)",
+    "ref": [
+     "lang:block.evilcraft.eternal_water.info",
+     "lang:block.evilcraft.eternal_water.auto_output.enabled",
+     "jarfile:data/powah/data_maps/fluid/fluid_coolant.json~#c:water"
+    ],
+    "ingame": "чи термогенератор Powah бере воду з автовиводу блока вічної води (рішення користувача — перевірить, коли дійде до етапу)"
+   },
+   {
+    "mod": "hostilenetworks",
+    "why": "Симуляція ендермена в Hostile Neural Networks дає сльозу Енду EvilCraft.",
+    "src": "hostilenetworks (jar): data/hostilenetworks/hostilenetworks/data_models/enderman.json — fabricator_drops: evilcraft:ender_tear",
+    "ref": [
+     "jarfile:data/hostilenetworks/hostilenetworks/data_models/enderman.json~evilcraft:ender_tear"
+    ]
+   },
+   {
+    "mod": "curios",
+    "why": "Перстень помсти, підбадьорливий і заряджений кулони вдягаються в слоти Curios (перстень / оберіг).",
+    "src": "KubeJS server_scripts/mods/curios/tags.js (curios:ring, curios:charm)",
+    "ref": [
+     "kjs:server_scripts/mods/curios/tags.js~evilcraft:vengeance_ring",
+     "tag:curios:ring",
+     "tag:curios:charm"
+    ]
+   }
   ],
   "tips": [
-   "Блок вічної води (`evilcraft:eternal_water`) — один із найкорисніших блоків у всій збірці: поставте його впритул до будь-якого механізму чи котла, і він сам миттєво заповнюватиме його водою зі швидкістю 2 147 483 647 мБ/такт!",
-   "Будьте обережні з кривавою скринею ремонту: іноді вона накладає на відремонтований предмет «Прокляття незграбності» — його легко змити в очищувачі EvilCraft за допомогою водяної пелюстки.",
-   "Кайло помсти крафтиться одразу з «Удачею V», що робить його ідеальним раннім джерелом самоцвітів або донором зачарування для очищувача. А щоб зловити духа помсти в коробку вічного замикання, спершу заморозьте його променем пронизливого холоду й киньте порожню коробку між собою та духом.",
-   "У KubeJS з темної руди прибрано загальний тег `#c:ores/dark_gem`, щоб уніфікація руд не ламала її видобуток удачею."
+   {
+    "t": "Блок вічної води (`evilcraft:eternal_water`) — нескінченна вода: з автовиводом (autoOutputDefault = true) сам подає воду в сусідні механізми й резервуари.",
+    "ref": [
+     "lang:block.evilcraft.eternal_water.info",
+     "lang:block.evilcraft.eternal_water.auto_output.enabled",
+     "config:config/evilcraft-common.toml#block.eternal_water.autoOutputDefault=true"
+    ]
+   },
+   {
+    "t": "Кривава скриня ремонту зрідка накладає на інструмент шкідливі чари, як-от «Прокляття поломки», — зняти його можна в очищувачі EvilCraft (інструмент + відро крові).",
+    "ref": [
+     "lang:info_book.evilcraft.second_age.blood_infusion.blood_chest.text",
+     "lang:enchantment.evilcraft.breaking",
+     "lang:info_book.evilcraft.second_age.evolved_blood_machinery.purifier.text1"
+    ]
+   },
+   {
+    "t": "Кайло помсти крафтиться з «Удачею V» (і «Прокляттям помсти» — під час роботи з'являються духи помсти). Щоб зловити духа, фокус помсти заморожує його променем, а коробка вічного замикання вбирає замороженого.",
+    "ref": [
+     "jarfile:data/evilcraft/recipe/crafting/vengeance_pickaxe.json~\"evilcraft:vengeance\": 3",
+     "lang:enchantment.evilcraft.vengeance.desc",
+     "lang:info_book.evilcraft.first_age.vengeance_spirits.catching_spirits.text2",
+     "lang:item.evilcraft.vengeance_focus.info"
+    ]
+   }
   ],
   "chapter": "evilcraft",
   "book": "Витоки темряви",
-  "icons": ["evilcraft:blood_extractor", "evilcraft:blood_infuser", "evilcraft:colossal_blood_chest", "evilcraft:eternal_water"]
+  "icons": [
+   "evilcraft:blood_extractor",
+   "evilcraft:blood_infuser",
+   "evilcraft:colossal_blood_chest",
+   "evilcraft:eternal_water"
+  ],
+  "ref": [
+   "quest:5A8F4CA0F09F4842",
+   "quest:6884E25641A1020C",
+   "lang:block.evilcraft.eternal_water.info",
+   "lang:block.evilcraft.eternal_water.auto_output.enabled",
+   "jarfile:data/powah/data_maps/fluid/fluid_coolant.json~#c:water",
+   "jarfile:data/hostilenetworks/hostilenetworks/data_models/enderman.json~evilcraft:ender_tear",
+   "kjs:server_scripts/mods/curios/tags.js~evilcraft:vengeance_ring",
+   "tag:curios:ring",
+   "tag:curios:charm",
+   "config:config/evilcraft-common.toml",
+   "kjs:server_scripts/mods/evilcraft/tags.js",
+   "config:config/evilcraft-common.toml#block.eternal_water.autoOutputDefault=true"
+  ]
  },
  "evilcraftcompat": {
-  "cls": ["magic", "qol"],
+  "cls": [
+   "magic",
+   "qol"
+  ],
   "role": "addon",
   "parent": "evilcraft",
   "features": [],
   "uk": "Офіційний модуль сумісності EvilCraft із JEI та іншими модами збірки: додає показ рецептів кривавого насичувача, накопичувача довкілля й очищувача та інтегрує рідку кров із генераторами.",
   "what": [
-   "відображення всіх рецептів машин EvilCraft у JEI",
+   "відображення рецептів машин EvilCraft у JEI",
    "сумісність рідкої крові та біомаси з іншими модами (зокрема з кривавим генератором Generator Galore)"
   ],
-  "stage": ["s2", "s3"],
-  "synergy": [
-   {"mod": "evilcraft", "why": "додає інтеграцію машин і рідин EvilCraft у JEI"},
-   {"mod": "generatorgalore", "why": "рідка кров працює паливом у кривавому генераторі"}
+  "stage": [
+   "s2",
+   "s3"
   ],
-  "chapter": "evilcraft"
+  "synergy": [
+   {
+    "mod": "evilcraft",
+    "why": "Модуль сумісності EvilCraft: рецепти машин у JEI, підказки Jade, сумісність можливостей (рідини, предмети) з іншими модами.",
+    "src": "jar evilcraft: org/cyclops/evilcraftcompat/modcompat/{jei,jade,capabilities}",
+    "ref": [
+     "jarfile:evilcraft!org/cyclops/evilcraftcompat/modcompat/jei/JEIEvilCraftConfig.class",
+     "jarfile:evilcraft!org/cyclops/evilcraftcompat/modcompat/jade/BoxOfEternalClosureDataProvider.class",
+     "jarfile:evilcraft!org/cyclops/evilcraftcompat/modcompat/capabilities/CommonCapabilitiesCompat.class"
+    ]
+   }
+  ],
+  "chapter": "evilcraft",
+  "ref": [
+   "jarfile:evilcraft!org/cyclops/evilcraftcompat/modcompat/jei/JEIEvilCraftConfig.class",
+   "jarfile:evilcraft!org/cyclops/evilcraftcompat/modcompat/jade/BoxOfEternalClosureDataProvider.class",
+   "jarfile:evilcraft!org/cyclops/evilcraftcompat/modcompat/capabilities/CommonCapabilitiesCompat.class"
+  ]
  },
  "forbidden_arcanus": {
-  "cls": ["magic", "tech", "resources", "gear", "qol"],
-  "role": "content",
-  "features": ["ores"],
-  "uk": "Ритуальна кузня та арканне ремесло: багатоблокова Кузня Гефеста 5 рівнів (працює на чотирьох есенціях — ауреалі, душах, крові й досвіді — та реліквіях), душова плавильня Клібано, рунічні й містичні кристали, деорум, драконяча та тирфова броня, квантовий ловець мобів і знаменита Вічна Стелла (у ATM11 накладає незламність через ритуал Occultism та йде на інструменти зі сплавів ATM!).",
-  "what": [
-   "ресурси у світі: містична кристалічна руда, рунічна руда, стеларит (`stella_arcanum` — вибухає при копанні без «Шовкового дотику»!), темнокамінь, метеорити астериту та дерева аурум і едельвуд (усередині колод едельвуду ховаються істоти, а порожні колоди на дощі збирають воду/лаву чи переплавляються в темну матерію!)",
-   "Кузня Гефеста (5 рівнів): посипте чистим пилом (`mundabitur_dust`) ковальський стіл у центрі платформи 9×9 із різьбленого полірованого темнокаменю й 8 п'єдесталів; споживає 4 есенції (Ауреал з обелісків містичних кристалів або пляшок, Душі з піску душ екстрактором душ, Кров із вбивств мобів на вівтарі чи пробірки крові, Досвід із банок/рідини XP) і активується ПКМ молотком коваля",
-   "реліквії підсилювачів Кузні (реміснича реліквія, півмісяць, багряний камінь, елементаріум, божественний пакт, зловісний камінь): у ATM11 додано рецепти розмноження рідкісних реліквій на Кузні 3 рівня за деорум, усемодій, вібраній та унобтаній!",
-   "багатоблокова піч Клібано (Clibano): куб 3×3×3 навколо ядра Клібано, який за звичайними/блакитними/зачарованими душами переплавляє руди швидше й чистіше та дозволяє виплавляти обсидіанову й стигійську сталь",
-   "утиліти й спорядження: квантовий ловець (переносить будь-яких мобів і навіть босів після посилення!), едельвудові відра з підвищеною місткістю, сфера тимчасового польоту, ковальські шаблони модифікаторів (вогнетривкий, магічний — утримує XP в інвентарі, демонічний — 3 додаткові слоти чар) та обладунки драко, тирф і мортем",
-   "критичні зміни ATM11 (KubeJS): стандартне накладання Вічної Стелли на ковальському столі вимкнено! Щоб зробити предмет незламним, проведіть із Вічною Стеллою ритуал «Контакт Ронази» в Occultism; а на Кузні Гефеста 4 рівня за Вічну Стеллу, реліквію елементаріуму та злитки сплавів кують найвищі інструменти ATM (кайло, меч, сокиру, лопату й паксель зі сплаву усемодію-вібранію-унобтанію)!"
+  "cls": [
+   "magic",
+   "tech",
+   "resources",
+   "gear",
+   "qol"
   ],
-  "stage": ["s2", "s3", "s4", "s5", "s6"],
+  "role": "content",
+  "features": [
+   "ores"
+  ],
+  "uk": "Ритуальна кузня й арканне ремесло (у збірці — бета 2.8.0): Кузня Гефеста 5 рівнів (ритуали на есенціях — ауреалі, ектоплазмі, крові й досвіді — з реліквіями-підсилювачами), піч Клібано (плавлення руд і сплави деоруму, стигійської сталі, незериту), містичні й рунічні кристали, стеларит, броня Draco Arcanus і Тир, квантовий ловець і Вічна Стелла (у ATM11 — для незламності через ритуал Occultism і для сплавних інструментів ATM).",
+  "what": [
+   {
+    "t": "ресурси у світі: містична кристалічна руда, рунічний камінь, стеларит (`stella_arcanum` — без «Шовкового дотику» вибухає при копанні), темнокамінь, метеорити з астеритом, дерева аурум, жовті орхідеї; колоду едельвуду в ATM11 переплавляють у темну матерію, а появу блукаючих душ у Верхньому світі збірка вимикає",
+    "ref": [
+     "jarfile:data/forbidden_arcanus/neoforge/biome_modifier/add_meteorite.json",
+     "jarfile:data/forbidden_arcanus/neoforge/biome_modifier/add_stella_arcanum.json",
+     "jarfile:data/forbidden_arcanus/neoforge/biome_modifier/add_aurum_trees.json",
+     "jarfile:forbidden_arcanus!com/stal111/forbidden_arcanus/common/block/StellaArcanumBlock.class~SILK_TOUCH",
+     "kjs:server_scripts/mods/forbidden_arcanus/recipes.js",
+     "file:kubejs/dynamic_data/forbidden_arcanus/neoforge/biome_modifier/add_lost_soul_overworld.json~neoforge:never"
+    ]
+   },
+   {
+    "t": "Кузня Гефеста (5 рівнів; наступний рівень — ритуалом на самій кузні): чистий пил створює кузню, піч Клібано й обеліск (ПКМ по споруді); ритуал витрачає есенції — ауреал (обеліски містичного кристала на місці п'єдесталів або пляшки ауреалу), ектоплазму, кров (пробірки крові) і досвід (згущений досвід)",
+    "ref": [
+     "jarfile:forbidden_arcanus!com/stal111/forbidden_arcanus/common/item/mundabitur/CreateForgeInteraction.class",
+     "jarfile:forbidden_arcanus!com/stal111/forbidden_arcanus/common/item/mundabitur/CreateClibanoInteraction.class",
+     "jarfile:data/forbidden_arcanus/forbidden_arcanus/hephaestus_forge/ritual/upgrade_tier_5.json",
+     "lang:essence.forbidden_arcanus.ectoplasm",
+     "item:forbidden_arcanus:blood_test_tube",
+     "item:forbidden_arcanus:aureal_bottle",
+     "item:forbidden_arcanus:condensed_experience",
+     "quest:5A6FF0D4BA894306"
+    ]
+   },
+   {
+    "t": "реліквії-підсилювачі кузні: реміснича реліквія, півмісяць (менше ауреалу залежно від часу доби), багряний камінь, душевий багряний камінь (один ритуал без есенцій), елементаріум, божественний пакт, пакт Maledictus; ATM11 (KubeJS) додає ритуали розмноження реліквій на Кузні 3 рівня за деорум, усемодій, вібраній і унобтаній — але їхній інгредієнт obsidiansteel_block у цій версії мода відсутній",
+    "ref": [
+     "count:files:forbidden_arcanus!data/forbidden_arcanus/forbidden_arcanus/enhancer/definition/|\\.json$=7",
+     "lang:item.forbidden_arcanus.enhancer.crescent_moon.hephaestus_forge",
+     "lang:item.forbidden_arcanus.enhancer.soul_crimson_stone.hephaestus_forge",
+     "kjs:server_scripts/mods/forbidden_arcanus/hephaestus_forge.js",
+     "!item:forbidden_arcanus:obsidiansteel_block"
+    ]
+   },
+   {
+    "t": "піч Клібано (ядро — з доменної печі, астериту й темнокаменю; споруджується чистим пилом): плавить руди, сирі метали, кристали й руни в рідкі матеріали та сплавляє деорум, стигійську сталь і незерит; гріється паливом і ектоплазмою",
+    "ref": [
+     "recipe:forbidden_arcanus:clibano_core",
+     "recipe:forbidden_arcanus:clibano/alloying/deorum_ingot",
+     "recipe:forbidden_arcanus:clibano/alloying/stygian_steel_ingot",
+     "recipe:minecraft:clibano/alloying/netherite_ingot",
+     "recipe:forbidden_arcanus:clibano/melting/rune",
+     "lang:container.forbidden_arcanus.clibano.slot.ectoplasm"
+    ]
+   },
+   {
+    "t": "спорядження й утиліти: квантовий ловець (переносить мобів) і ловець босів, едельвудове відро, модифікатори (водний, руйнівний, вогняний, магнетичний, прив'язаний до душі; вічний — у ATM11 вимкнено), броня Draco Arcanus і Тир, посох і скіпетр Draco Arcanus, жезли з десятків матеріалів",
+    "ref": [
+     "item:forbidden_arcanus:boss_catcher",
+     "item:forbidden_arcanus:edelwood_bucket",
+     "lang:modifier.forbidden_arcanus.soulbound",
+     "lang:modifier.forbidden_arcanus.magnetized",
+     "lang:item.forbidden_arcanus.tyr_chestplate",
+     "lang:item.forbidden_arcanus.draco_arcanus_staff",
+     "count:files:forbidden_arcanus!data/forbidden_arcanus/forbidden_arcanus/wand/material/|\\.json$=21"
+    ]
+   },
+   {
+    "t": "зміни ATM11: накладання вічного модифікатора (Вічна Стелла) на ковальському столі вимкнено — незламність дає ритуал Occultism «Контакт Ронази»; Вічну Стеллу кують на Кузні 3 рівня з усемодієвого злитка (+ 3 згущені досвіди й шматок стелариту), а на Кузні 4 рівня з унобтанієвих меча, сокири й лопати (+ 3 злитки сплавів ATM, 2 Вічні Стелли, 3 драконячі луски) — сплавні меч, сокиру й лопату ATM; ритуали кайла й пакселя закоментовані, тож сплавних кайла й пакселя в цій версії не зробити",
+    "ref": [
+     "kjs:server_scripts/mods/forbidden_arcanus/recipes.js",
+     "kjs:dynamic_data/forbidden_arcanus/forbidden_arcanus/hephaestus_forge/ritual/eternal_stella.json~allthemodium:allthemodium_ingot",
+     "file:kubejs/dynamic_data/allthemodium/forbidden_arcanus/hephaestus_forge/ritual/alloy_sword.json~\"forge_tier\": 4",
+     "file:kubejs/dynamic_data/index.json~//\"allthemodium/forbidden_arcanus/hephaestus_forge/ritual/alloy_paxel.json\"",
+     "file:kubejs/dynamic_data/index.json~//\"allthemodium/forbidden_arcanus/hephaestus_forge/ritual/alloy_pick.json\"",
+     "recipe:occultism:ritual/misc_unbreakable"
+    ]
+   }
+  ],
+  "stage": [
+   "s2",
+   "s3",
+   "s4",
+   "s5",
+   "s6"
+  ],
   "synergy": [
-   {"mod": "occultism", "why": "незламність від Вічної Стелли в ATM11 накладається саме через ритуал незламності Occultism («Контакт Ронази»)"},
-   {"mod": "allthemodium", "why": "Вічна Стелла кується на Кузні Гефеста 3 рівня з усемодієвого злитка, шматка стелариту й 3 згущених досвідів, а на Кузні 4 рівня з нею кують фінальні інструменти зі сплавів ATM"},
-   {"mod": "theurgy", "why": "KubeJS додає алхімічні сірки стелариту, рун і містичного кристала — стеларит можна розмножувати в інкубаторі Theurgy без пошуку вибухової руди"},
-   {"mod": "productivebees", "why": "стеларитова бджола створюється на Кузні Гефеста 5 рівня за шматки стелариту"}
+   {
+    "mod": "allthemodium",
+    "why": "Вічну Стеллу в ATM11 кують ритуалом Кузні Гефеста 3 рівня з усемодієвим злитком у центрі (замість діаманта; + 3 згущені досвіди й шматок стелариту); на Кузні 4 рівня з унобтанієвих меча, сокири й лопати, злитків сплавів ATM, Вічних Стелл і драконячих лусок — сплавні меч, сокира й лопата ATM; KubeJS додає й розмноження реліквій за злитки усемодію, вібранію, унобтанію (Кузня 3 рівня). Есенцію ці ритуали задають ключем souls — чи працюють, перевірити в JEI.",
+    "src": "KubeJS dynamic_data/forbidden_arcanus/forbidden_arcanus/hephaestus_forge/ritual/eternal_stella.json (перекриває ритуал jar); квест «Вічна Стелла»; KubeJS server_scripts/mods/forbidden_arcanus/hephaestus_forge.js",
+    "ref": [
+     "kjs:dynamic_data/forbidden_arcanus/forbidden_arcanus/hephaestus_forge/ritual/eternal_stella.json~allthemodium:allthemodium_ingot",
+     "quest:5A6FF0D4BA894306",
+     "kjs:server_scripts/mods/forbidden_arcanus/hephaestus_forge.js",
+     "file:kubejs/dynamic_data/allthemodium/forbidden_arcanus/hephaestus_forge/ritual/alloy_sword.json~allthemodium:unobtainium_sword"
+    ],
+    "ingame": "ритуали Кузні з KubeJS (ключ souls) у JEI"
+   },
+   {
+    "mod": "productivebees",
+    "why": "Стеларитову бджолу створює ритуал Кузні Гефеста: у збірці (KubeJS dynamic_data замінює ритуал Productive Bees) — 5 рівень, яйце незеритової бджоли, 4 Вічні Стелли, 2 блоки вібранію, 2 шматки стелариту; есенцію задано ключем souls — перевірити в JEI.",
+    "src": "productivebees (jar): data/productivebees/forbidden_arcanus/hephaestus_forge/ritual/stellarite_bee.json",
+    "ref": [
+     "jarfile:data/productivebees/forbidden_arcanus/hephaestus_forge/ritual/stellarite_bee.json~forbidden_arcanus:eternal_stella",
+     "jarfile:data/productivebees/forbidden_arcanus/hephaestus_forge/ritual/stellarite_bee.json"
+    ],
+    "ingame": "стеларитова бджола в JEI (ритуал Кузні 5 рівня)"
+   }
   ],
   "tips": [
-   "Ніколи не копайте стеларит (`stella_arcanum`) звичайним кайлом — без зачарування «Шовковий дотик» блок руди миттєво детонує!",
-   "Найпростіше джерело Ауреалу для Кузні Гефеста — поставити навколо неї 2–4 обеліски містичних кристалів (2 поліровані темнокамені внизу + 2 блоки містичного кристала зверху й удар чистим пилом): вони пасивно наповнюють Кузню ауреалом.",
-   "Щоб добувати душі, зробіть екстрактор душ (`soul_extractor`) і утримуйте ПКМ по піску душ у Незері (він перетвориться на бездушний пісок).",
-   "Внутрішньої книги у Forbidden Arcanus немає — повний покроковий довідник і схеми Кузні Гефеста та печі Клібано дивіться у квестах глави «Forbidden and Arcanus» (примітка: три останні квести глави про рунічні багатоблоки та рідкі душі перенесені з ATM10 і в цій версії збірки не працюють, бо немає Modern Industrialization)."
+   {
+    "t": "Стеларит (`stella_arcanum`) без «Шовкового дотику» вибухає при копанні — беріть кайло з цим зачаруванням.",
+    "ref": [
+     "jarfile:forbidden_arcanus!com/stal111/forbidden_arcanus/common/block/StellaArcanumBlock.class~STELLA_ARCANUM_EXPLOSION_RADIUS"
+    ]
+   },
+   {
+    "t": "Ауреал для кузні простіше автоматизувати обелісками: арканний полірований темнокамінь, на ньому два блоки містичного кристала, ПКМ чистим пилом; ставлять їх на місця п'єдесталів кузні. Інакше — пляшки ауреалу (з містичного пилу й зілля регенерації II або зі скринь у спорудах).",
+    "ref": [
+     "quest:5A6FF0D4BA894306",
+     "jarfile:forbidden_arcanus!com/stal111/forbidden_arcanus/common/item/mundabitur/CreateObeliskInteraction.class",
+     "recipe:forbidden_arcanus:aureal_bottle"
+    ]
+   },
+   {
+    "t": "У бета-версії мода є стіл досліджень і Forbiddenomicon, але більшість предметів ще без англійських назв і описів — покроковий довідник кузні й Клібано дають квести глави «Forbidden and Arcanus».",
+    "ref": [
+     "item:forbidden_arcanus:research_desk",
+     "item:forbidden_arcanus:forbiddenomicon",
+     "quest:5A6FF0D4BA894306"
+    ]
+   }
   ],
-  "spoiler": "Інструменти зі сплаву усемодію-вібранію-унобтанію (`allthemodium:alloy_pick`, `alloy_paxel` тощо) не крафтяться на верстаку — їх виковують виключно на Кузні Гефеста 4 рівня (2500 ауреалу, 5 душ, 5000 крові, 950 досвіду) із 4 злитків усіх трьох сплавів та Вічної Стелли.",
+  "spoiler": "Ритуали ATM11 для Кузні (Вічна Стелла, сплавні інструменти, стеларитова бджола, розмноження реліквій) задають есенцію ключем `souls`, а в цій версії мода есенції — aureal, ectoplasm, blood, experience; ритуали розмноження реліквій ще й просять відсутній блок обсидіанової сталі. Чи завантажуються ці ритуали — перевірити в JEI (категорія Кузні Гефеста).",
   "chapter": "forbidden_and_arcanus",
-  "icons": ["forbidden_arcanus:hephaestus_forge", "forbidden_arcanus:eternal_stella", "forbidden_arcanus:clibano_core", "forbidden_arcanus:quantum_catcher"]
+  "icons": [
+   "forbidden_arcanus:hephaestus_forge",
+   "forbidden_arcanus:eternal_stella",
+   "forbidden_arcanus:clibano_core",
+   "forbidden_arcanus:quantum_catcher"
+  ],
+  "ref": [
+   "kjs:dynamic_data/forbidden_arcanus/forbidden_arcanus/hephaestus_forge/ritual/eternal_stella.json~allthemodium:allthemodium_ingot",
+   "quest:5A6FF0D4BA894306",
+   "kjs:server_scripts/mods/forbidden_arcanus/hephaestus_forge.js",
+   "jarfile:data/productivebees/forbidden_arcanus/hephaestus_forge/ritual/stellarite_bee.json~forbidden_arcanus:eternal_stella",
+   "jarfile:data/productivebees/forbidden_arcanus/hephaestus_forge/ritual/stellarite_bee.json",
+   "recipe:occultism:ritual/misc_unbreakable",
+   "kjs:server_scripts/mods/forbidden_arcanus/recipes.js",
+   "file:kubejs/dynamic_data/forbidden_arcanus/forbidden_arcanus/hephaestus_forge/ritual/eternal_stella.json~\"souls\"",
+   "jarfile:forbidden_arcanus!com/stal111/forbidden_arcanus/common/essence/EssenceType.class~ectoplasm",
+   "jarfile:data/forbidden_arcanus/forbidden_arcanus/hephaestus_forge/ritual/eternal_stella.json~\"ectoplasm\""
+  ],
+  "ingame": "ритуали Кузні Гефеста з KubeJS ATM11 (Вічна Стелла, сплавні меч / сокира / лопата, стеларитова бджола, розмноження реліквій) у JEI — ключ есенції souls замість ectoplasm"
  },
  "valhelsia_core": {
-  "cls": ["library"],
+  "cls": [
+   "library"
+  ],
   "role": "library",
   "parent": "forbidden_arcanus",
   "features": [],
-  "uk": "Базова бібліотека команди Valhelsia (багатоблокові структури, моделі та конфігурація), потрібна для роботи Forbidden Arcanus. Сама гравцю нічого не дає."
+  "uk": "Базова бібліотека команди Valhelsia — потрібна Forbidden Arcanus. Сама гравцю нічого не дає.",
+  "ref": [
+   "jarfile:forbidden_arcanus-26.1.2-2.8.0-beta.2!META-INF/neoforge.mods.toml~modId=\"valhelsia_core\""
+  ]
  },
-
  "_— відьомство, магія крові Fate, друїдизм і реліквії —": "",
  "witchery": {
-  "cls": ["magic", "gear", "exploration", "combat", "farming"],
+  "cls": [
+   "magic",
+   "gear",
+   "exploration",
+   "combat",
+   "farming"
+  ],
   "role": "content",
-  "features": ["dimension", "boss", "mobs"],
+  "features": [
+   "dimension",
+   "boss",
+   "mobs"
+  ],
   "dims": [
-   {"id": "witchery:dream_world", "name": "Світ снів"},
-   {"id": "witchery:nightmare_world", "name": "Світ кошмарів"},
-   {"id": "witchery:mirror_world", "name": "Дзеркальний світ"}
+   {
+    "id": "witchery:dream_world",
+    "name": "Світ снів"
+   },
+   {
+    "id": "witchery:nightmare_world",
+    "name": "Світ кошмарів"
+   },
+   {
+    "id": "witchery:mirror_world",
+    "name": "Дзеркальний світ"
+   }
   ],
-  "uk": "Сучасний, керований даними ремейк легендарного Witchery: відьомський вівтар рослинної сили, чавунний казан, дистилятор, прядка й жаровня, мутація дерев і трав через Мутандіс, прив'язка ДНК (Taglock) для захисних ляльок і проклять, крейдяні кола, виміри Снів/Кошмарів і Дзеркал та три глибокі шляхи перетворення самого гравця — вампіризм, лікантропія (перевертень) і некромантія (ліч).",
+  "uk": "Сучасний, керований даними ремейк Witchery: відьомський вівтар із силою природи, відьомський казан, дистилятор, прядка й жаровня, мутація рослин Мутандісом, ляльки й прив'язка (Taglock) для захисту й проклять, крейдяні кола ритуалів, Світ духів (Сни й Кошмари) та Дзеркальний світ і три шляхи перетворення гравця — вампір, перевертень і ліч.",
   "what": [
-   "старт і мутації рослин: насіння мандрагори, беладони, водного артишоку, часнику й аконіту з трави → відьомський казан (3×3 над вогнем) → Мутандіс і Мутандіс Екстреміс перетворюють звичайні саджанці й траву на горобину (`rowan`), вільху (`alder`), глід (`hawthorn`), тліючий мох і блискучий бур'ян",
-   "відьомський вівтар (Altar, 6 блоків) та апарати: вівтар накопичує природну силу з живих рослин, дерев, голів, канделябрів, чаші й пентакля на ньому і живить у радіусі відьомську піч (дає деревний попіл і випари), дистилятор (розщеплює випари й сльози), прядку (золоті нитки й тканини снів) та жаровню",
-   "ляльки (Poppets), прив'язка та крейдяні обряди: голка прив'язки (`taglock_kit`) бере кров або відбиток гравця/істоти (підкраданням зі спини або з ліжка); ляльки захисту від смерті, вогню, голоду, утоплення, падіння, псування броні й вампірські ляльки працюють із полиці ляльок, а ритуальна, золотиста, пекельна й потойбічна крейди відкривають обряди телепортації, зміни біомів, заклику демонів і проклять",
-   "три шляхи перетворення гравця (по 10 рівнів прогресу кожен): Вампір (келих крові над куркою з артаною → 10 рівнів: нічне бачення, гіпноз, перетворення на рій кажанів, буря крові та безсмертя до звичайної шкоди в обмін на горіння на сонці), Перевертень / Лікантропія (вівтар Вовка, форми вовка й вовкулаки з розриванням броні й стрибками) та Ліч / Некромантія (філактерія душ і керування нежиттю)",
-   "3 виміри та боси: Ловець снів і настій сну переносять у «Світ снів» або «Світ кошмарів» (де речі не переходять напряму, а виготовляються заново з бавовни снів і трісок), а демонічне дзеркало ховає «Дзеркальний світ»; боси — Баба-Яга, Рогатий мисливець, Леонард, Смерть, Ліліт, Демон, Дзеркальний демон, Моґ і Ґулґ"
+   {
+    "t": "старт і рослини: насіння мандрагори, беладони, водного артишоку, аконіту, полину й снігового дзвоника; відьомський казан; Мутандіс перетворює рослину на інші види того самого типу (саджанець → горобина, вільха, глід…), Мутандіс Екстреміс — ще й пшеницю, кактус, очерет, траву на міцелій, затоплену землю на глину",
+    "ref": [
+     "lang:item.witchery.mandrake_seeds",
+     "lang:item.witchery.wormwood_seeds",
+     "lang:item.witchery.snowbell_seeds",
+     "lang:book.witchery.guidebook.general.mutandis.mutandis.text",
+     "lang:book.witchery.guidebook.general.mutandis_extremis.mutandis_extremis.text",
+     "lang:block.witchery.rowan_sapling"
+    ]
+   },
+   {
+    "t": "відьомський вівтар (6 блоків 3×1×2): сила вівтаря росте від природи довкола (дерева, квіти…) і живить ритуали та апарати поблизу — піч, дистилятор, прядку, жаровню; на вівтар кладуть артану",
+    "ref": [
+     "lang:book.witchery.guidebook.general.altar.altar.text",
+     "lang:book.witchery.guidebook.general.altar.general.altar.deepslate_altar_block.text",
+     "lang:book.witchery.guidebook.general.arthana.arthana.text",
+     "recipe:witchery:spinning/dream_weaver_of_fasting",
+     "item:witchery:distillery"
+    ]
+   },
+   {
+    "t": "ляльки й ритуали: ляльку прив'язують Taglock-ом до гравця чи істоти; є ляльки захисту від смерті, голоду, псування броні й вуду, вампірська, вуду та псування; ритуальна, золота, пекельна й потойбічна крейда — кола ритуалів (центр — золота крейда, інгредієнти поруч)",
+    "ref": [
+     "lang:book.witchery.guidebook.general.poppet.poppet.text",
+     "lang:block.witchery.death_protection_poppet",
+     "lang:block.witchery.hunger_protection_poppet",
+     "lang:block.witchery.armor_protection_poppet",
+     "lang:block.witchery.voodoo_protection_poppet",
+     "lang:block.witchery.vampiric_poppet",
+     "lang:block.witchery.corrupt_poppet",
+     "lang:book.witchery.guidebook.ritual.golden_chalk.golden_chalk.text",
+     "lang:block.witchery.otherwhere_chalk"
+    ]
+   },
+   {
+    "t": "три шляхи перетворення гравця зі ступенями (у вампіра — до 10; досягнень — по 9 у вампіра й перевертня), що відкриваються завданнями: вампір (завдання: подарувати мак Ліліт, пережити ночі, наповнити запас крові, загіпнотизувати й висмоктати селян…; горить на сонці), перевертень (дати перевертню в капкані перед вівтарем перевертня вас заразити; від другого ступеня Місячний амулет у слоті Curios дає форми вовка й перевертня) і ліч (філактерія, зв'язування душ, одержимість)",
+    "ref": [
+     "count:files:witchery!data/witchery/advancement/vampire/|\\.json$=9",
+     "count:files:witchery!data/witchery/advancement/werewolf/|\\.json$=9",
+     "lang:witchery.quest.vampire.poppy",
+     "lang:witchery.quest.vampire.half_blood",
+     "lang:book.witchery.guidebook.lycanthropy.werewolf_altar.werewolf_altar.text",
+     "lang:book.witchery.guidebook.lycanthropy.moon_charm.moon_charm_forms.text",
+     "lang:witchery.quest.lich.bind_souls",
+     "lang:witchery.phylactery.bound",
+     "jarfile:witchery!dev/sterner/witchery/feature/affliction/vampire/VampireLeveling.class~MAX_LEVEL"
+    ]
+   },
+   {
+    "t": "виміри й противники: вариво сну переносить дух у Світ снів або Кошмар (ловці снів поруч — шанс на добрий сон; повернутися — крижана голка), є й Дзеркальний світ; сильні противники — Баба-Яга, Рогатий мисливець (кличуть плетеною людиною з закривавленого сіна), Леонард, Смерть, Ліліт, Демон, Дзеркальний демон, Моґ і Ґулґ",
+    "ref": [
+     "lang:book.witchery.guidebook.spirit_world.brew_of_sleeping.brew_of_sleeping.text",
+     "lang:book.witchery.guidebook.spirit_world.icy_needle.icy_needle.text",
+     "jarfile:data/witchery/dimension/mirror_world.json",
+     "lang:book.witchery.guidebook.lycanthropy.horned_huntsman.horned_huntsman.text",
+     "lang:entity.witchery.baba_yaga",
+     "lang:entity.witchery.lilith",
+     "lang:entity.witchery.mirror_demon",
+     "lang:entity.witchery.gulg"
+    ]
+   }
   ],
-  "stage": ["s2", "s3", "s4", "s5"],
+  "stage": [
+   "s2",
+   "s3",
+   "s4",
+   "s5"
+  ],
   "synergy": [
-   {"mod": "curios", "why": "пояс з корою та амулети зручно поєднуються з аксесуарами й слотами спорядження"},
-   {"mod": "occultism", "why": "обидва моди доступні з раннього хабу магії й дають різні підходи до ритуалів і фамільярів (сова, жаба, кіт у Witchery)"}
+   {
+    "mod": "curios",
+    "why": "Пояси, амулети, ляльки-обереги, перстень і сагайдак Witchery вдягаються в слоти Curios.",
+    "src": "witchery (jar): data/curios/tags/item/{belt,necklace,poppet,ring,charm,back}.json",
+    "ref": [
+     "jarfile:witchery!data/curios/tags/item/belt.json",
+     "jarfile:witchery!data/curios/tags/item/necklace.json",
+     "jarfile:witchery!data/curios/tags/item/ring.json"
+    ]
+   }
   ],
   "tips": [
-   "Різноманіття рослин навколо відьомського вівтаря важить набагато більше за кількість однакових блоків: посадіть поруч по одному дереву горобини, вільхи та глоду, гарбуз, кавун, гриби, квіти, а на сам вівтар поставте череп візера, канделябр, наповнену чашу, артану й пентакль.",
-   "Збирайте стиглу мандрагору вночі (тоді шанс вистрибування крикливої мандрагори значно менший) або тримайте наготові зброю з «Добіччю» й артану.",
-   "У конфігу збірки `enableCurses = true`, `enableVampireImmortality = true`, `enableLycanthropy = true`, а вимір Сутінкового лісу додано в `sunlightExemptDimensions` (проте сам Twilight Forest у збірці відсутній)."
+   {
+    "t": "Що більше природи довкола відьомського вівтаря (дерева, квіти, гриби, лоза…), то більша його сила — саджайте різне поруч і тримайте апарати близько до вівтаря.",
+    "ref": [
+     "lang:book.witchery.guidebook.general.altar.altar.text"
+    ]
+   },
+   {
+    "t": "Кривавий мак — пастка для прив'язки: коли на нього ступить істота, склянкою з маку беруть Taglock до неї (для ляльок і проклять).",
+    "ref": [
+     "lang:book.witchery.guidebook.vampirism.blood_poppy.blood_poppy.text"
+    ]
+   },
+   {
+    "t": "У конфігу збірки `enableCurses = true`, `enableVampireImmortality = true`, `enableLycanthropy = true`.",
+    "ref": [
+     "config:config/witchery-common.toml#enableCurses=true",
+     "config:config/witchery-common.toml#enableVampireImmortality=true",
+     "config:config/witchery-common.toml#enableLycanthropy=true"
+    ]
+   }
   ],
-  "spoiler": "Щоб здобути криваву троянду для найсильніших приворотних і вампірських обрядів, проведіть істоту по маковому полю під час ритуалу або використайте витяжку зі Світу снів; перемога над Ліліт і Смертю відкриває фінальні дари вампіризму й предмети самої Смерті.",
+  "spoiler": "Передостанній ступінь вампіра (усього їх 10) — «діти вампіра»: на дев'ятому ступені загіпнотизуйте селянина, вип'єте половину його крові й напоїте з келиха своєю кров'ю — уночі він полюватиме й приноситиме кров до тигля.",
   "book": "Посібник",
-  "icons": ["witchery:guidebook", "witchery:cauldron", "witchery:mutandis", "witchery:broom"]
+  "icons": [
+   "witchery:guidebook",
+   "witchery:cauldron",
+   "witchery:mutandis",
+   "witchery:broom"
+  ],
+  "ref": [
+   "lang:book.witchery.guidebook.vampirism.vampire_children.vampire_children.text",
+   "lang:book.witchery.guidebook.vampirism.blood_crucible.blood_crucible.text",
+   "jarfile:witchery!dev/sterner/witchery/feature/affliction/vampire/VampireLeveling.class~MAX_LEVEL"
+  ]
  },
  "mahoutsukai": {
-  "cls": ["magic", "gear", "exploration"],
-  "role": "content",
-  "features": ["dimension"],
-  "dims": [{"id": "mahoutsukai:reality_marble", "name": "Мармурова реальність"}],
-  "uk": "Видовищна магія крові та магічних кіл за мотивами всесвіту Fate/stay night: пустіть кров кинджалом або клавішею M, намалюйте коло й посипте його товченим порошком діаманта, смарагда, золота, кварцу чи заліза. Від кіл висмоктування життя з мобів і сувоїв проєкції до легендарної зброї — Калібурна, Морґана, Кларента, Емріса, Ґандра та власного кишенькового виміру «Мармурова реальність». У ATM11 параметри мани та стелі шкоди суттєво збалансовано.",
-  "what": [
-   "старт і мана: вдарте себе кинджалом або натисніть клавішу M (пускає кров за 1 серце й одразу малює коло на підлозі чи магічній тканині для сувоїв); витрата мани поступово збільшує ваш особистий максимум (+1 макс. мани за кожні 200 витраченої мани), а ланцюги мани (`mana_circuit`) та налаштовані діаманти (2000 мани) й смарагди (1000 мани) слугують зовнішніми акумуляторами",
-   "пасивні кола на підлозі: «Межа висмоктування життя» (3 порошки смарагда — витягує здоров'я з мобів навколо, лікує вас, вгамовує голод і заряджає ману!), «Межа випадіння гравітації», «Межа обміну дуруків» (перетворює блоки під ногами на ману), «Межа прискорення росту» та «Межа тривоги»",
-   "сувої на магічній тканині (можна складати у «Містичний код» і перемикати клавішею Y): «Зміцнення» (`strengthening` — тимчасово робить предмет незламним на 15 ударів і підвищує шкоду), «Проєкція» (запам'ятовує зброю чи інструмент і за 8000 мани створює копію на 5 використань), «Скарбниця проєкції» (залп мечами у стилі Gate of Babylon!), «Просторовий обмін», «Запозичення імені», «Погляд у майбутнє» та виклик феї для паличок Kodoku",
-   "легендарна зброя зі стадіями пробудження: Калібурн (киньте зачарований меч в озеро мутної води від ритуалу витягування сили), Морґан (вбийте прирученого вовка Калібурном; прокачується вбивствами селян — +0.5 шкоди за дитину, +0.1 за дорослого при натисканні M!), Кларент (повертає поглинуту на блоку шкоду ворогам), Лук проєкції, посох вибуху мани (вимагає витримати власний промінь без смерті!) та громовий посох Емріс",
-   "«Мармурова реальність» (Reality Marble): сувій переносить вас або вибрану ціль на дуель у персональний вимір, усіяний мечами",
-   "ребаланс ATM11 (`mahoutsukai-server.toml`): особистий максимум мани обмежено до 20 000 (замість 200 000), місткість ланцюгів мани — до 20 000; стелю базової шкоди Калібурна й Морґана знижено з 5 000 000 до 60 (пороги прокачування в озері за зірки Незеру: 30 → 35 → 40 → 45 → 50 → 55 → 60, зачарування «Лагодження» заборонено), стеля Кларента й Репліки — 40, Ґандра — 20; максимум одночасних кіл «Межі висмоктування життя» — 10 на гравця (манекени в чорному списку); сувої Зміцнення та Проєкції заборонені у вічному «Містичному коді — перше чаклунство»"
+  "cls": [
+   "magic",
+   "gear",
+   "exploration"
   ],
-  "stage": ["s2", "s3", "s4"],
+  "role": "content",
+  "features": [
+   "dimension"
+  ],
+  "dims": [
+   {
+    "id": "mahoutsukai:reality_marble",
+    "name": "Мармурова реальність"
+   }
+  ],
+  "uk": "Видовищна магія крові й магічних кіл за мотивами Fate/stay night: отримайте шкоду й швидко натисніть M — на підлозі з'явиться коло з крові; додайте в нього 3 товчені каталізатори (і тканину, якщо рецепт — сувій). Від кіл висмоктування життя й сувоїв проєкції до легендарної зброї — Калібурна, Морґана, Кларента, Емріса, Ґандра — та «Мармурової реальності». У конфігу збірки межі мани й шкоди сильно знижено.",
+  "what": [
+   {
+    "t": "старт і мана: коло крові — отримати шкоду (є й кинджал) і швидко натиснути M; мана відновлюється з часом і уві сні, а витрата поступово збільшує ваш максимум (+1 за 200 витраченої мани); ланцюги мани (`mana_circuit`) і налаштовані діаманти (2000 мани) та смарагди (1000) — зовнішні акумулятори",
+    "ref": [
+     "lang:mahoutsukai.book.intro.desc",
+     "file:options.txt~key_key.drawMahoujin:key.keyboard.m",
+     "lang:mahoutsukai.book.mana.desc",
+     "config:config/mahoutsukai-server.toml#mana.MANA_UP_COUNTER=200",
+     "config:config/mahoutsukai-server.toml#mana storage.ATTUNED_DIAMOND_CAPACITY=2000",
+     "config:config/mahoutsukai-server.toml#mana storage.ATTUNED_EMERALD_CAPACITY=1000",
+     "lang:mahoutsukai.book.magic.desc"
+    ]
+   },
+   {
+    "t": "межі (кола на підлозі, діють у радіусі й постійно беруть ману; вмикаються ПКМ або редстоуном): висмоктування життя (шкодить мобам довкола й повертає вам здоров'я, ситість або ману), гравітації (важчі моби), переміщення (телепортує тих, хто ввійшов), тривоги, огородження й відчутна межа",
+    "ref": [
+     "lang:mahoutsukai.book.boundaries.desc",
+     "lang:mahoutsukai.book.drain_life_boundary.desc",
+     "lang:mahoutsukai.book.gravity_boundary.desc",
+     "lang:mahoutsukai.book.displacement_boundary.desc",
+     "lang:block.mahoutsukai.mahoujin_alarm_barrier"
+    ]
+   },
+   {
+    "t": "сувої на магічній тканині (їх збирають у «Містичний код»): «Зміцнення» (перший предмет на панелі тимчасово незламний, б'є й копає сильніше), «Проєкція» (перший раз запам'ятовує інструмент, другий — дає копію на 5 використань за 8000 мани), «Скарбниця проєкції» (залп мечами), обміни (шкоди, імунітету, міцності…), переміщення, «Запозичення влади», виклик фамільяра",
+    "ref": [
+     "lang:mahoutsukai.book.strengthening.desc",
+     "lang:mahoutsukai.book.projection.desc",
+     "config:config/mahoutsukai-server.toml#projection.projection.PROJECTION_MANA_COST=8000",
+     "config:config/mahoutsukai-server.toml#projection.projection.PROJECTION_DURABILITY_FACTOR=5",
+     "lang:item.mahoutsukai.scroll_damage_exchange",
+     "lang:item.mahoutsukai.scroll_immunity_exchange"
+    ]
+   },
+   {
+    "t": "легендарна зброя: Калібурн (коло «Зосередження сили» створює озеро — киньте в нього зачарований меч; «що святіше, то краще» — «Небесна кара»), Морґан (убийте Калібурном прирученого вовка; шкода росте від убивств селян — дитина +0,5, дорослий +0,1, — це ж і лікує меч), Кларент (б'є шкодою зброї супротивника й повертає заблоковані удари), посох вибуху мани, Емріс, Ґандр",
+    "ref": [
+     "lang:mahoutsukai.book.power_consolidation.desc",
+     "lang:mahoutsukai.book.morgan.desc",
+     "config:config/mahoutsukai-server.toml#projection.morgan and caliburn.MORGAN_CHILD_INCREASE=0.5",
+     "config:config/mahoutsukai-server.toml#projection.morgan and caliburn.MORGAN_ADULT_INCREASE=0.1",
+     "config:config/mahoutsukai-server.toml#projection.morgan and caliburn.MORGAN_TRANSFORM_ENTITY_WHITELIST",
+     "lang:mahoutsukai.book.clarent.desc"
+    ]
+   },
+   {
+    "t": "«Мармурова реальність»: сувій переносить вас (і, за бажанням, ціль) у фіксоване місце виміру; з ціллю вийти можна, лише коли один із вас загине, без цілі — отримавши шкоду",
+    "ref": [
+     "lang:mahoutsukai.book.reality_marble.desc"
+    ]
+   },
+   {
+    "t": "конфіг збірки (`mahoutsukai-server.toml`, у дужках — типове значення мода): максимум мани — 20 000 (200 000), місткість ланцюгів мани — 20 000 (100 000); межа шкоди Калібурна — 60 (5 000 000), пороги озера за зірки Незеру: 30 → 35 → 40 → 45 → 50 → 55 → 60, «Лагодження» заборонено; Морґан і Кларент у список посилення озером не входять; межа Кларента — 40 (500 000), Ґандра — 20 (1000); межа Зміцнення — 15 (50); радіус межі висмоктування життя — 10 блоків (манекени в чорному списку); «Містичний код — перше чаклунство» має 15 міцності (50) і не приймає сувоїв Зміцнення й межі висмоктування життя",
+    "ref": [
+     "config:config/mahoutsukai-server.toml#mana.MAX_MANA_CAP=20000",
+     "config:config/mahoutsukai-server.toml#mana storage.MANA_CIRCUIT_CAPACITY=20000",
+     "config:config/mahoutsukai-server.toml#projection.power consolidation.POWER_CONSOLIDATION_ATTACK_CAP=60",
+     "config:config/mahoutsukai-server.toml#projection.power consolidation.POWER_CONSOLIDATION_TIERS",
+     "config:config/mahoutsukai-server.toml#projection.power consolidation.POWER_CONSOLIDATION_BLACKLIST",
+     "config:config/mahoutsukai-server.toml#projection.power consolidation.POWER_CONSOLIDATION_ENCHANT_BLACKLIST",
+     "config:config/mahoutsukai-server.toml#projection.clarent.CLARENT_ATTACK_CAP=40",
+     "config:config/mahoutsukai-server.toml#secret.gandr.GANDR_MAX_DAMAGE=20",
+     "config:config/mahoutsukai-server.toml#projection.strengthening.STRENGTHENING_CAP=15",
+     "config:config/mahoutsukai-server.toml#boundary.drain life.DRAIN_LIFE_BARRIER_RADIUS=10",
+     "config:config/mahoutsukai-server.toml#mystic code.FIRST_SORCERY_DURABILITY=15",
+     "config:config/mahoutsukai-server.toml#mystic code.MYSTIC_CODE_FIRST_SORCERY_BLACKLIST",
+     "file:config/mahoutsukai-server.toml~# Default: 5000000",
+     "file:config/mahoutsukai-server.toml~# Default: 200000",
+     "file:config/mahoutsukai-server.toml~# Default: 500000",
+     "file:config/mahoutsukai-server.toml~# Default: 100000",
+     "file:config/mahoutsukai-server.toml~# Default: 1000.0",
+     "file:config/mahoutsukai-server.toml~# Default: 50"
+    ]
+   }
+  ],
+  "stage": [
+   "s2",
+   "s3",
+   "s4"
+  ],
   "synergy": [
-   {"mod": "apothic_enchanting", "why": "для першого Калібурна та його подальшого перекидання в озеро потрібні високі рівні «Небесної кари» на мечі, які легко зібрати в Бібліотеці чар"},
-   {"mod": "easy_villagers", "why": "ферма селян дозволяє швидко прокачати вроджену шкоду Морґана до стелі 60 одиниць"}
+   {
+    "mod": "apothic_enchanting",
+    "why": "Для Калібурна й підвищень його шкоди потрібен меч з «Небесною карою» (що вищий рівень, то краще) — Бібліотека чар зберігає такі книги й видає потрібний рівень.",
+    "src": "квести «Калібурн», «Покращуємо Калібурн» (Mahou Tsukai) і «Бібліотека чар» (Apothic Enchanting)",
+    "ref": [
+     "quest:03DCDFB32CD4BD85",
+     "quest:012912FDAFCD1C66",
+     "quest:6884E25641A1020C"
+    ]
+   },
+   {
+    "mod": "easy_villagers",
+    "why": "Шкода Моргана росте лише від убивства селян (+0.1 за дорослого, +0.5 за дитину) — Розмножувач Easy Villagers дає їх без пошуку сіл.",
+    "src": "квест «Морган на максимумі» (Mahou Tsukai); config/mahoutsukai-server.toml MORGAN_ADULT_INCREASE = 0.1, MORGAN_CHILD_INCREASE = 0.5; предмет easy_villagers:breeder",
+    "ref": [
+     "quest:777BB82B56038ED3",
+     "item:easy_villagers:breeder",
+     "config:config/mahoutsukai-server.toml#MORGAN_ADULT_INCREASE=0.1",
+     "quest:777BB82B56038ED3~The only way to increase Morgan's Damage is by killing Villagers."
+    ]
+   }
   ],
   "tips": [
-   "Не лякайтеся 6-сторінкового опису в книзі: щоб швидко заповнити всі 20 000 мани і стати майже невразливим біля бази, поставте біля спавнера або ферми мобів кілька кіл «Межі висмоктування життя» (кров клавішею M + 2 товчені заліза + 1 товчений смарагд).",
-   "У вічному «Містичному коді — перше чаклунство» сувої Зміцнення та Проєкції заблоковано конфігом збірки — використовуйте їх напряму з руки або зі звичайного «Містичного коду» (перемикання слота — Y).",
-   "Коли кидаєте Калібурн в озеро мутної води разом із зірками Незеру для підвищення порогу шкоди (30 → 35 → … → 60), меч має бути зачарований наново (від попереднього кидка чари зникають)."
+   {
+    "t": "Щоб швидко наповнювати ману біля бази, поставте поруч зі спавнером чи фермою мобів коло межі висмоктування життя: кожне висмоктане серце повертає вам здоров'я, ситість або ману — у такому порядку, за потребою (рецепт кола — у JEI / книзі мода).",
+    "ref": [
+     "lang:mahoutsukai.book.drain_life_boundary.desc"
+    ]
+   },
+   {
+    "t": "Сувої Зміцнення й межі висмоктування життя конфіг збірки не пускає в «Містичний код — перше чаклунство» — тримайте їх у звичайному «Містичному коді» або використовуйте з руки.",
+    "ref": [
+     "config:config/mahoutsukai-server.toml#mystic code.MYSTIC_CODE_FIRST_SORCERY_BLACKLIST",
+     "lang:mahoutsukai.book.mystic_code_first_sorcery.desc"
+    ]
+   },
+   {
+    "t": "Пороги шкоди Калібурна (30 → … → 60) підвищують зірками Незеру в озері; за квестом глави, після підвищення меч більше не підвищується — кидайте всі потрібні зірки за раз.",
+    "ref": [
+     "config:config/mahoutsukai-server.toml#projection.power consolidation.POWER_CONSOLIDATION_TIER_UPGRADE_ITEM",
+     "quest:012912FDAFCD1C66~Once upgraded it can't be upgraded anymore so make sure you toss in all 6 at once!"
+    ]
+   }
   ],
-  "spoiler": "У цій збірці Калібурн і Морґан зумисне обмежені 60 одиницями шкоди (замість мільйонів у дефолтному моді), але Калібурн із «Добіччю» у правій руці під час роботи кіл або спавнерів усе одно залишається чудовою зброєю середньої гри.",
+  "spoiler": "У збірці Калібурн обмежено 60 одиницями шкоди (типово в моді — 5 000 000), Кларент — 40, Ґандр — 20; Морґан росте лише від убивств селян.",
   "chapter": "mahou_tsukai",
   "book": "Збірник знань Mahou Tsukai",
-  "icons": ["mahoutsukai:guidebook", "mahoutsukai:dagger", "mahoutsukai:caliburn", "mahoutsukai:morgan"]
+  "icons": [
+   "mahoutsukai:guidebook",
+   "mahoutsukai:dagger",
+   "mahoutsukai:caliburn",
+   "mahoutsukai:morgan"
+  ],
+  "ref": [
+   "quest:03DCDFB32CD4BD85",
+   "quest:012912FDAFCD1C66",
+   "quest:6884E25641A1020C",
+   "quest:777BB82B56038ED3",
+   "item:easy_villagers:breeder",
+   "config:config/mahoutsukai-server.toml#MORGAN_ADULT_INCREASE=0.1",
+   "quest:777BB82B56038ED3~The only way to increase Morgan's Damage is by killing Villagers.",
+   "config:config/mahoutsukai-server.toml#mana.MAX_MANA_CAP=20000",
+   "quest:012912FDAFCD1C66~Once upgraded it can't be upgraded anymore so make sure you toss in all 6 at once!",
+   "jarfile:mahoutsukai!assets/mahoutsukai/lang/en_us.json~above 15 armor",
+   "config:config/mahoutsukai-client.toml",
+   "config:config/mahoutsukai-server.toml"
+  ]
  },
  "rootsclassic": {
-  "cls": ["magic", "gear", "farming"],
+  "cls": [
+   "magic",
+   "gear",
+   "farming"
+  ],
   "role": "content",
   "features": [],
-  "uk": "Класична друїдична магія з першої ж ночі: зрізайте кору дерев ножем для кори, добувайте старі корені з трави та зелені гілочки з посівів, розтирайте квіти й реагенти в ступці для заряджання дерев'яних і кришталевих посохів та проводьте ритуали на друїдичному вівтарі з курильницями й кам'яними менгірами. Живі інструменти й лісова броня самі відновлюють міцність у руках друїда.",
+  "uk": "Класична друїдична магія з першої ж ночі: ножем для кори знімайте кору з колод, збирайте старі корені з трави, зелені гілочки з посівів, пекельні цибулини з незерського наросту й очі дракона з квітів хорусу, змішуйте закляття в ступці для посохів і проводьте ритуали на вівтарі з курильницями й менгірами. Живі інструменти, лісова й дикодеревна броня самі відновлюють міцність.",
   "what": [
-   "природні інгредієнти: ніж для кори (`bark_knife` з палиць і дощок) знімає кору з дуба, берези, смереки, тропічного дерева, акації й темного дуба; старі корені падають із високої трави, зелені гілочки — зі стиглої пшениці, пекельні цибулини — з незерського наросту, а очі дракона — з рослин хорусу",
-   "ступка й товкач (`mortar` + `pestle`): поєднання основи (старий корінь, гілочка, пекельна цибулина або око дракона — визначає потужність), квітки/предмета закляття та редстоуну і світлокаменю (підсилюють силу й зменшують витрату мани) дає порошок заклять для заряджання посоха (1 закляття) або кришталевого посоха (до 4 заклять, перемикання Shift+ПКМ)",
-   "друїдичний вівтар, курильниці та менгіри (`standing_stone` T1 і T2): ритуали призову дощу й грози, вирощування, прискорення, перетворення та створення живого кайла/меча/сокири, посоха лісів і комплекту броні з дикого дерева (`sylvan` і `wildwood`), що пасивно регенерують здоров'я чи міцність",
-   "активні камені-менгіри навколо бази: камінь росту й прискорювач (прискорюють ферми без енергії!), цілющий камінь, вакуумний менгір (збирає предмети), відштовхувальний і захисний менгіри проти монстрів",
-   "у KubeJS додано сумісність кори Roots Classic із лісопилками та рецепт вологого моху в кінці глави підготовки до зірки ATM"
+   {
+    "t": "інгредієнти: ніж для кори знімає кору з колод (дуб, береза, смерека, тропічне, акація, темний дуб, мангрове, вишня, блідий дуб); старі корені — 1/40 з високої трави, зелені гілочки — 1/30 зі стиглих посівів, пекельні цибулини — 1/20 зі стиглого незерського наросту, очі дракона — 1/10 з квітів хорусу",
+    "ref": [
+     "lang:item.rootsclassic.bark_knife",
+     "lang:item.rootsclassic.pale_oak_bark",
+     "lang:item.rootsclassic.mangrove_bark",
+     "lang:rootsclassic.research.nature.magical_materials.page2info",
+     "lang:rootsclassic.research.nature.magical_materials.page3info",
+     "lang:rootsclassic.research.nature.magical_materials.page4info",
+     "lang:rootsclassic.research.nature.magical_materials.page5info"
+    ]
+   },
+   {
+    "t": "ступка й товкач: основа (старий корінь — без модифікаторів, гілочка — 1 слот, пекельна цибулина — 2, око дракона — три) + квітка закляття + модифікатори: світлокамінь — сила, редстоун — дешевше й більше використань, порох — площа; порошок закляття заряджає посох в імбуері (обмежені заряди) або кришталевий посох ритуалом (до чотирьох заклять, перемикання Shift+ПКМ; поза природними блоками бере силу з вашого здоров'я)",
+    "ref": [
+     "lang:rootsclassic.research.spells.modifiers.page1info",
+     "lang:rootsclassic.research.spells.modifiers.page2info",
+     "lang:rootsclassic.research.spells.imbuer.page2info",
+     "lang:rootsclassic.research.ritual.crystal_staff.page1info",
+     "lang:rootsclassic.research.ritual.crystal_staff.page3info",
+     "lang:rootsclassic.research.ritual.crystal_staff.page5info"
+    ]
+   },
+   {
+    "t": "вівтар заклинань, курильниці й менгіри (звичайний і налаштований): ритуали дощу й ясної погоди, росту, масового розмноження, зсуву часу, висмоктування життя, жертви; ритуали створення — живі інструменти (як залізні, повільно лагодяться), лісова броня (зі шкіряної: самолагодження, +2 до ефективності заклять), дикодеревна броня (з залізної: між залізом і діамантом, самолагодження, регенерація навіть без їжі)",
+    "ref": [
+     "count:files:RootsClassic!data/rootsclassic/recipe/ritual/|\\.json$=46",
+     "jarfile:data/rootsclassic/recipe/ritual/mass_breeding.json",
+     "jarfile:data/rootsclassic/recipe/ritual/time_shift.json",
+     "lang:rootsclassic.research.ritual.living_tools.page1info",
+     "lang:rootsclassic.research.ritual.sylvan_armor.page1info",
+     "lang:rootsclassic.research.ritual.wildwood_armor.page1info"
+    ]
+   },
+   {
+    "t": "активні менгіри: ростовий (прискорює рослини), прискорювальний (швидкість), цілющий (регенерація), вакуумний (притягує), відштовхувальний, обплутувальний (уповільнення) і запальний",
+    "ref": [
+     "lang:block.rootsclassic.grower_standing_stone.guide",
+     "lang:block.rootsclassic.accelerator_standing_stone.guide",
+     "lang:block.rootsclassic.healer_standing_stone.guide",
+     "lang:block.rootsclassic.vacuum_standing_stone.guide",
+     "lang:block.rootsclassic.repulsor_standing_stone.guide",
+     "lang:block.rootsclassic.entangler_standing_stone.guide",
+     "lang:block.rootsclassic.igniter_standing_stone.guide"
+    ]
+   },
+   {
+    "t": "у KubeJS кришталевий посох Roots Classic — інгредієнт пульсуючої чорної діри All The Tweaks, але цей рецепт у збірці неактивний (серед дев'яти умов-модів бракує Industrial Foregoing, PneumaticCraft і Pocket Storage)",
+    "ref": [
+     "file:kubejs/server_scripts/modpack/att_items.js~G: \"rootsclassic:crystal_staff\"",
+     "file:kubejs/server_scripts/modpack/att_items.js~Platform.isLoaded(\"industrialforegoing\")",
+     "file:kubejs/server_scripts/modpack/att_items.js~Platform.isLoaded(\"pocketstorage\")",
+     "count:items:industrialforegoing=0",
+     "count:items:pneumaticcraft=0",
+     "count:items:pocketstorage=0",
+     "!recipe:allthemods:pressure/allthetweaks/pulsating_black_hole"
+    ]
+   }
   ],
-  "stage": ["s0", "s1", "s2"],
-  "synergy": [
-   {"mod": "occultism", "why": "на дорожній карті друїдична магія відкривається вже з кам'яної доби й плавно веде до ритуалів Occultism"},
-   {"mod": "croptopia", "why": "ростові й прискорювальні менгіри прискорюють дозрівання всіх культур на ранніх фермах без жодного FE"}
+  "stage": [
+   "s0",
+   "s1",
+   "s2"
   ],
   "tips": [
-   "Броня з дикого дерева (`wildwood`) та лісова (`sylvan`) мають дуже приємний ранній крафт і самі лагодять себе з часом — їхні квести знаходяться у главах «Базова броня» та «Базові інструменти».",
-   "Під час розтирання заклять у ступці обов'язково додавайте 1–2 пилинки редстоуну (ефективність мани) і світлокаменю (потужність ефекту) — це перетворює слабке базове закляття на повноцінний бойовий чи фермерський інструмент."
+   {
+    "t": "Лісова й дикодеревна броня та живі інструменти — ранній крафт, що сам лагодиться; квести про них є в главах «Базова броня» й «Базові інструменти», але в цій версії збірки ці глави приховані.",
+    "ref": [
+     "lang:rootsclassic.research.ritual.sylvan_armor.page1info",
+     "lang:rootsclassic.research.ritual.wildwood_armor.page1info",
+     "file:config/ftbquests/quests/chapters/basic_armor.json5~always_invisible: true"
+    ]
+   },
+   {
+    "t": "Кількість модифікаторів обмежує основа: зі старого кореня — жодного, тож для сильного закляття беріть пекельну цибулину чи око дракона й додавайте світлокамінь (сила) та редстоун (ефективність).",
+    "ref": [
+     "lang:rootsclassic.research.spells.modifiers.page2info",
+     "lang:rootsclassic.research.spells.modifiers.page1info"
+    ]
+   }
   ],
   "chapter": "basic_armor",
   "book": "Рунічна табличка",
-  "icons": ["rootsclassic:runic_tablet", "rootsclassic:mortar", "rootsclassic:altar", "rootsclassic:crystal_staff"]
+  "icons": [
+   "rootsclassic:runic_tablet",
+   "rootsclassic:mortar",
+   "rootsclassic:altar",
+   "rootsclassic:crystal_staff"
+  ],
+  "ref": [
+   "config:config/rootsclassic-client.toml",
+   "config:config/rootsclassic-common.toml"
+  ]
  },
  "reliquary": {
-  "cls": ["magic", "qol", "farming", "gear"],
+  "cls": [
+   "magic",
+   "qol",
+   "farming",
+   "gear"
+  ],
   "role": "content",
   "features": [],
-  "uk": "Колекція незамінних магічних реліквій, талісманів, посохів і алхімії з мобового дропу: монета удачі (магніт), том алкагестрії (розмноження ресурсів у сітці крафту), лілія родючості, нев'януча троянда, чаші нескінченної води й лави, посох прибульця для смолоскипів, розривна буря для польоту, амулети нейтральності мобів і пістолет мисливця з 9 типами куль.",
+  "uk": "Колекція незамінних магічних реліквій, талісманів, посохів і алхімії з мобового дропу: монета удачі (магніт), том алкагестрії (розмноження ресурсів у сітці крафту), лілія родючості, нев'януча троянда, чаша нескінченної води й чаша для лави, посох прибульця для смолоскипів, розривна буря для польоту, амулети нейтральності мобів і пістолет мисливця з 9 типами куль.",
   "what": [
-   "ключові утиліти: Монета удачі (магніт предметів і сфер досвіду в радіусі 5–15 блоків, вмикається/вимикається Shift+ПКМ зі звуком дзвоника!), Том алкагестрії (заряджається редстоуном або світлокаменем до 1000 зарядів і розмножує залізо, золото, мідь, алмази, незерак, пісок душ, сльози ґаста й черепи візера просто в сітці крафту!), Посох прибульця (поглинає до 1500 смолоскипів чи ліхтарів і ставить їх на відстані до 30 блоків за рахунок заряду)",
-   "посохи, чаші й будівництво: Розривна буря (`rending_gale` — заряджається пір'ям і дає швидкий творчий політ, відштовхування мобів або удар блискавкою!), Каталізатор руйнування (копає куб 3×3×3 за порох), Крижаний жезл, Стрижень урожаю (удобрює, садить і збирає посіви за кісткове борошно), Чаша імператора (нескінченна вода за 0.5 серця), Пекельна чаша (зберігає до 500 відер лави й рятує від горіння в лаві!)",
-   "захист і бій: Нев'януча троянда (`witherless_rose` — у інвентарі дає повний імунітет до ефекту висушування!), Сутінковий плащ (невидимість у темряві), Ангельське перо (захист від падіння й регенерація), За호плене око, Амулети мобів (`mob_charm` на поясі роблять скелетів, кріперів, ендерменів, блейзів, візер-скелетів чи вартових мирними до вас, доки ви їх не вдарите!), Пістолет мисливця з магазинами 9 видів куль та Свята ручна граната",
-   "автоматизація й фермерство: П'єдестали (`pedestal` — автоматично махають покладеним мечем, стрижуть овець ножицями, доять корів відром, ловлять рибу вудкою або активують реліквії Reliquary!), Лілія родючості (`fertile_lily_pad` — прискорює ріст посівів у радіусі 4 блоків, а її ефект сумується від кількох лілій!)",
+   {
+    "t": "ключові утиліти: Монета удачі (притягує предмети й досвід: 5 блоків, утримання ПКМ — 15; вмикається Shift+ПКМ), Том алкагестрії (заряджається редстоуном або світлокаменем до 1000 зарядів і розмножує в сітці крафту залізо, золото, мідь, діаманти, смарагди, лазурит, обсидіан, незерак, пісок душ, зорю Незеру, порох та ін.), Посох мандрівника (вміщає до 1500 штук на вид смолоскипів чи ліхтарів й ставить їх на відстані до 30 блоків — далі дорожче)",
+    "ref": [
+     "config:config/reliquary-common.toml#items.fortuneCoin.standardPullDistance=5",
+     "config:config/reliquary-common.toml#items.fortuneCoin.longRangePullDistance=15",
+     "lang:item.reliquary.fortune_coin.tooltip2",
+     "config:config/reliquary-common.toml#items.alkahestryTome.chargeLimit=1000",
+     "jarfile:data/reliquary/recipe/alkahestry/charging/redstone.json",
+     "config:config/reliquary-common.toml#disable.alkahestryTome=false",
+     "jarfile:data/reliquary/recipe/alkahestry/crafting/nether_star.json",
+     "jarfile:data/reliquary/recipe/alkahestry/crafting/obsidian.json",
+     "config:config/reliquary-common.toml#items.sojournerStaff.maxCapacityPerItemType=1500",
+     "config:config/reliquary-common.toml#items.sojournerStaff.maxRange=30",
+     "lang:item.reliquary.sojourner_staff.tooltip"
+    ]
+   },
+   {
+    "t": "посохи й чаші: Розривна буря (`rending_gale` — заряджається пір'ям: політ, притягування / відштовхування мобів, у дощ — блискавка; режими Shift+коліщатко), Каталізатор руйнування (руйнує куб 3×3×3 — радіус 1 — за порох), Крижаний жезл і Льодовиковий посох, Стрижень урожаю (удобрює кістковим борошном і збирає посіви навколо), Чаша імператора (нескінченне відро води; пиття дає ситість ціною здоров'я), Пекельна чаша (до 500 відер лави, захищає від шкоди лави)",
+    "ref": [
+     "lang:item.reliquary.rending_gale.tooltip",
+     "lang:item.reliquary.rending_gale.tooltip.controls",
+     "config:config/reliquary-common.toml#items.destructionCatalyst.explosionRadius=1",
+     "config:config/reliquary-common.toml#items.destructionCatalyst.perfectCube=true",
+     "lang:item.reliquary.harvest_rod.tooltip",
+     "lang:item.reliquary.emperor_chalice.tooltip2",
+     "lang:item.reliquary.infernal_chalice.tooltip",
+     "config:config/reliquary-common.toml#items.infernalChalice.fluidLimit=500000"
+    ]
+   },
+   {
+    "t": "захист і бій: Нев'януча троянда (`witherless_rose` — у руках захищає від висушування), Сутінковий плащ (невидимість у темряві), Ангельське перо (захист від падіння ціною ситості), Око саламандри (гасить вогняні кулі блейзів, відбиває кулі ґастів, гасить вогонь на вас), Амулети мобів (певний тип мобів вас не бачить; пояс тримає кілька амулетів), Пістолет мисливця з магазинами 9 видів куль",
+    "ref": [
+     "lang:item.reliquary.witherless_rose.tooltip",
+     "lang:item.reliquary.twilight_cloak.tooltip",
+     "lang:item.reliquary.angelic_feather.tooltip",
+     "lang:item.reliquary.salamander_eye.tooltip",
+     "lang:item.reliquary.mob_charm.tooltip",
+     "lang:item.reliquary.mob_charm_belt.tooltip",
+     "count:files:reliquary!assets/reliquary/items/|_magazine\\.json$=10"
+    ]
+   },
+   {
+    "t": "автоматизація й ферми: П'єдестали (з мечем б'ють мобів поруч, крім босів і приручених, з відром доять корів і збирають рідини, з ножицями стрижуть, з вудкою рибалять, з монетою удачі збирають предмети в сусідні скрині; вмикаються перемикачем або редстоуном), Лілія родючості (`fertile_lily_pad` — прискорює ріст рослин у радіусі 4 блоків, повна сила — в радіусі 1)",
+    "ref": [
+     "jarfile:reliquary!assets/reliquary/lang/en_us.json~Sword - Attacks mobs in its range",
+     "config:config/reliquary-common.toml#blocks.fertileLilypad.tileRange=4",
+     "config:config/reliquary-common.toml#blocks.fertileLilypad.fullPotencyRange=1"
+    ]
+   },
    "зміни ATM11 (KubeJS): рецепт Лілії родючості перенесено на Вівтар пробудження Mystical Agriculture (латаття + вібранієва пластина + 3 родючі есенції + по 40 есенцій 4 стихій); Нев'януча троянда потрібна для крафту Візеручої душі (`mysticalagradditions:withering_soul`); Туманне серце (`nebulous_heart`) можна створювати з передбачень ендермена в Hostile Neural Networks"
   ],
-  "stage": ["s1", "s2", "s3", "s4", "s6"],
+  "stage": [
+   "s1",
+   "s2",
+   "s3",
+   "s4",
+   "s6"
+  ],
   "synergy": [
-   {"mod": "mysticalagriculture", "why": "Лілія родючості крафтиться на Вівтарі пробудження з вібранієвою пластиною і багаторазово прискорює грядки есенцій; Нев'януча троянда йде на Візеручу душу"},
-   {"mod": "hostilenetworks", "why": "симуляція ендермена, блейза, відьми та візер-скелета постачає каталізуючі залози, розплавлені ядра, туманні серця й ребра для всіх реліквій без полювання вночі"}
+   {
+    "mod": "mysticalagriculture",
+    "why": "Лілію родючості в ATM11 роблять на вівтарі пробудження Mystical Agriculture (латаття, вібранієва пластина, 3 есенції родючості Reliquary і по 40 есенцій чотирьох стихій) — ручний рецепт Reliquary прибрано; троянда без візера — інгредієнт душі візера Mystical Agradditions.",
+    "src": "KubeJS server_scripts/mods/mysticalagriculture/awakened_essence_crafting.js (awakening/fertile_lily_pad; remove output reliquary:fertile_lily_pad), mods/mysticalagriculture/recipes.js (mysticalagradditions/withering_soul)",
+    "ref": [
+     "recipe:allthemods:mysticalagriculture/awakening/fertile_lily_pad",
+     "!recipe:reliquary:fertile_lily_pad",
+     "recipe:allthemods:mysticalagradditions/withering_soul"
+    ]
+   },
+   {
+    "mod": "hostilenetworks",
+    "why": "Симуляції мобів Hostile Neural Networks дають трофеї для реліквій: розплавлене ядро (пломінь), каталізуючу залозу (ґаст, кріпер), туманне серце (ендермен), висохле ребро (візер-скелет), серце зомбі, хеліцери, слизову перлину, капелюх відьми та ін.",
+    "src": "hostilenetworks (jar): data/hostilenetworks/hostilenetworks/data_models/*.json fabricator_drops (reliquary:*)",
+    "ref": [
+     "jarfile:data/hostilenetworks/hostilenetworks/data_models/blaze.json~reliquary:molten_core",
+     "jarfile:data/hostilenetworks/hostilenetworks/data_models/creeper.json~reliquary:catalyzing_gland",
+     "jarfile:data/hostilenetworks/hostilenetworks/data_models/enderman.json~reliquary:nebulous_heart",
+     "jarfile:data/hostilenetworks/hostilenetworks/data_models/wither_skeleton.json~reliquary:withered_rib",
+     "jarfile:data/hostilenetworks/hostilenetworks/data_models/witch.json~reliquary:witch_hat"
+    ]
+   }
   ],
   "tips": [
-   "Лілія родючості в ATM11 — не ранній предмет, а потужний середньо-пізній прискорювач ферм (потрібна вібранієва пластина і Вівтар пробудження Mystical Agriculture), проте кілька таких лілій під грядками сумують свої тіки росту!",
+   {
+    "t": "Лілія родючості в ATM11 — не ранній предмет: її роблять на вівтарі пробудження Mystical Agriculture (латаття, вібранієва пластина, 3 есенції родючості), ручний рецепт прибрано.",
+    "ref": [
+     "kjs:server_scripts/mods/mysticalagriculture/awakened_essence_crafting.js",
+     "file:kubejs/server_scripts/mods/mysticalagriculture/awakened_essence_crafting.js~allthemods.remove({ output: \"reliquary:fertile_lily_pad\" })"
+    ]
+   },
    "Монета удачі притягує речі навіть через стіни й підлогу — вимикайте її (Shift+ПКМ у руці), коли налаштовуєте відкриті конвеєри, вівтар інфузії чи автоматичні крафти.",
-   "Том алкагестрії чудово рятує, коли терміново бракує кількох черепів візера, сліз ґаста, слизу або обсидіану, а редстоуну чи світлокаменю вже вдосталь."
+   {
+    "t": "Том алкагестрії рятує, коли терміново бракує обсидіану, пороху, діамантів чи навіть зорі Незеру, а редстоуну чи світлокаменю вдосталь.",
+    "ref": [
+     "jarfile:data/reliquary/recipe/alkahestry/crafting/obsidian.json",
+     "jarfile:data/reliquary/recipe/alkahestry/crafting/gunpowder.json",
+     "jarfile:data/reliquary/recipe/alkahestry/crafting/nether_star.json",
+     "jarfile:data/reliquary/recipe/alkahestry/charging/glowstone.json"
+    ]
+   }
   ],
-  "icons": ["reliquary:fortune_coin", "reliquary:alkahestry_tome", "reliquary:fertile_lily_pad", "reliquary:rending_gale"]
+  "icons": [
+   "reliquary:fortune_coin",
+   "reliquary:alkahestry_tome",
+   "reliquary:fertile_lily_pad",
+   "reliquary:rending_gale"
+  ],
+  "ref": [
+   "recipe:allthemods:mysticalagriculture/awakening/fertile_lily_pad",
+   "recipe:allthemods:mysticalagradditions/withering_soul",
+   "jarfile:data/hostilenetworks/hostilenetworks/data_models/blaze.json~reliquary:molten_core",
+   "jarfile:data/hostilenetworks/hostilenetworks/data_models/creeper.json~reliquary:catalyzing_gland",
+   "jarfile:data/hostilenetworks/hostilenetworks/data_models/enderman.json~reliquary:nebulous_heart",
+   "jarfile:data/hostilenetworks/hostilenetworks/data_models/wither_skeleton.json~reliquary:withered_rib",
+   "jarfile:data/hostilenetworks/hostilenetworks/data_models/witch.json~reliquary:witch_hat",
+   "config:config/reliquary-client.toml",
+   "config:config/reliquary-common.toml"
+  ]
  },
-
  "_— зачарування та алхімія руд —": "",
  "apothic_enchanting": {
-  "cls": ["magic", "gear", "qol"],
+  "cls": [
+   "magic",
+   "gear",
+   "qol"
+  ],
   "role": "content",
   "features": [],
-  "uk": "Глибока переробка системи зачарування (модуль Apotheosis): книжкові полиці навколо столу керують трьома параметрами — Етерною (рівень, до 100), Квантою (розмах випадковості ±) та Арканою (рідкість і кількість чар), а також відкривають підказки й скарбові чари. Додає просякнення полиць і дихання дракона на столі зачарування, вівтар Ворона з ручними повзунками та легендарну Бібліотеку чар і Александрійську бібліотеку.",
+  "uk": "Глибока переробка системи зачарування: книжкові полиці навколо столу задають Етерну (рівень; до 100 — атрибут max_eterna), Кванту (розкид сили) та Аркану (рідкість і кількість чар), а також підказки й скарбові чари. Додає просякнення полиць і дихання дракона на столі зачарування, стіл Ворона з повзунками, Бібліотеку чар і Александрійську бібліотеку.",
   "what": [
-   "три характеристики столу зачарування: Етерна (макс. 100 — визначає базовий рівень витрати XP: звичайні полиці дають до 15, пеклополиці й морські полиці — до 45, сонні й лускаті — до 70, ендополиці — до 90, драконічні ендополиці — до 100), Кванта (15% за замовчуванням: що вища Кванта, то більший розкид підсумкової сили в обидва боки — стабілізація «Випрямлення» прибирає негативний відкат!) та Аркана (гарантує мінімум 2 чари за 25% і 3 чари за 75% та підвищує вагу рідкісних зачарувань)",
-   "додаткові властивості полиць: Випрямлення (Rectification — книжкова полиця в жеодовій оболонці стабільності з аметисту й кальциту дає +25%, кавунова — +20%, перламутрова ендополиця — +50%; за 100% Кванта працює виключно в плюс!), Підказки (пeклополиця погляду й майстерного погляду розкривають повний список чар у слотах до кліку) та Скарби (`treasure_shelf` дозволяє ловити на столі скарбові зачарування, крім «Прокляття незграбності»)",
-   "просякнення (Infusion) на столі зачарування: при точній комбінації Етерни та Кванти на столі створюють просякнуту пеклополицю, просякнуту морську полицю, глибоку каменюку, просякнуті руни спавнерів і Просякнуте дихання дракона (Етерна 90, Кванта 60–65%, Аркана 100% — дає втричі сильніші зілля!)",
-   "Стіл зачарування Ворона (`raven_enchanting_table`): дозволяє повзунками вручну виставити будь-які точні значення Етерни, Кванти й Аркани у межах встановлених навколо полиць (не потрібно переставляти черепи чи свічки для точних рецептів просякнення!)",
-   "Бібліотека чар (`library`, макс. 16 рівень кожного зачарування) та Александрійська бібліотека (`ender_library`, макс. 32 рівень!): поглинають усі зачаровані книги в єдине сховище очок і дозволяють у 1 клік витягувати книги потрібного вам рівня без ковадла й штрафу досвіду",
-   "томи й утиліти: томи спеціалізації (лише для шолома, кайла, лука, зброї…), том утилізації (`scrap_tome` — знімає чари ціною знищення предмета), том вилучення (`extraction_tome` — знімає всі чари на книги і зберігає сам предмет!) та повідці Енду (`ender_lead` — переносять тварин і селян у кишені)",
-   "зміни ATM11 (KubeJS): увімкнено зачарування «Шахтарський запал» (`miners_fervor` — надшвидке копання одиничних блоків, зроблено скарбовим); полиці `sightshelf_t2`, `endshelf`, `draconic_endshelf`, `soul_touched_sculkshelf` і просякнуте дихання дракона потрібні для крафту міні-порталів ATM (`mini_nether`, `mini_end`, `mini_exit`) → `dimensional_seed`!"
+   {
+    "t": "Етерна: кожна полиця має межу (maxEterna) — пеклополиця й морська полиця до 45, глибинна до 70, ендополиця до 90, драконічна ендополиця до 100 (і дає одразу 20 Етерни); Кванта — розкид сили чар, Аркана — рідкість і кількість чар",
+    "ref": [
+     "jarfile:data/apothic_enchanting/enchanting_stats/hellshelf.json~\"maxEterna\": 45",
+     "jarfile:data/apothic_enchanting/enchanting_stats/deepshelf.json~\"maxEterna\": 70",
+     "jarfile:data/apothic_enchanting/enchanting_stats/endshelf.json~\"maxEterna\": 90",
+     "jarfile:data/apothic_enchanting/enchanting_stats/draconic_endshelf.json~\"eterna\": 20",
+     "lang:apothic_enchanting:max_eterna.desc"
+    ]
+   },
+   "підказки: полиці погляду розкривають чари в слотах до кліку; скарбова полиця (`treasure_shelf`) відкриває скарбові зачарування",
+   {
+    "t": "просякнення (Infusion) на столі зачарування за точних значень Етерни / Кванти / Аркани: просякнуті пеклополиця й морська полиця, том вилучення й покращений том утилізації, повідці Енду, Александрійська бібліотека, дихання дракона (Етерна від 80, Кванта 15–30, Аркана від 60 → 3 просякнуті дихання)",
+    "ref": [
+     "jarfile:data/apothic_enchanting/recipe/infusion/infused_breath.json",
+     "jarfile:data/apothic_enchanting/recipe/infusion/infused_hellshelf.json",
+     "jarfile:data/apothic_enchanting/recipe/infusion/extraction_tome.json",
+     "jarfile:data/apothic_enchanting/recipe/infusion/occult_ender_lead.json",
+     "jarfile:data/apothic_enchanting/recipe/infusion/ender_library.json"
+    ]
+   },
+   {
+    "t": "Стіл зачарування Ворона (`raven_enchanting_table`, рецепт — з Apotheosis): значення Етерни, Кванти й Аркани виставляють вручну — зручно для точних рецептів просякнення",
+    "ref": [
+     "lang:block.apothic_enchanting.raven_enchanting_table.desc",
+     "recipe:apotheosis:raven_enchanting_table"
+    ]
+   },
+   "Бібліотека чар (`library`) та Александрійська бібліотека (`ender_library`) поглинають зачаровані книги в сховище очок і видають книгу потрібного рівня без ковадла",
+   "томи й утиліти: томи спеціалізації (шолом, кайло, лук, зброя…), том утилізації (`scrap_tome` — знімає половину чар, предмет знищується; покращений `improved_scrap_tome` — усі чари), том вилучення (`extraction_tome` — знімає чари на книги й зберігає предмет), повідці Енду (`ender_lead`)",
+   {
+    "t": "зміни ATM11 (KubeJS): «Шахтарський запал» (`miners_fervor` — дуже швидке, але не миттєве копання) зроблено скарбовим (прибрано з тегу non_treasure); полиці `sightshelf_t2`, `endshelf`, `draconic_endshelf`, `soul_touched_sculkshelf` і просякнуте дихання дракона потрібні для крафту міні-порталів ATM (`mini_nether`, `mini_end`, `mini_exit`) → `dimensional_seed`!",
+    "ref": [
+     "kjs:server_scripts/tweaks/tags.js#L332",
+     "lang:enchantment.apothic_enchanting.miners_fervor.desc",
+     "recipe:allthemods:allthetweaks/mini_nether",
+     "recipe:allthemods:allthetweaks/mini_end",
+     "recipe:allthemods:allthetweaks/dimensional_seed"
+    ]
+   }
   ],
-  "stage": ["s1", "s2", "s3", "s4", "s5"],
+  "stage": [
+   "s1",
+   "s2",
+   "s3",
+   "s4",
+   "s5"
+  ],
   "synergy": [
-   {"mod": "evilcraft", "why": "очищувач EvilCraft знімає чари (наприклад, «Удачу V» з кайла помсти) на книги, які одразу завантажують у Бібліотеку чар"},
-   {"mod": "allthetweaks", "why": "старші полиці й просякнуте дихання дракона входять до рецептів міні-порталів для Насіння вимірів (активний компонент ATM Star)"},
-   {"mod": "enchdesc", "why": "показує прямі описи дії десятків нових і ванільних зачарувань просто у спливних підказках Бібліотеки чар"}
+   {
+    "mod": "allthetweaks",
+    "why": "Полиці Apothic (погляду, ендо- й драконічна, душе-торкнута скалкополиця) і просякнуте дихання дракона — інгредієнти міні-порталів All The Tweaks.",
+    "src": "KubeJS server_scripts/modpack/mini_portals.js (mini_nether, mini_end, mini_exit)",
+    "ref": [
+     "recipe:allthemods:allthetweaks/mini_nether",
+     "recipe:allthemods:allthetweaks/mini_end",
+     "recipe:allthemods:allthetweaks/mini_exit"
+    ]
+   },
+   {
+    "mod": "enchdesc",
+    "why": "Описи зачарувань (і нових з Apothic) у підказці предмета — легше обирати на столі й у бібліотеці.",
+    "src": "lang: описи чар Apothic (enchantment.apothic_enchanting.*.desc) показує Enchantment Descriptions (enchdesc.activate.message)",
+    "ref": [
+     "lang:enchdesc.activate.message",
+     "lang:enchantment.apothic_enchanting.infusion.desc"
+    ]
+   }
   ],
   "tips": [
-   "Ніколи не піднімайте Кванту до 100% без 100% Випрямлення (Rectification): інакше замість бонусу ви ризикуєте отримати вдвічі слабші чари та важкі прокляття! Найпростіший спосіб набрати 100% Випрямлення рано — поставити 4 «Книжкові полиці в жеодовій оболонці стабільності» (`geode_shelf`, по +25% кожна) або 2 перламутрові ендополиці.",
-   "Замість того щоб підбирати точні відсотки Кванти свічками й черепами для просякнення полиць і дихання дракона, зробіть Стіл зачарування Ворона — у ньому потрібне вікно Етерни й Кванти виставляється повзунками за секунду.",
-   "Як тільки з'явиться перша Бібліотека чар, зливайте в неї всі трофейні книги з данжів: бібліотека запам'ятовує максимальний колись вкладений рівень (наприклад, V) і надалі дозволяє збирати книгу V рівня хоч із шістнадцяти книг I рівня без жодного ковадла!"
+   {
+    "t": "Замість підбирати точні значення Кванти свічками й черепами для просякнення полиць і дихання дракона, зробіть Стіл зачарування Ворона (рецепт Apotheosis) — у ньому значення виставляють вручну.",
+    "ref": [
+     "lang:block.apothic_enchanting.raven_enchanting_table.desc",
+     "recipe:apotheosis:raven_enchanting_table"
+    ]
+   },
+   {
+    "t": "Бібліотека чар — місце для трофейних книг: вкладена книга додається до сховища, ЛКМ по чарі видає один рівень, Shift — найвищий доступний.",
+    "ref": [
+     "jarfile:ApothicEnchanting!assets/apothic_enchanting/lang/en_us.json~Shift-clicking will extract the max level available"
+    ]
+   }
   ],
-  "spoiler": "Александрійська бібліотека (`apothic_enchanting:ender_library`), просякнута на Етерні 90 і Аркані 90%, піднімає ліміт збережених рівнів чар до 32 (наприклад, «Гострота VIII», «Удача VIII», «Продуктивність VII») і потрібна для повного розкриття спорядження у світовому рівні «Пік».",
+  "spoiler": "Александрійська бібліотека (`apothic_enchanting:ender_library`) — просякнення Бібліотеки чар на Етерні 100, Кванті 45–50 і Аркані 100; зберігає вищі рівні чар, ніж звичайна.",
   "chapter": "apothic_enchanting",
-  "icons": ["apothic_enchanting:ender_library", "apothic_enchanting:draconic_endshelf", "apothic_enchanting:geode_shelf", "apothic_enchanting:raven_enchanting_table"]
+  "icons": [
+   "apothic_enchanting:ender_library",
+   "apothic_enchanting:draconic_endshelf",
+   "apothic_enchanting:geode_shelf",
+   "apothic_enchanting:raven_enchanting_table"
+  ],
+  "ref": [
+   "recipe:allthemods:allthetweaks/mini_nether",
+   "recipe:allthemods:allthetweaks/mini_end",
+   "recipe:allthemods:allthetweaks/mini_exit",
+   "lang:enchdesc.activate.message",
+   "lang:enchantment.apothic_enchanting.infusion.desc",
+   "quest:377D6CF86BC1C64F~the Tome of Superior Scrapping will take every Enchantment off the Item!",
+   "quest:3D31B94CC42BCE43~It will take off all Enchantments and leave the Item alone!",
+   "jarfile:ApothicEnchanting!data/apothic_enchanting/apothic_enchanting/enchanting_stats/hellshelf.json",
+   "jarfile:ApothicEnchanting!data/apothic_enchanting/recipe/infusion/infused_hellshelf.json",
+   "quest:7C9D9D1C054874A7~Like, every stat maxed out",
+   "jarfile:ApothicEnchanting!data/apothic_enchanting/apothic_enchanting/enchanting_stats/seashelf.json",
+   "jarfile:ApothicEnchanting!data/apothic_enchanting/apothic_enchanting/enchanting_stats/deepshelf.json",
+   "jarfile:ApothicEnchanting!data/apothic_enchanting/apothic_enchanting/enchanting_stats/endshelf.json",
+   "jarfile:ApothicEnchanting!data/apothic_enchanting/apothic_enchanting/enchanting_stats/draconic_endshelf.json",
+   "jarfile:ApothicEnchanting!data/apothic_enchanting/recipe/infusion/infused_breath.json",
+   "jarfile:ApothicEnchanting!data/apothic_enchanting/recipe/infusion/ender_library.json",
+   "config:config/attributefix/apothic_enchanting/max_eterna.json#max.value=100.0",
+   "item:apothic_enchanting:treasure_shelf",
+   "item:apothic_enchanting:library",
+   "item:apothic_enchanting:ender_library",
+   "item:apothic_enchanting:infused_breath",
+   "item:apothic_enchanting:scrap_tome",
+   "item:apothic_enchanting:extraction_tome",
+   "lang:info.apothic_enchanting.scrap_tome",
+   "lang:info.apothic_enchanting.improved_scrap_tome"
+  ]
  },
  "potionsmaster": {
-  "cls": ["magic", "resources", "qol"],
+  "cls": [
+   "magic",
+   "resources",
+   "qol"
+  ],
   "role": "content",
   "features": [],
   "uk": "Алхімічні зілля рентгенівського бачення руд (OreSight): подрібніть сиру руду в ступці товкачем у порошок, прожарте його в печі до кальцинованого порошку і зваріть на зіллі буденності (Mundane Potion — пляшка води + редстоун) зілля, що яскравим кольоровим контуром підсвічує поклади потрібної руди крізь блоки.",
   "what": [
-   "ступка (`potionsmaster:tile_mortar`) і товкач (`potionsmaster:pestle`, з діаманта, кварцу й палиць) + казан і решітка",
-   "23+ види зіль бачення руд: вугілля, мідь, залізо, золото, лазурит, редстоун, діамант, смарагд, кварц, незерит, алюміній, свинець, нікель, осмій, платина, срібло, олово, уран, цинк, а також усемодій, вібраній та унобтаній!",
-   "зілля бачення можна перетворити на вибухові та туманні або залити в пілон настоювання чи амулет для постійного підсвічування руд"
+   {
+    "t": "ступка (`potionsmaster:tile_mortar`) і товкач (`potionsmaster:pestle`, з діаманта й кварцу) — порошки з сирої руди; також порошок Енду з «пюре» для пошуку споруд і цілющі предмети (безоар — від отрути, активоване вугілля — від висушування)",
+    "ref": [
+     "recipe:potionsmaster:pestle",
+     "recipe:potionsmaster:tile_mortar",
+     "recipe:potionsmaster:ender_powder",
+     "jarfile:potionsmaster!assets/potionsmaster/lang/en_us.json~Cures Wither"
+    ]
+   },
+   {
+    "t": "зілля бачення руд: вугілля, мідь, залізо, золото, лазурит, редстоун, діамант, смарагд, кварц, незерит, алюміній, свинець, нікель, осмій, платина, срібло, олово, уран, цинк, вісмут, багряне залізо, а також усемодій, вібраній та унобтаній (моделі порошків — у jar; самі зілля мод реєструє кодом)",
+    "ref": [
+     "jarfile:potionsmaster!assets/potionsmaster/models/item/calcinatedallthemodium_powder.json",
+     "jarfile:potionsmaster!assets/potionsmaster/models/item/calcinatedbismuth_powder.json",
+     "jarfile:potionsmaster!assets/potionsmaster/models/item/calcinatedcrimsoniron_powder.json"
+    ]
+   },
+   "зілля бачення можна перетворити на вибухові та туманні"
   ],
-  "stage": ["s1", "s2", "s3", "s6"],
+  "stage": [
+   "s1",
+   "s2",
+   "s3",
+   "s6"
+  ],
   "synergy": [
-   {"mod": "allthemodium", "why": "перший же видобутий шматок усемодію, вібранію чи унобтанію можна перетерти на зілля OreSight і за хвилини накопати десятки нових жил"},
-   {"mod": "pylons", "why": "зілля бачення руд можна накопичити у фільтрі чар для пілона настоювання і мати постійний легальний рентген на вибрану руду"},
-   {"mod": "generatorgalore", "why": "зілля PotionsMaster є чудовим паливом для зіллєвого генератора"}
+   {
+    "mod": "allthemodium",
+    "why": "У PotionsMaster є порошки (і кальциновані порошки) усемодію й вібранію — інгредієнти зілля бачення цих руд.",
+    "src": "potionsmaster (jar): предмети allthemodium_powder, calcinatedallthemodium_powder, vibranium_powder, calcinatedvibranium_powder",
+    "ref": [
+     "jarfile:assets/potionsmaster/models/item/allthemodium_powder.json",
+     "jarfile:assets/potionsmaster/models/item/calcinatedvibranium_powder.json"
+    ],
+    "ingame": "чи справді є порошки усемодію / вібранію й зілля бачення цих руд: моделі предметів у jar є, але предмети й рецепти мод створює кодом (в індексі їх немає; рішення користувача — перевірить у грі)"
+   }
   ],
   "tips": [
    "Увага: основа для варіння кальцинованого порошку в зельєварці — НЕ «Незграбне зілля» (з незерського наросту), а «Зілля буденності» (`Mundane Potion`, вариться з пляшок води та звичайного пилу редстоуну)!",
-   "З першого ж знайденого самородка чи сирої руди усемодію не поспішайте одразу плавити злиток — зробіть одне зілля бачення усемодію (або амулет бачення), і воно окупиться десятками руд у печерах Глибокого темного біому чи Виміру видобутку."
+   "З першого ж знайденого самородка чи сирої руди усемодію не поспішайте одразу плавити злиток — зробіть одне зілля бачення усемодію, і воно окупиться десятками руд у печерах Глибокого темного біому чи Виміру видобутку.",
+   "Пілон настоювання (Pylons) у ATM11 приймає лише ванільні ефекти (`config/pylons-server.toml`: `infusionAllowedEffects = [\"minecraft\"]`) — ефекти зіль бачення PotionsMaster туди не залити."
   ],
-  "icons": ["potionsmaster:tile_mortar", "potionsmaster:pestle", "potionsmaster:ender_powder", "potionsmaster:bezoar"]
+  "icons": [
+   "potionsmaster:tile_mortar",
+   "potionsmaster:pestle",
+   "potionsmaster:ender_powder",
+   "potionsmaster:bezoar"
+  ],
+  "ref": [
+   "jarfile:assets/potionsmaster/models/item/allthemodium_powder.json",
+   "jarfile:assets/potionsmaster/models/item/calcinatedvibranium_powder.json",
+   "config:config/pylons-server.toml#infusionAllowedEffects"
+  ],
+  "abs_ok": "«лише ванільні ефекти» — config/pylons-server.toml infusionAllowedEffects = [\"minecraft\"]"
  },
-
  "_— помічники й бібліотеки —": "",
  "enchdesc": {
-  "cls": ["qol", "magic"],
+  "cls": [
+   "qol",
+   "magic"
+  ],
   "role": "qol",
   "parent": "apothic_enchanting",
   "features": [],
-  "uk": "Додає у спливні підказки зачарованих книг і спорядження зрозумілий текстовий опис того, що саме робить кожне зачарування (у конфігу збірки опис показується одразу на всіх предметах, без потреби затискати Shift).",
+  "uk": "Додає в підказки зачарованих книг і спорядження текстовий опис того, що роблять зачарування; у збірці опис показується без утримання Shift (require_keybind = false).",
   "what": [
-   "описи ефектів ванільних і модових зачарувань прямо в підказці предмета",
-   "працює в інвентарі, у JEI, на столі зачарування та в Бібліотеці чар"
+   "Описи ефектів зачарувань у підказці предмета — на книгах і на спорядженні (only_on_books = false)",
+   "У JEI — вкладка сумісних предметів зачарування"
   ],
-  "stage": ["s1", "s2"],
-  "synergy": [
-   {"mod": "apothic_enchanting", "why": "пояснює дію десятків нових чар і проклять під час вибору в Бібліотеці чар"}
+  "stage": [
+   "s1",
+   "s2"
+  ],
+  "ref": [
+   "jarfile:EnchantmentDescriptions!META-INF/neoforge.mods.toml~descriptions of enchantment effects",
+   "config:config/enchdesc.json#require_keybind.value=False",
+   "config:config/enchdesc.json#only_on_books.value=False",
+   "lang:enchdesc.jei.compatible_items.title"
   ]
  },
  "modonomicon": {
-  "cls": ["library"],
+  "cls": [
+   "library"
+  ],
   "role": "library",
   "features": [],
-  "uk": "Бібліотека внутрішньоігрових книг-довідників із багатосторінковими схемами багатоблоків і деревом прогресу (на ній працюють «Словник духів» Occultism та «Герметика» Theurgy)."
+  "uk": "Бібліотека книг-довідників у грі з візуалізацією прогресу — на ній працюють книги Occultism, Neo Vitae, Witchery і Theurgy.",
+  "what": [
+   "Обов'язкова залежність Occultism, Neo Vitae і Witchery; Theurgy — необов'язкова"
+  ],
+  "ref": [
+   "jarfile:modonomicon-26.1.2-neoforge-2.17.1!META-INF/neoforge.mods.toml~in-game documentation with progress visualization",
+   "jarfile:occultism-26.1.2-neoforge-1.256.1!META-INF/neoforge.mods.toml~modId = \"modonomicon\"",
+   "jarfile:neovitae-26.1.2-1.1.38!META-INF/neoforge.mods.toml~modId=\"modonomicon\"",
+   "jarfile:witchery-0.5.17+mc26.1.2!META-INF/neoforge.mods.toml~modId = \"modonomicon\"",
+   "jarfile:theurgy-26.1.2-neoforge-1.116.0!META-INF/neoforge.mods.toml~modId = \"modonomicon\"",
+   "file:options.txt~key_key.modonomicon.open_associated_entry:key.keyboard.left.alt"
+  ],
+  "tips": [
+   "`Left Alt` над предметом — відкрити його запис у книзі (options.txt)."
+  ]
  }
 }

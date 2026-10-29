@@ -1,0 +1,14 @@
+{
+ "ov": "Головна цифрова мережа збірки: комірки зберігання в ME накопичувачі, термінали, канали (контролер і щільні кабелі), автомайстрування за шаблонами (постачальник шаблонів, молекулярний збирач) і бездротовий доступ — від середини гри до фіналу.",
+ "ref": [
+  "item:ae2:drive",
+  "item:ae2:item_storage_cell_1k",
+  "item:ae2:controller",
+  "item:ae2:pattern_provider",
+  "item:ae2:molecular_assembler",
+  "item:ae2:wireless_terminal",
+  "item:ae2wtlib:wireless_universal_terminal",
+  "item:aeinfinitybooster:infinity_card"
+ ],
+ "_src": "реєстр предметів AE2 і доповнень, опис мода в довіднику"
+}

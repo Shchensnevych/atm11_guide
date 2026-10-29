@@ -12,10 +12,10 @@
     "uk": "Модульна система конструювання інструментів, зброї, обладунків і прикрас із кастомними сплавами ATM та металом уру",
     "what": [
       "Головний конструктор спорядження в збірці",
-      "Замість фіксованих інструментів ви збираєте предмети з окремих деталей (головка, стрижень, обмотка, наконечник, покриття, підкладка) за допомогою паперових шаблонів або багаторазових синіх креслень (зберігаються у книзі креслень, `silentgear:blueprint_book`)",
+      "Замість фіксованих інструментів ви збираєте предмети з окремих деталей (головка, стрижень, обмотка, наконечник, покриття, підкладка) за допомогою одноразових шаблонів із дошки шаблону (`silentgear:template_board`) або багаторазових синіх креслень із паперу креслень (`blueprint_paper`) (зберігаються у книзі креслень, `silentgear:blueprint_book`)",
       "У Незері мод генерує руду багряного заліза (`silentgear:crimson_iron_ore` → злиток багряної сталі, `silentgear:crimson_steel_ingot`), в Енді — руду блакитного срібла (`silentgear:azure_silver_ore` → злиток блакитного електруму й тирійської сталі, `silentgear:tyrian_steel_ingot`), а у Верхньому світі — бортову руду (`silentgear:bort_ore`)",
-      "Деталі з металів і самоцвітів у ATM11 відливаються у плавильні через адон Productive Metalworks (`sgearmetalworks`), а оцінка якості в оцінювачі матеріалів (`silentgear:material_grader`) та заряджання в зоряному заряднику (`silentgear:starlight_charger`) виконуються вже над готовою відлитою деталлю! Зламаний інструмент ніколи не зникає повністю — його лагодять ремкомплектами (`silentgear:crimson_repair_kit`, `azure_repair_kit`)",
-      "Вбудований посібник — посібник Silent Gear (`silentgear:guide_book`)"
+      "Деталі з металів і самоцвітів у ATM11 відливаються у плавильні через адон Productive Metalworks (`sgearmetalworks`), а оцінка якості в оцінювачі матеріалів (`silentgear:material_grader`) та заряджання в зоряному заряднику (`silentgear:starlight_charger`) виконуються вже над готовою відлитою деталлю! Зламаний інструмент не зникає — його лагодять ремкомплектами (`silentgear:crimson_repair_kit`, `azure_repair_kit`)",
+      "Вбудований посібник Silent Gear — у квестах і JEI; книга креслень зберігає сині креслення"
     ],
     "stage": [
       "s0",
@@ -26,29 +26,30 @@
     ],
     "synergy": [
       {
-        "mod": "sgearmetalworks",
-        "why": "Усі металеві й самоцвітні деталі Silent Gear вимагають лиття в плавильні Productive Metalworks, де також створюється найвищий сплав збірки — Метал уру (sgearmetalworks:uru_metal_ingot)"
-      },
-      {
         "mod": "allthemodium",
-        "why": "Скрипти KubeJS додають 3 ексклюзивні пластини Silent (kubejs:silent_allthemodium_plate, silent_vibranium_plate, silent_unobtainium_plate) з унікальними рисами підводного дихання, вогнестійкості та очищення від висушування й левітації"
+        "why": "Скрипти KubeJS додають пластини Silent з усемодію, вібранію й унобтанію (kubejs:silent_allthemodium_plate тощо) — матеріали Silent Gear із власними рисами (datapack збірки).",
+        "src": "KubeJS server_scripts/mods/allthemodium/recipes.js; kubejs/dynamic_data/silentgear/silentgear_materials/allthemodium.json",
+        "ref": [
+          "kjs:server_scripts/mods/allthemodium/recipes.js~kubejs:silent_allthemodium_plate",
+          "kjs:dynamic_data/silentgear/silentgear_materials/allthemodium.json"
+        ]
       },
       {
         "mod": "apotheosis",
-        "why": "Оскільки окремий мод apothic_compats у ATM11 на 26.1.2 не встановлено, датапак KubeJS напряму реєструє булави, сокири, списи та щити Silent Gear у категоріях афіксів Apotheosis (melee_weapon, shield)"
-      },
-      {
-        "mod": "farmingforblockheads",
-        "why": "Насіння льону (flax_seeds) та пухнастої рослини (fluffy_seeds) додано до продажу в Ринку за 1 смарагд"
+        "why": "Датапак збірки відносить булаву, сокиру, спис і щит Silent Gear до категорій афіксів Apotheosis (зброя ближнього бою, щит) — вони отримують афікси.",
+        "src": "kubejs/dynamic_data/apotheosis/data_maps/item/loot_category_overrides.json",
+        "ref": [
+          "kjs:dynamic_data/apotheosis/data_maps/item/loot_category_overrides.json~\"silentgear:mace\": \"apotheosis:melee_weapon\""
+        ]
       }
     ],
     "tips": [
-      "Важлива зміна лиття й оцінки в ATM11: щоб відлити металеву деталь, спершу виготовте таку саму деталь із каменю, дерева, кременю або кістки й використайте її на ливарному столі для створення багаторазової форми (`sgearmetalworks:pickaxe_cast`, `sword_cast` тощо). Оцінювати матеріал в оцінювачі матеріалів і заряджати в зоряному заряднику потрібно вже після відлиття деталі (по одному проходу на кожен сплав у складі деталі).",
+      "Важлива зміна лиття й оцінки в ATM11: щоб відлити металеву деталь, спершу виготовте таку саму деталь із каменю, дерева, кременю або кістки й використайте її на ливарному столі для створення багаторазової форми (`sgearmetalworks:pickaxe_cast`, `sword_cast` тощо). Оцінювати в оцінювачі матеріалів і заряджати в зоряному заряднику потрібно готову деталь (після лиття), а не матеріал (по проходу на сплав у складі деталі).",
       "Пластини усемодію, вібранію й унобтанію: на ковальському столі з 4 злитків відповідного металу ATM, базового матеріалу (`crimson_steel_ingot` / `azure_electrum_ingot` / `tyrian_steel_ingot`) та ковальського шаблону створюються `kubejs:silent_allthemodium_plate` (риси `Malleable V`, `Aquatic`, ` Flame Ward`), `silent_vibranium_plate` (додає `Cure Wither` та `Cure Nausea` на броні!) і `silent_unobtainium_plate` (додає `Cure Levitation`).",
       "Гарячі клавіші підказок у інвентарі: `Ctrl` — характеристики матеріалу, `Shift` — риси (traits), `Alt` — склад, `Z` / `C` — гортання варіантів.",
       "Інструменти з площею копання 3×3 — молот (`silentgear:hammer`) і екскаватор (`silentgear:excavator`), а універсальний інструмент (кайло + лопата + сокира) — пексель (`silentgear:paxel`)."
     ],
-    "spoiler": "Вершина прогресії Silent Gear у ATM11 — метал уру (`sgearmetalworks:uru_metal_ingot`): у плавильні Productive Metalworks сплавте 180 мБ розплавленого важкого ядра (`#c:molten_heavy_core` з палат випробувань), 180 мБ рідкого м'яса (`#c:meat`), 90 мБ тирійської сталі та по 90 мБ розплавленого усемодію, вібранію й унобтанію. Щоб зробити деталь з уру, покладіть на ливарний стіл готову деталь із тирійської сталі (`silentgear:tyrian_steel`) і залийте її розплавленим уру — ви отримаєте деталь із 15 000 міцності інструментів (50 000 для броні), 35 шкоди атаки, швидкістю копання 29, рівнем видобутку 7 (унобтаній) та рисами Незнищенність (`Indestructible`) і Стійкість до жал бджіл (`Sting resist`)!",
+    "spoiler": "Вершина прогресії Silent Gear у ATM11 — метал уру (`sgearmetalworks:uru_metal_ingot`): у плавильні Productive Metalworks сплавте 180 мБ розплавленого важкого ядра (`#c:molten_heavy_core` з палат випробувань), 180 мБ рідкого м'яса (`#c:meat`), 90 мБ тирійської сталі та по 90 мБ розплавленого усемодію, вібранію й унобтанію. Щоб зробити деталь з уру, покладіть на ливарний стіл готову деталь із тирійської сталі і залийте її розплавленим уру — ви отримаєте деталь із 15 000 міцності інструментів (50 000 для броні), 35 шкоди атаки, швидкістю копання 29, рівнем видобутку 7 (унобтаній) та рисами Незнищенність (`Indestructible`) і Стійкість до жал бджіл (`Sting resist`)!",
     "chapter": "silent_gear",
     "book": "Посібник Silent Gear",
     "icons": [
@@ -56,6 +57,36 @@
       "silentgear:crimson_steel_ingot",
       "silentgear:tyrian_steel_ingot",
       "silentgear:starlight_charger"
+    ],
+    "ref": [
+      "item:silentgear:crimson_iron_ore",
+      "item:silentgear:azure_silver_ore",
+      "item:silentgear:bort_ore",
+      "item:silentgear:crimson_steel_ingot",
+      "item:silentgear:tyrian_steel_ingot",
+      "item:silentgear:blueprint_book",
+      "item:silentgear:material_grader",
+      "item:silentgear:starlight_charger",
+      "item:silentgear:crimson_repair_kit",
+      "item:silentgear:hammer",
+      "item:silentgear:excavator",
+      "item:silentgear:paxel",
+      "item:sgearmetalworks:pickaxe_cast",
+      "item:sgearmetalworks:uru_metal_ingot",
+      "item:kubejs:silent_allthemodium_plate",
+      "kjs:dynamic_data/silentgear/silentgear_materials/allthemodium.json",
+      "kjs:dynamic_data/sgearmetalworks/silentgear_materials/uru_metal.json",
+      "kjs:server_scripts/mods/allthemodium/recipes.js~kubejs:silent_allthemodium_plate",
+      "file:options.txt~key_key.silentgear.displayItemProperties:key.keyboard.left.control",
+      "file:options.txt~key_key.silentgear.displayTraitDescriptions:key.keyboard.left.shift",
+      "file:options.txt~key_key.silentgear.displayItemConstruction:key.keyboard.left.alt",
+      "file:options.txt~key_key.silentgear.cycle.back:key.keyboard.z",
+      "file:options.txt~key_key.silentgear.cycle.next:key.keyboard.c",
+      "recipe:productivemetalworks:casting/ingots/sgearmetalworks/uru_metal",
+      "recipe:productivemetalworks:alloying/atm/molten_uru_metal",
+      "recipe:silentgear:pickaxe_template",
+      "item:silentgear:template_board",
+      "item:silentgear:blueprint_paper"
     ]
   },
   "silentlib": {
@@ -65,12 +96,17 @@
     "role": "library",
     "parent": "silentgear",
     "features": [],
-    "uk": "Базова бібліотека реєстрації предметів, даних і мережевих пакетів для Silent Gear та Silent's Gems",
+    "uk": "Спільна бібліотека модів SilentChaos512 — потрібна Silent Gear (а Silent's Gems потребує Silent Gear).",
     "what": [
-      "Технічна бібліотека від SilentChaos512, яка забезпечує завантаження JSON-матеріалів, рис і рецептів для Silent Gear та Silent's Gems"
+      "Обов'язкова залежність Silent Gear"
     ],
     "stage": [
       "s0"
+    ],
+    "ref": [
+      "jarfile:silent-lib-26.1.2-neoforge-11.2.0!META-INF/neoforge.mods.toml~Shared library for SilentChaos512's mods",
+      "jarfile:silent-gear-26.1.2-neoforge-4.2.3!META-INF/neoforge.mods.toml~modId=\"silentlib\"",
+      "jarfile:silentgems!META-INF/neoforge.mods.toml~modId=\"silentgear\""
     ]
   },
   "silentgems": {
@@ -87,7 +123,7 @@
     ],
     "uk": "Десятки дорогоцінних самоцвітів для лиття спорядження Silent Gear, руда хаосу, сяйливі троянди та самоцвітні телепорти",
     "what": [
-      "Доповнює Silent Gear широкою палітрою самоцвітів у трьох вимірах (олександрит, амоліт, аквамарин, чорний і білий діамант, карнеол, цитрин, гранат, геліодор, іоліт, кіаніт, молдавіт, опал, рожевий кварц, танзаніт, топаз, бірюза тощо), рудою хаосу (`silentgems:chaos_ore` → есенція хаосу, `silentgems:chaos_essence`), сяйливими трояндами (`silentgems:glowrose`) на поверхні, самоцвітами душі (`silentgems:soul_gem`) та блоками самоцвітних телепортів (`silentgems:gem_teleporter`, `teleporter_anchor`), які з'єднуються зв'язувачем телепортів (`silentgems:teleporter_linker`)"
+      "Доповнює Silent Gear широкою палітрою самоцвітів у трьох вимірах (олександрит, амоліт, аквамарин, чорний і білий діамант, карнеол, цитрин, гранат, геліодор, іоліт, кіаніт, молдавіт, опал, рожевий кварц, танзаніт, топаз, бірюза тощо), рудою хаосу (`silentgems:chaos_ore` → есенція хаосу, `silentgems:chaos_essence`), сяйливими трояндами на поверхні та самоцвітними телепортами, які з'єднуються зв'язувачем телепортів (`silentgems:teleporter_linker`)"
     ],
     "stage": [
       "s0",
@@ -97,15 +133,16 @@
     "synergy": [
       {
         "mod": "alltheores",
-        "why": "У ATM11 генерація рубіну, сапфіру, перидоту та срібла із Silent's Gems у Верхньому світі вимкнена (remove_silentgems_ores.json) на користь уніфікованих руд AllTheOres, тоді як решта ~60 самоцвітних руд і руда хаосу генеруються повноцінно"
-      },
-      {
-        "mod": "sgearmetalworks",
-        "why": "Усі самоцвіти Silent's Gems можна плавити в плавильні Productive Metalworks і відливати з них деталі та прикраси Silent Gear"
+        "why": "Датапак збірки вимикає руди рубіну, сапфіру, перидоту й срібла Silent's Gems (remove_silentgems_ores.json) — ці ресурси дає AllTheOres; решта самоцвітних руд і руда хаосу генеруються.",
+        "src": "kubejs/dynamic_data/atm/neoforge/biome_modifier/remove_silentgems_ores.json",
+        "ref": [
+          "kjs:dynamic_data/atm/neoforge/biome_modifier/remove_silentgems_ores.json",
+          "tag:c:ores/ruby"
+        ]
       }
     ],
     "tips": [
-      "Сяйливі троянди (`silentgems:glowrose`) світяться вночі й часто підказують, які самоцвіти залягають у цьому регіоні; з них також роблять іскристе кісткове борошно (`silentgems:sparkling_bone_meal`).",
+      "З сяйливих троянд роблять іскристе кісткове борошно (`silentgems:sparkling_bone_meal`).",
       "Чашка кави (`silentgems:cup_of_coffee`) та залізна картопля (`silentgems:iron_potato`) — приємні дрібниці для подорожей."
     ],
     "icons": [
@@ -113,6 +150,14 @@
       "silentgems:chaos_ore",
       "silentgems:teleporter_linker",
       "silentgems:teleporter_anchor"
+    ],
+    "ref": [
+      "item:silentgems:chaos_ore",
+      "item:silentgems:chaos_essence",
+      "item:silentgems:teleporter_linker",
+      "item:silentgems:sparkling_bone_meal",
+      "item:silentgems:cup_of_coffee",
+      "item:silentgems:iron_potato"
     ]
   },
   "irons_jewelry": {
@@ -125,7 +170,7 @@
     "what": [
       "Додає глибоку систему виготовлення прикрас для слотів Curios",
       "На ювелірному верстаті (`irons_jewelry:jewelcrafting_station`) гравець обирає схему виробу (базові каблучки й намиста відкриті одразу, а рідкісні схеми вивчаються зі сувоїв ремісника, `irons_jewelry:recipe`, які трапляються в данжах, бастіонах або продаються селянином-ювеліром), підбирає метал оправи та вставляє самоцвіти (рубін, `irons_jewelry:ruby`, сапфір, топаз, місячний камінь, `irons_jewelry:moonstone`, перидот, онікс, гранат або ванільні діаманти й аметисти)",
-      "Кожна комбінація металу й каменя визначає якість прикраси та величину бонусів (здоров'я, броня, швидкість, шкода, відкат або захисна реакція при отриманні удару)",
+      "Комбінація металу й каменя визначає якість прикраси та величину бонусів (здоров'я, броня, швидкість, шкода, відкат або захисна реакція при отриманні удару)",
       "Вбудований довідник — «Ювелірна справа для всіх» (`irons_jewelry:jewelcrafting_guide`)"
     ],
     "stage": [
@@ -136,16 +181,17 @@
     "synergy": [
       {
         "mod": "curios",
-        "why": "Каблучки (irons_jewelry:ring) та намиста (irons_jewelry:necklace) екіпіруються у відповідні слоти Curios API і сумуються з бонусами Apotheosis та Artifacts"
-      },
-      {
-        "mod": "alltheores",
-        "why": "Підтримує уніфіковані метали та самоцвіти збірки як матеріали оправи й вставок на ювелірному верстаті"
+        "why": "Каблучки й намиста носяться в слотах Curios (тег curios:ring; бонуси прикрас — через API Curios).",
+        "src": "тег curios:ring; класи io/redspace/ironsjewelry/core/bonuses/AttributeBonusType",
+        "ref": [
+          "tag:curios:ring",
+          "jarfile:irons_jewelry!io/redspace/ironsjewelry/core/bonuses/AttributeBonusType.class~curios"
+        ]
       }
     ],
     "tips": [
       "Поставте ювелірний верстат біля безробітного селянина, щоб отримати професію ювеліра (`Jeweler`) і вимінювати в нього рідкісні самоцвіти та сувої ремісника (`irons_jewelry:recipe`).",
-      "Відкрийте посібник «Ювелірна справа для всіх» (`irons_jewelry:jewelcrafting_guide`), щоб переглянути повну таблицю властивостей кожного металу й самоцвіту перед крафтом."
+      "Відкрийте посібник «Ювелірна справа для всіх» (`irons_jewelry:jewelcrafting_guide`), щоб переглянути повну таблицю властивостей металів і самоцвітів перед крафтом."
     ],
     "book": "Путівник ювеліра (Patchouli)",
     "icons": [
@@ -153,6 +199,16 @@
       "irons_jewelry:jewelcrafting_guide",
       "irons_jewelry:ruby",
       "irons_jewelry:moonstone"
+    ],
+    "ref": [
+      "item:irons_jewelry:jewelcrafting_station",
+      "item:irons_jewelry:recipe",
+      "item:irons_jewelry:ruby",
+      "item:irons_jewelry:moonstone",
+      "item:irons_jewelry:jewelcrafting_guide",
+      "item:irons_jewelry:ring",
+      "item:irons_jewelry:necklace",
+      "tag:curios:ring"
     ]
   },
   "irons_artifice": {
@@ -164,11 +220,11 @@
     "features": [
       "mobs"
     ],
-    "uk": "Вогнепальна зброя на чорному поросі й годинникових механізмах, 25+ модифікаторів куль і стволів та засідки злодіянів-офіцерів",
+    "uk": "Вогнепальна зброя на чорному поросі й годинникових механізмах, модифікатори куль і стволів та засідки злодіянів-офіцерів.",
     "what": [
-      "Додає 7 видів стрілецької зброї: флінтлок (`irons_artifice:flintlock`), шестизарядник (`irons_artifice:six_shooter`), чорно-пороховий револьвер (`irons_artifice:blackpowder_revolver`), дробовик-мушкетон (`irons_artifice:blunderbuss`), далекобійний мушкет (`irons_artifice:musket`), важкий аркебуз (`irons_artifice:arquebus`) та скорострільну заводну гвинтівку (`irons_artifice:clockwork_rifle`)",
+      "Додає стрілецьку зброю: флінтлок (`irons_artifice:flintlock`), шестизарядник (`irons_artifice:six_shooter`), чорно-пороховий револьвер (`irons_artifice:blackpowder_revolver`), дробовик-мушкетон (`irons_artifice:blunderbuss`), далекобійний мушкет (`irons_artifice:musket`), важкий аркебуз (`irons_artifice:arquebus`) та скорострільну заводну гвинтівку (`irons_artifice:clockwork_rifle`)",
       "Стріляють кулями (`irons_artifice:bullet`, зручно носити в коробці для куль, `irons_artifice:bullet_box`) на чорному поросі (`irons_artifice:blackpowder`)",
-      "Кожну зброю можна кастомізувати понад 25 модифікаторами: кріплення штика, оптичного прицілу й глушника, дріб, рикошет, пробивна чи запалена куля, ланцюговий постріл, гарпун, заряд сингулярності, монета вогню душ і навіть нескінченність! У світі мод додає озброєного злодіянина-офіцера (`irons_artifice:illificer`, з імовірністю 50% очолює патрулі розбійників) та підводні засідки піратів-потопельників (25% шанс під час відкриття океанічних скринь)"
+      "Зброю налаштовують десятками модифікаторів: кріплення штика, оптичного прицілу й глушника, дріб, рикошет, пробивна чи запалена куля, ланцюговий постріл, гарпун, заряд сингулярності, монета вогню душ і навіть нескінченність. У світі мод додає озброєного злодіянина-офіцера (`irons_artifice:illificer`, з імовірністю 50 % (конфіг) очолює патрулі розбійників) та підводні засідки піратів-потопельників (25% шанс під час відкриття океанічних скринь)"
     ],
     "stage": [
       "s1",
@@ -176,7 +232,7 @@
       "s3"
     ],
     "tips": [
-      "Клавіша перезаряджання вогнепальної зброї — `R`; лічильник набоїв у магазині та в резерві відображається в правому нижньому куті екрана.",
+      "Клавіші збірки: R — перезарядити, G — меню модифікаторів; лічильник набоїв — у правому нижньому куті екрана.",
       "Убивши злодіянина-офіцера (`irons_artifice:illificer`) у патрулі, можна рано здобути готову зброю, кулі та рідкісні модифікатори."
     ],
     "icons": [
@@ -184,6 +240,22 @@
       "irons_artifice:musket",
       "irons_artifice:clockwork_rifle",
       "irons_artifice:blackpowder_revolver"
+    ],
+    "ref": [
+      "item:irons_artifice:flintlock",
+      "item:irons_artifice:six_shooter",
+      "item:irons_artifice:blackpowder_revolver",
+      "item:irons_artifice:blunderbuss",
+      "item:irons_artifice:musket",
+      "item:irons_artifice:arquebus",
+      "item:irons_artifice:clockwork_rifle",
+      "item:irons_artifice:bullet",
+      "item:irons_artifice:bullet_box",
+      "item:irons_artifice:blackpowder",
+      "config:config/irons_artifice-server.toml#illificer.replacePatrolLeader=0.5",
+      "config:config/irons_artifice-server.toml#drowned-pirates.drownedPirateAmbush=0.25",
+      "file:options.txt~key_key.irons_artifice.reload:key.keyboard.r",
+      "file:options.txt~key_key.irons_artifice.open_modifier_menu:key.keyboard.g"
     ]
   },
   "irons_lib": {
@@ -192,12 +264,19 @@
     ],
     "role": "library",
     "features": [],
-    "uk": "Спільна бібліотека рендерингу, інтерфейсів і даних для Iron's Gems 'n Jewelry та Iron's Arms 'n Artifice",
+    "uk": "Спільний код і вміст модів Iron431 — потрібна Iron's Gems 'n Jewelry та Iron's Arms 'n Artifice.",
     "what": [
-      "Базова бібліотека для модів серії Iron's (Iron's Gems 'n Jewelry та Iron's Arms 'n Artifice), яка керує динамічними текстурами ювелірних виробів, модифікаторами зброї та моделями GeckoLib"
+      "Обов'язкова залежність Iron's Gems 'n Jewelry та Iron's Arms 'n Artifice; сама потребує GeckoLib і містить вбудовану Atlas API"
     ],
     "stage": [
       "s0"
+    ],
+    "ref": [
+      "jarfile:irons_lib-26.1.2-2.2.0!META-INF/neoforge.mods.toml~common functionality and content for Iron431's mods",
+      "jarfile:irons_jewelry-26.1.2-2.0.2.1!META-INF/neoforge.mods.toml~modId=\"irons_lib\"",
+      "jarfile:irons_artifice-26.1.2-1.1.0!META-INF/neoforge.mods.toml~modId=\"irons_lib\"",
+      "jarfile:irons_lib!META-INF/neoforge.mods.toml~modId = \"geckolib\"",
+      "jarfile:irons_lib!META-INF/jarjar/metadata.json~atlas_api"
     ]
   },
   "atlas_api": {
@@ -207,12 +286,16 @@
     "role": "library",
     "parent": "irons_lib",
     "features": [],
-    "uk": "Бібліотека динамічної генерації текстурних атласів і палітр для ювелірних виробів і спорядження",
+    "uk": "Клієнтська бібліотека: збирає атласи текстур під час гри й завантажує моделі предметів з динамічних спрайтів.",
     "what": [
-      "Технічна клієнтська бібліотека, яка на льоту фарбує й збирає спрайти каблучок, намист і каменів під будь-які матеріали у Iron's Gems 'n Jewelry"
+      "Вбудована в Iron's Lib (jar-in-jar)"
     ],
     "stage": [
       "s0"
+    ],
+    "ref": [
+      "jarfile:atlas_api-26.1.2-1.2.0!META-INF/neoforge.mods.toml~generating atlases during game runtime",
+      "jarfile:irons_lib!META-INF/jarjar/metadata.json~atlas_api"
     ]
   },
   "apotheosis": {
@@ -227,14 +310,14 @@
       "boss",
       "dungeon"
     ],
-    "uk": "Система 5 світових рівнів складності, рідкісних афіксів спорядження, інкрустації самоцвітів, перекування, доповнення та босів-загарбників",
+    "uk": "Система світових рівнів складності, рідкісних афіксів спорядження, інкрустації самоцвітів, перекування, доповнення та босів-загарбників",
     "what": [
       "Фундаментальна RPG-система прокачування спорядження та складності світу (модулі чарів і породжувачів винесені в окремі моди Apothic Enchanting і Apothic Spawners)",
-      "Прогресія побудована навколо 5 рівнів світу (вікно вибору відкривається комбінацією `Ctrl + T`): Притулок (`Haven`) → Кордон (`Frontier`) → Сходження (`Ascent`) → Вершина (`Summit`) → Пік (`Pinnacle`)",
-      "Кожен новий рівень підвищує силу мобів, але відкриває вищі рідкості предметів з афіксами й гніздами та спавнить апофеотичних загарбників (мінібосів із гарантованим афіксним трофеєм; також генеруються вежі Apothic і підземні лігва з бунтівними породжувачами)",
-      "Непотрібні афіксні речі розбирають на столі перероблення (`apotheosis:salvaging_table`) на матеріали 5 рідкостей: звичайний містичний брухт (`apotheosis:mysterious_scrap_metal`), незвичайну зношену тканину, рідкісний блискучий кришталевий уламок (`apotheosis:luminous_crystal_shard`), епічні таємничі піски (`apotheosis:arcane_sands`) і міфічну боготворену перлину (`apotheosis:godforged_pearl`)",
+      "Прогресія побудована навколо рівнів світу (вікно вибору відкривається комбінацією `Ctrl + T`): Притулок (`Haven`) → Кордон (`Frontier`) → Сходження (`Ascent`) → Вершина (`Summit`) → Пік (`Pinnacle`)",
+      "Вищий рівень підвищує силу мобів, але відкриває вищі рідкості предметів з афіксами й гніздами та спавнить апофеотичних загарбників (мінібосів із гарантованим афіксним трофеєм; також генеруються вежі Apothic і підземні лігва з бунтівними породжувачами)",
+      "Непотрібні афіксні речі розбирають на столі перероблення (`apotheosis:salvaging_table`) на матеріали за рідкістю: звичайний містичний брухт (`apotheosis:mysterious_scrap_metal`), незвичайну зношену тканину, рідкісний блискучий кришталевий уламок (`apotheosis:luminous_crystal_shard`), епічні таємничі піски (`apotheosis:arcane_sands`) і міфічну боготворену перлину (`apotheosis:godforged_pearl`)",
       "На простому й звичайному столі перекування (`apotheosis:reforging_table`) за ці матеріали та пил самоцвіту (`apotheosis:gem_dust`) накладають нові афікси, на столі огранування самоцвітів (`apotheosis:gem_cutting_table`) підвищують чистоту самоцвітів до бездоганної, а на фінальному столі доповнення (`apotheosis:augmenting_table`) точково піднімають або перекочують окремий афікс за сигіли вдосконалення (`apotheosis:sigil_of_enhancement`)",
-      "Довідник — «Хроніка тіней» (`apotheosis:apoth_chronicle`)"
+      "Довідник — «Хроніка тіней» (книга Patchouli apoth_chronicle)"
     ],
     "stage": [
       "s1",
@@ -245,29 +328,31 @@
     "synergy": [
       {
         "mod": "apothic_enchanting",
-        "why": "Разом із зачаруваннями високих рівнів (до 100 Eterna) афікси та самоцвіти Apotheosis створюють наймогутнішу зброю й броню в збірці"
+        "why": "Apotheosis має модуль сумісності з Apothic Enchanting: рецепти стола зачарування Ворона й боготвореної злитої перлини, а рівні світу підвищують гравцеві максимальну Етерну.",
+        "src": "клас dev/shadowsoffire/apotheosis/compat/enchanting/ApothicEnchantingCompat; рецепт apotheosis:raven_enchanting_table; tier_augments/*/max_eterna.json",
+        "ref": [
+          "recipe:apotheosis:raven_enchanting_table",
+          "jarfile:Apotheosis!data/apotheosis/apotheosis/tier_augments/summit/max_eterna.json~apothic_enchanting:max_eterna"
+        ]
       },
       {
         "mod": "apothic_spawners",
-        "why": "У підземних кімнатах під вежами Apotheosis генеруються бунтівні породжувачі (Rogue Spawners) із цінними скринями"
-      },
-      {
-        "mod": "gateways",
-        "why": "Рівневі брами (Frontier, Ascent, Summit, Pinnacle) дозволяють цілеспрямовано викликати хвилі апофеотичних загарбників для фарму боготворених перлин і самоцвітів"
-      },
-      {
-        "mod": "silentgear",
-        "why": "Зброя, інструменти, броня та щити Silent Gear приймають усі афікси й самоцвіти Apotheosis"
+        "why": "Руни модифікаторів породжувачів Apothic Spawners — рецепти Apotheosis (apotheosis:spawner_modifiers/*), є модуль сумісності.",
+        "src": "рецепти apotheosis:spawner_modifiers/*; клас dev/shadowsoffire/apotheosis/compat/spawners/ApothicSpawnersCompat",
+        "ref": [
+          "recipe:apotheosis:spawner_modifiers/burning",
+          "jarfile:Apotheosis!dev/shadowsoffire/apotheosis/compat/spawners/ApothicSpawnersCompat.class"
+        ]
       }
     ],
     "tips": [
       "Не забувайте підвищувати рівень світу (`Ctrl + T`): новий рівень не вмикається автоматично після виконання умов (наприклад, після вбивства Візера чи Дракона Енду) — потрібно вручну відкрити меню `Ctrl + T` і активувати наступний тир!",
       "Пил самоцвіту (`apotheosis:gem_dust`) на старті отримують просто: киньте непотрібні самоцвіти Apotheosis на землю й скиньте на них зверху ковадло!",
-      "На столі доповнення (`apotheosis:augmenting_table`) покращення одного афіксу коштує 2 сигіли вдосконалення + 225 рівнів досвіду, а заміна одного невдалого афіксу — 1 сигіл вдосконалення + 175 рівнів досвіду.",
+      "Стіл доповнення (`apotheosis:augmenting_table`) — ендгейм: покращення чи перекидання одного афіксу коштує сигілів удосконалення й досвіду; рецепт — зірка Незеру, 2 боготворені перлини й стіл зачарування.",
       "Корисні клавіші: `Ctrl + T` — екран рівнів світу, `Shift + T` — надіслати предмет у чат, `Ctrl + O` — увімкнути/вимкнути радіальне копання від афіксу/самоцвіту на кайлі, `Ctrl + K` — перемкнути бонуси атрибутів чобіт (щоб прибрати надмірну висоту стрибка чи швидкість), `Shift` — порівняти предмет у інвентарі з одягненим.",
-      "Амулети зілля (`apotheosis:potion_charm`, крафтяться з 3 однакових зіль і 6 порохів пломеня) працюють прямо з інвентарю або слота Curios і при набутті незламності через Вічну стелу дають вічний ефект зілля!"
+      "Амулети зілля (`apotheosis:potion_charm`, рецепт — зілля й порох пломеня) працюють з інвентаря або слота Curios."
     ],
-    "spoiler": "Найшвидший спосіб набрати десятки боготворених перлин (`apotheosis:godforged_pearl`) і бездоганних самоцвітів на рівні світу Пік (`Pinnacle`): відкрийте у Верхньому світі, Незері або Енді перлину брами Піку (`Gate Pearl - Pinnacle`), а після неї — Нескінченну браму апофеотичних загарбників, і розбирайте всі вибиті міфічні речі на столі перероблення.",
+    "spoiler": "Боготворені перлини й бездоганні самоцвіти на рівні світу Пік найшвидше фармити брамою Піку (`apotheosis:gateways/tiered/pinnacle`): міфічні афіксні речі з хвиль розбирайте на столі перероблення.",
     "chapter": "apotheosis_gear",
     "book": "Хроніки тіней (Patchouli)",
     "icons": [
@@ -275,6 +360,27 @@
       "apotheosis:augmenting_table",
       "apotheosis:gem_cutting_table",
       "apotheosis:salvaging_table"
+    ],
+    "ref": [
+      "file:options.txt~key_key.apotheosis.open_world_tier_select:key.keyboard.t:CONTROL",
+      "file:options.txt~key_key.apotheosis.link_item_to_chat:key.keyboard.t:SHIFT",
+      "file:options.txt~key_key.apotheosis.toggle_radial_mining:key.keyboard.o:CONTROL",
+      "file:options.txt~key_key.apotheosis.toggle_attribute_bonuses:key.keyboard.k:CONTROL",
+      "file:options.txt~key_key.apotheosis.compare_equipment:key.keyboard.left.shift",
+      "item:apotheosis:salvaging_table",
+      "item:apotheosis:mysterious_scrap_metal",
+      "item:apotheosis:luminous_crystal_shard",
+      "item:apotheosis:arcane_sands",
+      "item:apotheosis:godforged_pearl",
+      "item:apotheosis:reforging_table",
+      "item:apotheosis:gem_dust",
+      "item:apotheosis:gem_cutting_table",
+      "item:apotheosis:augmenting_table",
+      "item:apotheosis:sigil_of_enhancement",
+      "item:apotheosis:potion_charm",
+      "recipe:apotheosis:augmenting_table",
+      "recipe:apotheosis:gateways/tiered/pinnacle",
+      "jarfile:Apotheosis!assets/apotheosis/patchouli_books/apoth_chronicle/en_us/entries/adventure/affix_loot/augmenting.json"
     ]
   },
   "apothic_attributes": {
@@ -285,15 +391,34 @@
     "role": "library",
     "parent": "apotheosis",
     "features": [],
-    "uk": "Розширена система бойових та ігрових атрибутів і панель огляду характеристик гравця у вікні інвентарю",
+    "uk": "Розширена система атрибутів і вікно характеристик гравця в інвентарі — потрібна Apotheosis, Apothic Enchanting і Gateways.",
     "what": [
-      "Додає десятки нових атрибутів (шанс і множник критичного удару, пробиття й руйнування броні, вампіризм, надлікування, швидкість видобутку, досвід, дальність польоту стріл, політ на елітрах) та зручну вкладку перегляду всіх активних характеристик персонажа у правому верхньому куті інвентарю"
+      "Нові атрибути: шанс і шкода критичного удару, вампіризм, надлікування, пробиття й руйнування броні, швидкість стріл, отриманий досвід, політ на елітрі",
+      "Вікно атрибутів в інвентарі: база, мінімум, максимум і модифікатори атрибута; кнопка «Hide Unchanged» ховає незмінені"
     ],
     "stage": [
       "s0",
       "s1"
     ],
-    "book": "розділ «Атрибути» у «Хроніках тіней» (Patchouli)"
+    "book": "розділ «Атрибути» у «Хроніках тіней» (Patchouli)",
+    "ref": [
+      "jarfile:ApothicAttributes-26.1.2-3.1.0!META-INF/neoforge.mods.toml~providing Attributes",
+      "jarfile:Apotheosis-26.1.2-9.1.0!META-INF/neoforge.mods.toml~modId=\"apothic_attributes\"",
+      "jarfile:ApothicEnchanting-26.1.2-2.1.0!META-INF/neoforge.mods.toml~modId=\"apothic_attributes\"",
+      "jarfile:GatewaysToEternity-26.1.2-6.0.2!META-INF/neoforge.mods.toml~modId=\"apothic_attributes\"",
+      "lang:apothic_attributes:crit_chance",
+      "lang:apothic_attributes:crit_damage",
+      "lang:apothic_attributes:life_steal",
+      "lang:apothic_attributes:overheal",
+      "lang:apothic_attributes:armor_pierce",
+      "lang:apothic_attributes:armor_shred",
+      "lang:apothic_attributes:arrow_velocity",
+      "lang:apothic_attributes:experience_gained",
+      "lang:apothic_attributes:elytra_flight",
+      "jarfile:ApothicAttributes!dev/shadowsoffire/apothic_attributes/client/AttributesGui.class",
+      "lang:apothic_attributes.gui.modifiers",
+      "lang:button.apothic_attributes.hide_unchanged"
+    ]
   },
   "placebo": {
     "cls": [
@@ -301,12 +426,28 @@
     ],
     "role": "library",
     "features": [],
-    "uk": "Базова бібліотека реєстрації даних і мережевих систем для Apotheosis, Apothic Enchanting, Apothic Spawners, Gateways і Wither Skeleton Tweaks",
+    "uk": "Бібліотека Shadows_of_Fire — потрібна Apotheosis, Apothic Attributes / Enchanting / Spawners, Gateways, Wither Skeleton Tweaks, Hostile Neural Networks, Toast Control і FastSuite / FastFurnace / FastWorkbench.",
     "what": [
-      "Ядро для всіх модів від Shadows_of_Fire (Apotheosis, Apothic Attributes, Apothic Enchanting, Apothic Spawners, Gateways to Eternity, Wither Skeleton Tweaks, FastSuite, FastFurnace, FastWorkbench)"
+      "Клавіші слідів і крил (косметика Placebo) — Num 9 / Num 8 (options.txt)"
     ],
     "stage": [
       "s0"
+    ],
+    "ref": [
+      "jarfile:Placebo-26.1.2-10.0.2!META-INF/neoforge.mods.toml~library boi",
+      "jarfile:Apotheosis-26.1.2-9.1.0!META-INF/neoforge.mods.toml~modId=\"placebo\"",
+      "jarfile:ApothicAttributes-26.1.2-3.1.0!META-INF/neoforge.mods.toml~modId=\"placebo\"",
+      "jarfile:ApothicEnchanting-26.1.2-2.1.0!META-INF/neoforge.mods.toml~modId=\"placebo\"",
+      "jarfile:ApothicSpawners-26.1.2-2.0.1!META-INF/neoforge.mods.toml~modId=\"placebo\"",
+      "jarfile:GatewaysToEternity-26.1.2-6.0.2!META-INF/neoforge.mods.toml~modId=\"placebo\"",
+      "jarfile:WitherSkeletonTweaks-26.1.2-11.0.1!META-INF/neoforge.mods.toml~modId=\"placebo\"",
+      "jarfile:HostileNeuralNetworks-26.1.2-7.0.0!META-INF/neoforge.mods.toml~modId=\"placebo\"",
+      "jarfile:ToastControl-26.1.2-10.0.0!META-INF/neoforge.mods.toml~modId=\"placebo\"",
+      "jarfile:FastSuite-26.1.2-7.0.0!META-INF/neoforge.mods.toml~modId=\"placebo\"",
+      "jarfile:FastFurnace-26.1.2-10.0.0!META-INF/neoforge.mods.toml~modId=\"placebo\"",
+      "jarfile:FastWorkbench-26.1.2-10.0.0!META-INF/neoforge.mods.toml~modId=\"placebo\"",
+      "file:options.txt~key_placebo.toggleTrails:key.keyboard.keypad.9",
+      "file:options.txt~key_placebo.toggleWings:key.keyboard.keypad.8"
     ]
   },
   "attributefix": {
@@ -316,13 +457,21 @@
     ],
     "role": "perf",
     "features": [],
-    "uk": "Зняття штучних ванільних лімітів на максимальні значення здоров'я, броні, шкоди атаки та швидкості",
+    "uk": "Піднімає ванільні межі атрибутів (здоров'я, броня, шкода атаки тощо), щоб бонуси спорядження модів не впиралися в стелю.",
     "what": [
-      "У ванільному Minecraft атрибути мають жорсткі верхні межі (наприклад, максимум 30 броні або 1024 здоров'я), через що ендгейм-спорядження модів упиралося б у стелю",
-      "AttributeFix підвищує ці ліміти до мільйонів, дозволяючи афіксам Apotheosis, контейнерам сердець BHC та броні AllTheModium / Mekanism працювати на повну силу"
+      "Межа максимального здоров'я, броні й шкоди атаки — 1 000 000 (config/attributefix/minecraft)",
+      "Окремі файли меж і для атрибутів модів — Apothic Attributes, Aether II, Iron's Lib та ін. (config/attributefix/<мод>)"
     ],
     "stage": [
       "s0"
+    ],
+    "ref": [
+      "jarfile:AttributeFix!META-INF/neoforge.mods.toml~Extends the maximum attribute ranges",
+      "config:config/attributefix/minecraft/max_health.json#max.value=1000000.0",
+      "config:config/attributefix/minecraft/armor.json#max.value=1000000.0",
+      "config:config/attributefix/minecraft/attack_damage.json#max.value=1000000.0",
+      "file:config/attributefix/apothic_attributes/armor_pierce.json",
+      "file:config/attributefix/aether_ii/blocking_strength.json"
     ]
   },
   "maxhealthfix": {
@@ -332,12 +481,16 @@
     ],
     "role": "perf",
     "features": [],
-    "uk": "Виправлення скидання поточного здоров'я гравця під час переходу між вимірами та перезаходу в світ",
+    "uk": "Виправляє ванільний баг MC-17876: здоров'я понад 20 одиниць (бонусні серця) скидалося після перезапуску гри.",
     "what": [
-      "Усуває ванільний баг, коли гравець із бонусними серцями (від Baubley Heart Canisters, Artifacts, Apotheosis або Spice of Life: Carrot Edition) після телепортації в інший вимір чи перезаходу на сервер втрачав усе здоров'я вище базових 20 одиниць"
+      "Бонусні серця (контейнери сердець, афікси спорядження) зберігаються після виходу й повторного входу у світ; мод увімкнено (config/maxhealthfix.json)"
     ],
     "stage": [
       "s0"
+    ],
+    "ref": [
+      "jarfile:MaxHealthFix!META-INF/neoforge.mods.toml~MC-17876",
+      "config:config/maxhealthfix.json#mod_enabled.value=True"
     ]
   },
   "artifacts": {
@@ -351,9 +504,9 @@
       "dungeon",
       "mobs"
     ],
-    "uk": "49 унікальних пасивних артефактів-аксесуарів для слотів Curios та підземні табори з міміками",
+    "uk": "48 пасивних артефактів-аксесуарів для слотів Curios та підземні табори з міміками",
     "what": [
-      "Додає 49 знакових реліквій для слотів Curios, які неможливо скрафтити — їх знаходять у скринях данжів або вибивають із небезпечних міміків (`artifacts:mimic`, 16 сердець), що чатують у підземних наметових таборах",
+      "Додає 48 реліквій для слотів Curios — їх знаходять у скринях данжів або вибивають із небезпечних міміків (`artifacts:mimic`), що чатують у підземних наметових таборах",
       "Серед найкорисніших знахідок: кришталеве серце (`artifacts:crystal_heart`, додає здоров'я), окуляри нічного бачення (`artifacts:night_vision_goggles`), вічний стейк (`artifacts:eternal_steak`) та вічна яловичина (`artifacts:everlasting_beef` — нескінченна їжа з невеликим відкатом), потужна рукавиця (`artifacts:power_glove`), звірині кігті (`artifacts:feral_claws`), рукавиця вампіра (`artifacts:vampiric_glove`), рійні кігті (`artifacts:digging_claws`), хмара в пляшці (`artifacts:cloud_in_a_bottle`, подвійний стрибок), гелієвий фламінго (`artifacts:helium_flamingo`, плавання в повітрі), кросівки (`artifacts:running_shoes`), стрибунці (`artifacts:bunny_hoppers`), котячі капці (`artifacts:kitty_slippers`, відлякують кріперів), шарф-невидимка (`artifacts:scarf_of_invisibility`), щасливий шарф (`artifacts:lucky_scarf`, +1 Удача), забобонний капелюх (`artifacts:superstitious_hat`, +1 Здобич) та універсальний магніт (`artifacts:universal_attractor`)"
     ],
     "stage": [
@@ -364,16 +517,24 @@
     "synergy": [
       {
         "mod": "curios",
-        "why": "Усі предмети Artifacts вдягаються у слоти голови, намиста, пояса, рук і ніг Curios API без зайняття основної броні"
+        "why": "Артефакти вдягаються в слоти Curios (голова, намисто, пояс, руки, ноги) — у jar є модуль сумісності з Curios.",
+        "src": "класи artifacts/neoforge/integration/curios/CuriosCompat; теги curios:*",
+        "ref": [
+          "jarfile:artifacts!artifacts/neoforge/integration/curios/CuriosCompat.class~curios",
+          "tag:curios:belt"
+        ]
       },
       {
         "mod": "lootr",
-        "why": "Завдяки Lootr кожен гравець на сервері має власний шанс знайти артефакти у скринях данжів"
+        "why": "Завдяки Lootr гравці на сервері мають власний шанс знайти артефакти у скринях данжів",
+        "src": "клас artifacts/integration/lootr/LootrCompat",
+        "ref": [
+          "jarfile:artifacts!artifacts/integration/lootr/LootrCompat.class~lootr"
+        ]
       }
     ],
     "tips": [
       "Побачивши в печері підземний табір із багаттям і старою дерев'яною скринею (не золотистою скринею Lootr!) — готуйтеся до бою: це мімік (`artifacts:mimic`), який гарантовано залишить один випадковий артефакт після смерті (сам мімік заблокований для породжувачів у `#allthemods:jank_blacklist`).",
-      "Гарячі клавіші перемикання активних артефактів: `Ctrl + N` — увімкнути/вимкнути окуляри нічного бачення (`artifacts:night_vision_goggles`), `Ctrl + Y` — увімкнути/вимкнути універсальний магніт (`artifacts:universal_attractor`).",
       "Вічну яловичину (`artifacts:everlasting_beef`) можна засмажити в печі або коптильні на вічний стейк (`artifacts:eternal_steak`), а також покласти у рюкзак Sophisticated Backpacks із модулем автогодування!"
     ],
     "chapter": "artifacts",
@@ -382,6 +543,24 @@
       "artifacts:power_glove",
       "artifacts:night_vision_goggles",
       "artifacts:eternal_steak"
+    ],
+    "ref": [
+      "count:items:artifacts|^(?!mimic_spawn_egg)=48",
+      "jarfile:artifacts!data/artifacts/loot_table/entities/mimic.json",
+      "kjs:server_scripts/tweaks/tags.js~\"artifacts:mimic\"",
+      "recipe:artifacts:eternal_steak_from_smelting",
+      "recipe:artifacts:eternal_steak_from_smoking",
+      "item:artifacts:crystal_heart",
+      "item:artifacts:night_vision_goggles",
+      "item:artifacts:everlasting_beef",
+      "item:artifacts:power_glove",
+      "item:artifacts:cloud_in_a_bottle",
+      "item:artifacts:helium_flamingo",
+      "item:artifacts:kitty_slippers",
+      "item:artifacts:lucky_scarf",
+      "item:artifacts:superstitious_hat",
+      "item:artifacts:universal_attractor",
+      "tag:curios:belt"
     ]
   },
   "curios": {
@@ -391,15 +570,29 @@
     ],
     "role": "library",
     "features": [],
-    "uk": "Універсальна система додаткових слотів екіпірування для артефактів, каблучок, намист, амулетів, ранців і поясів",
+    "uk": "API додаткових слотів екіпірування (каблучки, намиста, пояси тощо) — на ньому працюють моди аксесуарів.",
     "what": [
-      "Базовий фреймворк додаткового інвентарю аксесуарів (Curios API), який додає слоти для Artifacts, Iron's Gems 'n Jewelry, Baubley Heart Canisters, Apotheosis, Sophisticated Backpacks, Crafting on a Stick, Tool Belt, Occultism та Reliquary"
+      "Обов'язкова залежність Baubley Heart Canisters, Iron's Gems 'n Jewelry, Occultism, Thaumaturge, Witchery, Refined Storage Curios Integration; необов'язкова — Artifacts, Ars Magica Legacy, Ender IO, AE2 WTLib та ін."
     ],
     "stage": [
       "s0"
     ],
     "tips": [
-      "Відкрити панель слотів Curios можна кнопкою у лівому верхньому куті портрета персонажа в інвентарі або гарячою клавішею `Shift + Mouse 4`."
+      "`Shift + Миша 4` — відкрити слоти Curios (options.txt)."
+    ],
+    "ref": [
+      "jarfile:curios-neoforge-15.0.0+26.1.2!META-INF/neoforge.mods.toml~accessory/equipment API",
+      "jarfile:baubley-heart-canisters-26.1.2-1.7.3!META-INF/neoforge.mods.toml~modId = \"curios\"",
+      "jarfile:irons_jewelry-26.1.2-2.0.2.1!META-INF/neoforge.mods.toml~modId=\"curios\"",
+      "jarfile:occultism-26.1.2-neoforge-1.256.1!META-INF/neoforge.mods.toml~modId = \"curios\"",
+      "jarfile:thaumaturge-26.1.2-NeoForge-1.0.2!META-INF/neoforge.mods.toml~modId = \"curios\"",
+      "jarfile:witchery-0.5.17+mc26.1.2!META-INF/neoforge.mods.toml~modId = \"curios\"",
+      "jarfile:refinedstorage-curios-integration-2.0.1!META-INF/neoforge.mods.toml~modId = \"curios\"",
+      "jarfile:artifacts-neoforge-15.1.3!META-INF/neoforge.mods.toml~modId = \"curios\"",
+      "jarfile:arsmagicalegacy-26.1.2-1.7.0!META-INF/neoforge.mods.toml~modId = \"curios\"",
+      "jarfile:enderio-9.0.6-alpha!META-INF/neoforge.mods.toml~modId=\"curios\"",
+      "jarfile:ae2wtlib-26.1.2-beta!META-INF/neoforge.mods.toml~modId = \"curios\"",
+      "file:options.txt~key_key.curios.open.desc:key.mouse.4:SHIFT"
     ]
   },
   "bhc": {
@@ -408,12 +601,12 @@
     ],
     "role": "content",
     "features": [],
-    "uk": "Амулети сердець і 4 рівні контейнерів сердець для збільшення здоров'я на +40 сердець (+80 HP), пояси серцебиття та лікувальні пластирі",
+    "uk": "Амулети сердець і контейнери сердець чотирьох кольорів (до 10 сердець одного кольору, heartStackSize) для постійного збільшення здоров'я, пояси серцебиття та лікувальні пластирі.",
     "what": [
-      "Дозволяє постійно збільшити максимальний запас здоров'я персонажа на +40 сердець (+80 HP) через один слот Curios",
-      "Зі звичайних мобів (5% шанс) випадають мініатюрні червоні серця (`bhc:red_heart`), з босів (Візер, Забутий вартовий, Ковзун тощо — 100% шанс) — мініатюрні жовті серця (`bhc:yellow_heart`), з Дракона Енду — мініатюрні зелені серця (`bhc:green_heart`), а з Боронителя (`Warden`, 50% шанс випадіння уламка відлуння за конфігом) — матеріали для мініатюрних синіх сердець (`bhc:blue_heart`)",
-      "Разом із візер-кісткою (`bhc:wither_bone`, 18% шанс із візер-скелета), реліктовим яблуком (`bhc:relic_apple`) та контейнером для мініатюрного серця (`bhc:canister`) їх переробляють на контейнери з червоним, жовтим, зеленим і синім серцем (`bhc:red_heart_canister`, `yellow_heart_canister`, `green_heart_canister`, `blue_heart_canister`)",
-      "По 10 контейнерів кожного з 4 кольорів вкладаються всередину амулета сердець (`bhc:heart_amulet`) або покращеного амулета душі (`bhc:soul_heart_amulet`), який додатково вміщує 10 контейнерів з серцем душі (`bhc:soul_heart_canister` — працюють як багаторазовий Тотем безсмертя!)",
+      "Постійно збільшує максимальне здоров'я — контейнери сердець, зібрані в амулеті, через один слот Curios",
+      "З ворожих мобів (15 %, конфіг drops.json) випадають мініатюрні червоні серця (`bhc:red_heart`), з босів (100 %) — жовті (`bhc:yellow_heart`), з Дракона Енду — зелені (`bhc:green_heart`), з Боронителя (`Warden`) — сині (`bhc:blue_heart`); уламок відлуння з Боронителя — 50 % (конфіг)",
+      "Разом із візер-кісткою (`bhc:wither_bone`, 18 % з візер-скелета, конфіг), реліктовим яблуком (`bhc:relic_apple`) та контейнером для мініатюрного серця (`bhc:canister`) їх переробляють на контейнери з червоним, жовтим, зеленим і синім серцем (`bhc:red_heart_canister`, `yellow_heart_canister`, `green_heart_canister`, `blue_heart_canister`)",
+      "По 10 контейнерів одного кольору вкладаються всередину амулета сердець (`bhc:heart_amulet`) або покращеного амулета душі (`bhc:soul_heart_amulet`), який додатково вміщує 10 контейнерів з серцем душі (`bhc:soul_heart_canister` — працюють як багаторазовий Тотем безсмертя!)",
       "Також додає лікувальні пластирі (`bhc:red_heart_patch`–`blue_heart_patch`), пояси серцебиття (`bhc:red_heartpulse_belt`–`blue_heartpulse_belt`) та клинок життєвої сили (`bhc:blade_of_vitality`)"
     ],
     "stage": [
@@ -425,22 +618,40 @@
     "synergy": [
       {
         "mod": "curios",
-        "why": "Амулет сердець (bhc:heart_amulet) або Амулет душі (bhc:soul_heart_amulet) займає лише один слот в інвентарі Curios, звільняючи місце від десятків окремих банок"
-      },
-      {
-        "mod": "solcarrot",
-        "why": "Разом із бонусними серцями за різноманітне харчування (Spice of Life: Carrot Edition) дозволяє легко підняти здоров'я за 60–70 сердець ще до ендгейму"
+        "why": "Амулет сердець і амулет душі носяться в слоті Curios — контейнери сердець усередині амулета не займають інвентар.",
+        "src": "теги curios (bhc)",
+        "ref": [
+          "tag:curios:necklace"
+        ]
       }
     ],
     "tips": [
-      "Тримайте всі зібрані контейнери сердець усередині амулета сердець (`bhc:heart_amulet`): достатньо відкрити амулет ПКМ у руці, покласти до 10 червоних, 10 жовтих, 10 зелених і 10 синіх контейнерів та вдягти амулет у слот Curios.",
-      "Клинок життєвої сили (`bhc:blade_of_vitality`) має 5 слотів для контейнерів сердець (кожен рівень додає шкоду мечу) і за конфігом збірки зі 100% шансом (`Soul Heart Return Chance = 1.0`) повертає витрачений кристал після спрацювання серця душі!"
+      "Тримайте зібрані контейнери сердець усередині амулета сердець (`bhc:heart_amulet`): достатньо відкрити амулет ПКМ у руці, покласти до 10 червоних, 10 жовтих, 10 зелених і 10 синіх контейнерів та вдягти амулет у слот Curios.",
+      "Серце душі за конфігом збірки після спрацювання повертає синій контейнер серця зі 100 % шансом (soulHeartReturnChance = 1.0)."
     ],
     "icons": [
       "bhc:heart_amulet",
       "bhc:soul_heart_amulet",
       "bhc:red_heart_canister",
       "bhc:blue_heart_canister"
+    ],
+    "ref": [
+      "config:config/bhc/drops.json#heartEntries.red.hostile=0.15",
+      "config:config/bhc/drops.json#heartEntries.yellow.boss=1.0",
+      "config:config/bhc-startup.toml#General.heartStackSize=10",
+      "config:config/bhc-startup.toml#General.boneDropRate=0.18",
+      "config:config/bhc-startup.toml#General.echoShardDropRate=0.5",
+      "config:config/bhc-startup.toml#General.soulHeartReturnChance=1.0",
+      "item:bhc:heart_amulet",
+      "item:bhc:soul_heart_amulet",
+      "item:bhc:soul_heart_canister",
+      "item:bhc:red_heart_canister",
+      "item:bhc:blade_of_vitality",
+      "item:bhc:wither_bone",
+      "item:bhc:relic_apple",
+      "item:bhc:canister",
+      "item:bhc:red_heart_patch",
+      "item:bhc:red_heartpulse_belt"
     ]
   },
   "comforts": {
@@ -451,27 +662,31 @@
     ],
     "role": "content",
     "features": [],
-    "uk": "Переносні спальні мішки для ночівлі в поході без зміни точки відродження та гамаки для сну вдень",
+    "uk": "Переносні спальні мішки для ночівлі в поході та гамаки для сну вдень.",
     "what": [
-      "Додає 16 кольорів спальних мішків (`comforts:sleeping_bag_red` тощо) та 16 кольорів гамаків (`comforts:hammock_white` тощо), які вішаються між двома блоками на мотузку та цвях (`comforts:rope_and_nail`)",
-      "За конфігом `comforts-server.toml`, спальний мішок спрацьовує миттєво в один клік (`autoUse = true`), ніколи не рветься (`sleepingBagBreakChance = 0.0`), пропускає ніч і не перезаписує точку відродження вдома! Натомість гамак дозволяє спати вдень (`hammockUse = \"DAY\"`), щоб швидко пропустити світлий час доби до ночі"
+      "Додає спальні мішки (`comforts:sleeping_bag_red` тощо) та гамаки (`comforts:hammock_white` тощо), які вішаються між двома блоками на мотузку та цвях (`comforts:rope_and_nail`)",
+      "Конфіг збірки (`comforts-server.toml`): спальний мішок застосовується автоматично (`autoUse = true`), не рветься (`sleepingBagBreakChance = 0`) і дає спати вночі (`sleepingBagUse = NIGHT`), гамак — удень (`hammockUse = DAY`); обидва відганяють фантомів"
     ],
     "stage": [
       "s0"
     ],
-    "synergy": [
-      {
-        "mod": "auroral",
-        "why": "Гамак (comforts:hammock_white) ідеальний, коли потрібно пропустити день і дочекатися ночі для північного сяйва Auroral, зоряного зарядника Silent Gear або нічних ритуалів магії"
-      }
-    ],
     "tips": [
-      "Затисніть спальний мішок на панелі швидкого доступу й клацніть ПКМ по землі о 12542 такті вечора: персонаж одразу ляже спати, а вранці мішок автоматично повернеться до інвентарю!"
+      "Гамак — щоб пропустити день до ночі (нічні ритуали, нічні моби), спальний мішок — щоб переночувати далеко від бази."
     ],
     "icons": [
       "comforts:sleeping_bag_red",
       "comforts:hammock_white",
       "comforts:rope_and_nail"
+    ],
+    "ref": [
+      "item:comforts:sleeping_bag_red",
+      "item:comforts:hammock_white",
+      "item:comforts:rope_and_nail",
+      "config:config/comforts-server.toml#autoUse=true",
+      "config:config/comforts-server.toml#sleepingBagBreakChance=0",
+      "config:config/comforts-server.toml#sleepingBagUse=NIGHT",
+      "config:config/comforts-server.toml#hammockUse=DAY",
+      "config:config/comforts-server.toml#hammocksStopPhantoms=true"
     ]
   },
   "crafting_on_a_stick": {
@@ -483,7 +698,7 @@
     "features": [],
     "uk": "Кишенькові верстат, ковальський стіл, ковадло, каменеріз, точило, ткацький верстат і стіл картографа на паличці (клавіша V)",
     "what": [
-      "Дозволяє поєднати по діагоналі палицю з будь-яким робочим блоком — верстатом (`crafting_on_a_stick:crafting_table`), ковальським столом (`crafting_on_a_stick:smithing_table`), ковадлом (`crafting_on_a_stick:anvil`), каменерізом (`crafting_on_a_stick:stonecutter`), точилом (`grindstone`), ткацьким верстатом (`loom`) або столом картографа (`cartography_table`) — щоб відкривати їх прямо на ходу без встановлення блока у світ",
+      "Палиця + робочий блок — верстат (`crafting_on_a_stick:crafting_table`), ковальським столом (`crafting_on_a_stick:smithing_table`), ковадлом (`crafting_on_a_stick:anvil`), каменерізом (`crafting_on_a_stick:stonecutter`), точилом (`grindstone`), ткацьким верстатом (`loom`) або столом картографа (`cartography_table`) — щоб відкривати їх прямо на ходу без встановлення блока у світ",
       "У конфігу увімкнено збереження предметів усередині сітки верстата після закриття вікна (`storeItems = true`)"
     ],
     "stage": [
@@ -492,17 +707,30 @@
     "synergy": [
       {
         "mod": "curios",
-        "why": "Верстат на паличці вдягається у спеціальний слот Curios і миттєво відкривається гарячою клавішею V"
+        "why": "Верстат на паличці вдягається в слот Curios і відкривається клавішею V (клас CuriosIntegration).",
+        "src": "клас com/ofekn/crafting_on_a_stick/neoforge/CuriosIntegration; options.txt",
+        "ref": [
+          "jarfile:crafting_on_a_stick!com/ofekn/crafting_on_a_stick/neoforge/CuriosIntegration.class~curios",
+          "file:options.txt~key_crafting_on_a_stick.key.open_curios:key.keyboard.v"
+        ]
       }
     ],
     "tips": [
-      "Вдягніть верстат на паличці (`crafting_on_a_stick:crafting_table`) у слот Curios — клавіша `V` відкриє сітку 3×3 у будь-який момент, і ви навіть можете залишати в ній ресурси між крафтами!"
+      "Вдягніть верстат на паличці (`crafting_on_a_stick:crafting_table`) у слот Curios — клавіша `V` відкриє сітку верстата; предмети в сітці лишаються між крафтами (storeItems = true)."
     ],
     "icons": [
       "crafting_on_a_stick:crafting_table",
       "crafting_on_a_stick:smithing_table",
       "crafting_on_a_stick:anvil",
       "crafting_on_a_stick:stonecutter"
+    ],
+    "ref": [
+      "item:crafting_on_a_stick:crafting_table",
+      "item:crafting_on_a_stick:smithing_table",
+      "item:crafting_on_a_stick:anvil",
+      "item:crafting_on_a_stick:stonecutter",
+      "config:config/crafting_on_a_stick-common.toml#storeItems=true",
+      "file:options.txt~key_crafting_on_a_stick.key.open_curios:key.keyboard.v"
     ]
   },
   "transmog": {
@@ -513,10 +741,10 @@
     ],
     "role": "qol",
     "features": [],
-    "uk": "Стіл трансмогрифікації для зміни зовнішнього вигляду будь-якої броні чи зброї або повного їх приховування",
+    "uk": "Стіл трансмогрифікації: змінити вигляд броні чи зброї на вигляд іншого предмета або приховати броню.",
     "what": [
       "Додає стіл трансмогрифікації (`transmog:transmogrification_table`) та уламок порожнечі (`transmog:void_fragment`)",
-      "За паливо з аметистових уламків дозволяє надати будь-якому предмету спорядження вигляд іншого предмета (без втрати предмета-взірця!) або зробити частину броні повністю невидимою на персонажі за допомогою уламка порожнечі"
+      "Надає спорядженню вигляд іншого предмета (предмет-взірець лишається) або робить частину броні невидимою за допомогою уламка порожнечі"
     ],
     "stage": [
       "s0",
@@ -528,6 +756,11 @@
     "icons": [
       "transmog:transmogrification_table",
       "transmog:void_fragment"
+    ],
+    "ref": [
+      "item:transmog:transmogrification_table",
+      "item:transmog:void_fragment",
+      "config:config/transmog.json#renderOption=IN_WORLD"
     ]
   },
   "epitaphs": {
@@ -540,20 +773,27 @@
     "features": [],
     "uk": "Могили зі збереженням інвентарю після смерті, підсвічування координат загибелі, зачарування прив'язки душі та резервні копії",
     "what": [
-      "Після смерті гравця створює безпечну могилу (`epitaphs:grave`), яка зберігає всі предмети інвентарю та слотів Curios (навіть при падінні в лаву чи порожнечу Енду) і не зникає з часом",
+      "Після смерті гравця ставить могилу (`epitaphs:grave`) із предметами інвентаря й слотів Curios",
       "У чат виводяться точні координати й вимір останньої смерті",
-      "Також додає предмет душа в пляшці (`epitaphs:soul_bottle`), зачарування Experience Soulbound (`epitaphs:experience_soulbound`, залишає предмет при гравцеві після смерті й зберігає 25% досвіду) та автоматичне резервне копіювання інвентарів кожні 10 хвилин (команди `/epitaphs list`, `/epitaphs highlight`, `/epitaphs preview`, `/epitaphs recover`)"
+      "Також додає предмет душа в пляшці (`epitaphs:soul_bottle`), зачарування Experience Soulbound (`epitaphs:experience_soulbound`, залишає предмет при гравцеві після смерті й зберігає чверть досвіду; lang мода) та автоматичне резервне копіювання інвентарів (backup_interval = 10, до 10 копій) (команди `/epitaphs list`, `/epitaphs highlight`, `/epitaphs preview`, `/epitaphs recover`)"
     ],
     "stage": [
       "s0"
     ],
     "tips": [
-      "Щоб миттєво забрати всі речі з могили (`epitaphs:grave`) у ті самі слоти, у яких вони лежали до смерті, підійдіть до неї й натисніть `Shift + ПКМ` (або просто станьте на неї зі `Shift`).",
+      "Щоб забрати речі з могили (`epitaphs:grave`) у ті самі слоти, у яких вони лежали до смерті, підійдіть до неї й натисніть `Shift + ПКМ` (або просто станьте на неї зі `Shift`).",
       "Команда `/epitaphs list` покаже історію ваших останніх смертей із координатами, а `/epitaphs highlight` увімкне підсвічування точки останньої могили."
     ],
     "icons": [
       "epitaphs:grave",
       "epitaphs:soul_bottle"
+    ],
+    "ref": [
+      "item:epitaphs:grave",
+      "item:epitaphs:soul_bottle",
+      "lang:enchantment.epitaphs.experience_soulbound.desc",
+      "config:config/epitaphs/epitaphs-server.toml#backup_interval=10",
+      "config:config/epitaphs/epitaphs-server.toml#max_backups=10"
     ]
   },
   "portingdeadlibs": {
@@ -563,13 +803,17 @@
     "role": "library",
     "parent": "power_armor",
     "features": [],
-    "uk": "Базова бібліотека блоків, рідин, енергії й інтерфейсів для Power Armor",
+    "uk": "Бібліотека команди Porting Dead Mods (API багатоблоків, блоків-сутностей, екранів) — потрібна Power Armor.",
     "what": [
-      "Технічна бібліотека команди Porting Dead Mods, яку використовує мод модульної енергетичної броні Power Armor"
+      "Обов'язкова залежність Power Armor"
     ],
     "stage": [
       "s2",
       "s3"
+    ],
+    "ref": [
+      "jarfile:portingdeadlibs-1.1.14-26.1!META-INF/neoforge.mods.toml~Multiblock api",
+      "jarfile:power_armor-1.0.7!META-INF/neoforge.mods.toml~modId=\"portingdeadlibs\""
     ]
   }
 }

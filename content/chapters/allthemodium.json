@@ -1,0 +1,141 @@
+{
+ "ov": "Прогресія фірмових металів ATM: усемодій → вібраній → унобтаній. Руда усемодію — у біомі Темні глибини (навколо Стародавніх міст); Телепорт-плита веде у виміри ATM: вібраній — в Іншому світі (і рідко в Незері), унобтаній — у Височинах Енду; у Стародавній піраміді Іншого світу чекає бос Піґліч.",
+ "ref": [
+  "jarfile:data/allthemodium/neoforge/biome_modifier/allthemodium.json~minecraft:deep_dark",
+  "recipe:allthemodium:teleport_pad",
+  "jarfile:data/allthemodium/dimension/mining.json",
+  "jarfile:data/allthemodium/dimension/the_other.json",
+  "jarfile:data/allthemodium/dimension/the_beyond.json",
+  "jarfile:data/allthemodium/worldgen/placed_feature/vibranium_other.json",
+  "jarfile:data/allthemodium/neoforge/biome_modifier/unobtainium.json~minecraft:end_highlands",
+  "quest:24934231538B6492",
+  "quest:5BA986D7928BF09F",
+  "jarfile:data/allthemodium/neoforge/biome_modifier/vibranium.json~c:is_nether"
+ ],
+ "steps": [
+  {
+   "t": "Незеритовий злиток і кайло щонайменше незеритового рівня",
+   "ref": [
+    "quest:4B2146C9527C54E7"
+   ]
+  },
+  {
+   "t": "Стародавнє місто: руда усемодію — у біомі Темні глибини навколо, шаблон усемодію — у підозрілій глині міста",
+   "ref": [
+    "jarfile:data/allthemodium/neoforge/biome_modifier/allthemodium.json~minecraft:deep_dark",
+    "jarfile:data/allthemodium/loot_table/arch.json~allthemodium:allthemodium_upgrade_smithing_template",
+    "quest:111E4ACF7D570EE8"
+   ]
+  },
+  {
+   "t": "Усемодієві злитки → покращення незеритового спорядження на ковальському столі",
+   "ref": [
+    "quest:201EE3566D4D3123",
+    "recipe:allthemodium:allthemodium_pickaxe_smithing",
+    "quest:6E0624750DF8CD18"
+   ]
+  },
+  {
+   "t": "Телепорт-плита (4 самородки усемодію + перлина Енду): з Верхнього світу — у Вимір видобутку, з Незеру — в Інший світ, з Енду — в Позамежжя",
+   "ref": [
+    "recipe:allthemodium:teleport_pad",
+    "quest:07FDA46D83F8360D",
+    "jarfile:data/allthemodium/dimension/mining.json",
+    "jarfile:data/allthemodium/dimension/the_other.json",
+    "jarfile:data/allthemodium/dimension/the_beyond.json"
+   ]
+  },
+  {
+   "t": "Вібраній (шаблон — у підозрілому піску душ у бастіонах) і унобтаній (руда — у Височинах Енду; шаблон — за квестом, з породжувачів випробувань у бібліотечних кімнатах Підземелля в Іншому світі)",
+   "ref": [
+    "jarfile:data/allthemodium/loot_table/arch2.json~allthemodium:vibranium_upgrade_smithing_template",
+    "jarfile:data/allthemodium/neoforge/biome_modifier/unobtainium.json~minecraft:end_highlands",
+    "jarfile:data/allthemodium/loot_table/chest/template.json~allthemodium:unobtainium_upgrade_smithing_template",
+    "quest:144BB025516E0994",
+    "quest:4A079D40C0AF6BC3"
+   ]
+  },
+  {
+   "t": "Бос Піґліч у Стародавній піраміді",
+   "ref": [
+    "quest:24934231538B6492",
+    "quest:5BA986D7928BF09F"
+   ]
+  }
+ ],
+ "rewards": [
+  {
+   "t": "Ангельський блок — за Позамежжя",
+   "ref": [
+    "quest:11E957CDEFA0CAAB"
+   ]
+  },
+  {
+   "t": "За перші злитки — злиток того самого металу й досвід (усемодій, вібраній, унобтаній)",
+   "ref": [
+    "quest:201EE3566D4D3123",
+    "quest:144BB025516E0994",
+    "quest:4A079D40C0AF6BC3"
+   ]
+  }
+ ],
+ "atm": [
+  {
+   "t": "Спорядження ATM не крафтиться з нуля — лише покращується на ковальському столі: незерит → усемодій → вібраній → унобтаній (шаблон + злиток; для булав — блок)",
+   "ref": [
+    "only:allthemodium:allthemodium_pickaxe=minecraft:smithing_transform",
+    "only:allthemodium:vibranium_pickaxe=minecraft:smithing_transform",
+    "only:allthemodium:unobtainium_pickaxe=minecraft:smithing_transform",
+    "only:allthemodium:vibranium_helmet=minecraft:smithing_transform",
+    "recipe:allthemodium:vibranium_mace_smithing",
+    "recipe:allthemodium:unobtainium_mace_smithing"
+   ]
+  },
+  {
+   "t": "Квест «Кар'єр+» попереджає: кар'єр у Вимірі видобутку копає й руду усемодію, але її здобич зникає (у конфігах і скриптах збірки цього механізму не знайдено — перевірити в грі); усемодій надійніше копати самому із зіллям бачення руд. Сам кар'єр у збірці — ендгейм-рецепт (факт «Кар'єр QuarryPlus»)",
+   "ref": [
+    "quest:18FAD56CDE05646A~Void the drops",
+    "kjs:server_scripts/mods/quarryplus/recipes.js#L10"
+   ]
+  },
+  {
+   "t": "Сплави ATM: вібранієво-усемодієвий — у сфері заряджання Powah, блоки всіх трьох сплавів — у драконячих кузнях Ice and Fire (факт «Сплави ATM»)",
+   "ref": [
+    "recipe:kubejs:energizing/vibranium_allthemodium_alloy_ingot",
+    "recipe:iceandfire:dragonforge/allthemodium-vibranium",
+    "recipe:iceandfire:dragonforge/allthemodium-unobtainium",
+    "recipe:iceandfire:dragonforge/vibranium-unobtainium"
+   ],
+   "abs_ok": "«усіх трьох» — три рецепти dragonforge у ref (усі пари сплавів)"
+  }
+ ],
+ "notes": {
+  "5AAF6CA41209B365": {
+   "text": "Покращення усемодієвих інструментів на ковальському столі: шаблон покращення вібранію + вібранієвий злиток (зачарування зберігаються). З нуля вібранієві інструменти не крафтяться.",
+   "ref": [
+    "recipe:allthemodium:vibranium_pickaxe_smithing",
+    "only:allthemodium:vibranium_pickaxe=minecraft:smithing_transform"
+   ]
+  },
+  "68E6AE1B9EBCEFFF": {
+   "text": "Покращення усемодієвої булави на ковальському столі: шаблон покращення вібранію + вібранієвий блок (не злиток!).",
+   "ref": [
+    "recipe:allthemodium:vibranium_mace_smithing"
+   ]
+  },
+  "089B1B9837AF4938": {
+   "text": "Покращення вібранієвих інструментів на ковальському столі: шаблон покращення унобтанію + унобтанієвий злиток. Шаблон, за квестом, — з породжувачів випробувань у бібліотечних кімнатах Підземелля в Іншому світі.",
+   "ref": [
+    "recipe:allthemodium:unobtainium_pickaxe_smithing",
+    "jarfile:data/allthemodium/loot_table/chest/template.json~allthemodium:unobtainium_upgrade_smithing_template"
+   ]
+  },
+  "0A9D5C5D2F4CDCC3": {
+   "text": "Покращення вібранієвої булави на ковальському столі: шаблон покращення унобтанію + унобтанієвий блок.",
+   "ref": [
+    "recipe:allthemodium:unobtainium_mace_smithing"
+   ]
+  }
+ },
+ "_src": "jar allthemodium (biome_modifier, dimension, loot_table), рецепти smithing_transform, квести глави, гілка allthemodium, факти quarry і atm_alloys"
+}

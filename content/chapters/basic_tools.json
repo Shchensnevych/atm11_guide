@@ -1,0 +1,14 @@
+{
+ "why": "17 з 78 квестів — інструменти модів, яких у збірці 0.12.0-beta немає: Mekanism Tools, Nature's Aura, Eternal Starlight, Everything Copper. Глава позначена невидимою (always_invisible) — у грі не відкривається. Інструменти Silent Gear — у відкритій главі «Silent Gear».",
+ "ref": [
+  "file:config/ftbquests/quests/chapters/basic_tools.json5~always_invisible: true",
+  "count:stubs:basic_tools=17",
+  "count:qall:basic_tools=78",
+  "count:items:mekanismtools=0",
+  "count:items:naturesaura=0",
+  "count:items:eternal_starlight=0",
+  "count:items:everythingcopper=0",
+  "quest:6BBC440BD0AD0E93"
+ ],
+ "_src": "config/ftbquests/quests/chapters/<глава>.json5 (always_invisible), docs/data/quests (missing), реєстр предметів, KubeJS"
+}

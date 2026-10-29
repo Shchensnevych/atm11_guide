@@ -1,0 +1,16 @@
+{
+ "ov": "Переробка зачарування Apotheosis: книжкові полиці навколо столу задають Етерну, Кванту й Аркану; ванільна полиця дає 1 Етерну, проста книжкова полиця мода — 2, тож тут — нові полиці (пекло-, море-, глибинні, ендополиці), просякнення на столі зачарування, стіл Ворона й бібліотеки чар.",
+ "ref": [
+  "jarfile:ApothicEnchanting!data/apothic_enchanting/apothic_enchanting/enchanting_stats/basic_bookshelf.json~\"eterna\": 2.0",
+  "jarfile:ApothicEnchanting!data/apothic_enchanting/apothic_enchanting/enchanting_stats/hellshelf.json",
+  "jarfile:ApothicEnchanting!data/apothic_enchanting/apothic_enchanting/enchanting_stats/seashelf.json",
+  "jarfile:ApothicEnchanting!data/apothic_enchanting/apothic_enchanting/enchanting_stats/deepshelf.json",
+  "jarfile:ApothicEnchanting!data/apothic_enchanting/apothic_enchanting/enchanting_stats/endshelf.json",
+  "lang:enchantment.apothic_enchanting.infusion.desc",
+  "item:apothic_enchanting:library",
+  "item:apothic_enchanting:ender_library",
+  "jarfile:ApothicEnchanting!dev/shadowsoffire/apothic_enchanting/table/EnchantingStatRegistry.class~getEnchantPowerBonus"
+ ],
+ "abs_ok": "«лише 2 Етерни» — значення з даних мода (basic_bookshelf.json), не твердження про повноту",
+ "_src": "jar ApothicEnchanting (enchanting_stats, lang), опис мода в довіднику"
+}

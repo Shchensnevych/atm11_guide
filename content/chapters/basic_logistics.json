@@ -1,0 +1,57 @@
+{
+ "ov": "Перші способи возити предмети, рідини й енергію: найпростіші труби Pipez, лазери LaserIO і логічні мережі Integrated Dynamics / Integrated Tunnels.",
+ "ref": [
+  "quest:2329AA0AFBEF1E13~Pipez is the simplest Logistics Mod",
+  "quest:5F1218CF8EFC607B",
+  "quest:6E05B62A40D5A891",
+  "quest:6F152402756DA35E"
+ ],
+ "steps": [
+  {
+   "t": "Pipez: труби предметів, рідин, енергії й універсальна; ключем задаєте, яка сторона забирає, віддає чи не з'єднується; покращення збільшують потік, базове додає керування редстоуном, порядок розподілу й фільтри",
+   "ref": [
+    "quest:36836AD948F96B9F",
+    "quest:33433A443B65D252",
+    "quest:53EC96FA0E7C4ED4",
+    "quest:4FBAB3A0FBF8CE2F",
+    "quest:2329AA0AFBEF1E13~use the Pipe Wrench to configure what side Pulls, Pushes, or doesn't connect",
+    "quest:6A962535CD68713E~Basic Upgrade allows Redstone Activation"
+   ]
+  },
+  {
+   "t": "LaserIO: лазерні вузли біля машин + картки предметів, рідин, енергії й редстоуну; фільтри — базовий, за модом, за тегом, лічильний",
+   "ref": [
+    "quest:5C0F6B1C93A52113",
+    "quest:4C41FD926F31180B",
+    "quest:1C70D739CE464E25",
+    "quest:52F85CED20C8B1E9",
+    "quest:47768B1FFD57D56E",
+    "quest:47A2BEFB11F4D581",
+    "quest:2A6900E87DE8BAE0",
+    "quest:3065EA195D0A36BA",
+    "quest:06767BA0AFE8C1EE"
+   ]
+  },
+  {
+   "t": "Integrated Dynamics: логічні кабелі, картки змінних, імпортери й інтерфейси Integrated Tunnels (предмети, рідини, енергія)",
+   "ref": [
+    "quest:6112956E19017D2D",
+    "quest:03C40D6A5D722543",
+    "quest:6F152402756DA35E",
+    "quest:034F2CDF0830254B",
+    "quest:76CECFB244F39F18"
+   ]
+  }
+ ],
+ "atm": [
+  {
+   "t": "Стартова енергія для машин — у главах «Generators N Furnaces» і «Powah»: «Базова енергія» в цій версії прихована",
+   "ref": [
+    "file:config/ftbquests/quests/chapters/basic_power.json5~always_invisible: true",
+    "quest:618F1434757C8E69",
+    "quest:6B2027DA7AA6FF34"
+   ]
+  }
+ ],
+ "_src": "квести глави (en-оригінал — Pipez, покращення), always_invisible глави basic_power"
+}

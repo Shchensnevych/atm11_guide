@@ -1,0 +1,19 @@
+{
+ "ov": "Небесний вимір Святі острови Етеру: портал — рамка з 10 блоків світлокаменю й відро води; 16 біомів, моа, планери й аерохмари, інструменти з небокореня, святокаменю, заніту, аркенію й гравітиту, бос Ковзун.",
+ "ref": [
+  "quest:78C86403B4F8D382",
+  "jarfile:data/aether_ii/dimension/aether_holy_isles.json",
+  "count:files:aether_ii!data/aether_ii/worldgen/biome/=16",
+  "quest:2E4D32863106F785",
+  "quest:341C538D1407C731",
+  "quest:0D5E07DA734A72FC",
+  "quest:30BD1DF4FC9295C6",
+  "quest:6B31BC88C23EA226",
+  "quest:3AD1DECD6F51C798",
+  "quest:3BEB52D15F5C73E7",
+  "quest:2C8684AA92B889E8",
+  "quest:2CAA538587D78A8F",
+  "jarfile:data/c/tags/entity_type/bosses.json~aether_ii:slider"
+ ],
+ "_src": "квести глави (портал, моа, матеріали, Ковзун), jar aether_ii (біоми, тег c:bosses)"
+}

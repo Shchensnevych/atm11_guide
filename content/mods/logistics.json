@@ -1,228 +1,763 @@
 {
  "_doc": "G1a (2026-10-24): група «Логістика» — труби, маршрутизатори, програмована логістика, Integrated Dynamics з доповненнями, помічники. Факти звірено з файлами збірки (lang і рецепти jar, конфіги, options.txt, KubeJS), квестами й книгами. features — явно для кожного мода.",
-
  "_— труби —": "",
  "pipez": {
-  "cls": ["logistics", "energy"],
+  "cls": [
+   "logistics",
+   "energy"
+  ],
   "role": "content",
   "features": [],
   "uk": "Найпростіші труби збірки: предмети, рідини, енергія або все разом в універсальній трубі. Ключем задаєте, з якого боку труба забирає, — і готово.",
-  "what": ["труби для предметів, рідин, енергії та універсальні", "ключ: який бік витягує, який — віддає", "покращення труби: базове (редстоун) → посилене (розподіл: найближче, найдальше, по колу, випадково) → просунуте (фільтри) → найвище → нескінченне", "фільтри за предметом, тегом, NBT і за місцем призначення"],
-  "stage": ["s1", "s2", "s3"],
-  "synergy": [{"mod": "functionalstorage", "why": "труба з ферми → контролер шухляд"}, {"mod": "trashcans", "why": "надлишок — у смітник, щоб ферма не стала"}, {"mod": "powah", "why": "труби для енергії — перша проводка генераторів"}],
-  "tips": ["Під'єднання до раковини дає трубам нескінченну воду.", "Деякі машини мають суворі грані входу/виходу енергії — перевіряйте їх."],
+  "what": [
+   "труби для предметів, рідин, енергії та універсальні",
+   "ключ: який бік витягує, який — віддає",
+   "покращення труби: базове (редстоун) → посилене (розподіл: найближче, найдальше, по колу, випадково) → просунуте (фільтри) → найвище → нескінченне",
+   "фільтри за предметом, тегом, NBT і за місцем призначення"
+  ],
+  "stage": [
+   "s1",
+   "s2",
+   "s3"
+  ],
+  "tips": [
+   "Під'єднання до раковини дає трубам нескінченну воду.",
+   "Деякі машини мають суворі грані входу/виходу енергії — перевіряйте їх."
+  ],
   "chapter": "basic_logistics",
-  "icons": ["pipez:item_pipe", "pipez:fluid_pipe", "pipez:energy_pipe", "pipez:universal_pipe"]
+  "icons": [
+   "pipez:item_pipe",
+   "pipez:fluid_pipe",
+   "pipez:energy_pipe",
+   "pipez:universal_pipe"
+  ],
+  "ref": [
+   "item:pipez:item_pipe",
+   "item:pipez:fluid_pipe",
+   "item:pipez:energy_pipe",
+   "item:pipez:universal_pipe",
+   "item:pipez:wrench",
+   "item:pipez:basic_upgrade",
+   "item:pipez:improved_upgrade",
+   "item:pipez:advanced_upgrade",
+   "item:pipez:ultimate_upgrade",
+   "item:pipez:infinity_upgrade",
+   "item:pipez:filter_destination_tool",
+   "config:config/cookingforblockheads-common.toml#sinkRequiresWater=false"
+  ]
  },
  "classicpipes": {
-  "cls": ["logistics"],
+  "cls": [
+   "logistics"
+  ],
   "role": "content",
   "features": [],
   "uk": "Класичні труби в дусі BuildCraft і Logistics Pipes: предмети видно, як вони їдуть трубою; матеріал труби визначає її роль, а мережеві труби запитують і постачають предмети на вимогу.",
-  "what": ["дерев'яна — базова; мідна — витягує з контейнерів (покращена мідна — цілі стоси з фільтром)", "золота — прискорює, залізна — в одному напрямку, діамантова — сортує, лазуритова — пріоритет вставлення, кістяна — випадковий розподіл", "обсидіанова знищує, кремінна викидає як роздавач, цегляна не з'єднується з контейнерами", "мережеві: маршрутизаційна (на розгалуженнях), постачальна, запитувальна, поповнювальна, відповідна, складська, рецептурна (автокрафт)", "рідинні версії більшості труб; ярлики тегу й мода для фільтрів"],
-  "stage": ["s1", "s2"],
-  "synergy": [{"mod": "pipez", "why": "Pipez — коли треба просто й швидко; Classic Pipes — коли хочеться видимої логістики й запитів"}],
-  "icons": ["classicpipes:copper_pipe", "classicpipes:golden_pipe", "classicpipes:diamond_pipe", "classicpipes:routing_pipe"]
+  "what": [
+   "дерев'яна — базова; мідна — витягує з контейнерів (покращена мідна — цілі стоси з фільтром)",
+   "золота — прискорює, залізна — в одному напрямку, діамантова — сортує, лазуритова — пріоритет вставлення, кістяна — випадковий розподіл",
+   "обсидіанова знищує, кремінна викидає як роздавач, цегляна не з'єднується з контейнерами",
+   "мережеві: маршрутизаційна (на розгалуженнях), постачальна, запитувальна, поповнювальна, відповідна, складська, рецептурна (автокрафт)",
+   "рідинні версії більшості труб; ярлики тегу й мода для фільтрів"
+  ],
+  "stage": [
+   "s1",
+   "s2"
+  ],
+  "icons": [
+   "classicpipes:copper_pipe",
+   "classicpipes:golden_pipe",
+   "classicpipes:diamond_pipe",
+   "classicpipes:routing_pipe"
+  ],
+  "ref": [
+   "item:classicpipes:copper_pipe",
+   "item:classicpipes:advanced_copper_pipe",
+   "item:classicpipes:golden_pipe",
+   "item:classicpipes:iron_pipe",
+   "item:classicpipes:diamond_pipe",
+   "item:classicpipes:lapis_pipe",
+   "item:classicpipes:bone_pipe",
+   "item:classicpipes:obsidian_pipe",
+   "item:classicpipes:flint_pipe",
+   "item:classicpipes:brick_pipe",
+   "item:classicpipes:routing_pipe",
+   "item:classicpipes:provider_pipe",
+   "item:classicpipes:request_pipe",
+   "item:classicpipes:stocking_pipe",
+   "item:classicpipes:matching_pipe",
+   "item:classicpipes:storage_pipe",
+   "item:classicpipes:recipe_pipe",
+   "item:classicpipes:copper_fluid_pipe",
+   "item:classicpipes:tag_label",
+   "item:classicpipes:mod_label"
+  ]
  },
  "pipe_connector": {
-  "cls": ["logistics", "qol"],
+  "cls": [
+   "logistics",
+   "qol"
+  ],
   "role": "qol",
   "features": [],
   "uk": "З'єднувач труб — інструмент, що сам прокладає трубу під землею між двома позначеними точками: не треба розкопувати підлогу.",
-  "what": ["Shift+ПКМ по блоках — дві точки; труба для прокладання — в другій руці", "Shift+коліщатко — глибина траси; Shift+ПКМ у повітря — вікно «прокласти / скинути»", "до верхньої грані блока трубу не під'єднує"],
-  "stage": ["s1", "s2"],
-  "synergy": [{"mod": "pipez", "why": "прокладати труби за стінами й під підлогою"}],
-  "icons": ["pipe_connector:pipe_connector"]
+  "what": [
+   "Shift+ПКМ по блоках — дві точки; труба для прокладання — в другій руці",
+   "Shift+коліщатко — глибина траси; Shift+ПКМ у повітря — вікно «прокласти / скинути»",
+   "до верхньої грані блока трубу не під'єднує"
+  ],
+  "stage": [
+   "s1",
+   "s2"
+  ],
+  "icons": [
+   "pipe_connector:pipe_connector"
+  ],
+  "ref": [
+   "item:pipe_connector:pipe_connector",
+   "config:config/pipe-connector.toml"
+  ]
  },
-
  "_— бездротова логістика й маршрутизатори —": "",
  "laserio": {
-  "cls": ["logistics", "energy"],
+  "cls": [
+   "logistics",
+   "energy"
+  ],
   "role": "content",
   "features": [],
   "uk": "Логістика лазерами від Direwolf20: лазерні вузли ставлять біля машин, з'єднують ключем, а що й куди передавати — задають картками предметів, рідин, енергії та редстоуну.",
-  "what": ["лазерний вузол — працює з 6 сусідніми блоками; вузли з'єднуються лазерами", "картки предметів, рідин, енергії, редстоуну: режими витягу й вставки", "фільтри: базовий, лічильний, за тегом, за модом", "розгін картки й розгін вузла — більше за операцію і швидше", "лазерний з'єднувач — для великих відстаней; тримач і клонувальник карток"],
-  "stage": ["s1", "s2", "s3"],
-  "synergy": [{"mod": "ae2", "why": "вузол на машині + картки — простіше, ніж підмережі ME для складних граней"}, {"mod": "enderio", "why": "машини з різними гранями входу/виходу зручно обслуговувати одним вузлом"}],
-  "tips": ["Починайте з логічного чипа — з нього роблять майже все.", "Картка редстоуну — бездротовий редстоун між вузлами."],
+  "what": [
+   "лазерний вузол — працює із сусідніми блоками з різних граней; вузли з'єднуються лазерами",
+   "картки предметів, рідин, енергії, редстоуну: режими витягу й вставки",
+   "фільтри: базовий, лічильний, за тегом, за модом",
+   "розгін картки й розгін вузла — більше за операцію і швидше",
+   "лазерний з'єднувач — для великих відстаней; тримач і клонувальник карток"
+  ],
+  "stage": [
+   "s1",
+   "s2",
+   "s3"
+  ],
+  "tips": [
+   "Починайте з логічного чипа — з нього роблять майже все.",
+   "Картка редстоуну — бездротовий редстоун між вузлами."
+  ],
   "chapter": "basic_logistics",
   "book": "Книга LaserIO (Patchouli)",
-  "icons": ["laserio:laser_node", "laserio:card_item", "laserio:laser_connector", "laserio:laser_wrench"]
+  "icons": [
+   "laserio:laser_node",
+   "laserio:card_item",
+   "laserio:laser_connector",
+   "laserio:laser_wrench"
+  ],
+  "ref": [
+   "item:laserio:laser_node",
+   "item:laserio:laser_wrench",
+   "item:laserio:card_item",
+   "item:laserio:card_fluid",
+   "item:laserio:card_energy",
+   "item:laserio:card_redstone",
+   "item:laserio:filter_basic",
+   "item:laserio:filter_count",
+   "item:laserio:filter_tag",
+   "item:laserio:filter_mod",
+   "item:laserio:overclocker_card",
+   "item:laserio:overclocker_node",
+   "item:laserio:laser_connector",
+   "item:laserio:card_holder",
+   "item:laserio:card_cloner",
+   "item:laserio:logic_chip"
+  ]
  },
  "modularrouters": {
-  "cls": ["logistics", "tech"],
+  "cls": [
+   "logistics",
+   "tech"
+  ],
   "role": "content",
   "features": [],
   "uk": "Маршрутизатор з модулями: один блок може тягнути й відправляти предмети, ставити й ламати блоки, клацати ПКМ, всмоктувати лут і передавати енергію. «Швейцарський ніж» автоматизації.",
-  "what": ["модулі: витягування, відправлення Mk1–3 (Mk3 — між вимірами), розподілу, вакуумний, знищення", "модулі світу: розміщення, руйнування, активації (ПКМ), екструзії, рідинний, метання, гравця", "покращення роутера: швидкість, стос, енергія, синхронізація, маскування, безпека, вибухостійкість", "доповнення модулів: радіус, регулятор, редстоун, швидке підбирання, досвід", "фільтри: масовий, за тегом, за модом, регулярні вирази, перевірки"],
-  "stage": ["s1", "s2", "s3"],
-  "synergy": [{"mod": "apotheosis", "why": "вакуумний модуль + знищення — проста ферма мобів зі сортуванням луту"}, {"mod": "mysticalagriculture", "why": "активація + витягування збирають урожай; циклічний фільтр тримає порядок для насіння"}, {"mod": "quarryplus", "why": "розміщення + зачароване руйнування переробляють руди з кар'єра"}],
-  "tips": ["Більшість модулів працює лише при сигналі редстоуну (налаштовується в роутері).", "6 покращень стосу — 64 предмети за одну дію роутера (типово раз на секунду; швидкість — покращенням).", "Зачаровувати треба кайло, з якого робите модуль руйнування, — сам модуль не зачаровується.", "Клавіша C над модулем — налаштування й опис (типова клавіша збірки)."],
+  "what": [
+   "модулі: витягування, відправлення Mk1–3 (Mk3 — між вимірами), розподілу, вакуумний, знищення",
+   "модулі світу: розміщення, руйнування, активації (ПКМ), екструзії, рідинний, метання, гравця",
+   "покращення роутера: швидкість, стос, енергія, синхронізація, маскування, безпека, вибухостійкість",
+   "доповнення модулів: радіус, регулятор, редстоун, швидке підбирання, досвід",
+   "фільтри: масовий, за тегом, за модом, регулярні вирази, перевірки"
+  ],
+  "stage": [
+   "s1",
+   "s2",
+   "s3"
+  ],
+  "tips": [
+   "Режим редстоуну роутера (постійно, за сигналом, без сигналу, імпульс) налаштовується в його вікні — так модулі працюють за умовою.",
+   "Роутер типово спрацьовує раз на 20 тактів (1 с, baseTickRate); одне покращення швидкості скорочує інтервал на 2 такти (ticksPerUpgrade), покращення стосу — більше предметів за дію.",
+   "Зачаровувати треба кайло, з якого робите модуль руйнування, — сам модуль не зачаровується.",
+   "Клавіша C над модулем — налаштування й опис (типова клавіша збірки)."
+  ],
   "chapter": "modular_router",
   "book": "Посібник Modular Routers (Patchouli)",
-  "icons": ["modularrouters:modular_router", "modularrouters:sender_module_1", "modularrouters:vacuum_module", "modularrouters:breaker_module"]
+  "icons": [
+   "modularrouters:modular_router",
+   "modularrouters:sender_module_1",
+   "modularrouters:vacuum_module",
+   "modularrouters:breaker_module"
+  ],
+  "ref": [
+   "item:modularrouters:modular_router",
+   "item:modularrouters:puller_module_1",
+   "item:modularrouters:sender_module_1",
+   "item:modularrouters:sender_module_3",
+   "item:modularrouters:distributor_module",
+   "item:modularrouters:vacuum_module",
+   "item:modularrouters:void_module",
+   "item:modularrouters:placer_module",
+   "item:modularrouters:breaker_module",
+   "item:modularrouters:activator_module",
+   "item:modularrouters:extruder_module_1",
+   "item:modularrouters:fluid_module",
+   "item:modularrouters:flinger_module",
+   "item:modularrouters:player_module",
+   "item:modularrouters:speed_upgrade",
+   "item:modularrouters:stack_upgrade",
+   "item:modularrouters:regex_filter",
+   "config:config/modularrouters-common.toml#Router.baseTickRate=20",
+   "config:config/modularrouters-common.toml#Router.ticksPerUpgrade=2",
+   "file:options.txt~key_key.modularrouters.configure:key.keyboard.c"
+  ]
  },
  "routers": {
-  "cls": ["logistics"],
+  "cls": [
+   "logistics"
+  ],
   "role": "content",
   "features": [],
-  "uk": "BBL Routers — повністю бездротова логістика: ставите імпортер і експортер, зв'язуєте з'єднувачем — і вони передають предмети, рідини, енергію, хімікати та джерело.",
-  "what": ["імпортер і експортер, пов'язані з'єднувачем (ПКМ по імпортеру, потім по експортеру)", "покращення передачі предметів, рідин, енергії, Essentia — рівні I–V", "покращення швидкості, циклічного розподілу, ігнорування NBT, міжвимірне", "фільтри за модом, тегом і запасом"],
-  "stage": ["s1", "s2"],
-  "synergy": [{"mod": "pipez", "why": "та сама задача без прокладання труб"}, {"mod": "logisticsnetworks", "why": "схожа бездротова ідея; Logistics Networks — з каналами й комп'ютером"}],
-  "tips": ["Shift на предметі показує, що він робить, — у моді майже немає опису в квестах."],
+  "uk": "BBL Routers — повністю бездротова логістика: ставите імпортер і експортер, зв'язуєте з'єднувачем — і вони передають предмети, рідини й енергію (хімікати й джерело — для Mekanism і Ars Nouveau, яких у збірці немає).",
+  "what": [
+   "імпортер і експортер, пов'язані з'єднувачем (ПКМ по імпортеру, потім по експортеру)",
+   "покращення передачі предметів, рідин, енергії, Essentia — рівні I–V",
+   "покращення швидкості, циклічного розподілу, ігнорування NBT, міжвимірне",
+   "фільтри за модом, тегом і запасом"
+  ],
+  "stage": [
+   "s1",
+   "s2"
+  ],
+  "tips": [
+   "Shift на предметі показує, що він робить, — у моді майже немає опису в квестах."
+  ],
   "chapter": "bbl_routers",
-  "icons": ["routers:importer", "routers:exporter", "routers:connector", "routers:item_upgrade_1"]
+  "icons": [
+   "routers:importer",
+   "routers:exporter",
+   "routers:connector",
+   "routers:item_upgrade_1"
+  ],
+  "ref": [
+   "item:routers:importer",
+   "item:routers:exporter",
+   "item:routers:connector",
+   "item:routers:item_upgrade_5",
+   "item:routers:fluid_upgrade_1",
+   "item:routers:rf_upgrade_1",
+   "item:routers:essentia_upgrade_1",
+   "item:routers:speed_upgrade_1",
+   "item:routers:round_robin_upgrade",
+   "item:routers:ignore_nbt_upgrade",
+   "item:routers:dimensional_upgrade",
+   "item:routers:mod_filter",
+   "item:routers:tag_filter",
+   "item:routers:stock_filter"
+  ]
  },
  "logisticsnetworks": {
-  "cls": ["logistics"],
+  "cls": [
+   "logistics"
+  ],
   "role": "content",
   "features": [],
-  "uk": "Logistics Networks — логістичні вузли на блоках, 9 каналів у кожному: відправники шукають приймачів на тому самому каналі мережі. Дуже ощадливо щодо лагів; є комп'ютер для огляду всіх мереж.",
-  "what": ["логістичний вузол: 9 каналів, кожен — свій тип (предмети, рідини, енергія), режим, сторона, пріоритет, розподіл", "фільтри: звичайний, середній, великий, за модом, регулярних виразів — 6 на канал", "покращення: залізне → золоте → діамантове → незеритове, міжвимірне, мережеве, хімікати Mekanism, джерело Ars", "ключ із режимами копіювання/вставлення і масового розміщення", "комп'ютер — панель усіх мереж, пропускання наживо; логістичний сервер"],
-  "stage": ["s1", "s2", "s3"],
-  "synergy": [{"mod": "routers", "why": "BBL Routers простіші; Logistics Networks — коли мереж багато"}, {"mod": "ae2", "why": "підвозити ресурси з далеких ферм у ME без кабелів"}],
-  "tips": ["Вимкнений канал зберігає всі налаштування — це пауза, а не видалення.", "Вузол крафтиться з лійки, перлини Енду й глибинного сланцю — доступний вже із залізом."],
+  "uk": "Logistics Networks — логістичні вузли на блоках, у вузла — кілька каналів: відправники шукають приймачів на тому самому каналі мережі. Дуже ощадливо щодо лагів; є комп'ютер для огляду мереж.",
+  "what": [
+   "логістичний вузол: канали зі своїм типом (предмети, рідини, енергія), режим, сторона, пріоритет, розподіл",
+   "фільтри: звичайний, середній, великий, за модом, регулярних виразів",
+   "покращення: залізне → золоте → діамантове → незеритове, міжвимірне, мережеве",
+   "ключ із режимами копіювання/вставлення і масового розміщення",
+   "комп'ютер — панель мереж, пропускання наживо; логістичний сервер"
+  ],
+  "stage": [
+   "s1",
+   "s2",
+   "s3"
+  ],
+  "synergy": [
+   {
+    "mod": "ae2",
+    "why": "Мережеве покращення AE2 (рецепт мода) під'єднує логістичні мережі до ME; у jar — інтеграція з автокрафтом AE2.",
+    "src": "рецепт logisticsnetworks:network_upgrade_ae2; пакет me/almana/logisticsnetworks/integration/ae2",
+    "ref": [
+     "recipe:logisticsnetworks:network_upgrade_ae2",
+     "jarfile:logisticsnetworks!me/almana/logisticsnetworks/integration/ae2/AE2CraftingFailure$Reason.class"
+    ]
+   }
+  ],
+  "tips": [
+   "Вимкнений канал зберігає налаштування — це пауза, а не видалення.",
+   "Вузол крафтиться з лійки, перлини Енду й глибинного сланцю — доступний вже із залізом."
+  ],
   "book": "гайд Logistics Networks (GuideME)",
-  "icons": ["logisticsnetworks:logistics_node", "logisticsnetworks:computer", "logisticsnetworks:wrench", "logisticsnetworks:diamond_upgrade"]
+  "icons": [
+   "logisticsnetworks:logistics_node",
+   "logisticsnetworks:computer",
+   "logisticsnetworks:wrench",
+   "logisticsnetworks:diamond_upgrade"
+  ],
+  "ref": [
+   "item:logisticsnetworks:logistics_node",
+   "item:logisticsnetworks:small_filter",
+   "item:logisticsnetworks:medium_filter",
+   "item:logisticsnetworks:big_filter",
+   "item:logisticsnetworks:mod_filter",
+   "item:logisticsnetworks:name_filter",
+   "item:logisticsnetworks:iron_upgrade",
+   "item:logisticsnetworks:netherite_upgrade",
+   "item:logisticsnetworks:dimensional_upgrade",
+   "item:logisticsnetworks:network_upgrade",
+   "item:logisticsnetworks:wrench",
+   "item:logisticsnetworks:computer",
+   "item:logisticsnetworks:server_rack",
+   "recipe:logisticsnetworks:logistics_node"
+  ]
  },
-
  "_— програмована логістика —": "",
  "sfm": {
-  "cls": ["logistics", "tech"],
+  "cls": [
+   "logistics",
+   "tech"
+  ],
   "role": "content",
   "features": [],
   "uk": "Super Factory Manager — логістика скриптом: фабричний менеджер з'єднується інвентарними кабелями з машинами, а програма на диску (мова SFML) каже, що, звідки й куди переносити.",
-  "what": ["фабричний менеджер + інвентарні кабелі (тонкі, міцні, тунельовані)", "програмний диск із текстовою програмою (мова SFML)", "пістолет для етикеток — підписує інвентарі для програми", "мережевий інструмент — показує, що під'єднано", "крафт дешевий: скрині, залізні ґрати, повторювач"],
-  "stage": ["s1", "s2", "s3"],
-  "synergy": [{"mod": "integrateddynamics", "why": "обидва — «програмована» логістика: SFM — текстом, ID — змінними й логікою"}, {"mod": "mysticalagriculture", "why": "одна програма роздає есенції по всіх машинах і скринях"}],
-  "tips": ["Ctrl+Shift+E у менеджері — приклади програм; Ctrl+E — редактор (типові клавіші збірки).", "Один менеджер замінює десятки труб із фільтрами."],
-  "icons": ["sfm:manager", "sfm:cable", "sfm:disk", "sfm:labelgun"]
+  "what": [
+   "фабричний менеджер + інвентарні кабелі (тонкі, міцні, тунельовані)",
+   "програмний диск із текстовою програмою (мова SFML)",
+   "пістолет для етикеток — підписує інвентарі для програми",
+   "мережевий інструмент — показує, що під'єднано",
+   "крафт дешевий: скрині, залізні ґрати, повторювач"
+  ],
+  "stage": [
+   "s1",
+   "s2",
+   "s3"
+  ],
+  "tips": [
+   "Один менеджер замінює десятки труб із фільтрами."
+  ],
+  "icons": [
+   "sfm:manager",
+   "sfm:cable",
+   "sfm:disk",
+   "sfm:labelgun"
+  ],
+  "ref": [
+   "item:sfm:manager",
+   "item:sfm:cable",
+   "item:sfm:tough_cable",
+   "item:sfm:tunnelled_cable",
+   "item:sfm:disk",
+   "item:sfm:labelgun",
+   "item:sfm:network_tool",
+   "recipe:sfm:manager"
+  ]
  },
  "integrateddynamics": {
-  "cls": ["logistics", "tech", "exploration"],
+  "cls": [
+   "logistics",
+   "tech",
+   "exploration"
+  ],
   "role": "content",
-  "features": ["biome"],
-  "uk": "Integrated Dynamics — мережі з логікою: логічні кабелі, картки змінних і логічний програматор дають зчитувати й керувати будь-чим. Основа для Integrated Tunnels, Terminals і Crafting.",
-  "what": ["менрілові дерева в біомі Менеґлін → смола (прес, сушильна чаша) → кристалізований менріл", "логічні кабелі — без проміжного буфера, мало лагів", "картки змінних, логічний програматор (і портативний), сховище змінних", "зчитувачі й записувачі, перетворювачі змінних — логіка будь-якої складності", "енергетична батарея, генератор, механічні прес і сушильна чаша"],
-  "stage": ["s2", "s3", "s4"],
-  "synergy": [{"mod": "mysticalagriculture", "why": "насіння менрілу автоматизує ягоди, колоди й саджанці"}, {"mod": "productivebees", "why": "менрілові бджоли дають кристалізований менріл"}, {"mod": "functionalstorage", "why": "інтерфейс на контролері шухляд — усі шухляди в мережі ID"}],
-  "tips": ["Перші шматки менрілу: колоди в прес, пострибати на ньому, смолу збирає сушильна чаша поруч.", "Ягоди менрілу дають нічне бачення."],
+  "features": [
+   "biome"
+  ],
+  "uk": "Integrated Dynamics — мережі з логікою: логічні кабелі, картки змінних і логічний програматор дають зчитувати стан машин і блоків та керувати ними. Основа для Integrated Tunnels, Terminals і Crafting.",
+  "what": [
+   "менрілові дерева в біомі Менеґлін → смола (прес, сушильна чаша) → кристалізований менріл",
+   "логічні кабелі — без проміжного буфера, мало лагів",
+   "картки змінних, логічний програматор (і портативний), сховище змінних",
+   "зчитувачі й записувачі, перетворювачі змінних — складна логіка мережі",
+   "енергетична батарея, генератор, механічні прес і сушильна чаша"
+  ],
+  "stage": [
+   "s2",
+   "s3",
+   "s4"
+  ],
+  "synergy": [
+   {
+    "mod": "mysticalagriculture",
+    "why": "Культура менрілу Mystical Agriculture увімкнена в збірці (cropInfo.json): есенція крафтиться в ягоди, колоди й саджанці менрілу.",
+    "src": "kubejs mods/mysticalagriculture/cropInfo.json; рецепти mysticalagriculture:essence/integrateddynamics/menril_*",
+    "ref": [
+     "file:kubejs/server_scripts/mods/mysticalagriculture/cropInfo.json~\"menril\"",
+     "recipe:mysticalagriculture:essence/integrateddynamics/menril_log"
+    ]
+   },
+   {
+    "mod": "productivebees",
+    "why": "менрілові бджоли дають кристалізований менріл",
+    "src": "рецепт productivebees:centrifuge/integrateddynamics/honeycomb_menril",
+    "ref": [
+     "recipe:productivebees:centrifuge/integrateddynamics/honeycomb_menril"
+    ]
+   }
+  ],
+  "tips": [
+   "Перші шматки менрілу: колоди в прес, пострибати на ньому, смолу збирає сушильна чаша поруч.",
+   "Ягоди менрілу дають нічне бачення."
+  ],
   "chapter": "integrated_dynamics",
   "book": "Про динаміку інтеграції",
-  "icons": ["integrateddynamics:logic_programmer", "integrateddynamics:cable", "integrateddynamics:variable", "integrateddynamics:squeezer"]
+  "icons": [
+   "integrateddynamics:logic_programmer",
+   "integrateddynamics:cable",
+   "integrateddynamics:variable",
+   "integrateddynamics:squeezer"
+  ],
+  "ref": [
+   "item:integrateddynamics:menril_log",
+   "item:integrateddynamics:menril_berries",
+   "item:integrateddynamics:squeezer",
+   "item:integrateddynamics:drying_basin",
+   "item:integrateddynamics:crystalized_menril_chunk",
+   "item:integrateddynamics:cable",
+   "item:integrateddynamics:variable",
+   "item:integrateddynamics:logic_programmer",
+   "item:integrateddynamics:portable_logic_programmer",
+   "item:integrateddynamics:variablestore",
+   "item:integrateddynamics:part_inventory_reader",
+   "item:integrateddynamics:part_redstone_writer",
+   "item:integrateddynamics:energy_battery",
+   "item:integrateddynamics:coal_generator",
+   "item:integrateddynamics:mechanical_squeezer",
+   "item:integrateddynamics:mechanical_drying_basin",
+   "jarfile:integrateddynamics!data/integrateddynamics/advancement/meneglin_basics/menril_production.json"
+  ]
  },
  "integratedtunnels": {
-  "cls": ["logistics"],
+  "cls": [
+   "logistics"
+  ],
   "role": "addon",
   "parent": "integrateddynamics",
   "features": [],
   "uk": "Переміщення через мережі Integrated Dynamics: імпортери, експортери й інтерфейси для предметів, рідин, енергії, а також ставлення й ламання блоків у світі.",
-  "what": ["імпортер/експортер предметів, рідин, енергії + інтерфейси на інвентарях", "світові імпортери й експортери: збирати й ставити блоки, рідини, лут", "фільтровані інтерфейси; симулятор гравця", "налаштування карткою змінної: кількість, слот, канал"],
-  "stage": ["s3", "s4"],
-  "synergy": [{"mod": "integrateddynamics", "why": "потрібні логічні кабелі й картки змінних"}, {"mod": "integratedterminals", "why": "термінал показує те, що тунелі звозять у мережу"}],
+  "what": [
+   "імпортер/експортер предметів, рідин, енергії + інтерфейси на інвентарях",
+   "світові імпортери й експортери: збирати й ставити блоки, рідини, лут",
+   "фільтровані інтерфейси; симулятор гравця",
+   "налаштування карткою змінної: кількість, слот, канал"
+  ],
+  "stage": [
+   "s3",
+   "s4"
+  ],
   "chapter": "basic_logistics",
-  "icons": ["integratedtunnels:part_importer_item", "integratedtunnels:part_interface_item", "integratedtunnels:part_exporter_world_block"]
+  "icons": [
+   "integratedtunnels:part_importer_item",
+   "integratedtunnels:part_interface_item",
+   "integratedtunnels:part_exporter_world_block"
+  ],
+  "ref": [
+   "item:integratedtunnels:part_importer_item",
+   "item:integratedtunnels:part_exporter_fluid",
+   "item:integratedtunnels:part_importer_energy",
+   "item:integratedtunnels:part_interface_item",
+   "item:integratedtunnels:part_exporter_world_block",
+   "item:integratedtunnels:part_importer_world_item",
+   "item:integratedtunnels:part_interface_filter_item",
+   "item:integratedtunnels:part_player_simulator"
+  ]
  },
  "integratedterminals": {
-  "cls": ["logistics", "storage"],
+  "cls": [
+   "logistics",
+   "storage"
+  ],
   "role": "addon",
   "parent": "integrateddynamics",
   "features": [],
   "uk": "Термінали для мереж Integrated Dynamics: термінал сховища (усе, що бачать інтерфейси), термінал завдань створення й портативний термінал.",
-  "what": ["термінал сховища — як ME термінал, але для ID", "термінал завдань створення — що зараз майструється", "портативний термінал сховища"],
-  "stage": ["s4"],
-  "synergy": [{"mod": "integratedcrafting", "why": "разом дають повноцінне «цифрове сховище з автокрафтом» на ID"}],
+  "what": [
+   "термінал сховища — як ME термінал, але для ID",
+   "термінал завдань створення — що зараз майструється",
+   "портативний термінал сховища"
+  ],
+  "stage": [
+   "s4"
+  ],
+  "synergy": [
+   {
+    "mod": "integratedcrafting",
+    "why": "Термінал завдань створення показує й замовляє автокрафт Integrated Crafting; у jar — модуль сумісності (сповіщення про завершені завдання).",
+    "src": "пакет org/cyclops/integratedterminals/modcompat/integratedcrafting",
+    "ref": [
+     "jarfile:integratedterminals!org/cyclops/integratedterminals/modcompat/integratedcrafting/CraftingJobFinishedToastListener.class"
+    ]
+   }
+  ],
   "chapter": "integrated_dynamics",
-  "icons": ["integratedterminals:part_terminal_storage", "integratedterminals:terminal_storage_portable"]
+  "icons": [
+   "integratedterminals:part_terminal_storage",
+   "integratedterminals:terminal_storage_portable"
+  ],
+  "ref": [
+   "item:integratedterminals:part_terminal_storage",
+   "item:integratedterminals:part_terminal_crafting_job",
+   "item:integratedterminals:terminal_storage_portable",
+   "file:options.txt~key_key.integratedterminals.terminal.portable.open:key.keyboard.c"
+  ]
  },
  "integratedcrafting": {
-  "cls": ["logistics", "storage"],
+  "cls": [
+   "logistics",
+   "storage"
+  ],
   "role": "addon",
   "parent": "integrateddynamics",
   "features": [],
-  "uk": "Автомайстрування в мережах Integrated Dynamics: інтерфейс створення на машині отримує рецепти з карток змінних, а налаштований інтерфейс сам зчитує всі рецепти машини.",
-  "what": ["інтерфейс створення — рецепти з карток змінних", "налаштований інтерфейс — усі рецепти машини автоматично", "переліковий інтерфейс — рецепти зі списку, обчисленого логікою", "режим блокування — машина бере один рецепт за раз"],
-  "stage": ["s4"],
-  "synergy": [{"mod": "integratedterminals", "why": "замовлення й черга — з терміналу"}],
+  "uk": "Автомайстрування в мережах Integrated Dynamics: інтерфейс створення на машині отримує рецепти з карток змінних, а налаштований інтерфейс сам зчитує рецепти машини.",
+  "what": [
+   "інтерфейс створення — рецепти з карток змінних",
+   "налаштований інтерфейс — рецепти машини зчитує сам",
+   "переліковий інтерфейс — рецепти зі списку, обчисленого логікою",
+   "режим блокування — машина бере один рецепт за раз"
+  ],
+  "stage": [
+   "s4"
+  ],
   "chapter": "integrated_dynamics",
-  "icons": ["integratedcrafting:part_interface_crafting", "integratedcrafting:part_crafting_writer"]
+  "icons": [
+   "integratedcrafting:part_interface_crafting",
+   "integratedcrafting:part_crafting_writer"
+  ],
+  "ref": [
+   "item:integratedcrafting:part_interface_crafting",
+   "item:integratedcrafting:part_interface_crafting_attuned",
+   "item:integratedcrafting:part_interface_crafting_enumerated",
+   "item:integratedcrafting:part_crafting_writer"
+  ]
  },
  "integrateddynamicscompat": {
-  "cls": ["logistics"],
+  "cls": [
+   "logistics"
+  ],
   "role": "qol",
   "parent": "integrateddynamics",
   "features": [],
-  "uk": "Сумісність Integrated Dynamics з іншими модами (зчитування їхніх машин і даних)."
+  "uk": "Сумісність Integrated Dynamics з іншими модами (зчитування їхніх машин і даних).",
+  "ref": [
+   "config:config/integrateddynamicscompat-common.toml"
+  ]
  },
  "integratedtunnelscompat": {
-  "cls": ["logistics"],
+  "cls": [
+   "logistics"
+  ],
   "role": "qol",
   "parent": "integratedtunnels",
   "features": [],
-  "uk": "Сумісність Integrated Tunnels з іншими модами."
+  "uk": "Сумісність Integrated Tunnels з іншими модами.",
+  "ref": [
+   "jarfile:integratedtunnels!META-INF/neoforge.mods.toml~integratedtunnelscompat"
+  ]
  },
  "integratedterminalscompat": {
-  "cls": ["logistics"],
+  "cls": [
+   "logistics"
+  ],
   "role": "qol",
   "parent": "integratedterminals",
   "features": [],
-  "uk": "Сумісність Integrated Terminals з іншими модами (зокрема JEI)."
+  "uk": "Сумісність Integrated Terminals з іншими модами (окремий модуль у jar Integrated Terminals).",
+  "ref": [
+   "config:config/integratedterminalscompat-common.toml",
+   "jarfile:integratedterminals!META-INF/neoforge.mods.toml~integratedterminalscompat"
+  ]
  },
-
  "_— помічники —": "",
  "itemcollectors": {
-  "cls": ["logistics", "qol"],
+  "cls": [
+   "logistics",
+   "qol"
+  ],
   "role": "qol",
   "features": [],
   "uk": "Збирачі предметів — блоки, що підбирають випалі предмети в зоні навколо себе і кладуть у сусідній інвентар. Простий збір луту з ферм.",
-  "what": ["базовий збирач — радіус до 5 блоків, без фільтра", "покращений — до 7 блоків, з фільтром (конфіг збірки)", "крафт: перлини Енду й обсидіан"],
-  "stage": ["s1", "s2"],
-  "synergy": [{"mod": "pylons", "why": "жниварний пілон кидає врожай — збирач кладе його в скриню"}],
-  "icons": ["itemcollectors:basic_collector", "itemcollectors:advanced_collector"]
+  "what": [
+   "базовий збирач — радіус до 5 блоків, без фільтра",
+   "покращений — до 7 блоків, з фільтром (конфіг збірки)",
+   "крафт: перлини Енду й обсидіан"
+  ],
+  "stage": [
+   "s1",
+   "s2"
+  ],
+  "icons": [
+   "itemcollectors:basic_collector",
+   "itemcollectors:advanced_collector"
+  ],
+  "ref": [
+   "item:itemcollectors:basic_collector",
+   "item:itemcollectors:advanced_collector",
+   "config:config/itemcollectors-common.toml#General.basicCollectorMaxRange=5",
+   "config:config/itemcollectors-common.toml#General.advancedCollectorMaxRange=7",
+   "recipe:itemcollectors:basic_collector"
+  ]
  },
  "simplemagnets": {
-  "cls": ["qol", "logistics"],
+  "cls": [
+   "qol",
+   "logistics"
+  ],
   "role": "qol",
   "features": [],
   "uk": "Магніти, що притягують предмети й досвід до гравця, і котушки розмагнічування, які не дають магнітам тягнути лут із ферм.",
-  "what": ["простий магніт — радіус 5; покращений — 3–11 з фільтром (конфіг збірки)", "H — увімкнути / вимкнути магніт", "котушки розмагнічування (1–3 і 1–5 блоків) — захист ферм від магніту"],
-  "stage": ["s1", "s2"],
-  "synergy": [{"mod": "sophisticatedbackpacks", "why": "покращення «Магніт» у ранці робить те саме — магніт потрібен, якщо ранця ще немає"}],
+  "what": [
+   "Простий магніт — радіус 5; покращений — 3–11 (типово 8) з фільтром (simplemagnets-common.toml)",
+   "`H` з магнітом — увімкнути / вимкнути (options.txt)",
+   "Котушки розмагнічування — радіус 1–3 і 1–5 блоків (покращена — з фільтром) — захист ферм від магніту"
+  ],
+  "stage": [
+   "s1",
+   "s2"
+  ],
   "chapter": "tips_and_tricks",
-  "icons": ["simplemagnets:basicmagnet", "simplemagnets:advancedmagnet"],
-  "tips": ["H — це дія «з предметом»: з гаджетом BG2 вона ставить якір, у жетпаку — перемикає планерування; Oracle Index у збірці перенесено на Ctrl+H."]
+  "icons": [
+   "simplemagnets:basicmagnet",
+   "simplemagnets:advancedmagnet"
+  ],
+  "tips": [
+   "`H` — дія «з предметом»: з гаджетом BG2 вона ставить якір, у жетпаку — перемикає планерування; Oracle Index у збірці перенесено на `Ctrl+H`."
+  ],
+  "ref": [
+   "jarfile:simplemagnets!META-INF/neoforge.mods.toml~Magnets that pickup items",
+   "config:config/simplemagnets-common.toml#General.basicMagnetRange=5",
+   "config:config/simplemagnets-common.toml#General.advancedMagnetMinRange=3",
+   "config:config/simplemagnets-common.toml#General.advancedMagnetMaxRange=11",
+   "config:config/simplemagnets-common.toml#General.advancedMagnetRange=8",
+   "config:config/simplemagnets-common.toml#General.Demagnetization Coils.basicCoilMinRange=1",
+   "config:config/simplemagnets-common.toml#General.Demagnetization Coils.basicCoilMaxRange=3",
+   "config:config/simplemagnets-common.toml#General.Demagnetization Coils.advancedCoilMaxRange=5",
+   "config:config/simplemagnets-common.toml#General.Demagnetization Coils.advancedCoilFilter=True",
+   "file:options.txt~key_simplemagnets.keys.toggle:key.keyboard.h",
+   "file:options.txt~key_key.oracle_index.open:key.keyboard.h:CONTROL"
+  ]
  },
  "rangedpumps": {
-  "cls": ["logistics", "resources"],
+  "cls": [
+   "logistics",
+   "resources"
+  ],
   "role": "qol",
   "features": [],
   "uk": "Помпа, що викачує рідину з великої області під собою (озеро лави) у резервуар чи трубу. На місці рідини лишає камінь.",
-  "what": ["радіус 64 блоки, 100 FE за кожне висмоктане джерело (конфіг збірки)", "внутрішній бак 32 000 mB; віддає рідину в сусідній резервуар або трубу", "на місці висмоктаних джерел ставить камінь", "крафт: діамантовий блок, обсидіан, залізне кайло, відра води й лави"],
-  "stage": ["s2", "s3"],
-  "synergy": [{"mod": "pipez", "why": "труба для рідин від помпи до генератора на лаві"}],
-  "icons": ["rangedpumps:pump"]
+  "what": [
+   "радіус 64 блоки, 100 FE за висмоктане джерело (конфіг збірки)",
+   "внутрішній бак 32 000 mB; віддає рідину в сусідній резервуар або трубу",
+   "на місці висмоктаних джерел ставить камінь",
+   "крафт: діамантовий блок, обсидіан, залізне кайло, відра води й лави"
+  ],
+  "stage": [
+   "s2",
+   "s3"
+  ],
+  "icons": [
+   "rangedpumps:pump"
+  ],
+  "ref": [
+   "item:rangedpumps:pump",
+   "config:config/rangedpumps-server.toml#pump.range=64",
+   "config:config/rangedpumps-server.toml#pump.tankCapacity=32000",
+   "config:config/rangedpumps-server.toml#pump.energyUsagePerDrain=100",
+   "recipe:rangedpumps:pump"
+  ]
  },
  "pylons": {
-  "cls": ["qol", "farming"],
+  "cls": [
+   "qol",
+   "farming"
+  ],
   "role": "content",
   "features": [],
   "uk": "Пілони-помічники бази: жниварний (автоферма), настоювання (вічні ефекти зілля), заборони (без спавну мобів), захисту й вигнання.",
-  "what": ["жниварний пілон — збирає й пересаджує стиглий урожай 3x3…9x9 (потрібна мотика)", "пілон настоювання — ефекти зілля з фільтра діють будь-де", "пілон заборони — блокує спавн мобів; фільтр безжиттєвості — усіх у 25x25 чанків", "пілон захисту — не дає зламати вказані блоки чи вбити мобів", "пілон вигнання — не пускає чужих гравців (1x1/3x3/5x5 чанків)"],
-  "stage": ["s1", "s2", "s3"],
-  "synergy": [{"mod": "itemcollectors", "why": "збирати врожай жниварного пілона"}],
-  "tips": ["Для пілонів потрібен полірований чорнокамінь.", "Фільтр зілля «знімає» ефект із вас — спершу випийте зілля, потім ПКМ фільтром.", "Пілон настоювання в збірці приймає лише ванільні ефекти (крім Поглинання), до рівня III; пілон вигнання працює лише у Верхньому світі."],
+  "what": [
+   "Жниварний пілон — збирає врожай навколо себе (потрібен інструмент; harvesterRequiresTool = true)",
+   "Пілон настоювання — ефекти зілля з активованого фільтра діють незалежно від відстані",
+   "Пілон заборони — блокує спавн мобів у чанках навколо; фільтр безжиттєвості — природний спавн у 25×25 чанках",
+   "Пілон захисту — не дає випадково зламати вибрані блоки чи вбити мобів",
+   "Пілон вигнання — не пускає чужих гравців (радіус до 2 чанків)"
+  ],
+  "stage": [
+   "s1",
+   "s2",
+   "s3"
+  ],
+  "tips": [
+   "Для пілонів потрібні полірований чорнокамінь, залізні ґрати й кварцова плита.",
+   "Фільтр зілля: ПКМ з активним ефектом — записати ефект, повтори з тим самим ефектом накопичують прогрес — потрібно 3600 с.",
+   "Пілон настоювання в збірці приймає ванільні ефекти (minecraft, крім Поглинання) до рівня 3; пілон вигнання працює у Верхньому світі (pylons-server.toml)."
+  ],
   "chapter": "pylons",
-  "icons": ["pylons:harvester_pylon", "pylons:infusion_pylon", "pylons:interdiction_pylon", "pylons:protection_pylon"]
+  "icons": [
+   "pylons:harvester_pylon",
+   "pylons:infusion_pylon",
+   "pylons:interdiction_pylon",
+   "pylons:protection_pylon"
+  ],
+  "ref": [
+   "recipe:pylons:harvester_pylon",
+   "config:config/pylons-server.toml#harvester_pylon.harvesterRequiresTool=True",
+   "lang:tooltip.pylons.harvester1",
+   "lang:tooltip.pylons.infusion3",
+   "lang:tooltip.pylons.interdiction1",
+   "lang:tooltip.pylons.lifeless2",
+   "lang:tooltip.pylons.protection2",
+   "lang:tooltip.pylons.expulsion1",
+   "config:config/pylons-server.toml#expulsion_pylon.expulsionPylonMaxRadius=2",
+   "recipe:pylons:infusion_pylon",
+   "lang:tooltip.pylons.no_effect2",
+   "lang:tooltip.pylons.increase2",
+   "config:config/pylons-server.toml#infusion_pylon.infusionRequiredDuration=3600",
+   "config:config/pylons-server.toml#infusion_pylon.infusionAllowedEffects",
+   "config:config/pylons-server.toml#infusion_pylon.infusionDeniedEffects",
+   "config:config/pylons-server.toml#infusion_pylon.infusionMaximumPotency=3",
+   "config:config/pylons-server.toml#expulsion_pylon.expulsionAllowedDimensions"
+  ]
  },
  "ftbfiltersystem": {
-  "cls": ["qol"],
+  "cls": [
+   "qol"
+  ],
   "role": "qol",
   "features": [],
-  "uk": "Розумний фільтр FTB: налаштовуваний фільтр предметів, яким користуються FTB-моди. У квестах ATM11 саме ним задано завдання «будь-який предмет з групи».",
-  "what": ["розумний фільтр із вікном налаштування (предмет, тег, мод, умови)"],
-  "stage": ["s0"],
-  "tips": ["Якщо квест показує «Розумний фільтр» замість предмета — наведіть курсор: підходить будь-який предмет зі списку."],
-  "icons": ["ftbfiltersystem:smart_filter"]
+  "uk": "Розумний фільтр FTB: налаштовуваний фільтр предметів для FTB-модів. У квестах ATM11 ним задано завдання «будь-який предмет з групи».",
+  "what": [
+   "Розумний фільтр (`ftbfiltersystem:smart_filter`: папір, палиця, нитка) із вікном налаштування"
+  ],
+  "stage": [
+   "s0"
+  ],
+  "tips": [
+   "Якщо квест показує «Розумний фільтр» замість предмета — наведіть курсор: підходить предмет зі списку."
+  ],
+  "icons": [
+   "ftbfiltersystem:smart_filter"
+  ],
+  "ref": [
+   "jarfile:ftb-filter-system!META-INF/neoforge.mods.toml~highly configurable item filtering system",
+   "recipe:ftbfiltersystem:smart_filter",
+   "quest:30BD1DF4FC9295C6"
+  ]
  }
 }

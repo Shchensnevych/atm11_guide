@@ -244,6 +244,12 @@
   {"id": "key.ae2.ae2wtlib_stow", "to": "Shift+O", "why": "сховати стос із руки в ME (O — offload); Ctrl+O зайняте радіальним добуванням Apotheosis", "was": "—"},
   {"id": "key.next_item.desc", "to": "Ctrl+Period", "why": "DeepNull: наступний предмет (DeepNull — Ctrl+X)", "was": "—"},
   {"id": "key.previous_item.desc", "to": "Ctrl+Comma", "why": "DeepNull: попередній предмет", "was": "—"},
-  {"id": "key.toggle_auto_pickup.desc", "to": "Shift+X", "why": "DeepNull: автопідбирання (поруч Ctrl+X)", "was": "—"}
+  {"id": "key.toggle_auto_pickup.desc", "to": "Shift+X", "why": "DeepNull: автопідбирання (поруч Ctrl+X)", "was": "—"},
+  {"id": "key.jade.toggle_liquid", "to": "Del", "why": "на TKL немає цифрового блока (Num 2); Ins/Del — Jade: Del — перемкнути показ рідин", "was": "Num 2"},
+  {"id": "key.jade.show_recipes", "to": "PgUp", "why": "на TKL немає цифрового блока (Num 3); PgUp — рецепти блока, на який дивитеся (у світі PgUp вільна)", "was": "Num 3"},
+  {"id": "key.jade.show_uses", "to": "PgDn", "why": "на TKL немає цифрового блока (Num 4); PgDn — застосування блока перед очима", "was": "Num 4"},
+  {"id": "key.jade.narrate", "to": "none", "why": "диктор підказки — рідко потрібен; Num 5 на TKL немає", "was": "Num 5"},
+  {"id": "placebo.toggleTrails", "to": "none", "why": "косметика прихильників Placebo (сліди) — на TKL Num 9 немає, дія не потрібна", "was": "Num 9"},
+  {"id": "placebo.toggleWings", "to": "none", "why": "косметика прихильників Placebo (крила) — на TKL Num 8 немає, дія не потрібна", "was": "Num 8"}
  ]
 }

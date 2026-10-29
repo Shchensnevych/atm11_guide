@@ -1,0 +1,14 @@
+{
+ "ov": "Великий технічний мод: машинні ядра дають слоти доповнювачам (швидкість, ефективність…) — від подрібнювача й збирача до ендерових лазерів, дронів, ядерного реактора й прискорювача частинок.",
+ "ref": [
+  "item:oritech:machine_core_1",
+  "item:oritech:machine_speed_addon",
+  "item:oritech:pulverizer",
+  "item:oritech:assembler",
+  "item:oritech:enderic_laser",
+  "item:oritech:drone_port",
+  "item:oritech:nuclear_reactor_controller",
+  "item:oritech:particle_accelerator"
+ ],
+ "_src": "реєстр oritech, опис мода в довіднику"
+}

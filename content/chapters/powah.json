@@ -1,0 +1,28 @@
+{
+ "ov": "Головний енергетичний мод збірки: від уранініту й сфери заряджання (заряджає кристали) до генераторів семи рівнів (від Початкового до Нітро), батарей, кабелів, бездротових Воріт і Батарей Енду й реакторів. У сфері ж робиться сплав вібранію й усемодію.",
+ "ref": [
+  "item:powah:uraninite",
+  "quest:3DDF87A1E5F5D009",
+  "item:powah:energizing_orb",
+  "item:powah:ender_gate_starter",
+  "item:powah:ender_cell_starter",
+  "recipe:kubejs:energizing/vibranium_allthemodium_alloy_ingot",
+  "count:items:powah|^reactor_=7",
+  "item:powah:reactor_starter",
+  "item:powah:reactor_nitro"
+ ],
+ "atm": [
+  {
+   "t": "Сплав вібранію й усемодію робиться в сфері заряджання Powah: злиток — 1 млрд FE (+ 2 серця Піґліча й блок нітро-кристалів), блок — 9 млрд FE; блок сплаву дає й вогняна драконяча кузня Ice and Fire (факт «Сплави ATM»)",
+   "ref": [
+    "recipe:kubejs:energizing/vibranium_allthemodium_alloy_ingot",
+    "recipe:kubejs:energizing/vibranium_allthemodium_block",
+    "recipe:iceandfire:dragonforge/allthemodium-vibranium",
+    "kjs:dynamic_data/iceandfire/recipe/dragonforge/allthemodium-vibranium.json~\"dragonType\": \"fire\"",
+    "file:kubejs/server_scripts/modpack/atm_alloys.js~1000000000,",
+    "file:kubejs/server_scripts/modpack/atm_alloys.js~      9000000000,"
+   ]
+  }
+ ],
+ "_src": "реєстр і конфіг powah, KubeJS atm_alloys.js, датапак збірки iceandfire (факт atm_alloys)"
+}

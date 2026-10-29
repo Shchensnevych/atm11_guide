@@ -1,0 +1,18 @@
+{
+ "ov": "Повністю бездротова логістика: імпортер і експортер, зв'язані з'єднувачем, передають предмети, рідини й енергію; покращення передачі (рівні I–V), швидкості, циклічного розподілу й міжвимірне, фільтри за модом, тегом і запасом.",
+ "ref": [
+  "item:routers:importer",
+  "item:routers:exporter",
+  "item:routers:connector",
+  "item:routers:item_upgrade_5",
+  "item:routers:fluid_upgrade_1",
+  "item:routers:rf_upgrade_1",
+  "item:routers:speed_upgrade_1",
+  "item:routers:round_robin_upgrade",
+  "item:routers:dimensional_upgrade",
+  "item:routers:mod_filter",
+  "item:routers:tag_filter",
+  "item:routers:stock_filter"
+ ],
+ "_src": "реєстр предметів routers, опис мода в довіднику"
+}

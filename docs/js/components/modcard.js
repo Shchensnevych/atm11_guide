@@ -33,6 +33,6 @@ export function modCard(s, m) {
 export function modLinks(s, ids) {
   return h('div.badges', null, (ids || []).map((id) => {
     const m = s.modById.get(id); const c = m && s.classById.get(m.cls?.[0]);
-    return h('a.badge', { href: `#/mod/${id}`, style: { '--c': c?.color || 'var(--muted)' } }, m ? m.name : id);
+    return h('a.badge', { href: `#/mod/${id}`, onclick: (e) => e.stopPropagation(), style: { '--c': c?.color || 'var(--muted)' } }, m ? m.name : id);
   }));
 }

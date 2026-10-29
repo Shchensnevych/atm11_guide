@@ -1,0 +1,4 @@
+{
+ "_doc": "Шлях до теки збірки ATM11 (там minecraft/ і ua_work/). Путівник живе окремо (OneDrive\\Projects\\atm11_guide) і бере дані гри звідси. Його читають tools/common.py і міст ATM11-Companion. Змінна ATM11_ROOT (путівник) / ATM11_INSTANCE_DIR (компаньйон) має пріоритет — напр. у хмарній сесії Claude.",
+ "instance": "D:\\Games\\instances\\All the Mods 11 - ATM11"
+}

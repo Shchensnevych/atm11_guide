@@ -1,0 +1,5 @@
+{
+ "private": true,
+ "type": "module",
+ "description": "Позначка для Node: модулі docs/js — ES-модулі. Міст ATM11-Companion імпортує спільну логіку (graph/tree-state.js, core/keys-model.js) замість копії. Браузер цей файл ігнорує."
+}

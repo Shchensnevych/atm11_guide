@@ -1,0 +1,182 @@
+{
+ "_doc": "Гілка «Спорядження Apotheosis» (G6b): кроки — квести відкритої глави apotheosis_gear (quests) + src; числа — дані jar (tier_augments) і квести (ref, сито).",
+ "id": "apotheosis_gear",
+ "title": "Спорядження Apotheosis",
+ "icon": "💎",
+ "cls": "gear",
+ "mods": [
+  "apotheosis",
+  "gateways"
+ ],
+ "chapter": "apotheosis_gear",
+ "book": "Хроніка тіней",
+ "enter": "s2",
+ "summary": "Самоцвіти з мобів → пил самоцвіту й інкрустація на ковальському столі → світові рівні (Ctrl+T) від Притулку до Піку за умовами з афіксним спорядженням → перероблення афіксних речей на матеріали рідкостей → перекування, сигіли й стіл доповнення → рівневі брами й Нескінченна брама загарбників.",
+ "gives": [
+  "Афіксне спорядження з кастами для самоцвітів",
+  "Світові рівні: сильніші моби — кращий лут і бонуси гравцеві",
+  "Сигіли й столи для точного налаштування афіксів"
+ ],
+ "_src": "квести глави apotheosis_gear (tools/quests_dump.py apotheosis_gear); дані jar Apotheosis data/apotheosis/apotheosis/tier_augments; рецепти apotheosis:*",
+ "steps": [
+  {
+   "id": "gems",
+   "x": 0,
+   "y": 0,
+   "title": "Самоцвіти й інкрустація",
+   "quests": [
+    "3BF5B8DE7A1CC4D7",
+    "45647395169978ED",
+    "7C90008081DEBECA",
+    "166CE4243896A0CD"
+   ],
+   "text": "Самоцвіти Apotheosis — трофеї з мобів. Самоцвіт під ковадлом дає пил самоцвіту. Самоцвіт вставляють у вільний каст спорядження на ковальському столі; стіл огранування підвищує рідкість самоцвіту.",
+   "src": "квести «Пригоди Apotheosis», «Пил самоцвіту», «Вставляємо самоцвіти (та інше)», «Отримуємо кращі самоцвіти»",
+   "ref": [
+    "item:apotheosis:gem_dust",
+    "item:apotheosis:gem_cutting_table"
+   ]
+  },
+  {
+   "id": "tiers",
+   "x": 1,
+   "y": 0,
+   "title": "Світові рівні",
+   "quests": [
+    "196312DF0D2E2CB6",
+    "377A41499D8218C9",
+    "2A032EC573B5316C",
+    "1D1FAA2F86695781",
+    "097FDC136BC843A7",
+    "7EF873DCEB3B9D48"
+   ],
+   "text": "Загарбники — боси Apotheosis з афіксним лутом. Рівень світу перемикають вручну (Ctrl+T) після умов квестів: Кордон — повний комплект афіксних обладунків і афіксний інструмент або зброя; далі — незвичайне, рідкісне, а для Піку — епічне / міфічне спорядження й убитий Дракон Енду. Вищий рівень посилює монстрів і дає гравцеві бонуси (Кордон: +35 % досвіду, +20 % везіння).",
+   "src": "квести «Загарбники/боси і світові рівні», «Світовий рівень: Притулок … Пік»; дані jar tier_augments/frontier",
+   "ref": [
+    "file:options.txt~key_key.apotheosis.open_world_tier_select:key.keyboard.t:CONTROL",
+    "jarfile:Apotheosis!data/apotheosis/apotheosis/tier_augments/frontier/experience.json",
+    "jarfile:Apotheosis!data/apotheosis/apotheosis/tier_augments/frontier/luck.json"
+   ]
+  },
+  {
+   "id": "salvage",
+   "x": 1,
+   "y": 1,
+   "title": "Перероблення й матеріали",
+   "quests": [
+    "1CD05CB4A3DB112A",
+    "16C74B5F99AD6724",
+    "0089A394566B0F3B",
+    "001C1881E9289566",
+    "6EF206A0BD5BAC0A",
+    "099C2A9B9CA138F8"
+   ],
+   "text": "Стіл перероблення розбирає афіксні інструменти й обладунки на матеріали за рідкістю: містичний брухт, зношена тканина, блискучий кришталевий уламок, таємничі піски, боготворена перлина (міфічна — на рівнях Вершина й Пік).",
+   "src": "квести «Стіл перероблення», «Містичний брухт», «Зношена тканина», «Блискучий кришталевий уламок», «Таємничі піски», «Боготворена перлина»",
+   "ref": [
+    "item:apotheosis:salvaging_table",
+    "item:apotheosis:godforged_pearl"
+   ]
+  },
+  {
+   "id": "reforge",
+   "x": 2,
+   "y": 1,
+   "title": "Перекування",
+   "quests": [
+    "29EA8E178F8F8FDB",
+    "1403D677CF2815C3",
+    "38956DC28E317DEF"
+   ],
+   "text": "Простий стіл перекування додає афікси, як стіл зачарування; кращий стіл дає й епічні та міфічні афікси. Паливо столів — сигіл відродження плюс матеріал рідкості.",
+   "src": "квести «Простий стіл перекування», «(Кращий) стіл перекування», «Сигіл відродження»",
+   "ref": [
+    "item:apotheosis:simple_reforging_table",
+    "item:apotheosis:reforging_table",
+    "item:apotheosis:sigil_of_rebirth"
+   ]
+  },
+  {
+   "id": "sigils",
+   "x": 0,
+   "y": 1,
+   "title": "Сигіли",
+   "quests": [
+    "6667638252DB9C74",
+    "24D11ED5F4EEDC48",
+    "4E9DDDBD8263D0E3",
+    "7CB03F92F9ECEFFB"
+   ],
+   "text": "Сигіли змінюють афіксні предмети на ковальському столі: інкрустації — новий каст, позбавлення імені — прибрати довгу назву, зняття — вийняти самоцвіти, зберігши інструмент.",
+   "src": "квести «Ампули та сигіли», «Сигіл інкрустації», «Сигіл позбавлення імені», «Сигіл зняття»",
+   "ref": [
+    "item:apotheosis:sigil_of_socketing",
+    "item:apotheosis:sigil_of_unnaming",
+    "item:apotheosis:sigil_of_withdrawal"
+   ]
+  },
+  {
+   "id": "augment",
+   "x": 3,
+   "y": 1,
+   "title": "Стіл доповнення",
+   "quests": [
+    "57BB2CC6D9D2AE87",
+    "2002C7EB13626AE7",
+    "552BA5E6FA987256"
+   ],
+   "text": "Ендгейм-стіл доповнення перегенеровує, вибирає або покращує окремий афікс; паливо — сигіли вдосконалення з боготворених перлин. Сигіл злоби не крафтиться — його дають загарбники.",
+   "src": "квести «Стіл доповнення», «Сигіл вдосконалення», «Сигіл злоби»; рецепт apotheosis:augmenting_table",
+   "ref": [
+    "recipe:apotheosis:augmenting_table",
+    "item:apotheosis:sigil_of_enhancement",
+    "item:apotheosis:sigil_of_malice"
+   ]
+  },
+  {
+   "id": "gates",
+   "x": 2,
+   "y": 0,
+   "title": "Апофеотичні брами",
+   "quests": [
+    "22E57BF23B9BA2C5",
+    "6B5B01C612951BAF",
+    "2E5E129F25707C5D"
+   ],
+   "text": "Для кожного світового рівня, крім Притулку, є брама з хвилями монстрів і загарбників. Пройдена брама Піку дає перлину Нескінченної брами загарбників; за 100 її хвиль — сигіл перевершення.",
+   "src": "квести «Апофеотичні брами», «Перлина брами — Нескінченна брама апофеотичних загарбників», «Сигіл перевершення»; рецепти apotheosis:gateways/tiered/*",
+   "ref": [
+    "recipe:apotheosis:gateways/tiered/frontier",
+    "recipe:apotheosis:gateways/tiered/pinnacle",
+    "quest:22E57BF23B9BA2C5~There are Gateways based on each World Tier (except Haven)"
+   ],
+   "spoiler": true
+  }
+ ],
+ "links": [
+  [
+   "gems",
+   "tiers"
+  ],
+  [
+   "tiers",
+   "gates"
+  ],
+  [
+   "gems",
+   "sigils"
+  ],
+  [
+   "tiers",
+   "salvage"
+  ],
+  [
+   "salvage",
+   "reforge"
+  ],
+  [
+   "reforge",
+   "augment"
+  ]
+ ]
+}

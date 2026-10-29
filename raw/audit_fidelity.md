@@ -1,0 +1,590 @@
+# Аудит відповідності путівника збірці (tools/audit_fidelity.py)
+
+Автоматична перевірка даних путівника проти файлів збірки (квести, моди в збірці). Кожен пункт — кандидат на виправлення в G2–G6: підтвердити джерелом (рецепт, квест, конфіг, KubeJS) або прибрати / позначити ⚑.
+
+Моди, яких у збірці немає, але їх згадують квести: actuallyadditions, allthewizardgear, bigreactors, cataclysm, compactmachines, create, deeperdarker, domum_ornamentum, draconicevolution, dysoncubeproject, eternal_starlight, everythingcopper, extended_industrialization, fluxnetworks, gmut, immersiveengineering, industrialforegoing, industrialforegoingsouls, irons_spellbooks, megacells, mekanism, mekanismgenerators, mekanismtools, mob_grinding_utils, modern_industrialization, multipiston, naturesaura, pneumaticcraft, rechiseled, relics, sauce, shrink, starbunclemania, the_bumblezone, twilightforest, xycraft_machines, xycraft_world
+
+**Виправити: 0** · перевірити: 0 · інфо: 554
+
+Сито: ref перевірено 6172 — підтверджено 6171, відкинуто 0, умова мода / перевірити в грі 1. Індекси: raw/recipes_report.md, raw/kubejs_report.md.
+
+## інфо: ref — умова мода (обчислює мод у грі) / перевірити в грі — 1
+
+- мод/toolbelt (текст): `recipe:toolbelt:belt` — рецепт toolbelt:belt: умова мода toolbelt:enable_normal_crafting (обчислює мод під час гри) — перевірити в грі
+
+## інфо: абсолютне слово — свідомий виняток (abs_ok) — 22
+
+- карта/m_hub «Магічні моди»: всі — «не обов'язково всі» — заперечення повноти (порада), не твердження «усі»
+- карта/c_vanilla «Енд, Візер і Дракон»: завжди, кожного — «завжди» — config/wstweaks.cfg «Shard Drop Chance» = 1.0
+- карта/r_atm «Вібраній і унобтаній»: лише — «лише в Височинах Енду» — унобтаній розміщує один biome_modifier allthemodium (unobtainium.json → minecraft:end_highlands); інших розміщень у jar і KubeJS немає
+- мод/easy_villagers (текст): кожен, кожні — «кожен» — config/easy_villagers-server.toml universal_reputation = true
+- мод/geore (текст): лише — «лише ванільні жеоди» — у config/geore-common.toml увімкнено 11 generate…: вугілля, мідь, залізо, золото, діамант, смарагд, лазурит, редстоун, кварц, кварц у Незері, стародавні уламки; решта (модові) = false
+- мод/geore → oritech: будь-якої — «будь-якої з 29 руд» — 29 рецептів oritech:compat/geore/assembler/budding_* = 29 видів уламків GeOre (count:)
+- мод/lootr (текст): всіх, кожен, кожного, усіх — «у всіх вимірах» — config/lootr-common.jsonc: dimension_whitelist і dimension_blacklist порожні
+- мод/luminax (текст): лише — «конфлікт лише можливий» — правило путівника про клавіші «з предметом» (GUIDE_HANDOFF §3, keys.json), а не твердження про гру
+- мод/mysticalagriculture (текст): кожного, лише — «лише крафтом» — secondarySeedDrops = false (конфіг), а скрипт crops.js повертає 1 % лише рівням нижче TierSecondaryCutoff = 5
+- мод/mysticalautomation (текст): всі, кожного — «усі ввімкнені» — config/mysticalautomation-common.toml: enabled = true × 7, false — 0
+- мод/potionsmaster (текст): лише — «лише ванільні ефекти» — config/pylons-server.toml infusionAllowedEffects = ["minecraft"]
+- мод/productivetrees → agritechevolved: кожного, усі — «усі породи» — 163 рецепти productivetrees:agritech_evolved/* = 163 паростки (count:)
+- мод/spider_overhaul (текст): всіх, лише, тільки — «у всіх біомах Верхнього світу» — biome_modifier add_cavern_spider_spawn → #minecraft:is_overworld; «тільки нитка» — loot_table entities/cavern_spider.json має один запис: minecraft:string
+- мод/trashcans (текст): лише — «лише вказане» — так працює фільтр смітника (lang: Filter / Item Filter / Liquid Filter)
+- мод/wstweaks (текст): завжди, лише — «завжди падає» — config/wstweaks.cfg «Shard Drop Chance» = 1.0; «лише Незер» — «Convert All Biomes» = false
+- гілка/mysticalagriculture/res: лише — «лише 1 % і лише до рівня 4» — kubejs mods/mysticalagriculture/crops.js: SecondarySeed = 0.01, TierSecondaryCutoff = 5; secondarySeedDrops = false (конфіг)
+- факт/ma_second_seed: лише — «лише крафтом» — kubejs mods/mysticalagriculture/crops.js: TierSecondaryCutoff = 5 (друге насіння лише нижче рівня 5), secondarySeedDrops = false
+- факт/geore_meteors: завжди, лише — «лише ванільні» — у config/geore-common.toml увімкнено 11 generate… (ванільні + стародавні уламки), модові = false; «досконалим — завжди» — crystalline_wand.js chance: 1.0
+- глава/allthemodium atm[2]: всіх — «усіх трьох» — три рецепти dragonforge у ref (усі пари сплавів)
+- глава/generators steps[2]: лише — «лише рецепти доменної печі / коптильні» — підказка мода (lang augment_blasting / augment_smoking: Only allows for…)
+- глава/modular_router (ov): завжди, ніколи — «завжди / ніколи» — назви режимів редстоуну маршрутизатора (lang redstone.always / redstone.never)
+- глава/pylons (ov): кожного — «кожного з п'яти» — п'ять ref-рецептів пілонів, кожен містить minecraft:polished_blackstone (перевірено за recipes_index)
+
+## інфо: віха «у цій версії недоступно» (na) — 1
+
+- карта/z_star «ATM Star»: Рецепт зірки — лише на зоряному вівтарі Modern Industrialization, якого в збірці немає; глава «The ATM Star» прихована (always_invisible).
+
+## інфо: віха без квесту в done_by (у мода немає відкритої глави — стан із предметів/досягнень) — 11
+
+- карта/r_ores «Руди й жеоди»
+- карта/x_struct «Структури й лут»
+- карта/m_roots «Друїдська магія»
+- карта/m_witch «Witchery»
+- карта/r_mining «Генератори блоків і сита»
+- карта/r_hnn «Симуляції мобів і породжувачі»
+- карта/m_thaum «Thaumaturge»
+- карта/m_ars «Ars Magica: Legacy»
+- карта/t_mffs «Силові поля»
+- карта/x_stellaris «Космос»
+- карта/r_gadgets «Гірничі гаджети»
+
+## інфо: згадка відсутнього мода — пояснено, що його немає — 81
+
+- карта/z_star «ATM Star»: «Modern Industrialization» — … версії ATM11 її не зібрати: рецепти Зірки задано на зоряному вівтарі Modern Industrialization (мода немає); з компонентів активні насіння в…
+- мод/advanced_ae: «Immersive Engineering» — …У поточній версії збірки цей рецепт неактивний: він вимагає Mekanism, Immersive Engineering і Modern Industrialization/Create, яких у збірці…
+- мод/advanced_ae: «Modern Industrialization» — … цей рецепт неактивний: він вимагає Mekanism, Immersive Engineering і Modern Industrialization/Create, яких у збірці ще немає.…
+- мод/advanced_ae: «Create» — …ін вимагає Mekanism, Immersive Engineering і Modern Industrialization/Create, яких у збірці ще немає.…
+- мод/advanced_ae: «Mekanism» — …ірки ATM. У поточній версії збірки цей рецепт неактивний: він вимагає Mekanism, Immersive Engineering і Modern Industrialization/Create, яки…
+- мод/ae2: «MEGA Cells» — …чайні (покриті й розумні) — в обидва боки. У главі квестів AE2 квести MEGA Cells (1M–256M, оптова комірка) — заглушки: цього мода в збірці н…
+- мод/extendedae: «MEGA Cells» — … Власні нескінченні комірки ATM (лава, земля, мох, камені) потребують MEGA Cells — у цій версії збірки їх не скрафтити. Нарізувач схем робит…
+- мод/ftbquests: «Immersive Engineering» — …ція, стрілки — переміщення вибору. Приховані глави (Create, Mekanism, Immersive Engineering, Modern Industrialization, Twilight Forest, Iron…
+- мод/ftbquests: «Mekanism» — …на інформація, стрілки — переміщення вибору. Приховані глави (Create, Mekanism, Immersive Engineering, Modern Industrialization, Twilight Fo…
+- мод/ftbquests: «Twilight Forest» — …и (Create, Mekanism, Immersive Engineering, Modern Industrialization, Twilight Forest, Iron's Spells та ін.) — моди, яких у збірці 26.1.2 ще…
+- мод/ftbquests: «Modern Industrialization» — …ння вибору. Приховані глави (Create, Mekanism, Immersive Engineering, Modern Industrialization, Twilight Forest, Iron's Spells та ін.) — мод…
+- мод/ftbquests: «Iron's Spells» — …sm, Immersive Engineering, Modern Industrialization, Twilight Forest, Iron's Spells та ін.) — моди, яких у збірці 26.1.2 ще немає; квести з …
+- мод/ftbquests: «Create» — … розширена інформація, стрілки — переміщення вибору. Приховані глави (Create, Mekanism, Immersive Engineering, Modern Industrialization, Twi…
+- мод/generatorgalore: «Extreme Reactors» — …Філософське паливо»), але цей рецепт збірки зараз неактивний — бракує Extreme Reactors та інших модів. Медовий генератор спалює рідкий мед (…
+- мод/ironfurnaces: «PneumaticCraft» — …ості» тощо), але ці рецепти збірки зараз неактивні — бракує Mekanism, PneumaticCraft та ін. Доповнення «Фабрика» і бездротовий передавач теп…
+- мод/ironfurnaces: «Mekanism» — …ої ймовірності» тощо), але ці рецепти збірки зараз неактивні — бракує Mekanism, PneumaticCraft та ін. Доповнення «Фабрика» і бездротовий пер…
+- мод/neovitae: «Blood Magic» — …Сучасне переосмислення класичної Blood Magic: вівтар Ara Vitae 5 рівнів, персональна мережа есенції (EV…
+- мод/oritech: «PneumaticCraft» — …рної діри» для ATM Star, але рецепт збірки зараз неактивний (потрібні PneumaticCraft, Industrial Foregoing та ін., яких немає). Сталь для мо…
+- мод/oritech: «Industrial Foregoing» — …TM Star, але рецепт збірки зараз неактивний (потрібні PneumaticCraft, Industrial Foregoing та ін., яких немає). Сталь для моторів — з печі д…
+- мод/productivemetalworks: «Tinkers» — …Ливарня в дусі плавильні Tinkers' Construct (без інструментів): плавить метали й руди, змішує с…
+- мод/rootsclassic: «PneumaticCraft» — …рці неактивний (серед дев'яти умов-модів бракує Industrial Foregoing, PneumaticCraft і Pocket Storage) Лісова й дикодеревна броня та живі ін…
+- мод/rootsclassic: «Industrial Foregoing» — …, але цей рецепт у збірці неактивний (серед дев'яти умов-модів бракує Industrial Foregoing, PneumaticCraft і Pocket Storage) Лісова й дикоде…
+- мод/routers: «Ars Nouveau» — …дають предмети, рідини й енергію (хімікати й джерело — для Mekanism і Ars Nouveau, яких у збірці немає). імпортер і експортер, пов'язані з'є…
+- мод/routers: «Mekanism» — …і вони передають предмети, рідини й енергію (хімікати й джерело — для Mekanism і Ars Nouveau, яких у збірці немає). імпортер і експортер, по…
+- гілка/apothic_spawners: «PneumaticCraft» — …. Квести породжувачів модів, яких у збірці немає (Mob Grinding Utils, PneumaticCraft, Draconic Evolution, Industrial Foregoing), — заглушки.…
+- гілка/apothic_spawners: «Industrial Foregoing» — …збірці немає (Mob Grinding Utils, PneumaticCraft, Draconic Evolution, Industrial Foregoing), — заглушки. Моб-ферми на породжувачах без ШІ й …
+- гілка/apothic_spawners: «Draconic Evolution» — …вачів модів, яких у збірці немає (Mob Grinding Utils, PneumaticCraft, Draconic Evolution, Industrial Foregoing), — заглушки. Моб-ферми на по…
+- гілка/forbidden_arcanus: «Modern Industrialization» — …глави про автоматичну кузню в цій версії недоступна: потрібних модів (Modern Industrialization) у збірці немає. Вічна Стелла → незламні пред…
+- гілка/productivebees: «Thermal» — …ви — бджоли модів, яких у збірці немає (Tinkers' Construct, Mekanism, Thermal тощо): види бджіл мають умову «бджола існує», тож такі бджоли …
+- гілка/productivebees: «Tinkers» — …джоли ATM. Частина квестів глави — бджоли модів, яких у збірці немає (Tinkers' Construct, Mekanism, Thermal тощо): види бджіл мають умову «б…
+- гілка/productivebees: «Mekanism» — …вестів глави — бджоли модів, яких у збірці немає (Tinkers' Construct, Mekanism, Thermal тощо): види бджіл мають умову «бджола існує», тож та…
+- факт/atm_star: «Modern Industrialization» — …Фінальний рецепт ATM Star прив'язаний до зоряного вівтаря Modern Industrialization, якого в збірці 26.1.2 ще немає. Активні лише…
+- факт/atm_alloys: «Industrial Foregoing» — …ся в 9 злитків. Інші рецепти ATM-сплавів розраховані на Ars Nouveau / Industrial Foregoing, яких у збірці немає.…
+- факт/atm_alloys: «Ars Nouveau» — … блок крафтиться в 9 злитків. Інші рецепти ATM-сплавів розраховані на Ars Nouveau / Industrial Foregoing, яких у збірці немає.…
+- факт/hidden_chapters: «Immersive Engineering» — …Частина глав квестів (Create, Mekanism, Immersive Engineering, Modern Industrialization, Twilight Forest, Iron…
+- факт/hidden_chapters: «Mekanism» — …Частина глав квестів (Create, Mekanism, Immersive Engineering, Modern Industrialization, Twilight Fo…
+- факт/hidden_chapters: «Twilight Forest» — …в (Create, Mekanism, Immersive Engineering, Modern Industrialization, Twilight Forest, Iron's Spells та ін.) прихована назавжди (always_invi…
+- факт/hidden_chapters: «Modern Industrialization» — …Частина глав квестів (Create, Mekanism, Immersive Engineering, Modern Industrialization, Twilight Forest, Iron's Spells та ін.) прихо…
+- факт/hidden_chapters: «Iron's Spells» — …sm, Immersive Engineering, Modern Industrialization, Twilight Forest, Iron's Spells та ін.) прихована назавжди (always_invisible): цих модів…
+- факт/hidden_chapters: «Create» — …Частина глав квестів (Create, Mekanism, Immersive Engineering, Modern Industrialization, Twi…
+- факт/first_power: «Flux Networks» — …Глава «Базова енергія» в цій версії прихована (Mekanism, Flux Networks, Dyson Cube Project та ін. у збірці немає). Перший енерг…
+- факт/first_power: «Mekanism» — …Глава «Базова енергія» в цій версії прихована (Mekanism, Flux Networks, Dyson Cube Project та ін. у збірці немає). Пе…
+- глава/basic_armor: «Iron's Spells» — … 66 з 129 квестів — обладунки модів, яких у збірці 0.12.0-beta немає: Iron's Spells, Twilight Forest, Eternal Starlight, Mekanism Tools. Гла…
+- глава/basic_armor: «Twilight Forest» — …ів — обладунки модів, яких у збірці 0.12.0-beta немає: Iron's Spells, Twilight Forest, Eternal Starlight, Mekanism Tools. Глава позначена не…
+- глава/basic_armor: «Eternal Starlight» — …дів, яких у збірці 0.12.0-beta немає: Iron's Spells, Twilight Forest, Eternal Starlight, Mekanism Tools. Глава позначена невидимою (always_i…
+- глава/basic_armor: «Mekanism» — …0.12.0-beta немає: Iron's Spells, Twilight Forest, Eternal Starlight, Mekanism Tools. Глава позначена невидимою (always_invisible) — у грі н…
+- глава/basic_power: «Flux Networks» — … 14 з 35 квестів — заглушки: Flux Networks, Mekanism, Mekanism Generators і Dyson Cube Project у зб…
+- глава/basic_power: «Mekanism» — … 14 з 35 квестів — заглушки: Flux Networks, Mekanism, Mekanism Generators і Dyson Cube Project у збірці 0.12.0-bet…
+- глава/basic_tools: «Eternal Starlight» — …одів, яких у збірці 0.12.0-beta немає: Mekanism Tools, Nature's Aura, Eternal Starlight, Everything Copper. Глава позначена невидимою (alway…
+- глава/basic_tools: «Nature's Aura» — …— інструменти модів, яких у збірці 0.12.0-beta немає: Mekanism Tools, Nature's Aura, Eternal Starlight, Everything Copper. Глава позначена н…
+- глава/basic_tools: «Mekanism» — …17 з 78 квестів — інструменти модів, яких у збірці 0.12.0-beta немає: Mekanism Tools, Nature's Aura, Eternal Starlight, Everything Copper. Г…
+- глава/building_tips: «Compact Machines» — …відка з декоративних модів. Заглушок 3 (Rechiseled, Domum Ornamentum, Compact Machines — їх у збірці немає), решта модів є — поради можна чи…
+- глава/bumblezone: «Bumblezone» — … Мода The Bumblezone у збірці 0.12.0-beta немає — 46 з 115 квестів глави заглушк…
+- глава/cataclysm: «Cataclysm» — … Мода L_Ender's Cataclysm у збірці 0.12.0-beta немає — 51 з 97 квестів глави заглушки.…
+- глава/chapter_2_the_atm_star: «PneumaticCraft» — …в — заглушки: Modern Industrialization, Actually Additions, Mekanism, PneumaticCraft — цих модів у збірці 0.12.0-beta немає. Глава позначена…
+- глава/chapter_2_the_atm_star: «Mekanism» — … 39 квестів — заглушки: Modern Industrialization, Actually Additions, Mekanism, PneumaticCraft — цих модів у збірці 0.12.0-beta немає. Глава…
+- глава/chapter_2_the_atm_star: «Actually Additions» — …після ATM Star. 13 з 39 квестів — заглушки: Modern Industrialization, Actually Additions, Mekanism, PneumaticCraft — цих модів у збірці 0.12…
+- глава/chapter_2_the_atm_star: «Modern Industrialization» — … Глава творчих предметів після ATM Star. 13 з 39 квестів — заглушки: Modern Industrialization, Actually Additions, Mekanism, PneumaticCraft…
+- глава/chapter_2_the_star: «Iron's Spells» — …одів (Modern Industrialization, PneumaticCraft, Industrial Foregoing, Iron's Spells). Глава позначена невидимою (always_invisible) — у грі н…
+- глава/chapter_2_the_star: «PneumaticCraft» — …естів — заглушки предметів відсутніх модів (Modern Industrialization, PneumaticCraft, Industrial Foregoing, Iron's Spells). Глава позначена …
+- глава/chapter_2_the_star: «Industrial Foregoing» — … предметів відсутніх модів (Modern Industrialization, PneumaticCraft, Industrial Foregoing, Iron's Spells). Глава позначена невидимою (alway…
+- глава/chapter_2_the_star: «Modern Industrialization» — … самої Зірки (allthetweaks:atm_star) збірка задає на зоряному вівтарі Modern Industrialization — скрипт діє лише з цим модом, а його в збірц…
+- глава/create: «Create» — … Мода Create у збірці 0.12.0-beta немає — 82 з 91 квестів глави заглушки. Гл…
+- глава/deeper_and_darker: «Deeper and Darker» — … Мода Deeper and Darker у збірці 0.12.0-beta немає — 23 з 46 квестів глави з…
+- глава/draconic_evolution: «Draconic Evolution» — … Мода Draconic Evolution у збірці 0.12.0-beta немає — 134 з 141 квестів глав…
+- глава/eternal_starlight: «Eternal Starlight» — … Мода Eternal Starlight у збірці 0.12.0-beta немає — 92 з 131 квестів глави …
+- глава/extreme_reactors: «Extreme Reactors» — … Мода Extreme Reactors у збірці 0.12.0-beta немає — 28 з 34 квестів глави за…
+- глава/immersive_engineering: «Immersive Engineering» — … Мода Immersive Engineering у збірці 0.12.0-beta немає — 97 з 128 квестів гл…
+- глава/industrial_foregoing: «Industrial Foregoing» — … Модів Industrial Foregoing і Industrial Foregoing Souls у збірці 0.12.0-beta…
+- глава/iron_spells_and_spellbooks: «Iron's Spells» — … Модів Iron's Spells 'n Spellbooks і All the Wizard Gear у збірці 0.12.0-beta…
+- глава/mekanism: «Mekanism» — … Модів Mekanism і Mekanism Generators у збірці 0.12.0-beta немає — 69 з 91 кв…
+- глава/mekanism_reactors: «Mekanism» — … Модів Mekanism, Mekanism Generators і GMUT у збірці 0.12.0-beta немає — 86 з…
+- глава/mi_digital: «Modern Industrialization» — … Модів Modern Industrialization і Extended Industrialization у збірці 0.12.0-…
+- глава/mi_electric: «Modern Industrialization» — … Модів Modern Industrialization і Extended Industrialization у збірці 0.12.0-…
+- глава/mi_endgame: «Modern Industrialization» — … Мода Modern Industrialization у збірці 0.12.0-beta немає — 24 з 26 квестів …
+- глава/mi_steam: «Modern Industrialization» — … Модів Modern Industrialization і Extended Industrialization у збірці 0.12.0-…
+- глава/natures_aura: «Nature's Aura» — … Мода Nature's Aura у збірці 0.12.0-beta немає — 24 з 26 квестів глави заглу…
+- глава/pneumaticcraft: «PneumaticCraft» — … Мода PneumaticCraft: Repressurized у збірці 0.12.0-beta немає — 119 з 128 к…
+- глава/relics: «Relics» — … Мода Relics у збірці 0.12.0-beta немає — 17 з 23 квестів глави заглушки. Гл…
+- глава/twilight_forest: «Twilight Forest» — … Мода The Twilight Forest у збірці 0.12.0-beta немає — 54 з 57 квестів глави заг…
+- глава/xycraft: «XyCraft» — … Модів XyCraft (Machines, World) у збірці 0.12.0-beta немає — 23 з 28 квестів…
+
+## інфо: квест-джерело — числа в перекладі ≠ en (спірне для ua_work; брати en) — 48
+
+- 05113AC92BC1B192: uk [2.0, 2.0, 9.0, 450.0] «Гідра Гідри — одні з найміцніших створінь, яких може запропонувати Ice and Fire. Вони бувають зелені, бірюзові» · en [2.0, 2.0, 3.0, 9.0, 450.0] «The Hydra Hydras are some of the toughest Ice and Fire has to offer. They can be Green, Teal, or Red. All are »
+- 06767BA0AFE8C1EE: uk [1.0, 2.0, 4.0, 10.0] «Лічильний фільтр 1... 2... десь ще й 4. Щоб задати кількість, покладіть предмет і клікайте лівою чи правою кно» · en [1.0, 2.0, 4.0] «1... 2... there's a 4 somewhere as well. To set a Number put the Item in then you can Left or Right Click to c»
+- 07420CD49A1758A3: uk [2.0, 2.0, 2.0, 3.0] «The Aether 2 Модів на дослідження оновлено поки небагато, але старий добрий Aether досі з нами! Стривайте, це » · en [2.0, 2.0] «The Aether 2 Not many Exploration Mods are updated yet but good ol' Aether is still here! Wait, this isn't ol'»
+- 08405A885ACDADFC: uk [1.0, 64.0, 64.0] «Сховище в дорозі Скрині корисні лише вдома — там можна скинути з десяток предметів. А як тримати більше речей » · en [1.0, 1.0, 64.0, 64.0] «Storage on the go Chests only work when we're at Home, a place to Drop off a dozen Items, so how can we keep m»
+- 0ADBE90B33ACC9FB: uk [2.0, 9.0] «Веселковий генератор Веселковий генератор — це підсилення веселкової печі з доповненням: Генератор. Якщо всі і» · en [9.0] «Rainbow Generator The Rainbow Generator is a boost to the Rainbow Furnace while using Augment: Generator. If a»
+- 0B3AC4E923332AC6: uk [4.0, 4.0, 4.0, 5.0, 5.0, 5.0, 20.0] «Стадії 4–5 Крижаний дракон Найміцніші крижані дракони — ті, що з'являються в печерах крижаних драконів: це най» · en [4.0, 4.0, 4.0, 5.0, 5.0, 20.0] «Stage 4-5 Ice Dragon The toughest of Ice Dragons are the ones who spawn in Ice Dragon Caves, these are the hig»
+- 0E90577AC72749C4: uk [4.0, 16.0, 20.0, 32.0, 48.0] «Громова руна покращення породжувача Громова руна покращення породжувача — 4-й і останній рівень рун покращення» · en [16.0, 20.0, 32.0, 48.0] «The Thundering Spawner Upgrade Rune, the 4th and final tier of Spawner Upgrade Runes brings your Spawner to it»
+- 0F412542271B6254: uk [4.0, 19.0, 19.0] «Передмова про ритуальні кола Перш ніж продовжувати з Occultism, час дізнатися про покращення кожного типу риту» · en [4.0] «Foreword on Pentacles Before we proceed with Occultism, it's time we learn about upgrading each type of Pentac»
+- 1042A0DC0A9321BB: uk [4.0, 4.0, 5.0, 5.0] «Стадії 4–5 Громовий дракон Ви впевнені, що тут є дракон? Я бачу лише електрично-синє/аметистове/мідне/чорне? С» · en [4.0, 4.0, 5.0] «Stage 4-5 Lightning Dragon Are you sure there's a Dragon here? All I see is Electric Blue/Amethyst/Copper/Blac»
+- 17410BE15A81DD96: uk [2.0, 10.0, 18.0, 32.0, 100.0, 400.0] «Руна покращення породжувача мандрівника Руна покращення породжувача мандрівника — 2-й рівень рун покращення по» · en [10.0, 18.0, 32.0, 100.0, 400.0] «The Wayfarer's Spawner Upgrade Rune is the 2nd tier of Spawner Upgrade Runes. This one sets Minimum Spawn Dela»
+- 176D31AF1B0925AA: uk [3.0, 3.0, 3.0] «Вогняна драконяча кузня Вогняна драконяча кузня — багатоблокова структура 3×3×3 з частин драконів! Перший шар » · en [] «Fire DragonForge The Fire DragonForge is a 3x3x3 Multiblock of Dragon Parts! First layer starts with a Cross o»
+- 1B79F794EDAA810A: uk [2.0, 2.0] «Камера схрещування Робимо малят 2: Електричне бджолиння Камера схрещування дозволяє автоматично схрещувати дво» · en [2.0, 2.0, 2.0] «Making Babies 2: Electric Beegaloo The Breeding Chamber can be used to breed two bees with each other, automat»
+- 1DCAA0310AA55F1C: uk [] «Початок рибалки Віллі пишався б Але він зазвичай зачиняється о п'ятій, тож кому яке діло? Вудка» · en [5.0] «The Start of a Fisher Willy Would be Proud But he usually closes by 5, so who cares?»
+- 1EE5BFB935D345F3: uk [] «Замерзлі пелюстки Замерзлі пелюстки випадають зі зрілих квіток аврори. З ними можна зробити купу всього! З них» · en [2.0] «Frozen Petals Frozen Petals are Dropped from mature Aurora Blooms. We can do a ton with them! We can Craft Foo»
+- 210542B036255FBF: uk [3.0, 3.0, 3.0] «Громова драконяча кузня Сподіваюся, у вас є гумові рукавички, щоб збудувати цю багатоблокову структуру 3×3×3! » · en [] «Lightning DragonForge Hope you got Rubber Gloves to Build this 3x3x3 Multiblock! You don't? Oh well! First, pl»
+- 285B3FB38B12F8CA: uk [2.0, 2.0, 2.0, 10.0, 10.0] «Виготовлення нашатирю Щоб робити нашатир, знадобляться ці два блоки (хотів назвати це мультиблоком, але 2 блок» · en [2.0, 2.0, 10.0] «Making Sal Ammoniac We'll need these two Blocks to make Sal Ammoniac (felt like calling it a Multi-block but I»
+- 2ADA491A2485061C: uk [1.0, 2.0, 3.0] «Досвід Досвід — це четвертий слот і матеріал, необхідний для Кузні. Щоб додати досвід, потрібно покласти один » · en [1.0, 1.0, 2.0, 3.0, 3.0] «Experience Experience is the 4th Slot and material needed for the Forge. To add in Experience you'll need to p»
+- 2F16B6A173525277: uk [4.0, 7.0, 7.0, 7.0, 8.0, 32.0, 216.0] «ME контролер Останній елемент пазла для будь-якої великої мережі ME — ME контролер. Контролер дає мережі ME зн» · en [4.0, 8.0, 32.0, 216.0] «The last piece of the puzzle for any large ME network is the ME Controller. A controller supplies an ME Networ»
+- 321C15EBBE2D3D30: uk [48.0, 57.0] «Підриваємо породжувачі Якщо підірвати породжувач, він стане вкрай нестабільним: викличе велику кількість своїх» · en [48.0] «Blowing up Spawners When you blow up a Spawner, it will become highly unstable, spawning a large amount of its»
+- 32992E3534B86521: uk [1.0, 1.0, 2.0, 3.0, 3.0, 3.0, 4.0] «Стадії 1–3 Вогняний дракон Вогняні дракони стадій 1–3 з'являються в гніздах вогняних драконів. Вогняні дракони» · en [1.0, 1.0, 2.0, 3.0, 3.0, 4.0] «Stage 1-3 Fire Dragon Stage 1 through 3 Fire Dragons will Spawn in Fire Dragon Roosts. Fire Dragons will come »
+- 32ECD93A8F2FAB8F: uk [4.0] «Iron Jetpacks Реактивні ранці — улюблений спосіб пересування. Щоб почати їх створювати, спершу зробіть Wood ре» · en [] «Iron Jetpacks Jetpacks are a beloved way of getting around. To start making them you'll need to start with a W»
+- 3DBDF0350DC69A70: uk [3.0, 3.0] «Вдарте дерево Як і будь-який старт у Minecraft — вдарте дерево. Блоки добувають, утримуючи ЛКМ. Випадуть колод» · en [] «Punch a Tree Like all Minecraft starts, punch that Tree. You Mine Blocks by Holding Left Click. Logs will Drop»
+- 40096ED0B04C3EC5: uk [3.0, 3.0] «Ігнорувати всі умови Обов'язковий елемент для всіх спавнерів. Якщо написано, що ігнорує всі умови — це означає» · en [] «Ignore All Conditions The must-need for all Spawners. When it says ignores all conditions, it means most. Igno»
+- 43922DB543DC05C0: uk [1.0, 1.0, 2.0, 3.0, 3.0, 3.0, 6.0] «Стадії 1–3 Крижаний дракон Крижані дракони стадій 1–3 з'являються в гніздах крижаних драконів. Крижані дракони» · en [1.0, 1.0, 2.0, 3.0, 3.0, 6.0] «Stage 1-3 Ice Dragon Stage 1 through 3 Ice Dragons will Spawn in Ice Dragon Roosts. Ice Dragons come in Blue, »
+- 45068FB6758D3BA1: uk [3.0, 3.0, 3.0] «Крижана драконяча кузня Крижана драконяча кузня — багатоблокова структура 3×3×3 зі здобичі з крижаних драконів» · en [] «Ice DragonForge The Ice DragonForge is a 3x3x3 Multiblock made of Ice Dragon Drops and Bricks! The first layer»
+- 45996B848792379E: uk [] «Навіщо машини? Навіщо нам машини, якщо це можна просто викопати? Кристали нашатирю можна добути у Верхньому св» · en [10.0] «Why Machines? Why do we need Machines if we can just Mine it? You can Mine Sal Ammoniac Crystals in the Overwo»
+- 46567ED894E9883C: uk [1.0, 2.0, 3.0, 3.0, 3.0, 4.0, 4.0] «Кузня 3 рівня Ось тут починається найцікавіше! Використайте 4 Деорумові злитки, 4 Містичні кристали та 1 Різьб» · en [2.0, 3.0, 3.0, 3.0, 4.0, 4.0] «Tier 3 Forge This is where it gets fun! Use 4 Deorum Ingots, 4 Arcane Crystals, and a Chiseled Polished Darkst»
+- 4A05C037C0EE40BD: uk [] «Логічні кабелі Створення мереж Логічні кабелі відрізняються від інших кабелів. Інші кабелі працюють як лійки: » · en [1.0] «Logic Cables Making Networks Logic Cables are different from other cables. Other Cables act as Hoppers, the it»
+- 4B65720872B062F8: uk [1.0, 1.0, 3.0, 3.0, 6.0] «Стадії 1–3 Громовий дракон Громові дракони стадій 1–3 з'являються в гніздах громових драконів. Вони бувають ел» · en [1.0, 1.0, 3.0, 6.0] «Stage 1-3 Lightning Dragon Stage 1 through 3 Lightning Dragons will Spawn in Lightning Dragon Roosts. They com»
+- 4ED6B18DF7D51E13: uk [3.0, 3.0, 3.0, 4.0, 50.0, 300.0] «Хробаки смерті Хробаки смерті — схожі на п'явок чудовиська, що риють піски пустелі. Вони бувають 3 кольорів: б» · en [3.0, 4.0, 50.0, 300.0] «Death Worms Death Worms are leach like Monsters burrowing through the Sands of the Desert. They have 3 Colors:»
+- 52E59FCB39D66BCF: uk [4.0] «Термогенератор (Початковий) Один із найкращих варіантів для «пасивної енергії» — це Термогенератор, який вироб» · en [3.0] «One of the best options for "Passive Power", the Thermal Generator will produce FE when placed over a Heat Sou»
+- 56EC79AF11B0869E: uk [2.0] «Заклинання Зеоврента Максимальна одержимість Заклинання Зеоврента — найвищий рівень ритуалів одержимості. У нь» · en [] «Xeovrenth Adjure Maximum Possession Xeovrenth Adjure is the maximum tier of Possession Rituals. It only has tw»
+- 57A31EBE7312995D: uk [] «Інструменти з мерехтливої сталі Усі інструменти з мерехтливої сталі мають власні унікальні здібності. Лопати м» · en [3.0] «Shimmersteel Tools Shimmersteel Tools all have their own unique abilities. Shovels come with Silk Touch. Hoes »
+- 5C0F6B1C93A52113: uk [4.0] «Лазерний вузол Ось справжнє серце LaserIO! Саме у Лазерні вузли вставляються картки для роботи. Вони переміщую» · en [1.0, 4.0] «Now this is the true Heart of LaserIO! The Laser Nodes are where the actual Cards will go into in order to wor»
+- 6112956E19017D2D: uk [] «Логічний кабель Логічні кабелі відрізняються від інших Pipez чи Meka Pipes. Інші труби працюють як вирви: пред» · en [1.0] «Logic Cables are different from other Pipez or Meka pipes. The other Pipes act as hoppers, the items move from»
+- 63C95FDAA447CA47: uk [2.0, 9.0] «Призма Землетрусу Єдиний рецепт, що потребує Кузні 2 рівня — Призма Землетрусу! Потрібно Крапельник, Крапельни» · en [1.0, 2.0, 9.0] «Terrastomp Prism The only recipe which needs Tier 2, the Terrastomp Prism! You'll need Dripstone, Dripstone, a»
+- 6800E0113DE9A4DB: uk [1.0, 1.0, 1.0, 1.0, 2.0, 2.0, 3.0, 3.0, 4.0, 4.0, 4.0, 4.0, 5.0, 5.0, 5.0, 5.0, 6.0, 6.0, 10.0, 10.0, 12.0, 12.0, 16.0, 16.0, 20.0, 50.0, 350.0, 350.0, 600.0, 600.0, 900.0, 900.0, 1200.0, 1200.0, 1500.0] «Дракони та їхні стадії Дракони — лише найнебезпечніші й найважливіші чудовиська в усьому Ice and Fire! Стихія » · en [1.0, 1.0, 1.0, 1.0, 2.0, 2.0, 3.0, 4.0, 4.0, 4.0, 4.0, 5.0, 5.0, 5.0, 5.0, 6.0, 6.0, 10.0, 10.0, 12.0, 12.0, 16.0, 16.0, 20.0, 50.0, 350.0, 350.0, 600.0, 600.0, 900.0, 900.0, 1200.0, 1200.0, 1500.0] «Dragons and their Stages Dragons are only the most dangerous and important Monsters in all of Ice and Fire! Th»
+- 6B2027DA7AA6FF34: uk [250.0] «Ласкаво просимо до Powah!!! Powah — це техномод про генерацію, зберігання та передачу енергії. Від базового ви» · en [] «Welcome to Powah!!! Powah is a tech mod that's all about generating, storing, and transmitting Power. Ranging »
+- 6C14D1B60124C2B2: uk [3.0] «Прохідницький щит Прохідницький щит ідеально підходить для автоматичного прокладання рейок, особливо під горам» · en [3.0, 3.0] «Tunnel Bore The Tunnel Bore is perfect for automatically placing Rails especially under mountains or hills. It»
+- 6C19B3FE5D203A39: uk [2.0, 2.0] «Великокореневі дерева Великокореневі колоди дають великокорінь, великодуб і великобоа. У великокореня зелене л» · en [] «Greatroot Trees Greatroot Logs come from Greatroot, Greatoak, and Greatboa Trees. Greatroot has Green Leaves. »
+- 6F57BE412A7BE84E: uk [1.0, 2.0, 4.0] «Зіпсовані душі Зіпсовані душі потрібні для двох речей! 1. Крафт з Кузнею 4 рівня, але це поки не важливо. 2. З» · en [1.0, 2.0, 2.0, 4.0] «Corrupt Souls Corrupt Souls are used for 2 things! 1. Crafting recipe with the Tier 4 Forge, which we don't ne»
+- 72A287DCAEEFE49F: uk [1.0, 8.0, 64.0] «Генератори 64x Поєднавши в крафті 8 однакових генераторів 8x з провідником, ви об'єднаєте їх в 1 величезний ге» · en [1.0, 1.0, 8.0, 64.0] «Crafting 8 of the same 8x Generators together with a Conduit combines them into 1 massive Generator! Works the»
+- 765CD913CC3896B2: uk [4.0, 4.0, 4.0, 5.0, 5.0, 5.0] «Стадії 4–5 Вогняний дракон Вогняні дракони стадії 4 і 5 запечатані глибоко під поверхнею, у безпеці своїх пече» · en [4.0, 4.0, 4.0, 5.0, 5.0] «Stage 4-5 Fire Dragon Stage 4 and 5 Fire Dragons are found sealed deep below the surface safely within their C»
+- 76B1C5AFC5D6B7CF: uk [128.0] «Жезл часу Родич Time in a Bottle Жезлом часу можна прискорювати блоки, подібно до Time in a Bottle, — до 128-к» · en [] «Cousin of the Time in a Bottle The Time Wand can be used to accelerate blocks, similarly to the Time in a Bott»
+- 7AC6A958936636D9: uk [3.0, 13.0, 24.0, 40.0, 50.0, 200.0] «Руна покращення породжувача підкорювача гір Руна покращення породжувача підкорювача гір — 3-й рівень рун покра» · en [13.0, 24.0, 40.0, 50.0, 200.0] «The Mountaineer's Spawner Upgrade Rune is the 3rd tier of Spawner Upgrade Runes. Yes, you'll need to fight a W»
+- 7BECDD4208BB1B24: uk [] «Мерехтливий ґрунт Мерехтливий ґрунт роблять, застосувавши до снігу мотику з мерехтливої сталі. Підняти мерехтл» · en [3.0, 5.0] «Shimmer Soil Shimmer Soil is made by using a Shimmersteel Hoe on Snow. We can't pickup Shimmer Soil... It acts»
+- 7CBF22CCCF599F26: uk [1000000.0] «Флейта сирени Щоб зробити флейту сирени, знадобиться вже згадана сяюча луска плюс сльоза сирени. Сльози сирени» · en [1.0] «Siren Flute To make the Siren Flute you'll need the previously mentioned Shiny Scales, plus a Siren Tear. Sire»
+- 7CE86300AF8E9BCA: uk [1.0, 8.0, 8.0] «8x — оце так угода! Поєднавши в крафті 8 однакових генераторів з уламком відлуння, ви об'єднаєте їх в 1 величе» · en [1.0, 1.0, 8.0, 8.0] «8x What a deal! Crafting 8 of the same Generators together with an Echo Shard combines them into 1 massive Gen»
+
+## інфо: мод посилається на приховану главу (сторінка мода показує «Приховані в грі» з причиною) — 17
+
+- мод/camol → building_tips
+- мод/chisel → building_tips
+- мод/crystalix → building_tips
+- мод/framedblocks → building_tips
+- мод/luminax → building_tips
+- мод/mcwbridges → building_tips
+- мод/mcwdoors → building_tips
+- мод/mcwfences → building_tips
+- мод/mcwfurnitures → building_tips
+- мод/mcwlights → building_tips
+- мод/mcwpaths → building_tips
+- мод/mcwroofs → building_tips
+- мод/mcwstairs → building_tips
+- мод/mcwtrpdoors → building_tips
+- мод/mcwwindows → building_tips
+- мод/refurbished_furniture → building_tips
+- мод/rootsclassic → basic_armor
+
+## інфо: перевірити в грі (ingame) — 7
+
+- мод/evilcraft → powah: чи термогенератор Powah бере воду з автовиводу блока вічної води (рішення користувача — перевірить, коли дійде до етапу)
+- мод/forbidden_arcanus (текст): ритуали Кузні Гефеста з KubeJS ATM11 (Вічна Стелла, сплавні меч / сокира / лопата, стеларитова бджола, розмноження реліквій) у JEI — ключ есенції souls замість ectoplasm
+- мод/forbidden_arcanus → allthemodium: ритуали Кузні з KubeJS (ключ souls) у JEI
+- мод/forbidden_arcanus → productivebees: стеларитова бджола в JEI (ритуал Кузні 5 рівня)
+- мод/potionsmaster → allthemodium: чи справді є порошки усемодію / вібранію й зілля бачення цих руд: моделі предметів у jar є, але предмети й рецепти мод створює кодом (в індексі їх немає; рішення користувача — перевірить у грі)
+- гілка/allthemodium/quarry: чи справді зникає дроп руди усемодію з кар'єра у Вимірі видобутку (у конфігах QuarryPlus і скриптах збірки механізму не знайдено, G6d)
+- гілка/forbidden_arcanus/stella: ритуали Кузні з KubeJS ATM11 (ключ souls) — Вічна Стелла й подвоєння реліквій у JEI
+
+## інфо: те саме джерело в різних поданнях (карта / гілка / довідник / факт) — узгодженість перевіряти при правках — 366
+
+- `config:config/sophisticatedbackpacks-server.toml#leatherBackpack.inventorySlotCount` — карта/st_back «Ранець» · глава/storage допис 0E057B7F76401421
+- `config:config/sophisticatedbackpacks-server.toml#netheriteBackpack.inventorySlotCount` — карта/st_back «Ранець» · глава/storage допис 46D756F4DC6CC894
+- `config:config/solcarrot-server.toml#milestones.heartsPerMilestone` — карта/f_food «Фермерство й їжа» · мод/solcarrot (текст)
+- `config:config/solcarrot-server.toml#milestones.milestones` — карта/f_food «Фермерство й їжа» · мод/solcarrot (текст)
+- `file:options.txt~key_key.journeymap.map_toggle_alt:key.keyboard.j` — карта/x_map «Мапа й телепорти» · мод/journeymap (текст)
+- `config:config/waystones-common.toml#rules.enableXpCosts` — карта/x_map «Мапа й телепорти» · мод/waystones (текст)
+- `config:config/waystones-common.toml#rules.enableCooldowns` — карта/x_map «Мапа й телепорти» · мод/waystones (текст)
+- `file:config/waystones-common.toml~$inventory_button_cooldown = '300s'` — карта/x_map «Мапа й телепорти» · мод/waystones (текст)
+- `recipe:naturescompass:natures_compass` — карта/x_map «Мапа й телепорти» · мод/naturescompass (текст)
+- `recipe:kjs:mods/explorerscompass/recipes.js#L6` — карта/x_map «Мапа й телепорти» · мод/explorerscompass (текст) · мод/explorerscompass → alltheores
+- `recipe:silentgear:gear/pickaxe_head` — карта/r_tools «Перші інструменти Silent Gear» · глава/silent_gear (ov) · глава/silent_gear atm[0] · глава/silent_gear atm[1]
+- `recipe:sgearmetalworks:casting/silentgear/pickaxe_head` — карта/r_tools «Перші інструменти Silent Gear» · глава/silent_gear (ov) · глава/silent_gear steps[3] · глава/silent_gear atm[0] · глава/silent_gear atm[1] · глава/silent_gear допис 766C80E5D7B7A916
+- `config:config/ftbultimine-server.json5#costs_limits.max_blocks` — карта/r_tools «Перші інструменти Silent Gear» · ребро r_tools → r_ores (syn) · мод/ftbultimine (текст)
+- `file:options.txt~key_key.ftbultimine.default.ftbultimine:key.keyboard.grave.accent` — карта/r_tools «Перші інструменти Silent Gear» · мод/ftbultimine (текст)
+- `config:config/geore-common.toml#ModdedGeneration.generateAllthemodiumGeore` — карта/r_ores «Руди й жеоди» · мод/neovitae → geore · факт/geore_meteors
+- `file:kubejs/server_scripts/mods/geore/crystalline_wand.js~chance: 0.5` — карта/r_ores «Руди й жеоди» · мод/geore (текст) · мод/inworldrecipes (текст) · факт/geore_meteors
+- `file:kubejs/server_scripts/mods/geore/crystalline_wand.js~chance: 1.0` — карта/r_ores «Руди й жеоди» · мод/geore (текст) · мод/inworldrecipes (текст) · факт/geore_meteors
+- `recipe:productivemetalworks:alloying/molten_steel` — карта/r_foundry «Ливарня» · мод/productivemetalworks → alltheores · факт/steel · глава/chapter_1_the_beginning atm[1] · глава/silent_gear atm[2]
+- `recipe:sgearmetalworks:casting/pickaxe_cast` — карта/r_foundry «Ливарня» · глава/silent_gear (ov) · глава/silent_gear steps[3] · глава/silent_gear atm[1] · глава/silent_gear допис 766C80E5D7B7A916
+- `config:config/cookingforblockheads-common.toml#sinkRequiresWater` — карта/f_kitchen «Кухня, рибальство й селяни» · мод/cookingforblockheads (текст) · мод/pipez (текст) · гілка/food_and_farming/water · глава/food_and_farming (ov)
+- `kjs:dynamic_data/dungeons_arise/tags/worldgen/biome/has_structure/shiraz_palace_biomes.json~allthemodium:the_other` — карта/x_struct «Структури й лут» · мод/dungeons_arise (текст)
+- `jarfile:artifacts!data/artifacts/loot_table/chests/campsite_chest.json~"artifacts:artifact"` — карта/g_art «Артефакти й прикраси» · глава/artifacts (ov)
+- `file:options.txt~key_key.curios.open.desc:key.mouse.4:SHIFT` — карта/g_art «Артефакти й прикраси» · мод/curios (текст)
+- `recipe:energizedpower:alloy_furnace/steel_ingot` — карта/t_ep «Перші машини» · мод/energizedpower (текст) · мод/energizedpower → mffs · мод/oritech → energizedpower · гілка/oritech/machines · факт/steel · глава/chapter_1_the_beginning atm[1]
+- `recipe:kjs:mods/productivebees/recipes.js#L6` — карта/f_bees «Бджоли, дерева, культури» · ребро f_bees → r_quarry (req) · мод/allthemodium → productivebees · мод/productivebees (текст) · мод/quarryplus → productivebees · гілка/productivebees/upg
+- `recipe:productivetrees:pollination/alder` — карта/f_bees «Бджоли, дерева, культури» · мод/productivetrees (текст) · гілка/productivetrees/t1 · глава/productive_trees (ov)
+- `config:config/mysticalcustomization/crops/allthemodium.json#crux` — карта/r_mystic «Магічне фермерство» · мод/allthemodium → mysticalcustomization · мод/mysticalcustomization (текст) · мод/productivetrees → mysticalcustomization · гілка/mysticalagriculture/magic · факт/ma_atm_crops · глава/mystical_agriculture допис 1E2B363E3365A62F
+- `recipe:agritechevolved:planter/crop/mysticalagriculture/inferium_seeds` — карта/r_mystic «Магічне фермерство» · мод/agritechevolved → mysticalagriculture
+- `recipe:occultism:crushing/iron_dust_from_raw` — карта/m_occult «Occultism» · мод/occultism (текст) · гілка/occultism/foliot
+- `config:config/occultism-server.toml#spirit_job.crusher_tier4.outputMultiplier` — карта/m_occult «Occultism» · мод/occultism (текст) · гілка/occultism/foliot
+- `recipe:occultism:ritual/misc_unbreakable` — карта/m_occult «Occultism» · карта/m_forb «Forbidden Arcanus» · мод/forbidden_arcanus (текст) · мод/occultism (текст) · мод/occultism → forbidden_arcanus · гілка/forbidden_arcanus/stella · факт/magic_tweaks
+- `recipe:theurgy:liquefaction/alchemical_sulfur_iron_from_ores_iron` — карта/m_theurgy «Алхімія Theurgy» · мод/theurgy (текст) · глава/theurgy (ov)
+- `recipe:theurgy:liquefaction/alchemical_sulfur_iron_from_raw_materials_iron` — карта/m_theurgy «Алхімія Theurgy» · мод/theurgy (текст) · глава/theurgy (ov)
+- `recipe:theurgy:liquefaction/alchemical_sulfur_iron_from_ingots_iron` — карта/m_theurgy «Алхімія Theurgy» · глава/theurgy (ov)
+- `recipe:theurgy:incubation/ingots_iron_from_alchemical_sulfur_iron` — карта/m_theurgy «Алхімія Theurgy» · мод/theurgy (текст) · глава/theurgy (ov)
+- `config:config/attributefix/apothic_enchanting/max_eterna.json#max.value` — карта/m_ench «Нове зачарування» · мод/apothic_enchanting (текст)
+- `file:options.txt~key_key.apotheosis.open_world_tier_select:key.keyboard.t:CONTROL` — карта/g_apoth «Афіксний лут» · мод/apotheosis (текст) · гілка/apotheosis_gear/tiers · глава/apotheosis_gear (ov)
+- `jarfile:data/c/tags/entity_type/bosses.json~aether_ii:slider` — карта/x_aether «Aether II» · мод/aether_ii (текст) · гілка/aether_ii/slider · глава/aether_2 (ov)
+- `recipe:undergarden:catalyst` — карта/x_under «Undergarden» · мод/undergarden (текст) · гілка/undergarden/portal · факт/dim_portals · глава/undergarden (ov)
+- `jarfile:The_Undergarden!data/c/tags/entity_type/bosses.json~undergarden:forgotten_guardian` — карта/x_under «Undergarden» · мод/undergarden (текст) · гілка/undergarden/cata · факт/world_bosses · глава/undergarden (ov)
+- `config:config/dimstorage-server.toml#DimChest/DimTank.allowFrequency` — карта/st_dim «Спільні інвентарі» · мод/dimstorage (текст) · глава/storage допис 3D5852E6D0ADF651
+- `config:config/pylons-server.toml#harvester_pylon.harvesterRequiresTool` — карта/l_pylons «Пілони» · мод/pylons (текст)
+- `recipe:pylons:protection_pylon` — карта/l_pylons «Пілони» · глава/pylons (ov)
+- `recipe:pylons:expulsion_pylon` — карта/l_pylons «Пілони» · глава/pylons (ov)
+- `recipe:enderio_endergy:crude_energy_conduit` — карта/e_eio «Ender IO» · мод/enderio_endergy (текст) · мод/enderio_endergy → enderio · гілка/enderio/conduits
+- `recipe:cobblegengalore:blockgen/obsidian` — карта/r_mining «Генератори блоків і сита» · мод/cobblegengalore (текст)
+- `config:config/bbl/strainers/common.toml#Strainers.strainers_consume_fluid` — карта/r_mining «Генератори блоків і сита» · мод/strainers (текст)
+- `recipe:kjs:mods/bbl_strainers/meshes.js#L8` — карта/r_mining «Генератори блоків і сита» · мод/strainers (текст) · мод/strainers → allthemodium
+- `recipe:hostilenetworks:loot_fabricator` — карта/r_hnn «Симуляції мобів і породжувачі» · ребро tr_netherite → r_hnn (req)
+- `file:config/apotheosis/apothic_spawners.cfg~I:"Spawner Silk Level"=1` — карта/r_hnn «Симуляції мобів і породжувачі» · мод/apothic_spawners (текст) · гілка/apothic_spawners/start · факт/spawner_runes · глава/apotheosis_2 (ov)
+- `recipe:apotheosis:spawner_modifiers/no_ai` — карта/r_hnn «Симуляції мобів і породжувачі» · мод/apothic_spawners (текст) · гілка/apothic_spawners/infused · факт/spawner_runes · глава/apotheosis_2 (ov)
+- `recipe:neovitae:meteor/ae2` — карта/m_blood «Neo Vitae» · мод/neovitae (текст) · мод/neovitae → ae2 · мод/occultism (текст) · мод/occultism → neovitae · гілка/neo_vitae/meteor · факт/magic_tweaks
+- `config:config/mahoutsukai-server.toml#mana.MAX_MANA_CAP` — карта/m_mahou «Mahou Tsukai» · мод/mahoutsukai (текст) · гілка/mahou_tsukai/start · факт/magic_tweaks
+- `config:config/mahoutsukai-server.toml#projection.power consolidation.POWER_CONSOLIDATION_ATTACK_CAP` — карта/m_mahou «Mahou Tsukai» · мод/mahoutsukai (текст)
+- `config:config/ironjetpacks/jetpacks/wood.json#capacity` — карта/g_jet «Джетпаки, силова броня й здоров'я» · ребро e_gen → g_jet (syn) · мод/charginggadgets → ironjetpacks · мод/ironjetpacks (текст) · мод/powah → ironjetpacks
+- `config:config/ironjetpacks/jetpacks/emerald.json#capacity` — карта/g_jet «Джетпаки, силова броня й здоров'я» · мод/ironjetpacks (текст)
+- `config:config/bhc-startup.toml#General.heartStackSize` — карта/g_jet «Джетпаки, силова броня й здоров'я» · мод/bhc (текст)
+- `recipe:mffs:coercion_deriver` — карта/t_mffs «Силові поля» · мод/mffs (текст)
+- `recipe:gateways:basic/blaze` — карта/c_gates «Брами вічності» · мод/gateways (текст)
+- `recipe:gateways:endless/blaze` — карта/c_gates «Брами вічності» · мод/gateways (текст)
+- `recipe:apotheosis:gateways/tiered/frontier` — карта/c_gates «Брами вічності» · ребро g_apoth → c_gates (syn) · мод/gateways (текст) · мод/gateways → apotheosis · гілка/apotheosis_gear/gates
+- `recipe:apotheosis:gateways/tiered/pinnacle` — карта/c_gates «Брами вічності» · мод/apotheosis (текст) · мод/gateways (текст) · мод/gateways → apotheosis · гілка/apotheosis_gear/gates · глава/apotheosis_gear (ov)
+- `file:resourcepacks/ATM11-UA/assets/atm11ua/lang/en_us.json~Will implode at wave 3 outside of the following dimensions` — карта/c_gates «Брами вічності» · мод/gateways (текст)
+- `jarfile:data/hellish_trials/tags/worldgen/biome/has_structure/nether_trial_biomes.json~#minecraft:is_nether` — карта/c_gates «Брами вічності» · мод/hellish_trials (текст)
+- `kjs:dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/fire.json~allthemodium:crimson_forest` — карта/c_iaf «Дракони» · ребро x_atmdims → c_iaf (req) · мод/iceandfire (текст) · мод/iceandfire → allthemodium · гілка/iceandfire/start · факт/iaf_other_world · глава/ice_and_fire (ov)
+- `kjs:startup_scripts/custom_additions.js~let radiusEntity = 32` — карта/c_iaf «Дракони» · мод/iceandfire (текст) · гілка/iceandfire/roost
+- `kjs:startup_scripts/custom_additions.js~let radiusStructure = 16` — карта/c_iaf «Дракони» · мод/iceandfire (текст) · гілка/iceandfire/roost
+- `recipe:iceandfire:dragonforge/dragonsteel_fire_ingot` — карта/c_iaf «Дракони» · мод/iceandfire (текст) · гілка/iceandfire/forge
+- `recipe:iceandfire:dragonforge/allthemodium-vibranium` — карта/c_iaf «Дракони» · карта/r_atm «Вібраній і унобтаній» · мод/iceandfire → allthemodium · мод/powah (текст) · гілка/iceandfire/forge · гілка/powah/atm · факт/atm_alloys · глава/allthemodium atm[2] · глава/ice_and_fire (ov) · глава/powah atm[0]
+- `config:config/stellaris.json#oxygenConfig.enableOxygenSystem` — карта/x_stellaris «Космос» · мод/stellaris (текст)
+- `config:config/stellaris.json#gravityConfig.enableGravityEffects` — карта/x_stellaris «Космос» · мод/stellaris (текст)
+- `config:config/auroral-server.toml#aurora_dimensions` — карта/x_auroral «Auroral» · мод/auroral (текст) · гілка/auroral/aurora
+- `file:config/wstweaks.cfg~S:"Shard Drop Chance"=1.0` — карта/c_vanilla «Енд, Візер і Дракон» · мод/wstweaks (текст)
+- `recipe:wstweaks:wither_skeleton_skull` — карта/c_vanilla «Енд, Візер і Дракон» · мод/wstweaks (текст)
+- `recipe:wstweaks:immolation_blade` — карта/c_vanilla «Енд, Візер і Дракон» · мод/wstweaks (текст)
+- `jarfile:moredragoneggs!META-INF/neoforge.mods.toml~a dragon egg spawns every time the dragon dies` — карта/c_vanilla «Енд, Візер і Дракон» · мод/moredragoneggs (текст)
+- `jarfile:data/allthemodium/neoforge/biome_modifier/allthemodium.json~minecraft:deep_dark` — карта/tr_atm «Усемодій» · мод/allthemodium (текст) · гілка/allthemodium/atm · глава/allthemodium (ov) · глава/allthemodium steps[1]
+- `recipe:allthemodium:teleport_pad` — карта/tr_atm «Усемодій» · карта/x_atmdims «Виміри ATM» · мод/allthemodium (текст) · гілка/allthemodium/pad · факт/dim_portals · глава/allthemodium (ov) · глава/allthemodium steps[3]
+- `kjs:server_scripts/mods/mininggadgets/recipes.js#L6` — карта/tr_atm «Усемодій» · карта/r_gadgets «Гірничі гаджети» · ребро tr_atm → r_gadgets (req) · мод/mininggadgets (текст) · мод/mininggadgets → allthemodium · факт/gadgets
+- `jarfile:data/allthemodium/neoforge/biome_modifier/vibranium.json~c:is_nether` — карта/r_atm «Вібраній і унобтаній» · мод/allthemodium (текст) · гілка/allthemodium/vib · глава/allthemodium (ov)
+- `jarfile:data/allthemodium/neoforge/biome_modifier/unobtainium.json~minecraft:end_highlands` — карта/r_atm «Вібраній і унобтаній» · ребро c_vanilla → r_atm (req) · мод/allthemodium (текст) · гілка/allthemodium/unob · глава/allthemodium (ov) · глава/allthemodium steps[4]
+- `recipe:kubejs:energizing/vibranium_allthemodium_alloy_ingot` — карта/r_atm «Вібраній і унобтаній» · мод/allthecompressed (текст) · мод/powah (текст) · мод/powah → allthemodium · мод/powah → allthecompressed · гілка/powah/atm · факт/atm_alloys · глава/allthemodium atm[2] · глава/powah (ov) · глава/powah atm[0]
+- `jarfile:data/allthemodium/loot_table/entities/piglich.json~allthemodium:piglich_heart` — карта/c_piglich «Піґліч» · гілка/allthemodium/piglich
+- `kjs:server_scripts/modpack/atm_alloys.js~allthemodium:piglich_heart` — карта/c_piglich «Піґліч» · гілка/allthemodium/piglich
+- `file:kubejs/server_scripts/modpack/runic_multis/recipes/star_altar.js~.itemOut("allthetweaks:atm_star")` — карта/z_star «ATM Star» · глава/chapter_2_the_star (why)
+- `recipe:allthemods:allthetweaks/dimensional_seed` — карта/z_star «ATM Star» · мод/allthecompressed (текст) · мод/allthetweaks (текст) · мод/allthetweaks → allthecompressed · мод/apothic_enchanting (текст) · мод/kubejs (текст) · факт/atm_star
+- `recipe:allthemods:allthetweaks/creative_essence` — карта/z_star «ATM Star» · мод/allthetweaks → mysticalagradditions · мод/mysticalagradditions (текст) · гілка/mysticalagriculture/insan · факт/atm_star
+- `recipe:allthecompressed:compress/nether_star_block_3x` — карта/z_star «ATM Star» · факт/atm_star
+- `recipe:railcraft:blast_furnace_bricks` — карта/t_rail «Залізниця й пара» · ребро tr_nether → t_rail (req) · мод/railcraft (текст) · гілка/railcraft/coke
+- `recipe:railcraft:blast_furnace/blasting_iron_ingot` — карта/t_rail «Залізниця й пара» · мод/railcraft (текст) · мод/railcraft → mffs · гілка/railcraft/coke · факт/steel · глава/chapter_1_the_beginning atm[1] · глава/railcraft (ov)
+- `recipe:kjs:mods/quarryplus/recipes.js#L10` — карта/r_quarry «Кар'єр+» · ребро r_atm → r_quarry (req) · ребро t_jdt → r_quarry (req) · ребро f_bees → r_quarry (req) · мод/justdirethings → quarryplus · мод/quarryplus (текст) · мод/quarryplus → allthemodium · мод/quarryplus → productivebees · гілка/justdirethings/advanced · гілка/justdirethings/goo4
+- `kjs:dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/gorgon_temple.json~allthemodium:soul_sand_valley` — ребро x_atmdims → c_iaf (req) · мод/iceandfire (текст) · гілка/iceandfire/start · факт/iaf_other_world
+- `recipe:appliedthaumaturge:arcane_workbench/arcane_terminal` — ребро m_thaum → st_ae (syn) · мод/appliedthaumaturge → thaumaturge · мод/thaumaturge (текст) · мод/thaumaturge → ae2
+- `recipe:productivebees:centrifuge/mysticalagriculture/honeycomb_inferium` — ребро f_bees → r_mystic (syn) · мод/mysticalagriculture → productivebees · гілка/productivebees/res
+- `recipe:productivebees:centrifuge/mysticalagriculture/honeycomb_awakened_supremium` — ребро f_bees → r_mystic (syn) · мод/productivebees → mysticalagriculture · гілка/mysticalagriculture/awake
+- `config:config/ftbultimine-server.json5#misc.merge_tags` — ребро r_tools → r_ores (syn) · мод/ftbultimine (текст)
+- `jarfile:data/productivemetalworks/recipe/melting/raw_materials/tin.json~180` — ребро r_ores → r_foundry (syn) · мод/productivemetalworks (текст)
+- `jarfile:data/productivemetalworks/recipe/casting/ingots/alltheores/tin.json~90` — ребро r_ores → r_foundry (syn) · мод/productivemetalworks (текст)
+- `recipe:sgearmetalworks:casting/axe_cast` — ребро r_tools → r_foundry (syn) · мод/productivemetalworks → silentgear · мод/sgearmetalworks (текст) · мод/sgearmetalworks → silentgear · глава/silent_gear допис 69383DA579901E7E
+- `recipe:productivemetalworks:casting/ingots/silentgear/azure_electrum` — ребро r_tools → r_foundry (syn) · мод/productivemetalworks → silentgear
+- `recipe:apotheosis:gateways/tiered/summit` — ребро g_apoth → c_gates (syn) · мод/gateways (текст)
+- `config:config/ae2-common.toml#condenser.singularity` — мод/advanced_ae (текст) · мод/ae2 (текст)
+- `file:options.txt~key_key.guideme.guide:key.keyboard.g` — мод/ae2 (текст) · мод/guideme (текст)
+- `config:config/aether_ii-server.toml#Sets portal return dimension` — мод/aether_ii (текст) · гілка/aether_ii/portal
+- `file:kubejs/server_scripts/mods/mysticalagriculture/mysticalcustomization_agritech.js~soil: "kubejs:magical_soil"` — мод/agritechevolved (текст) · мод/mysticalcustomization (текст) · мод/mysticalcustomization → agritechevolved · факт/ma_atm_crops
+- `recipe:agritechevolved:planter/crop/mysticalagriculture/nether_star_seeds` — мод/agritechevolved (текст) · мод/agritechevolved → mysticalagriculture · мод/mysticalagradditions → agritechevolved
+- `recipe:allthecompressed:compress/cobblestone_1x` — мод/allthecompressed (текст) · мод/allthecompressed → cobblegengalore
+- `recipe:kjs:mods/mysticalagriculture/compatibility.js#L128` — мод/allthecompressed (текст) · мод/mysticalagriculture (текст) · мод/mysticalagriculture → allthecompressed · гілка/mysticalagriculture/res · факт/ma_second_seed
+- `recipe:cobblegengalore:blockgen/cobblestone` — мод/allthecompressed → cobblegengalore · мод/cobblegengalore (текст)
+- `file:kubejs/dynamic_data/index.json~//"allthemodium/forbidden_arcanus/hephaestus_forge/ritual/alloy_pick.json"` — мод/allthemodium (текст) · мод/forbidden_arcanus (текст)
+- `recipe:kubejs:mysticalagriculture/allthemodium_essence_crafting` — мод/allthemodium → mysticalcustomization · гілка/mysticalagriculture/magic · факт/ma_atm_crops
+- `recipe:alltheores:alloy_smelting/steel_ingot` — мод/alltheores → enderio · гілка/enderio/smelter · факт/steel · глава/chapter_1_the_beginning atm[1] · глава/enderio (ov)
+- `recipe:allthemods:allthetweaks/mini_nether` — мод/allthetweaks (текст) · мод/apothic_enchanting (текст) · мод/apothic_enchanting → allthetweaks · мод/kubejs (текст)
+- `recipe:allthemods:allthetweaks/mini_exit` — мод/allthetweaks (текст) · мод/apothic_enchanting (текст) · мод/apothic_enchanting → allthetweaks · мод/moredragoneggs → allthetweaks
+- `recipe:apotheosis:augmenting_table` — мод/apotheosis (текст) · гілка/apotheosis_gear/augment
+- `recipe:apotheosis:raven_enchanting_table` — мод/apotheosis → apothic_enchanting · мод/apothic_enchanting (текст)
+- `recipe:apotheosis:spawner_modifiers/burning` — мод/apotheosis → apothic_spawners · мод/apothic_spawners (текст)
+- `recipe:allthemods:allthetweaks/mini_end` — мод/apothic_enchanting (текст) · мод/apothic_enchanting → allthetweaks
+- `file:config/apotheosis/apothic_spawners.cfg~I:"Spawner Silk Damage"=100` — мод/apothic_spawners (текст) · гілка/apothic_spawners/start · факт/spawner_runes
+- `recipe:apotheosis:spawner_modifiers/tier/pinnacle` — мод/apothic_spawners (текст) · гілка/apothic_spawners/tiers · факт/spawner_runes
+- `recipe:apotheosis:spawner_modifiers/_inverse/no_ai` — мод/apothic_spawners (текст) · факт/spawner_runes · глава/apotheosis_2 (ov)
+- `config:config/aquaculture-common.toml#neptunium_options.Add Neptune's Bounty as loot?` — мод/aquaculture (текст) · гілка/food_and_farming/fish
+- `jarfile:potentials-neoforge-26.1.2-0.11.1!META-INF/neoforge.mods.toml~modId = "architectury"` — мод/architectury (текст) · мод/potentials (текст)
+- `recipe:arsmagicalegacy:compat/integrateddynamics/squeezer/desert_nova` — мод/arsmagicalegacy (текст) · мод/arsmagicalegacy → integrateddynamics
+- `kjs:server_scripts/tweaks/tags.js~"artifacts:mimic"` — мод/artifacts (текст) · гілка/artifacts/find
+- `recipe:artifacts:eternal_steak_from_smelting` — мод/artifacts (текст) · гілка/artifacts/misc
+- `recipe:artifacts:eternal_steak_from_smoking` — мод/artifacts (текст) · гілка/artifacts/misc
+- `jarfile:irons_lib!META-INF/jarjar/metadata.json~atlas_api` — мод/atlas_api (текст) · мод/irons_lib (текст)
+- `config:config/auroral-server.toml#aurora_chance` — мод/auroral (текст) · гілка/auroral/aurora · глава/auroral (ov)
+- `recipe:auroral:glacial_basin` — мод/auroral (текст) · гілка/auroral/basin · глава/auroral (ov)
+- `recipe:auroral:unrefined_shimmersteel` — мод/auroral (текст) · гілка/auroral/basin
+- `recipe:auroral:woven_leather` — мод/auroral (текст) · гілка/auroral/basin
+- `recipe:auroral:ender_pearl_from_shards` — мод/auroral (текст) · гілка/auroral/aurora
+- `config:config/auroral-server.toml#hearthwood_log_burn_time` — мод/auroral (текст) · гілка/auroral/craft
+- `config:config/auroral-server.toml#hearthwood_log_villager_discount` — мод/auroral (текст) · гілка/auroral/craft
+- `config:config/auroral-server.toml#execute_threshold` — мод/auroral (текст) · гілка/auroral/gear
+- `recipe:auroral:cold_brewing_stand` — мод/auroral (текст) · гілка/auroral/craft
+- `file:crash-reports/crash-2026-10-24_22.33.01-client.txt~NativeKeyModifierReconciler` — мод/balm (текст) · мод/craftingtweaks (текст) · мод/crash_assistant (текст) · мод/inventoryessentials (текст) · факт/kuma
+- `config:config/buildinggadgets2-common.toml#power.building_gadget.maxPower` — мод/buildinggadgets2 (текст) · мод/charginggadgets → buildinggadgets2
+- `config:config/buildinggadgets2-common.toml#power.building_gadget.baseCost` — мод/buildinggadgets2 (текст) · мод/charginggadgets → buildinggadgets2
+- `config:config/charginggadgets-server.toml#general.chargerMaxEnergy` — мод/charginggadgets (текст) · факт/charging
+- `config:config/mininggadgets-common.toml#power.mining_gadget.maxPower` — мод/charginggadgets → mininggadgets · мод/mininggadgets (текст)
+- `config:config/mininggadgets-common.toml#power.mining_gadget.baseCost` — мод/charginggadgets → mininggadgets · мод/mininggadgets (текст)
+- `jarfile:chisel-26.1.2.19!META-INF/neoforge.mods.toml~modId="ctm"` — мод/chisel (текст) · мод/ctm (текст)
+- `config:config/cookingforblockheads-common.toml#cowJarMilkPerTick` — мод/cookingforblockheads (текст) · гілка/food_and_farming/water
+- `file:options.txt~key_crafting_on_a_stick.key.open_curios:key.keyboard.v` — мод/crafting_on_a_stick (текст) · мод/crafting_on_a_stick → curios
+- `config:config/dimstorage-server.toml#DimChest/DimTank.allowPrivateNetwork` — мод/dimstorage (текст) · глава/storage допис 3D5852E6D0ADF651
+- `config:config/dimstorage-server.toml#DimTablet.allow_list` — мод/dimstorage (текст) · глава/storage допис 3D5852E6D0ADF651
+- `recipe:allthemods:crafting/otherflower_to_honey_dye` — мод/dyenamics (текст) · мод/dyenamics → occultism
+- `config:config/enderio/base-common.toml#items.travelling.blinkRange` — мод/enderio (текст) · гілка/enderio/travel
+- `recipe:enderio:rs_conduit` — мод/enderio (текст) · мод/enderio → refinedstorage · гілка/enderio/conduits
+- `recipe:enderio_endergy:crystalline_capacitor` — мод/enderio_endergy (текст) · мод/enderio_endergy → enderio
+- `recipe:mffs:focus_matrix` — мод/energizedpower → mffs · мод/railcraft → mffs
+- `config:config/powah.json5#devices.cables.transfer_rates.starter` — мод/energymeter → powah · гілка/powah/store
+- `config:config/powah.json5#devices.cables.transfer_rates.nitro` — мод/energymeter → powah · гілка/powah/store
+- `jarfile:data/powah/data_maps/fluid/fluid_coolant.json~#c:water` — мод/evilcraft (текст) · мод/evilcraft → powah
+- `jarfile:data/hostilenetworks/hostilenetworks/data_models/enderman.json~evilcraft:ender_tear` — мод/evilcraft (текст) · мод/evilcraft → hostilenetworks
+- `kjs:server_scripts/mods/curios/tags.js~evilcraft:vengeance_ring` — мод/evilcraft (текст) · мод/evilcraft → curios
+- `config:config/farmingforblockheads-common.toml#feedingTroughRange` — мод/farmingforblockheads (текст) · гілка/food_and_farming/market
+- `recipe:kjs:mods/silentgear/recipes.js#L15` — мод/farmingforblockheads → silentgear · гілка/food_and_farming/flax
+- `kjs:dynamic_data/forbidden_arcanus/forbidden_arcanus/hephaestus_forge/ritual/eternal_stella.json~allthemodium:allthemodium_ingot` — мод/forbidden_arcanus (текст) · мод/forbidden_arcanus → allthemodium · гілка/forbidden_arcanus/stella · факт/magic_tweaks
+- `jarfile:data/productivebees/forbidden_arcanus/hephaestus_forge/ritual/stellarite_bee.json~forbidden_arcanus:eternal_stella` — мод/forbidden_arcanus (текст) · мод/forbidden_arcanus → productivebees
+- `file:kubejs/dynamic_data/forbidden_arcanus/forbidden_arcanus/hephaestus_forge/ritual/eternal_stella.json~"souls"` — мод/forbidden_arcanus (текст) · гілка/forbidden_arcanus/stella
+- `recipe:forbidden_arcanus:clibano_core` — мод/forbidden_arcanus (текст) · гілка/forbidden_arcanus/clibano
+- `recipe:forbidden_arcanus:clibano/alloying/deorum_ingot` — мод/forbidden_arcanus (текст) · гілка/forbidden_arcanus/clibano
+- `recipe:forbidden_arcanus:clibano/alloying/stygian_steel_ingot` — мод/forbidden_arcanus (текст) · гілка/forbidden_arcanus/clibano
+- `recipe:minecraft:clibano/alloying/netherite_ingot` — мод/forbidden_arcanus (текст) · гілка/forbidden_arcanus/clibano
+- `file:options.txt~key_key.ftbchunks.keys.map:key.keyboard.m` — мод/ftbchunks (текст) · глава/welcome (ov)
+- `file:config/ftbquests/quests/chapters/create.json5~always_invisible: true` — мод/ftbquests (текст) · глава/create (why)
+- `file:config/ftbquests/quests/chapters/mekanism.json5~always_invisible: true` — мод/ftbquests (текст) · глава/mekanism (why)
+- `file:config/ftbquests/quests/chapters/twilight_forest.json5~always_invisible: true` — мод/ftbquests (текст) · глава/twilight_forest (why)
+- `file:config/ftbquests/quests/chapters/iron_spells_and_spellbooks.json5~always_invisible: true` — мод/ftbquests (текст) · глава/iron_spells_and_spellbooks (why)
+- `config:config/generatorgalore/generator/copper.json#generationRate` — мод/generatorgalore (текст) · гілка/generators/gen · факт/first_power · глава/generators steps[0]
+- `config:config/generatorgalore/generator/iron.json#generationRate` — мод/generatorgalore (текст) · гілка/generators/gen
+- `config:config/generatorgalore/generator/gold.json#generationRate` — мод/generatorgalore (текст) · гілка/generators/gentiers
+- `config:config/generatorgalore/generator/diamond.json#generationRate` — мод/generatorgalore (текст) · гілка/generators/gentiers
+- `config:config/generatorgalore/generator/obsidian.json#generationRate` — мод/generatorgalore (текст) · гілка/generators/gentiers
+- `config:config/generatorgalore/generator/emerald.json#generationRate` — мод/generatorgalore (текст) · гілка/generators/gentiers
+- `config:config/generatorgalore/generator/netherite.json#generationRate` — мод/generatorgalore (текст) · гілка/generators/gentiers
+- `config:config/generatorgalore/generator/netherstar.json#generationRate` — мод/generatorgalore (текст) · мод/generatorgalore → hostilenetworks · гілка/generators/special
+- `config:config/generatorgalore/generator/ender.json#generationRate` — мод/generatorgalore (текст) · гілка/generators/special
+- `config:config/generatorgalore/generator/magmatic.json#generationRate` — мод/generatorgalore (текст) · гілка/generators/special
+- `config:config/generatorgalore/generator/honey.json#generationRate` — мод/generatorgalore (текст) · мод/generatorgalore → productivebees · гілка/generators/special
+- `recipe:kjs:mods/neovitae/meteor.js#L127` — мод/geore (текст) · мод/neovitae → geore · факт/geore_meteors
+- `recipe:occultism:copper_catalyst` — мод/geore (текст) · мод/neovitae (текст) · мод/neovitae → geore · мод/occultism (текст) · мод/occultism → neovitae · мод/occultism → geore · гілка/neo_vitae/meteor · гілка/occultism/atm
+- `recipe:allthemods:crystalline_infusion/crystalline_wand` — мод/geore (текст) · мод/inworldrecipes → occultism
+- `recipe:allthemods:crystalline_infusion/perfect_crystalline_wand` — мод/geore (текст) · мод/occultism (текст) · мод/occultism → neovitae · мод/waystones → occultism
+- `recipe:oritech:compat/geore/assembler/budding_allthemodium` — мод/geore (текст) · мод/geore → oritech · факт/geore_meteors
+- `recipe:occultism:allthemodium_catalyst` — мод/geore → occultism · факт/geore_meteors
+- `recipe:kjs:mods/geore/crystalline_wand.js#L34` — мод/geore → inworldrecipes · мод/inworldrecipes (текст)
+- `config:config/iceandfire/iaf-common.json#dragon.maxHealth` — мод/iceandfire (текст) · гілка/iceandfire/cave
+- `kjs:dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/ice.json~allthemodium:warped_forest` — мод/iceandfire (текст) · гілка/iceandfire/start · факт/iaf_other_world
+- `kjs:dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/lightning.json~allthemodium:desert` — мод/iceandfire (текст) · гілка/iceandfire/start · факт/iaf_other_world
+- `kjs:dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/graveyard.json~allthemodium:the_other` — мод/iceandfire (текст) · факт/iaf_other_world
+- `kjs:dynamic_data/iceandfire/neoforge/biome_modifier/silver_ore.json~neoforge:never` — мод/iceandfire (текст) · факт/iaf_other_world
+- `kjs:dynamic_data/iceandfire/loot_table/entities/dragon/fire_dragon_skeleton.json~kubejs:fire_pearl` — мод/iceandfire (текст) · гілка/iceandfire/roost
+- `recipe:kjs:mods/iceandfire/recipes.js#L5` — мод/iceandfire (текст) · гілка/iceandfire/roost
+- `file:options.txt~key_key.dragon_fireAttack:key.keyboard.r` — мод/iceandfire (текст) · гілка/iceandfire/egg
+- `file:options.txt~key_key.dragon_strike:key.keyboard.g` — мод/iceandfire (текст) · гілка/iceandfire/egg
+- `file:options.txt~key_key.dragon_down:key.keyboard.x` — мод/iceandfire (текст) · гілка/iceandfire/egg
+- `file:options.txt~key_key.dragon_change_view:key.keyboard.f7` — мод/iceandfire (текст) · гілка/iceandfire/egg
+- `recipe:iceandfire:dragonforge/allthemodium-unobtainium` — мод/iceandfire → allthemodium · факт/atm_alloys · глава/allthemodium atm[2]
+- `recipe:iceandfire:dragonforge/vibranium-unobtainium` — мод/iceandfire → allthemodium · глава/allthemodium atm[2]
+- `recipe:kjs:mods/geore/crystalline_wand.js#L34.23` — мод/inworldrecipes (текст) · мод/inworldrecipes → ae2
+- `file:options.txt~key_iris.keybind.toggleShaders:key.keyboard.f10` — мод/iris (текст) · мод/toolbelt (текст)
+- `file:options.txt~key_iris.keybind.reload:key.keyboard.f8` — мод/iris (текст) · мод/toolbelt (текст)
+- `config:config/ironfurnaces-common.toml#furnaces.copper_furnace.speed` — мод/ironfurnaces (текст) · гілка/generators/furnace
+- `config:config/ironfurnaces-common.toml#furnaces.iron_furnace.speed` — мод/ironfurnaces (текст) · гілка/generators/furnace
+- `config:config/ironfurnaces-common.toml#furnaces.silver_furnace.speed` — мод/ironfurnaces (текст) · гілка/generators/tiers
+- `config:config/ironfurnaces-common.toml#furnaces.gold_furnace.speed` — мод/ironfurnaces (текст) · гілка/generators/tiers
+- `config:config/ironfurnaces-common.toml#furnaces.diamond_furnace.speed` — мод/ironfurnaces (текст) · гілка/generators/tiers
+- `config:config/ironfurnaces-common.toml#furnaces.emerald_furnace.speed` — мод/ironfurnaces (текст) · гілка/generators/tiers
+- `config:config/ironfurnaces-common.toml#furnaces.obsidian_furnace.speed` — мод/ironfurnaces (текст) · гілка/generators/tiers
+- `config:config/ironfurnaces-common.toml#furnaces.netherite_furnace.speed` — мод/ironfurnaces (текст) · гілка/generators/tiers
+- `config:config/ironfurnaces-common.toml#modded_furnaces.vibranium_furnace.speed` — мод/ironfurnaces (текст) · гілка/generators/atm
+- `config:config/ironfurnaces-common.toml#modded_furnaces.unobtainium_furnace.speed` — мод/ironfurnaces (текст) · гілка/generators/atm
+- `recipe:ironfurnaces:furnaces/allthemodium_furnace` — мод/ironfurnaces → allthemodium · гілка/generators/atm
+- `recipe:ironfurnaces:furnaces/unobtainium_furnace` — мод/ironfurnaces → allthemodium · гілка/generators/atm
+- `config:config/jearchaeology-common.toml#atm_compat` — мод/jearchaeology (текст) · мод/jearchaeology → allthemodium
+- `jarfile:data/allthemodium/loot_table/arch2.json~allthemodium:vibranium_upgrade_smithing_template` — мод/jearchaeology → allthemodium · гілка/allthemodium/vib · глава/allthemodium steps[4]
+- `file:kubejs/client_scripts/RecipeViewer.js~RecipeViewerEvents.removeEntriesCompletely` — мод/jei (текст) · мод/kubejs (текст)
+- `config:config/waystones-common.toml#journeyMap.enabled` — мод/journeymap (текст) · мод/waystones → journeymap
+- `config:config/justdirethings-server.toml#goo.goo_death_chance` — мод/justdirethings (текст) · гілка/justdirethings/goo1
+- `config:config/justdirethings-server.toml#time_wand.time_wand_max_multiplier` — мод/justdirethings (текст) · гілка/justdirethings/time
+- `recipe:kjs:mods/justdirethings/recipes.js#L11` — мод/justdirethings → allthemodium · гілка/justdirethings/abil
+- `file:options.txt~key_key.modernui.zoom:key.keyboard.c` — мод/justzoom (текст) · мод/modernui (текст)
+- `jarfile:data/allthemodium/loot_table/arch.json~allthemodium:allthemodium_upgrade_smithing_template` — мод/lootr → allthemodium · гілка/allthemodium/atm · глава/allthemodium steps[1]
+- `config:config/mahoutsukai-server.toml#MORGAN_ADULT_INCREASE` — мод/mahoutsukai (текст) · мод/mahoutsukai → easy_villagers
+- `jarfile:mahoutsukai!assets/mahoutsukai/lang/en_us.json~above 15 armor` — мод/mahoutsukai (текст) · гілка/mahou_tsukai/replica
+- `file:options.txt~key_key.drawMahoujin:key.keyboard.m` — мод/mahoutsukai (текст) · глава/mahou_tsukai (ov)
+- `config:config/matc-server.toml#durability.inferiumDurability` — мод/matc (текст) · мод/mysticalagriculture (текст) · гілка/mysticalagriculture/tiers
+- `config:config/matc-server.toml#durability.supremiumDurability` — мод/matc (текст) · мод/mysticalagriculture (текст) · гілка/mysticalagriculture/tiers
+- `recipe:matc:imperium_crystal` — мод/matc (текст) · мод/matc → mysticalagriculture
+- `recipe:matc:insanium_essence` — мод/matc (текст) · мод/mysticalagradditions → matc
+- `config:config/mffs-common.toml#coercion_deriver.feCostPerFortron` — мод/mffs (текст) · мод/mffs → powah
+- `config:config/powah.json5#generators.reactors.generation_rates.nitro` — мод/mffs → powah · мод/powah (текст) · гілка/powah/reactor · факт/powah_numbers
+- `file:config/moreoverlays.toml~double click the JEI search bar` — мод/moreoverlays (текст) · мод/moreoverlays → jei
+- `config:config/mysticalagradditions-common.toml#General.fertilizableTier6Crops` — мод/mysticalagradditions (текст) · гілка/mysticalagriculture/insan
+- `recipe:allthemods:mysticalagradditions/withering_soul` — мод/mysticalagradditions (текст) · мод/mysticalagradditions → hostilenetworks · мод/mysticalagradditions → productivebees · мод/reliquary (текст) · мод/reliquary → mysticalagriculture
+- `config:config/mysticalagriculture-common.toml#World.souliumOreChance` — мод/mysticalagriculture (текст) · гілка/mysticalagriculture/mobs
+- `config:config/mysticalagriculture-common.toml#World.generateInferiumOre` — мод/mysticalagriculture (текст) · гілка/mysticalagriculture/start
+- `config:config/mysticalagriculture-common.toml#World.generateProsperityOre` — мод/mysticalagriculture (текст) · гілка/mysticalagriculture/start
+- `recipe:matc:prudentium_essence` — мод/mysticalagriculture (текст) · глава/mystical_agriculture steps[1]
+- `config:config/mysticalagriculture-common.toml#General.secondarySeedDrops` — мод/mysticalagriculture (текст) · гілка/mysticalagriculture/res · факт/ma_second_seed · глава/mystical_agriculture atm[3]
+- `file:kubejs/server_scripts/mods/mysticalagriculture/crops.js~let SecondarySeed = 0.01` — мод/mysticalagriculture (текст) · гілка/mysticalagriculture/res · факт/ma_second_seed · глава/mystical_agriculture atm[3]
+- `file:kubejs/server_scripts/mods/mysticalagriculture/crops.js~let TierSecondaryCutoff = 5` — мод/mysticalagriculture (текст) · гілка/mysticalagriculture/res · факт/ma_second_seed · глава/mystical_agriculture atm[3]
+- `recipe:kjs:mods/mysticalagriculture/experience_droplet.js#L8` — мод/mysticalagriculture (текст) · мод/mysticalagriculture → integrateddynamics
+- `recipe:allthemods:mysticalagriculture/awakening/fertile_lily_pad` — мод/mysticalagriculture (текст) · мод/reliquary (текст) · мод/reliquary → mysticalagriculture
+- `config:config/mysticalcustomization/tiers/magical.json#value` — мод/mysticalcustomization (текст) · факт/ma_atm_crops · глава/mystical_agriculture допис 1E2B363E3365A62F · глава/mystical_agriculture допис 2BC325DEBDD2F5CA · глава/mystical_agriculture допис 404AA0F5557D7E35
+- `config:config/mysticalcustomization/tiers/magical.json#farmland` — мод/mysticalcustomization (текст) · факт/ma_atm_crops · глава/mystical_agriculture допис 1E2B363E3365A62F · глава/mystical_agriculture допис 2BC325DEBDD2F5CA · глава/mystical_agriculture допис 404AA0F5557D7E35
+- `config:config/mysticalcustomization/tiers/magical.json#fertilizable` — мод/mysticalcustomization (текст) · факт/ma_atm_crops
+- `config:config/mysticalcustomization/crops/entro.json#tier` — мод/mysticalcustomization (текст) · глава/mystical_agriculture допис 2AFBE48DA832FF02
+- `config:config/mysticalcustomization/crops/unexplored_wood.json#tier` — мод/mysticalcustomization (текст) · глава/mystical_agriculture допис 10098A4B38BBF0B1
+- `recipe:allthemods:kjs/magical_soil` — мод/mysticalcustomization (текст) · мод/productivetrees → mysticalcustomization · гілка/mysticalagriculture/magic · гілка/productivetrees/magic · факт/ma_atm_crops
+- `recipe:kubejs:kubejs/magical_soil/infusion` — мод/mysticalcustomization (текст) · факт/ma_atm_crops
+- `kjs:data/occultism/modonomicon/multiblocks/crystalline_infusion.json~neovitae:master_ritual_stone` — мод/neovitae (текст) · мод/occultism (текст) · мод/occultism → neovitae · гілка/neo_vitae/meteor · гілка/occultism/atm
+- `kjs:data/occultism/recipe/ritual/misc_unbreakable.json~forbidden_arcanus:eternal_stella` — мод/occultism (текст) · мод/occultism → forbidden_arcanus · гілка/occultism/atm
+- `recipe:occultism:crushing/arcane_crystal_dust_from_gem` — мод/occultism (текст) · мод/occultism → forbidden_arcanus
+- `recipe:occultism:crystallize/arcane_crystal_from_ore` — мод/occultism (текст) · мод/occultism → forbidden_arcanus
+- `recipe:occultism:miners/iron/arcane_crystal` — мод/occultism (текст) · мод/occultism → forbidden_arcanus
+- `recipe:occultism:copper_transumtation` — мод/occultism (текст) · мод/occultism → geore · гілка/occultism/atm
+- `recipe:allthemods:ae2/charger/meteorite_divination_rod` — мод/occultism (текст) · мод/occultism → ae2
+- `kjs:server_scripts/mods/theurgy/incubation.js~occultism:iesnium_ingot` — мод/occultism (текст) · мод/occultism → theurgy
+- `recipe:allthemods:meteoric_infusion/inf_part` — мод/occultism (текст) · мод/occultism → refinedtypes · гілка/occultism/atm · факт/magic_tweaks
+- `recipe:allthemods:meteoric_infusion/inf_disk` — мод/occultism (текст) · мод/occultism → refinedtypes · мод/refinedtypes (текст)
+- `recipe:allthemods:meteoric_infusion/inf_block` — мод/occultism (текст) · мод/occultism → refinedtypes
+- `config:config/occultism-server.toml#spirit_job.crusher_tier1.outputMultiplier` — мод/occultism (текст) · гілка/occultism/foliot
+- `config:config/occultism-server.toml#spirit_job.crusher_tier2.outputMultiplier` — мод/occultism (текст) · гілка/occultism/foliot
+- `config:config/occultism-server.toml#spirit_job.crusher_tier3.outputMultiplier` — мод/occultism (текст) · гілка/occultism/foliot
+- `config:config/occultism-server.toml#storage.controllerMaxItemTypes` — мод/occultism (текст) · гілка/occultism/storage
+- `config:config/occultism-server.toml#storage.controllerMaxTotalItemCount` — мод/occultism (текст) · гілка/occultism/storage
+- `config:config/occultism-server.toml#storage.stabilizerTier1AdditionalMaxItemTypes` — мод/occultism (текст) · гілка/occultism/storage
+- `config:config/occultism-server.toml#storage.stabilizerTier2AdditionalMaxItemTypes` — мод/occultism (текст) · гілка/occultism/storage
+- `config:config/occultism-server.toml#storage.stabilizerTier3AdditionalMaxItemTypes` — мод/occultism (текст) · гілка/occultism/storage
+- `config:config/occultism-server.toml#storage.stabilizerTier4AdditionalMaxItemTypes` — мод/occultism (текст) · гілка/occultism/storage
+- `config:config/occultism-server.toml#storage.stabilizerTier5AdditionalMaxItemTypes` — мод/occultism (текст) · гілка/occultism/storage
+- `recipe:occultism:ritual/misc_miner_ancient_eldritch` — мод/occultism (текст) · гілка/occultism/atm
+- `kjs:server_scripts/tweaks/tags.js#L71` — мод/occultism → forbidden_arcanus · гілка/occultism/atm
+- `file:options.txt~key_key.oracle_index.open:key.keyboard.h:CONTROL` — мод/oracle_index (текст) · мод/simplemagnets (текст)
+- `config:config/oritech-common.toml#logistics.poleConfig.minRange` — мод/oritech (текст) · гілка/oritech/logistics
+- `config:config/oritech-common.toml#logistics.poleConfig.maxRange` — мод/oritech (текст) · гілка/oritech/logistics
+- `recipe:kjs:mods/oritech/recipes.js#L10` — мод/oritech (текст) · гілка/oritech/addons
+- `recipe:kjs:mods/oritech/recipes.js#L24` — мод/oritech (текст) · гілка/oritech/ores
+- `recipe:oritech:motor` — мод/oritech → energizedpower · гілка/oritech/machines
+- `recipe:oritech:compat/powah/energizing/fluxite` — мод/oritech → powah · гілка/oritech/laser
+- `recipe:oritech:compat/powah/energizing/uranite` — мод/oritech → powah · гілка/oritech/nuclear
+- `config:config/powah.json5#generators.furnators.generation_rates.nitro` — мод/powah (текст) · гілка/powah/gens
+- `config:config/powah.json5#devices.ender_cells.channels.starter` — мод/powah (текст) · гілка/powah/ender · факт/powah_numbers
+- `config:config/powah.json5#devices.ender_cells.channels.nitro` — мод/powah (текст) · гілка/powah/ender · факт/powah_numbers
+- `jarfile:data/powah/recipe/energizing/niotic_crystal.json~300000` — мод/powah (текст) · гілка/powah/tiers · факт/powah_numbers
+- `jarfile:data/powah/recipe/energizing/spirited_crystal.json~1000000` — мод/powah (текст) · гілка/powah/tiers · факт/powah_numbers
+- `config:config/powah.json5#devices.player_transmitters.charging_rates.starter` — мод/powah → ironjetpacks · гілка/powah/charge · факт/charging
+- `config:config/productivebees-server.toml#General.nestLocatorDistance` — мод/productivebees (текст) · гілка/productivebees/start
+- `config:config/productivebees-server.toml#General.centrifugeProcessingTime` — мод/productivebees (текст) · гілка/productivebees/centr
+- `config:config/productivebees-server.toml#General.centrifugePoweredProcessingTime` — мод/productivebees (текст) · гілка/productivebees/centr
+- `config:config/productivebees-server.toml#General.centrifugePowerUse` — мод/productivebees (текст) · гілка/productivebees/centr
+- `recipe:productivebees:heated_centrifuge` — мод/productivebees (текст) · гілка/productivebees/centr
+- `config:config/productivebees-server.toml#General.breedingChamberPowerUse` — мод/productivebees (текст) · гілка/productivebees/breed
+- `config:config/productivebees-server.toml#General.incubatorTreatUse` — мод/productivebees (текст) · гілка/productivebees/breed
+- `config:config/productivebees-server.toml#Hive Upgrades.productivityMultiplier` — мод/productivebees (текст) · гілка/productivebees/upg
+- `config:config/productivebees-server.toml#Hive Upgrades.productivityMultiplier4` — мод/productivebees (текст) · гілка/productivebees/upg
+- `config:config/productivebees-server.toml#Bee attributes.ticks` — мод/productivebees (текст) · гілка/productivebees/genes
+- `recipe:productivebees:centrifuge/atm/honeycomb_allthemodium` — мод/productivebees → allthemodium · гілка/productivebees/atm
+- `recipe:productivebees:centrifuge/atm/honeycomb_unobtainium` — мод/productivebees → allthemodium · гілка/productivebees/atm
+- `recipe:productivebees:centrifuge/ae2/honeycomb_fluix` — мод/productivebees → ae2 · гілка/productivebees/res
+- `recipe:productivetrees:pollen_sieve` — мод/productivebees → productivetrees · гілка/productivetrees/start
+- `config:config/productivetrees-server.toml#General.pollenChanceFromSieve` — мод/productivebees → productivetrees · мод/productivetrees (текст) · гілка/productivetrees/start
+- `config:config/productivefarming-server.toml#General.farmMaxVolume` — мод/productivefarming (текст) · гілка/productivefarming/farm
+- `config:config/productivefarming-server.toml#General.farmMaxHeight` — мод/productivefarming (текст) · гілка/productivefarming/farm
+- `config:config/productivefarming-server.toml#General.feedingTroughTickRate` — мод/productivefarming (текст) · гілка/productivefarming/animals
+- `config:config/productivefarming-server.toml#General.wateringTroughTickRate` — мод/productivefarming (текст) · гілка/productivefarming/animals
+- `config:config/productivefarming-startup.toml#General.villagersTradeSeeds` — мод/productivefarming (текст) · гілка/productivefarming/crops
+- `recipe:productivemetalworks:casting/ingots/alltheores/steel` — мод/productivemetalworks → alltheores · факт/steel
+- `recipe:pylons:harvester_pylon` — мод/pylons (текст) · глава/pylons (ov)
+- `recipe:pylons:infusion_pylon` — мод/pylons (текст) · глава/pylons (ov)
+- `jarfile:assets/railcraft/patchouli_books/guide_book/en_us/entries/track_type/reinforced.json~25% faster` — мод/railcraft (текст) · гілка/railcraft/tracks
+- `jarfile:assets/railcraft/patchouli_books/guide_book/en_us/entries/track_type/high_speed.json~2.5 times faster` — мод/railcraft (текст) · гілка/railcraft/tracks
+- `jarfile:assets/railcraft/patchouli_books/guide_book/en_us/entries/track_type/high_speed.json~but only in a straight line` — мод/railcraft (текст) · гілка/railcraft/tracks
+- `recipe:railcraft:manual_rolling_machine` — мод/railcraft → alltheores · гілка/railcraft/start
+- `file:kubejs/server_scripts/mods/mysticalagriculture/cropInfo.json~"quartz_enriched_iron"` — мод/refinedstorage (текст) · мод/refinedstorage → mysticalagriculture
+- `recipe:mysticalagriculture:essence/refinedstorage/quartz_enriched_iron_ingot` — мод/refinedstorage (текст) · мод/refinedstorage → mysticalagriculture
+- `file:options.txt~key_key.refinedstorage_quartz_arsenal.open_wireless_crafting_grid:key.keyboard.g:CONTROL` — мод/refinedstorage_curios_integration (текст) · мод/refinedstorage_quartz_arsenal (текст)
+- `file:options.txt~key_key.universalgrid.open_wireless_universal_grid:key.keyboard.u:SHIFT` — мод/refinedstorage_curios_integration (текст) · мод/universalgrid (текст)
+- `jarfile:data/hostilenetworks/hostilenetworks/data_models/blaze.json~reliquary:molten_core` — мод/reliquary (текст) · мод/reliquary → hostilenetworks
+- `jarfile:data/hostilenetworks/hostilenetworks/data_models/creeper.json~reliquary:catalyzing_gland` — мод/reliquary (текст) · мод/reliquary → hostilenetworks
+- `jarfile:data/hostilenetworks/hostilenetworks/data_models/enderman.json~reliquary:nebulous_heart` — мод/reliquary (текст) · мод/reliquary → hostilenetworks
+- `jarfile:data/hostilenetworks/hostilenetworks/data_models/wither_skeleton.json~reliquary:withered_rib` — мод/reliquary (текст) · мод/reliquary → hostilenetworks
+- `jarfile:data/hostilenetworks/hostilenetworks/data_models/witch.json~reliquary:witch_hat` — мод/reliquary (текст) · мод/reliquary → hostilenetworks
+- `file:config/ftbquests/quests/chapters/basic_armor.json5~always_invisible: true` — мод/rootsclassic (текст) · глава/basic_armor (why)
+- `recipe:productivemetalworks:casting/ingots/sgearmetalworks/uru_metal` — мод/sgearmetalworks (текст) · мод/silentgear (текст)
+- `recipe:sgearmetalworks:casting/arrow_cast` — мод/sgearmetalworks → silentgear · глава/silent_gear допис 3844877F6C1AFE77
+- `kjs:server_scripts/mods/allthemodium/recipes.js~kubejs:silent_allthemodium_plate` — мод/silentgear (текст) · мод/silentgear → allthemodium
+- `file:options.txt~key_key.sophisticatedcore.sort:key.mouse.middle` — мод/sophisticatedbackpacks (текст) · мод/sophisticatedcore (текст)
+- `kjs:server_scripts/mods/theurgy/incubation.js~mysticalagriculture:prosperity_shard` — мод/theurgy (текст) · мод/theurgy → mysticalagriculture
+- `kjs:server_scripts/mods/theurgy/incubation.js~forbidden_arcanus:arcane_crystal` — мод/theurgy (текст) · мод/theurgy → forbidden_arcanus
+- `jarfile:data/theurgy/tags/block/divination_rod_t1_allowed_blocks.json~#c:ores` — мод/theurgy (текст) · гілка/theurgy/rods
+- `jarfile:data/theurgy/tags/block/divination_rod_t2_allowed_blocks.json~#c:obsidians` — мод/theurgy (текст) · гілка/theurgy/rods
+- `recipe:theurgy:crafting/shaped/sulfur_attuned_divination_rod_precious` — мод/theurgy (текст) · мод/theurgy → allthemodium
+- `kjs:server_scripts/mods/theurgy/incubation.js~forbidden_arcanus:stellarite_piece` — мод/theurgy_kubejs (текст) · мод/theurgy_kubejs → forbidden_arcanus
+- `recipe:undergarden:forgotten_upgrade_smithing_template` — мод/undergarden (текст) · гілка/undergarden/cata
+- `recipe:allthemods:undergarden/cloggrum_shield` — мод/undergarden (текст) · гілка/undergarden/gear1
+- `recipe:undergarden:crumbling_catalyst` — мод/undergarden (текст) · гілка/undergarden/cata
+- `jarfile:The_Undergarden!data/minecraft/tags/block/incorrect_for_netherite_tool.json~#undergarden:needs_forgotten_tool` — мод/undergarden → allthemodium · гілка/undergarden/depths
+- `jarfile:data/allthemodium/loot_table/chest/template.json~allthemodium:unobtainium_upgrade_smithing_template` — гілка/allthemodium/unob · глава/allthemodium steps[4] · глава/allthemodium допис 089B1B9837AF4938
+- `config:config/enderio/machines-common.toml#wirelessCharger.baseRange` — гілка/enderio/charge · факт/charging
+- `config:config/powah.json5#general.energizing_range` — гілка/powah/orb · факт/powah_numbers
+- `config:config/powah.json5#generators.reactors.generation_rates.starter` — гілка/powah/reactor · факт/powah_numbers
+- `recipe:kubejs:energizing/vibranium_allthemodium_block` — гілка/powah/atm · факт/atm_alloys · глава/powah atm[0]
+- `kjs:server_scripts/mods/quarryplus/recipes.js#L10` — факт/quarry · глава/allthemodium atm[1]
+- `only:allthemodium:vibranium_pickaxe` — глава/allthemodium atm[0] · глава/allthemodium допис 5AAF6CA41209B365
+- `recipe:allthemodium:vibranium_mace_smithing` — глава/allthemodium atm[0] · глава/allthemodium допис 68E6AE1B9EBCEFFF
+- `recipe:allthemodium:unobtainium_mace_smithing` — глава/allthemodium atm[0] · глава/allthemodium допис 0A9D5C5D2F4CDCC3
+- `file:config/ftbquests/quests/chapters/basic_power.json5~always_invisible: true` — глава/basic_logistics atm[0] · глава/basic_power (why) · глава/generators (ov)
+- `recipe:mysticalagriculture:prudentium_farmland` — глава/mystical_agriculture steps[4] · глава/mystical_agriculture допис 576ABF43FCF886B7
+- `recipe:mysticalagriculture:gear/supremium_helmet` — глава/mystical_agriculture steps[4] · глава/mystical_agriculture допис 5B1E0E3E876339E7
+- `recipe:mysticalagriculture:gear/awakened_supremium_helmet` — глава/mystical_agriculture steps[4] · глава/mystical_agriculture допис 685C4A646E092A82
+- `config:config/mysticalagriculture-common.toml#General.requiresEffectiveFarmland` — глава/mystical_agriculture atm[0] · глава/mystical_agriculture допис 576ABF43FCF886B7 · глава/mystical_agriculture допис 76071C22A73A2026 · глава/mystical_agriculture допис 5BC4250E4C9F803C · глава/mystical_agriculture допис 48BF71269DEA1AB1
+- `recipe:silentgear:pickaxe_blueprint` — глава/silent_gear (ov) · глава/silent_gear atm[0]
+- `jarfile:sgearmetalworks!assets/sgearmetalworks/lang/en_us.json~you now do it to the finished gear part` — глава/silent_gear steps[4] · глава/silent_gear допис 6B78378BC8036227 · глава/silent_gear допис 002D65E4D7E8F62B · глава/silent_gear допис 7D690A7D0FF6E328 · глава/silent_gear допис 48D358470A019E7A · глава/silent_gear допис 2BF119DD5D977409 · глава/silent_gear допис 0FEAD3CA2CC4A8B1
+- `recipe:silentgear:blueprint_paper` — глава/silent_gear допис 5AB8651FCB1E2F72 · глава/silent_gear допис 6BFD7854F078BF16 · глава/silent_gear допис 22A0A9C81A5C85A1 · глава/silent_gear допис 2098D8BFADB55D2A · глава/silent_gear допис 3F56A5253D477B97 · глава/silent_gear допис 474AF9F90C8E40A2
+- `recipe:sophisticatedstorage:basic_to_iron_tier_upgrade` — глава/storage (ov) · глава/storage steps[1] · глава/storage допис 58514FDE153FD971
+- `config:config/functionalstorage/functionalstorage-common.toml#FunctionalStorageConfig.COPPER_MULTIPLIER` — глава/storage steps[2] · глава/storage atm[1] · глава/storage допис 485D5664A17E16DF
+- `config:config/functionalstorage/functionalstorage-common.toml#FunctionalStorageConfig.NETHERITE_MULTIPLIER` — глава/storage steps[2] · глава/storage atm[1] · глава/storage допис 0E5AE195158CF344
+- `config:config/functionalstorage/functionalstorage-common.toml#FunctionalStorageConfig.GOLD_MULTIPLIER` — глава/storage atm[1] · глава/storage допис 3B570B3DB5F6D2CB
+- `config:config/functionalstorage/functionalstorage-common.toml#FunctionalStorageConfig.DIAMOND_MULTIPLIER` — глава/storage atm[1] · глава/storage допис 1B72E95569B07E18
+- `recipe:sophisticatedbackpacks:iron_backpack` — глава/storage допис 0E057B7F76401421 · глава/storage допис 2F9B0C642A6BE30C

@@ -1,0 +1,14 @@
+{
+ "ov": "Виклик духів: сон демона й вогонь духів, крейдяні пентаклі й жертовні чаші; духи чотирьох рангів (фоліоти, джинні, афріти, маріди) працюють на вас — дроблять руди, копають у шахтарському вимірі, переносять предмети.",
+ "ref": [
+  "item:occultism:demons_dream_essence",
+  "item:occultism:spirit_fire",
+  "item:occultism:chalk_white",
+  "item:occultism:golden_sacrificial_bowl",
+  "quest:5ACE97EE75813006~four tiers",
+  "quest:4F35D04721DFC9FF",
+  "quest:172D2A634E849562",
+  "item:occultism:book_of_calling_foliot_transport_items"
+ ],
+ "_src": "квести глави, реєстр occultism (глибока звірка магії — G6e)"
+}

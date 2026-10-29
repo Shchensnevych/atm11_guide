@@ -1,0 +1,16 @@
+{
+ "why": "Глава ATM Star. Рецепти самої Зірки (allthetweaks:atm_star) збірка задає на зоряному вівтарі Modern Industrialization — скрипт діє лише з цим модом, а його в збірці 0.12.0-beta немає; 35 з 128 квестів — заглушки предметів відсутніх модів (Modern Industrialization, PneumaticCraft, Industrial Foregoing, Iron's Spells). Глава позначена невидимою (always_invisible) — у грі не відкривається. Що з ATM Star уже працює — у факті «ATM Star».",
+ "ref": [
+  "file:config/ftbquests/quests/chapters/chapter_2_the_star.json5~always_invisible: true",
+  "file:kubejs/server_scripts/modpack/runic_multis/recipes/star_altar.js~Platform.isLoaded(\"modern_industrialization\")",
+  "file:kubejs/server_scripts/modpack/runic_multis/recipes/star_altar.js~.itemOut(\"allthetweaks:atm_star\")",
+  "!kjs:server_scripts/modpack/runic_multis/recipes/star_altar.js",
+  "count:stubs:chapter_2_the_star=35",
+  "count:qall:chapter_2_the_star=128",
+  "count:items:modern_industrialization=0",
+  "count:items:pneumaticcraft=0",
+  "count:items:industrialforegoing=0",
+  "count:items:irons_spellbooks=0"
+ ],
+ "_src": "config/ftbquests/quests/chapters/<глава>.json5 (always_invisible), docs/data/quests (missing), реєстр предметів, KubeJS"
+}

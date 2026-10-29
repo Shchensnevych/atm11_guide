@@ -1,0 +1,64 @@
+{
+ "ov": "Енергія без складних машин: генератори Generator Galore (кладете паливо — отримуєте FE) і швидші печі Iron Furnaces, які доповненнями стають домною, коптильнею, фабрикою на енергії або генератором. Перша енергія для техніки, доки «Базова енергія» прихована.",
+ "ref": [
+  "quest:618F1434757C8E69",
+  "quest:661C072E48F8D41F",
+  "item:ironfurnaces:augment_blasting",
+  "item:ironfurnaces:augment_smoking",
+  "lang:tooltip.ironfurnaces.augment_factory_con",
+  "lang:tooltip.ironfurnaces.augment_generator_pro",
+  "file:config/ftbquests/quests/chapters/basic_power.json5~always_invisible: true"
+ ],
+ "steps": [
+  {
+   "t": "Мідна піч і мідний генератор (8 FE/такт)",
+   "ref": [
+    "quest:661C072E48F8D41F",
+    "quest:618F1434757C8E69",
+    "config:config/generatorgalore/generator/copper.json#generationRate=8"
+   ]
+  },
+  {
+   "t": "Вищі рівні — з попередніх: печі, напр., мідна → залізна → срібна → золота → діамантова → смарагдова або кришталева → обсидіанова → незеритова; генератори мідний → залізний → золотий → діамантовий → смарагдовий, незеритовий або обсидіановий (предмети «Покращення: X → Y» — на місці)",
+   "ref": [
+    "recipe:ironfurnaces:furnaces/iron_furnace2",
+    "recipe:ironfurnaces:furnaces/silver_furnace",
+    "recipe:ironfurnaces:furnaces/gold_furnace2",
+    "recipe:ironfurnaces:furnaces/diamond_furnace",
+    "recipe:ironfurnaces:furnaces/emerald_furnace",
+    "recipe:ironfurnaces:furnaces/crystal_furnace",
+    "recipe:ironfurnaces:furnaces/obsidian_furnace",
+    "recipe:ironfurnaces:furnaces/netherite_furnace",
+    "item:generatorgalore:copper_to_iron_upgrade",
+    "item:generatorgalore:iron_to_gold_upgrade",
+    "item:generatorgalore:gold_to_diamond_upgrade",
+    "item:generatorgalore:diamond_to_emerald_upgrade",
+    "item:generatorgalore:diamond_to_netherite_upgrade",
+    "item:generatorgalore:diamond_to_obsidian_upgrade"
+   ]
+  },
+  {
+   "t": "Доповнення печей: Домна і Коптильня (лише рецепти доменної печі / коптильні), Фабрика (енергія замість палива), Генератор (тепло → енергія, але піч не плавить), Швидкість (удвічі швидше, удвічі більше палива), Ощадливість палива (паливо гріє вдвічі довше, на 25 % повільніше)",
+   "ref": [
+    "lang:tooltip.ironfurnaces.augment_blasting",
+    "lang:tooltip.ironfurnaces.augment_smoking",
+    "lang:tooltip.ironfurnaces.augment_factory_con",
+    "lang:tooltip.ironfurnaces.augment_generator_pro",
+    "lang:tooltip.ironfurnaces.augment_generator_con",
+    "lang:tooltip.ironfurnaces.augment_speed_pro",
+    "lang:tooltip.ironfurnaces.augment_speed_con",
+    "lang:tooltip.ironfurnaces.augment_fuel_pro",
+    "lang:tooltip.ironfurnaces.augment_fuel_con"
+   ],
+   "abs_ok": "«лише рецепти доменної печі / коптильні» — підказка мода (lang augment_blasting / augment_smoking: Only allows for…)"
+  },
+  {
+   "t": "8 однакових генераторів + уламок відлуння = генератор 8x; 8 генераторів 8x + провідник = 64x",
+   "ref": [
+    "recipe:generatorgalore:8x/copper_generator_8x",
+    "recipe:generatorgalore:64x/copper_generator_64x"
+   ]
+  }
+ ],
+ "_src": "квести глави, конфіги generatorgalore і ironfurnaces, рецепти й lang-підказки jar (доповнення печей)"
+}

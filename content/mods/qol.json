@@ -1,0 +1,2034 @@
+{
+  "_doc": "Група «Зручність, продуктивність і бібліотеки» (G1f): FTB-моди (квести, чанки, команди, ранги, команди сервера), довідка й рецепти (JEI, Jade, Patchouli, GuideME, Oracle Index, підказки й досягнення), інвентар і інтерфейс, клавіші, бекапи, KubeJS, графіка й оптимізація (Sodium, Iris, ModernFix…), аварійні інструменти та спільні бібліотеки. Клавіші — з docs/data/keys.json (поточний options.txt), налаштування — з minecraft/config; залежності бібліотек — з neoforge.mods.toml модів.",
+  "ftbquests": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Книга квестів збірки: 68 глав — основна гілка прогресії «Розділ 1/2» і довідкові глави по модах; частина глав прихована (моди, яких у збірці ще немає).",
+    "what": [
+      "Книга квестів (`ftbquests:book`: книга + камінь) або бічна кнопка FTB в інвентарі",
+      "Прогресія лінійна (progression_mode: linear); 63 таблиці випадкових нагород",
+      "Лутбокси з мобів не випадають (drop_loot_crates: false) — їх дають нагороди квестів",
+      "Закріплені квести — праворуч на екрані; виконання й нагороди — сповіщеннями (ftbquests-client.json5)",
+      "Блоки-екрани завдань, бар'єри квестів і детектор — для мапмейкерів і серверів"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "synergy": [
+      {
+        "mod": "ftbteams",
+        "why": "Прогрес квестів належить команді FTB Teams — союзники ділять його",
+        "src": "FTB Quests залежить від FTB Teams і викликає його API",
+        "ref": [
+          "jarfile:ftb-quests!dev/ftb/mods/ftbquests/neoforge/ArgumentTypes.class~dev/ftb/mods/ftbteams/api"
+        ]
+      },
+      {
+        "mod": "ftbfiltersystem",
+        "why": "Завдання «будь-який предмет групи» задано розумними фільтрами FTB Filter System (напр. глава Aether II)",
+        "src": "квести з завданням ftbfiltersystem:smart_filter",
+        "ref": [
+          "quest:30BD1DF4FC9295C6",
+          "quest:2655C88A18B11FD3"
+        ]
+      }
+    ],
+    "tips": [
+      "Відкрити книгу квестів — `Ctrl+Q` (призначено планом клавіш путівника).",
+      "У книзі: `Ctrl+F` — пошук, `Tab` / `Shift+Tab` — наступна / попередня глава, `Space` — центрувати, `=` / `-` / `0` — масштаб, `F1` — розширена інформація, стрілки — переміщення вибору.",
+      "Приховані глави (Create, Mekanism, Immersive Engineering, Modern Industrialization, Twilight Forest, Iron's Spells та ін.) — моди, яких у збірці 26.1.2 ще немає; квести з їхніми предметами — заглушки.",
+      "Ті самі квести українською — у вкладці путівника «Квести»; позначки виконання беруться із сейву."
+    ],
+    "chapter": "welcome",
+    "icons": [
+      "ftbquests:book",
+      "ftbquests:lootcrate",
+      "ftbquests:screen_1"
+    ],
+    "ref": [
+      "count:dir:config/ftbquests/quests/chapters=68",
+      "recipe:ftbquests:book",
+      "jarfile:ftb-quests!assets/ftbquests/sidebar_buttons/quests.json",
+      "file:config/ftbquests/quests/data.json5~progression_mode: \"linear\"",
+      "count:dir:config/ftbquests/quests/reward_tables=63",
+      "file:config/ftbquests/quests/data.json5~drop_loot_crates: false",
+      "config:config/ftbquests-client.json5#pinned.pinned_quests_pos=right",
+      "config:config/ftbquests-client.json5#notifications.completion_style=toast",
+      "item:ftbquests:screen_1",
+      "item:ftbquests:barrier",
+      "item:ftbquests:detector",
+      "file:options.txt~key_key.ftbquests.keys.quests:key.keyboard.q:CONTROL",
+      "file:options.txt~key_key.ftbquests.gui.search:key.keyboard.f:CONTROL",
+      "file:options.txt~key_key.ftbquests.gui.prev_chapter:key.keyboard.tab:SHIFT",
+      "file:options.txt~key_key.ftbquests.gui.recenter:key.keyboard.space",
+      "file:options.txt~key_key.ftbquests.gui.zoom_in:key.keyboard.equal",
+      "file:options.txt~key_key.ftbquests.gui.extended_info:key.keyboard.f1",
+      "file:config/ftbquests/quests/chapters/create.json5~always_invisible: true",
+      "file:config/ftbquests/quests/chapters/mekanism.json5~always_invisible: true",
+      "file:config/ftbquests/quests/chapters/twilight_forest.json5~always_invisible: true",
+      "file:config/ftbquests/quests/chapters/iron_spells_and_spellbooks.json5~always_invisible: true"
+    ]
+  },
+  "ftbchunks": {
+    "cls": [
+      "qol",
+      "exploration"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Велика мапа світу, привласнення чанків для захисту бази й примусове завантаження чанків (щоб ферми й машини працювали без вас).",
+    "what": [
+      "Велика мапа на `M`; мінімапа FTB Chunks у збірці вимкнена (minimap.enabled = false) — мінімапу дає JourneyMap",
+      "Привласнення: до 500 чанків; примусове завантаження — до 25 чанків",
+      "Захист привласнених чанків за замовчуванням: ламати й користуватися блоками можуть союзники, вибухи й грифінг мобів вимкнено",
+      "PvP дозволено (pvp_mode = always); мітки діляться з командою"
+    ],
+    "stage": [
+      "s0",
+      "s1"
+    ],
+    "synergy": [
+      {
+        "mod": "ftbteams",
+        "why": "Привласнені й завантажені чанки належать команді FTB Teams — союзники мають доступ",
+        "src": "FTB Chunks залежить від FTB Teams і викликає його API; права за замовчуванням — allies",
+        "ref": [
+          "jarfile:ftb-chunks!dev/ftb/mods/ftbchunks/neoforge/FTBChunksNeoForgeClient.class~dev/ftb/mods/ftbteams/api"
+        ]
+      }
+    ],
+    "tips": [
+      "Привласнити: `M` → іконка Claimed Chunks угорі ліворуч → ЛКМ і тягнути; примусово завантажити — `Shift+ЛКМ` по чанку (квест «Захоплення чанків»). Менеджер привласнень — `Ctrl+L`."
+    ],
+    "chapter": "welcome",
+    "ref": [
+      "file:options.txt~key_key.ftbchunks.keys.map:key.keyboard.m",
+      "config:config/ftbchunks-client.json5#minimap.enabled=False",
+      "config:config/ftbchunks-world.json5#claiming.max_claimed_chunks=500",
+      "config:config/ftbchunks-world.json5#force_loading.max_force_loaded_chunks=25",
+      "config:config/ftbchunks-world.json5#team_prop_defaults.def_block_edit=allies",
+      "config:config/ftbchunks-world.json5#team_prop_defaults.def_block_interact=allies",
+      "config:config/ftbchunks-world.json5#team_prop_defaults.def_allow_explosions=False",
+      "config:config/ftbchunks-world.json5#team_prop_defaults.def_mob_griefing=False",
+      "config:config/ftbchunks-world.json5#pvp_mode=always",
+      "config:config/ftbchunks-world.json5#waypoint_sharing.waypoint_sharing_party=True",
+      "quest:0C93D7A607AB8B83~shift-left click the chunk",
+      "file:options.txt~key_key.ftbchunks.keys.claim_manager:key.keyboard.l:CONTROL"
+    ]
+  },
+  "ftbteams": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Команди гравців: спільний прогрес квестів, спільні привласнені чанки й союзники.",
+    "what": [
+      "Створення команди — `/ftbteams party create <назва>` (квест «Створення команди»)",
+      "Обмежені «життя» команди вимкнено (limited_lives = 0)"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "tips": [
+      "Клавіша вікна команд не призначена (options.txt) — відкривайте бічною кнопкою FTB в інвентарі або командою."
+    ],
+    "chapter": "welcome",
+    "ref": [
+      "quest:5AC1BE754210429E~/ftbteams party create",
+      "config:config/ftbteams-server.json5#limited_lives=0",
+      "file:options.txt~key_key.ftbteams.open_gui:key.keyboard.unknown",
+      "jarfile:ftb-teams!assets/ftbteams/sidebar_buttons/my_team.json"
+    ]
+  },
+  "ftbranks": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Ранги гравців із правами (як ролі Discord): у сейві є ранги member, vip і admin; через вузли прав змінюються ліміти FTB Essentials.",
+    "what": [
+      "Ранги світу — saves/<світ>/serverconfig/ftbranks/ranks.json5",
+      "Вузли прав, напр. `ftbessentials.home.max` (кількість домів), задаються рангу",
+      "Команди `/ftbranks …` — для оператора"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "tips": [
+      "Хочете більше одного /home в одиночній грі — додайте рангу member вузол `ftbessentials.home.max` з потрібним числом у ranks.json5 свого світу й виконайте `/ftbranks reload` (потрібні чити)."
+    ],
+    "ref": [
+      "jarfile:ftb-ranks!META-INF/neoforge.mods.toml~similar to Discord roles",
+      "file:saves/Новий світ/serverconfig/ftbranks/ranks.json5~vip:",
+      "file:saves/Новий світ/serverconfig/ftbranks/ranks.json5~admin:"
+    ]
+  },
+  "ftbessentials": {
+    "cls": [
+      "qol",
+      "exploration"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Корисні команди: дім, спавн, повернення на місце смерті, випадкова телепортація, телепорт до гравця, кишеньковий верстат і ковадло.",
+    "what": [
+      "`/sethome` + `/home` — 1 дім (home.max = 1), перезарядка 60 с; `/back` — назад (до 10 точок, 60 с); `/spawn` — 60 с",
+      "`/rtp` — випадкова телепортація на 500–20 000 блоків, перезарядка 1800 с; в Енді вимкнено",
+      "`/tpa` (120 с), `/warp`, `/near`, `/nick`, `/hat`, `/leaderboard`",
+      "Кишенькові інтерфейси: `/crafting`, `/anvil`, `/smithing`, `/stonecutter`, `/enderchest`, `/trashcan`",
+      "Адмін-команди (`/fly`, `/god`, `/heal`, `/feed`, `/invsee`, `/kit`…) — для операторів"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "synergy": [
+      {
+        "mod": "ftbranks",
+        "why": "Ліміти й перезарядки команд Essentials (кількість домів тощо) читаються з вузлів прав рангів FTB Ranks",
+        "src": "FTB Essentials: integration/FTBRanksIntegration",
+        "ref": [
+          "jarfile:ftb-essentials!dev/ftb/mods/ftbessentials/integration/FTBRanksIntegration.class~dev/ftb/mods/ftbranks/api"
+        ]
+      }
+    ],
+    "tips": [
+      "Квест «Корисні команди» пропонує називати доми (`/sethome farm`), але в збірці дозволено один дім — новий `/sethome` перезапише старий (ліміт піднімається через FTB Ranks).",
+      "Налаштування — config/ftbessentials.json5 або saves/<світ>/serverconfig/ftbessentials.snbt."
+    ],
+    "chapter": "welcome",
+    "ref": [
+      "config:config/ftbessentials.json5#teleportation.home.max=1",
+      "config:config/ftbessentials.json5#teleportation.home.cooldown=60",
+      "config:config/ftbessentials.json5#teleportation.back.max=10",
+      "config:config/ftbessentials.json5#teleportation.back.cooldown=60",
+      "config:config/ftbessentials.json5#teleportation.spawn.cooldown=60",
+      "config:config/ftbessentials.json5#teleportation.rtp.min_distance=500",
+      "config:config/ftbessentials.json5#teleportation.rtp.max_distance=20000",
+      "config:config/ftbessentials.json5#teleportation.rtp.cooldown=1800",
+      "config:config/ftbessentials.json5#teleportation.rtp.dimension_blacklist",
+      "config:config/ftbessentials.json5#teleportation.tpa.cooldown=120",
+      "config:config/ftbessentials.json5#teleportation.warp.enabled=True",
+      "config:config/ftbessentials.json5#misc.crafting.enabled=True",
+      "config:config/ftbessentials.json5#misc.trashcan.enabled=True",
+      "config:config/ftbessentials.json5#admin.fly.enabled=True",
+      "quest:7658C1C663394E85~/sethome farm"
+    ]
+  },
+  "ftblibrary": {
+    "cls": [
+      "library",
+      "qol"
+    ],
+    "role": "library",
+    "features": [],
+    "uk": "Спільна основа FTB-модів і бічні кнопки в інвентарі: квести, мапа й привласнення чанків, команда.",
+    "what": [
+      "Обов'язкова залежність FTB Quests, Chunks, Teams, Ranks, Essentials, Ultimine, Filter System і XMod Compat",
+      "З правами оператора — бічні кнопки режиму гри, дощу, дня й ночі"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:ftb-library-neoforge-26.1.2.9!META-INF/neoforge.mods.toml~FTB Library adds nothing",
+      "jarfile:ftb-quests-neoforge-26.1.2.9!META-INF/neoforge.mods.toml~modId = \"ftblibrary\"",
+      "jarfile:ftb-chunks-neoforge-26.1.2.8!META-INF/neoforge.mods.toml~modId = \"ftblibrary\"",
+      "jarfile:ftb-teams-neoforge-26.1.2.4!META-INF/neoforge.mods.toml~modId = \"ftblibrary\"",
+      "jarfile:ftb-ranks-neoforge-26.1.2.4!META-INF/neoforge.mods.toml~modId = \"ftblibrary\"",
+      "jarfile:ftb-essentials-neoforge-26.1.2.5!META-INF/neoforge.mods.toml~modId = \"ftblibrary\"",
+      "jarfile:ftb-ultimine-neoforge-26.1.2.5!META-INF/neoforge.mods.toml~modId = \"ftblibrary\"",
+      "jarfile:ftb-filter-system-neoforge-26.1.2.2!META-INF/neoforge.mods.toml~modId = \"ftblibrary\"",
+      "jarfile:ftb-xmod-compat-neoforge-26.1.2.4!META-INF/neoforge.mods.toml~modId = \"ftblibrary\"",
+      "jarfile:ftb-quests!assets/ftbquests/sidebar_buttons/quests.json",
+      "jarfile:ftb-chunks!assets/ftbchunks/sidebar_buttons/claim_chunks.json",
+      "jarfile:ftb-teams!assets/ftbteams/sidebar_buttons/my_team.json",
+      "jarfile:ftb-library!assets/ftblibrary/sidebar_buttons/toggle/gamemode.json~\"requires_op\": true",
+      "jarfile:ftb-library!assets/ftblibrary/sidebar_buttons/toggle/rain.json~\"requires_op\": true",
+      "jarfile:ftb-library!assets/ftblibrary/sidebar_buttons/toggle/day.json~\"requires_op\": true",
+      "jarfile:ftb-library!assets/ftblibrary/sidebar_buttons/toggle/night.json~\"requires_op\": true"
+    ]
+  },
+  "ftbxmodcompat": {
+    "cls": [
+      "library",
+      "qol"
+    ],
+    "role": "library",
+    "parent": "ftbquests",
+    "features": [],
+    "uk": "Інтеграції FTB-модів з іншими модами збірки: JEI, Waystones, права й етапи гри.",
+    "what": [
+      "Вибір системи прав, етапів і валюти — автоматично (default, ftbxmodcompat.json5)",
+      "Показує знайдені гравцем дороговкази Waystones (only_show_known_waystones)"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:ftb-xmod-compat-neoforge-26.1.2.4!META-INF/neoforge.mods.toml~cross-mod compatibilty/integration for all main FTB mods",
+      "jarfile:ftb-quests-neoforge-26.1.2.9!META-INF/neoforge.mods.toml~modId = \"ftbxmodcompat\"",
+      "jarfile:ftb-filter-system-neoforge-26.1.2.2!META-INF/neoforge.mods.toml~modId = \"ftbxmodcompat\"",
+      "config:config/ftbxmodcompat.json5#permission_selector=default",
+      "config:config/ftbxmodcompat.json5#stage_selector=default",
+      "config:config/ftbxmodcompat.json5#only_show_known_waystones=True"
+    ]
+  },
+  "jei": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Just Enough Items — список предметів і рецептів збірки: звідки береться предмет, де застосовується, перенесення рецепта у верстат і закладки.",
+    "what": [
+      "Панель предметів праворуч у вікні з інвентарем і пошук",
+      "Рецепти — ті, що діють у збірці (зі змінами KubeJS); вимкнене приховано скриптом KubeJS RecipeViewer.js (напр. нескінченні диски Extra Disks, кар'єр QuarryPlus)",
+      "Закладки — ліва панель, з них можна майструвати одразу",
+      "Кнопка «+» у вікні рецепта переносить інгредієнти в сітку майстрування"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "tips": [
+      "Над предметом у вікні: `R` або ЛКМ — рецепт, `U` або ПКМ — застосування, `A` — закладка. `Ctrl+F` — до пошуку, `Ctrl+O` — показати / сховати JEI.",
+      "У вікні рецептів: `Backspace` — попередній рецепт, `PgUp` / `PgDn` — сторінки, `Shift+PgUp` / `Shift+PgDn` — категорії, `Shift` (утримувати) — зупинити чергування інгредієнтів.",
+      "Із закладок: `Shift+ЛКМ` — змайструвати один раз, `Ctrl+ЛКМ` — максимум."
+    ],
+    "ref": [
+      "jarfile:jei-26.1.2!META-INF/neoforge.mods.toml~item and recipe viewing mod",
+      "file:kubejs/client_scripts/RecipeViewer.js~extradisks:infinite_chemical_storage_disk",
+      "file:kubejs/client_scripts/RecipeViewer.js~quarryplus:adv_quarry",
+      "file:options.txt~key_key.jei.showRecipe:key.keyboard.r",
+      "file:options.txt~key_key.jei.showRecipe2:key.mouse.left",
+      "file:options.txt~key_key.jei.showUses:key.keyboard.u",
+      "file:options.txt~key_key.jei.showUses2:key.mouse.right",
+      "file:options.txt~key_key.jei.bookmark:key.keyboard.a",
+      "file:options.txt~key_key.jei.focusSearch:key.keyboard.f:CONTROL_OR_COMMAND",
+      "file:options.txt~key_key.jei.toggleOverlay:key.keyboard.o:CONTROL_OR_COMMAND",
+      "file:options.txt~key_key.jei.recipeBack:key.keyboard.backspace",
+      "file:options.txt~key_key.jei.previousRecipePage:key.keyboard.page.up",
+      "file:options.txt~key_key.jei.nextCategory:key.keyboard.page.down:SHIFT",
+      "file:options.txt~key_key.jei.pauseRecipeCycling:key.keyboard.left.shift",
+      "file:options.txt~key_key.jei.transferRecipeBookmark:key.mouse.left:SHIFT",
+      "file:options.txt~key_key.jei.maxTransferRecipeBookmark:key.mouse.left:CONTROL_OR_COMMAND",
+      "file:kubejs/client_scripts/RecipeViewer.js~RecipeViewerEvents.removeEntriesCompletely"
+    ]
+  },
+  "jeistuff": {
+    "cls": [
+      "qol"
+    ],
+    "role": "addon",
+    "parent": "jei",
+    "features": [],
+    "uk": "Just Enough Stuff — нові вкладки JEI: здобич скринь і мобів, торгівля селян, бартер піґлінів, дари, дроп рослин, риболовля й взаємодії рідин.",
+    "what": [
+      "Вкладки: здобич скринь, здобич мобів, торгівля селян, бартер піґлінів, дари, дроп рослин, риболовля, взаємодії рідин (напр. що утворює лава з водою)",
+      "У збірці приховано вкладки ремонту на точилі й ковадлі та роззачарування на точилі (jeistuff-common.toml)"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "lang:jeistuff.recipe.chest_loot",
+      "lang:jeistuff.recipe.mob_loot",
+      "lang:jeistuff.recipe.villager_trade",
+      "lang:jeistuff.recipe.bartering",
+      "lang:jeistuff.recipe.gifts",
+      "lang:jeistuff.recipe.plant_drops",
+      "lang:jeistuff.recipe.fishing",
+      "lang:jeistuff.recipe.fluid_interaction",
+      "config:config/jeistuff-common.toml#hide_grindstone_repair=True",
+      "config:config/jeistuff-common.toml#hide_anvil_repair=True",
+      "config:config/jeistuff-common.toml#hide_grindstone_disenchanting=True"
+    ]
+  },
+  "justenoughrecipesharing": {
+    "cls": [
+      "qol"
+    ],
+    "role": "addon",
+    "parent": "jei",
+    "features": [],
+    "uk": "Кнопка «поділитися» у вікні рецепта JEI — рецепт з'являється в чаті (для гри з друзями).",
+    "what": [
+      "Ділиться рецептом JEI в чаті; обов'язкова залежність — JEI"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:justenoughrecipesharing!META-INF/neoforge.mods.toml~allows sharing recipes in chat",
+      "jarfile:justenoughrecipesharing!META-INF/neoforge.mods.toml~modId=\"jei\""
+    ]
+  },
+  "jade": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Підказка над тим, на що дивитеся: назва блока чи моба й мод, стан машини чи культури, вміст сховища, здоров'я мобів.",
+    "what": [
+      "Панель для блоків, істот і босів; показ перемикається клавішею (displayMode = TOGGLE)",
+      "Назва мода синім курсивом — і в підказках предметів в інвентарі (itemModNameTooltip = true): так видно, з якого мода предмет",
+      "Блоки Thaumaturge показують подробиці в Jade в окулярах (GOGGLES; config/jade/jade.json)"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "synergy": [
+      {
+        "mod": "jei",
+        "why": "Клавішами Jade відкриваються рецепти й застосування блока перед очима в JEI (клас сумісності Jade)",
+        "src": "Jade jar: snownee/jade/compat/JEICompat",
+        "ref": [
+          "jarfile:Jade-mc26.1!snownee/jade/compat/JEICompat.class~mezz/jei"
+        ]
+      }
+    ],
+    "tips": [
+      "Клавіші (options.txt): `Ins` — показати / сховати підказку, `Ctrl+Ins` — налаштування Jade, `Shift` (утримувати) — подробиці.",
+      "Рідини, рецепти, застосування й диктор зараз на цифровому блоці (`Num 2`–`Num 5`), якого на клавіатурі TKL немає. План клавіш путівника пропонує: рідини → `Del`, рецепти блока → `PgUp`, застосування → `PgDn`, диктор — зняти; до options.txt — за згодою користувача.",
+      "«Який мод показує підказку над мобом / блоком?» — це Jade."
+    ],
+    "ref": [
+      "jarfile:Jade-mc26.1!META-INF/neoforge.mods.toml~shows what you are looking at",
+      "config:config/jade/jade.json#general.displayBlocks=True",
+      "config:config/jade/jade.json#general.displayEntities=True",
+      "config:config/jade/jade.json#general.displayBosses=True",
+      "config:config/jade/jade.json#general.displayMode=TOGGLE",
+      "config:config/jade/jade.json#general.itemModNameTooltip=True",
+      "config:config/jade/jade.json#formatting.itemModNameStyle.color=blue",
+      "config:config/jade/jade.json#formatting.itemModNameStyle.italic=True",
+      "file:options.txt~key_key.jade.show_overlay:key.keyboard.insert",
+      "file:options.txt~key_key.jade.config:key.keyboard.insert:CONTROL",
+      "file:options.txt~key_key.jade.show_details:key.keyboard.left.shift",
+      "file:options.txt~key_key.jade.toggle_liquid:key.keyboard.keypad.2",
+      "file:options.txt~key_key.jade.narrate:key.keyboard.keypad.5",
+      "config:config/jade/jade.json#plugin.thaumaturge.display.nodes=GOGGLES"
+    ]
+  },
+  "patchouli": {
+    "cls": [
+      "qol",
+      "library"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Рушій книг-посібників у грі: посібники Apotheosis, Mystical Agriculture, Productive Bees / Trees, Laser IO, Modular Routers, Railcraft та інших модів.",
+    "what": [
+      "Книги в jar модів: Apotheosis, Mystical Agriculture / Agradditions / Automation, Ars Magica Legacy, Building Gadgets 2, Croptopia, Just Dire Things, Laser IO, MFFS, Modular Routers, Productive Bees / Trees / Metalworks (+ розділ Silent Gear Metalworks), Railcraft; книга Ender IO — тестова заглушка, а Ice and Fire має лише фрагмент без book.json",
+      "Рецепт книги Laser IO виправлено скриптом ATM (tweaks/recipes_fix.js), Modular Routers — скриптом zz_ua_fixes.js",
+      "Книги Patchouli можна ставити в різьблену книжкову полицю (тег minecraft:bookshelf_books, KubeJS)"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "tips": [
+      "Знайти рецепт книги мода — у JEI пошуком за назвою книги або через квест його глави."
+    ],
+    "icons": [
+      "patchouli:guide_book"
+    ],
+    "ref": [
+      "jarfile:Apotheosis-26.1.2-9.1.0!assets/apotheosis/patchouli_books/apoth_chronicle/en_us/categories/adventure/adventure.json",
+      "jarfile:MysticalAgradditions-26.1.2-9.0.4!assets/mysticalagriculture/patchouli_books/guide/en_us/categories/agradditions.json",
+      "jarfile:MysticalAgriculture-26.1.2-9.0.10!assets/mysticalagriculture/patchouli_books/guide/en_us/categories/advances.json",
+      "jarfile:MysticalAutomation-26.1.2-2.0.7!assets/mysticalagriculture/patchouli_books/guide/en_us/categories/automation.json",
+      "jarfile:arsmagicalegacy-26.1.2-1.7.0!assets/arsmagicalegacy/patchouli_books/arcane_compendium/en_us/categories/affinities.json",
+      "jarfile:buildinggadgets2-1.4.6!assets/buildinggadgets2/patchouli_books/buildinggadgets2book/en_us/categories/gadgets.json",
+      "jarfile:croptopia-neoforge-26.1.2-4.3.2!assets/croptopia/patchouli_books/guide/en_us/categories/crops.json",
+      "jarfile:justdirethings-1.6.11!assets/justdirethings/patchouli_books/justdirethingsbook/en_us/categories/armor.json",
+      "jarfile:laserio-1.10.2!assets/laserio/patchouli_books/laseriobook/en_us/categories/blocks.json",
+      "jarfile:mffs-5.8.39!assets/mffs/patchouli_books/handbook/en_us/categories/getting_started.json",
+      "jarfile:modular-routers-26.1.2.2!assets/modularrouters/patchouli_books/book/en_us/categories/augments.json",
+      "jarfile:productivebees-26.1.2-15.3.0!assets/productivebees/patchouli_books/guide/en_us/categories/bees.json",
+      "jarfile:productivemetalworks-26.1.2-1.17.1!assets/productivemetalworks/patchouli_books/guide/en_us/categories/casting.json",
+      "jarfile:productivetrees-26.1.2-1.3.1!assets/productivetrees/patchouli_books/guide/en_us/categories/guide.json",
+      "jarfile:railcraft-reborn-26.1.2-1.4.5!assets/railcraft/patchouli_books/guide_book/en_us/categories/multiblock.json",
+      "jarfile:sgearmetalworks-26.1.2-1.6.0!assets/productivemetalworks/patchouli_books/guide/en_us/categories/sgear.json",
+      "file:kubejs/server_scripts/tweaks/recipes_fix.js~\"patchouli:book\": \"laserio:laseriobook\"",
+      "file:kubejs/server_scripts/zz_ua_fixes.js~modularrouters:guide_book",
+      "file:kubejs/server_scripts/tweaks/tags.js~allthemods.add(\"minecraft:bookshelf_books\", \"patchouli:guide_book\")",
+      "jarfile:enderio-9.0.6-alpha!assets/enderio/patchouli_books/guide/en_us/entries/test_entry.json",
+      "!jarfile:iceandfire-2.2-beta.4!data/iceandfire/patchouli_books/iceandfire/book.json"
+    ]
+  },
+  "guideme": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Посібники нового типу (як вікі в грі): AE2 і доповнення, Powah, DeepNull, Logistics Networks, Energy Meter, Training Dummy — з 3D-сценами й рецептами.",
+    "what": [
+      "Утримуйте `G` над предметом у вікні — відкриється сторінка посібника про нього (options.txt)",
+      "Посібники в jar: AE2, ExtendedAE, AdvancedAE, AE2WTLib, AE2 Network Analyzer, ME Requester, Import/Export Card, Powah, DeepNull, Logistics Networks, Energy Meter, Training Dummy",
+      "Предмет-посібник `guideme:guide`"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:guideme!META-INF/neoforge.mods.toml~foundation for your mods or modpacks guidebook",
+      "file:options.txt~key_key.guideme.guide:key.keyboard.g",
+      "item:guideme:guide",
+      "jarfile:appliedenergistics2-26.1.13-beta!assets/ae2/ae2guide/getting-started.md",
+      "jarfile:ExtendedAE-26.1-1.0.5-neoforge!assets/extendedae/ae2guide/epp_intro/active_formation_plane.md",
+      "jarfile:AdvancedAE-26.1.7!assets/advanced_ae/ae2guide/aae_intro/aae_intro-index.md",
+      "jarfile:ae2wtlib-26.1.2-beta!assets/ae2/ae2guide/items-blocks-machines/wireless_terminals.md",
+      "jarfile:AE2NetworkAnalyzer-26.1-1.0.0-neoforge!assets/ae2netanalyser/ae2guide/ae2_network_analyser.md",
+      "jarfile:merequester-neoforge-26.1.2-1.5.1!assets/merequester/ae2guide/merequester.md",
+      "jarfile:ae2importexportcard-26.1.2-2.3.1!assets/ae2/ae2guide/ae2importexportcard-index.md",
+      "jarfile:Powah-7.0.4-alpha!assets/powah/guides/powah/book/generators/thermo_generator.md",
+      "jarfile:deepnull-reforged-4.2.1-beta!assets/deepnullreforged/guides/deepnullreforged/guide/advanced-compression-upgrade.md",
+      "jarfile:logisticsnetworks-26.1.2-1.13.0!assets/logisticsnetworks/guides/logisticsnetworks/guide/index.md",
+      "jarfile:energymeter-neoforge-26.1.2-0.5.0!assets/energymeter/guides/energymeter/guide/index.md",
+      "jarfile:trainingdummy-1.9.0+mc26.1.2!assets/trainingdummy/guides/trainingdummy/guide/easter-eggs.md"
+    ]
+  },
+  "oracle_index": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Вікі модів із сайту moddedmc.wiki прямо в грі; у збірці вбудовану вікі має Oritech.",
+    "what": [
+      "Вміст: Oritech (+ довідка самого Oracle Index)"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "tips": [
+      "Відкрити — `Ctrl+H` (план клавіш: `H` у світі зайнята магнітом); клавіша пошуку не призначена (options.txt)."
+    ],
+    "ref": [
+      "jarfile:oracle_index!META-INF/neoforge.mods.toml~content from moddedmc.wiki",
+      "jarfile:oritech!assets/oracle_index/books/oritech/",
+      "jarfile:oracle_index!assets/oracle_index/books/oracle-index/docs/developer/markdown.mdx",
+      "file:options.txt~key_key.oracle_index.open:key.keyboard.h:CONTROL",
+      "file:options.txt~key_key.oracle_index.search:key.keyboard.unknown"
+    ]
+  },
+  "betteradvancedtooltips": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Розширені підказки предметів у режимі `F3+H`: теги й компоненти даних.",
+    "what": [
+      "Теги предмета (`#c:ingots/iron` тощо) — зручно для фільтрів і рецептів KubeJS",
+      "Компоненти даних предмета"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:better-advanced-tooltips!META-INF/neoforge.mods.toml~Adds tag, component and other tooltips to items in F3+H mode"
+    ]
+  },
+  "betteradvancements": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Покращений екран досягнень: більше вікно й умови виконання.",
+    "what": [
+      "Покращення екрана досягнень",
+      "Список критеріїв досягнення (betteradvancements-client.toml)"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:BetterAdvancements!META-INF/neoforge.mods.toml~Improvements to the advancements screen",
+      "config:config/betteradvancements-client.toml#colorWholeCriteriaText=False"
+    ]
+  },
+  "clickadv": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Клацання по повідомленню про досягнення в чаті відкриває це досягнення на екрані досягнень.",
+    "what": [
+      "Показує в локальному чаті досягнення (showAllInLocalChat = true, clickadv.json)"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:clickadv!META-INF/neoforge.mods.toml~click on advancements in chat",
+      "config:config/clickadv.json#showAllInLocalChat.showAllInLocalChat=True"
+    ]
+  },
+  "mousetweaks": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Керування інвентарем мишею: розкладання перетягуванням, збирання однакових предметів і переміщення коліщатком.",
+    "what": [
+      "ПКМ з предметом, перетягуючи по слотах, — кладе по одному",
+      "ЛКМ з предметом і без нього, перетягуючи, — збирає однакові / переносить",
+      "Коліщатко над предметом — переносить предмети між інвентарями",
+      "Функції увімкнено (MouseTweaks.cfg: RMBTweak, LMBTweak…, WheelTweak = 1)"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:MouseTweaks!META-INF/neoforge.mods.toml~additional functions to the usual mouse buttons",
+      "file:config/MouseTweaks.cfg~RMBTweak=1",
+      "file:config/MouseTweaks.cfg~LMBTweakWithItem=1",
+      "file:config/MouseTweaks.cfg~LMBTweakWithoutItem=1",
+      "file:config/MouseTweaks.cfg~WheelTweak=1"
+    ]
+  },
+  "inventoryessentials": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Масове перенесення предметів клацаннями, сортування інвентаря й автоматичне поповнення стосів та інструментів.",
+    "what": [
+      "Перенести один предмет, предмети цього типу або вміст цілком — дії з клацанням (ЛКМ / ПКМ; inventoryessentials-common.toml)",
+      "Утримання `Shift` — перенесення предметів під курсором; масове викидання — `Q`",
+      "Середня кнопка миші — сортувати інвентар (порядок творчих вкладок)",
+      "Поповнення: закінчився стос чи зламався інструмент — на його місце стає такий самий з інвентаря"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "tips": [
+      "Мод на бібліотеці Balm: модифікатори Ctrl / Shift / Alt у options.txt його діям не призначати — гра падала при запуску.",
+      "Дії «поповнити контейнер / інвентар» і «вивантажити в контейнер» без клавіш (можна призначити)."
+    ],
+    "ref": [
+      "lang:key.inventoryessentials.single_transfer",
+      "lang:key.inventoryessentials.bulk_transfer",
+      "lang:key.inventoryessentials.bulk_transfer_all",
+      "config:config/inventoryessentials-common.toml#enableBulkTransfer=True",
+      "config:config/inventoryessentials-common.toml#enableSingleTransfer=True",
+      "file:options.txt~key_key.inventoryessentials.drag_transfer:key.keyboard.left.shift",
+      "file:options.txt~key_key.inventoryessentials.bulk_drop:key.keyboard.q",
+      "file:options.txt~key_key.inventoryessentials.sort_inventory:key.mouse.middle",
+      "config:config/inventoryessentials-common.toml#inventorySorting=CREATIVE",
+      "config:config/inventoryessentials-common.toml#enableStackRefill=True",
+      "config:config/inventoryessentials-common.toml#enableToolRefill=True",
+      "file:crash-reports/crash-2026-10-24_22.33.01-client.txt~NativeKeyModifierReconciler",
+      "file:options.txt~key_key.inventoryessentials.restock_container:key.keyboard.unknown",
+      "file:options.txt~key_key.inventoryessentials.dump_to_container:key.keyboard.unknown"
+    ]
+  },
+  "inventoryhud": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "HUD поверх гри: мініінвентар, броня й предмети в руках з міцністю, стріли та таймери ефектів зілля — без відкриття інвентаря.",
+    "what": [
+      "Мініінвентар, увімкнений за замовчуванням (inventoryhud-client.toml)",
+      "Броня, головна й друга рука, стріли — з міцністю",
+      "Ефекти зілля зі смугою тривалості"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "tips": [
+      "`I` — увімкнути / вимкнути HUD інвентаря, `O` — налаштування (options.txt); окремі перемикачі HUD броні й ефектів — без клавіш."
+    ],
+    "ref": [
+      "config:config/inventoryhud-client.toml#inventoryhud.invMini=True",
+      "config:config/inventoryhud-client.toml#inventoryhud.byDefault=True",
+      "config:config/inventoryhud-client.toml#armorhud.showArmor=True",
+      "config:config/inventoryhud-client.toml#armorhud.showOff=True",
+      "config:config/inventoryhud-client.toml#armorhud.showArrows=True",
+      "config:config/inventoryhud-client.toml#armorhud.ArmorDamage=True",
+      "config:config/inventoryhud-client.toml#potionshud.Potions=True",
+      "file:options.txt~key_key.inventoryhud.toggle:key.keyboard.i",
+      "file:options.txt~key_key.inventoryhud.openconfig:key.keyboard.o",
+      "file:options.txt~key_key.inventoryhud.togglepot:key.keyboard.unknown",
+      "file:options.txt~key_key.inventoryhud.togglearm:key.keyboard.unknown"
+    ]
+  },
+  "trashslot": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Слот-смітник в інвентарі: перетягніть непотріб — і він зникне.",
+    "what": [
+      "Слот-смітник у вікні інвентаря, показується / ховається клавішею",
+      "Знищення не миттєве (instantDeletion = false) — є шанс передумати"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "tips": [
+      "У вікні з інвентарем: `T` — показати / сховати смітник, `Del` — видалити предмет під курсором (дія «видалити всі такого типу» теж на `Del`). Мод на Balm — без Ctrl / Shift / Alt в options.txt."
+    ],
+    "ref": [
+      "jarfile:trashslot!META-INF/neoforge.mods.toml~trash slot to the inventory screen",
+      "config:config/trashslot-common.toml#instantDeletion=False",
+      "file:options.txt~key_key.trashslot.toggle:key.keyboard.t",
+      "file:options.txt~key_key.trashslot.delete:key.keyboard.delete",
+      "file:options.txt~key_key.trashslot.delete_all:key.keyboard.delete"
+    ]
+  },
+  "craftingtweaks": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Кнопки обертання, розподілу й очищення сітки майстрування та стискання предметів — у збірці 0.12.0-beta кнопок у грі не видно.",
+    "what": [
+      "Задумано: кнопки біля сітки майстрування (обернути, розподілити, очистити), стиснути предмети в блок (`K`), поповнити останній рецепт (`Tab`)",
+      "Конфіг зараз — mode = DEFAULT (кнопки й гарячі клавіші; під час G6c був BUTTONS); з BUTTONS у грі кнопок біля сітки не було (перевірено користувачем; причину не знайдено)"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "tips": [
+      "Поки мод не працює, стискати предмети зручніше в JEI (перенесення рецепта «+») або машинами-пакувальниками.",
+      "Мод на Balm: модифікатори Ctrl / Shift / Alt його діям не призначати — гра падала при запуску."
+    ],
+    "ref": [
+      "jarfile:craftingtweaks!META-INF/neoforge.mods.toml~rotate, balance or clear the crafting matrix",
+      "config:config/craftingtweaks-common.toml#client.mode=DEFAULT",
+      "file:options.txt~key_key.craftingtweaks.compress_one:key.keyboard.k",
+      "file:options.txt~key_key.craftingtweaks.refill_last:key.keyboard.tab",
+      "file:crash-reports/crash-2026-10-24_22.33.01-client.txt~NativeKeyModifierReconciler"
+    ]
+  },
+  "controlling": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Пошук у меню «Керування»: знайти дію за назвою чи клавішею, показати конфлікти або непризначені дії.",
+    "what": [
+      "Поле пошуку за назвою дії",
+      "Фільтри: конфлікти / непризначені; сортування за назвою чи клавішею",
+      "Скидання клавіш із підтвердженням"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "tips": [
+      "Повну карту клавіш збірки з конфліктами показує вкладка путівника «Клавіші»; після змін у грі — оновити дані (start.bat → 2)."
+    ],
+    "ref": [
+      "jarfile:Controlling!META-INF/neoforge.mods.toml~search for keybinds using their name",
+      "lang:options.showConflicts",
+      "lang:options.showNone",
+      "lang:options.sortKeyAZ",
+      "lang:options.confirmReset"
+    ]
+  },
+  "keybindbundles": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Набори клавіш у круговому меню: збирайте рідковживані дії модів у «кошики» й викликайте їх утриманням однієї клавіші.",
+    "what": [
+      "Утримання лівого `Alt` — кругове меню наборів (options.txt)",
+      "Екран редагування наборів (клавіша не призначена)"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "tips": [
+      "Лівий `Alt` у світі зайнятий меню наборів — сполучення з `Alt` для інших дій у світі обирайте обережно."
+    ],
+    "ref": [
+      "jarfile:keybindbundles!META-INF/neoforge.mods.toml~Bundle keybinds into radial menus",
+      "file:options.txt~key_key.keybindbundles.open_radial_menu:key.keyboard.left.alt",
+      "file:options.txt~key_key.keybindbundles.open_screen:key.keyboard.unknown"
+    ]
+  },
+  "keybindspurger": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Кнопки в меню «Керування» для масового зняття клавіш — щоб розкласти їх з чистого аркуша.",
+    "what": [
+      "Кнопки «Purge all keybinds», «Purge all non-vanilla keybinds», «Purge all keybinds in this category», «Reset all keybinds in this category»"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "tips": [
+      "Перед очищенням збережіть копію options.txt: план перепризначень путівника доведеться застосувати заново."
+    ],
+    "ref": [
+      "lang:button.keybindspurger.purge_all",
+      "lang:button.keybindspurger.purge_non_vanilla",
+      "lang:button.keybindspurger.purge",
+      "lang:button.keybindspurger.reset"
+    ]
+  },
+  "defaultoptions": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Типові налаштування збірки для нових гравців; в ATM11 задає складність «Нормальна» для нових світів.",
+    "what": [
+      "defaultDifficulty = NORMAL, складність не заблоковано (defaultoptions-common.toml)",
+      "Власних типових клавіш збірка через нього не постачає (config/defaultoptions/extra порожня)"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "config:config/defaultoptions-common.toml#defaultDifficulty=NORMAL",
+      "config:config/defaultoptions-common.toml#lockDifficulty=False",
+      "count:dir:config/defaultoptions/extra=0"
+    ]
+  },
+  "measurements": {
+    "cls": [
+      "qol",
+      "decor"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Рулетка: вимірює відстань між двома точками й показує розміри жовтою лінією у світі — для планування будівель.",
+    "what": [
+      "Рулетка (`measurements:tape_measure`)",
+      "Колір лінії й тексту — жовтий (measurements-client.toml)"
+    ],
+    "stage": [
+      "s0",
+      "s1"
+    ],
+    "icons": [
+      "measurements:tape_measure"
+    ],
+    "ref": [
+      "jarfile:Measurements!META-INF/neoforge.mods.toml~Measure the distance between positions",
+      "recipe:measurements:tape_measure",
+      "config:config/measurements-client.toml#client.lineColor=YELLOW",
+      "config:config/measurements-client.toml#client.textColor=YELLOW"
+    ]
+  },
+  "moreoverlays": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Накладки зі старого NEI: де можуть з'являтися моби (світлова накладка), межі чанків і пошук предметів JEI в інвентарях.",
+    "what": [
+      "Світлова накладка: червоні позначки — моби можуть з'являтися й удень, жовті — вночі (moreoverlays.toml)",
+      "Межі чанків із серединою чанка",
+      "Подвійний клік по полю пошуку JEI вмикає пошук в інвентарях і контейнерах — невідповідні слоти затемнюються"
+    ],
+    "stage": [
+      "s0",
+      "s1"
+    ],
+    "synergy": [
+      {
+        "mod": "jei",
+        "why": "Подвійний клік по полю пошуку JEI вмикає пошук в інвентарях і скринях — невідповідні слоти затемнюються (клас Moreoverlays викликає API JEI)",
+        "src": "moreoverlays jar: itemsearch/GuiRenderer",
+        "ref": [
+          "jarfile:moreoverlays!at/ridgo8/moreoverlays/itemsearch/GuiRenderer.class~mezz/jei/api",
+          "file:config/moreoverlays.toml~double click the JEI search bar"
+        ]
+      }
+    ],
+    "tips": [
+      "`F7` — світлова накладка, `F9` — межі чанків (options.txt). Перевіряйте базу на `F7` перед ніччю."
+    ],
+    "ref": [
+      "jarfile:moreoverlays!META-INF/neoforge.mods.toml~Mob spawn / Light overlay",
+      "config:config/moreoverlays.toml#chunkbounds.middle=True",
+      "config:config/moreoverlays.toml#searchoverlay.search_enabled=True",
+      "file:options.txt~key_key.moreoverlays.lightoverlay.desc:key.keyboard.f7",
+      "file:options.txt~key_key.moreoverlays.chunkbounds.desc:key.keyboard.f9",
+      "file:config/moreoverlays.toml~spawn_always_color = 16711680",
+      "file:config/moreoverlays.toml~spawn_night_color = 16776960",
+      "file:config/moreoverlays.toml~double click the JEI search bar"
+    ]
+  },
+  "justzoom": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Збільшення (як підзорна труба) за утримання клавіші, коліщатком миші — сильніше чи слабше.",
+    "what": [
+      "Базове збільшення ×4 (base_zoom_modifier = 0.25), плавне",
+      "Коліщатко під час зуму змінює кратність; чутливість миші вирівнюється"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "tips": [
+      "Утримувати `Z` — зум (options.txt). Modern UI має власне збільшення на `C`."
+    ],
+    "ref": [
+      "jarfile:justzoom!META-INF/neoforge.mods.toml~adjust the zoom factor with your mouse wheel",
+      "file:config/justzoom/config.txt~F:base_zoom_modifier = '0.25'",
+      "file:config/justzoom/config.txt~B:smooth_zoom_in_out = 'true'",
+      "file:config/justzoom/config.txt~B:normalize_mouse_sensitivity_on_zoom = 'true'",
+      "file:options.txt~key_justzoom.keybinds.keybind.zoom:key.keyboard.z",
+      "file:options.txt~key_key.modernui.zoom:key.keyboard.c"
+    ]
+  },
+  "extremesoundmuffler": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Вибіркове приглушення звуків: зробіть тихішими гучні машини, ферми чи мобів — окремі звуки або в зоні навколо «якоря».",
+    "what": [
+      "Кнопка в інвентарі відкриває список звуків поруч; гучність — від вимкнення до 90 %",
+      "Якорі — приглушення в радіусі до 32 блоків (напр. фабрика)",
+      "Звуки інтерфейсу, музика й фонові звуки не приглушуються (forbiddenSounds)"
+    ],
+    "stage": [
+      "s1",
+      "s2",
+      "s3"
+    ],
+    "tips": [
+      "Клавіша вікна глушника не призначена — відкривайте кнопкою в інвентарі."
+    ],
+    "ref": [
+      "jarfile:ExtremeSoundMuffler!META-INF/neoforge.mods.toml~between mute and 90%",
+      "config:config/extremesoundmuffler-client.toml#inventory_button.disableInventoryButton=False",
+      "config:config/extremesoundmuffler-client.toml#Anchors.maxAnchorRange=32",
+      "config:config/extremesoundmuffler-client.toml#general.forbiddenSounds"
+    ]
+  },
+  "fancymenu": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Редактор меню гри: головний екран ATM11 і оверлей завантаження в збірці налаштовано через FancyMenu.",
+    "what": [
+      "Макети: головний екран, універсальний макет і оверлей Drippy (config/fancymenu/customization)",
+      "Макети можна змінити вбудованим редактором FancyMenu"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:fancymenu!META-INF/neoforge.mods.toml~Customize Minecraft's menus with ease",
+      "file:config/fancymenu/customization/title_screen_layout.txt~identifier = title_screen",
+      "file:config/fancymenu/customization/universal_layout.txt~fancymenu:universal_layout",
+      "file:config/fancymenu/customization/drippy_loading_overlay_layout.txt~identifier = drippy_loading_overlay"
+    ]
+  },
+  "drippyloadingscreen": {
+    "cls": [
+      "qol"
+    ],
+    "role": "addon",
+    "parent": "fancymenu",
+    "features": [],
+    "uk": "Власний екран завантаження гри (доповнення FancyMenu).",
+    "what": [
+      "Оверлей завантаження — макет config/fancymenu/customization/drippy_loading_overlay_layout.txt"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:drippyloadingscreen!META-INF/neoforge.mods.toml~customize the loading screen",
+      "file:config/fancymenu/customization/drippy_loading_overlay_layout.txt~is_enabled = true"
+    ]
+  },
+  "toastcontrol": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Прибирає надокучливі спливні сповіщення: досягнення, нові рецепти й підказки навчання.",
+    "what": [
+      "Заблоковано сповіщення досягнень, рецептів і навчання; системні лишаються (toastcontrol-client.toml)",
+      "Не більше 3 сповіщень одночасно, напівпрозорі"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "tips": [
+      "`End` — прибрати активні сповіщення (options.txt)."
+    ],
+    "ref": [
+      "config:config/toastcontrol-client.toml#client.blocked_toasts.advancements=True",
+      "config:config/toastcontrol-client.toml#client.blocked_toasts.recipes=True",
+      "config:config/toastcontrol-client.toml#client.blocked_toasts.tutorial=True",
+      "config:config/toastcontrol-client.toml#client.blocked_toasts.system=False",
+      "config:config/toastcontrol-client.toml#client.visual_options.toast_count=3",
+      "config:config/toastcontrol-client.toml#client.visual_options.translucent=True",
+      "file:options.txt~key_key.toastcontrol.clear:key.keyboard.end"
+    ]
+  },
+  "yeetusexperimentus": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Прибирає попередження «Експериментальні налаштування» під час створення й завантаження світу.",
+    "what": [
+      "Без діалогу підтвердження експериментальних функцій світу"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:yeetusexperimentus!META-INF/neoforge.mods.toml~Disables the Experimental Settings popup"
+    ]
+  },
+  "nochatreports": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Знімає криптографічні підписи з повідомлень чату (на них неможливо поскаржитися в Mojang) і вимикає телеметрію.",
+    "what": [
+      "Підписування повідомлень — за запитом (defaultSigningMode = PROMPT); на серверах показує, чи безпечний сервер",
+      "Телеметрію вимкнено, кнопку телеметрії прибрано (NCR-Client.json)"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:NoChatReports!META-INF/neoforge.mods.toml~Strips cryptographic signatures",
+      "config:config/NoChatReports/NCR-Client.json#defaultSigningMode=PROMPT",
+      "config:config/NoChatReports/NCR-Client.json#showServerSafety=True",
+      "config:config/NoChatReports/NCR-Client.json#disableTelemetry=True",
+      "config:config/NoChatReports/NCR-Client.json#removeTelemetryButton=True"
+    ]
+  },
+  "simplebackups": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Автоматичні резервні копії світу: раз на 60 хв повна ZIP-копія; зберігаються 5 останніх ланцюжків.",
+    "what": [
+      "Інтервал 60 хв, повні копії у форматі ZIP, 5 ланцюжків, ліміт 25 ГБ (config/simplebackups/common.toml)",
+      "Тека копій — minecraft/simplebackups/<світ>/<дата_час>",
+      "Перед копією світ зберігається (saveAll), у чат приходить повідомлення"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "tips": [
+      "Щоб відновитися з копії: закрийте гру, перейменуйте теку світу в saves (не видаляйте) і покладіть на її місце вміст потрібної копії."
+    ],
+    "ref": [
+      "config:config/simplebackups/common.toml#timer=60",
+      "config:config/simplebackups/common.toml#backupType=FULL_BACKUPS",
+      "config:config/simplebackups/common.toml#backupFormat=ZIP",
+      "config:config/simplebackups/common.toml#backupChainsToKeep=5",
+      "config:config/simplebackups/common.toml#maxDiskSize=25 GB",
+      "config:config/simplebackups/common.toml#outputPath=simplebackups",
+      "config:config/simplebackups/common.toml#saveAll=True",
+      "config:config/simplebackups/common.toml#sendMessages=True"
+    ]
+  },
+  "kubejs": {
+    "cls": [
+      "library",
+      "qol"
+    ],
+    "role": "library",
+    "features": [],
+    "uk": "Скриптовий рушій збірки: скрипти ATM змінюють рецепти, уніфікують метали, вимикають предмети й додають власні предмети — саме тут шукати, чому рецепт у збірці інший.",
+    "what": [
+      "server_scripts: уніфікація металів (unification/), правки рецептів по модах (mods/), сплави й предмети збірки (modpack/), вимкнені таблиці здобичі й біомні модифікатори (tweaks/), бан-лист (banlist_script.js)",
+      "client_scripts: підказки предметів (tooltips.js), приховування вимкненого в JEI (RecipeViewer.js), назви предметів (lang.js)",
+      "Власні блоки й предмети збірки — startup_scripts/custom_additions.js (напр. пластини Silent Allthemodium / Vibranium / Unobtainium)",
+      "Рецепти предметів All The Tweaks — зерно вимірів і міні-портали (server_scripts/modpack)",
+      "Скрипт української локалізації (zz_ua_fixes.js) і скрипт моста ATM11-Companion (atm11_companion.js: команди чату `!що`, `!клавіші`, `!як`, `!бос`)"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "tips": [
+      "Серверні скрипти перезавантажуються `/reload`, клієнтські — `F3+T`; логи — minecraft/logs/kubejs/.",
+      "Команди моста `!що` / `!як` у реальній грі ще не перевірено (→ сесія C2)."
+    ],
+    "ref": [
+      "jarfile:kubejs-neoforge-26.1.2-8.0.6!META-INF/neoforge.mods.toml~Customize your modpack or server with JavaScript",
+      "kjs:server_scripts/unification/gears.js",
+      "kjs:server_scripts/modpack/atm_alloys.js",
+      "kjs:server_scripts/tweaks/disable_loot_table.js",
+      "kjs:server_scripts/tweaks/disable_biome_modifier.js",
+      "kjs:server_scripts/banlist_script.js",
+      "jarfile:kubejs-neoforge!dev/latvian/mods/kubejs/integration/jei/JEIAddEntriesKubeEvent.class",
+      "kjs:startup_scripts/custom_additions.js",
+      "item:allthemodium:silent_allthemodium_plate",
+      "recipe:allthemods:allthetweaks/dimensional_seed",
+      "recipe:allthemods:allthetweaks/mini_nether",
+      "kjs:server_scripts/zz_ua_fixes.js",
+      "file:kubejs/server_scripts/atm11_companion.js~!що, !клавіші, !як <питання>, !бос",
+      "file:logs/kubejs/server.log",
+      "file:kubejs/client_scripts/tooltips.js",
+      "file:kubejs/client_scripts/RecipeViewer.js~RecipeViewerEvents.removeEntriesCompletely",
+      "file:kubejs/client_scripts/lang.js~ClientEvents.lang"
+    ]
+  },
+  "rhino": {
+    "cls": [
+      "library"
+    ],
+    "role": "library",
+    "parent": "kubejs",
+    "features": [],
+    "uk": "Рушій JavaScript (форк Mozilla Rhino), яким KubeJS виконує скрипти збірки.",
+    "what": [
+      "Обов'язкова залежність KubeJS"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:rhino-2101.2.8-build.91!META-INF/neoforge.mods.toml~fork of Mozilla's Rhino library",
+      "jarfile:kubejs-neoforge-26.1.2-8.0.6!META-INF/neoforge.mods.toml~modId = \"rhino\""
+    ]
+  },
+  "sodium": {
+    "cls": [
+      "perf"
+    ],
+    "role": "perf",
+    "features": [],
+    "uk": "Рушій рендерингу: більше FPS і менше ривків — основа графічної оптимізації збірки.",
+    "what": [
+      "Власні налаштування відео: якість, продуктивність, додатково (config/sodium-options.json)",
+      "Відсікання невидимих сутностей і граней блоків, приховування чанків за туманом; потоків побудови чанків — 0, тобто автоматично"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:sodium-neoforge!META-INF/neoforge.mods.toml~improves frame rates and reduces lag spikes",
+      "config:config/sodium-options.json#performance.use_entity_culling=True",
+      "config:config/sodium-options.json#performance.use_block_face_culling=True",
+      "config:config/sodium-options.json#performance.use_fog_occlusion=True",
+      "config:config/sodium-options.json#performance.chunk_builder_threads=0"
+    ]
+  },
+  "sodium_extra": {
+    "cls": [
+      "perf",
+      "qol"
+    ],
+    "role": "perf",
+    "parent": "sodium",
+    "features": [],
+    "uk": "Додаткові налаштування до Sodium: анімації, частинки, деталі неба, туман, лічильник FPS.",
+    "what": [
+      "Перемикачі анімацій (вода, лава, вогонь, портали, анімації блоків), частинок, неба, сонця, місяця, зірок, дощу й снігу",
+      "Лічильник FPS і координат у збірці вимкнено (sodium-extra-options.json) — вмикається в налаштуваннях відео"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "tips": [
+      "Мало FPS біля великих ферм — вимкніть частинки й анімації блоків у вкладці Sodium Extra."
+    ],
+    "ref": [
+      "jarfile:sodium-extra!META-INF/neoforge.mods.toml~Features that shouldn't be in Sodium",
+      "config:config/sodium-extra-options.json#animation_settings.portal=True",
+      "config:config/sodium-extra-options.json#animation_settings.block_animations=True",
+      "config:config/sodium-extra-options.json#particle_settings.particles=True",
+      "config:config/sodium-extra-options.json#detail_settings.rain_snow=True",
+      "config:config/sodium-extra-options.json#extra_settings.show_fps=False",
+      "config:config/sodium-extra-options.json#extra_settings.show_coords=False"
+    ]
+  },
+  "iris": {
+    "cls": [
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Шейдери (сумісні з паками OptiFine) поверх Sodium; шейдерпак вибирається в грі.",
+    "what": [
+      "Шейдерпаки в теці shaderpacks: Bliss, BSL, Complementary Reimagined / Unbound (+ варіанти з Euphoria Patches), MakeUp UltraFast, Sildur's Vibrant",
+      "Обов'язкова залежність — Sodium"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "tips": [
+      "`O` — вибір шейдерпака, `F10` — увімкнути / вимкнути шейдери, `F8` — перезавантажити (options.txt)."
+    ],
+    "ref": [
+      "jarfile:iris-neoforge!META-INF/neoforge.mods.toml~compatible with existing OptiFine shader packs",
+      "file:shaderpacks/BSL_v10.1.8.zip",
+      "file:shaderpacks/ComplementaryReimagined_r5.9.3.zip",
+      "file:shaderpacks/MakeUp-UltraFast-9.5g.zip",
+      "file:shaderpacks/Sildur's Vibrant Shaders v2.02 Extreme.zip",
+      "jarfile:iris-neoforge!META-INF/neoforge.mods.toml~modId = \"sodium\"",
+      "file:options.txt~key_iris.keybind.shaderPackSelection:key.keyboard.o",
+      "file:options.txt~key_iris.keybind.toggleShaders:key.keyboard.f10",
+      "file:options.txt~key_iris.keybind.reload:key.keyboard.f8",
+      "file:shaderpacks/Bliss_v2.1.2_(Chocapic13_Shaders_edit).zip",
+      "file:shaderpacks/ComplementaryUnbound_r5.9.3.zip"
+    ]
+  },
+  "iris_search": {
+    "cls": [
+      "qol"
+    ],
+    "role": "addon",
+    "parent": "iris",
+    "features": [],
+    "uk": "Рядок пошуку в налаштуваннях шейдерпака Iris — знайти параметр серед сотень.",
+    "what": [
+      "Пошук параметра в екрані налаштувань шейдерів; обов'язкова залежність — Iris"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:IrisSearch!META-INF/neoforge.mods.toml~adds a search bar to the Iris mod"
+    ]
+  },
+  "euphoria_patcher": {
+    "cls": [
+      "qol"
+    ],
+    "role": "addon",
+    "parent": "iris",
+    "features": [],
+    "uk": "Накладає Euphoria Patches на шейдери Complementary: нові ефекти й підтримка модових блоків, налаштування — у меню шейдерпака.",
+    "what": [
+      "Готові пакети «Complementary Reimagined / Unbound + Euphoria Patches» — у теці shaderpacks",
+      "Налаштування патчів — у меню налаштувань шейдерпака"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:EuphoriaPatcher!META-INF/neoforge.mods.toml~applies the Euphoria Patches add-on to Complementary Shaders",
+      "file:shaderpacks/ComplementaryUnbound_r5.9.3.zip"
+    ]
+  },
+  "athena": {
+    "cls": [
+      "library"
+    ],
+    "role": "library",
+    "parent": "oritech",
+    "features": [],
+    "uk": "Кросплатформний завантажувач запечених моделей блоків — потрібна Oritech.",
+    "what": [
+      "Обов'язкова залежність Oritech"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:athena-4.7.3!META-INF/neoforge.mods.toml~Crossplatform Baked Model Loader",
+      "jarfile:oritech-2.0.0-exp11!META-INF/neoforge.mods.toml~modId = \"athena\""
+    ]
+  },
+  "modernfix": {
+    "cls": [
+      "perf"
+    ],
+    "role": "perf",
+    "features": [],
+    "uk": "Набір виправлень продуктивності й помилок для великих збірок: швидший запуск і менше пам'яті.",
+    "what": [
+      "Швидший запуск: кеш пошуку класів",
+      "Менше пам'яті: динамічне завантаження ресурсів (у збірці увімкнено), дедуплікація даних, компактні моделі істот (config/modernfix-mixins.properties)"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:modernfix!META-INF/neoforge.mods.toml~performance improvements",
+      "file:config/modernfix-mixins.properties~mixin.launch.class_search_cache=true",
+      "file:config/modernfix-mixins.properties~\nmixin.perf.dynamic_resources=true",
+      "file:config/modernfix-mixins.properties~mixin.perf.compact_entity_models=true"
+    ]
+  },
+  "ferritecore": {
+    "cls": [
+      "perf"
+    ],
+    "role": "perf",
+    "features": [],
+    "uk": "Зменшує споживання оперативної пам'яті (стани блоків, моделі, компоненти предметів) — без зміни ігрового процесу.",
+    "what": [
+      "Дедуплікація кешу станів блоків і компактні карти властивостей (ferritecore-mixin.toml)"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:ferritecore!META-INF/neoforge.mods.toml~Reduces memory usage",
+      "config:config/ferritecore-mixin.toml#blockstateCacheDeduplication=True",
+      "config:config/ferritecore-mixin.toml#replacePropertyMap=True",
+      "config:config/ferritecore-mixin.toml#dataComponentPatch=True"
+    ]
+  },
+  "immediatelyfast": {
+    "cls": [
+      "perf"
+    ],
+    "role": "perf",
+    "features": [],
+    "uk": "Пришвидшує малювання інтерфейсу — HUD, тексту, предметів у меню й мап.",
+    "what": [
+      "Пакетне малювання інтерфейсу, атлас шрифтів і мап, швидкий пошук тексту (immediatelyfast.json)"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:ImmediatelyFast!META-INF/neoforge.mods.toml~optimize immediate mode rendering",
+      "config:config/immediatelyfast.json#enhanced_batching=True",
+      "config:config/immediatelyfast.json#font_atlas_resizing=True",
+      "config:config/immediatelyfast.json#map_atlas_generation=True",
+      "config:config/immediatelyfast.json#fast_text_lookup=True"
+    ]
+  },
+  "imfast": {
+    "cls": [
+      "perf",
+      "qol"
+    ],
+    "role": "perf",
+    "features": [],
+    "uk": "Знімає серверні ліміти швидкості руху («moved too quickly / moved wrongly») для гравця, елітри й транспорту — без відкидання назад при швидкому русі.",
+    "what": [
+      "Змінює перевірки сервера для руху гравця, польоту на елітрі й транспорту, яким керує гравець"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:imfast!META-INF/neoforge.mods.toml~remove minecraft speed limit",
+      "jarfile:imfast!com/biel/mod/mixin/VelocityMixin.class~imfast_PlayerMaxSpeed",
+      "jarfile:imfast!com/biel/mod/mixin/VelocityMixin.class~imfast_ElytraMaxSpeed",
+      "jarfile:imfast!com/biel/mod/mixin/VelocityMixin.class~imfast_VehicleMaxSpeed",
+      "jarfile:imfast!com/biel/mod/mixin/VelocityMixin.class~imfast_MovedWrong"
+    ]
+  },
+  "fastbench": {
+    "cls": [
+      "perf"
+    ],
+    "role": "perf",
+    "features": [],
+    "uk": "Пришвидшує майстрування у верстаті з боку продуктивності — менше лагів від пошуку рецептів сітки.",
+    "what": [
+      "Оновлення сітки збираються в пакети й виконуються раз на інтервал — 1 такт (fastbench.cfg)",
+      "У збірці кнопку книги рецептів у верстаті прибрано (fastbench.cfg) — рецепти дивіться в JEI"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:FastWorkbench!META-INF/neoforge.mods.toml~Speeding up crafting operations",
+      "file:config/fastbench.cfg~I:\"Grid Update Interval\"=1",
+      "file:config/fastbench.cfg~B:\"Remove Recipe Book Button\"=true"
+    ]
+  },
+  "fastfurnace": {
+    "cls": [
+      "perf"
+    ],
+    "role": "perf",
+    "features": [],
+    "uk": "Оптимізує роботу печей з боку продуктивності (не швидкість плавлення).",
+    "what": [
+      "Менше навантаження від багатьох печей на базі"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:FastFurnace!META-INF/neoforge.mods.toml~Furnacing things faster, performance-wise"
+    ]
+  },
+  "fastsuite": {
+    "cls": [
+      "perf"
+    ],
+    "role": "perf",
+    "features": [],
+    "uk": "Багатопотоковий і індексований пошук рецептів — для майстрування, печі, доменної печі й коптильні.",
+    "what": [
+      "Індексовані типи рецептів: crafting, smelting, blasting, smoking (fastsuite.cfg)"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:FastSuite!META-INF/neoforge.mods.toml~multithreading to the json recipe system",
+      "file:config/fastsuite.cfg~minecraft:blasting",
+      "file:config/fastsuite.cfg~minecraft:smoking"
+    ]
+  },
+  "clumps": {
+    "cls": [
+      "perf"
+    ],
+    "role": "perf",
+    "features": [],
+    "uk": "Об'єднує кульки досвіду — менше сутностей і лагів біля ферм мобів.",
+    "what": [
+      "Кульки досвіду поруч зливаються в одну з сумарним значенням"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:Clumps!META-INF/neoforge.mods.toml~Clumps xp orbs together"
+    ]
+  },
+  "getittogetherdrops": {
+    "cls": [
+      "perf"
+    ],
+    "role": "perf",
+    "features": [],
+    "uk": "Предмети, що лежать на землі, зливаються в стоси в радіусі 2 блоків — менше сутностей і лагів.",
+    "what": [
+      "Радіус об'єднання 2 блоки з перевіркою висоти (getittogetherdrops-server.toml)"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:getittogetherdrops!META-INF/neoforge.mods.toml~how dropped items should combine",
+      "config:config/getittogetherdrops-server.toml#radius=2.0",
+      "config:config/getittogetherdrops-server.toml#checkY=True"
+    ]
+  },
+  "flickerfix": {
+    "cls": [
+      "perf"
+    ],
+    "role": "perf",
+    "features": [],
+    "uk": "Прибирає мерехтіння екрана, коли до кінця нічного бачення лишається менше 10 секунд.",
+    "what": [
+      "Нічне бачення світить рівно до кінця дії"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:flickerfix!META-INF/neoforge.mods.toml~Disables nightvision flickering when duration goes below 10 seconds"
+    ]
+  },
+  "spark": {
+    "cls": [
+      "perf"
+    ],
+    "role": "perf",
+    "features": [],
+    "uk": "Профайлер продуктивності: показує, що саме гальмує сервер чи клієнт (TPS, MSPT, пам'ять, «важкі» блоки й моди).",
+    "what": [
+      "Команди `/spark tps`, `/spark health`, `/spark profiler`",
+      "Фоновий профайлер у збірці вимкнено (config/spark/config.json)"
+    ],
+    "stage": [
+      "s3",
+      "s4",
+      "s5"
+    ],
+    "tips": [
+      "Гра почала лагати на великій базі — `/spark profiler start`, кілька хвилин, `/spark profiler stop`: звіт покаже, яка машина чи ферма винна."
+    ],
+    "ref": [
+      "jarfile:spark!META-INF/neoforge.mods.toml~performance profiling",
+      "jarfile:spark!me/lucko/spark/common/command/modules/HealthModule.class~tps",
+      "jarfile:spark!me/lucko/spark/common/command/modules/SamplerModule.class~profiler",
+      "config:config/spark/config.json#backgroundProfiler=False"
+    ]
+  },
+  "bcc": {
+    "cls": [
+      "perf"
+    ],
+    "role": "perf",
+    "features": [],
+    "uk": "Better Compatibility Checker: зберігає назву й версію збірки («All the Mods 11», 0.12.0-beta) і порівнює їх із сервером.",
+    "what": [
+      "Назва й версія збірки — config/bcc-common.json",
+      "Попереджає, якщо версія збірки на клієнті й сервері різна"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:better-compatability-checker!META-INF/neoforge.mods.toml~Modpack compatibility checker for servers",
+      "config:config/bcc-common.json#modpackName.value=All the Mods 11",
+      "config:config/bcc-common.json#modpackVersion.value=0.12.0-beta"
+    ]
+  },
+  "crash_assistant": {
+    "cls": [
+      "perf",
+      "qol"
+    ],
+    "role": "perf",
+    "features": [],
+    "uk": "Після краху гри відкриває вікно з потрібними логами й звітами, завантажує їх одним кліком і готує повідомлення для підтримки ATM.",
+    "what": [
+      "Збирає crash-report, latest.log і hs_err-файли, аналізує типові причини крахів",
+      "Повідомлення для каналу #atm11-techsupport у Discord ATM (config/crash_assistant/config.toml)"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "tips": [
+      "Гра крашнулася після зміни клавіш? Перша підозра — модифікатори Ctrl / Shift / Alt на діях модів Balm (вкладка «Клавіші»)."
+    ],
+    "ref": [
+      "jarfile:CrashAssistant!META-INF/neoforge.mods.toml~hs_err files",
+      "file:config/crash_assistant/config.toml~#atm11-techsupport channel",
+      "config:config/crash_assistant/config.toml#general.formulation_type=DISCORD",
+      "file:crash-reports/crash-2026-10-24_22.33.01-client.txt~NativeKeyModifierReconciler"
+    ]
+  },
+  "crashutilities": {
+    "cls": [
+      "perf"
+    ],
+    "role": "perf",
+    "features": [],
+    "uk": "Інструменти налагодження: екран і команди Crash Utilities — знайти й прибрати проблемні сутності й блоки-сутності, витягти застряглого гравця, переглянути завантажені чанки.",
+    "what": [
+      "Автоочищення предметів, перевірка пам'яті й вивантаження чанків неактивних гравців FTB Chunks у збірці вимкнено (crashutilities-server.toml)",
+      "Копіювання класу контейнера й індекси слотів — для авторів скриптів"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "tips": [
+      "`Ctrl+U` — екран Crash Utilities (options.txt)."
+    ],
+    "ref": [
+      "jarfile:crashutilities!META-INF/neoforge.mods.toml~debugging and fixing",
+      "jarfile:crashutilities!com/darkere/crashutils/CrashUtilCommands/EntityCommands/RemoveEntitiesCommand.class",
+      "jarfile:crashutilities!com/darkere/crashutils/CrashUtilCommands/TileEntityCommands/DeleteTECommand.class",
+      "jarfile:crashutilities!com/darkere/crashutils/CrashUtilCommands/PlayerCommands/UnstuckCommand.class",
+      "jarfile:crashutilities!com/darkere/crashutils/CrashUtilCommands/LoadedChunksCommand.class",
+      "config:config/crashutilities-server.toml#Item Clear.enabled=False",
+      "config:config/crashutilities-server.toml#Memory Checker.enabled=False",
+      "config:config/crashutilities-server.toml#Ftb Chunks.enabled=False",
+      "lang:crashutils.copycontainer",
+      "lang:crashutils.slottooltips",
+      "file:options.txt~key_crashutils.openscreen:key.keyboard.u:CONTROL"
+    ]
+  },
+  "architectury": {
+    "cls": [
+      "library"
+    ],
+    "role": "library",
+    "features": [],
+    "uk": "Проміжний API для модів, що виходять одночасно на кількох завантажувачах.",
+    "what": [
+      "Обов'язкова залежність Oracle Index, Potentials і Stellaris"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:architectury-neoforge-20.1.17!META-INF/neoforge.mods.toml~multiplatform mods",
+      "jarfile:oracle_index-neoforge-2.0.0!META-INF/neoforge.mods.toml~modId = \"architectury\"",
+      "jarfile:potentials-neoforge-26.1.2-0.11.1!META-INF/neoforge.mods.toml~modId = \"architectury\"",
+      "jarfile:stellaris-26.1.2-neoforge-2.0.7!META-INF/neoforge.mods.toml~modId = \"architectury\""
+    ]
+  },
+  "balm": {
+    "cls": [
+      "library"
+    ],
+    "role": "library",
+    "features": [],
+    "uk": "Бібліотека модів BlayTheNinth: Waystones, Cooking / Farming for Blockheads, Inventory Essentials, TrashSlot, Crafting Tweaks, Default Options, Nether Portal Fix.",
+    "what": [
+      "Дії модів на Balm не призначати з модифікаторами Ctrl / Shift / Alt в options.txt — гра падала при запуску (StackOverflowError, звіт про краш; вкладка «Клавіші»)"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:balm-neoforge-26.1.2-26.1.2.15!META-INF/neoforge.mods.toml~Blay's multiplatform mods",
+      "jarfile:waystones-neoforge-26.1.2-26.1.2.16!META-INF/neoforge.mods.toml~modId=\"balm\"",
+      "jarfile:cookingforblockheads-neoforge-26.1.2-26.1.2.6!META-INF/neoforge.mods.toml~modId=\"balm\"",
+      "jarfile:farmingforblockheads-neoforge-26.1.2-26.1.2.5!META-INF/neoforge.mods.toml~modId=\"balm\"",
+      "jarfile:inventoryessentials-neoforge-26.1.2-26.1.2.7!META-INF/neoforge.mods.toml~modId=\"balm\"",
+      "jarfile:trashslot-neoforge-26.1.2-26.1.2.4!META-INF/neoforge.mods.toml~modId=\"balm\"",
+      "jarfile:craftingtweaks-neoforge-26.1.2-26.1.2.3!META-INF/neoforge.mods.toml~modId=\"balm\"",
+      "jarfile:defaultoptions-neoforge-26.1.2-26.1.2.2!META-INF/neoforge.mods.toml~modId=\"balm\"",
+      "jarfile:netherportalfix-neoforge-26.1-26.1.0.1!META-INF/neoforge.mods.toml~modId=\"balm\"",
+      "file:crash-reports/crash-2026-10-24_22.33.01-client.txt~NativeKeyModifierReconciler"
+    ]
+  },
+  "cloth_config": {
+    "cls": [
+      "library"
+    ],
+    "role": "library",
+    "features": [],
+    "uk": "Бібліотека екранів налаштувань модів.",
+    "what": [
+      "Обов'язкова залежність Spider Overhaul і Powah; Artifacts — необов'язково"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:cloth-config-26.1.154!META-INF/neoforge.mods.toml~An API for config screens",
+      "jarfile:SpiderOverhaul-0.0.6-NeoForge-v26.1!META-INF/neoforge.mods.toml~modId = \"cloth_config\"",
+      "jarfile:Powah-7.0.4-alpha!META-INF/neoforge.mods.toml~modId=\"cloth_config\"",
+      "jarfile:artifacts-neoforge-15.1.3!META-INF/neoforge.mods.toml~modId = \"cloth_config\""
+    ]
+  },
+  "commoncapabilities": {
+    "cls": [
+      "library"
+    ],
+    "role": "library",
+    "parent": "integrateddynamics",
+    "features": [],
+    "uk": "Спільні можливості (capabilities) для модів Cyclops — сімейства Integrated Dynamics.",
+    "what": [
+      "Обов'язкова залежність Integrated Dynamics, Crafting, Terminals і Tunnels"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:commoncapabilities-26.1.2-neoforge-2.11.8-377!META-INF/neoforge.mods.toml~shared by multiple mods",
+      "jarfile:integrateddynamics-26.1.2-neoforge-1.36.1!META-INF/neoforge.mods.toml~modId=\"commoncapabilities\"",
+      "jarfile:integratedcrafting-26.1.2-neoforge-1.7.1-830!META-INF/neoforge.mods.toml~modId=\"commoncapabilities\"",
+      "jarfile:integratedterminals-26.1.2-neoforge-1.10.0!META-INF/neoforge.mods.toml~modId=\"commoncapabilities\"",
+      "jarfile:integratedtunnels-26.1.2-neoforge-1.13.1!META-INF/neoforge.mods.toml~modId=\"commoncapabilities\""
+    ]
+  },
+  "configured": {
+    "cls": [
+      "library",
+      "qol"
+    ],
+    "role": "library",
+    "features": [],
+    "uk": "Екран налаштувань для будь-якого мода просто з гри (меню «Моди» → налаштування), без редагування файлів.",
+    "what": [
+      "Список модів із кнопкою налаштувань; клавіша відкриття списку не призначена (options.txt)"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:configured-neoforge-26.1.2-2.7.5!META-INF/neoforge.mods.toml~Creates a simple GUI config for every mod!",
+      "file:options.txt~key_key.configured.open_mod_list:key.keyboard.unknown"
+    ]
+  },
+  "cupboard": {
+    "cls": [
+      "library"
+    ],
+    "role": "library",
+    "parent": "clickadv",
+    "features": [],
+    "uk": "Бібліотека утиліт і конфігів — потрібна Clickable Advancements.",
+    "what": [
+      "Обов'язкова залежність Clickable Advancements"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:cupboard-26.1-4.1!META-INF/neoforge.mods.toml~library for utilities and configs",
+      "jarfile:clickadv-26.1-3.9!META-INF/neoforge.mods.toml~modId=\"cupboard\""
+    ]
+  },
+  "cyclopscore": {
+    "cls": [
+      "library"
+    ],
+    "role": "library",
+    "features": [],
+    "uk": "Ядро модів Cyclops: EvilCraft і сімейство Integrated Dynamics.",
+    "what": [
+      "Обов'язкова залежність EvilCraft, Integrated Dynamics / Crafting / Terminals / Tunnels, їхніх модулів сумісності й CommonCapabilities"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:cyclopscore-26.1.2-neoforge-1.31.3!META-INF/neoforge.mods.toml~Coremod for Integrated Dynamics, EvilCraft",
+      "jarfile:evilcraft-26.1.2-neoforge-1.2.107!META-INF/neoforge.mods.toml~modId=\"cyclopscore\"",
+      "jarfile:evilcraft-26.1.2-neoforge-1.2.107!META-INF/neoforge.mods.toml~modId=\"cyclopscore\"",
+      "jarfile:integrateddynamics-26.1.2-neoforge-1.36.1!META-INF/neoforge.mods.toml~modId=\"cyclopscore\"",
+      "jarfile:integrateddynamics-26.1.2-neoforge-1.36.1!META-INF/neoforge.mods.toml~modId=\"cyclopscore\"",
+      "jarfile:integratedcrafting-26.1.2-neoforge-1.7.1-830!META-INF/neoforge.mods.toml~modId=\"cyclopscore\"",
+      "jarfile:integratedterminals-26.1.2-neoforge-1.10.0!META-INF/neoforge.mods.toml~modId=\"cyclopscore\"",
+      "jarfile:integratedterminals-26.1.2-neoforge-1.10.0!META-INF/neoforge.mods.toml~modId=\"cyclopscore\"",
+      "jarfile:integratedtunnels-26.1.2-neoforge-1.13.1!META-INF/neoforge.mods.toml~modId=\"cyclopscore\"",
+      "jarfile:integratedtunnels-26.1.2-neoforge-1.13.1!META-INF/neoforge.mods.toml~modId=\"cyclopscore\"",
+      "jarfile:commoncapabilities-26.1.2-neoforge-2.11.8-377!META-INF/neoforge.mods.toml~modId=\"cyclopscore\""
+    ]
+  },
+  "deimos": {
+    "cls": [
+      "library"
+    ],
+    "role": "library",
+    "parent": "laserbridges",
+    "features": [],
+    "uk": "Бібліотека конфігів і генерації даних — потрібна Laser Bridges.",
+    "what": [
+      "Обов'язкова залежність Laser Bridges"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:deimos-26.1.2-neoforge-2.7!META-INF/neoforge.mods.toml~Configuration and data generation library",
+      "jarfile:laserbridges-26.1.2-neoforge-6.2!META-INF/neoforge.mods.toml~modId = \"deimos\""
+    ]
+  },
+  "edivadlib": {
+    "cls": [
+      "library"
+    ],
+    "role": "library",
+    "parent": "dimstorage",
+    "features": [],
+    "uk": "Спільна бібліотека модів Edivad — потрібна DimStorage.",
+    "what": [
+      "Обов'язкова залежність DimStorage"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:EdivadLib-26.1.2-4.0.1!META-INF/neoforge.mods.toml~common library",
+      "jarfile:DimStorage-26.1.2-10.0.1!META-INF/neoforge.mods.toml~modId = \"edivadlib\""
+    ]
+  },
+  "fancytabsections": {
+    "cls": [
+      "library"
+    ],
+    "role": "library",
+    "features": [],
+    "uk": "Бібліотека розділів у вкладках творчого режиму — вбудована в Starcatcher і Selling Bin.",
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:fancytabsections-6.2-NEOFORGE-26.1.2!META-INF/neoforge.mods.toml~Sections inside Creative Mode Tabs",
+      "jarfile:starcatcher!META-INF/jarjar/metadata.json~fancytabsections",
+      "jarfile:selling_bin!META-INF/jarjar/metadata.json~fancytabsections"
+    ]
+  },
+  "forgeconfigapiport": {
+    "cls": [
+      "library"
+    ],
+    "role": "library",
+    "features": [],
+    "uk": "Система конфігів NeoForge / Forge для мультиплатформних модів.",
+    "what": [
+      "Явних залежних у mods.toml модів збірки немає"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:ForgeConfigAPIPort-v26.1.5-mc26.1.x-NeoForge!META-INF/neoforge.mods.toml~config systems to other modding ecosystems"
+    ]
+  },
+  "geckolib": {
+    "cls": [
+      "library"
+    ],
+    "role": "library",
+    "features": [],
+    "uk": "Рушій 3D-анімацій моделей: анімовані машини, істоти, броня.",
+    "what": [
+      "Обов'язкова залежність Advanced AE, Allthemodium, Ars Magica Legacy, Iron's Arms 'n Artifice, Iron's Lib, Neo Vitae, Occultism, Theurgy; Productive Bees — необов'язково"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:geckolib-neoforge-26.1.2-5.5.2!META-INF/neoforge.mods.toml~animation engine for Minecraft Mods",
+      "jarfile:AdvancedAE-26.1.7!META-INF/neoforge.mods.toml~modId=\"geckolib\"",
+      "jarfile:allthemodium-26.1.2-4.2.0!META-INF/neoforge.mods.toml~modId=\"geckolib\"",
+      "jarfile:arsmagicalegacy-26.1.2-1.7.0!META-INF/neoforge.mods.toml~modId = \"geckolib\"",
+      "jarfile:irons_artifice-26.1.2-1.1.0!META-INF/neoforge.mods.toml~modId=\"geckolib\"",
+      "jarfile:irons_lib-26.1.2-2.2.0!META-INF/neoforge.mods.toml~modId = \"geckolib\"",
+      "jarfile:neovitae-26.1.2-1.1.38!META-INF/neoforge.mods.toml~modId=\"geckolib\"",
+      "jarfile:occultism-26.1.2-neoforge-1.256.1!META-INF/neoforge.mods.toml~modId = \"geckolib\"",
+      "jarfile:theurgy-26.1.2-neoforge-1.116.0!META-INF/neoforge.mods.toml~modId = \"geckolib\"",
+      "jarfile:productivebees-26.1.2-15.3.0!META-INF/neoforge.mods.toml~modId=\"geckolib\""
+    ]
+  },
+  "glodium": {
+    "cls": [
+      "library"
+    ],
+    "role": "library",
+    "features": [],
+    "uk": "Бібліотека коду для доповнень AE2 — потрібна ExtendedAE і AE2 Network Analyzer.",
+    "what": [
+      "Обов'язкова залежність ExtendedAE і AE2 Network Analyzer"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:Glodium-26.1-1.2-neoforge!META-INF/neoforge.mods.toml~Codelib",
+      "jarfile:ExtendedAE-26.1-1.0.5-neoforge!META-INF/neoforge.mods.toml~modId=\"glodium\"",
+      "jarfile:AE2NetworkAnalyzer-26.1-1.0.0-neoforge!META-INF/neoforge.mods.toml~modId=\"glodium\""
+    ]
+  },
+  "konkrete": {
+    "cls": [
+      "library"
+    ],
+    "role": "library",
+    "features": [],
+    "uk": "Ядро модів Keksuccino — потрібна FancyMenu, Drippy Loading Screen і Just Zoom.",
+    "what": [
+      "Обов'язкова залежність FancyMenu, Drippy Loading Screen і Just Zoom"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:konkrete_neoforge_1.10.1_MC_26.1.1!META-INF/neoforge.mods.toml~Core library for Keksuccino's mods",
+      "jarfile:fancymenu_neoforge_3.9.14_MC_26.1.2!META-INF/neoforge.mods.toml~modId=\"konkrete\"",
+      "jarfile:drippyloadingscreen_neoforge_3.1.5_MC_26.1.2!META-INF/neoforge.mods.toml~modId=\"konkrete\"",
+      "jarfile:justzoom_neoforge_2.1.4_MC_1.21.11!META-INF/neoforge.mods.toml~modId=\"konkrete\""
+    ]
+  },
+  "kotlinforforge": {
+    "cls": [
+      "library"
+    ],
+    "role": "library",
+    "parent": "witchery",
+    "features": [],
+    "uk": "Мовна підтримка Kotlin для модів NeoForge — потрібна Witchery.",
+    "what": [
+      "Обов'язкова залежність Witchery"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:witchery-0.5.17+mc26.1.2!META-INF/neoforge.mods.toml~modId = \"kotlinforforge\"",
+      "jarfile:kotlinforforge!META-INF/MANIFEST.MF~FMLModType: LIBRARY"
+    ]
+  },
+  "melody": {
+    "cls": [
+      "library"
+    ],
+    "role": "library",
+    "parent": "fancymenu",
+    "features": [],
+    "uk": "Бібліотека фонової музики на OpenAL — потрібна FancyMenu (музика в меню).",
+    "what": [
+      "Обов'язкова залежність FancyMenu"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:melody_neoforge_1.0.16_MC_26.1.1!META-INF/neoforge.mods.toml~OpenAL-based library mod to play background music",
+      "jarfile:fancymenu_neoforge_3.9.14_MC_26.1.2!META-INF/neoforge.mods.toml~modId=\"melody\""
+    ]
+  },
+  "mezz_config": {
+    "cls": [
+      "library"
+    ],
+    "role": "library",
+    "parent": "jei",
+    "features": [],
+    "uk": "Бібліотека конфігів автора JEI — потрібна JEI.",
+    "what": [
+      "Обов'язкова залежність JEI"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:jei-26.1.2-neoforge-29.47.0.109!META-INF/neoforge.mods.toml~modId=\"mezz_config\"",
+      "jarfile:mezz_config!META-INF/MANIFEST.MF~FMLModType: GAMELIBRARY"
+    ]
+  },
+  "modernui": {
+    "cls": [
+      "library",
+      "qol"
+    ],
+    "role": "library",
+    "features": [],
+    "uk": "Сучасний інтерфейсний фреймворк, який у збірці змінює вигляд гри: заокруглені підказки, розмиття фону меню, звук «дзінь» після завантаження, шорткоди емодзі в чаті.",
+    "what": [
+      "Підказки предметів із заокругленою рамкою, розмиття тла вікон (крім чату), шорткоди емодзі (config/ModernUI/client.toml)",
+      "Центр дій Modern UI і власне збільшення"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "tips": [
+      "`Ctrl+K` — Центр дій, `C` — збільшення Modern UI (options.txt)."
+    ],
+    "ref": [
+      "jarfile:ModernUI-NeoForge-26.1.2-3.13.0.5-universal!META-INF/neoforge.mods.toml~Modern desktop framework",
+      "config:config/ModernUI/client.toml#tooltip.roundedShape=True",
+      "config:config/ModernUI/client.toml#screen.blurEffect=True",
+      "config:config/ModernUI/client.toml#screen.blurBlacklist",
+      "config:config/ModernUI/client.toml#general.ding=True",
+      "config:config/ModernUI/client.toml#general.emojiShortcodes=True",
+      "config:config/ModernUI/client.toml#general.zoom=True",
+      "file:options.txt~key_key.modernui.openCenter:key.keyboard.k:CONTROL_OR_COMMAND",
+      "file:options.txt~key_key.modernui.zoom:key.keyboard.c"
+    ]
+  },
+  "prickle": {
+    "cls": [
+      "library"
+    ],
+    "role": "library",
+    "features": [],
+    "uk": "Формат конфігів Prickle (JSON) для модів Darkhax — потрібна AttributeFix, Enchantment Descriptions і MaxHealthFix.",
+    "what": [
+      "Обов'язкова залежність AttributeFix, Enchantment Descriptions і MaxHealthFix"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:PrickleMC-neoforge-MC26.1.2-26.1.2.6!META-INF/neoforge.mods.toml~JSON based configuration file format",
+      "jarfile:AttributeFix-neoforge-MC26.1.2-26.1.2.3!META-INF/neoforge.mods.toml~modId = \"prickle\"",
+      "jarfile:EnchantmentDescriptions-neoforge-MC26.1.2-26.1.2.6!META-INF/neoforge.mods.toml~modId = \"prickle\"",
+      "jarfile:MaxHealthFix-neoforge-MC26.1.2-26.1.2.3!META-INF/neoforge.mods.toml~modId = \"prickle\""
+    ]
+  },
+  "scalablecatsforce": {
+    "cls": [
+      "library"
+    ],
+    "role": "library",
+    "features": [],
+    "uk": "Мовна підтримка Scala і бібліотеки Cats для модів, написаних на Scala.",
+    "what": [
+      "Модів, що оголошують її залежністю, у збірці не знайдено"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:ScalableCatsForce!META-INF/MANIFEST.MF~FMLModType: LIBRARY"
+    ]
+  },
+  "searchables": {
+    "cls": [
+      "library"
+    ],
+    "role": "library",
+    "parent": "controlling",
+    "features": [],
+    "uk": "Бібліотека рядків пошуку з автодоповненням і типами пошуку — потрібна Controlling.",
+    "what": [
+      "Обов'язкова залежність Controlling; FramedBlocks — необов'язково"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:Searchables-neoforge-26.1.2-1.0.2!META-INF/neoforge.mods.toml~search bars with auto complete",
+      "jarfile:Controlling-neoforge-26.1.2-26.1.2.7!META-INF/neoforge.mods.toml~modId = \"searchables\"",
+      "jarfile:FramedBlocks-11.4.0!META-INF/neoforge.mods.toml~modId=\"searchables\""
+    ]
+  },
+  "supermartijn642configlib": {
+    "cls": [
+      "library"
+    ],
+    "role": "library",
+    "features": [],
+    "uk": "Бібліотека конфігів модів SuperMartijn642 — потрібна Simple Magnets, Item Collectors і Trash Cans.",
+    "what": [
+      "Обов'язкова залежність Simple Magnets, Item Collectors і Trash Cans"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:supermartijn642configlib-1.1.8-neoforge-mc26.1!META-INF/neoforge.mods.toml~dealing with config files",
+      "jarfile:simplemagnets-1.1.12-neoforge-mc26.1!META-INF/neoforge.mods.toml~modId = \"supermartijn642configlib\"",
+      "jarfile:itemcollectors-1.1.12a-neoforge-mc26.1!META-INF/neoforge.mods.toml~modId = \"supermartijn642configlib\"",
+      "jarfile:trashcans-1.1.1a-neoforge-mc26.1!META-INF/neoforge.mods.toml~modId = \"supermartijn642configlib\""
+    ]
+  },
+  "supermartijn642corelib": {
+    "cls": [
+      "library"
+    ],
+    "role": "library",
+    "features": [],
+    "uk": "Базова бібліотека інтерфейсів модів SuperMartijn642 — потрібна Simple Magnets, Item Collectors і Trash Cans.",
+    "what": [
+      "Обов'язкова залежність Simple Magnets, Item Collectors і Trash Cans"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:supermartijn642corelib-1.1.25-neoforge-mc26.1!META-INF/neoforge.mods.toml~basic implementations for guis",
+      "jarfile:simplemagnets-1.1.12-neoforge-mc26.1!META-INF/neoforge.mods.toml~modId = \"supermartijn642corelib\"",
+      "jarfile:itemcollectors-1.1.12a-neoforge-mc26.1!META-INF/neoforge.mods.toml~modId = \"supermartijn642corelib\"",
+      "jarfile:trashcans-1.1.1a-neoforge-mc26.1!META-INF/neoforge.mods.toml~modId = \"supermartijn642corelib\""
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+ "ov": "Маса (goo) перетворює блоки поруч на нові матеріали — феррікор, пломенезолото, целестигем, сплав затемнення; з них інструменти й броня зі здібностями та машини-помічники (руйнівник, розміщувач, клікер…).",
+ "ref": [
+  "item:justdirethings:gooblock_tier1",
+  "item:justdirethings:ferricore_ingot",
+  "item:justdirethings:blazegold_ingot",
+  "item:justdirethings:celestigem",
+  "item:justdirethings:eclipsealloy_ingot",
+  "item:justdirethings:ferricore_pickaxe",
+  "item:justdirethings:ferricore_helmet",
+  "item:justdirethings:blockbreakert1",
+  "item:justdirethings:blockplacert1",
+  "item:justdirethings:clickert1"
+ ],
+ "_src": "реєстр предметів justdirethings, опис мода в довіднику"
+}

@@ -1,0 +1,16 @@
+{
+ "ov": "Railcraft Reborn: рейки (зміцнені, швидкісні, електричні), паро- й електротяги, вагонетки-цистерни, сигнали; а ще коксова піч і домна — одне з джерел сталі.",
+ "ref": [
+  "quest:425E375A9EC127EB",
+  "quest:75DD345164EE5CD9",
+  "quest:2A30595DC6DDBFF7",
+  "quest:5128B119DFFF0C4C",
+  "quest:3E8C2E7769DFBF35",
+  "item:railcraft:tank_minecart",
+  "item:railcraft:block_signal",
+  "quest:38451B61E3FC075B",
+  "quest:0A43FD0B5C76C1C5",
+  "recipe:railcraft:blast_furnace/blasting_iron_ingot"
+ ],
+ "_src": "квести глави, реєстр railcraft, рецепт сталі в домні (факт steel)"
+}

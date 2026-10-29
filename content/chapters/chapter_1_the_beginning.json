@@ -1,0 +1,112 @@
+{
+ "ov": "Головна лінія старту: від першого дерева до Дракона Енду. По дорозі глава знайомить із модами, що мають власні глави, — сховища Sophisticated, Mystical Agriculture, моди Productive, Silent Gear, Aether 2, техніка й магія.",
+ "ref": [
+  "quest:3DBDF0350DC69A70",
+  "quest:5159B6673D6D5ACE",
+  "quest:2D50702DCC000821",
+  "quest:13B84D532D8B9FD7",
+  "quest:4B5C2541410CBDD6",
+  "quest:079D573AAE2A6427",
+  "quest:07420CD49A1758A3",
+  "quest:271F9053B9EFAAEF",
+  "quest:7D10D15B94C63DE4"
+ ],
+ "steps": [
+  {
+   "t": "Дерево → верстак → дерев'яне й кам'яне кайло, піч; мішечок і ранець для речей у дорозі",
+   "ref": [
+    "quest:3DBDF0350DC69A70",
+    "quest:0FD16AD855DAD5BD",
+    "quest:6A58B95BF0F26496",
+    "quest:6EB05138B989CAD9",
+    "quest:08405A885ACDADFC",
+    "quest:616352EBF422192F"
+   ]
+  },
+  {
+   "t": "Залізо → діаманти → обсидіан; скрині й діжки, потім покращені — Sophisticated Storage",
+   "ref": [
+    "quest:6EB05138B989CAD9",
+    "quest:612FE1CBA627D9AB",
+    "quest:1326E3016B881BFD",
+    "quest:6F7230B34D1D5A6B",
+    "quest:2D50702DCC000821"
+   ]
+  },
+  {
+   "t": "«Вироблення енергії» (генерапіч Powah, генератор Integrated Dynamics або генератор Стірлінга Ender IO) і «Технічні моди» — вхід у техніку",
+   "ref": [
+    "quest:3FE25E22AFBC52E1",
+    "quest:271F9053B9EFAAEF"
+   ]
+  },
+  {
+   "t": "Зачарування й Незер: фортеця (пломені, візери-скелети), бастіон, незерит",
+   "ref": [
+    "quest:644437A0DF39915F",
+    "quest:0AE25EC6B6089F3B",
+    "quest:3D58FE63B568C776",
+    "quest:2063337BB2DEAB00",
+    "quest:4FB923DD4EBCC1BA",
+    "quest:39BC6F9F9EBBC22B",
+    "quest:3B61DE4CB34F6BC9"
+   ]
+  },
+  {
+   "t": "Око Енду → твердиня; Візер і Боронитель; Дракон Енду. Наступна глава основної лінії — «Розділ 2: Усемодій»",
+   "ref": [
+    "quest:34A822487EEF2A2A",
+    "quest:57B726C4B7E418EC",
+    "quest:19F799ABFAE801D3",
+    "quest:5159B6673D6D5ACE",
+    "file:config/ftbquests/quests/chapters/allthemodium.json5~order_index: 1"
+   ]
+  }
+ ],
+ "rewards": [
+  {
+   "t": "Зірка Незеру — за Візера",
+   "ref": [
+    "quest:57B726C4B7E418EC"
+   ]
+  },
+  {
+   "t": "Ковальський шаблон оздоби «Тиша» й уламок відлуння — за Боронителя",
+   "ref": [
+    "quest:19F799ABFAE801D3"
+   ]
+  },
+  {
+   "t": "Голова й яйце дракона — за Дракона Енду",
+   "ref": [
+    "quest:5159B6673D6D5ACE"
+   ]
+  },
+  {
+   "t": "9 сталевих злитків — за «Технічні моди»",
+   "ref": [
+    "quest:271F9053B9EFAAEF"
+   ]
+  }
+ ],
+ "atm": [
+  {
+   "t": "Глава в гнучкому режимі (progression_mode: flexible): завдання квесту можна виконувати до попередніх квестів — квест зарахується, коли їх буде виконано",
+   "ref": [
+    "file:config/ftbquests/quests/chapters/chapter_1_the_beginning.json5~progression_mode: \"flexible\""
+   ]
+  },
+  {
+   "t": "Сталь ручним крафтом не робиться (рецепти MFFS і Oritech прибрано KubeJS): її виплавляють у печі для сплавів Energized Power, плавильнику сплавів Ender IO, домні Railcraft або сплавляють у ливарні Productive Metalworks з рідкого заліза й рідкого вуглецю — докладно у факті «Сталь»",
+   "ref": [
+    "!recipe:mffs:steel_ingot",
+    "!recipe:oritech:steel_ingot",
+    "recipe:energizedpower:alloy_furnace/steel_ingot",
+    "recipe:alltheores:alloy_smelting/steel_ingot",
+    "recipe:railcraft:blast_furnace/blasting_iron_ingot",
+    "recipe:productivemetalworks:alloying/molten_steel"
+   ]
+  }
+ ],
+ "_src": "квести глави (завдання, варіанти смарт-фільтрів, нагороди), chapter_1_the_beginning.json5 (progression_mode), факт steel"
+}

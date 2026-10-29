@@ -1,0 +1,159 @@
+{
+ "_doc": "Гілка Food and Farming (G5): кроки — квести глави «Food and Farming» (quests); числа — конфіги Cooking / Farming for Blockheads (ref, сито).",
+ "id": "food_and_farming",
+ "title": "Їжа, кухня й риболовля",
+ "icon": "🍳",
+ "cls": "farming",
+ "mods": [
+  "cookingforblockheads",
+  "farmingforblockheads",
+  "aquaculture"
+ ],
+ "chapter": "food_and_farming",
+ "book": "Готуємо для чайників (Cooking for Blockheads)",
+ "enter": "s0",
+ "summary": "Перші ферми й тварини, багатоблокова кухня Cooking for Blockheads (кухонний стіл, раковина з нескінченною водою, духовка, «Корова в банці»), ринок Farming for Blockheads і вудки Aquaculture аж до нептунієвої. Льон — для ниток Silent Gear.",
+ "gives": [
+  "Кухня, що бачить усі продукти й готує складні страви",
+  "Нескінченна вода з раковини й молоко з «Корови в банці»",
+  "Ринок насіння за смарагди",
+  "Нептунієва вудка й спорядження"
+ ],
+ "_src": "квести глави food_and_farming (tools/quests_dump.py food_and_farming); config/cookingforblockheads-common.toml, farmingforblockheads-common.toml",
+ "steps": [
+  {
+   "id": "start",
+   "x": 0,
+   "y": 1,
+   "title": "Перші ферми й тварини",
+   "quests": [
+    "1827DEEA2DF1B144",
+    "43021923E220CF68",
+    "72717D1135486D7F",
+    "2E9C035EEE7E5C34",
+    "1D2EF12FD7FDD217",
+    "73B8A70240E6070E"
+   ],
+   "text": "Мотика, насіння з трави, пшениця, повідець для тварин, яйця, молоко — основа їжі.",
+   "src": "квести «Food and Farming», «Садівник», «Вдарте по траві», «Робимо це по-старому», «Я не жартуватиму про яйця», «Подоїти корову — і прибуток»"
+  },
+  {
+   "id": "flax",
+   "x": 1,
+   "y": 2,
+   "title": "Льон",
+   "quests": [
+    "56550CD12C681B0F",
+    "04D0543FE2820F64"
+   ],
+   "text": "Насіння льону Silent Gear → лляна нитка (замість павутиння).",
+   "src": "квести «Насіння льону», «Лляна нитка»",
+   "ref": [
+    "recipe:kjs:mods/silentgear/recipes.js#L15"
+   ]
+  },
+  {
+   "id": "kitchen",
+   "x": 1,
+   "y": 1,
+   "title": "Кухня",
+   "quests": [
+    "45F83C2750F70F9B",
+    "58D5BD3106BFD94A",
+    "28C9EDBF6607E180",
+    "37CA6F9F0226F10E",
+    "791AE62ACACBD5BA",
+    "58495CFBF4F20CE9"
+   ],
+   "text": "Книги «Готуємо для чайників» → кухонний стіл, стільниці, холодильники, шафки: стіл бачить продукти в блоках кухні.",
+   "src": "квести «Облаштовуємо кухню за допомогою книги», «Готуємо із силою діамантів», «НАЙКРАЩЕ ВІДТОДІ…», «Потрібно більше місця…», «Холодильники», «Ще більше сховища»"
+  },
+  {
+   "id": "water",
+   "x": 2,
+   "y": 0,
+   "title": "Раковина й «Корова в банці»",
+   "quests": [
+    "0EFF1AA37772156B",
+    "47764EFC822E462A"
+   ],
+   "text": "Раковина дає нескінченну воду — і кухні, і трубам (sinkRequiresWater = false). «Корова в банці» виробляє 1 mB молока за такт (конфіг).",
+   "src": "квести «Раковина = нескінченна вода», «Корова в банці»; config/cookingforblockheads-common.toml",
+   "ref": [
+    "config:config/cookingforblockheads-common.toml#sinkRequiresWater=false",
+    "config:config/cookingforblockheads-common.toml#cowJarMilkPerTick=1"
+   ]
+  },
+  {
+   "id": "oven",
+   "x": 2,
+   "y": 1,
+   "title": "Духовка",
+   "quests": [
+    "2786D5AC19163524",
+    "1515B32545F51266",
+    "13AFCD3B6F62B986"
+   ],
+   "text": "Духовка й покращення «Нагрів» та «Лід» для кухні.",
+   "src": "квести «Люба, у нас на кухні піч», «Покращення «Нагрів»», «Покращення «Лід»»"
+  },
+  {
+   "id": "market",
+   "x": 2,
+   "y": 2,
+   "title": "Ринок",
+   "quests": [
+    "1F114EB0AAB86DB4"
+   ],
+   "text": "Ринок Farming for Blockheads: селянин продає насіння, паростки, квіти — за квестом зазвичай 1 смарагд за предмет. Годівниця розмножує тварин у радіусі 8 блоків (конфіг).",
+   "src": "квест «Купуємо фермерське приладдя»; config/farmingforblockheads-common.toml",
+   "ref": [
+    "config:config/farmingforblockheads-common.toml#feedingTroughRange=8"
+   ]
+  },
+  {
+   "id": "fish",
+   "x": 1,
+   "y": 0,
+   "title": "Риболовля",
+   "quests": [
+    "1DCAA0310AA55F1C",
+    "16D0F1E3CEB60ABF",
+    "0A64D0937A5F7513",
+    "511562EA5811306B",
+    "5A1DCD6C7F712A78"
+   ],
+   "text": "Вудки Aquaculture: залізна → золота → діамантова → нептунієва. Нептуній — зі скрині «Подарунок Нептуна» в улові (конфіг).",
+   "src": "квести «Початок рибалки», «Залізна / Золота / Діамантова / Нептунієва вудка»; config/aquaculture-common.toml",
+   "ref": [
+    "config:config/aquaculture-common.toml#neptunium_options.Add Neptune's Bounty as loot?=true"
+   ]
+  }
+ ],
+ "links": [
+  [
+   "start",
+   "kitchen"
+  ],
+  [
+   "start",
+   "fish"
+  ],
+  [
+   "start",
+   "flax"
+  ],
+  [
+   "kitchen",
+   "water"
+  ],
+  [
+   "kitchen",
+   "oven"
+  ],
+  [
+   "start",
+   "market"
+  ]
+ ]
+}

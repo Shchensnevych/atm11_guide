@@ -1,0 +1,413 @@
+{
+ "ov": "Інструменти, зброя, обладунки й прикраси з деталей Silent Gear. Збірка додає лиття деталей у ливарні Productive Metalworks: будуєте ливарню, робите ливарні форми — і метали та самоцвіти з категорією лиття перетворюються на деталі. Креслення Silent Gear на верстаті теж працюють.",
+ "ref": [
+  "quest:6BBC440BD0AD0E93",
+  "quest:061A51A0EC13CA0F",
+  "recipe:sgearmetalworks:casting/pickaxe_cast",
+  "recipe:sgearmetalworks:casting/silentgear/pickaxe_head",
+  "jarfile:sgearmetalworks!data/sgearmetalworks/recipe/casting/silentgear/pickaxe_head.json~\"casting\"",
+  "recipe:silentgear:gear/pickaxe_head",
+  "recipe:silentgear:pickaxe_blueprint"
+ ],
+ "steps": [
+  {
+   "t": "Вогнетривка глина → контролер, зливи й резервуари ливарні",
+   "ref": [
+    "item:productivemetalworks:fire_clay",
+    "quest:45899579D9B92D91",
+    "quest:036D5767E07005BC",
+    "quest:2156C00E30424844"
+   ]
+  },
+  {
+   "t": "Будуємо ливарню: підлога з рідинних нагрівальних спіралей, 4 стіни з вогнетривкої цегли чи вікон (кути можна лишити порожніми), паливо — лава в резервуарах",
+   "ref": [
+    "quest:061A51A0EC13CA0F~it must have 4 Walls and a Floor",
+    "quest:2156C00E30424844~Mostly Lava",
+    "item:productivemetalworks:liquid_heating_coil"
+   ]
+  },
+  {
+   "t": "Кран на злив, під ним ливарний стіл або чан — відливаємо злитки й блоки",
+   "ref": [
+    "quest:036D5767E07005BC",
+    "item:productivemetalworks:casting_table",
+    "item:productivemetalworks:casting_basin"
+   ]
+  },
+  {
+   "t": "Ливарні форми: на ливарному столі заливаємо 360 mB рідкої сталі на готову деталь — деталь витрачається, форма багаторазова",
+   "ref": [
+    "recipe:sgearmetalworks:casting/pickaxe_cast",
+    "recipe:sgearmetalworks:casting/silentgear/pickaxe_head"
+   ]
+  },
+  {
+   "t": "Деталі з форм → інструменти; далі сплавна кузня (тирійська сталь), оцінювач матеріалів і зоряний зарядник — їх застосовують до готових деталей",
+   "ref": [
+    "item:silentgear:material_grader",
+    "item:silentgear:alloy_forge",
+    "recipe:silentgear:alloying/metal/tyrian_steel_ingot",
+    "item:silentgear:starlight_charger",
+    "jarfile:sgearmetalworks!assets/sgearmetalworks/lang/en_us.json~you now do it to the finished gear part"
+   ]
+  }
+ ],
+ "atm": [
+  {
+   "t": "Silent Gear Metalworks: деталі з металів і самоцвітів можна відливати в ливарні. Квест «Silent Gear і Productive Metalworks» каже, що креслення замінено формами, але рецепти деталей за кресленнями на верстаті в збірці активні",
+   "ref": [
+    "quest:6BBC440BD0AD0E93~Instead of using Blueprints, we'll now need Casts",
+    "recipe:silentgear:gear/pickaxe_head",
+    "recipe:silentgear:pickaxe_blueprint",
+    "recipe:sgearmetalworks:casting/silentgear/pickaxe_head"
+   ]
+  },
+  {
+   "t": "Ливарна форма — відбиток: готову деталь кладуть на ливарний стіл і заливають 360 mB рідкої сталі (деталь витрачається, форма — ні). Першу деталь роблять за кресленням Silent Gear на верстаті",
+   "ref": [
+    "recipe:sgearmetalworks:casting/pickaxe_cast",
+    "recipe:sgearmetalworks:casting/silentgear/pickaxe_head",
+    "recipe:silentgear:gear/pickaxe_head"
+   ]
+  },
+  {
+   "t": "Рідка сталь для форм: розплавити сталеві предмети або сплавити в ливарні рідке залізо з рідким вуглецем (вугілля плавиться в ливарні)",
+   "ref": [
+    "recipe:productivemetalworks:melting/ingots/steel",
+    "recipe:productivemetalworks:alloying/molten_steel",
+    "recipe:productivemetalworks:melting/coals"
+   ]
+  },
+  {
+   "t": "Ремонт — ремкомплектом: наповнений ремкомплект і предмет у сітці крафту",
+   "ref": [
+    "lang:advancements.silentgear.repair_from_broken.description",
+    "item:silentgear:crude_repair_kit"
+   ]
+  }
+ ],
+ "notes": {
+  "766C80E5D7B7A916": {
+   "text": "Відбиток деталі «голова кайла» → кайло — «ваш найкращий друг». У форму заливають рідкий метал чи самоцвіт — виходить деталь із нього. Як зробити форму — у «Особливостях ATM11» глави.",
+   "ref": [
+    "recipe:sgearmetalworks:casting/pickaxe_cast",
+    "recipe:sgearmetalworks:casting/silentgear/pickaxe_head"
+   ]
+  },
+  "52CDB46F6CBF007B": {
+   "text": "Відбиток деталі «лопать лопати» → лопата. У форму заливають рідкий метал чи самоцвіт — виходить деталь із нього. Як зробити форму — у «Особливостях ATM11» глави.",
+   "ref": [
+    "recipe:sgearmetalworks:casting/shovel_cast",
+    "recipe:sgearmetalworks:casting/silentgear/shovel_head"
+   ]
+  },
+  "69383DA579901E7E": {
+   "text": "Відбиток деталі «лезо сокири» → сокира — рубає дерево. У форму заливають рідкий метал чи самоцвіт — виходить деталь із нього. Як зробити форму — у «Особливостях ATM11» глави.",
+   "ref": [
+    "recipe:sgearmetalworks:casting/axe_cast",
+    "recipe:sgearmetalworks:casting/silentgear/axe_head"
+   ]
+  },
+  "63CAD77A4488F2CE": {
+   "text": "Відбиток деталі «голова пекселя» → пексель — кайло, сокира й лопата в одному. У форму заливають рідкий метал чи самоцвіт — виходить деталь із нього. Як зробити форму — у «Особливостях ATM11» глави.",
+   "ref": [
+    "recipe:sgearmetalworks:casting/paxel_cast",
+    "recipe:sgearmetalworks:casting/silentgear/paxel_head"
+   ]
+  },
+  "262036FE8E87F50A": {
+   "text": "Відбиток деталі «голова молота» → молот — «тунелекоп», кайло по площі 3×3. У форму заливають рідкий метал чи самоцвіт — виходить деталь із нього. Як зробити форму — у «Особливостях ATM11» глави.",
+   "ref": [
+    "recipe:sgearmetalworks:casting/hammer_cast",
+    "recipe:sgearmetalworks:casting/silentgear/hammer_head"
+   ]
+  },
+  "3F39BEB788175CEF": {
+   "text": "Відбиток деталі «голова екскаватора» → екскаватор — лопата по площі 3×3. У форму заливають рідкий метал чи самоцвіт — виходить деталь із нього. Як зробити форму — у «Особливостях ATM11» глави.",
+   "ref": [
+    "recipe:sgearmetalworks:casting/excavator_cast",
+    "recipe:sgearmetalworks:casting/silentgear/excavator_head"
+   ]
+  },
+  "427516AA3E8C9442": {
+   "text": "Відбиток деталі «голова кайла-мотики» → кайло-мотика («краще за мотики»). У форму заливають рідкий метал чи самоцвіт — виходить деталь із нього. Як зробити форму — у «Особливостях ATM11» глави.",
+   "ref": [
+    "recipe:sgearmetalworks:casting/mattock_cast",
+    "recipe:sgearmetalworks:casting/silentgear/mattock_head"
+   ]
+  },
+  "083ABBA1C45FF960": {
+   "text": "Відбиток деталі «лезо серпа» → серп — косить багато рослин одразу. У форму заливають рідкий метал чи самоцвіт — виходить деталь із нього. Як зробити форму — у «Особливостях ATM11» глави.",
+   "ref": [
+    "recipe:sgearmetalworks:casting/sickle_cast",
+    "recipe:sgearmetalworks:casting/silentgear/sickle_blade"
+   ]
+  },
+  "67216EC5274F08B9": {
+   "text": "Відбиток деталі «леза ножиць» → ножиці. У форму заливають рідкий метал чи самоцвіт — виходить деталь із нього. Як зробити форму — у «Особливостях ATM11» глави.",
+   "ref": [
+    "recipe:sgearmetalworks:casting/shears_cast",
+    "recipe:sgearmetalworks:casting/silentgear/shear_blades"
+   ]
+  },
+  "462C1F75A2FB9F02": {
+   "text": "Відбиток деталі «котушка й гачок» → вудка. У форму заливають рідкий метал чи самоцвіт — виходить деталь із нього. Як зробити форму — у «Особливостях ATM11» глави.",
+   "ref": [
+    "recipe:sgearmetalworks:casting/fishing_rod_cast",
+    "recipe:sgearmetalworks:casting/silentgear/fishing_reel_and_hook"
+   ]
+  },
+  "6D9CDB4D81DC164D": {
+   "text": "Відбиток деталі «плечі лука» → лук. У форму заливають рідкий метал чи самоцвіт — виходить деталь із нього. Як зробити форму — у «Особливостях ATM11» глави.",
+   "ref": [
+    "recipe:sgearmetalworks:casting/bow_cast",
+    "recipe:sgearmetalworks:casting/silentgear/bow_limbs"
+   ]
+  },
+  "1E8357755479E259": {
+   "text": "Відбиток деталі «плечі арбалета» → арбалет. У форму заливають рідкий метал чи самоцвіт — виходить деталь із нього. Як зробити форму — у «Особливостях ATM11» глави.",
+   "ref": [
+    "recipe:sgearmetalworks:casting/crossbow_cast",
+    "recipe:sgearmetalworks:casting/silentgear/crossbow_limbs"
+   ]
+  },
+  "1E2F1E036716C031": {
+   "text": "Відбиток деталі «плечі рогатки» → рогатка — стріляє камінчиками. У форму заливають рідкий метал чи самоцвіт — виходить деталь із нього. Як зробити форму — у «Особливостях ATM11» глави.",
+   "ref": [
+    "recipe:sgearmetalworks:casting/slingshot_cast",
+    "recipe:sgearmetalworks:casting/silentgear/slingshot_limbs"
+   ]
+  },
+  "78C112170E17FBF4": {
+   "text": "Відбиток деталі «пластина щита» → щит. У форму заливають рідкий метал чи самоцвіт — виходить деталь із нього. Як зробити форму — у «Особливостях ATM11» глави.",
+   "ref": [
+    "recipe:sgearmetalworks:casting/shield_cast",
+    "recipe:sgearmetalworks:casting/silentgear/shield_plate"
+   ]
+  },
+  "6E2806D8DC61C46F": {
+   "text": "Відбиток деталі «пластини шолома» → шолом. У форму заливають рідкий метал чи самоцвіт — виходить деталь із нього. Як зробити форму — у «Особливостях ATM11» глави.",
+   "ref": [
+    "recipe:sgearmetalworks:casting/helmet_cast",
+    "recipe:sgearmetalworks:casting/silentgear/helmet_plates"
+   ]
+  },
+  "35E8C65CCA676E76": {
+   "text": "Відбиток деталі «пластини нагрудника» → нагрудник. У форму заливають рідкий метал чи самоцвіт — виходить деталь із нього. Як зробити форму — у «Особливостях ATM11» глави.",
+   "ref": [
+    "recipe:sgearmetalworks:casting/chestplate_cast",
+    "recipe:sgearmetalworks:casting/silentgear/chestplate_plates"
+   ]
+  },
+  "22C51025DC42CDE2": {
+   "text": "Відбиток деталі «пластини поножів» → поножі. У форму заливають рідкий метал чи самоцвіт — виходить деталь із нього. Як зробити форму — у «Особливостях ATM11» глави.",
+   "ref": [
+    "recipe:sgearmetalworks:casting/leggings_cast",
+    "recipe:sgearmetalworks:casting/silentgear/legging_plates"
+   ]
+  },
+  "6912C0E3D092DD27": {
+   "text": "Відбиток деталі «пластини черевиків» → чоботи. У форму заливають рідкий метал чи самоцвіт — виходить деталь із нього. Як зробити форму — у «Особливостях ATM11» глави.",
+   "ref": [
+    "recipe:sgearmetalworks:casting/boots_cast",
+    "recipe:sgearmetalworks:casting/silentgear/boot_plates"
+   ]
+  },
+  "3844877F6C1AFE77": {
+   "text": "Відбиток деталі «наконечники стріл» → стріли — набої для луків і арбалетів. У форму заливають рідкий метал чи самоцвіт — виходить деталь із нього. Як зробити форму — у «Особливостях ATM11» глави.",
+   "ref": [
+    "recipe:sgearmetalworks:casting/arrow_cast",
+    "recipe:sgearmetalworks:casting/silentgear/arrow_heads"
+   ]
+  },
+  "74FA25B2E087BEC4": {
+   "text": "Відбиток деталі «обідок персня» → перстень — носиться в слоті Curios «перстень». У форму заливають рідкий метал чи самоцвіт — виходить деталь із нього. Як зробити форму — у «Особливостях ATM11» глави.",
+   "ref": [
+    "recipe:sgearmetalworks:casting/ring_cast",
+    "recipe:sgearmetalworks:casting/silentgear/ring_shank"
+   ]
+  },
+  "21234BB40DB05C78": {
+   "text": "Відбиток деталі «обідок браслета» → браслет — слот Curios «браслет». У форму заливають рідкий метал чи самоцвіт — виходить деталь із нього. Як зробити форму — у «Особливостях ATM11» глави.",
+   "ref": [
+    "recipe:sgearmetalworks:casting/bracelet_cast",
+    "recipe:sgearmetalworks:casting/silentgear/bracelet_band"
+   ]
+  },
+  "7098F24BC8FAC749": {
+   "text": "Відбиток деталі «ланцюжок намиста» → намисто — слот Curios «намисто». У форму заливають рідкий метал чи самоцвіт — виходить деталь із нього. Як зробити форму — у «Особливостях ATM11» глави.",
+   "ref": [
+    "recipe:sgearmetalworks:casting/necklace_cast",
+    "recipe:sgearmetalworks:casting/silentgear/necklace_chain"
+   ]
+  },
+  "222D08F43B995FED": {
+   "text": "Відбиток деталі «зубці тризуба» → тризубець. У форму заливають рідкий метал чи самоцвіт — виходить деталь із нього. Як зробити форму — у «Особливостях ATM11» глави.",
+   "ref": [
+    "recipe:sgearmetalworks:casting/trident_cast",
+    "recipe:sgearmetalworks:casting/silentgear/trident_prongs"
+   ]
+  },
+  "657B3116A6419420": {
+   "text": "Відбиток деталі «руків'я інструмента» → руків'я — потрібне більшості інструментів. У форму заливають рідкий метал чи самоцвіт — виходить деталь із нього. Як зробити форму — у «Особливостях ATM11» глави.",
+   "ref": [
+    "recipe:sgearmetalworks:casting/rod_cast",
+    "recipe:sgearmetalworks:casting/silentgear/tool_rod"
+   ]
+  },
+  "047F3F99035CE623": {
+   "text": "Відбиток деталі «голова молота розвідника» → молот розвідника («нюхач руд»). У форму заливають рідкий метал чи самоцвіт — виходить деталь із нього. Як зробити форму — у «Особливостях ATM11» глави.",
+   "ref": [
+    "recipe:sgearmetalworks:casting/prospector_hammer_cast",
+    "recipe:sgearmetalworks:casting/silentgear/prospector_hammer_head"
+   ]
+  },
+  "36A5229DB5D4C059": {
+   "text": "Форма Productive Metalworks для відливання злитка з рідкого металу ливарні: злиток (або цеглину) на ливарному столі + 360 mB рідкої сталі (предмет витрачається, форма — ні).",
+   "ref": [
+    "recipe:productivemetalworks:casting/cast/ingot",
+    "recipe:productivemetalworks:casting/cast/ingot_brick"
+   ]
+  },
+  "0251715AB65D8151": {
+   "text": "Форма Productive Metalworks для відливання самоцвіта з рідкого металу ливарні: самоцвіт на ливарному столі + 360 mB рідкої сталі (предмет витрачається, форма — ні).",
+   "ref": [
+    "recipe:productivemetalworks:casting/cast/gem"
+   ]
+  },
+  "4119E115505036E5": {
+   "text": "Форма Productive Metalworks для відливання самородка з рідкого металу ливарні: самородок на ливарному столі + 360 mB рідкої сталі (предмет витрачається, форма — ні).",
+   "ref": [
+    "recipe:productivemetalworks:casting/cast/nugget"
+   ]
+  },
+  "7965E2CBF3FF9B65": {
+   "text": "Форма Productive Metalworks для відливання шестерні з рідкого металу ливарні: шестерню на ливарному столі + 360 mB рідкої сталі (предмет витрачається, форма — ні).",
+   "ref": [
+    "recipe:productivemetalworks:casting/cast/gear"
+   ]
+  },
+  "00A1223DAAEB28BD": {
+   "text": "Форма Productive Metalworks для відливання стрижня з рідкого металу ливарні: стрижень на ливарному столі + 360 mB рідкої сталі (предмет витрачається, форма — ні).",
+   "ref": [
+    "recipe:productivemetalworks:casting/cast/rod"
+   ]
+  },
+  "75EE2123753062B8": {
+   "text": "Форма Productive Metalworks для відливання пластини з рідкого металу ливарні: пластину на ливарному столі + 360 mB рідкої сталі (предмет витрачається, форма — ні).",
+   "ref": [
+    "recipe:productivemetalworks:casting/cast/plates"
+   ]
+  },
+  "5AB8651FCB1E2F72": {
+   "title": "Креслення елітр",
+   "text": "Ливарної форми для цієї деталі немає — її роблять за кресленням Silent Gear на верстаті. Креслення: креслярський папір, 2 золоті злитки, елітри й 4 фантомні мембрани. Креслярський папір — 4 папери + синій барвник → 4 аркуші.",
+   "ref": [
+    "recipe:silentgear:elytra_blueprint",
+    "recipe:silentgear:blueprint_paper"
+   ]
+  },
+  "6BFD7854F078BF16": {
+   "title": "Креслення руків'я (grip)",
+   "text": "Ливарної форми для цієї деталі немає — її роблять за кресленням Silent Gear на верстаті. Креслення: 2 аркуші креслярського паперу + матеріал для руків'я (або вовна). Креслярський папір — 4 папери + синій барвник → 4 аркуші.",
+   "ref": [
+    "recipe:silentgear:grip_blueprint",
+    "recipe:silentgear:grip_blueprint_alt",
+    "recipe:silentgear:blueprint_paper"
+   ]
+  },
+  "22A0A9C81A5C85A1": {
+   "title": "Креслення обмотки",
+   "text": "Ливарної форми для цієї деталі немає — її роблять за кресленням Silent Gear на верстаті. Креслення: креслярський папір + 2 матеріали для обмотки (або 2 нитки). Креслярський папір — 4 папери + синій барвник → 4 аркуші.",
+   "ref": [
+    "recipe:silentgear:binding_blueprint",
+    "recipe:silentgear:binding_blueprint_alt",
+    "recipe:silentgear:blueprint_paper"
+   ]
+  },
+  "2098D8BFADB55D2A": {
+   "title": "Креслення підкладки",
+   "text": "Ливарної форми для цієї деталі немає — її роблять за кресленням Silent Gear на верстаті. Креслення: 3 аркуші креслярського паперу, 2 вовни й 2 нитки. Креслярський папір — 4 папери + синій барвник → 4 аркуші.",
+   "ref": [
+    "recipe:silentgear:lining_blueprint",
+    "recipe:silentgear:blueprint_paper"
+   ]
+  },
+  "3F56A5253D477B97": {
+   "title": "Креслення оперення",
+   "text": "Ливарної форми для цієї деталі немає — її роблять за кресленням Silent Gear на верстаті. Креслення: 2 аркуші креслярського паперу + перо. Креслярський папір — 4 папери + синій барвник → 4 аркуші.",
+   "ref": [
+    "recipe:silentgear:fletching_blueprint",
+    "recipe:silentgear:blueprint_paper"
+   ]
+  },
+  "474AF9F90C8E40A2": {
+   "title": "Креслення булави",
+   "text": "Ливарної форми для цієї деталі немає — її роблять за кресленням Silent Gear на верстаті. Креслення: 4 аркуші креслярського паперу + стрижень вітреня. Креслярський папір — 4 папери + синій барвник → 4 аркуші.",
+   "ref": [
+    "recipe:silentgear:mace_blueprint",
+    "recipe:silentgear:blueprint_paper"
+   ]
+  },
+  "6B78378BC8036227": {
+   "text": "Каталізатор Tier 1 для Оцінювача матеріалів — сяйний пил. Кладеться в оцінювач разом із готовою деталлю: у збірці (Silent Gear Metalworks) оцінюють деталь, а не матеріал — прохід на один матеріал деталі. Крафт: паличка, 2 світлокам'яного пилу й кварц → 4 шт.",
+   "ref": [
+    "tag:silentgear:grader_catalysts/tier1",
+    "recipe:silentgear:glowing_dust",
+    "jarfile:sgearmetalworks!assets/sgearmetalworks/lang/en_us.json~you now do it to the finished gear part"
+   ]
+  },
+  "002D65E4D7E8F62B": {
+   "text": "Каталізатор Tier 2 для Оцінювача матеріалів — пломеневий пил. Кладеться в оцінювач разом із готовою деталлю: у збірці (Silent Gear Metalworks) оцінюють деталь, а не матеріал — прохід на один матеріал деталі. Крафт: пил пломеневого золота + 2 світлокам'яного пилу → 4 шт.",
+   "ref": [
+    "tag:silentgear:grader_catalysts/tier2",
+    "recipe:silentgear:blazing_dust",
+    "jarfile:sgearmetalworks!assets/sgearmetalworks/lang/en_us.json~you now do it to the finished gear part"
+   ]
+  },
+  "7D690A7D0FF6E328": {
+   "text": "Каталізатор Tier 3 для Оцінювача матеріалів — блискучий пил. Кладеться в оцінювач разом із готовою деталлю: у збірці (Silent Gear Metalworks) оцінюють деталь, а не матеріал — прохід на один матеріал деталі. Крафт: 2 світлокам'яного пилу, 2 смарагдові самородки, 4 лопнуті плоди хорусу й незерський банан → 8 шт.",
+   "ref": [
+    "tag:silentgear:grader_catalysts/tier3",
+    "recipe:silentgear:glittery_dust",
+    "jarfile:sgearmetalworks!assets/sgearmetalworks/lang/en_us.json~you now do it to the finished gear part"
+   ]
+  },
+  "48D358470A019E7A": {
+   "text": "Каталізатор Tier 1 для Зоряного зарядника (заряджають готову деталь, а не матеріал) — пил пломеневого золота. Як отримати: молотом зі злитка пломеневого золота (або рудним молотом AllTheOres, млином НСП Ender IO).",
+   "ref": [
+    "tag:silentgear:starlight_charger_catalysts/tier1",
+    "recipe:silentgear:blaze_gold_dust",
+    "recipe:alltheores:processing/ore_hammer/blaze_gold_dust_from_ingot",
+    "recipe:kubejs:sag_milling/blaze_gold_ingot",
+    "jarfile:sgearmetalworks!assets/sgearmetalworks/lang/en_us.json~you now do it to the finished gear part"
+   ]
+  },
+  "2BF119DD5D977409": {
+   "text": "Каталізатор Tier 2 для Зоряного зарядника (заряджають готову деталь, а не матеріал) — пил блакитного срібла. Як отримати: молотом зі злитка блакитного срібла (або рудним молотом AllTheOres).",
+   "ref": [
+    "tag:silentgear:starlight_charger_catalysts/tier2",
+    "recipe:silentgear:azure_silver_dust",
+    "recipe:alltheores:processing/ore_hammer/azure_silver_dust_from_ingot",
+    "jarfile:sgearmetalworks!assets/sgearmetalworks/lang/en_us.json~you now do it to the finished gear part"
+   ]
+  },
+  "0FEAD3CA2CC4A8B1": {
+   "text": "Каталізатор Tier 3 для Зоряного зарядника (заряджають готову деталь, а не матеріал) — зореметалевий пил. Крафт: пил блакитного електруму, 2 пилу блакитного срібла, пил пломеневого золота й уламок зірки Незеру → 3 шт.",
+   "ref": [
+    "tag:silentgear:starlight_charger_catalysts/tier3",
+    "recipe:silentgear:starmetal_dust",
+    "jarfile:sgearmetalworks!assets/sgearmetalworks/lang/en_us.json~you now do it to the finished gear part"
+   ]
+  },
+  "0947B4ED95B0267E": {
+   "title": "Креслення покриття",
+   "text": "Ливарної форми для покриття немає — креслення робиться на верстаті: 4 аркуші креслярського паперу, діамант і смарагд.",
+   "ref": [
+    "recipe:silentgear:coating_blueprint"
+   ]
+  }
+ },
+ "_src": "рецепти sgearmetalworks casting/*_cast і casting/silentgear/*, productivemetalworks casting/cast/*, silentgear *_blueprint, *_dust, compound_part; теги silentgear:grader_catalysts / starlight_charger_catalysts; квести глави (en-оригінал)"
+}

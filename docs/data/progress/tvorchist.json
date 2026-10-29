@@ -5,10 +5,10 @@
  "mode": "creative",
  "mode_uk": "Творчість",
  "game_type": 1,
- "last_played": "2026-10-25 00:03",
- "last_played_ts": 1792875811,
- "updated": "2026-10-25 12:01",
- "play_hours": 7.97,
+ "last_played": "2026-10-29 18:28",
+ "last_played_ts": 1793298493,
+ "updated": "2026-10-29 19:35",
+ "play_hours": 12.5,
  "player": {
   "uuid": "832ceed6-e820-31f9-aa40-6acd5077a2ac",
   "xp_level": 1,
@@ -23,6 +23,7 @@
    "196312DF0D2E2CB6",
    "3BC0A50886A3222B",
    "3DBDF0350DC69A70",
+   "5D8E259D3F0CAE29",
    "637EF6D9DFC59EE8",
    "6ECB27052FCB874E",
    "79DD4CCCECC3F974"
@@ -32,6 +33,7 @@
    "196312DF0D2E2CB6",
    "3BC0A50886A3222B",
    "3DBDF0350DC69A70",
+   "5D8E259D3F0CAE29",
    "637EF6D9DFC59EE8",
    "6ECB27052FCB874E",
    "79DD4CCCECC3F974"
@@ -40,14 +42,21 @@
    "18AA64DF63F68762",
    "1F748ACA3976A92F",
    "233C7CAA573D6045",
+   "29EFA8ABC8823B4C",
+   "36BA83035E215D49",
+   "3B0DB0F878FF3B79",
    "4E895C54651A3CB3",
    "4E9B35DCA018FD42",
+   "5444DC19B7956063",
    "553C44F85E508DE3",
    "6C1BBA559963B3DF",
-   "6CA3111E5B9FE80B"
+   "6CA3111E5B9FE80B",
+   "70A5DCA586C8B5CD"
   ],
   "tasks_done": [
+   "05B8FF96F6CCFB6A",
    "0A3853BD4F62B78E",
+   "0F19D50BFD611C81",
    "13F86953093670F6",
    "15CDE30E1F7EBAD5",
    "17393180EFF15717",
@@ -55,13 +64,17 @@
    "33218EFDD498E9DB",
    "3B06163129B8276F",
    "3CAD6AD06BE4C3D3",
+   "3DA5C6D9AC59240F",
    "3DF1F367C3EA9631",
+   "48EDCE05C353EE55",
    "52A3EC00B0885573",
    "6038387EA35404CD",
+   "687604B3D5E1E78C",
    "6AAF612711A3A7AA",
    "6B38E9AF8B97B65E",
    "70D108356F710F9B",
-   "7AD8269107F61422"
+   "7AD8269107F61422",
+   "7FCBD0F05D9B1197"
   ],
   "rewards_claimed": 2,
   "by_chapter": {
@@ -90,6 +103,18 @@
     ],
     "started": [
      "6CA3111E5B9FE80B"
+    ]
+   },
+   "bounty_board": {
+    "done": [
+     "5D8E259D3F0CAE29"
+    ],
+    "started": [
+     "29EFA8ABC8823B4C",
+     "36BA83035E215D49",
+     "3B0DB0F878FF3B79",
+     "5444DC19B7956063",
+     "70A5DCA586C8B5CD"
     ]
    },
    "auroral": {
@@ -147,6 +172,8 @@
    "lootr:root",
    "lootr:trapped_chest",
    "mffs:grant_book_on_first_join",
+   "minecraft:adventure/kill_a_mob",
+   "minecraft:adventure/root",
    "minecraft:story/root",
    "occultism:chalks/root",
    "occultism:occultism/root",
@@ -162,6 +189,8 @@
    "ae2:cell_workbench",
    "ae2:drive",
    "ae2:spatial_anchor",
+   "allthemodium:vibranium_ore",
+   "alltheores:deepslate_cinnabar_ore",
    "auroral:guide",
    "croptopia:guide",
    "energymeter:meter",
@@ -188,9 +217,11 @@
    "oritech:machine_yield_addon",
    "patchouli:guide_book",
    "powah:book",
+   "productivefarming:nutrient_water_bucket",
    "regions_unexplored:kapok_boat",
    "reliquary:mob_charm",
    "silentgear:material_book",
+   "silentgems:nether_moldavite_ore",
    "starcatcher:starcatcher_guide",
    "thaumaturge:ingot_thaumium",
    "thaumaturge:thaumonomicon",
@@ -201,13 +232,15 @@
    "minecraft:oak_planks": 78
   },
   "inventory": {
+   "allthemodium:vibranium_ore": 1,
    "auroral:guide": 1,
    "croptopia:guide": 1,
    "guideme:guide": 1,
    "integrateddynamics:on_the_dynamics_of_integration": 1,
    "mahoutsukai:guidebook": 1,
    "minecraft:book": 1,
-   "minecraft:oak_log": 1,
+   "minecraft:crafting_table": 1,
+   "minecraft:oak_log": 64,
    "neovitae:experience_tome": 1,
    "neovitae:guide_book": 1,
    "neovitae:ritual_ledger": 1,

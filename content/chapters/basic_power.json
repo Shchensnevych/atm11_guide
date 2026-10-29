@@ -1,0 +1,16 @@
+{
+ "why": "14 з 35 квестів — заглушки: Flux Networks, Mekanism, Mekanism Generators і Dyson Cube Project у збірці 0.12.0-beta немає. Глава позначена невидимою (always_invisible) — у грі не відкривається. Перша енергія в цій версії — у відкритих главах «Generators N Furnaces» і «Powah»; труби Pipez — у «Базовій логістиці».",
+ "ref": [
+  "file:config/ftbquests/quests/chapters/basic_power.json5~always_invisible: true",
+  "count:stubs:basic_power=14",
+  "count:qall:basic_power=35",
+  "count:items:fluxnetworks=0",
+  "count:items:mekanism=0",
+  "count:items:mekanismgenerators=0",
+  "count:items:dysoncubeproject=0",
+  "quest:618F1434757C8E69",
+  "quest:6B2027DA7AA6FF34",
+  "quest:2329AA0AFBEF1E13"
+ ],
+ "_src": "config/ftbquests/quests/chapters/<глава>.json5 (always_invisible), docs/data/quests (missing), реєстр предметів, KubeJS"
+}

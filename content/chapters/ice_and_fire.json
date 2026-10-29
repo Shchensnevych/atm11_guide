@@ -1,0 +1,16 @@
+{
+ "ov": "Дракони (вогняні, крижані, громові), горгони, гідри, циклопи — у збірці перенесені в біоми Іншого світу (факт «Ice and Fire живе в Іншому світі»); драконячі кузні дають драконесталь і плавлять блоки сплавів ATM з відер розплавлених металів.",
+ "ref": [
+  "quest:32992E3534B86521",
+  "quest:43922DB543DC05C0",
+  "quest:4B65720872B062F8",
+  "quest:41C7DEAB41F4B700",
+  "quest:05113AC92BC1B192",
+  "quest:3C0671BE5E94730E",
+  "kjs:dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/fire.json~allthemodium:crimson_forest",
+  "quest:176D31AF1B0925AA",
+  "quest:0C176F04D32B75DD",
+  "recipe:iceandfire:dragonforge/allthemodium-vibranium"
+ ],
+ "_src": "квести глави, датапак збірки kubejs/dynamic_data/iceandfire, рецепти dragonforge (факти iaf_other_world, atm_alloys)"
+}

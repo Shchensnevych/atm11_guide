@@ -1,0 +1,18 @@
+{
+ "ov": "Маршрутизатор із модулями — «швейцарський ніж» автоматизації: тягне й відправляє предмети, ставить і ламає блоки, клацає, всмоктує лут. Режим редстоуну маршрутизатора — завжди, за сигналом (високий / низький), імпульс або ніколи; доповнення редстоуну дає модулю власний режим.",
+ "ref": [
+  "item:modularrouters:modular_router",
+  "item:modularrouters:puller_module_1",
+  "item:modularrouters:sender_module_1",
+  "item:modularrouters:placer_module",
+  "item:modularrouters:breaker_module",
+  "item:modularrouters:activator_module",
+  "item:modularrouters:vacuum_module",
+  "lang:modularrouters.guiText.tooltip.redstone.always",
+  "lang:modularrouters.guiText.tooltip.redstone.pulse",
+  "lang:modularrouters.guiText.tooltip.redstone.never",
+  "lang:modularrouters.itemText.usage.item.redstone_augment"
+ ],
+ "abs_ok": "«завжди / ніколи» — назви режимів редстоуну маршрутизатора (lang redstone.always / redstone.never)",
+ "_src": "реєстр і lang modularrouters (квест «Modular Routers» стверджує, що більшості модулів потрібен редстоун, — у мода є режим «Завжди»)"
+}

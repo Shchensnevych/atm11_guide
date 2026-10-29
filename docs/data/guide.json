@@ -1,0 +1,1278 @@
+{
+ "aether_2": {
+  "ov": "Небесний вимір Святі острови Етеру: портал — рамка з 10 блоків світлокаменю й відро води; 16 біомів, моа, планери й аерохмари, інструменти з небокореня, святокаменю, заніту, аркенію й гравітиту, бос Ковзун.",
+  "ref": [
+   "quest:78C86403B4F8D382",
+   "jarfile:data/aether_ii/dimension/aether_holy_isles.json",
+   "count:files:aether_ii!data/aether_ii/worldgen/biome/=16",
+   "quest:2E4D32863106F785",
+   "quest:341C538D1407C731",
+   "quest:0D5E07DA734A72FC",
+   "quest:30BD1DF4FC9295C6",
+   "quest:6B31BC88C23EA226",
+   "quest:3AD1DECD6F51C798",
+   "quest:3BEB52D15F5C73E7",
+   "quest:2C8684AA92B889E8",
+   "quest:2CAA538587D78A8F",
+   "jarfile:data/c/tags/entity_type/bosses.json~aether_ii:slider"
+  ]
+ },
+ "allthemodium": {
+  "ov": "Прогресія фірмових металів ATM: усемодій → вібраній → унобтаній. Руда усемодію — у біомі Темні глибини (навколо Стародавніх міст); Телепорт-плита веде у виміри ATM: вібраній — в Іншому світі (і рідко в Незері), унобтаній — у Височинах Енду; у Стародавній піраміді Іншого світу чекає бос Піґліч.",
+  "ref": [
+   "jarfile:data/allthemodium/neoforge/biome_modifier/allthemodium.json~minecraft:deep_dark",
+   "recipe:allthemodium:teleport_pad",
+   "jarfile:data/allthemodium/dimension/mining.json",
+   "jarfile:data/allthemodium/dimension/the_other.json",
+   "jarfile:data/allthemodium/dimension/the_beyond.json",
+   "jarfile:data/allthemodium/worldgen/placed_feature/vibranium_other.json",
+   "jarfile:data/allthemodium/neoforge/biome_modifier/unobtainium.json~minecraft:end_highlands",
+   "quest:24934231538B6492",
+   "quest:5BA986D7928BF09F",
+   "jarfile:data/allthemodium/neoforge/biome_modifier/vibranium.json~c:is_nether"
+  ],
+  "steps": [
+   "Незеритовий злиток і кайло щонайменше незеритового рівня",
+   "Стародавнє місто: руда усемодію — у біомі Темні глибини навколо, шаблон усемодію — у підозрілій глині міста",
+   "Усемодієві злитки → покращення незеритового спорядження на ковальському столі",
+   "Телепорт-плита (4 самородки усемодію + перлина Енду): з Верхнього світу — у Вимір видобутку, з Незеру — в Інший світ, з Енду — в Позамежжя",
+   "Вібраній (шаблон — у підозрілому піску душ у бастіонах) і унобтаній (руда — у Височинах Енду; шаблон — за квестом, з породжувачів випробувань у бібліотечних кімнатах Підземелля в Іншому світі)",
+   "Бос Піґліч у Стародавній піраміді"
+  ],
+  "item_ref": {
+   "steps": {
+    "0": [
+     "quest:4B2146C9527C54E7"
+    ],
+    "1": [
+     "jarfile:data/allthemodium/neoforge/biome_modifier/allthemodium.json~minecraft:deep_dark",
+     "jarfile:data/allthemodium/loot_table/arch.json~allthemodium:allthemodium_upgrade_smithing_template",
+     "quest:111E4ACF7D570EE8"
+    ],
+    "2": [
+     "quest:201EE3566D4D3123",
+     "recipe:allthemodium:allthemodium_pickaxe_smithing",
+     "quest:6E0624750DF8CD18"
+    ],
+    "3": [
+     "recipe:allthemodium:teleport_pad",
+     "quest:07FDA46D83F8360D",
+     "jarfile:data/allthemodium/dimension/mining.json",
+     "jarfile:data/allthemodium/dimension/the_other.json",
+     "jarfile:data/allthemodium/dimension/the_beyond.json"
+    ],
+    "4": [
+     "jarfile:data/allthemodium/loot_table/arch2.json~allthemodium:vibranium_upgrade_smithing_template",
+     "jarfile:data/allthemodium/neoforge/biome_modifier/unobtainium.json~minecraft:end_highlands",
+     "jarfile:data/allthemodium/loot_table/chest/template.json~allthemodium:unobtainium_upgrade_smithing_template",
+     "quest:144BB025516E0994",
+     "quest:4A079D40C0AF6BC3"
+    ],
+    "5": [
+     "quest:24934231538B6492",
+     "quest:5BA986D7928BF09F"
+    ]
+   },
+   "rewards": {
+    "0": [
+     "quest:11E957CDEFA0CAAB"
+    ],
+    "1": [
+     "quest:201EE3566D4D3123",
+     "quest:144BB025516E0994",
+     "quest:4A079D40C0AF6BC3"
+    ]
+   },
+   "atm": {
+    "0": [
+     "only:allthemodium:allthemodium_pickaxe=minecraft:smithing_transform",
+     "only:allthemodium:vibranium_pickaxe=minecraft:smithing_transform",
+     "only:allthemodium:unobtainium_pickaxe=minecraft:smithing_transform",
+     "only:allthemodium:vibranium_helmet=minecraft:smithing_transform",
+     "recipe:allthemodium:vibranium_mace_smithing",
+     "recipe:allthemodium:unobtainium_mace_smithing"
+    ],
+    "1": [
+     "quest:18FAD56CDE05646A~Void the drops",
+     "kjs:server_scripts/mods/quarryplus/recipes.js#L10"
+    ],
+    "2": [
+     "recipe:kubejs:energizing/vibranium_allthemodium_alloy_ingot",
+     "recipe:iceandfire:dragonforge/allthemodium-vibranium",
+     "recipe:iceandfire:dragonforge/allthemodium-unobtainium",
+     "recipe:iceandfire:dragonforge/vibranium-unobtainium"
+    ]
+   }
+  },
+  "rewards": [
+   "Ангельський блок — за Позамежжя",
+   "За перші злитки — злиток того самого металу й досвід (усемодій, вібраній, унобтаній)"
+  ],
+  "atm": [
+   "Спорядження ATM не крафтиться з нуля — лише покращується на ковальському столі: незерит → усемодій → вібраній → унобтаній (шаблон + злиток; для булав — блок)",
+   "Квест «Кар'єр+» попереджає: кар'єр у Вимірі видобутку копає й руду усемодію, але її здобич зникає (у конфігах і скриптах збірки цього механізму не знайдено — перевірити в грі); усемодій надійніше копати самому із зіллям бачення руд. Сам кар'єр у збірці — ендгейм-рецепт (факт «Кар'єр QuarryPlus»)",
+   "Сплави ATM: вібранієво-усемодієвий — у сфері заряджання Powah, блоки всіх трьох сплавів — у драконячих кузнях Ice and Fire (факт «Сплави ATM»)"
+  ],
+  "item_abs": {
+   "atm": {
+    "2": "«усіх трьох» — три рецепти dragonforge у ref (усі пари сплавів)"
+   }
+  },
+  "notes": 4
+ },
+ "apotheosis_2": {
+  "ov": "Породжувачі мобів (Apothic Spawners): породжувач копається кайлом із Шовковим дотиком, руни породжувача змінюють його роботу (світло, гравці, ШІ, редстоун, дальність), незерський кварц у другій руці обертає дію руни; тут же породжувачі інших модів — електризований (Ender IO), соулієвий (Mystical Agriculture), реаніматор духів (EvilCraft).",
+  "ref": [
+   "quest:310969B8FE0A94DE",
+   "file:config/apotheosis/apothic_spawners.cfg~I:\"Spawner Silk Level\"=1",
+   "recipe:apotheosis:spawner_modifiers/no_ai",
+   "recipe:apotheosis:spawner_modifiers/_inverse/no_ai",
+   "quest:0F89BFD4A3F63A48",
+   "quest:30EB438C66324213",
+   "quest:0E02CE4469FCA4C9",
+   "quest:186593EBCE3FE8D8",
+   "quest:167E1474644C9908",
+   "quest:263860CADB3D76C6",
+   "quest:3F55F3CC8519D783",
+   "quest:76A3A2A97AB66C43"
+  ]
+ },
+ "apotheosis_gear": {
+  "ov": "Спорядження Apotheosis: самоцвіти — рідкісна здобич мобів (у загарбників частіше), загарбник гарантовано лишає афіксний трофей; світові рівні (Ctrl + T), стіл перероблення, перекування, огранування й доповнення, сигіли; брами Gateways для кожного світового рівня, крім Притулку.",
+  "ref": [
+   "quest:3BF5B8DE7A1CC4D7",
+   "jarfile:Apotheosis!assets/apotheosis/patchouli_books/apoth_chronicle/en_us/entries/adventure/mobs/invaders.json~guaranteed to drop a $(l:apotheosis:adventure/mobs/invader_items)special affix item",
+   "jarfile:Apotheosis!assets/apotheosis/patchouli_books/apoth_chronicle/en_us/entries/adventure/mobs/invaders.json~higher likelihood of dropping Gems",
+   "file:options.txt~key_key.apotheosis.open_world_tier_select:key.keyboard.t:CONTROL",
+   "quest:1CD05CB4A3DB112A",
+   "quest:1403D677CF2815C3",
+   "quest:166CE4243896A0CD",
+   "quest:57BB2CC6D9D2AE87",
+   "quest:24D11ED5F4EEDC48",
+   "quest:22E57BF23B9BA2C5~There are Gateways based on each World Tier (except Haven)",
+   "recipe:apotheosis:gateways/tiered/pinnacle"
+  ]
+ },
+ "apothic_enchanting": {
+  "ov": "Переробка зачарування Apotheosis: книжкові полиці навколо столу задають Етерну, Кванту й Аркану; ванільна полиця дає 1 Етерну, проста книжкова полиця мода — 2, тож тут — нові полиці (пекло-, море-, глибинні, ендополиці), просякнення на столі зачарування, стіл Ворона й бібліотеки чар.",
+  "ref": [
+   "jarfile:ApothicEnchanting!data/apothic_enchanting/apothic_enchanting/enchanting_stats/basic_bookshelf.json~\"eterna\": 2.0",
+   "jarfile:ApothicEnchanting!data/apothic_enchanting/apothic_enchanting/enchanting_stats/hellshelf.json",
+   "jarfile:ApothicEnchanting!data/apothic_enchanting/apothic_enchanting/enchanting_stats/seashelf.json",
+   "jarfile:ApothicEnchanting!data/apothic_enchanting/apothic_enchanting/enchanting_stats/deepshelf.json",
+   "jarfile:ApothicEnchanting!data/apothic_enchanting/apothic_enchanting/enchanting_stats/endshelf.json",
+   "lang:enchantment.apothic_enchanting.infusion.desc",
+   "item:apothic_enchanting:library",
+   "item:apothic_enchanting:ender_library",
+   "jarfile:ApothicEnchanting!dev/shadowsoffire/apothic_enchanting/table/EnchantingStatRegistry.class~getEnchantPowerBonus"
+  ],
+  "abs_ok": "«лише 2 Етерни» — значення з даних мода (basic_bookshelf.json), не твердження про повноту"
+ },
+ "applied_energistics_2": {
+  "ov": "Головна цифрова мережа збірки: комірки зберігання в ME накопичувачі, термінали, канали (контролер і щільні кабелі), автомайстрування за шаблонами (постачальник шаблонів, молекулярний збирач) і бездротовий доступ — від середини гри до фіналу.",
+  "ref": [
+   "item:ae2:drive",
+   "item:ae2:item_storage_cell_1k",
+   "item:ae2:controller",
+   "item:ae2:pattern_provider",
+   "item:ae2:molecular_assembler",
+   "item:ae2:wireless_terminal",
+   "item:ae2wtlib:wireless_universal_terminal",
+   "item:aeinfinitybooster:infinity_card"
+  ]
+ },
+ "artifacts": {
+  "ov": "Артефакти-аксесуари для слотів Curios (48, без яйця виклику міміка): їх вибивають із міміків і знаходять у скринях підземних таборів — від черевиків страйдера (стояти на лаві, присівши) до парасольки. Квести глави — каталог артефактів з описом дії.",
+  "ref": [
+   "count:items:artifacts|^(?!mimic_spawn_egg)=48",
+   "jarfile:artifacts!data/artifacts/loot_table/entities/mimic.json",
+   "jarfile:artifacts!data/artifacts/loot_table/chests/campsite_chest.json~\"artifacts:artifact\"",
+   "item:artifacts:strider_shoes",
+   "lang:artifacts.tooltip.ability.fluid_collision.sneaking.lava",
+   "item:artifacts:umbrella"
+  ]
+ },
+ "auroral": {
+  "ov": "Аврора — рідкісна нічна подія в засніжених біомах (шанс 0,33 за ніч, конфіг): нові рослини й моби, рідка аврора в льодовиковій чаші, спорядження з мерехтливої сталі й тканини, ковзани.",
+  "ref": [
+   "quest:637EF6D9DFC59EE8",
+   "config:config/auroral-server.toml#aurora_chance=0.33",
+   "quest:1F880C6A777B4199",
+   "quest:5C2AE7715B3A8EED",
+   "recipe:auroral:glacial_basin",
+   "quest:58799D0038E198DF",
+   "quest:2AB2456B6B8EEAD8",
+   "item:auroral:shimmerweave_skates"
+  ]
+ },
+ "basic_armor": {
+  "why": "66 з 129 квестів — обладунки модів, яких у збірці 0.12.0-beta немає: Iron's Spells, Twilight Forest, Eternal Starlight, Mekanism Tools. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/basic_armor.json5~always_invisible: true",
+   "count:stubs:basic_armor=66",
+   "count:qall:basic_armor=129",
+   "count:items:irons_spellbooks=0",
+   "count:items:twilightforest=0",
+   "count:items:eternal_starlight=0",
+   "count:items:mekanismtools=0"
+  ]
+ },
+ "basic_logistics": {
+  "ov": "Перші способи возити предмети, рідини й енергію: найпростіші труби Pipez, лазери LaserIO і логічні мережі Integrated Dynamics / Integrated Tunnels.",
+  "ref": [
+   "quest:2329AA0AFBEF1E13~Pipez is the simplest Logistics Mod",
+   "quest:5F1218CF8EFC607B",
+   "quest:6E05B62A40D5A891",
+   "quest:6F152402756DA35E"
+  ],
+  "steps": [
+   "Pipez: труби предметів, рідин, енергії й універсальна; ключем задаєте, яка сторона забирає, віддає чи не з'єднується; покращення збільшують потік, базове додає керування редстоуном, порядок розподілу й фільтри",
+   "LaserIO: лазерні вузли біля машин + картки предметів, рідин, енергії й редстоуну; фільтри — базовий, за модом, за тегом, лічильний",
+   "Integrated Dynamics: логічні кабелі, картки змінних, імпортери й інтерфейси Integrated Tunnels (предмети, рідини, енергія)"
+  ],
+  "item_ref": {
+   "steps": {
+    "0": [
+     "quest:36836AD948F96B9F",
+     "quest:33433A443B65D252",
+     "quest:53EC96FA0E7C4ED4",
+     "quest:4FBAB3A0FBF8CE2F",
+     "quest:2329AA0AFBEF1E13~use the Pipe Wrench to configure what side Pulls, Pushes, or doesn't connect",
+     "quest:6A962535CD68713E~Basic Upgrade allows Redstone Activation"
+    ],
+    "1": [
+     "quest:5C0F6B1C93A52113",
+     "quest:4C41FD926F31180B",
+     "quest:1C70D739CE464E25",
+     "quest:52F85CED20C8B1E9",
+     "quest:47768B1FFD57D56E",
+     "quest:47A2BEFB11F4D581",
+     "quest:2A6900E87DE8BAE0",
+     "quest:3065EA195D0A36BA",
+     "quest:06767BA0AFE8C1EE"
+    ],
+    "2": [
+     "quest:6112956E19017D2D",
+     "quest:03C40D6A5D722543",
+     "quest:6F152402756DA35E",
+     "quest:034F2CDF0830254B",
+     "quest:76CECFB244F39F18"
+    ]
+   },
+   "atm": {
+    "0": [
+     "file:config/ftbquests/quests/chapters/basic_power.json5~always_invisible: true",
+     "quest:618F1434757C8E69",
+     "quest:6B2027DA7AA6FF34"
+    ]
+   }
+  },
+  "atm": [
+   "Стартова енергія для машин — у главах «Generators N Furnaces» і «Powah»: «Базова енергія» в цій версії прихована"
+  ]
+ },
+ "basic_power": {
+  "why": "14 з 35 квестів — заглушки: Flux Networks, Mekanism, Mekanism Generators і Dyson Cube Project у збірці 0.12.0-beta немає. Глава позначена невидимою (always_invisible) — у грі не відкривається. Перша енергія в цій версії — у відкритих главах «Generators N Furnaces» і «Powah»; труби Pipez — у «Базовій логістиці».",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/basic_power.json5~always_invisible: true",
+   "count:stubs:basic_power=14",
+   "count:qall:basic_power=35",
+   "count:items:fluxnetworks=0",
+   "count:items:mekanism=0",
+   "count:items:mekanismgenerators=0",
+   "count:items:dysoncubeproject=0",
+   "quest:618F1434757C8E69",
+   "quest:6B2027DA7AA6FF34",
+   "quest:2329AA0AFBEF1E13"
+  ]
+ },
+ "basic_tools": {
+  "why": "17 з 78 квестів — інструменти модів, яких у збірці 0.12.0-beta немає: Mekanism Tools, Nature's Aura, Eternal Starlight, Everything Copper. Глава позначена невидимою (always_invisible) — у грі не відкривається. Інструменти Silent Gear — у відкритій главі «Silent Gear».",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/basic_tools.json5~always_invisible: true",
+   "count:stubs:basic_tools=17",
+   "count:qall:basic_tools=78",
+   "count:items:mekanismtools=0",
+   "count:items:naturesaura=0",
+   "count:items:eternal_starlight=0",
+   "count:items:everythingcopper=0",
+   "quest:6BBC440BD0AD0E93"
+  ]
+ },
+ "bbl_routers": {
+  "ov": "Повністю бездротова логістика: імпортер і експортер, зв'язані з'єднувачем, передають предмети, рідини й енергію; покращення передачі (рівні I–V), швидкості, циклічного розподілу й міжвимірне, фільтри за модом, тегом і запасом.",
+  "ref": [
+   "item:routers:importer",
+   "item:routers:exporter",
+   "item:routers:connector",
+   "item:routers:item_upgrade_5",
+   "item:routers:fluid_upgrade_1",
+   "item:routers:rf_upgrade_1",
+   "item:routers:speed_upgrade_1",
+   "item:routers:round_robin_upgrade",
+   "item:routers:dimensional_upgrade",
+   "item:routers:mod_filter",
+   "item:routers:tag_filter",
+   "item:routers:stock_filter"
+  ]
+ },
+ "bounty_board": {
+  "ov": "Необов'язкова сторінка квестів: нагороди за вбивства мобів — заодно лічильник, кого ви вже перемогли (зокрема босів Undergarden і Aether 2).",
+  "ref": [
+   "quest:5D8E259D3F0CAE29~just an optional Quest Page",
+   "quest:36BA83035E215D49",
+   "quest:7684C1CF274EA5B7"
+  ]
+ },
+ "building_tips": {
+  "why": "Глава-довідка з декоративних модів. Заглушок 3 (Rechiseled, Domum Ornamentum, Compact Machines — їх у збірці немає), решта модів є — поради можна читати тут. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/building_tips.json5~always_invisible: true",
+   "count:stubs:building_tips=3",
+   "count:items:rechiseled=0",
+   "count:items:domum_ornamentum=0",
+   "count:items:compactmachines=0"
+  ]
+ },
+ "bumblezone": {
+  "why": "Мода The Bumblezone у збірці 0.12.0-beta немає — 46 з 115 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/bumblezone.json5~always_invisible: true",
+   "count:stubs:bumblezone=46",
+   "count:qall:bumblezone=115",
+   "count:items:the_bumblezone=0"
+  ]
+ },
+ "cataclysm": {
+  "why": "Мода L_Ender's Cataclysm у збірці 0.12.0-beta немає — 51 з 97 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/cataclysm.json5~always_invisible: true",
+   "count:stubs:cataclysm=51",
+   "count:qall:cataclysm=97",
+   "count:items:cataclysm=0"
+  ]
+ },
+ "chapter_1_the_beginning": {
+  "ov": "Головна лінія старту: від першого дерева до Дракона Енду. По дорозі глава знайомить із модами, що мають власні глави, — сховища Sophisticated, Mystical Agriculture, моди Productive, Silent Gear, Aether 2, техніка й магія.",
+  "ref": [
+   "quest:3DBDF0350DC69A70",
+   "quest:5159B6673D6D5ACE",
+   "quest:2D50702DCC000821",
+   "quest:13B84D532D8B9FD7",
+   "quest:4B5C2541410CBDD6",
+   "quest:079D573AAE2A6427",
+   "quest:07420CD49A1758A3",
+   "quest:271F9053B9EFAAEF",
+   "quest:7D10D15B94C63DE4"
+  ],
+  "steps": [
+   "Дерево → верстак → дерев'яне й кам'яне кайло, піч; мішечок і ранець для речей у дорозі",
+   "Залізо → діаманти → обсидіан; скрині й діжки, потім покращені — Sophisticated Storage",
+   "«Вироблення енергії» (генерапіч Powah, генератор Integrated Dynamics або генератор Стірлінга Ender IO) і «Технічні моди» — вхід у техніку",
+   "Зачарування й Незер: фортеця (пломені, візери-скелети), бастіон, незерит",
+   "Око Енду → твердиня; Візер і Боронитель; Дракон Енду. Наступна глава основної лінії — «Розділ 2: Усемодій»"
+  ],
+  "item_ref": {
+   "steps": {
+    "0": [
+     "quest:3DBDF0350DC69A70",
+     "quest:0FD16AD855DAD5BD",
+     "quest:6A58B95BF0F26496",
+     "quest:6EB05138B989CAD9",
+     "quest:08405A885ACDADFC",
+     "quest:616352EBF422192F"
+    ],
+    "1": [
+     "quest:6EB05138B989CAD9",
+     "quest:612FE1CBA627D9AB",
+     "quest:1326E3016B881BFD",
+     "quest:6F7230B34D1D5A6B",
+     "quest:2D50702DCC000821"
+    ],
+    "2": [
+     "quest:3FE25E22AFBC52E1",
+     "quest:271F9053B9EFAAEF"
+    ],
+    "3": [
+     "quest:644437A0DF39915F",
+     "quest:0AE25EC6B6089F3B",
+     "quest:3D58FE63B568C776",
+     "quest:2063337BB2DEAB00",
+     "quest:4FB923DD4EBCC1BA",
+     "quest:39BC6F9F9EBBC22B",
+     "quest:3B61DE4CB34F6BC9"
+    ],
+    "4": [
+     "quest:34A822487EEF2A2A",
+     "quest:57B726C4B7E418EC",
+     "quest:19F799ABFAE801D3",
+     "quest:5159B6673D6D5ACE",
+     "file:config/ftbquests/quests/chapters/allthemodium.json5~order_index: 1"
+    ]
+   },
+   "rewards": {
+    "0": [
+     "quest:57B726C4B7E418EC"
+    ],
+    "1": [
+     "quest:19F799ABFAE801D3"
+    ],
+    "2": [
+     "quest:5159B6673D6D5ACE"
+    ],
+    "3": [
+     "quest:271F9053B9EFAAEF"
+    ]
+   },
+   "atm": {
+    "0": [
+     "file:config/ftbquests/quests/chapters/chapter_1_the_beginning.json5~progression_mode: \"flexible\""
+    ],
+    "1": [
+     "!recipe:mffs:steel_ingot",
+     "!recipe:oritech:steel_ingot",
+     "recipe:energizedpower:alloy_furnace/steel_ingot",
+     "recipe:alltheores:alloy_smelting/steel_ingot",
+     "recipe:railcraft:blast_furnace/blasting_iron_ingot",
+     "recipe:productivemetalworks:alloying/molten_steel"
+    ]
+   }
+  },
+  "rewards": [
+   "Зірка Незеру — за Візера",
+   "Ковальський шаблон оздоби «Тиша» й уламок відлуння — за Боронителя",
+   "Голова й яйце дракона — за Дракона Енду",
+   "9 сталевих злитків — за «Технічні моди»"
+  ],
+  "atm": [
+   "Глава в гнучкому режимі (progression_mode: flexible): завдання квесту можна виконувати до попередніх квестів — квест зарахується, коли їх буде виконано",
+   "Сталь ручним крафтом не робиться (рецепти MFFS і Oritech прибрано KubeJS): її виплавляють у печі для сплавів Energized Power, плавильнику сплавів Ender IO, домні Railcraft або сплавляють у ливарні Productive Metalworks з рідкого заліза й рідкого вуглецю — докладно у факті «Сталь»"
+  ]
+ },
+ "chapter_2_the_atm_star": {
+  "why": "Глава творчих предметів після ATM Star. 13 з 39 квестів — заглушки: Modern Industrialization, Actually Additions, Mekanism, PneumaticCraft — цих модів у збірці 0.12.0-beta немає. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/chapter_2_the_atm_star.json5~always_invisible: true",
+   "count:stubs:chapter_2_the_atm_star=13",
+   "count:qall:chapter_2_the_atm_star=39",
+   "count:items:modern_industrialization=0",
+   "count:items:actuallyadditions=0",
+   "count:items:mekanism=0",
+   "count:items:pneumaticcraft=0",
+   "file:config/ftbquests/quests/lang/en_us/chapter.json5~\"chapter.792AD692F1468B1F.title\": \"&aChapter 4&r: &dCreative\""
+  ]
+ },
+ "chapter_2_the_star": {
+  "why": "Глава ATM Star. Рецепти самої Зірки (allthetweaks:atm_star) збірка задає на зоряному вівтарі Modern Industrialization — скрипт діє лише з цим модом, а його в збірці 0.12.0-beta немає; 35 з 128 квестів — заглушки предметів відсутніх модів (Modern Industrialization, PneumaticCraft, Industrial Foregoing, Iron's Spells). Глава позначена невидимою (always_invisible) — у грі не відкривається. Що з ATM Star уже працює — у факті «ATM Star».",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/chapter_2_the_star.json5~always_invisible: true",
+   "file:kubejs/server_scripts/modpack/runic_multis/recipes/star_altar.js~Platform.isLoaded(\"modern_industrialization\")",
+   "file:kubejs/server_scripts/modpack/runic_multis/recipes/star_altar.js~.itemOut(\"allthetweaks:atm_star\")",
+   "!kjs:server_scripts/modpack/runic_multis/recipes/star_altar.js",
+   "count:stubs:chapter_2_the_star=35",
+   "count:qall:chapter_2_the_star=128",
+   "count:items:modern_industrialization=0",
+   "count:items:pneumaticcraft=0",
+   "count:items:industrialforegoing=0",
+   "count:items:irons_spellbooks=0"
+  ]
+ },
+ "create": {
+  "why": "Мода Create у збірці 0.12.0-beta немає — 82 з 91 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/create.json5~always_invisible: true",
+   "count:stubs:create=82",
+   "count:qall:create=91",
+   "count:items:create=0"
+  ]
+ },
+ "deeper_and_darker": {
+  "why": "Мода Deeper and Darker у збірці 0.12.0-beta немає — 23 з 46 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/deeper_and_darker.json5~always_invisible: true",
+   "count:stubs:deeper_and_darker=23",
+   "count:qall:deeper_and_darker=46",
+   "count:items:deeperdarker=0"
+  ]
+ },
+ "draconic_evolution": {
+  "why": "Мода Draconic Evolution у збірці 0.12.0-beta немає — 134 з 141 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/draconic_evolution.json5~always_invisible: true",
+   "count:stubs:draconic_evolution=134",
+   "count:qall:draconic_evolution=141",
+   "count:items:draconicevolution=0"
+  ]
+ },
+ "enderio": {
+  "ov": "Машини на конденсаторах і провідники «все в одному» (предмети, рідини, енергія й редстоун в одному блоці); старт — крихти нескінченності (підпалена корінна порода) і плавильник сплавів — одне з джерел сталі.",
+  "ref": [
+   "item:enderio:basic_capacitor",
+   "item:enderio:conduit",
+   "quest:0061B0577B1C4AEF",
+   "item:enderio:grains_of_infinity",
+   "quest:5D327D85B91E5032",
+   "recipe:alltheores:alloy_smelting/steel_ingot"
+  ]
+ },
+ "eternal_starlight": {
+  "why": "Мода Eternal Starlight у збірці 0.12.0-beta немає — 92 з 131 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/eternal_starlight.json5~always_invisible: true",
+   "count:stubs:eternal_starlight=92",
+   "count:qall:eternal_starlight=131",
+   "count:items:eternal_starlight=0"
+  ]
+ },
+ "evilcraft": {
+  "ov": "Техно-магія крові: темні самоцвіти, екстрактор крові, кривавий насичувач з обітницями (рівні I–III), піч духів. Довідник — «Витоки темряви».",
+  "ref": [
+   "item:evilcraft:dark_gem",
+   "item:evilcraft:blood_extractor",
+   "item:evilcraft:blood_infuser",
+   "item:evilcraft:promise_tier_1",
+   "item:evilcraft:promise_tier_3",
+   "item:evilcraft:spirit_furnace",
+   "item:evilcraft:origins_of_darkness"
+  ]
+ },
+ "extended_and_advanced_ae": {
+  "ov": "Доповнення AE2 для пізньої гри: розширені пристрої ExtendedAE (постачальник шаблонів, накопичувач, інтерфейс, кристалічний збирач), а з Advanced AE — квантовий комп'ютер, реакційна камера й квантова броня з картками-покращеннями.",
+  "ref": [
+   "item:extendedae:ex_pattern_provider",
+   "item:extendedae:ex_drive",
+   "item:extendedae:ex_interface",
+   "item:extendedae:crystal_assembler",
+   "item:advanced_ae:quantum_core",
+   "item:advanced_ae:reaction_chamber",
+   "item:advanced_ae:quantum_helmet",
+   "item:advanced_ae:flight_card"
+  ]
+ },
+ "extreme_reactors": {
+  "why": "Мода Extreme Reactors у збірці 0.12.0-beta немає — 28 з 34 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/extreme_reactors.json5~always_invisible: true",
+   "count:stubs:extreme_reactors=28",
+   "count:qall:extreme_reactors=34",
+   "count:items:bigreactors=0"
+  ]
+ },
+ "food_and_farming": {
+  "ov": "Їжа й фермерство: кухня Cooking for Blockheads (кухонний стіл, холодильники, раковина з нескінченною водою), ринок Farming for Blockheads (насіння й паростки за смарагди), льон Silent Gear, риболовля Aquaculture — вудки з гачками, волосінню й поплавцями.",
+  "ref": [
+   "quest:45F83C2750F70F9B",
+   "item:cookingforblockheads:cooking_table",
+   "quest:791AE62ACACBD5BA",
+   "quest:0EFF1AA37772156B",
+   "config:config/cookingforblockheads-common.toml#sinkRequiresWater=false",
+   "quest:1F114EB0AAB86DB4",
+   "jarfile:farmingforblockheads!data/farmingforblockheads/farmingforblockheads/defaults.json~\"minecraft:emerald\"",
+   "jarfile:farmingforblockheads!data/farmingforblockheads/farmingforblockheads/market_categories/seeds.json",
+   "jarfile:farmingforblockheads!data/farmingforblockheads/farmingforblockheads/market_categories/saplings.json",
+   "quest:56550CD12C681B0F",
+   "quest:16D0F1E3CEB60ABF",
+   "item:aquaculture:iron_hook",
+   "item:aquaculture:fishing_line",
+   "item:aquaculture:bobber"
+  ]
+ },
+ "forbidden_and_arcanus": {
+  "ov": "Ритуальна Кузня Гефеста (5 рівнів, чотири есенції — ауреал, ектоплазма («душі» у квестах), кров, досвід) й арканне ремесло: деорум, рунічні й містичні кристали, Вічна Стелла. Старт — глибоко під землею: містичні кристали — на висотах від -40 до 14, рунічний камінь — нижче 2, темнокамінь — біля дна світу.",
+  "ref": [
+   "quest:185DBBDD252CBA0C",
+   "quest:15849165CA8C00F9",
+   "quest:4BE209D5DAF1F321",
+   "quest:539266A1C03C2EBA",
+   "quest:40B757772D0FBAC9",
+   "quest:2ADA491A2485061C",
+   "quest:29434DB0CC2E30E6",
+   "quest:31AD9826FB036C98",
+   "quest:62C60FF24B2F7290",
+   "quest:5A6FF0D4BA894306",
+   "jarfile:forbidden_arcanus!data/forbidden_arcanus/worldgen/placed_feature/arcane_crystal_ore.json",
+   "jarfile:forbidden_arcanus!data/forbidden_arcanus/worldgen/placed_feature/runic_stone.json",
+   "jarfile:forbidden_arcanus!data/forbidden_arcanus/worldgen/placed_feature/darkstone.json~above_bottom",
+   "lang:essence.forbidden_arcanus.ectoplasm"
+  ]
+ },
+ "generators": {
+  "ov": "Енергія без складних машин: генератори Generator Galore (кладете паливо — отримуєте FE) і швидші печі Iron Furnaces, які доповненнями стають домною, коптильнею, фабрикою на енергії або генератором. Перша енергія для техніки, доки «Базова енергія» прихована.",
+  "ref": [
+   "quest:618F1434757C8E69",
+   "quest:661C072E48F8D41F",
+   "item:ironfurnaces:augment_blasting",
+   "item:ironfurnaces:augment_smoking",
+   "lang:tooltip.ironfurnaces.augment_factory_con",
+   "lang:tooltip.ironfurnaces.augment_generator_pro",
+   "file:config/ftbquests/quests/chapters/basic_power.json5~always_invisible: true"
+  ],
+  "steps": [
+   "Мідна піч і мідний генератор (8 FE/такт)",
+   "Вищі рівні — з попередніх: печі, напр., мідна → залізна → срібна → золота → діамантова → смарагдова або кришталева → обсидіанова → незеритова; генератори мідний → залізний → золотий → діамантовий → смарагдовий, незеритовий або обсидіановий (предмети «Покращення: X → Y» — на місці)",
+   "Доповнення печей: Домна і Коптильня (лише рецепти доменної печі / коптильні), Фабрика (енергія замість палива), Генератор (тепло → енергія, але піч не плавить), Швидкість (удвічі швидше, удвічі більше палива), Ощадливість палива (паливо гріє вдвічі довше, на 25 % повільніше)",
+   "8 однакових генераторів + уламок відлуння = генератор 8x; 8 генераторів 8x + провідник = 64x"
+  ],
+  "item_ref": {
+   "steps": {
+    "0": [
+     "quest:661C072E48F8D41F",
+     "quest:618F1434757C8E69",
+     "config:config/generatorgalore/generator/copper.json#generationRate=8"
+    ],
+    "1": [
+     "recipe:ironfurnaces:furnaces/iron_furnace2",
+     "recipe:ironfurnaces:furnaces/silver_furnace",
+     "recipe:ironfurnaces:furnaces/gold_furnace2",
+     "recipe:ironfurnaces:furnaces/diamond_furnace",
+     "recipe:ironfurnaces:furnaces/emerald_furnace",
+     "recipe:ironfurnaces:furnaces/crystal_furnace",
+     "recipe:ironfurnaces:furnaces/obsidian_furnace",
+     "recipe:ironfurnaces:furnaces/netherite_furnace",
+     "item:generatorgalore:copper_to_iron_upgrade",
+     "item:generatorgalore:iron_to_gold_upgrade",
+     "item:generatorgalore:gold_to_diamond_upgrade",
+     "item:generatorgalore:diamond_to_emerald_upgrade",
+     "item:generatorgalore:diamond_to_netherite_upgrade",
+     "item:generatorgalore:diamond_to_obsidian_upgrade"
+    ],
+    "2": [
+     "lang:tooltip.ironfurnaces.augment_blasting",
+     "lang:tooltip.ironfurnaces.augment_smoking",
+     "lang:tooltip.ironfurnaces.augment_factory_con",
+     "lang:tooltip.ironfurnaces.augment_generator_pro",
+     "lang:tooltip.ironfurnaces.augment_generator_con",
+     "lang:tooltip.ironfurnaces.augment_speed_pro",
+     "lang:tooltip.ironfurnaces.augment_speed_con",
+     "lang:tooltip.ironfurnaces.augment_fuel_pro",
+     "lang:tooltip.ironfurnaces.augment_fuel_con"
+    ],
+    "3": [
+     "recipe:generatorgalore:8x/copper_generator_8x",
+     "recipe:generatorgalore:64x/copper_generator_64x"
+    ]
+   }
+  },
+  "item_abs": {
+   "steps": {
+    "2": "«лише рецепти доменної печі / коптильні» — підказка мода (lang augment_blasting / augment_smoking: Only allows for…)"
+   }
+  }
+ },
+ "hostile_neural_networks": {
+  "why": "Мод Hostile Neural Networks у збірці є (KubeJS додає йому рецепти), квестів-заглушок у главі немає, але глава позначена невидимою (always_invisible) — у грі не відкривається. Механіки мода працюють — квестів за них поки немає; читати главу тут можна.",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/hostile_neural_networks.json5~always_invisible: true",
+   "count:stubs:hostile_neural_networks=0",
+   "kjs:server_scripts/mods/hostilenetworks/recipes.js#L6",
+   "item:hostilenetworks:sim_chamber"
+  ]
+ },
+ "ice_and_fire": {
+  "ov": "Дракони (вогняні, крижані, громові), горгони, гідри, циклопи — у збірці перенесені в біоми Іншого світу (факт «Ice and Fire живе в Іншому світі»); драконячі кузні дають драконесталь і плавлять блоки сплавів ATM з відер розплавлених металів.",
+  "ref": [
+   "quest:32992E3534B86521",
+   "quest:43922DB543DC05C0",
+   "quest:4B65720872B062F8",
+   "quest:41C7DEAB41F4B700",
+   "quest:05113AC92BC1B192",
+   "quest:3C0671BE5E94730E",
+   "kjs:dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/fire.json~allthemodium:crimson_forest",
+   "quest:176D31AF1B0925AA",
+   "quest:0C176F04D32B75DD",
+   "recipe:iceandfire:dragonforge/allthemodium-vibranium"
+  ]
+ },
+ "immersive_engineering": {
+  "why": "Мода Immersive Engineering у збірці 0.12.0-beta немає — 97 з 128 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/immersive_engineering.json5~always_invisible: true",
+   "count:stubs:immersive_engineering=97",
+   "count:qall:immersive_engineering=128",
+   "count:items:immersiveengineering=0"
+  ]
+ },
+ "industrial_foregoing": {
+  "why": "Модів Industrial Foregoing і Industrial Foregoing Souls у збірці 0.12.0-beta немає — 69 з 79 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/industrial_foregoing.json5~always_invisible: true",
+   "count:stubs:industrial_foregoing=69",
+   "count:qall:industrial_foregoing=79",
+   "count:items:industrialforegoing=0",
+   "count:items:industrialforegoingsouls=0"
+  ]
+ },
+ "integrated_dynamics": {
+  "ov": "Логічні мережі: кабелі, картки змінних і логічний програматор зчитують стан машин і блоків та керують ними; на них стоять Integrated Tunnels (передача), Terminals (термінали) і Crafting (автомайстрування). Дерева менрілу ростуть у біомі Менеґлін.",
+  "ref": [
+   "item:integrateddynamics:cable",
+   "item:integrateddynamics:variable",
+   "item:integrateddynamics:logic_programmer",
+   "item:integratedtunnels:part_importer_item",
+   "item:integratedterminals:part_terminal_storage",
+   "item:integratedcrafting:part_interface_crafting",
+   "item:integrateddynamics:menril_log",
+   "jarfile:IntegratedDynamics!data/integrateddynamics/worldgen/biome/meneglin.json"
+  ]
+ },
+ "iron_spells_and_spellbooks": {
+  "why": "Модів Iron's Spells 'n Spellbooks і All the Wizard Gear у збірці 0.12.0-beta немає — 75 з 103 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/iron_spells_and_spellbooks.json5~always_invisible: true",
+   "count:stubs:iron_spells_and_spellbooks=75",
+   "count:qall:iron_spells_and_spellbooks=103",
+   "count:items:irons_spellbooks=0",
+   "count:items:allthewizardgear=0"
+  ]
+ },
+ "justdirethings": {
+  "ov": "Маса (goo) перетворює блоки поруч на нові матеріали — феррікор, пломенезолото, целестигем, сплав затемнення; з них інструменти й броня зі здібностями та машини-помічники (руйнівник, розміщувач, клікер…).",
+  "ref": [
+   "item:justdirethings:gooblock_tier1",
+   "item:justdirethings:ferricore_ingot",
+   "item:justdirethings:blazegold_ingot",
+   "item:justdirethings:celestigem",
+   "item:justdirethings:eclipsealloy_ingot",
+   "item:justdirethings:ferricore_pickaxe",
+   "item:justdirethings:ferricore_helmet",
+   "item:justdirethings:blockbreakert1",
+   "item:justdirethings:blockplacert1",
+   "item:justdirethings:clickert1"
+  ]
+ },
+ "mahou_tsukai": {
+  "ov": "Магія крові й кіл Mahou Tsukai (за мотивами Fate/stay night): коло з крові — отримати шкоду (є кинджал) і швидко натиснути M, кола з порошків самоцвітів і металів, сувої проєкції та легендарна зброя (Калібурн, Морґан, Кларент).",
+  "ref": [
+   "quest:03DCDFB32CD4BD85",
+   "quest:012912FDAFCD1C66",
+   "quest:777BB82B56038ED3",
+   "lang:mahoutsukai.book.intro.desc",
+   "file:options.txt~key_key.drawMahoujin:key.keyboard.m"
+  ]
+ },
+ "mekanism": {
+  "why": "Модів Mekanism і Mekanism Generators у збірці 0.12.0-beta немає — 69 з 91 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/mekanism.json5~always_invisible: true",
+   "count:stubs:mekanism=69",
+   "count:qall:mekanism=91",
+   "count:items:mekanism=0",
+   "count:items:mekanismgenerators=0"
+  ]
+ },
+ "mekanism_reactors": {
+  "why": "Модів Mekanism, Mekanism Generators і GMUT у збірці 0.12.0-beta немає — 86 з 95 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/mekanism_reactors.json5~always_invisible: true",
+   "count:stubs:mekanism_reactors=86",
+   "count:qall:mekanism_reactors=95",
+   "count:items:mekanism=0",
+   "count:items:mekanismgenerators=0",
+   "count:items:gmut=0"
+  ]
+ },
+ "mi_digital": {
+  "why": "Модів Modern Industrialization і Extended Industrialization у збірці 0.12.0-beta немає — 60 з 67 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/mi_digital.json5~always_invisible: true",
+   "count:stubs:mi_digital=60",
+   "count:qall:mi_digital=67",
+   "count:items:modern_industrialization=0",
+   "count:items:extended_industrialization=0"
+  ]
+ },
+ "mi_electric": {
+  "why": "Модів Modern Industrialization і Extended Industrialization у збірці 0.12.0-beta немає — 45 з 51 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/mi_electric.json5~always_invisible: true",
+   "count:stubs:mi_electric=45",
+   "count:qall:mi_electric=51",
+   "count:items:modern_industrialization=0",
+   "count:items:extended_industrialization=0"
+  ]
+ },
+ "mi_endgame": {
+  "why": "Мода Modern Industrialization у збірці 0.12.0-beta немає — 24 з 26 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/mi_endgame.json5~always_invisible: true",
+   "count:stubs:mi_endgame=24",
+   "count:qall:mi_endgame=26",
+   "count:items:modern_industrialization=0"
+  ]
+ },
+ "mi_steam": {
+  "why": "Модів Modern Industrialization і Extended Industrialization у збірці 0.12.0-beta немає — 22 з 31 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/mi_steam.json5~always_invisible: true",
+   "count:stubs:mi_steam=22",
+   "count:qall:mi_steam=31",
+   "count:items:modern_industrialization=0",
+   "count:items:extended_industrialization=0"
+  ]
+ },
+ "modular_router": {
+  "ov": "Маршрутизатор із модулями — «швейцарський ніж» автоматизації: тягне й відправляє предмети, ставить і ламає блоки, клацає, всмоктує лут. Режим редстоуну маршрутизатора — завжди, за сигналом (високий / низький), імпульс або ніколи; доповнення редстоуну дає модулю власний режим.",
+  "ref": [
+   "item:modularrouters:modular_router",
+   "item:modularrouters:puller_module_1",
+   "item:modularrouters:sender_module_1",
+   "item:modularrouters:placer_module",
+   "item:modularrouters:breaker_module",
+   "item:modularrouters:activator_module",
+   "item:modularrouters:vacuum_module",
+   "lang:modularrouters.guiText.tooltip.redstone.always",
+   "lang:modularrouters.guiText.tooltip.redstone.pulse",
+   "lang:modularrouters.guiText.tooltip.redstone.never",
+   "lang:modularrouters.itemText.usage.item.redstone_augment"
+  ],
+  "abs_ok": "«завжди / ніколи» — назви режимів редстоуну маршрутизатора (lang redstone.always / redstone.never)"
+ },
+ "mystical_agriculture": {
+  "ov": "Вирощування ресурсів: есенції п'яти рівнів (інферій → прудентій → тертій → імперій → супремій) і насіння руд, сплавів і мобів, яке робиться на вівтарі наповнення (увімкнених у збірці культур — 115). Одна з головних ресурсних гілок збірки, починати варто якомога раніше.",
+  "ref": [
+   "item:mysticalagriculture:inferium_essence",
+   "item:mysticalagriculture:supremium_essence",
+   "item:mysticalagriculture:infusion_altar",
+   "count:json:kubejs/server_scripts/mods/mysticalagriculture/cropInfo.json#enabled=115"
+  ],
+  "steps": [
+   "Інферієва есенція (копання, моби, вирощування) і уламки процвітання → насіннєва основа процвітання",
+   "Есенція наступного рівня: 4 есенції + кристал наповнення свого рівня (мод MATC) або майстерський; оригінальний рецепт Mystical Agriculture вимкнено",
+   "Вівтар наповнення з п'єдесталами: насіння стихій, далі ресурсне насіння",
+   "Соулієва руда в Незері → соулієвий кинджал і банки душ → насіння мобів",
+   "Есенційна рілля, прискорювачі зростання (ставлять під рослину — прискорюють першу рослину над собою), інструменти й обладунки п'яти рівнів; пробуджений супремій — ендгейм"
+  ],
+  "item_ref": {
+   "steps": {
+    "0": [
+     "item:mysticalagriculture:inferium_essence",
+     "recipe:mysticalagriculture:prosperity_seed_base"
+    ],
+    "1": [
+     "recipe:matc:prudentium_essence",
+     "recipe:matc:tertium_essence",
+     "tag:matc:infusion_crystals/inferium",
+     "!recipe:mysticalagriculture:prudentium_essence"
+    ],
+    "2": [
+     "item:mysticalagriculture:infusion_altar",
+     "item:mysticalagriculture:infusion_pedestal",
+     "item:mysticalagriculture:air_seeds"
+    ],
+    "3": [
+     "item:mysticalagriculture:soulium_ore",
+     "recipe:mysticalagriculture:soulium_dagger",
+     "recipe:mysticalagriculture:soul_jar",
+     "item:mysticalagriculture:zombie_seeds"
+    ],
+    "4": [
+     "recipe:mysticalagriculture:prudentium_farmland",
+     "lang:tooltip.mysticalagriculture.growth_accelerator",
+     "recipe:mysticalagriculture:gear/supremium_helmet",
+     "recipe:mysticalagriculture:gear/awakened_supremium_helmet"
+    ]
+   },
+   "atm": {
+    "0": [
+     "config:config/mysticalagriculture-common.toml#General.requiresEffectiveFarmland=false"
+    ],
+    "1": [
+     "count:json:kubejs/server_scripts/mods/mysticalagriculture/cropInfo.json#disabled=38",
+     "count:rx:kubejs/server_scripts/mods/mysticalagriculture/cropInfo.json|\"disabled\"[^\\]]*\"osmium\"=1",
+     "count:rx:kubejs/server_scripts/mods/mysticalagriculture/cropInfo.json|\"disabled\"[^\\]]*\"fluorite\"=1"
+    ],
+    "2": [
+     "count:dir:config/mysticalcustomization/crops=11"
+    ],
+    "3": [
+     "config:config/mysticalagriculture-common.toml#General.secondarySeedDrops=false",
+     "file:kubejs/server_scripts/mods/mysticalagriculture/crops.js~let SecondarySeed = 0.01",
+     "file:kubejs/server_scripts/mods/mysticalagriculture/crops.js~let TierSecondaryCutoff = 5"
+    ]
+   }
+  },
+  "atm": [
+   "Рослини ростуть на будь-якій ріллі — рілля свого рівня в збірці не обов'язкова (requiresEffectiveFarmland = false)",
+   "Вимкнено 38 рослин (cropInfo.json → disabled); у цій главі це осмій і флюорит — їхні квести не виконати",
+   "Власні рослини ATM (11 файлів config/mysticalcustomization/crops): усемодій, вібраній, унобтаній, ентро, темний камінь, блакитне срібло, багряне залізо, деревина Regions Unexplored, небесна сталь, чорний кварц, ксихоріум",
+   "Друге насіння: конфіг вимикає (secondarySeedDrops = false), скрипт збірки повертає шанс 1 % рослинам рівнів 1–4; рослини рівня 5 і вище другого насіння не дають (факт «Друге насіння Mystical Agriculture»)"
+  ],
+  "item_abs": {
+   "atm": {
+    "0": "«будь-якій ріллі» — значення конфігу requiresEffectiveFarmland = false"
+   }
+  },
+  "notes": 24
+ },
+ "natures_aura": {
+  "why": "Мода Nature's Aura у збірці 0.12.0-beta немає — 24 з 26 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/natures_aura.json5~always_invisible: true",
+   "count:stubs:natures_aura=24",
+   "count:qall:natures_aura=26",
+   "count:items:naturesaura=0"
+  ]
+ },
+ "neo_vitae": {
+  "ov": "Магія крові Neo Vitae: вівтар Ara Vitae 5 рівнів (кільця рун), Сфери Vitae — запас мережі крові (EV), атанор, сигіли й ритуали, вимір Нескінченного царства з данжами.",
+  "ref": [
+   "item:neovitae:ara_vitae",
+   "item:neovitae:rune_blank",
+   "quest:702FC3E5D0D6C31F",
+   "item:neovitae:blood_orb_weak",
+   "quest:73391A08D7615C77",
+   "item:neovitae:athanor",
+   "item:neovitae:sigil_divination",
+   "item:neovitae:air_ritual_stone",
+   "quest:671F7551CBDF462F"
+  ]
+ },
+ "occultism": {
+  "ov": "Виклик духів: сон демона й вогонь духів, крейдяні пентаклі й жертовні чаші; духи чотирьох рангів (фоліоти, джинні, афріти, маріди) працюють на вас — дроблять руди, копають у шахтарському вимірі, переносять предмети.",
+  "ref": [
+   "item:occultism:demons_dream_essence",
+   "item:occultism:spirit_fire",
+   "item:occultism:chalk_white",
+   "item:occultism:golden_sacrificial_bowl",
+   "quest:5ACE97EE75813006~four tiers",
+   "quest:4F35D04721DFC9FF",
+   "quest:172D2A634E849562",
+   "item:occultism:book_of_calling_foliot_transport_items"
+  ]
+ },
+ "oritech": {
+  "ov": "Великий технічний мод: машинні ядра дають слоти доповнювачам (швидкість, ефективність…) — від подрібнювача й збирача до ендерових лазерів, дронів, ядерного реактора й прискорювача частинок.",
+  "ref": [
+   "item:oritech:machine_core_1",
+   "item:oritech:machine_speed_addon",
+   "item:oritech:pulverizer",
+   "item:oritech:assembler",
+   "item:oritech:enderic_laser",
+   "item:oritech:drone_port",
+   "item:oritech:nuclear_reactor_controller",
+   "item:oritech:particle_accelerator"
+  ]
+ },
+ "pneumaticcraft": {
+  "why": "Мода PneumaticCraft: Repressurized у збірці 0.12.0-beta немає — 119 з 128 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/pneumaticcraft.json5~always_invisible: true",
+   "count:stubs:pneumaticcraft=119",
+   "count:qall:pneumaticcraft=128",
+   "count:items:pneumaticcraft=0"
+  ]
+ },
+ "powah": {
+  "ov": "Головний енергетичний мод збірки: від уранініту й сфери заряджання (заряджає кристали) до генераторів семи рівнів (від Початкового до Нітро), батарей, кабелів, бездротових Воріт і Батарей Енду й реакторів. У сфері ж робиться сплав вібранію й усемодію.",
+  "ref": [
+   "item:powah:uraninite",
+   "quest:3DDF87A1E5F5D009",
+   "item:powah:energizing_orb",
+   "item:powah:ender_gate_starter",
+   "item:powah:ender_cell_starter",
+   "recipe:kubejs:energizing/vibranium_allthemodium_alloy_ingot",
+   "count:items:powah|^reactor_=7",
+   "item:powah:reactor_starter",
+   "item:powah:reactor_nitro"
+  ],
+  "atm": [
+   "Сплав вібранію й усемодію робиться в сфері заряджання Powah: злиток — 1 млрд FE (+ 2 серця Піґліча й блок нітро-кристалів), блок — 9 млрд FE; блок сплаву дає й вогняна драконяча кузня Ice and Fire (факт «Сплави ATM»)"
+  ],
+  "item_ref": {
+   "atm": {
+    "0": [
+     "recipe:kubejs:energizing/vibranium_allthemodium_alloy_ingot",
+     "recipe:kubejs:energizing/vibranium_allthemodium_block",
+     "recipe:iceandfire:dragonforge/allthemodium-vibranium",
+     "kjs:dynamic_data/iceandfire/recipe/dragonforge/allthemodium-vibranium.json~\"dragonType\": \"fire\"",
+     "file:kubejs/server_scripts/modpack/atm_alloys.js~1000000000,",
+     "file:kubejs/server_scripts/modpack/atm_alloys.js~      9000000000,"
+    ]
+   }
+  }
+ },
+ "productive_bees": {
+  "ov": "Ресурсні бджоли: гнізда у світі, вулики, центрифуги для стільників, схрещування й генетика в камері розведення. Бджоли модів, яких у збірці немає, не з'являються. 256 квестів — найбільша глава книги: від перших гнізд до усемодієвої, вібранієвої й унобтанієвої бджіл.",
+  "ref": [
+   "item:productivebees:advanced_oak_beehive",
+   "item:productivebees:centrifuge",
+   "item:productivebees:breeding_chamber",
+   "item:productivebees:gene",
+   "quest:5A9B2246E33065A5",
+   "count:qall:productive_bees=256"
+  ]
+ },
+ "productive_farming": {
+  "ov": "Культури Productive Farming — овочі, зернові, ягоди, трави й квіти з характеристиками росту й урожаю; мутації — коли бджоли запилюють ділянку; мультиблокова автоферма, годівниця й напувалка для тварин.",
+  "ref": [
+   "quest:699F91BC5CA58FE2",
+   "quest:06B197EB778C17AC",
+   "quest:2AFB12E742596864",
+   "item:productivefarming:feeding_trough",
+   "item:productivefarming:watering_trough"
+  ]
+ },
+ "productive_trees": {
+  "ov": "Селекція дерев: пилок з листя одного дерева запилює інше — і виростає паросток нової породи (у збірці 163 паростки й 149 рецептів запилення): фрукти, горіхи, прянощі, каучук, деревообробні машини — лісопилка, очищувач кори, деревообробний верстат.",
+  "ref": [
+   "item:productivetrees:pollen",
+   "recipe:productivetrees:pollination/alder",
+   "count:items:productivetrees|_sapling$=163",
+   "count:recipes:^productivetrees:pollination/=149",
+   "quest:6DAECA44E28DA9BA",
+   "item:productivetrees:rubber",
+   "item:productivetrees:sawmill",
+   "item:productivetrees:stripper",
+   "item:productivetrees:wood_worker"
+  ]
+ },
+ "pylons": {
+  "ov": "Пілони-помічники бази: жниварний (автоферма), настоювання (постійні ефекти зілля), заборони (без спавну мобів), захисту й вигнання. У рецепті кожного з п'яти пілонів — полірований чорнокамінь.",
+  "ref": [
+   "recipe:pylons:harvester_pylon",
+   "recipe:pylons:infusion_pylon",
+   "recipe:pylons:interdiction_pylon",
+   "recipe:pylons:protection_pylon",
+   "recipe:pylons:expulsion_pylon"
+  ],
+  "abs_ok": "«кожного з п'яти» — п'ять ref-рецептів пілонів, кожен містить minecraft:polished_blackstone (перевірено за recipes_index)"
+ },
+ "railcraft": {
+  "ov": "Railcraft Reborn: рейки (зміцнені, швидкісні, електричні), паро- й електротяги, вагонетки-цистерни, сигнали; а ще коксова піч і домна — одне з джерел сталі.",
+  "ref": [
+   "quest:425E375A9EC127EB",
+   "quest:75DD345164EE5CD9",
+   "quest:2A30595DC6DDBFF7",
+   "quest:5128B119DFFF0C4C",
+   "quest:3E8C2E7769DFBF35",
+   "item:railcraft:tank_minecart",
+   "item:railcraft:block_signal",
+   "quest:38451B61E3FC075B",
+   "quest:0A43FD0B5C76C1C5",
+   "recipe:railcraft:blast_furnace/blasting_iron_ingot"
+  ]
+ },
+ "refined_storage": {
+  "ov": "Простіше цифрове сховище без каналів: контролер, диски в дисководах, сітки й автокрафт; доповнення — швидші пристрої Cable Tiers (імпортери, експортери, автокрафтери елітного, ультра й мега рівнів) і більші диски Extra Disks.",
+  "ref": [
+   "item:refinedstorage:controller",
+   "item:refinedstorage:disk_drive",
+   "item:refinedstorage:grid",
+   "item:refinedstorage:autocrafter",
+   "item:cabletiers:elite_importer",
+   "item:cabletiers:mega_disk_interface",
+   "item:extradisks:256k_item_storage_disk"
+  ]
+ },
+ "relics": {
+  "why": "Мода Relics у збірці 0.12.0-beta немає — 17 з 23 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/relics.json5~always_invisible: true",
+   "count:stubs:relics=17",
+   "count:qall:relics=23",
+   "count:items:relics=0"
+  ]
+ },
+ "silent_gear": {
+  "ov": "Інструменти, зброя, обладунки й прикраси з деталей Silent Gear. Збірка додає лиття деталей у ливарні Productive Metalworks: будуєте ливарню, робите ливарні форми — і метали та самоцвіти з категорією лиття перетворюються на деталі. Креслення Silent Gear на верстаті теж працюють.",
+  "ref": [
+   "quest:6BBC440BD0AD0E93",
+   "quest:061A51A0EC13CA0F",
+   "recipe:sgearmetalworks:casting/pickaxe_cast",
+   "recipe:sgearmetalworks:casting/silentgear/pickaxe_head",
+   "jarfile:sgearmetalworks!data/sgearmetalworks/recipe/casting/silentgear/pickaxe_head.json~\"casting\"",
+   "recipe:silentgear:gear/pickaxe_head",
+   "recipe:silentgear:pickaxe_blueprint"
+  ],
+  "steps": [
+   "Вогнетривка глина → контролер, зливи й резервуари ливарні",
+   "Будуємо ливарню: підлога з рідинних нагрівальних спіралей, 4 стіни з вогнетривкої цегли чи вікон (кути можна лишити порожніми), паливо — лава в резервуарах",
+   "Кран на злив, під ним ливарний стіл або чан — відливаємо злитки й блоки",
+   "Ливарні форми: на ливарному столі заливаємо 360 mB рідкої сталі на готову деталь — деталь витрачається, форма багаторазова",
+   "Деталі з форм → інструменти; далі сплавна кузня (тирійська сталь), оцінювач матеріалів і зоряний зарядник — їх застосовують до готових деталей"
+  ],
+  "item_ref": {
+   "steps": {
+    "0": [
+     "item:productivemetalworks:fire_clay",
+     "quest:45899579D9B92D91",
+     "quest:036D5767E07005BC",
+     "quest:2156C00E30424844"
+    ],
+    "1": [
+     "quest:061A51A0EC13CA0F~it must have 4 Walls and a Floor",
+     "quest:2156C00E30424844~Mostly Lava",
+     "item:productivemetalworks:liquid_heating_coil"
+    ],
+    "2": [
+     "quest:036D5767E07005BC",
+     "item:productivemetalworks:casting_table",
+     "item:productivemetalworks:casting_basin"
+    ],
+    "3": [
+     "recipe:sgearmetalworks:casting/pickaxe_cast",
+     "recipe:sgearmetalworks:casting/silentgear/pickaxe_head"
+    ],
+    "4": [
+     "item:silentgear:material_grader",
+     "item:silentgear:alloy_forge",
+     "recipe:silentgear:alloying/metal/tyrian_steel_ingot",
+     "item:silentgear:starlight_charger",
+     "jarfile:sgearmetalworks!assets/sgearmetalworks/lang/en_us.json~you now do it to the finished gear part"
+    ]
+   },
+   "atm": {
+    "0": [
+     "quest:6BBC440BD0AD0E93~Instead of using Blueprints, we'll now need Casts",
+     "recipe:silentgear:gear/pickaxe_head",
+     "recipe:silentgear:pickaxe_blueprint",
+     "recipe:sgearmetalworks:casting/silentgear/pickaxe_head"
+    ],
+    "1": [
+     "recipe:sgearmetalworks:casting/pickaxe_cast",
+     "recipe:sgearmetalworks:casting/silentgear/pickaxe_head",
+     "recipe:silentgear:gear/pickaxe_head"
+    ],
+    "2": [
+     "recipe:productivemetalworks:melting/ingots/steel",
+     "recipe:productivemetalworks:alloying/molten_steel",
+     "recipe:productivemetalworks:melting/coals"
+    ],
+    "3": [
+     "lang:advancements.silentgear.repair_from_broken.description",
+     "item:silentgear:crude_repair_kit"
+    ]
+   }
+  },
+  "atm": [
+   "Silent Gear Metalworks: деталі з металів і самоцвітів можна відливати в ливарні. Квест «Silent Gear і Productive Metalworks» каже, що креслення замінено формами, але рецепти деталей за кресленнями на верстаті в збірці активні",
+   "Ливарна форма — відбиток: готову деталь кладуть на ливарний стіл і заливають 360 mB рідкої сталі (деталь витрачається, форма — ні). Першу деталь роблять за кресленням Silent Gear на верстаті",
+   "Рідка сталь для форм: розплавити сталеві предмети або сплавити в ливарні рідке залізо з рідким вуглецем (вугілля плавиться в ливарні)",
+   "Ремонт — ремкомплектом: наповнений ремкомплект і предмет у сітці крафту"
+  ],
+  "notes": 44
+ },
+ "storage": {
+  "ov": "Сховища без електрики: скрині й діжки Sophisticated Storage, що покращуються на місці, ранці Sophisticated Backpacks, шухляди Functional Storage для великих обсягів однакових предметів, смітники й міжвимірні скрині DimStorage. Знадобиться з перших годин гри.",
+  "ref": [
+   "item:sophisticatedstorage:controller",
+   "recipe:sophisticatedstorage:basic_to_iron_tier_upgrade",
+   "item:sophisticatedbackpacks:backpack",
+   "item:functionalstorage:oak_1",
+   "quest:17DC77F7F8C68AE6",
+   "item:dimstorage:dimensional_chest"
+  ],
+  "steps": [
+   "Ранець і основа покращень — головний «кишеньковий» інвентар",
+   "Скрині й діжки Sophisticated: покращення рівня ставиться на вже поставлену скриню, контролер сховищ об'єднує їх у склад",
+   "Шухляди Functional Storage для кругляку, землі й руд; покращення місткості ×8…×32, контролер шухляд",
+   "Смітники (предмети, рідини, енергія) — щоб ферми й кар'єри не забивали склад"
+  ],
+  "item_ref": {
+   "steps": {
+    "0": [
+     "quest:6A2B2C5E2ADCE366",
+     "quest:1FE052F643401232"
+    ],
+    "1": [
+     "recipe:sophisticatedstorage:basic_to_iron_tier_upgrade",
+     "item:sophisticatedstorage:controller",
+     "quest:6FBAE89EE782DABA"
+    ],
+    "2": [
+     "config:config/functionalstorage/functionalstorage-common.toml#FunctionalStorageConfig.COPPER_MULTIPLIER=8",
+     "config:config/functionalstorage/functionalstorage-common.toml#FunctionalStorageConfig.NETHERITE_MULTIPLIER=32",
+     "item:functionalstorage:storage_controller"
+    ],
+    "3": [
+     "quest:17DC77F7F8C68AE6"
+    ]
+   },
+   "atm": {
+    "0": [
+     "config:config/sophisticatedstorage-server.toml",
+     "config:config/sophisticatedbackpacks-server.toml"
+    ],
+    "1": [
+     "config:config/functionalstorage/functionalstorage-common.toml#FunctionalStorageConfig.COPPER_MULTIPLIER=8",
+     "config:config/functionalstorage/functionalstorage-common.toml#FunctionalStorageConfig.GOLD_MULTIPLIER=16",
+     "config:config/functionalstorage/functionalstorage-common.toml#FunctionalStorageConfig.DIAMOND_MULTIPLIER=24",
+     "config:config/functionalstorage/functionalstorage-common.toml#FunctionalStorageConfig.NETHERITE_MULTIPLIER=32"
+    ]
+   }
+  },
+  "atm": [
+   "Місткість у конфігу збірки: скрині й діжки Sophisticated — 27 / 45 / 54 / 81 / 108 / 132 слоти (дерево → мідь → залізо → золото → діамант → незерит) і 1 / 1 / 2 / 3 / 4 / 5 слотів покращень; ранці — 27 / 45 / 54 / 81 / 108 / 120 слотів і 1 / 1 / 2 / 3 / 5 / 7 слотів покращень",
+   "Шухляди: мідне покращення множить місткість ×8, золоте ×16, діамантове ×24, незеритове ×32"
+  ],
+  "notes": 23
+ },
+ "theurgy": {
+  "ov": "Спагірична алхімія: розклад речовини на Сіль, Сірку й Ртуть; у казані розрідження блок руди дає 5 алхімічних сірок, сира руда — 3, злиток — 1, а інкубатор збирає сірку назад у злиток; реформація перетворює одні сірки на інші.",
+  "ref": [
+   "recipe:theurgy:liquefaction/alchemical_sulfur_iron_from_ores_iron",
+   "recipe:theurgy:liquefaction/alchemical_sulfur_iron_from_raw_materials_iron",
+   "recipe:theurgy:liquefaction/alchemical_sulfur_iron_from_ingots_iron",
+   "recipe:theurgy:incubation/ingots_iron_from_alchemical_sulfur_iron",
+   "quest:7878F190BC8ADC82",
+   "lang:book.theurgy.the_hermetica.apparatus.liquefaction_cauldron.usage.text"
+  ]
+ },
+ "tips_and_tricks": {
+  "ov": "Корисні дрібниці збірки: нескінченна вода з раковини, ремінь з інструментами, селяни в предметі (Easy Villagers), магніти, реактивні ранці, дальня помпа, килимки проти крамарів Utilitarian тощо.",
+  "ref": [
+   "quest:722978AC0C1B2649",
+   "quest:378C95C18798D413",
+   "quest:28E60192912BEBAD",
+   "quest:3B4BF42C55C8BBBF",
+   "quest:32ECD93A8F2FAB8F",
+   "quest:0E9CE6241CDBC420",
+   "quest:219AA017149C36E2"
+  ]
+ },
+ "twilight_forest": {
+  "why": "Мода The Twilight Forest у збірці 0.12.0-beta немає — 54 з 57 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/twilight_forest.json5~always_invisible: true",
+   "count:stubs:twilight_forest=54",
+   "count:qall:twilight_forest=57",
+   "count:items:twilightforest=0"
+  ]
+ },
+ "undergarden": {
+  "ov": "Похмурий підземний вимір: портал — рамка з кам'яної цегли, яку запалює каталізатор; 20 біомів, моби гнилі, ресурси (клоґрум, морозосталь, забутий метал, утерій, реґалій, роґдорій), катакомби й бос Забутий вартовий.",
+  "ref": [
+   "quest:6C4B93FE64BD418D",
+   "recipe:undergarden:catalyst",
+   "count:files:The_Undergarden!data/undergarden/worldgen/biome/=20",
+   "quest:4141EF8B8C316118",
+   "quest:51E2728C5E35A152",
+   "quest:4F5A2E2A5C7F4837",
+   "quest:30582B5FBED35FD1",
+   "quest:3AF7446592D19FA6",
+   "item:undergarden:rogdorium",
+   "quest:00CB8D60E7831A57",
+   "jarfile:The_Undergarden!data/c/tags/entity_type/bosses.json~undergarden:forgotten_guardian"
+  ]
+ },
+ "welcome": {
+  "ov": "Стартова сторінка книги: корисні команди (/sethome, /home…), створення команди FTB Teams і привласнення чанків на мапі FTB Chunks (M). Головне — квести в ATM11 необов'язкові: моди не закрито проходженням квестів, окремі глави — це гіди по модах.",
+  "ref": [
+   "quest:7658C1C663394E85",
+   "quest:5AC1BE754210429E",
+   "quest:0C93D7A607AB8B83",
+   "file:options.txt~key_key.ftbchunks.keys.map:key.keyboard.m",
+   "quest:3708A4780ACEB34E~Mods are not gated behind completing any quests"
+  ]
+ },
+ "xycraft": {
+  "why": "Модів XyCraft (Machines, World) у збірці 0.12.0-beta немає — 23 з 28 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+  "ref": [
+   "file:config/ftbquests/quests/chapters/xycraft.json5~always_invisible: true",
+   "count:stubs:xycraft=23",
+   "count:qall:xycraft=28",
+   "count:items:xycraft_machines=0",
+   "count:items:xycraft_world=0"
+  ]
+ }
+}

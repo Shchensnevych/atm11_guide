@@ -1,0 +1,17 @@
+{
+ "ov": "Спорядження Apotheosis: самоцвіти — рідкісна здобич мобів (у загарбників частіше), загарбник гарантовано лишає афіксний трофей; світові рівні (Ctrl + T), стіл перероблення, перекування, огранування й доповнення, сигіли; брами Gateways для кожного світового рівня, крім Притулку.",
+ "ref": [
+  "quest:3BF5B8DE7A1CC4D7",
+  "jarfile:Apotheosis!assets/apotheosis/patchouli_books/apoth_chronicle/en_us/entries/adventure/mobs/invaders.json~guaranteed to drop a $(l:apotheosis:adventure/mobs/invader_items)special affix item",
+  "jarfile:Apotheosis!assets/apotheosis/patchouli_books/apoth_chronicle/en_us/entries/adventure/mobs/invaders.json~higher likelihood of dropping Gems",
+  "file:options.txt~key_key.apotheosis.open_world_tier_select:key.keyboard.t:CONTROL",
+  "quest:1CD05CB4A3DB112A",
+  "quest:1403D677CF2815C3",
+  "quest:166CE4243896A0CD",
+  "quest:57BB2CC6D9D2AE87",
+  "quest:24D11ED5F4EEDC48",
+  "quest:22E57BF23B9BA2C5~There are Gateways based on each World Tier (except Haven)",
+  "recipe:apotheosis:gateways/tiered/pinnacle"
+ ],
+ "_src": "квести глави, книга Apotheosis «Хроніка тіней» (adventure/mobs/invaders), options.txt"
+}

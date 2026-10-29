@@ -1,0 +1,170 @@
+{
+ "_doc": "Гілка «Розділ 2: Усемодій» (G6): кроки — квести глави allthemodium (quests); руди й виміри — біом-модифікатори й dimension/ у jar AllTheModium (ref, сито). Назви вимірів — як у грі (Вимір видобутку, Інший світ, Позамежжя); переклад квестів узгоджено 2026-10-28 (ua_work/gen_r8_g6dims.py).",
+ "id": "allthemodium",
+ "title": "Розділ 2 — усемодій і виміри ATM",
+ "icon": "⛏",
+ "cls": "exploration",
+ "mods": [
+  "allthemodium",
+  "quarryplus"
+ ],
+ "chapter": "allthemodium",
+ "enter": "s4",
+ "summary": "Незерит → усемодій у Темних глибинах біля Стародавніх міст → телепорт-плити → Вимір видобутку, Інший світ і Позамежжя → вібраній (Незер, Інший світ) і унобтаній (Височини Енду) → ковальські шаблони й спорядження трьох металів → Стародавня піраміда й Піґліч.",
+ "gives": [
+  "Усемодієве, вібранієве й унобтанієве спорядження (кайло кожного рівня відкриває наступну руду)",
+  "Три виміри ATM",
+  "Серце піґліча для сплавів"
+ ],
+ "_src": "квести глави allthemodium (tools/quests_dump.py allthemodium); jar AllTheModium: neoforge/biome_modifier/*, dimension/*, loot_table/arch*.json",
+ "steps": [
+  {
+   "id": "atm",
+   "x": 0,
+   "y": 1,
+   "title": "Усемодій",
+   "quests": [
+    "4B2146C9527C54E7",
+    "111E4ACF7D570EE8",
+    "201EE3566D4D3123",
+    "71E4FD61787DE299"
+   ],
+   "text": "Руда усемодію — у біомі Темні глибини (навколо Стародавніх міст), кайло — щонайменше незеритове. Ковальський шаблон усемодію — з підозрілої глини в підлозі Стародавніх міст.",
+   "src": "квести «Усемодій», «Стародавнє місто», «Усемодієвий злиток», «Усемодієвий Ковальський шаблон»; biome_modifier allthemodium.json; loot_table/arch.json",
+   "ref": [
+    "jarfile:data/allthemodium/neoforge/biome_modifier/allthemodium.json~minecraft:deep_dark",
+    "jarfile:data/allthemodium/loot_table/arch.json~allthemodium:allthemodium_upgrade_smithing_template"
+   ]
+  },
+  {
+   "id": "atmgear",
+   "x": 1,
+   "y": 0,
+   "title": "Усемодієве спорядження",
+   "quests": [
+    "6E0624750DF8CD18",
+    "44D5EDB8711EC7A0",
+    "6ECDD26CCCBC07C3"
+   ],
+   "text": "Інструменти, обладунки й булава з усемодію (булава — покращенням ванільної блоком усемодію).",
+   "src": "квести «Усемодієві інструменти», «Усемодієва Булава», «Усемодієві обладунки»"
+  },
+  {
+   "id": "pad",
+   "x": 1,
+   "y": 1,
+   "title": "Телепорт-плита й виміри",
+   "quests": [
+    "07FDA46D83F8360D",
+    "2C4299D33D419AA0",
+    "0CC0632E8276C787",
+    "2EDE91023F7924FB",
+    "6D738730B371B152",
+    "15FEA03A2CDBA33B",
+    "11E957CDEFA0CAAB"
+   ],
+   "text": "Плита — 4 самородки усемодію + перлина Енду; телепорт — Shift + ПКМ порожніми руками. З Верхнього світу — у Вимір видобутку (плаский, під поверхнею — руди багатьох модів), з Незеру — в Інший світ, з Енду — в Позамежжя.",
+   "src": "квести «Телепорт-плита», «Вимір видобутку», «Інший світ», «Позамежжя»; рецепт allthemodium:teleport_pad",
+   "ref": [
+    "recipe:allthemodium:teleport_pad",
+    "jarfile:data/allthemodium/dimension/mining.json",
+    "jarfile:data/allthemodium/dimension/the_other.json",
+    "jarfile:data/allthemodium/dimension/the_beyond.json"
+   ]
+  },
+  {
+   "id": "vib",
+   "x": 2,
+   "y": 1,
+   "title": "Вібраній",
+   "quests": [
+    "144BB025516E0994",
+    "226B8B60AF864FEF",
+    "5AAF6CA41209B365",
+    "68E6AE1B9EBCEFFF",
+    "7DE2154159D273C3"
+   ],
+   "text": "Вібраній — рідко в Незері, багато в Іншому світі; потрібне усемодієве кайло. Шаблон вібранію — з підозрілого піску душ у бастіонах.",
+   "src": "квести «Вібранієвий злиток», «Вібранієвий Ковальський шаблон», «Вібранієві інструменти / обладунки»; biome_modifier vibranium.json; loot_table/arch2.json",
+   "ref": [
+    "jarfile:data/allthemodium/neoforge/biome_modifier/vibranium.json~c:is_nether",
+    "jarfile:data/allthemodium/worldgen/placed_feature/vibranium_other.json",
+    "jarfile:data/allthemodium/loot_table/arch2.json~allthemodium:vibranium_upgrade_smithing_template"
+   ]
+  },
+  {
+   "id": "unob",
+   "x": 3,
+   "y": 1,
+   "title": "Унобтаній",
+   "quests": [
+    "4A079D40C0AF6BC3",
+    "3F8D515D7B81B0E3",
+    "089B1B9837AF4938",
+    "0A9D5C5D2F4CDCC3",
+    "4E737C490DCC5D6C"
+   ],
+   "text": "Унобтаній — вкрай рідко у Височинах Енду, потрібне вібранієве кайло. Шаблон унобтанію — з породжувачів випробувань у бібліотечних кімнатах Підземелля в Іншому світі (за квестом).",
+   "src": "квести «Унобтанієвий злиток», «Унобтанієвий Ковальський шаблон», «Унобтанієві інструменти / обладунки»; biome_modifier unobtainium.json",
+   "ref": [
+    "jarfile:data/allthemodium/neoforge/biome_modifier/unobtainium.json~minecraft:end_highlands",
+    "jarfile:data/allthemodium/loot_table/chest/template.json~allthemodium:unobtainium_upgrade_smithing_template"
+   ]
+  },
+  {
+   "id": "piglich",
+   "x": 3,
+   "y": 0,
+   "title": "Піраміда й Піґліч",
+   "quests": [
+    "24934231538B6492",
+    "5BA986D7928BF09F"
+   ],
+   "spoiler": true,
+   "text": "Стародавня піраміда в Іншому світі — дім Піґліча (за квестом — 5000 сердець, 9999 HP); з нього — серце піґліча для сплавів ATM.",
+   "src": "квести «Стародавня піраміда», «Бос Піґліч»; KubeJS modpack/atm_alloys.js",
+   "ref": [
+    "jarfile:data/allthemodium/loot_table/entities/piglich.json~allthemodium:piglich_heart",
+    "kjs:server_scripts/modpack/atm_alloys.js~allthemodium:piglich_heart"
+   ]
+  },
+  {
+   "id": "quarry",
+   "x": 2,
+   "y": 2,
+   "title": "Кар'єр+ у Вимірі видобутку",
+   "quests": [
+    "18FAD56CDE05646A"
+   ],
+   "text": "Кар'єр у Вимірі видобутку тепер копає й усемодій, але за квестом його здобич може зникати — для усемодію надійніше копати самому із зіллям бачення руд.",
+   "src": "квест «Кар'єр+»",
+   "ingame": "чи справді зникає дроп руди усемодію з кар'єра у Вимірі видобутку (у конфігах QuarryPlus і скриптах збірки механізму не знайдено, G6d)"
+  }
+ ],
+ "links": [
+  [
+   "atm",
+   "atmgear"
+  ],
+  [
+   "atm",
+   "pad"
+  ],
+  [
+   "pad",
+   "vib"
+  ],
+  [
+   "vib",
+   "unob"
+  ],
+  [
+   "pad",
+   "piglich"
+  ],
+  [
+   "pad",
+   "quarry"
+  ]
+ ]
+}

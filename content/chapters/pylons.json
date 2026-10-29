@@ -1,0 +1,12 @@
+{
+ "ov": "Пілони-помічники бази: жниварний (автоферма), настоювання (постійні ефекти зілля), заборони (без спавну мобів), захисту й вигнання. У рецепті кожного з п'яти пілонів — полірований чорнокамінь.",
+ "ref": [
+  "recipe:pylons:harvester_pylon",
+  "recipe:pylons:infusion_pylon",
+  "recipe:pylons:interdiction_pylon",
+  "recipe:pylons:protection_pylon",
+  "recipe:pylons:expulsion_pylon"
+ ],
+ "abs_ok": "«кожного з п'яти» — п'ять ref-рецептів пілонів, кожен містить minecraft:polished_blackstone (перевірено за recipes_index)",
+ "_src": "рецепти pylons"
+}

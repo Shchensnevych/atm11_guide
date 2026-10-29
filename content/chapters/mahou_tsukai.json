@@ -1,0 +1,11 @@
+{
+ "ov": "Магія крові й кіл Mahou Tsukai (за мотивами Fate/stay night): коло з крові — отримати шкоду (є кинджал) і швидко натиснути M, кола з порошків самоцвітів і металів, сувої проєкції та легендарна зброя (Калібурн, Морґан, Кларент).",
+ "ref": [
+  "quest:03DCDFB32CD4BD85",
+  "quest:012912FDAFCD1C66",
+  "quest:777BB82B56038ED3",
+  "lang:mahoutsukai.book.intro.desc",
+  "file:options.txt~key_key.drawMahoujin:key.keyboard.m"
+ ],
+ "_src": "квести глави, опис мода в довіднику (глибока звірка магії — G6e)"
+}

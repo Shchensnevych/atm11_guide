@@ -18,18 +18,17 @@
     ],
     "dims": [
       {
-        "id": "aether_ii:highlands",
-        "name": "Священні землі (Етер)"
+        "id": "aether_ii:aether_holy_isles",
+        "name": "Святі острови Етеру"
       }
     ],
-    "uk": "Небесний вимір Святих островів Етеру з 16 біомами, 18 структурами, їздовими моа, планерами з аерохмар, чотирма рівнями спорядження й босом Ковзуном",
+    "uk": "Небесний вимір Святі острови Етеру: 16 біомів, 18 структур, моа й летючі тварини, аерохмари й планери, власна лінійка матеріалів і бос Ковзун. У збірці — рання альфа мода (1.0-alpha.4.1). Глава квестів «Aether 2».",
     "what": [
-      "Повне переосмислення класичного Aether (у ATM11 встановлено ранню збірку `1.0-alpha.4.1`)",
-      "Щоб потрапити у вимір Святі острови Етеру (`aether_ii:aether_holy_isles`), збудуйте вертикальну рамку з 10 блоків світлокаменю (як для Незеру) та активуйте її відром води (або встановіть готову рамку порталу Етеру, `aether_ii:aether_portal_frame`)",
-      "Вимір поділений на групу біомів Високотрав'я (`Highfields` — квітучі луки, берези, дуби), Магнітні пагорби (`Magnetic` — ферозитові шпилі й магнітні тумани), Арктичні піки (`Arctic` — крижані шпилі й засніжені ліси), Опромінені пустки (`Irradiated` — золотисті хащі й заражені дерева вартових) та Безмежжя (`Expanse`)",
-      "Прогресія інструментів і 5-елементних комплектів обладунків (шолом, нагрудник, наголінники, чоботи й рукавиці в окремому вікні спорядження Етеру за клавішею `G`) охоплює: небокорінь (`Skyroot`, подвоює збір природних блоків Етеру), святокамінь (`Holystone`, періодично вибиває амброзієві уламки), заніт (`Zanite`, посилюється зі зменшенням міцності), аркеній (`Arkenium`, кується й покращується талісманами на аркенієвій кузні, `aether_ii:arkenium_forge`), гравітит (`Gravitite`, підкидає блоки та посилює гравітацію ворогів) і нептунові обладунки (`Neptune`, для підводного бою)",
-      "Заражені радіацією предмети та інертний аркеній / гравітит очищують в алкагестовому очищувачі (`aether_ii:alkahest_purifier`) за допомогою балонів з алкагестом (`aether_ii:alkahest`)",
-      "Єдиний доступний в альфі бос — Ковзун (`aether_ii:slider`, 350 сердець), що чекає на дні руїн вартових (`aether_ii:sentry_ruins`) і вразливий лише до кайл"
+      "портал: рамка з 10 блоків світлокаменю (як для Незеру) і відро води всередину; назад — у Верхній світ (конфіг)",
+      "матеріали по черзі: небокорінь (інструменти з Удачею) → святокамінь (дає амброзієві уламки) → заніт → аркеній (аркенієва кузня покращує спорядження) → гравітит (Shift + ПКМ підіймає блок)",
+      "алкагестовий очищувач «лагодить» опромінені предмети аркенієвими балонами з алкагестом",
+      "Ковзун — єдиний бос (тег c:bosses), у лабіринті під руїнами вартових; шкодить йому лише кайло (квест «Ковзун»)",
+      "моа: висиджене яйце (на плетених небокореневих паличках), сідло й сідельна сумка для моа"
     ],
     "stage": [
       "s1",
@@ -38,30 +37,51 @@
     ],
     "synergy": [
       {
-        "mod": "waystones",
-        "why": "Дикі дороговкази й табори вартових в Етері дозволяють закріпити точки телепортації без повторного проходження через водний портал"
-      },
-      {
-        "mod": "ironjetpacks",
-        "why": "Реактивні ранці та планери з аерохмар рятують від падіння між летючими островами Етеру"
+        "mod": "agritechevolved",
+        "why": "Садівники AgriTech Evolved вирощують рослини Етеру (живці ехорової рослини, папороть Етеру тощо) — автоматична ферма ресурсів виміру.",
+        "src": "рецепти agritechevolved:planter/crop/aether_ii/*",
+        "ref": [
+          "recipe:agritechevolved:planter/crop/aether_ii/aechor_cutting",
+          "recipe:agritechevolved:planter/crop/aether_ii/aether_fern"
+        ]
       }
     ],
     "tips": [
-      "У поточній альфа-версії мода (`1.0-alpha.4.1`) частина контенту ще в розробці — підземелля руїн вартових (`sentry_ruins`) із босом Ковзуном (`aether_ii:slider`) та заражене дерево вартового вже працюють повноцінно.",
-      "Для бою з Ковзуном обов'язково візьміть міцне кайло (мечі й луки відбиваються від його кам'яного корпусу) та стережіться ударів об стіни лабіринту.",
-      "Клавіша `G` відкриває спеціальне меню спорядження й святокам'яних кодексів (`Holystone Codices`), куди вдягаються рукавиці, реліквії, талісмани та планери з аерохмар (`aether_ii:blue_aercloud_glider`, `purple_aercloud_glider`).",
-      "Алкагест в інвентарі поступово роз'їдає речі — зберігайте його в аркенієвих балонах з алкагестом (`aether_ii:arkenium_alkahest_canister`).",
-      "Мод вшиває (Jar-in-Jar) допоміжні бібліотеки інтерфейсу `cumulus_menus` та ядра `nitrogen_internals`."
+      "Аерохмари гасять шкоду від падіння, а планери розкриваються ПКМ і працюють як слабкі елітри (квести «Аерохмари», «Планери»)."
     ],
-    "spoiler": "Найзручніший транспорт по островах до польоту — приручений моа (`aether_ii:moa`): висидіть яйце моа (`aether_ii:moa_egg`), вигодуйте пташеня кормом для моа (`aether_ii:moa_feed`) та спорядіть сідлом для моа (`aether_ii:moa_saddle`) і великою сідельною сумкою (`aether_ii:large_moa_saddlebag`).",
+    "spoiler": "Ковзун рухається прямими лініями й таранить гравця; у квесті — 350 сердець. Нагорода квесту — сервоприводи вартового й нептунова луска.",
     "chapter": "aether_2",
+    "book": "Книга знань (вкладка в інвентарі)",
     "icons": [
       "aether_ii:aether_portal_frame",
       "aether_ii:zanite_gemstone",
       "aether_ii:gravitite_plate",
       "aether_ii:arkenium_forge"
     ],
-    "book": "Книга знань (вкладка в інвентарі)"
+    "ref": [
+      "jarfile:data/aether_ii/dimension/aether_holy_isles.json",
+      "quest:78C86403B4F8D382",
+      "config:config/aether_ii-server.toml#Sets portal return dimension=minecraft:overworld",
+      "quest:30BD1DF4FC9295C6",
+      "quest:6B31BC88C23EA226",
+      "quest:3AD1DECD6F51C798",
+      "quest:018DECB2E84B415C",
+      "quest:2C8684AA92B889E8",
+      "quest:1D6BC1BB86F5B22C",
+      "item:aether_ii:alkahest_purifier",
+      "jarfile:data/c/tags/entity_type/bosses.json~aether_ii:slider",
+      "jarfile:data/aether_ii/worldgen/structure/sentry_ruins.json",
+      "quest:2CAA538587D78A8F",
+      "quest:3554892518642473",
+      "item:aether_ii:moa_egg",
+      "item:aether_ii:woven_skyroot_sticks",
+      "quest:0D5E07DA734A72FC",
+      "quest:341C538D1407C731",
+      "count:files:aether_ii!data/aether_ii/worldgen/biome/=16",
+      "count:files:aether_ii!data/aether_ii/worldgen/structure/=18",
+      "quest:2CAA538587D78A8F~The Slider is currently the only Boss available.",
+      "quest:2CAA538587D78A8F~can only be Damaged with a Pickaxe"
+    ]
   },
   "undergarden": {
     "cls": [
@@ -82,17 +102,16 @@
     "dims": [
       {
         "id": "undergarden:undergarden",
-        "name": "Підземний сад (Undergarden)"
+        "name": "Підземний вимір"
       }
     ],
-    "uk": "Похмурий підземний світ із 20 біомами, мобами гнилі, торговцями-камнеродженими, чотирма металами, катакомбами й босом Забутим вартовим",
+    "uk": "Похмурий підземний вимір: 20 біомів, моби гнилі, торговці-камнероджені, метали (клоґрум, морозосталь, утерій, забутий метал, роґдорій) і катакомби з босом Забутим вартовим. Глава квестів «The Undergarden».",
     "what": [
-      "Додає темний печерний вимір Підземний вимір (`undergarden:undergarden`)",
-      "Щоб відкрити портал, збудуйте рамку з кам'яної цегли (`minecraft:stone_bricks`, за конфігом `Return Portal Frame Block ID`) форми порталу в Незер і клацніть по ній ПКМ каталізатором (`undergarden:catalyst` — крафтиться із золота, заліза й діаманта)",
-      "Вимір населяють агресивні моби гнилі (`Rotspawn`: гнилики, гнилоноги, гнилоригачі та мінібос гнилозвір на 80 сердець) і нейтральні торговці камнероджені (`Stoneborn`), які обмінюють реґалієві кристали (`undergarden:regalium_crystal`)",
-      "Основні матеріали виміру: клоґрум (`undergarden:cloggrum_ingot` — міцна броня без штрафу до швидкості, якщо на ній є Чари Ходи), морозосталь (`undergarden:froststeel_ingot` — уповільнює ворогів при ударі), утерій (`undergarden:utherium_crystal` — завдає 1,5× шкоди всім мобам гнилі) та забутий метал (`undergarden:forgotten_ingot`)",
-      "У катакомбах (`undergarden:catacombs`) мешкають заблуди (`Forgotten`) та головний бос — Забутий вартовий (`undergarden:forgotten_guardian`, 80 сердець і 10 очок броні, імунний до снарядів і відкидає всіх у радіусі), з якого випадають забуті самородки (`undergarden:forgotten_nugget`)",
-      "Нижче рівня `Y = 0` крізь шар жахокаменю (`Dreadrock`) простягаються біоми глибин і роґдорієвого гаю з покладами роґдорію (`undergarden:rogdorium`) та блоком насичувача (`undergarden:infuser`)"
+      "портал — як у Незер, але рамка з кам'яної цегли (звичайної, моховитої або глибосланцевої), активується каталізатором (мідь, камінь, перлина Енду); портал повернення будується з кам'яної цегли (конфіг)",
+      "моби гнилі (гнилики, гнилоноги, гнилоригачі, гнилозвір — 80 сердець за квестом); камнероджені торгують за реґалієві кристали",
+      "клоґрум — «залізо» виміру, морозосталь — у замерзлих біомах, утерій — зброя сильніша проти мобів гнилі",
+      "катакомби й Забутий вартовий (тег c:bosses; 80 сердець за квестом) — з нього забуті самородки; забуте спорядження — покращення клоґрумового на ковальському столі",
+      "нижче Y 0 — глибини за шаром жахокаменю; роґдорій і насичувач (крафт і насичення предметів)"
     ],
     "stage": [
       "s1",
@@ -101,28 +120,52 @@
     ],
     "synergy": [
       {
-        "mod": "kubejs",
-        "why": "Скрипт KubeJS (mods/undergarden/recipes.js) виправляє рецепт клоґрумового щита (undergarden:cloggrum_shield), обкладаючи ванільний щит 4 клоґрумовими злитками"
-      },
-      {
-        "mod": "silentgear",
-        "why": "Клоґрум, морозосталь, утерій і забутий метал можна використовувати або поєднувати з прогресією спорядження в катакомбах"
+        "mod": "allthemodium",
+        "why": "Жахокамінь (вхід у глибини нижче Y 0 і роґдорій) неможливо добути навіть незеритом — потрібне забуте кайло або усемодієве: теги інструментів Undergarden не забороняють його кайлу ATM.",
+        "src": "теги undergarden:needs_forgotten_tool → minecraft:incorrect_for_netherite_tool; квести «Глибини», «Роґдорій»",
+        "ref": [
+          "jarfile:The_Undergarden!data/minecraft/tags/block/incorrect_for_netherite_tool.json~#undergarden:needs_forgotten_tool",
+          "item:allthemodium:allthemodium_pickaxe",
+          "quest:6E7C8537D8A28833",
+          "quest:257893DD23BF5017"
+        ]
       }
     ],
     "tips": [
-      "Зброя й інструменти із забутого металу (`undergarden:forgotten_pickaxe`, `forgotten_sword`) створюються на ковальському столі з клоґрумового спорядження, забутого злитка (`undergarden:forgotten_ingot`) та шаблону покращення забутих інструментів (`undergarden:forgotten_upgrade_smithing_template`): вони завдають 1,5× шкоди звичайним мобам виміру (не босам) і копають блоки Підземного виміру значно швидше.",
-      "Щоб пробити шар жахокаменю й спуститися в глибини нижче `Y = 0` за роґдорієм, знадобиться забуте кайло (`undergarden:forgotten_pickaxe`) або інструмент вищого рівня видобутку.",
-      "У насичувачі (`undergarden:infuser`) за допомогою роґдорію та утерію можна заряджати й лагодити спорядження виміру.",
-      "Якщо загубили вхідний портал, змайструйте одноразовий кришливий каталізатор (`undergarden:crumbling_catalyst`), щоб повернутися у Верхній світ.",
-      "Рогатка (`undergarden:slingshot`) із гнилими пухирними ягодами або глибинно-кам'яними гальками (зачарована на Нескінченність і Самонаведення) — чудова допоміжна зброя на старті."
+      "Клоґрумовий щит у збірці — ванільний щит, обкладений клоґрумовими злитками (KubeJS unification/tools.js; рецепт мода вимкнено).",
+      "Загубили портал — кришливий каталізатор (клоґрум, забуті самородки, глибинний камінь) повертає у Верхній світ."
     ],
-    "spoiler": "У біомах глибин нижче `Y = 0` стережіться таємничих горщиків (`Mysterious Pot`) — це живі істоти-міміки, що маскуються під звичайні горщики зі здобиччю у забутих залишках (`forgotten_vestige`).",
+    "spoiler": "Таємничі горщики в забутих залишках — живі міміки (квест «Таємничі горщики»).",
     "chapter": "undergarden",
     "icons": [
       "undergarden:catalyst",
       "undergarden:cloggrum_ingot",
       "undergarden:utherium_crystal",
       "undergarden:forgotten_ingot"
+    ],
+    "ref": [
+      "jarfile:data/undergarden/dimension/undergarden.json",
+      "quest:6C4B93FE64BD418D",
+      "recipe:undergarden:catalyst",
+      "config:config/undergarden-common.toml#Return Portal Frame Block ID=minecraft:stone_bricks",
+      "quest:70FD8856BFCD9AEE",
+      "quest:4D836B9D9E3B898F",
+      "item:undergarden:regalium_crystal",
+      "quest:4141EF8B8C316118",
+      "quest:51E2728C5E35A152",
+      "quest:1FCF946B7BE3C0BD",
+      "jarfile:data/undergarden/worldgen/structure/catacombs.json",
+      "jarfile:The_Undergarden!data/c/tags/entity_type/bosses.json~undergarden:forgotten_guardian",
+      "quest:1054168AFD8520D4",
+      "quest:6124C0E9E419694B",
+      "recipe:undergarden:forgotten_upgrade_smithing_template",
+      "quest:6E7C8537D8A28833",
+      "quest:5AF0E903DB670D65",
+      "recipe:allthemods:undergarden/cloggrum_shield",
+      "!recipe:undergarden:cloggrum_shield",
+      "recipe:undergarden:crumbling_catalyst",
+      "quest:4985F82E0D300C6D",
+      "quest:57545837046F552B"
     ]
   },
   "stellaris": {
@@ -143,59 +186,69 @@
     ],
     "dims": [
       {
+        "id": "stellaris:earth_orbit",
+        "name": "Земна орбіта"
+      },
+      {
         "id": "stellaris:moon",
         "name": "Місяць"
-      },
-      {
-        "id": "stellaris:mars",
-        "name": "Марс"
-      },
-      {
-        "id": "stellaris:venus",
-        "name": "Венера"
-      },
-      {
-        "id": "stellaris:mercury",
-        "name": "Меркурій"
       }
     ],
-    "uk": "Космічні експедиції на Земну орбіту й Місяць: ракети, модульні скафандри, системи кисню й гравітації, переробка нафти та місячний ровер",
+    "uk": "Космос: ракети, скафандри з модулями, кисень і гравітація, нафта й ракетне паливо, Земна орбіта й Місяць із біомами, рудами, селами іншопланетян і підземеллями.",
     "what": [
-      "Технологічно-дослідницький мод про ракетобудування та освоєння космосу",
-      "У збірці увімкнено повноцінну систему кисню (`enableOxygenSystem = true`) та гравітації (`enableGravityEffects = true`)",
-      "На Землі в нафтоносних чанках (`chunkOilChance = 32`, до 50 000 мБ на чанк) видобувають сиру нафту й переробляють її в паливному заводі (`stellaris:fuel_refinery`) та електролізері (`stellaris:electrolyzer`) на ракетне паливо, дизель, водень і кисень",
-      "На інженерній станції (`stellaris:engineering_station`) збирають ракету (`stellaris:rocket`), встановлюють її на стартовий майданчик ракети (`stellaris:rocket_launch_pad`) з вежами стартового майданчика (`stellaris:launch_pad_towers`) і стартують клавішею `Space` (відкриття екрана вибору небесного тіла відбувається на висоті `Y = 400`)",
-      "На Земній орбіті (`stellaris:earth_orbit`) генеруються супутники й орбітальні бази, а на Місяці (`stellaris:moon`) — 5 місячних біомів, 12 структур (місячні села інопланетян, форпости, підземелля, місце першої висадки) та поклади місячної руди дешу (`stellaris:moon_desh_ore`), титану, урану, плутонію й друзи `Astrum Vitreus`",
-      "Вбудований довідник — планшет (`stellaris:tablet`)"
+      "виміри: Земна орбіта (супутники, операційна база) і Місяць — 5 біомів, руди дешу й титану, місячні села, форпости, підземелля, місце першої висадки",
+      "у збірці ввімкнено систему кисню й гравітацію (конфіг enableOxygenSystem, enableGravityEffects)",
+      "нафта в чанках Верхнього світу (конфіг chunkOilChance = 32, до 50000 mB на чанк); паливний завод і електролізер дають ракетне паливо, водень, кисень",
+      "ракета збирається на інженерній станції, стартує зі стартового майданчика; вибір небесного тіла — на висоті 400 (конфіг rocketTpHeight)",
+      "скафандр із модулями (кисень, реактивний ранець, пошук нафти, нічне бачення); розподільник і поширювач кисню, маніпулятор гравітації для бази; довідник — планшет"
     ],
     "stage": [
       "s2",
       "s3",
       "s4"
     ],
-    "synergy": [
-      {
-        "mod": "alltheores",
-        "why": "Скрипт KubeJS (unification/general.js) замінює всі сталеві предмети у рецептах Stellaris на уніфіковані теги #c:ingots/steel, #c:plates/steel і #c:nuggets/steel"
-      },
-      {
-        "mod": "waystones",
-        "why": "Встановлений на Місяці або орбітальній станції дороговказ дозволяє миттєво повертатися на базу без витрат ракетного палива"
-      }
-    ],
+    "synergy": [],
     "tips": [
-      "Перед польотом обов'язково спорядіть повний скафандр (`stellaris:space_suit_helmet`, `space_suit_chestplate`, `space_suit_leggings`, `space_suit_boots`) і встановіть у нього кисневі модулі (`stellaris:space_suit_oxygen_module_tier_1`–`3`) — без кисню у вакуумі гравець швидко гине.",
-      "У скафандр також вставляються реактивні модулі (`stellaris:space_suit_jet_module_tier_1`–`3`), модулі пошуку нафти (`space_suit_oil_finder_module_tier_1`–`3`) та модуль нічного бачення (`space_suit_night_vision_module`).",
-      "Клавіші керування в космосі: `Space` — запуск ракети, `V` — перемикання режиму реактивного ранця скафандра, `M` — увімкнення шолома нічного бачення, `Z` — гальмування ровера (`stellaris:rover`).",
-      "Для герметичної бази на Місяці використовуйте розподільник кисню (`stellaris:oxygen_distributor`), поширювач кисню (`stellaris:oxygen_propagator`) та маніпулятор гравітації (`stellaris:gravity_manipulator`)."
+      "Клавіші (поточний options.txt): пробіл — запуск ракети, V — режим реактивного ранця скафандра, M — нічне бачення."
     ],
-    "spoiler": "Зібравши у скафандр модуль пошуку нафти, ви бачитимете запаси нафти просто під ногами, а на Місяці в підземеллях і селах інопланетян можна знайти креслення покращених двигунів і трофей «Серце Луни» (`stellaris:heart_of_luna_trophy`).",
+    "spoiler": "У місячних підземеллях чекає Матка зоряних повзунів (з неї — трофей); у скринях — креслення й «Серце Луни».",
     "book": "Планшет (Космічна енциклопедія)",
     "icons": [
       "stellaris:rocket",
       "stellaris:space_suit_helmet",
       "stellaris:oxygen_distributor",
       "stellaris:desh_ingot"
+    ],
+    "ref": [
+      "jarfile:data/stellaris/dimension/earth_orbit.json",
+      "jarfile:data/stellaris/dimension/moon.json",
+      "jarfile:data/stellaris/worldgen/structure/moon_village.json",
+      "jarfile:data/stellaris/worldgen/structure/moon_dungeon.json",
+      "jarfile:data/stellaris/worldgen/structure/moon_first_landing.json",
+      "jarfile:data/stellaris/worldgen/structure/earth_operation_base.json",
+      "jarfile:data/stellaris/neoforge/biome_modifier/moon_desh_ore.json",
+      "jarfile:data/stellaris/neoforge/biome_modifier/moon_titanium_ore.json",
+      "config:config/stellaris.json#oxygenConfig.enableOxygenSystem=true",
+      "config:config/stellaris.json#gravityConfig.enableGravityEffects=true",
+      "config:config/stellaris.json#oilConfig.chunkOilChance=32",
+      "config:config/stellaris.json#oilConfig.maxOil=50000",
+      "item:stellaris:fuel_refinery",
+      "item:stellaris:electrolyzer",
+      "item:stellaris:rocket",
+      "item:stellaris:engineering_station",
+      "item:stellaris:rocket_launch_pad",
+      "config:config/stellaris.json#vehicleConfig.rocketTpHeight=400",
+      "item:stellaris:space_suit_oxygen_module_tier_1",
+      "item:stellaris:oxygen_distributor",
+      "item:stellaris:oxygen_propagator",
+      "item:stellaris:gravity_manipulator",
+      "item:stellaris:tablet",
+      "file:options.txt~key_key.stellaris.rocket_start:key.keyboard.space",
+      "file:options.txt~key_key.stellaris.jet_switch_mode:key.keyboard.v",
+      "file:options.txt~key_key.stellaris.night_vision:key.keyboard.m",
+      "jarfile:data/stellaris/loot_table/entities/star_crawler_boss.json",
+      "lang:entity.stellaris.star_crawler_boss",
+      "item:stellaris:heart_of_luna_trophy"
     ]
   },
   "sky_aesthetics": {
@@ -206,15 +259,19 @@
     "role": "library",
     "parent": "stellaris",
     "features": [],
-    "uk": "Бібліотека рендерингу космічного неба, зірок, планет і атмосфери для Stellaris",
+    "uk": "Бібліотека зміни неба (скайбокса) — потрібна Stellaris.",
     "what": [
-      "Клієнтсько-серверний рушій рендерингу неба, який відповідає за вигляд космосу, сузір'їв, сонячних дисків та планет на Земній орбіті й Місяці у Stellaris",
-      "Власних предметів не додає"
+      "Обов'язкова залежність Stellaris; клавіша редактора неба не призначена (options.txt)"
     ],
     "stage": [
       "s2",
       "s3",
       "s4"
+    ],
+    "ref": [
+      "jarfile:sky_aesthetics-neoforge-2.1.4!META-INF/neoforge.mods.toml~Change the skybox of Minecraft",
+      "jarfile:stellaris-26.1.2-neoforge-2.0.7!META-INF/neoforge.mods.toml~modId = \"sky_aesthetics\"",
+      "file:options.txt~key_key.sky_aesthetics.open_editor:key.keyboard.unknown"
     ]
   },
   "exoconfig": {
@@ -224,15 +281,18 @@
     "role": "library",
     "parent": "stellaris",
     "features": [],
-    "uk": "Бібліотека конфігурації та синхронізації налаштувань для Stellaris",
+    "uk": "Бібліотека конфігів з автоматичним екраном налаштувань — потрібна Stellaris.",
     "what": [
-      "Технічна бібліотека конфігураційних файлів і мережевої синхронізації параметрів для Stellaris",
-      "Власного ігрового контенту не має"
+      "Обов'язкова залежність Stellaris"
     ],
     "stage": [
       "s2",
       "s3",
       "s4"
+    ],
+    "ref": [
+      "jarfile:ExoConfig-26.1.2-neoforge-0.3.5!META-INF/neoforge.mods.toml~config lib based on auto screen config",
+      "jarfile:stellaris-26.1.2-neoforge-2.0.7!META-INF/neoforge.mods.toml~modId = \"exoconfig\""
     ]
   },
   "potentials": {
@@ -242,14 +302,19 @@
     "role": "library",
     "parent": "stellaris",
     "features": [],
-    "uk": "Універсальний API енергії, рідин і газів для механізмів Stellaris",
+    "uk": "Кросплатформні можливості (capabilities) для розробників модів — потрібна Stellaris.",
     "what": [
-      "Бібліотека-абстракція для передачі енергії (FE), рідин і газів між машинами, кабелями, генераторами й модулями скафандра у Stellaris"
+      "Обов'язкова залежність Stellaris; сама потребує Architectury"
     ],
     "stage": [
       "s2",
       "s3",
       "s4"
+    ],
+    "ref": [
+      "jarfile:potentials-neoforge-26.1.2-0.11.1!META-INF/neoforge.mods.toml~cross platform capabilities",
+      "jarfile:stellaris-26.1.2-neoforge-2.0.7!META-INF/neoforge.mods.toml~modId = \"potentials\"",
+      "jarfile:potentials-neoforge-26.1.2-0.11.1!META-INF/neoforge.mods.toml~modId = \"architectury\""
     ]
   },
   "auroral": {
@@ -263,32 +328,25 @@
     "features": [
       "mobs"
     ],
-    "uk": "Зимове розширення з подією північного сяйва, рідкою авророю, спорядженням із мерехтливої сталі й тканини, ковзанами та холодною алхімією",
+    "uk": "Зимові ночі з полярним сяйвом (авророю): квітки аврори, рідка аврора в льодовиковій чаші, мерехтлива сталь і тканина, холодна алхімія. Глава квестів «Auroral».",
     "what": [
-      "Атмосферний мод для засніжених біомів Верхнього світу",
-      "З імовірністю 33% (`aurora_chance = 0.33`) уночі спалахує північне сяйво (аврора): спорядження гравця в засніжених біомах повільно лагодиться само собою, на снігу виростають квітки аврори (`auroral:aurora_bloom`), з'являються авроральні навтилуси та авроральні сніговички, а встановлена просто неба льодовикова чаша (`auroral:glacial_basin`) наповнюється рідкою авророю",
-      "На рівні заповнення 3 у чаші просякають: замерзлі пелюстки (`auroral:frozen_petals`) → уламки аврори (`auroral:aurora_shard`), неочищену мерехтливу сталь (мідь + залізо + аметист + пелюстки) → злиток мерехтливої сталі (`auroral:shimmersteel_ingot`), ткану шкіру (`auroral:woven_leather`) → мерехтливу тканину (`auroral:shimmerweave_fabric`), а звичайний лід → нетанучий мерехтливий лід (`auroral:shimmering_ice`)",
-      "Крім того, мод додає холодну варильну стійку (`auroral:cold_brewing_stand`), колоду домовогнища (`auroral:hearthwood_log`) та культуру світлопорею (`auroral:glow_leek`)"
+      "аврора — уночі в засніжених біомах Верхнього світу, шанс 0,33 за ніч (конфіг); під час аврори спорядження повільно лагодиться, ростуть квітки аврори, з'являються авроральні навтилуси й сніговички",
+      "льодовикова чаша (синій лід, залізо, камінь) збирає рідку аврору; на рівні 3 у ній просякають предмети: неочищена мерехтлива сталь (мідь + залізо + вугілля) → злиток, ткана шкіра (вовна + шкіра) → мерехтлива тканина, лід → мерехтливий лід, замерзлі пелюстки → уламки аврори",
+      "спорядження з мерехтливої сталі й тканини — через мерехтливий ковальський шаблон на ковальському столі",
+      "холодна варильна стійка, колода домовогнища, світлопорей (садять на мерехтливий лід), ліхтар аврори"
     ],
     "stage": [
       "s0",
       "s1",
       "s2"
     ],
-    "synergy": [
-      {
-        "mod": "naturescompass",
-        "why": "Компас природи допоможе швидко знайти найближчий засніжений біом, щоб дочекатися ночі аврори та зібрати рідку аврору"
-      }
-    ],
+    "synergy": [],
     "tips": [
-      "Застосувавши перлину Енду на квітку аврори, ви перетворите її на ендер-квітку (`auroral:ender_bloom`), яка при дозріванні дає ендер-уламки аврори (`auroral:aurora_ender_shard`) — з 4 таких уламків крафтиться ціла перлина Енду!",
-      "Інструменти з мерехтливої сталі мають вбудовані бонуси: лопата має природний Шовковий дотик, кайло підсвічує руди поблизу, сокира валить ціле дерево (до 128 колод), мотика перетворює сніг на мерехтливий ґрунт (`auroral:shimmer_soil`), а меч накладає обмороження й миттєво добиває ворогів із менш ніж 15% здоров'я.",
-      "Ковзани з мерехтливої тканини (`auroral:shimmerweave_skates`) прискорюють рух по льоду в 2,1 раза й дають Льодохід II, але розумно вимикають заморожування води, якщо на 16 блоків нижче під водою є лава (щоб не затопити підземні лавові озера обсидіаном).",
-      "Колода домовогнища (`auroral:hearthwood_log`) горить 168 000 тактів від одного уламка аврори, знімає обмороження в радіусі 16 блоків і дає знижку 20% у селян-торговців поблизу!",
-      "Ліхтар аврори (`auroral:aurora_lantern`) в основній або другій руці повністю захищає від ефекту Темряви (зокрема в Глибокій темряві біля Боронителя)."
+      "Перлина Енду на квітці аврори перетворює її на ендер-квітку: з неї збирають ендер-уламки аврори, з них крафтиться перлина Енду (квест «Ендер-квітки»).",
+      "Колода домовогнища горить 168000 тактів, знімає обмороження в радіусі 16 блоків і дає селянам поруч знижку 0,2 (20 %) — конфіг.",
+      "Меч із мерехтливої сталі добиває моба, у якого лишилося менше 0,15 (15 %) здоров'я (конфіг execute_threshold); ліхтар аврори в руці захищає від Темряви."
     ],
-    "spoiler": "Холодна варильна стійка (`auroral:cold_brewing_stand`) працює на уламках аврори замість пороху пломеня і варить зілля зі звичайних пляшок води без незерського наросту — ідеальний спосіб отримати зілля ще до походу в Незер.",
+    "spoiler": "Холодна варильна стійка (замерзлі пелюстки + мерехтлива сталь) варить зілля без походу в Незер (квест «Холодна варильна стійка»).",
     "chapter": "auroral",
     "book": "Путівник полярного сяйва (Patchouli)",
     "icons": [
@@ -296,6 +354,36 @@
       "auroral:aurora_bloom",
       "auroral:shimmersteel_ingot",
       "auroral:shimmerweave_skates"
+    ],
+    "ref": [
+      "config:config/auroral-server.toml#aurora_chance=0.33",
+      "config:config/auroral-server.toml#aurora_dimensions",
+      "quest:637EF6D9DFC59EE8",
+      "quest:1F880C6A777B4199",
+      "quest:5C2AE7715B3A8EED",
+      "quest:11AD7F883D777339",
+      "recipe:auroral:glacial_basin",
+      "quest:0D3D987594E64A86",
+      "recipe:auroral:unrefined_shimmersteel",
+      "recipe:auroral:woven_leather",
+      "quest:58799D0038E198DF",
+      "quest:2AFAE2215A774DBA",
+      "quest:6E911A8079A1B237",
+      "quest:2FB85057F0F9CE7A",
+      "quest:3AD8A3E543ADABD1",
+      "item:auroral:cold_brewing_stand",
+      "item:auroral:hearthwood_log",
+      "quest:7758AC49F63ADC8A",
+      "item:auroral:aurora_lantern",
+      "recipe:auroral:ender_pearl_from_shards",
+      "quest:0BBDB63F944F61A7",
+      "config:config/auroral-server.toml#hearthwood_log_burn_time=168000",
+      "config:config/auroral-server.toml#hearthwood_log_frostbite_radius=16",
+      "config:config/auroral-server.toml#hearthwood_log_villager_discount=0.2",
+      "config:config/auroral-server.toml#execute_threshold=0.15",
+      "quest:77E909CA721A721E",
+      "recipe:auroral:cold_brewing_stand",
+      "quest:2EEBCCE507CF5D67"
     ]
   },
   "regions_unexplored": {
@@ -309,34 +397,34 @@
       "biome",
       "ores"
     ],
-    "uk": "Масштабне розширення біомів Верхнього світу, печер і Незеру: 78 біомів, понад 700 блоків деревини, рослинності й каменю та сталактити редстоуну",
+    "uk": "78 нових біомів Верхнього світу, печер і Незеру (баобабові савани, секвоєві ліси, біошрумові печери, редстоунові печери, пекельні біоми) з власною деревиною й рослинністю.",
     "what": [
-      "Додає 78 деталізованих біомів на поверхні, у глибоких печерах і в Незері: савани з баобабами (`baobab`), секвоєві праліси (`redwood`), квітучі магнолієві гаї (`magnolia`), райдужні евкаліптові ліси (`eucalyptus`), попелясті вулканічні пустки (`ashen`), реліктові альфа-луки (`alpha_grove`), а також підземні біоми з велетенськими сяйними біошрумами (`blue_bioshroom`, `green_bioshroom`, `pink_bioshroom`, `yellow_bioshroom`), призмохом (`regions_unexplored:prismoss`) і незерські кобальтові хащі (`cobalt`)",
-      "У печерах генеруються червоні сталактити — загострений редстоун (`regions_unexplored:pointed_redstone`)"
+      "біоми поверхні (баобабова савана, секвої, магнолієвий і евкаліптовий ліси, реліктовий гай тощо), печер (біошрумові печери, редстоунові печери й безодня, призмова прірва) і Незеру (пекельний гай, інферно, базальтова дельта тощо)",
+      "загострений редстоун у редстоунових печерах і Незері — скупчення й великі сталактити"
     ],
     "stage": [
       "s0",
       "s1"
     ],
-    "synergy": [
-      {
-        "mod": "naturescompass",
-        "why": "Компас природи бачить усі 78 біомів Regions Unexplored за назвою"
-      },
-      {
-        "mod": "kubejs",
-        "why": "Скрипт KubeJS (mods/regions_unexplored/recipes.js) додає прямий крафт 1 загостреного редстоуну в 1 редстоуновий пил і вимикає ванільну переробку блоку необробленого редстоуну"
-      }
-    ],
+    "synergy": [],
     "tips": [
-      "Кольорові блоки біошрумів (`glowing_blue_bioshroom_block` тощо) та кобальтові вухосвіти (`regions_unexplored:cobalt_earlight`) є чудовими природними джерелами світла для декору бази.",
-      "На старті гри печери зі скупченнями загостреного редстоуну дозволяють набрати багато редстоуну ще до спуску на глибину алмазів."
+      "Скрипт збірки додає рецепт: загострений редстоун → редстоун (KubeJS mods/regions_unexplored/recipes.js) — раннє джерело редстоуну."
     ],
     "icons": [
       "regions_unexplored:baobab_sapling",
       "regions_unexplored:blue_bioshroom",
       "regions_unexplored:prismoss",
       "regions_unexplored:cobalt_earlight"
+    ],
+    "ref": [
+      "jarfile:data/regions_unexplored/worldgen/biome/baobab_savanna.json",
+      "jarfile:data/regions_unexplored/worldgen/biome/bioshroom_caves.json",
+      "jarfile:data/regions_unexplored/worldgen/biome/redstone_caves.json",
+      "jarfile:data/regions_unexplored/worldgen/biome/infernal_holt.json",
+      "jarfile:data/regions_unexplored/worldgen/biome/prismachasm.json",
+      "jarfile:data/regions_unexplored/worldgen/placed_feature/nether/pointed_redstone_cluster.json",
+      "jarfile:data/regions_unexplored/worldgen/placed_feature/special/large_pointed_redstone.json",
+      "recipe:kjs:mods/regions_unexplored/recipes.js#L4"
     ]
   },
   "terralith": {
@@ -348,36 +436,37 @@
       "dungeon",
       "biome"
     ],
-    "uk": "Генератор рельєфу Верхнього світу з 95+ біомами й 28 структурами (укріплені села, вежі магів, підземні табори) виключно з ванільних блоків",
+    "uk": "Генератор Верхнього світу на ванільних блоках: 95 біомів (скелі, каньйони, вулкани, острови в небі) і 28 структур — укріплені села, вежі й комплекси магів, руїни, підземні хатини й шахтарські форпости.",
     "what": [
-      "Переробляє генерацію Верхнього світу, додаючи понад 95 мальовничих біомів (каньйони, кальдери, вулканічні піки, альпійські луки, крижані печери, оази) та 28 власних структур: укріплені села (`fortified_village`, `fortified_desert_village`), сезонні вежі магів (`mage_tower_spring/summer/autumn/winter`, `mage_complex`), пустельні форпости (`desert_outpost`), льодовикові хатини (`glacial_hut`) та руїни (`rubble_*`)",
-      "Використовує лише ванільні блоки, тому не засмічує інвентар зайвими різновидами кругляку чи землі"
+      "95 біомів лише з ванільних блоків — нових видів каменю чи землі не додає",
+      "28 структур: укріплені села (звичайні й пустельні), вежі магів чотирьох пір року і комплекс магів, пустельні форпости, льодовикові хатини, руїни, підземні хатини, вулик велетенських бджіл, старий нафтопереробний завод",
+      "конфіг збірки: модулі власних структур і небесних островів (skylands) увімкнено, зміни рецептів вимкнено"
     ],
     "stage": [
       "s0",
       "s1"
     ],
-    "synergy": [
-      {
-        "mod": "tectonic",
-        "why": "Працює спільно з Tectonic, поєднуючи біоми Terralith із плавними гірськими хребтами та підземними річками"
-      },
-      {
-        "mod": "naturescompass",
-        "why": "Усі біоми Terralith індексуються у Компасі природи"
-      },
-      {
-        "mod": "explorerscompass",
-        "why": "Вежі магів та укріплені села Terralith легко знайти Компасом дослідника"
-      }
-    ],
-    "tips": [
-      "У вежах магів (`terralith:mage_tower`) та комплексах магів (`terralith:mage_complex`) є готові варильні стійки, столи зачарувань і скрині з цінними зіллями та книгами на старті гри.",
-      "Укріплені села (`terralith:fortified_village`) захищені мурами й залізними големами — чудове місце для першої тимчасової бази."
-    ],
+    "synergy": [],
     "icons": [
       "minecraft:mossy_cobblestone",
       "minecraft:calcite"
+    ],
+    "ref": [
+      "jarfile:Terralith!data/minecraft/dimension/overworld.json",
+      "jarfile:data/terralith/worldgen/structure/fortified_village.json",
+      "jarfile:data/terralith/worldgen/structure/fortified_desert_village.json",
+      "jarfile:data/terralith/worldgen/structure/mage_tower_winter.json",
+      "jarfile:data/terralith/worldgen/structure/mage_complex.json",
+      "jarfile:data/terralith/worldgen/structure/desert_outpost.json",
+      "jarfile:data/terralith/worldgen/structure/glacial_hut.json",
+      "jarfile:data/terralith/worldgen/structure/underground/giant_bee_hive.json",
+      "jarfile:data/terralith/worldgen/structure/underground/old_refinery.json",
+      "config:config/terralith.json#modules.custom_structures=true",
+      "config:config/terralith.json#modules.skylands=true",
+      "config:config/terralith.json#modules.recipe_changes=false",
+      "count:files:Terralith!data/terralith/worldgen/biome/=95",
+      "count:files:Terralith!data/terralith/worldgen/structure/=28",
+      "jarfile:Terralith!META-INF/neoforge.mods.toml~using just Vanilla blocks"
     ]
   },
   "tectonic": {
@@ -386,27 +475,27 @@
     ],
     "role": "content",
     "features": [],
-    "uk": "Масштабна переробка рельєфу світу: високі гірські хребти, підземні судноплавні річки, океанічні скелі та хвилясті рівнини",
+    "uk": "Переробка рельєфу Верхнього світу: вищі гори, ширші континенти, більші печери — без нових блоків і біомів.",
     "what": [
-      "Змінює математику шуму генерації рельєфу Верхнього світу без додавання власних блоків чи нових ID біомів",
-      "Формує реалістичні гірські пасма, що тягнуться на сотні блоків, глибокі каньйони, стрімкі морські кручі та повноводні підземні річки, якими можна плисти човном крізь печери"
+      "змінює функції щільності генератора світу (вбудований датапак tectonic) — рельєф, а не набір біомів",
+      "конфіг збірки: увімкнено старі печери й яри, «сирні», «спагеті» й «локшинові» печери; високі стовпи в джунглях"
     ],
     "stage": [
       "s0",
       "s1"
     ],
-    "synergy": [
-      {
-        "mod": "terralith",
-        "why": "Інтегрований із біомами Terralith та Regions Unexplored через вбудовану бібліотеку Apollib (Jar-in-Jar)"
-      }
-    ],
-    "tips": [
-      "Підземні річки Tectonic часто перетинають глибокі печери з рудами — використовуйте човен для швидкої розвідки надр без витрати смолоскипів на кожному кроці."
-    ],
+    "synergy": [],
     "icons": [
       "minecraft:pointed_dripstone",
       "minecraft:snow_block"
+    ],
+    "ref": [
+      "jarfile:tectonic!resourcepacks/tectonic/pack.mcmeta",
+      "config:config/tectonic.json#caves.carvers_enabled=true",
+      "config:config/tectonic.json#caves.cheese_enabled=true",
+      "config:config/tectonic.json#caves.spaghetti_enabled=true",
+      "config:config/tectonic.json#caves.noodle_enabled=true",
+      "config:config/tectonic.json#continents.jungle_pillars=true"
     ]
   },
   "nullscape": {
@@ -418,10 +507,10 @@
       "dungeon",
       "biome"
     ],
-    "uk": "Переробка генерації Енду з багаторівневим рельєфом, 3 новими біомами (Кришталеві піки, Землі тіней, Пустки порожнечі) та руїнами",
+    "uk": "Переробка Енду: багатоярусні острови, арки й ущелини, три нові біоми й дві структури — на ванільних блоках.",
     "what": [
-      "Перетворює одноманітні острови зовнішнього Енду на величний тривимірний ландшафт із високими уламковими арками, літаючими плато та глибокими ущелинами",
-      "Додає 3 біоми Енду — Кришталеві піки (`nullscape:crystal_peaks`), Землі тіней (`nullscape:shadowlands`) і Пустки порожнечі (`nullscape:void_barrens`) — та 2 структури (`nullscape:rift` і `nullscape:dragon_skeleton`), використовуючи ванільні блоки Енду, аметисту, чорнокаменю й обсидіану"
+      "біоми Енду: Кришталеві піки, Тіньові землі, Пустки порожнечі",
+      "структури: розлом (rift) і скелет дракона"
     ],
     "stage": [
       "s2",
@@ -430,19 +519,25 @@
     "synergy": [
       {
         "mod": "justdirethings",
-        "why": "Скрипт KubeJS (mods/just_dire_things/tags.js) додає всі 3 біоми Nullscape до тегу justdirethings:unstable_portal_fluid_viable — у них можна створювати Нестабільну портальну рідину!"
-      },
-      {
-        "mod": "ironjetpacks",
-        "why": "Вертикальний рельєф Nullscape значно легше долати з реактивним ранцем або творчим польотом"
+        "why": "Скрипт збірки додає три біоми Nullscape до тегу justdirethings:unstable_portal_fluid_viable — у них можна робити нестабільну портальну рідину Just Dire Things, як у ванільних біомах Енду.",
+        "src": "KubeJS server_scripts/tweaks/tags.js (worldgen/biome)",
+        "ref": [
+          "kjs:server_scripts/tweaks/tags.js~justdirethings:unstable_portal_fluid_viable",
+          "kjs:server_scripts/tweaks/tags.js~\"nullscape:crystal_peaks\""
+        ]
       }
-    ],
-    "tips": [
-      "Якщо ви шукаєте біом Енду для створення нестабільної портальної рідини з Just Dire Things, не потрібно шукати лише ванільні `end_highlands` — підійдуть і всі три біоми Nullscape (`crystal_peaks`, `shadowlands`, `void_barrens`)."
     ],
     "icons": [
       "minecraft:end_stone",
       "minecraft:chorus_flower"
+    ],
+    "ref": [
+      "jarfile:data/nullscape/worldgen/biome/crystal_peaks.json",
+      "jarfile:data/nullscape/worldgen/biome/shadowlands.json",
+      "jarfile:data/nullscape/worldgen/biome/void_barrens.json",
+      "jarfile:data/nullscape/worldgen/structure/rift.json",
+      "jarfile:data/nullscape/worldgen/structure/dragon_skeleton.json",
+      "jarfile:Nullscape!data/minecraft/dimension/the_end.json"
     ]
   },
   "lithostitched": {
@@ -451,13 +546,19 @@
     ],
     "role": "library",
     "features": [],
-    "uk": "Бібліотека розширення генерації світу, структурних пулів і модифікаторів біомів для Terralith, Regions Unexplored, Thaumaturge і Witchery",
+    "uk": "Бібліотека налаштувань і сумісності генерації світу — потрібна Terralith, Regions Unexplored, Thaumaturge і Witchery.",
     "what": [
-      "Технічна бібліотека для безконфліктного поєднання датапаків генерації світу, динамічного додавання елементів у структурні пули селищ та налаштування поверхневих правил біомів",
-      "Від неї залежать Terralith, Regions Unexplored, Thaumaturge та Witchery"
+      "Обов'язкова залежність Terralith, Regions Unexplored, Thaumaturge і Witchery"
     ],
     "stage": [
       "s0"
+    ],
+    "ref": [
+      "jarfile:lithostitched-1.8.1-neoforge-26.1!META-INF/neoforge.mods.toml~compatibility enhancements for worldgen",
+      "jarfile:Terralith_26.1_v2.6.1_Neoforge!META-INF/neoforge.mods.toml~modId = \"lithostitched\"",
+      "jarfile:regions-unexplored-0.7.0+beta2-neoforge!META-INF/neoforge.mods.toml~modId = \"lithostitched\"",
+      "jarfile:thaumaturge-26.1.2-NeoForge-1.0.2!META-INF/neoforge.mods.toml~modId = \"lithostitched\"",
+      "jarfile:witchery-0.5.17+mc26.1.2!META-INF/neoforge.mods.toml~modId = \"lithostitched\""
     ]
   },
   "journeymap": {
@@ -467,27 +568,31 @@
     ],
     "role": "qol",
     "features": [],
-    "uk": "Інтерактивна мінікарта, повноекранна мапа світу та система міток-вейпойнтів із підтримкою телепортації",
+    "uk": "Мінікарта, повноекранна карта поверхні, печер і вимірів, мітки (вейпойнти) з променем у світі.",
     "what": [
-      "Головна картографічна система збірки",
-      "Автоматично будує мапу поверхні, печер і всіх вимірів у реальному часі, показує радар мобів і гравців на мінікарті у правому верхньому куті та дозволяє ставити кольорові мітки (вейпойнти) з променем-маяком у світі"
+      "карта будується сама під час руху: поверхня, печери, інші виміри; мітки з кольором і променем",
+      "клавіші (поточний options.txt): J — повноекранна карта, Ctrl+J — показати / сховати мінікарту, Ctrl+B — нова мітка, N — список міток (з повноекранної карти), \\ — пресет мінікарти, [ — тип мінікарти, = / - — масштаб"
     ],
     "stage": [
       "s0"
     ],
-    "synergy": [
-      {
-        "mod": "ftbchunks",
-        "why": "Повноекранна карта JourneyMap (J) працює паралельно з меню привату й провантаження чанків FTB Chunks; кнопка переходу до FTB Chunks інтегрована в інтерфейс"
-      }
-    ],
+    "synergy": [],
     "tips": [
-      "Основні клавіші в ATM11: `J` — відкрити повноекранну карту, `N` — швидко створити нову мітку (вейпойнт), `Ctrl + N` — відкрити менеджер міток, `=` / `-` — масштаб мінікарти, `[` — перемкнути пресет мінікарти, `Ctrl + \\` — увімкнути/вимкнути мінікарту.",
-      "Якщо граєте з правами оператора або в одиночному світі з дозволеними командами, з повноекранної карти (`J`) чи менеджера міток (`Ctrl + N`) можна миттєво телепортуватися до будь-якої точки."
+      "Waystones показує свої дороговкази на карті JourneyMap (конфіг Waystones, розділ journeyMap)."
     ],
     "icons": [
       "minecraft:filled_map",
       "minecraft:spyglass"
+    ],
+    "ref": [
+      "file:options.txt~key_key.journeymap.map_toggle_alt:key.keyboard.j",
+      "file:options.txt~key_key.journeymap.minimap_toggle_alt:key.keyboard.j:CONTROL",
+      "file:options.txt~key_key.journeymap.create_waypoint:key.keyboard.b:CONTROL",
+      "file:options.txt~key_key.journeymap.fullscreen_waypoints:key.keyboard.n",
+      "file:options.txt~key_key.journeymap.minimap_preset:key.keyboard.backslash",
+      "file:options.txt~key_key.journeymap.minimap_type:key.keyboard.left.bracket",
+      "file:options.txt~key_key.journeymap.zoom_in:key.keyboard.equal",
+      "config:config/waystones-common.toml#journeyMap.enabled=true"
     ]
   },
   "waystones": {
@@ -499,12 +604,11 @@
     "features": [
       "dungeon"
     ],
-    "uk": "Мережа миттєвої міжвимірної телепортації через дороговкази, спільні камені, мандрівні плити й мандрівний камінь (без витрат досвіду в ATM11!)",
+    "uk": "Телепортація між дороговказами, спільними каменями й мандрівними плитами. У ATM11 телепорт без витрат досвіду, без зносу й без перезаряджання.",
     "what": [
-      "Додає розгалужену мережу телепортації",
-      "У селах та дикій природі Верхнього світу, Незеру й Енду приблизно раз на 25 чанків генеруються дикі дороговкази (`waystones:andesite_waystone`, `deepslate_waystone`, `blackstone_waystone`, `end_stone_waystone`)",
-      "Активувавши дороговказ ПКМ, ви додаєте його до свого списку призначень",
-      "Доступні також односторонні портокамені (`waystones:portstone`), кольорові спільні камені (`waystones:amethyst_sharestone` тощо — телепортують між каменями одного кольору без прив'язки до гравця), мандрівні плити (`waystones:warp_plate` — телепортують кожного, хто стане на плиту з налаштованим уламком), одноразові прив'язані сувої (`waystones:bound_scroll`) та багаторазовий аметистовий мандрівний камінь (`waystones:amethyst_warp_stone`)"
+      "дикі дороговкази — приблизно раз на 25 чанків у Верхньому світі, Незері й Енді, а також у селах (конфіг)",
+      "активуйте дороговказ ПКМ — він з'явиться у вашому списку; є портокамінь, спільні камені, мандрівні плити, прив'язаний сувій, мандрівний камінь (аметистовий теж)",
+      "конфіг збірки: enableXpCosts = false, enableDurability = false, enableCooldowns = false; кнопка телепорту в інвентарі — раз на 300 с"
     ],
     "stage": [
       "s0",
@@ -514,22 +618,53 @@
     "synergy": [
       {
         "mod": "ftbchunks",
-        "why": "Усі дороговкази, портокамені та спільні камені додані до білого списку взаємодії FTB Chunks (#ftbchunks:interact_whitelist) — інші гравці можуть користуватися ними навіть у запривачених чанках"
+        "why": "Усі блоки Waystones у тегу ftbchunks:interact_whitelist — ними можна користуватися й у чужих привласнених чанках FTB Chunks.",
+        "src": "KubeJS server_scripts/tweaks/tags.js",
+        "ref": [
+          "kjs:server_scripts/tweaks/tags.js~allthemods.add(\"ftbchunks:interact_whitelist\", [\"@waystones\"])"
+        ]
       },
       {
         "mod": "occultism",
-        "why": "Мандрівний камінь (waystones:warp_stone) використовується у ритуалі кристалічного просякнення Occultism для створення Досконалого кристалічного резонансного жезла (kubejs:perfected_crystalline_wand)"
+        "why": "Мандрівний камінь — інгредієнт ритуалу кристалічного просякнення Occultism для Досконалого кристалічного резонансного жезла (ATM).",
+        "src": "KubeJS server_scripts/mods/geore/crystalline_wand.js",
+        "ref": [
+          "recipe:allthemods:crystalline_infusion/perfect_crystalline_wand",
+          "kjs:server_scripts/mods/geore/crystalline_wand.js~'waystones:warp_stone'"
+        ]
+      },
+      {
+        "mod": "journeymap",
+        "why": "Дороговкази показуються на карті JourneyMap (інтеграцію ввімкнено в конфігу Waystones).",
+        "src": "клас сумісності net/blay09/mods/waystones/compat/JourneyMapIntegration (API JourneyMap); config/waystones-common.toml [journeyMap] enabled = true",
+        "ref": [
+          "jarfile:waystones!net/blay09/mods/waystones/compat/JourneyMapIntegration.class~journeymap/api/v2/client/IClientAPI",
+          "config:config/waystones-common.toml#journeyMap.enabled=true"
+        ]
       }
     ],
     "tips": [
-      "Важлива особливість ATM11: у конфігу `waystones-common.toml` вимкнено витрати досвіду (`enableXpCosts = false`), вимкнено знос міцності (`enableDurability = false`) та вимкнено перезаряджання (`enableCooldowns = false`)! Це означає, що аметистовий мандрівний камінь (`waystones:amethyst_warp_stone`) працює як безкоштовний і безвідмовний кишеньковий телепорт у будь-який момент і між будь-якими вимірами.",
-      "Забирайте знайдені у світі дикі дороговкази кайлом і ставте їх біля входів у важливі данжі, шахти та нові виміри (Святі острови Етеру, Підземний вимір, Місяць, Інший світ)."
+      "Знайдений дикий дороговказ можна забрати й поставити біля входу в данж, шахту чи портал виміру."
     ],
     "icons": [
       "waystones:andesite_waystone",
       "waystones:amethyst_warp_stone",
       "waystones:warp_plate",
       "waystones:bound_scroll"
+    ],
+    "ref": [
+      "config:config/waystones-common.toml#worldGen.chunksBetweenWildWaystones=25",
+      "config:config/waystones-common.toml#worldGen.wildWaystonesDimensionAllowList",
+      "config:config/waystones-common.toml#worldGen.spawnInVillages=REGULAR",
+      "item:waystones:portstone",
+      "item:waystones:warp_plate",
+      "item:waystones:bound_scroll",
+      "item:waystones:warp_stone",
+      "item:waystones:amethyst_warp_stone",
+      "config:config/waystones-common.toml#rules.enableXpCosts=false",
+      "config:config/waystones-common.toml#rules.enableDurability=false",
+      "config:config/waystones-common.toml#rules.enableCooldowns=false",
+      "file:config/waystones-common.toml~$inventory_button_cooldown = '300s'"
     ]
   },
   "shogi": {
@@ -539,12 +674,16 @@
     "role": "library",
     "parent": "waystones",
     "features": [],
-    "uk": "Бібліотека модульного інтерфейсу й екранних меню для Waystones",
+    "uk": "Бібліотека правил і налаштувань — потрібна Waystones. Сама гравцю нічого не дає.",
     "what": [
-      "Технічна бібліотека від BlayTheNinth (працює поверх Balm), що відповідає за рендеринг списків телепортації, пошуку й налаштувань у Waystones"
+      "Обов'язкова залежність Waystones"
     ],
     "stage": [
       "s0"
+    ],
+    "ref": [
+      "jarfile:shogi-neoforge-26.1.2-26.1.2.12!META-INF/neoforge.mods.toml~Rule-based properties and configuration",
+      "jarfile:waystones-neoforge-26.1.2-26.1.2.16!META-INF/neoforge.mods.toml~modId=\"shogi\""
     ]
   },
   "netherportalfix": {
@@ -554,9 +693,9 @@
     ],
     "role": "qol",
     "features": [],
-    "uk": "Виправлення прив'язки порталів у Незер у мультиплеєрі та при близькому розташуванні порталів",
+    "uk": "Правильні портали повернення: подорожуючи туди-назад через портали Незеру в мережевій грі, гравець потрапляє туди, звідки прийшов.",
     "what": [
-      "Запам'ятовує, через який саме портал гравець увійшов до Незеру, і під час повернення гарантовано переносить його назад до початкового порталу у Верхньому світі (навіть якщо поруч збудовано інші портали)"
+      "виправляє місце призначення порталів Незеру в мережевій грі (опис мода)"
     ],
     "stage": [
       "s1"
@@ -564,6 +703,9 @@
     "icons": [
       "minecraft:obsidian",
       "minecraft:flint_and_steel"
+    ],
+    "ref": [
+      "jarfile:netherportalfix!META-INF/neoforge.mods.toml~Ensures correct destinations when travelling back and forth through Nether Portals"
     ]
   },
   "explorerscompass": {
@@ -573,10 +715,10 @@
     ],
     "role": "qol",
     "features": [],
-    "uk": "Компас пошуку будь-яких ванільних і модових структур за назвою чи тегом (у ATM11 рецепт ускладнено до рівня незериту й ендерію!)",
+    "uk": "Компас пошуку структур: обираєте споруду зі списку всіх структур збірки — компас показує напрямок, відстань і координати. У ATM11 рецепт дорогий.",
     "what": [
-      "Додає компас дослідника (`explorerscompass:explorerscompass`), який за ПКМ відкриває меню зі списком усіх зареєстрованих у збірці структур (від ванільних стародавніх міст і палат випробувань до руїн вартових в Етері, катакомб у Підземному вимірі, печер драконів і храмів горгон в Іншому світі та данжів When Dungeons Arise)",
-      "Обравши структуру, компас запускає асинхронний пошук у фоні й показує точну відстань у блоках, координати та напрямок стрілкою"
+      "пошук у радіусі до 10000 блоків (конфіг maxRadius), показ координат увімкнено, телепорт до знайденого — для операторів (allowTeleport)",
+      "рецепт збірки: компас відновлення + 4 незеритові злитки + 4 ендерієві шестерні AllTheOres; рецепт мода вимкнено"
     ],
     "stage": [
       "s2",
@@ -585,19 +727,25 @@
     "synergy": [
       {
         "mod": "alltheores",
-        "why": "Скрипт KubeJS (mods/explorerscompass/recipes.js) замінює стандартний дешевий рецепт із павутиння на ускладнений рецепт ATM11 із 4 ендерієвими шестернями"
-      },
-      {
-        "mod": "naturescompass",
-        "why": "Працює в парі з Компасом природи: перший шукає конкретні споруди й данжі, другий — біоми"
+        "why": "Рецепт компаса в збірці — з 4 ендерієвих шестерень AllTheOres (і незериту з компасом відновлення).",
+        "src": "KubeJS server_scripts/mods/explorerscompass/recipes.js",
+        "ref": [
+          "recipe:kjs:mods/explorerscompass/recipes.js#L6"
+        ]
       }
     ],
     "tips": [
-      "Пастка рецепта в ATM11: на відміну від ванільного рецепта з тріснутої цегли й павутиння, у цій збірці для крафту компаса дослідника потрібні: компас відновлення (`minecraft:recovery_compass` — вимагає 8 уламків відлуння зі Стародавнього міста), 4 незеритові злитки (`minecraft:netherite_ingot`) та 4 ендерієві шестерні (`alltheores:enderium_gear`).",
-      "Доки ви не скрафтили Компас дослідника, для пошуку першого Стародавнього міста скористайтеся безкоштовним Компасом природи (`naturescompass:naturescompass`) і знайдіть біом `minecraft:deep_dark`!"
+      "Доки немає компаса дослідника, біоми шукає дешевий компас природи (наприклад, Темні глибини, де стародавні міста)."
     ],
     "icons": [
       "explorerscompass:explorerscompass"
+    ],
+    "ref": [
+      "config:config/explorerscompass-common.toml#maxRadius=10000",
+      "config:config/explorerscompass-common.toml#displayCoordinates=true",
+      "config:config/explorerscompass-common.toml#allowTeleport=true",
+      "recipe:kjs:mods/explorerscompass/recipes.js#L6",
+      "!recipe:explorerscompass:explorers_compass"
     ]
   },
   "naturescompass": {
@@ -607,30 +755,24 @@
     ],
     "role": "qol",
     "features": [],
-    "uk": "Дешевий стартовий компас для пошуку будь-якого ванільного чи модового біому в радіусі 10 000 блоків",
+    "uk": "Дешевий компас пошуку біомів: обираєте біом зі списку — компас веде до найближчого.",
     "what": [
-      "Додає компас природи (`naturescompass:naturescompass`), який крафтиться в перші хвилини гри зі звичайного компаса, 4 колод і 4 саджанців",
-      "За ПКМ відкриває зручний каталог усіх біомів поточного виміру (з фільтрацією за модами, температурою й назвою), знаходить найближчий біом у радіусі до 10 000 блоків (`maxSearchRadius = 10000`) та веде до нього стрілкою й координатами на екрані"
+      "рецепт: компас, 4 колоди й 4 саджанці",
+      "список біомів поточного виміру з кліматом і категорією, «Шукати наступний», показ координат (конфіг displayCoordinates); телепорт до біому — для операторів (allowTeleport)"
     ],
     "stage": [
       "s0"
     ],
-    "synergy": [
-      {
-        "mod": "regions_unexplored",
-        "why": "Незамінний для пошуку рідкісних біомів Regions Unexplored і Terralith"
-      },
-      {
-        "mod": "allthemodium",
-        "why": "Дозволяє знайти Глибоку темряву (deep_dark) для першого усемодію та потрібні біоми в Іншому світі (allthemodium:crimson_forest, warped_forest, desert, soul_sand_valley)"
-      }
-    ],
-    "tips": [
-      "Зробіть компас природи одним із перших предметів у світі: через біом `minecraft:deep_dark` ви знайдете Стародавнє місто (усемодій та уламки відлуння для компаса дослідника), а через засніжені біоми — місце для Auroral.",
-      "`Shift + ПКМ` компасом скидає поточний пошук біому."
-    ],
+    "synergy": [],
     "icons": [
       "naturescompass:naturescompass"
+    ],
+    "ref": [
+      "jarfile:data/naturescompass/recipe/natures_compass.json~#saplings",
+      "config:config/naturescompass-common.toml#displayCoordinates=true",
+      "config:config/naturescompass-common.toml#allowTeleport=true",
+      "lang:string.naturescompass.searchForNext",
+      "recipe:naturescompass:natures_compass"
     ]
   },
   "wits": {
@@ -640,19 +782,18 @@
     ],
     "role": "qol",
     "features": [],
-    "uk": "Команда /wits для миттєвої перевірки реєстрової назви структури, у межах якої стоїть гравець",
+    "uk": "Команда /wits («What Is This Structure») — показує ID структур, у межах яких ви стоїте.",
     "what": [
-      "Додає серверну й клієнтську команду `/wits` (`What Is This Structure`), яка виводить у чат точні ID всіх структур (наприклад, `dungeons_arise:shiraz_palace` або `iceandfire:gorgon_temple`), чия габаритна рамка охоплює поточну позицію гравця",
-      "Працює без прав оператора!"
+      "/wits виводить у чат ID структури (наприклад, щоб дізнатися, з якого мода споруда)"
     ],
     "stage": [
       "s0"
     ],
-    "tips": [
-      "Якщо квест вимагає відвідати конкретну структуру або ви не впевнені, якому моду належить знайдена споруда — введіть `/wits` у чат."
-    ],
     "icons": [
       "minecraft:compass"
+    ],
+    "ref": [
+      "jarfile:wits!META-INF/neoforge.mods.toml~Use `wits` command to get registry name of all structures"
     ]
   },
   "lootr": {
@@ -662,24 +803,45 @@
     ],
     "role": "content",
     "features": [],
-    "uk": "Індивідуальна здобич для кожного гравця у скринях, діжках, шалкерах, оздоблених горщиках і підозрілому піску/гравії",
+    "uk": "Окрема здобич для кожного гравця в скринях, діжках, шалкерах, горщиках і підозрілих блоках структур — у всіх вимірах.",
     "what": [
-      "Замінює світові контейнери зі здобиччю у данжах, шахтах і селах на спеціальні золотисті скрині зі здобиччю (`lootr:chest`), мідні скрині зі здобиччю (`lootr:copper_chest`), діжки зі здобиччю (`lootr:barrel`), шалкери зі здобиччю (`lootr:shulker_box`), оздоблені горщики (`lootr:decorated_pot`), вагонетки зі скринями та блоки підозрілого піску й гравію",
-      "Кожен гравець бачить і забирає власний незалежний набір луту; після відкриття скриня змінює колір, щоб ви бачили, які кімнати данжу вже обшукали"
+      "контейнери зі здобиччю перетворюються на скрині, діжки, шалкери, мідні скрині й горщики Lootr; кожен гравець відкриває свій набір",
+      "конвертація в усіх вимірах (списки вимірів у конфігу порожні); досягнення за 100 відкритих контейнерів і трофей Lootr"
     ],
     "stage": [
       "s0"
     ],
+    "synergy": [
+      {
+        "mod": "allthemodium",
+        "why": "Підозріла глина (Стародавні міста) і підозрілий пісок душ (бастіони) AllTheModium із ковальськими шаблонами усемодію й вібранію теж стають «особистими» блоками Lootr — гравці розчищають свої.",
+        "src": "jar AllTheModium: tags/block/lootr/convert/clays.json, soul_sands.json; loot_table/arch.json",
+        "ref": [
+          "jarfile:data/allthemodium/tags/block/lootr/convert/clays.json~allthemodium:suspicious_clay",
+          "jarfile:data/allthemodium/loot_table/arch.json~allthemodium:allthemodium_upgrade_smithing_template"
+        ]
+      }
+    ],
     "tips": [
-      "Щоб зламати скриню Lootr (якщо вона заважає будівництву), затисніть `Shift` і ламайте її сокирою.",
-      "Після відкриття 100 унікальних скринь Lootr видається досягнення та пам'ятний столітній трофей (`lootr:trophy`)."
+      "Скриню Lootr ламають із затиснутим Shift."
     ],
     "icons": [
       "lootr:chest",
       "lootr:barrel",
       "lootr:shulker_box",
       "lootr:copper_chest"
-    ]
+    ],
+    "ref": [
+      "item:lootr:chest",
+      "item:lootr:barrel",
+      "item:lootr:shulker_box",
+      "item:lootr:copper_chest",
+      "item:lootr:decorated_pot",
+      "item:lootr:trophy",
+      "config:config/lootr-common.jsonc#Restrictions.dimension_whitelist",
+      "jarfile:data/lootr/advancement/100loot.json"
+    ],
+    "abs_ok": "«у всіх вимірах» — config/lootr-common.jsonc: dimension_whitelist і dimension_blacklist порожні"
   },
   "dungeons_arise": {
     "cls": [
@@ -690,33 +852,39 @@
     "features": [
       "dungeon"
     ],
-    "uk": "Понад 40 колосальних данжів, фортець розбійників, летючих кораблів, палаців і шахтарських комплексів із власними зачаруваннями",
+    "uk": "40 великих структур (у збірці датапак переносить їх у біоми Іншого світу AllTheModium — у Верхньому світі їх немає): фортеці й табори розбійників, палаци, монастир, ливарня, чумний притулок, шахтарські комплекси, летючі кораблі й піратські судна — з власними зачаруваннями в луті.",
     "what": [
-      "Генерує у Верхньому світі, океанах і в небі понад 40 грандіозних багатоповерхових данжів у стилі roguelike: палац Шираз (`shiraz_palace`), ливарню (`foundry`), чумний притулок (`plague_asylum`), твердиню Кайри (`keep_kayra`), небесний завойовник (`heavenly_conqueror`), вежі тернороджених (`thornborn_towers`), колізей (`coliseum`), грибні копальні (`mushroom_mines`), дирижаблі й піратські фрегати",
-      "У скринях данжів трапляються 5 ексклюзивних бойових зачарувань (`Purification`, `Voltaic Shot`, `Discharge`, `Lolliance`, `Ensnaring`)"
+      "структури: палац Шираз, твердиня Кайра, ливарня, чумний притулок, колізей, монастир, грибні копальні, вежі тернороджених, небесний завойовник, піратський корабель нежиті тощо",
+      "5 зачарувань мода: Purification, Voltaic Shot, Discharge, Ensnaring, прокляття Лолт"
     ],
     "stage": [
-      "s1",
-      "s2",
-      "s3"
+      "s5",
+      "s6"
     ],
-    "synergy": [
-      {
-        "mod": "lootr",
-        "why": "Десятки скринь у кожному данжі When Dungeons Arise інтегровані з Lootr, що дає величезну кількість ранніх ресурсів, шаблонів і артефактів"
-      },
-      {
-        "mod": "apothic_spawners",
-        "why": "Численні породжувачі в залах данжів можна зібрати кайлом із Шовковим дотиком для моб-ферм"
-      }
-    ],
+    "synergy": [],
     "tips": [
-      "Великі данжі на кшталт ливарні (`foundry`), твердині Кайри (`keep_kayra`) та небесного завойовника (`heavenly_conqueror`) мають десятки посилених породжувачів — не заходьте туди без надійних обладунків, щита й запасу лікування.",
-      "У картографів і в малих таборах мода можна знайти мапи дослідника (`Monastery Explorer Map`, `Shiraz Palace Explorer Map` тощо), які ведуть до великих фортець."
+      "Великі структури мають багато породжувачів — ідіть зі щитом і їжею."
     ],
     "icons": [
       "minecraft:trial_key",
       "minecraft:ominous_trial_key"
+    ],
+    "ref": [
+      "count:files:data/dungeons_arise/worldgen/structure/|\\.json$=40",
+      "kjs:dynamic_data/dungeons_arise/tags/worldgen/biome/has_structure/shiraz_palace_biomes.json~\"replace\": true",
+      "kjs:dynamic_data/dungeons_arise/tags/worldgen/biome/has_structure/shiraz_palace_biomes.json~allthemodium:the_other",
+      "count:dir:kubejs/dynamic_data/dungeons_arise/tags/worldgen/biome/has_structure=41",
+      "quest:15FEA03A2CDBA33B~structures from When Dungeons Arise",
+      "jarfile:data/dungeons_arise/worldgen/structure/shiraz_palace.json",
+      "jarfile:data/dungeons_arise/worldgen/structure/keep_kayra.json",
+      "jarfile:data/dungeons_arise/worldgen/structure/foundry.json",
+      "jarfile:data/dungeons_arise/worldgen/structure/plague_asylum.json",
+      "jarfile:data/dungeons_arise/worldgen/structure/undead_pirate_ship.json",
+      "jarfile:data/dungeons_arise/enchantment/purification.json",
+      "jarfile:data/dungeons_arise/enchantment/voltaic_shot.json",
+      "jarfile:data/dungeons_arise/enchantment/discharge.json",
+      "jarfile:data/dungeons_arise/enchantment/ensnaring.json",
+      "jarfile:data/dungeons_arise/enchantment/lolths_curse.json"
     ]
   },
   "dungeoncrawl": {
@@ -728,33 +896,27 @@
     "features": [
       "dungeon"
     ],
-    "uk": "Багатоповерхові підземні лабіринти з 5 ярусами наростаючої складності та дедалі ціннішою здобиччю",
+    "uk": "Багатоярусні підземні лабіринти з породжувачами й здобиччю, складнішими з глибиною.",
     "what": [
-      "Духовний спадкоємець класичного Roguelike Dungeons",
-      "Генерує на поверхні вхідні вежі й руїни, від яких углиб до самого глибосланцю спускаються 5 поверхів підземних коридорів і кімнат із породжувачами",
-      "Перші поверхи містять шкіряно-залізне спорядження й базову їжу, а 4–5 яруси (у пекельному стилі) — діамантові речі, зачаровані книги, золоті яблука й рідкісні матеріали"
+      "одна велика структура dungeoncrawl:dungeon — ярусний лабіринт під землею",
+      "конфіг збірки: таємні кімнати, власні породжувачі, 6 мобів на породжувач, радіус активації 12 блоків"
     ],
     "stage": [
       "s0",
       "s1",
       "s2"
     ],
-    "synergy": [
-      {
-        "mod": "lootr",
-        "why": "Кожен поверх підземелля містить десятки скринь Lootr"
-      },
-      {
-        "mod": "apothic_spawners",
-        "why": "Зручне джерело ванільних породжувачів зомбі, скелетів, павуків і пломенів на нижньому ярусі"
-      }
-    ],
-    "tips": [
-      "Перекривайте проходи блоками та освітлюйте кімнати ярус за ярусом: на 4–5 поверхах моби спавняться у повному зачарованому спорядженні."
-    ],
+    "synergy": [],
     "icons": [
       "minecraft:mossy_stone_bricks",
       "minecraft:spawner"
+    ],
+    "ref": [
+      "jarfile:data/dungeoncrawl/worldgen/structure/dungeon.json",
+      "config:config/dungeon_crawl.toml#secret_rooms=true",
+      "config:config/dungeon_crawl.toml#custom_spawners=true",
+      "config:config/dungeon_crawl.toml#spawner_entities=6",
+      "config:config/dungeon_crawl.toml#spawner_activation_range=12"
     ]
   },
   "t_and_t": {
@@ -765,28 +927,23 @@
     "features": [
       "dungeon"
     ],
-    "uk": "Понад 60 нових варіантів сіл, аванпостів розбійників і кораблів під кожен біом гри",
+    "uk": "Towns and Towers: 60 структур — варіанти сіл, аванпостів розбійників і кораблів під різні біоми.",
     "what": [
-      "Розширює ванільні поселення, додаючи 60+ унікальних архітектурних стилів сіл, веж розбійників (`pillager_outpost_*`) та морських суден для лісів, джунглів, боліт, безплідних земель, пляжів, грибних островів, засніжених схилів і океанів",
-      "Зберігає повну сумісність із професіями селян та рейдами"
+      "нові варіанти сіл і аванпостів для багатьох біомів; частоту й увімкнення структур задають конфіги config/towns_and_towers"
     ],
     "stage": [
       "s0",
       "s1"
     ],
-    "synergy": [
-      {
-        "mod": "waystones",
-        "why": "У селах Towns and Towers генеруються сільські дороговкази для швидкої подорожі між біомами"
-      },
-      {
-        "mod": "easy_villagers",
-        "why": "Селян із нових поселень можна одразу забирати у предмети за допомогою Shift + ПКМ для автоферм торгівлі"
-      }
-    ],
+    "synergy": [],
     "icons": [
       "minecraft:bell",
       "minecraft:crossbow"
+    ],
+    "ref": [
+      "jarfile:t_and_t!META-INF/neoforge.mods.toml~t_and_t",
+      "file:config/towns_and_towers/structure_rarity_new.json5",
+      "count:files:t_and_t!data/towns_and_towers/worldgen/structure/=60"
     ]
   },
   "cristellib": {
@@ -796,12 +953,20 @@
     "role": "library",
     "parent": "t_and_t",
     "features": [],
-    "uk": "Бібліотека конфігурації розміщення та ввімкнення структур для Towns and Towers та Ice and Fire",
+    "uk": "Бібліотека налаштувань структур і датапаків під час гри — потрібна Towns and Towers.",
     "what": [
-      "Технічна бібліотека керування генерацією структур через конфіги `minecraft/config/cristellib/*` (зокрема відповідає за частоту й увімкнення структур Towns and Towers та Ice and Fire)"
+      "Обов'язкова залежність Towns and Towers",
+      "Конфіги розміщення й увімкнення структур кількох модів — config/cristellib (Ice and Fire, Dungeons Arise, Stellaris та ін.)"
     ],
     "stage": [
       "s0"
+    ],
+    "ref": [
+      "jarfile:cristellib-neoforge-26.1.2-3.1.13!META-INF/neoforge.mods.toml~easy structure config and runtime datapacks",
+      "jarfile:t_and_t-fabric-neoforge-1.13.11!META-INF/neoforge.mods.toml~modId=\"cristellib\"",
+      "file:config/cristellib/iceandfire/structure_toggle_config.json5",
+      "file:config/cristellib/dungeons_arise/structure_placement_config.json5",
+      "file:config/cristellib/stellaris/structure_toggle_config.json5"
     ]
   },
   "villagesandpillages": {
@@ -813,9 +978,9 @@
     "features": [
       "dungeon"
     ],
-    "uk": "Укріплені табори розбійників та відьомські селища з цінними трофеями",
+    "uk": "Відьомське село — ворожа структура з відьмами й розбійниками.",
     "what": [
-      "Додає у світ ворожі поселення розбійників і відьомські села (`villagesandpillages:village_witch`), які створюють бойову противагу мирним селам селян і містять скрині з алхімічними інгредієнтами, смарагдами та зачарованим спорядженням"
+      "одна структура: villagesandpillages:village_witch"
     ],
     "stage": [
       "s0",
@@ -824,6 +989,9 @@
     "icons": [
       "minecraft:white_banner",
       "minecraft:emerald"
+    ],
+    "ref": [
+      "jarfile:data/villagesandpillages/worldgen/structure/village_witch.json"
     ]
   },
   "underground_villages": {
@@ -834,20 +1002,24 @@
     "features": [
       "dungeon"
     ],
-    "uk": "Підземні села з торговцями у великих печерах Верхнього світу",
+    "uk": "Підземні села з селянами у великих печерах Верхнього світу.",
     "what": [
-      "Генерує повноцінні підземні поселення (`underground_villages:underground_village`) у глибинах печер Верхнього світу з будинками, городами, залізними големами та селянами всіх професій"
+      "структура underground_villages:underground_village; висота генерації в конфігу — Y -20"
     ],
     "stage": [
       "s0",
       "s1"
     ],
     "tips": [
-      "Зручне джерело селян просто під вашою підземною базою або шахтою без потреби піднімати їх із поверхні."
+      "Джерело селян біля підземної бази — не треба піднімати їх із поверхні."
     ],
     "icons": [
       "minecraft:lantern",
       "minecraft:emerald_ore"
+    ],
+    "ref": [
+      "jarfile:data/underground_villages/worldgen/structure/underground_village.json",
+      "config:config/underground_villages-common.toml#yLevel=-20"
     ]
   },
   "underwater_village": {
@@ -858,20 +1030,26 @@
     "features": [
       "dungeon"
     ],
-    "uk": "Підводні храми, бібліотеки, святилища, вежі та руїни на дні теплих і холодних океанів",
+    "uk": "Підводні споруди теплих і холодних океанів: храми, бібліотека, святилище, вежа, брами, фонтани, руїни.",
     "what": [
-      "Додає 17 типів підводних споруд в океанах (`temple`, `library`, `shrine`, `dungeon`, `tower`, `cold_big_gate`, `warm_big_gate`, `cold_fountain`, `warm_fountain` тощо) зі скринями та книжковими полицями"
+      "17 структур: temple, library, shrine, dungeon, tower, ruins, cold_big_gate, warm_big_gate, cold_fountain, warm_fountain та ін."
     ],
     "stage": [
       "s0",
       "s1"
     ],
     "tips": [
-      "Для комфортного дослідження підводних храмів візьміть дихальну трубку (`artifacts:snorkel`), шолом із Підводним диханням або окуляри нічного бачення."
+      "Для пірнання стане в пригоді шолом із Підводним диханням або зілля підводного дихання."
     ],
     "icons": [
       "minecraft:sea_lantern",
       "minecraft:prismarine_bricks"
+    ],
+    "ref": [
+      "jarfile:data/underwater_village/worldgen/structure/temple.json",
+      "jarfile:data/underwater_village/worldgen/structure/library.json",
+      "jarfile:data/underwater_village/worldgen/structure/warm_big_gate.json",
+      "count:files:underwater!data/underwater_village/worldgen/structure/=17"
     ]
   },
   "jearchaeology": {
@@ -881,9 +1059,9 @@
     ],
     "role": "qol",
     "features": [],
-    "uk": "Вкладки в JEI для таблиць здобичі археологічного розчищення щіткою та винюхування нюхачем",
+    "uk": "Вкладки JEI зі здобиччю археології (розчищення щіткою) і нюхача.",
     "what": [
-      "Додає до JEI дві інформаційні вкладки: Brushing (показує, які предмети й з яким шансом можна вимести щіткою з підозрілого піску/гравію в різних структурах, включно з шаблонами ковальського покращення усемодію та вібранію в Стародавньому місті та Бастіоні!) та Sniffer Sniffing (здобич нюхача)"
+      "показує таблиці здобичі підозрілих блоків і нюхача; сумісність з ATM увімкнено (конфіг atm_compat = true)"
     ],
     "stage": [
       "s0",
@@ -893,15 +1071,26 @@
     "synergy": [
       {
         "mod": "allthemodium",
-        "why": "Показує точний шанс випадіння ковальських шаблонів усемодію (в Ancient City) та вібранію (в Bastion Remnant) із підозрілого гравію/піску"
+        "why": "З увімкненою сумісністю ATM показує здобич підозрілої глини (підлога Стародавніх міст) і підозрілого піску душ (бастіони Незеру) AllTheModium — там ковальські шаблони усемодію й вібранію.",
+        "src": "config/jearchaeology-common.toml atm_compat = true; jar AllTheModium loot_table/arch.json, arch2.json; квести «Усемодієвий / Вібранієвий Ковальський шаблон»",
+        "ref": [
+          "config:config/jearchaeology-common.toml#atm_compat=true",
+          "jarfile:data/allthemodium/loot_table/arch2.json~allthemodium:vibranium_upgrade_smithing_template",
+          "quest:71E4FD61787DE299",
+          "quest:226B8B60AF864FEF"
+        ]
       }
     ],
     "tips": [
-      "Натисніть `U` на щітці (`minecraft:brush`) у JEI, щоб побачити всі структури та таблиці археологічних знахідок у збірці."
+      "Натисніть U на щітці в JEI — побачите, що можна розчистити."
     ],
     "icons": [
       "minecraft:brush",
       "minecraft:decorated_pot"
+    ],
+    "ref": [
+      "config:config/jearchaeology-common.toml#atm_compat=true",
+      "jarfile:jearchaeology!META-INF/neoforge.mods.toml~JEI integration for the archaeology system"
     ]
   },
   "fireproofboats": {
@@ -911,28 +1100,25 @@
     ],
     "role": "content",
     "features": [],
-    "uk": "Вогнетривкі багряні та химерні човни (звичайні й зі скринею) для плавання по лавових озерах Незеру",
+    "uk": "Вогнетривкі багряні й химерні човни (і зі скринею) — для лавових морів Незеру.",
     "what": [
-      "Додає багряний човен (`fireproofboats:crimson_boat`), химерний човен (`fireproofboats:warped_boat`) та їхні варіанти зі скринею (`crimson_chest_boat`, `warped_chest_boat`)",
-      "Вони не горять у вогні й дозволяють швидко перетинати лавові моря Незеру без сідла й блукача"
+      "човни: багряний, химерний, з багряною й химерною скринею; не горять"
     ],
     "stage": [
       "s1"
     ],
-    "synergy": [
-      {
-        "mod": "jumpboat",
-        "why": "Поєднується з Jumpy Boats: лавовим човном можна підстрибувати клавішею Space на берег або через пороги"
-      }
-    ],
-    "tips": [
-      "Затискайте `Shift`, виходячи з човна посеред лави, лише коли стоїте впритул до твердого берега!"
-    ],
+    "synergy": [],
     "icons": [
       "fireproofboats:crimson_boat",
       "fireproofboats:warped_boat",
       "fireproofboats:crimson_chest_boat",
       "fireproofboats:warped_chest_boat"
+    ],
+    "ref": [
+      "item:fireproofboats:crimson_boat",
+      "item:fireproofboats:warped_boat",
+      "item:fireproofboats:crimson_chest_boat",
+      "item:fireproofboats:warped_chest_boat"
     ]
   },
   "jumpboat": {
@@ -942,15 +1128,19 @@
     ],
     "role": "qol",
     "features": [],
-    "uk": "Стрибки на будь-якому човні за клавішею Space для подолання порогів, криги й мілководдя",
+    "uk": "Стрибок у човні — щоб перескакувати пороги, лід і берег.",
     "what": [
-      "Невеликий QoL-мод, який дозволяє підстрибувати просто в човні натисканням `Space` (на висоту 1 блока), щоб не застрягати на лататті, крижинах чи піщаних берегах"
+      "висота стрибка: на воді 0,4, на суші 0,3 (конфіг)"
     ],
     "stage": [
       "s0"
     ],
     "icons": [
       "minecraft:oak_boat"
+    ],
+    "ref": [
+      "config:config/jumpboat-server.toml#jumpHeightInWater=0.4",
+      "config:config/jumpboat-server.toml#jumpHeightOnLand=0.3"
     ]
   }
 }

@@ -1,0 +1,219 @@
+{
+ "_doc": "Гілка Forbidden Arcanus (G3): кроки — квести глави «Forbidden Arcanus» (quests) + KubeJS (src). Автоматична кузня з квестів (Рунічний тигель, рідкі есенції) у збірці не працює — її рецепти KubeJS потребують Modern Industrialization.",
+ "title": "Forbidden Arcanus — Кузня Гефеста",
+ "icon": "🔥",
+ "cls": "magic",
+ "mods": [
+  "forbidden_arcanus"
+ ],
+ "chapter": "forbidden_and_arcanus",
+ "enter": "s2",
+ "summary": "Глибокі руди (містичний кристал, стеларит, руни, темнокамінь), чистий пил і деорум, піч Клібано, потім — ритуальна Кузня Гефеста 5 рівнів з чотирма есенціями (ауреал, ектоплазма — у квестах «душі», кров, досвід) і реліквіями. Вершина — Вічна Стелла. Частина глави про автоматичну кузню в цій версії недоступна: потрібних модів (Modern Industrialization) у збірці немає.",
+ "gives": [
+  "Вічна Стелла → незламні предмети (ритуал Occultism)",
+  "Призми й реліквії для ритуалів Кузні",
+  "Квантовий ловець і ловець босів — перенесення мобів",
+  "ATM11: подвоєння реліквій на Кузні 3 рівня"
+ ],
+ "_src": "квести глави forbidden_and_arcanus; KubeJS server_scripts/mods/forbidden_arcanus/hephaestus_forge.js, modpack/runic_multis/recipes/auto_forge.js (Platform.isLoaded(\"modern_industrialization\"))",
+ "steps": [
+  {
+   "id": "deep",
+   "x": 0,
+   "y": 1,
+   "title": "Глибоко під землею",
+   "quests": [
+    "092BB595F75D5536",
+    "62C60FF24B2F7290",
+    "52472667678E10D1",
+    "230EEE4671B46D0C",
+    "31AD9826FB036C98"
+   ],
+   "text": "Старт — спуститися на Y 1. Містичні кристали — Y 14…-40, стеларит — Y 42…-44, темнокамінь — глибоко біля лави (≈Y -54), руни — від бедроку до Y 2.",
+   "src": "квести «Forbidden Arcanus», «Містичні кристали», «Шматки стелариту», «Темнокамінь», «Руни»"
+  },
+  {
+   "id": "dust",
+   "x": 1,
+   "y": 0,
+   "title": "Чистий пил і деорум",
+   "quests": [
+    "2D3C8905B783A212",
+    "49D0B6D3ED3DCCCD",
+    "29434DB0CC2E30E6"
+   ],
+   "text": "Пил містичного кристалу (переплавити кристал) + дроп мобів → чистий пил. Чистий пил, пил кристалу, вугілля й золото → деорумовий злиток.",
+   "src": "квести «Пил містичного кристалу», «Чистий пил», «Деорум»"
+  },
+  {
+   "id": "souls",
+   "x": 1,
+   "y": 2,
+   "title": "Душі й едельвуд",
+   "quests": [
+    "02F2DF9D9DA7833A",
+    "6F57BE412A7BE84E",
+    "5CD0E6F349F2F32D",
+    "4A564E8FE587C7E4"
+   ],
+   "text": "Душі (душа, зіпсована й зачарована душа) — інгредієнти мода; витягача душ у цій бета-версії немає. Колоду едельвуду в ATM11 переплавляють у темну матерію.",
+   "src": "квести «Зачарування на здобич душ», «Зіпсовані душі», «Едельвудова колода», «Витягач душ»",
+   "ref": [
+    "item:forbidden_arcanus:soul",
+    "item:forbidden_arcanus:corrupt_soul",
+    "item:forbidden_arcanus:enchanted_soul",
+    "!item:forbidden_arcanus:soul_extractor",
+    "kjs:server_scripts/mods/forbidden_arcanus/recipes.js"
+   ]
+  },
+  {
+   "id": "clibano",
+   "x": 1,
+   "y": 1,
+   "title": "Клібано",
+   "quests": [
+    "4707FB01F15F6E1F",
+    "356102D5B5F3CA1E"
+   ],
+   "text": "Клібано — багатоблокова піч (ядро — з доменної печі, астериту й темнокаменю; споруджується чистим пилом): плавить руди, сирі метали, кристали й руни та сплавляє деорум, стигійську сталь і незерит.",
+   "src": "квести «Клібано», «Обсидіанова сталь»",
+   "ref": [
+    "recipe:forbidden_arcanus:clibano_core",
+    "recipe:forbidden_arcanus:clibano/alloying/stygian_steel_ingot",
+    "recipe:forbidden_arcanus:clibano/alloying/deorum_ingot",
+    "recipe:minecraft:clibano/alloying/netherite_ingot",
+    "jarfile:forbidden_arcanus!com/stal111/forbidden_arcanus/common/item/mundabitur/CreateClibanoInteraction.class"
+   ]
+  },
+  {
+   "id": "relics",
+   "x": 2,
+   "y": 0,
+   "title": "Реліквії",
+   "quests": [
+    "692183ACBB2AABF7",
+    "2002AB7D061007FA",
+    "66FE4552E09B5EFF",
+    "22F5F931D38E5187",
+    "67CCEFEBA4D79429"
+   ],
+   "text": "Рідкісні знахідки для ритуалів Кузні: реліквія майстра (будівлі сіл), елементаріум (для призм), багряний камінь (аванпости розбійників), божественний пакт (села піґлінів, стародавні піраміди).",
+   "src": "квести «Реліквії», «Реліквія майстра», «Елементаріум», «Багряний камінь», «Божественний пакт»"
+  },
+  {
+   "id": "essences",
+   "x": 2,
+   "y": 1,
+   "title": "Есенції Кузні",
+   "quests": [
+    "4BE209D5DAF1F321",
+    "539266A1C03C2EBA",
+    "40B757772D0FBAC9",
+    "2ADA491A2485061C",
+    "7671AFAA1EFD287F"
+   ],
+   "text": "Чотири есенції Кузні: ауреал (пляшки; обеліск містичного кристалу — поступово), ектоплазма (у квестах — «душі»), кров (убивати мобів біля Кузні або пробірки) і досвід (згущений досвід).",
+   "src": "квести «Ауреал», «Душі», «Кров», «Досвід», «Обеліск містичного кристалу»",
+   "ref": [
+    "lang:essence.forbidden_arcanus.ectoplasm"
+   ]
+  },
+  {
+   "id": "forge",
+   "x": 3,
+   "y": 1,
+   "title": "Кузня Гефеста 1–2",
+   "quests": [
+    "0FD638380EECFFBD",
+    "185DBBDD252CBA0C",
+    "198E9E90CC9606C4",
+    "050CD33E92601651",
+    "03C54B07106091DD",
+    "63C95FDAA447CA47"
+   ],
+   "text": "Багатоблокова Кузня з полірованого темнокаменю. Ритуал: предмети на п'єдесталах + есенції + молоток коваля. Перші рецепти — призми (плавильника, землетрусу); 2 рівень — едельвудові дошки в центр.",
+   "src": "квести «Будівництво Кузні», «Кузня 1 рівня», «Завершення ритуалу», «Кузня 2 рівня», «Призма плавильника», «Призма Землетрусу»"
+  },
+  {
+   "id": "stella",
+   "x": 4,
+   "y": 1,
+   "title": "Кузня 3–5 і Вічна Стелла",
+   "quests": [
+    "46567ED894E9883C",
+    "5A6FF0D4BA894306",
+    "6BA2BC09E23B34A9",
+    "15849165CA8C00F9"
+   ],
+   "text": "Рівні Кузні піднімають ритуали на самій кузні: 3 — деорум і містичні кристали, 4 — руни й стеларит, 5 — темні зірки Незеру, драконячі луски, каталізатори скалку. Вічна Стелла (ритуал Кузні 3 рівня): у ATM11 у центрі усемодієвий злиток замість діаманта, + 3 згущені досвіди й шматок стелариту; незламність у ATM11 накладає ритуал Occultism, а KubeJS додає подвоєння реліквій (Кузня 3 рівня). Ритуали ATM11 задають есенцію ключем souls (у моді — ectoplasm) — чи працюють, перевірити в JEI.",
+   "src": "квести «Кузня 3 / 4 / 5 рівня», «Вічна Стелла»; KubeJS data/occultism/recipe/ritual/misc_unbreakable.json, server_scripts/mods/forbidden_arcanus/hephaestus_forge.js",
+   "ref": [
+    "kjs:dynamic_data/forbidden_arcanus/forbidden_arcanus/hephaestus_forge/ritual/eternal_stella.json~allthemodium:allthemodium_ingot",
+    "kjs:server_scripts/mods/forbidden_arcanus/hephaestus_forge.js",
+    "recipe:occultism:ritual/misc_unbreakable",
+    "jarfile:data/forbidden_arcanus/forbidden_arcanus/hephaestus_forge/ritual/upgrade_tier_3.json",
+    "jarfile:data/forbidden_arcanus/forbidden_arcanus/hephaestus_forge/ritual/upgrade_tier_5.json~forbidden_arcanus:dark_nether_star",
+    "file:kubejs/dynamic_data/forbidden_arcanus/forbidden_arcanus/hephaestus_forge/ritual/eternal_stella.json~\"souls\""
+   ],
+   "ingame": "ритуали Кузні з KubeJS ATM11 (ключ souls) — Вічна Стелла й подвоєння реліквій у JEI"
+  },
+  {
+   "id": "catchers",
+   "x": 5,
+   "y": 1,
+   "title": "Ловці мобів і босів",
+   "quests": [
+    "0AC8FE3B59D1B09D",
+    "487C70679535DDDB"
+   ],
+   "text": "Квантовий ловець переносить мобів (ПКМ по мобу). Ловець босів — для босів, яких квантовий не бере.",
+   "src": "квести «Квантовий ловець», «Ловець босів»"
+  }
+ ],
+ "links": [
+  [
+   "deep",
+   "dust"
+  ],
+  [
+   "deep",
+   "clibano"
+  ],
+  [
+   "deep",
+   "souls"
+  ],
+  [
+   "dust",
+   "relics"
+  ],
+  [
+   "dust",
+   "essences"
+  ],
+  [
+   "souls",
+   "essences"
+  ],
+  [
+   "clibano",
+   "forge"
+  ],
+  [
+   "essences",
+   "forge"
+  ],
+  [
+   "relics",
+   "forge"
+  ],
+  [
+   "forge",
+   "stella"
+  ],
+  [
+   "stella",
+   "catchers"
+  ]
+ ]
+}

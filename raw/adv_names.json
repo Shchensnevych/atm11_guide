@@ -1,0 +1,176 @@
+{
+"ae2:main/controller": {
+"en": "Networking Switchboard",
+"uk": "Мережевий перемикач"
+},
+"ae2:main/presses": {
+"en": "Unknown Technology",
+"uk": "Невідома технологія"
+},
+"ae2:main/storage_cell": {
+"en": "Better Than Chests",
+"uk": "Краще, ніж скрині"
+},
+"aether_ii:ambrosium": {
+"en": "Enlightenment",
+"uk": "Просвітлення"
+},
+"apotheosis:progression/frontier": {
+"en": "World Tier: Frontier",
+"uk": "Світовий рівень: Кордон"
+},
+"apotheosis:progression/haven": {
+"en": "World Tier: Haven",
+"uk": "Світовий рівень: Притулок"
+},
+"arsmagicalegacy:skill": {
+"en": "It's A Kind Of Magic",
+"uk": "Це якась магія"
+},
+"arsmagicalegacy:spell": {
+"en": "You're A Wizard, Harry!",
+"uk": "Гаррі, ти — чарівник!"
+},
+"energizedpower:main/basics/alloy_furnace": {
+"en": "Alloy Furnace",
+"uk": "Піч для сплавів"
+},
+"energizedpower:main/basics/coal_engine": {
+"en": "Powered by Coal",
+"uk": "На вугіллі"
+},
+"energizedpower:main/basics/crusher": {
+"en": "Crush it",
+"uk": "Роздрібни"
+},
+"energizedpower:main/basics/pulverizer": {
+"en": "Pulverization",
+"uk": "Подрібнення"
+},
+"evilcraft:first_age": {
+"en": "First Age",
+"uk": "Перша доба"
+},
+"evilcraft:power_crafting": {
+"en": "Power Crafting",
+"uk": "Крафт сили"
+},
+"lootr:1barrel": {
+"en": "Barrel Booty",
+"uk": "Бочка скарбів"
+},
+"lootr:1cart": {
+"en": "Tunnel Treasures",
+"uk": "Тунельні скарби"
+},
+"lootr:1chest": {
+"en": "'X' Marks the Spot",
+"uk": "«X» позначає місце"
+},
+"lootr:1shulker": {
+"en": "Bounty Box",
+"uk": "Коробка скарбів"
+},
+"mffs:field_shape": {
+"en": "Field Architect",
+"uk": "Архітектор полів"
+},
+"mffs:projector": {
+"en": "May the Force by with you!",
+"uk": "Хай буде з тобою Сила!"
+},
+"minecraft:end/kill_dragon": {
+"en": "Free the End",
+"uk": "Звільніть Енд"
+},
+"minecraft:nether/find_fortress": {
+"en": "A Terrible Fortress",
+"uk": "Страшна фортеця"
+},
+"minecraft:nether/netherite_armor": {
+"en": "Cover Me in Debris",
+"uk": "Укрий мене уламками"
+},
+"minecraft:nether/obtain_ancient_debris": {
+"en": "Hidden in the Depths",
+"uk": "Схована в глибинах"
+},
+"minecraft:nether/obtain_blaze_rod": {
+"en": "Into Fire",
+"uk": "У вогонь"
+},
+"minecraft:story/enchant_item": {
+"en": "Enchanter",
+"uk": "Чародій"
+},
+"minecraft:story/enter_the_end": {
+"en": "The End?",
+"uk": "Кінець?"
+},
+"minecraft:story/enter_the_nether": {
+"en": "We Need to Go Deeper",
+"uk": "Треба йти глибше"
+},
+"minecraft:story/iron_tools": {
+"en": "Isn't It Iron Pick",
+"uk": "Металеве покращення"
+},
+"minecraft:story/mine_diamond": {
+"en": "Diamonds!",
+"uk": "Діаманти!"
+},
+"minecraft:story/mine_stone": {
+"en": "Stone Age",
+"uk": "Кам’яна доба"
+},
+"minecraft:story/smelt_iron": {
+"en": "Acquire Hardware",
+"uk": "Коваль"
+},
+"minecraft:story/upgrade_tools": {
+"en": "Getting an Upgrade",
+"uk": "Покращення обладнання"
+},
+"occultism:chalks/white": {
+"en": "Use the White Chalk",
+"uk": "Використайте білу крейду"
+},
+"silentgear:blueprint_book": {
+"en": "Blueprint Storage",
+"uk": "Сховище креслень"
+},
+"silentgear:blueprint_paper": {
+"en": "Construction Paper",
+"uk": "Креслярський папір"
+},
+"stellaris:space_travel/arrived_moon": {
+"en": "That's one small step for a man, one giant leap for mankind.",
+"uk": "Це маленький крок для людини, але величезний стрибок для людства."
+},
+"stellaris:space_travel/first_rocket": {
+"en": "Let's go!",
+"uk": "Поїхали!"
+},
+"theurgy:has_basic_rod": {
+"hidden": true
+},
+"theurgy:has_liquefaction_cauldron": {
+"hidden": true
+},
+"undergarden:undergarden/catalyst": {
+"en": "One Ticket Please",
+"uk": "Один квиток, будь ласка"
+},
+"witchery:cauldron": {
+"en": "A Stew is due",
+"uk": "Час для юшки"
+},
+"witchery:chalk": {
+"en": "Rituals",
+"uk": "Ритуали"
+},
+"witchery:mutandis": {
+"en": "Lost plants",
+"uk": "Загублені рослини"
+}
+}

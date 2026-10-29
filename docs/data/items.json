@@ -593,11 +593,47 @@
   "uk": "Ультраекспортер",
   "en": "Ultra Exporter"
  },
+ "camol:camo_item": {
+  "img": "img/items/camol/camo_item.png",
+  "kind": "item",
+  "uk": "Камуфляжний блок",
+  "en": "Camo Block"
+ },
+ "camol:solid_camo_item": {
+  "img": "img/items/camol/solid_camo_item.png",
+  "kind": "item",
+  "uk": "Камуфляжний блок зі збереженням форми",
+  "en": "Shape Retaining Camo Block"
+ },
  "charginggadgets:charging_station": {
   "img": "img/items/charginggadgets/charging_station.png",
   "kind": "block",
   "uk": "Зарядна станція",
   "en": "Charging Station"
+ },
+ "chisel:auto_chisel": {
+  "img": "img/items/chisel/auto_chisel.png",
+  "kind": "block",
+  "uk": "Авторізець",
+  "en": "Auto Chisel"
+ },
+ "chisel:chisel_diamond": {
+  "img": "img/items/chisel/chisel_diamond.png",
+  "kind": "item",
+  "uk": "Діамантовий різець",
+  "en": "Diamond Chisel"
+ },
+ "chisel:chisel_iron": {
+  "img": "img/items/chisel/chisel_iron.png",
+  "kind": "item",
+  "uk": "Різець",
+  "en": "Chisel"
+ },
+ "chisel:factory_circuit": {
+  "img": "img/items/chisel/factory_circuit.png",
+  "kind": "block",
+  "uk": "Фабричний блок",
+  "en": "Factory Block"
  },
  "classicpipes:copper_pipe": {
   "img": "img/items/classicpipes/copper_pipe.png",
@@ -760,6 +796,18 @@
   "kind": "item",
   "uk": "Торт «Три молока»",
   "en": "Tres Leche Cake"
+ },
+ "crystalix:crystalix_glass": {
+  "img": "img/items/crystalix/crystalix_glass.png",
+  "kind": "block",
+  "uk": "Скло Crystalix",
+  "en": "Crystalix Glass"
+ },
+ "crystalix:crystalix_wand": {
+  "img": "img/items/crystalix/crystalix_wand.png",
+  "kind": "item",
+  "uk": "Жезл Crystalix",
+  "en": "Crystalix Wand"
  },
  "deepnullreforged:damp_null_0": {
   "img": "img/items/deepnullreforged/damp_null_0.png",
@@ -1139,11 +1187,53 @@
   "uk": "Квантовий ловець",
   "en": "Quantum Catcher"
  },
+ "framedblocks:framed_blueprint": {
+  "img": "img/items/framedblocks/framed_blueprint.png",
+  "kind": "item",
+  "uk": "Каркасне креслення",
+  "en": "Framed Blueprint"
+ },
+ "framedblocks:framed_cube": {
+  "img": "img/items/framedblocks/framed_cube.png",
+  "kind": "block",
+  "uk": "Каркасний куб",
+  "en": "Framed Cube"
+ },
+ "framedblocks:framed_hammer": {
+  "img": "img/items/framedblocks/framed_hammer.png",
+  "kind": "item",
+  "uk": "Каркасний молоток",
+  "en": "Framed Hammer"
+ },
+ "framedblocks:framing_saw": {
+  "img": "img/items/framedblocks/framing_saw.png",
+  "kind": "block",
+  "uk": "Каркасна пилка",
+  "en": "Framing Saw"
+ },
  "ftbfiltersystem:smart_filter": {
   "img": "img/items/ftbfiltersystem/smart_filter.png",
   "kind": "item",
   "uk": "Розумний фільтр",
   "en": "Smart Filter"
+ },
+ "ftbquests:book": {
+  "img": "img/items/ftbquests/book.png",
+  "kind": "item",
+  "uk": "Книга квестів",
+  "en": "Quest Book"
+ },
+ "ftbquests:lootcrate": {
+  "img": "img/items/ftbquests/lootcrate.png",
+  "kind": "block",
+  "uk": "Лутбокс",
+  "en": "Loot Crate"
+ },
+ "ftbquests:screen_1": {
+  "img": "img/items/ftbquests/screen_1.png",
+  "kind": "block",
+  "uk": "Екран завдань (1x1)",
+  "en": "Task Screen (1x1)"
  },
  "ftbultimine:ultiminer": {
   "img": "img/items/ftbultimine/ultiminer.png",
@@ -1601,6 +1691,18 @@
   "uk": "Шалкер зі здобиччю",
   "en": "Loot Shulker"
  },
+ "luminax:luminax_block": {
+  "img": "img/items/luminax/luminax_block.png",
+  "kind": "block",
+  "uk": "Люмінаксовий блок",
+  "en": "Luminax Block"
+ },
+ "luminax:luminax_wand": {
+  "img": "img/items/luminax/luminax_wand.png",
+  "kind": "item",
+  "uk": "Люмінаксова паличка",
+  "en": "Luminax Wand"
+ },
  "mahoutsukai:attuned_diamond": {
   "img": "img/items/mahoutsukai/attuned_diamond.png",
   "kind": "item",
@@ -1654,6 +1756,180 @@
   "kind": "item",
   "uk": "§6Тертієвий кристал",
   "en": "§6Tertium Crystal"
+ },
+ "mcwbridges:bridge_lantern": {
+  "img": "img/items/mcwbridges/bridge_lantern.png",
+  "kind": "item",
+  "uk": "Мостовий ліхтар",
+  "en": "Bridge Lantern"
+ },
+ "mcwbridges:iron_bridge": {
+  "img": "img/items/mcwbridges/iron_bridge.png",
+  "kind": "block",
+  "uk": "Залізний міст",
+  "en": "Iron Bridge"
+ },
+ "mcwbridges:rope_oak_bridge": {
+  "img": "img/items/mcwbridges/rope_oak_bridge.png",
+  "kind": "block",
+  "uk": "Мотузковий дубовий міст",
+  "en": "Rope Oak Bridge"
+ },
+ "mcwdoors:iron_portcullis": {
+  "img": "img/items/mcwdoors/iron_portcullis.png",
+  "kind": "block",
+  "uk": "Залізна опускна решітка",
+  "en": "Iron Portcullis"
+ },
+ "mcwdoors:oak_barn_door": {
+  "img": "img/items/mcwdoors/oak_barn_door.png",
+  "kind": "item",
+  "uk": "Дубові двері сараю",
+  "en": "Oak Barn Door"
+ },
+ "mcwdoors:oak_japanese_door": {
+  "img": "img/items/mcwdoors/oak_japanese_door.png",
+  "kind": "item",
+  "uk": "Дубові двері-сьодзі",
+  "en": "Oak Shoji Door"
+ },
+ "mcwfences:andesite_railing_gate": {
+  "img": "img/items/mcwfences/andesite_railing_gate.png",
+  "kind": "block",
+  "uk": "Андезитові ворота з ґратами",
+  "en": "Andesite Railing Gate"
+ },
+ "mcwfences:iron_cheval_de_frise": {
+  "img": "img/items/mcwfences/iron_cheval_de_frise.png",
+  "kind": "block",
+  "uk": "Залізна рогатка",
+  "en": "Iron Cheval De Frise"
+ },
+ "mcwfences:oak_hedge": {
+  "img": "img/items/mcwfences/oak_hedge.png",
+  "kind": "block",
+  "uk": "Дубовий живопліт",
+  "en": "Oak Hedge"
+ },
+ "mcwfurnitures:oak_chair": {
+  "img": "img/items/mcwfurnitures/oak_chair.png",
+  "kind": "block",
+  "uk": "Дубовий стілець",
+  "en": "Oak Chair"
+ },
+ "mcwfurnitures:oak_desk": {
+  "img": "img/items/mcwfurnitures/oak_desk.png",
+  "kind": "block",
+  "uk": "Дубовий письмовий стіл",
+  "en": "Oak Desk"
+ },
+ "mcwfurnitures:oak_wardrobe": {
+  "img": "img/items/mcwfurnitures/oak_wardrobe.png",
+  "kind": "block",
+  "uk": "Дубова шафа",
+  "en": "Oak Wardrobe"
+ },
+ "mcwlights:chain_lantern": {
+  "img": "img/items/mcwlights/chain_lantern.png",
+  "kind": "item",
+  "uk": "Ланцюговий ліхтар",
+  "en": "Chain Lantern"
+ },
+ "mcwlights:classic_street_lamp": {
+  "img": "img/items/mcwlights/classic_street_lamp.png",
+  "kind": "block",
+  "uk": "Вуличний ліхтарний стовп",
+  "en": "Street Lamp Post"
+ },
+ "mcwlights:copper_chandelier": {
+  "img": "img/items/mcwlights/copper_chandelier.png",
+  "kind": "block",
+  "uk": "Мідна люстра",
+  "en": "Copper Chandelier"
+ },
+ "mcwpaths:andesite_flagstone_path": {
+  "img": "img/items/mcwpaths/andesite_flagstone_path.png",
+  "kind": "block",
+  "uk": "Андезитова доріжка з плитняку",
+  "en": "Andesite Flagstone Path"
+ },
+ "mcwpaths:oak_planks_path": {
+  "img": "img/items/mcwpaths/oak_planks_path.png",
+  "kind": "block",
+  "uk": "Доріжка з дубових дошок",
+  "en": "Oak Planks Path"
+ },
+ "mcwroofs:andesite_roof": {
+  "img": "img/items/mcwroofs/andesite_roof.png",
+  "kind": "block",
+  "uk": "Андезитовий дах",
+  "en": "Andesite Roof"
+ },
+ "mcwroofs:oak_planks_roof": {
+  "img": "img/items/mcwroofs/oak_planks_roof.png",
+  "kind": "block",
+  "uk": "Дах з дубових дошок",
+  "en": "Oak Planks Roof"
+ },
+ "mcwroofs:oak_planks_steep_roof": {
+  "img": "img/items/mcwroofs/oak_planks_steep_roof.png",
+  "kind": "block",
+  "uk": "Гостре піддашшя з дубових дошок",
+  "en": "Oak Planks Steep Base Roof"
+ },
+ "mcwstairs:andesite_loft_stairs": {
+  "img": "img/items/mcwstairs/andesite_loft_stairs.png",
+  "kind": "block",
+  "uk": "Андезитові горищні сходи",
+  "en": "Andesite Loft Stairs"
+ },
+ "mcwstairs:oak_balcony": {
+  "img": "img/items/mcwstairs/oak_balcony.png",
+  "kind": "block",
+  "uk": "Дубовий балкон",
+  "en": "Oak Balcony"
+ },
+ "mcwstairs:oak_railing": {
+  "img": "img/items/mcwstairs/oak_railing.png",
+  "kind": "block",
+  "uk": "Дубове поруччя",
+  "en": "Oak Stair Railing"
+ },
+ "mcwtrpdoors:oak_barn_trapdoor": {
+  "img": "img/items/mcwtrpdoors/oak_barn_trapdoor.png",
+  "kind": "block",
+  "uk": "Дубовий люк сараю",
+  "en": "Oak Barn Trapdoor"
+ },
+ "mcwtrpdoors:oak_cottage_trapdoor": {
+  "img": "img/items/mcwtrpdoors/oak_cottage_trapdoor.png",
+  "kind": "block",
+  "uk": "Дубовий люк котеджу",
+  "en": "Oak Cottage Trapdoor"
+ },
+ "mcwwindows:andesite_window": {
+  "img": "img/items/mcwwindows/andesite_window.png",
+  "kind": "block",
+  "uk": "Андезитове вікно",
+  "en": "Resizeable Andesite Window"
+ },
+ "mcwwindows:black_curtain": {
+  "img": "img/items/mcwwindows/black_curtain.png",
+  "kind": "block",
+  "uk": "Чорна завіса",
+  "en": "Black Curtain"
+ },
+ "mcwwindows:oak_blinds": {
+  "img": "img/items/mcwwindows/oak_blinds.png",
+  "kind": "block",
+  "uk": "Дубові жалюзі",
+  "en": "Oak Blinds"
+ },
+ "measurements:tape_measure": {
+  "img": "img/items/measurements/tape_measure.png",
+  "kind": "item",
+  "uk": "Рулетка",
+  "en": "Tape Measure"
  },
  "merequester:requester": {
   "img": "img/items/merequester/requester.png",
@@ -2303,6 +2579,12 @@
   "uk": "Подрібнювач",
   "en": "Pulverizer"
  },
+ "patchouli:guide_book": {
+  "img": "img/items/patchouli/guide_book.png",
+  "kind": "item",
+  "uk": "Путівник",
+  "en": "Guide Book"
+ },
  "pipe_connector:pipe_connector": {
   "img": "img/items/pipe_connector/pipe_connector.png",
   "kind": "item",
@@ -2668,6 +2950,30 @@
   "kind": "block",
   "uk": "Мережевий енергізатор",
   "en": "Network Energizer"
+ },
+ "refurbished_furniture:light_electricity_generator": {
+  "img": "img/items/refurbished_furniture/light_electricity_generator.png",
+  "kind": "block",
+  "uk": "Світлий генератор електрики",
+  "en": "Light Electricity Generator"
+ },
+ "refurbished_furniture:television": {
+  "img": "img/items/refurbished_furniture/television.png",
+  "kind": "block",
+  "uk": "Телевізор",
+  "en": "Television"
+ },
+ "refurbished_furniture:workbench": {
+  "img": "img/items/refurbished_furniture/workbench.png",
+  "kind": "block",
+  "uk": "Верстак",
+  "en": "Workbench"
+ },
+ "refurbished_furniture:wrench": {
+  "img": "img/items/refurbished_furniture/wrench.png",
+  "kind": "item",
+  "uk": "Ключ",
+  "en": "Wrench"
  },
  "regions_unexplored:baobab_sapling": {
   "img": "img/items/regions_unexplored/baobab_sapling.png",
@@ -3160,12 +3466,6 @@
   "kind": "block",
   "uk": "Казан розрідження",
   "en": "Liquefaction Cauldron"
- },
- "theurgy:mercury_shard": {
-  "img": "img/items/theurgy/mercury_shard.png",
-  "kind": "item",
-  "uk": "Уламок ртуті",
-  "en": "Mercury Shard"
  },
  "theurgy:the_hermetica": {
   "img": "img/items/theurgy/the_hermetica.png",

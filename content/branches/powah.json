@@ -1,0 +1,219 @@
+{
+ "_doc": "Гілка Powah (G4): кроки — квести глави «Powah» (quests); числа — з config/powah.json5 і рецептів jar (ref, сито).",
+ "id": "powah",
+ "title": "Powah — енергія семи рівнів",
+ "icon": "⚡",
+ "cls": "energy",
+ "mods": [
+  "powah"
+ ],
+ "chapter": "powah",
+ "book": "Посібник (Powah!) (GuideME)",
+ "enter": "s2",
+ "summary": "Головна енергетика збірки. Уранініт і діелектричні матеріали → сфера заряджання, що робить кристали для рівнів → генератори, кабелі й батареї семи рівнів (від Початкового до Нітро), бездротова Мережа Енду, зарядний маяк і реактори. У ATM11 сфера заряджання ще й єдине місце, де робиться вібранієво-усемодієвий сплав.",
+ "gives": [
+  "Генерапіч, магматор, термогенератор і сонячна панель — до 40 000 FE/такт на рівні Нітро (конфіг)",
+  "Реактор Нітро — 500 000 FE/такт (конфіг)",
+  "Бездротова енергія: Мережа Енду (до 12 каналів) і зарядний маяк для предметів гравця",
+  "Сфера заряджання: кристали Powah, заряджений кварц AE2, сплав ATM"
+ ],
+ "_src": "квести глави powah (tools/quests_dump.py powah); config/powah.json5; рецепти powah:energizing/* (jar); KubeJS server_scripts/mods/powah/energizing.js",
+ "steps": [
+  {
+   "id": "start",
+   "x": 0,
+   "y": 1,
+   "title": "Уранініт і діелектрики",
+   "quests": [
+    "6B2027DA7AA6FF34",
+    "7E92ED270C67FDE5"
+   ],
+   "text": "Добудьте уранініт — руда генерується у світі, це паливо реактора. Більшість машин Powah потребує діелектричного корпусу: спершу діелектрична паста, корпус і стрижні.",
+   "src": "квести «Ласкаво просимо до Powah!!!», «Початок з діелектричних матеріалів»; біом-модифікатор руди уранініту в jar",
+   "ref": [
+    "jarfile:data/powah/neoforge/biome_modifier/uraninite_ore.json"
+   ]
+  },
+  {
+   "id": "gens",
+   "x": 1,
+   "y": 0,
+   "title": "Генератори",
+   "quests": [
+    "3D5F87F8E6B89C1B",
+    "0FD62827710F0AC6",
+    "52E59FCB39D66BCF",
+    "7678B5DD1339833E"
+   ],
+   "text": "Генерапіч палить тверде паливо (вугілля, дерево), магматор — лаву, термогенератор стоїть над джерелом тепла (блок магми, лава, блок палаючого кристала) і потребує води, сонячна панель — прямого неба (Лінза Енду дозволяє «бачити» крізь блоки). Генерапіч Початкова дає 20 FE/такт, Нітро — 40 000 (конфіг).",
+   "src": "квести «Генерапіч / Магматор / Термогенератор / Сонячна панель (Початкові)»; config/powah.json5: generators.furnators.generation_rates",
+   "ref": [
+    "config:config/powah.json5#generators.furnators.generation_rates.starter=20",
+    "config:config/powah.json5#generators.furnators.generation_rates.nitro=40000",
+    "config:config/powah.json5#general.lens_of_ender=true"
+   ]
+  },
+  {
+   "id": "orb",
+   "x": 1,
+   "y": 1,
+   "title": "Сфера заряджання",
+   "quests": [
+    "3DDF87A1E5F5D009",
+    "1C273D9E046FD18A",
+    "7D52DD751DDADA1B"
+   ],
+   "text": "Сфера заряджання бере FE зі стрижнів заряджання поруч (до 4 блоків від сфери, конфіг), а стрижні живляться кабелями. Покладені в сферу предмети заряджаються в матеріали для вищих рівнів.",
+   "src": "квести «Сфера заряджання», «Стрижень заряджання (Початковий)», «Енергетичний кабель (Початковий)»; config/powah.json5: general.energizing_range",
+   "ref": [
+    "config:config/powah.json5#general.energizing_range=4"
+   ]
+  },
+  {
+   "id": "store",
+   "x": 1,
+   "y": 2,
+   "title": "Кабелі й батареї",
+   "quests": [
+    "78202A1CF5D86B94",
+    "61A8FAEC4FF18449",
+    "5BCA3F716348ECCD",
+    "33816AF0E699F19F"
+   ],
+   "text": "Енергетична батарея зберігає FE, батарейка заряджає предмети в інвентарі; обидві розширюють ємність каналу Мережі Енду. Енерголійка заряджає предмети в контейнері, на який дивиться, енергорозрядник витягує FE із заряджених предметів. Кабель Початковий пропускає 500 FE/такт, Нітро — 1 000 000 (конфіг).",
+   "src": "квести «Енергетична батарея», «Батарейка», «Енерголійка», «Енергорозрядник» (Початкові); config/powah.json5: devices.cables.transfer_rates",
+   "ref": [
+    "config:config/powah.json5#devices.cables.transfer_rates.starter=500",
+    "config:config/powah.json5#devices.cables.transfer_rates.nitro=1000000"
+   ]
+  },
+  {
+   "id": "tiers",
+   "x": 2,
+   "y": 1,
+   "title": "Рівні: від Малого до Нітро",
+   "quests": [
+    "6D88C19F47D0D469",
+    "66ECC26BC81D0093",
+    "5E090C9BB4DAA5D4",
+    "562BD37539EE318E",
+    "7D7983F39E6E818D",
+    "25EFC21A3C48E0B6",
+    "4F1FFC02F4EAA2E6"
+   ],
+   "text": "Машини Початкового й Базового рівнів робляться із заліза й конденсаторів, далі — з матеріалів сфери: заряджена сталь (Загартований), палаючий кристал (Палаючий), ніотичний — діамант за 300 000 FE, надзаряджений — смарагд за 1 000 000 FE, нітро-кристал (Нітро) — із зірки Незеру, блоків редстоуну й блока палаючого кристала.",
+   "src": "квести «Рівень: …»; рецепти powah:energizing/niotic_crystal, spirited_crystal, nitro_crystal (jar)",
+   "ref": [
+    "jarfile:data/powah/recipe/energizing/niotic_crystal.json~300000",
+    "jarfile:data/powah/recipe/energizing/spirited_crystal.json~1000000",
+    "jarfile:data/powah/recipe/energizing/nitro_crystal.json~c:nether_stars"
+   ]
+  },
+  {
+   "id": "ender",
+   "x": 2,
+   "y": 2,
+   "title": "Мережа Енду",
+   "quests": [
+    "700F3FF7C23D0C0F",
+    "3CB6DC5B09C62CFE"
+   ],
+   "text": "Батарея Енду зберігає енергію каналу бездротової Мережі Енду (ємність додають батарейки й енергетичні батареї в її інтерфейсі), ворота Енду — точки входу й виходу до сусідніх блоків. Каналів: 1 на Початковому рівні, 12 — на Нітро (конфіг).",
+   "src": "квести «Батарея Енду (Початкова)», «Ворота Енду (Початкові)»; config/powah.json5: devices.ender_cells.channels",
+   "ref": [
+    "config:config/powah.json5#devices.ender_cells.channels.starter=1",
+    "config:config/powah.json5#devices.ender_cells.channels.nitro=12"
+   ]
+  },
+  {
+   "id": "reactor",
+   "x": 3,
+   "y": 0,
+   "title": "Реактор",
+   "quests": [
+    "1B0087400B0B8B49",
+    "5F6152CF085D75D6",
+    "05B0A7D0B991050F",
+    "6754612E9AD4B9C0",
+    "0FFF2BEE5D8EBE12",
+    "341486C9F277FEB7",
+    "61DCECE1FC38E151"
+   ],
+   "text": "Реактор 3x4x3 — 36 блоків: тримаючи їх у руці, поставте один, і структура збудується сама. Палить уранініт; тверді й рідкі охолоджувачі підвищують вихід. За конфігом збірки Початковий дає 250 FE/такт, Нітро — 500 000 (квест обіцяє 250 тис. — це застаріла цифра).",
+   "src": "квести «Реактор (…)» усіх рівнів; config/powah.json5: generators.reactors.generation_rates",
+   "ref": [
+    "config:config/powah.json5#generators.reactors.generation_rates.starter=250",
+    "config:config/powah.json5#generators.reactors.generation_rates.nitro=500000"
+   ]
+  },
+  {
+   "id": "charge",
+   "x": 3,
+   "y": 1,
+   "title": "Зарядний маяк",
+   "quests": [
+    "677365A816994C8B",
+    "740F314EE6242C13"
+   ],
+   "text": "Зарядний маяк бездротово заряджає FE-предмети гравця (реактивні ранці, гаджети). Прив'яжіть його карткою прив'язки — вона діє в тому самому вимірі, міжвимірна — і в інших вимірах. Початковий маяк — 500 FE/такт, Нітро — 1 000 000 (конфіг).",
+   "src": "квести «Зарядний маяк (Початковий / Базовий)»; config/powah.json5: devices.player_transmitters.charging_rates",
+   "ref": [
+    "config:config/powah.json5#devices.player_transmitters.charging_rates.starter=500",
+    "config:config/powah.json5#devices.player_transmitters.charging_rates.nitro=1000000",
+    "config:config/powah.json5#general.dimensional_binding_card=true"
+   ]
+  },
+  {
+   "id": "atm",
+   "x": 4,
+   "y": 1,
+   "title": "Сплав ATM у сфері",
+   "spoiler": true,
+   "text": "У ATM11 вібранієво-усемодієвий сплав робиться у сфері заряджання (а його блок — ще й у вогняній драконячій кузні Ice and Fire): злитки усемодію й вібранію, серце піґліча й блок нітро-кристала 1x (AllTheCompressed). Там само — стиснені блоки сплаву. Без реакторів високих рівнів не обійтися.",
+   "src": "KubeJS server_scripts/mods/powah/energizing.js (vibranium_allthemodium_*)",
+   "ref": [
+    "recipe:kubejs:energizing/vibranium_allthemodium_alloy_ingot",
+    "recipe:kubejs:energizing/vibranium_allthemodium_block",
+    "recipe:iceandfire:dragonforge/allthemodium-vibranium"
+   ]
+  }
+ ],
+ "links": [
+  [
+   "start",
+   "gens"
+  ],
+  [
+   "start",
+   "orb"
+  ],
+  [
+   "start",
+   "store"
+  ],
+  [
+   "orb",
+   "tiers"
+  ],
+  [
+   "store",
+   "ender"
+  ],
+  [
+   "tiers",
+   "reactor"
+  ],
+  [
+   "gens",
+   "reactor"
+  ],
+  [
+   "tiers",
+   "charge"
+  ],
+  [
+   "tiers",
+   "atm"
+  ]
+ ]
+}

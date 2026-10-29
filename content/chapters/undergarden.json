@@ -1,0 +1,17 @@
+{
+ "ov": "Похмурий підземний вимір: портал — рамка з кам'яної цегли, яку запалює каталізатор; 20 біомів, моби гнилі, ресурси (клоґрум, морозосталь, забутий метал, утерій, реґалій, роґдорій), катакомби й бос Забутий вартовий.",
+ "ref": [
+  "quest:6C4B93FE64BD418D",
+  "recipe:undergarden:catalyst",
+  "count:files:The_Undergarden!data/undergarden/worldgen/biome/=20",
+  "quest:4141EF8B8C316118",
+  "quest:51E2728C5E35A152",
+  "quest:4F5A2E2A5C7F4837",
+  "quest:30582B5FBED35FD1",
+  "quest:3AF7446592D19FA6",
+  "item:undergarden:rogdorium",
+  "quest:00CB8D60E7831A57",
+  "jarfile:The_Undergarden!data/c/tags/entity_type/bosses.json~undergarden:forgotten_guardian"
+ ],
+ "_src": "квести глави, jar The_Undergarden (біоми, тег c:bosses), реєстр (було «чотири метали» — ресурсів шість)"
+}

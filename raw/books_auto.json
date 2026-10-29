@@ -1,0 +1,74 @@
+{
+ "apotheosis:apoth_chronicle": {
+  "name": "book.apotheosis.name",
+  "jar": "Apotheosis-26.1.2-9.1.0.jar"
+ },
+ "arsmagicalegacy:arcane_compendium": {
+  "name": "item.arsmagicalegacy.arcane_compendium.name",
+  "jar": "arsmagicalegacy-26.1.2-1.7.0.jar"
+ },
+ "buildinggadgets2:buildinggadgets2book": {
+  "name": "Gadgets for Derps",
+  "jar": "buildinggadgets2-1.4.6.jar"
+ },
+ "croptopia:guide": {
+  "name": "Croptopia",
+  "jar": "croptopia-neoforge-26.1.2-4.3.2.jar"
+ },
+ "enderio:guide": {
+  "name": "guidebook.enderio.book_title",
+  "jar": "enderio-9.0.6-alpha.jar"
+ },
+ "justdirethings:justdirethingsbook": {
+  "name": "Just Dires Guide",
+  "jar": "justdirethings-1.6.11.jar"
+ },
+ "laserio:laseriobook": {
+  "name": "LaserIO 101",
+  "jar": "laserio-1.10.2.jar"
+ },
+ "mffs:handbook": {
+  "name": "info.mffs.handbook.title",
+  "jar": "mffs-5.8.39.jar"
+ },
+ "modularrouters:book": {
+  "name": "modularrouters.patchouli.book.name",
+  "jar": "modular-routers-26.1.2.2.jar"
+ },
+ "mysticalagriculture:guide": {
+  "name": "book.mysticalagriculture.name",
+  "jar": "MysticalAgriculture-26.1.2-9.0.10.jar"
+ },
+ "neovitae:guide": {
+  "name": "book.neovitae.guide.name",
+  "jar": "neovitae-26.1.2-1.1.38.jar"
+ },
+ "occultism:dictionary_of_spirits": {
+  "name": "book.occultism.dictionary_of_spirits.name",
+  "jar": "occultism-26.1.2-neoforge-1.256.1.jar"
+ },
+ "productivebees:guide": {
+  "name": "Big Book of Bees",
+  "jar": "productivebees-26.1.2-15.3.0.jar"
+ },
+ "productivemetalworks:guide": {
+  "name": "book.productivemetalworks.name",
+  "jar": "productivemetalworks-26.1.2-1.17.1.jar"
+ },
+ "productivetrees:guide": {
+  "name": "Big Book of Trees",
+  "jar": "productivetrees-26.1.2-1.3.1.jar"
+ },
+ "railcraft:guide_book": {
+  "name": "Railcraft Reborn Book",
+  "jar": "railcraft-reborn-26.1.2-1.4.5.jar"
+ },
+ "theurgy:the_hermetica": {
+  "name": "book.theurgy.the_hermetica.name",
+  "jar": "theurgy-26.1.2-neoforge-1.116.0.jar"
+ },
+ "witchery:guidebook": {
+  "name": "book.witchery.guidebook.name",
+  "jar": "witchery-0.5.17+mc26.1.2.jar"
+ }
+}

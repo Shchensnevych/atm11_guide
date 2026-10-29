@@ -1,0 +1,10 @@
+{
+ "why": "Мода Deeper and Darker у збірці 0.12.0-beta немає — 23 з 46 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+ "ref": [
+  "file:config/ftbquests/quests/chapters/deeper_and_darker.json5~always_invisible: true",
+  "count:stubs:deeper_and_darker=23",
+  "count:qall:deeper_and_darker=46",
+  "count:items:deeperdarker=0"
+ ],
+ "_src": "config/ftbquests/quests/chapters/<глава>.json5 (always_invisible), docs/data/quests (missing — ftbquests:missing_item), реєстр предметів (raw/registry_index.json)"
+}

@@ -4,7 +4,19 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, '_vendor'))          # tomli, json5 — чистий Python, без pip
 import tomli, json5  # noqa: E402
 G = os.path.dirname(HERE)                                   # atm11_guide
-ROOT = os.environ.get('ATM11_ROOT') or os.path.dirname(G)   # All the Mods 11 - ATM11 (або своя тека через ATM11_ROOT)
+
+def _instance_dir():
+    """Тека збірки (All the Mods 11 - ATM11): змінна ATM11_ROOT → atm11.json путівника («instance») → батьківська тека (старе розташування в теці збірки)."""
+    if os.environ.get('ATM11_ROOT'): return os.environ['ATM11_ROOT']
+    try:
+        with open(os.path.join(G, 'atm11.json'), encoding='utf-8-sig') as f: inst = json.load(f).get('instance')
+        if inst and os.path.isdir(inst): return inst
+    except (OSError, ValueError): pass
+    return os.path.dirname(G)
+
+ROOT = _instance_dir()                                      # тека збірки, де minecraft/ і ua_work/ (путівник живе окремо — C:\Users\Yurec\OneDrive\Projects\atm11_guide)
+if not os.path.isdir(os.path.join(os.environ.get('ATM11_MC') or os.path.join(ROOT, 'minecraft'), 'mods')):
+    print(f'!! Тека збірки не знайдена: {ROOT} — вкажіть шлях у atm11_guide/atm11.json («instance») або змінною ATM11_ROOT', file=sys.stderr)
 MC = os.environ.get('ATM11_MC') or os.path.join(ROOT, 'minecraft')
 MODS = os.path.join(MC, 'mods')
 QUESTS = os.path.join(MC, 'config', 'ftbquests', 'quests')
@@ -30,7 +42,7 @@ def strip_fmt(s):
     """Коди форматування FTB/Minecraft (&a, §l, &#RRGGBB) і зайві пробіли. \\& і \\§ — екранування FTB: буквальні «&» і «§»."""
     s = (s or '').replace('\\&', '\x00A').replace('\\§', '\x00S')
     s = re.sub(r'&#[0-9a-fA-F]{6}', '', s)
-    s = re.sub(r'[&§][0-9a-fk-orA-FK-OR]', '', s)
+    s = re.sub(r'[&§][0-9a-fk-orzA-FK-ORZ]', '', s)                 # &z — «веселка» FTB Quests
     return re.sub(r'\s+', ' ', s.replace('\x00A', '&').replace('\x00S', '§')).strip()
 
 def mc_version():

@@ -5,7 +5,7 @@ import { featuresOf, featRow } from './feat.js';
 import { isAutoDone } from '../core/progress.js';
 
 export const CARD = { w: 220, h: 86, tw: 240, th: 92 };   // звичайна / стовбур
-const STATE_TIP = { done: 'Зроблено', avail: 'Доступно — можна братися', locked: 'Ще не доступно: спершу попередні кроки' };
+const STATE_TIP = { done: 'Зроблено', avail: 'Доступно — можна братися', locked: 'Ще не доступно: спершу попередні кроки', na: 'У цій версії збірки недоступно' };
 const LOCK = '<svg viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8.5 10.5V7.5a3.5 3.5 0 0 1 7 0v3"/></svg>';
 
 /**
@@ -40,12 +40,12 @@ export function monogram(name) {
   return (w.length > 1 ? w[0][0] + w[1][0] : (w[0] || '?').slice(0, 2)).toUpperCase();
 }
 
-/** @param {HTMLElement} el @param {string} st done | avail | locked */
+/** @param {HTMLElement} el @param {string} st done | avail | locked | na */
 export function setState(el, st) {
   const auto = st === 'done' && isAutoDone(el.dataset.id || '');
-  el.classList.remove('done', 'avail', 'locked', 'auto-done'); el.classList.add(st);
+  el.classList.remove('done', 'avail', 'locked', 'na', 'auto-done'); el.classList.add(st);
   if (auto) el.classList.add('auto-done');
   const b = /** @type {HTMLElement} */ (el.querySelector('.nc-state'));
   b.title = auto ? 'Зроблено (автоматично з сейву гри)' : (STATE_TIP[st] || '');
-  b.innerHTML = st === 'done' ? '✔' : st === 'avail' ? '!' : LOCK;
+  b.innerHTML = st === 'done' ? '✔' : st === 'avail' ? '!' : st === 'na' ? '∅' : LOCK;
 }

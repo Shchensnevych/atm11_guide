@@ -1,0 +1,15 @@
+{
+ "ov": "Магія крові Neo Vitae: вівтар Ara Vitae 5 рівнів (кільця рун), Сфери Vitae — запас мережі крові (EV), атанор, сигіли й ритуали, вимір Нескінченного царства з данжами.",
+ "ref": [
+  "item:neovitae:ara_vitae",
+  "item:neovitae:rune_blank",
+  "quest:702FC3E5D0D6C31F",
+  "item:neovitae:blood_orb_weak",
+  "quest:73391A08D7615C77",
+  "item:neovitae:athanor",
+  "item:neovitae:sigil_divination",
+  "item:neovitae:air_ritual_stone",
+  "quest:671F7551CBDF462F"
+ ],
+ "_src": "квести глави (рівні вівтаря, вимір), реєстр neovitae (глибока звірка магії — G6e)"
+}

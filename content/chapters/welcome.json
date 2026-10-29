@@ -1,0 +1,11 @@
+{
+ "ov": "Стартова сторінка книги: корисні команди (/sethome, /home…), створення команди FTB Teams і привласнення чанків на мапі FTB Chunks (M). Головне — квести в ATM11 необов'язкові: моди не закрито проходженням квестів, окремі глави — це гіди по модах.",
+ "ref": [
+  "quest:7658C1C663394E85",
+  "quest:5AC1BE754210429E",
+  "quest:0C93D7A607AB8B83",
+  "file:options.txt~key_key.ftbchunks.keys.map:key.keyboard.m",
+  "quest:3708A4780ACEB34E~Mods are not gated behind completing any quests"
+ ],
+ "_src": "квести глави, options.txt"
+}

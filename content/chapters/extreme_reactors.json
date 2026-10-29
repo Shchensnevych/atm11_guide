@@ -1,0 +1,10 @@
+{
+ "why": "Мода Extreme Reactors у збірці 0.12.0-beta немає — 28 з 34 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+ "ref": [
+  "file:config/ftbquests/quests/chapters/extreme_reactors.json5~always_invisible: true",
+  "count:stubs:extreme_reactors=28",
+  "count:qall:extreme_reactors=34",
+  "count:items:bigreactors=0"
+ ],
+ "_src": "config/ftbquests/quests/chapters/<глава>.json5 (always_invisible), docs/data/quests (missing — ftbquests:missing_item), реєстр предметів (raw/registry_index.json)"
+}

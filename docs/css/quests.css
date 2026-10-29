@@ -1,0 +1,95 @@
+/* Вкладка «Квести»: сторінка глави (схема / список), картка квесту, огляд глави */
+.chapter-page { display: flex; flex-direction: column; width: 100%; min-width: 0; }
+.chapter-page.list-mode .toolbar { position: sticky; top: var(--topbar-h); z-index: 20; margin: -20px -28px 0; }
+.seg { display: inline-flex; border: 1px solid var(--line-2); border-radius: var(--radius-sm); overflow: hidden; }
+.seg button { background: var(--panel); color: var(--muted); border: 0; padding: 4px 10px; font: inherit; font-size: .82rem; cursor: pointer; }
+.seg button + button { border-left: 1px solid var(--line-2); }
+.seg button.on { background: var(--accent); color: var(--bg); font-weight: 600; }
+.seg button:not(.on):hover { color: var(--text); }
+.chk { display: inline-flex; align-items: center; gap: 4px; cursor: pointer; user-select: none; }
+
+/* Картинки книги на полотні глави — під вузлами (graph/quests-cy.js, шар рухається разом із полотном) */
+.chapter-page .split-main { background: radial-gradient(circle, rgb(255 255 255 / 4%) 1px, transparent 1px) 0 0 / 22px 22px, var(--bg); }
+.chapter-page .cy { background: none; }
+.qimg-layer { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.qimg-world { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+.qimg-world img { position: absolute; image-rendering: pixelated; }
+.ql.ghost { font-style: italic; }
+
+/* HTML-шар над схемою: назви, галочки, піктограми (graph/quest-labels.js) */
+.ql-layer { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+/* назва — без плашки, з темним контуром (читається і на темному тлі, і на картинках книги: хмари Aether, банери); плашка — лише у вибраного / наведеного */
+.ql { position: absolute; left: 0; top: 0; max-width: 132px; padding: 1px 5px; border-radius: 4px; font-size: 11px; font-weight: 600; line-height: 1.25; text-align: center;
+  color: #d5dee8; text-shadow: 0 0 2px #05080c, 0 0 3px #05080c, 0 1px 2px #05080c, 0 0 5px rgb(5 8 12 / 70%); white-space: normal; overflow-wrap: anywhere; will-change: transform; }
+.ql.sel, .ql.hov { background: rgb(11 15 20 / 88%); }
+.ql.done { color: #bbf7d0; } .ql.started { color: #bae6fd; } .ql.locked { color: #8b98a9; } .ql.link { color: #7cc4ff; }
+.ql.near { color: var(--text); }
+.ql.faded { opacity: .38; }
+.chapter-page .graph-hint { background: rgb(11 15 20 / 82%); padding: 2px 8px; border-radius: 4px; }
+.ql.sel { color: var(--accent); font-weight: 600; box-shadow: 0 0 0 1px rgb(250 204 21 / 55%); }
+.ql.hov { color: var(--text); box-shadow: 0 0 0 1px var(--line-2); }
+.ql-chk { position: absolute; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #16a34a; color: #fff;
+  font-weight: 700; line-height: 1; border: 2px solid #0b0f14; box-sizing: border-box; }
+.ql-gl { position: absolute; transform: translate(-50%, -50%); line-height: 1; color: #9fb0c4; }
+.ql-gl.miss { color: #a86b6b; }
+
+/* Іконки предметів у квестах */
+.q-ic { flex: none; width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; border-radius: 6px;
+  background: var(--panel-2); border: 1px solid var(--line); }
+.q-ic img { width: 100%; height: 100%; image-rendering: pixelated; object-fit: contain; }
+.q-ic.lg { width: 46px; height: 46px; border-radius: 9px; }
+.q-ic.sm { width: 20px; height: 20px; border-radius: 4px; border: 0; background: none; }
+.q-gl { font-size: .95em; line-height: 1; color: var(--muted); }
+.q-ic.lg .q-gl { font-size: 1.4rem; }
+
+/* Картка квесту (панель схеми і список) */
+.q-head { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 8px; }
+.q-title { min-width: 0; flex: 1; }
+.q-title h2, .q-title h3 { margin: 0; font-size: 1.12rem; }
+.q-title .badges { margin-top: 4px; }
+.q-sec { margin: 14px 0 6px; font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.q-tasks { list-style: none; margin: 0; padding: 0; }
+.q-tasks li { display: flex; align-items: center; gap: 8px; padding: 3px 0; }
+.q-tasks li.ok { color: var(--ok); }
+.q-rw { display: flex; flex-wrap: wrap; gap: 6px; }
+.q-chip { display: inline-flex; align-items: center; gap: 5px; padding: 2px 8px 2px 4px; border: 1px solid var(--line); border-radius: 999px; font-size: .82rem; background: var(--bg-2); }
+.q-links { display: flex; flex-direction: column; gap: 3px; }
+.q-link { display: inline-flex; align-items: center; gap: 6px; }
+.q-tasks li { flex-wrap: wrap; }
+.q-opts { flex-basis: 100%; margin: 2px 0 4px 28px; font-size: .8rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; }
+.q-opt { display: inline-flex; align-items: center; gap: 3px; color: var(--text); }
+.q-table { margin-top: 6px; } .q-table summary { cursor: pointer; color: var(--link); }
+.ftb-img { display: block; margin: 8px auto; height: auto; image-rendering: auto; border-radius: 4px; }
+.ftb-img.l { margin-left: 0; } .ftb-img.r { margin-right: 0; }
+.q-note { margin: 10px 0; padding: 8px 12px; border-left: 3px solid var(--link); background: rgb(124 196 255 / 7%); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-size: .92rem; }
+.q-note-h { font-size: .75rem; color: var(--link); font-weight: 600; margin-bottom: 3px; }
+.verify { color: var(--warn); }
+
+/* Режим «Список» */
+.q-list-wrap { max-width: 1040px; width: 100%; margin: 0 auto; padding-top: 6px; }
+.q-list-wrap > h1 { margin: 16px 0 10px; }
+.q-list-bar { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; justify-content: space-between; margin: 22px 0 10px; }
+.q-list { display: flex; flex-direction: column; gap: 12px; }
+.q-card { position: relative; padding: 14px 16px 14px 18px; scroll-margin-top: calc(var(--topbar-h) + 56px); border-left: 3px solid var(--line-2); }
+.q-card.st-done { border-left-color: var(--ok); }
+.q-card.st-started { border-left-color: var(--link); }
+.q-card.st-avail { border-left-color: var(--accent); }
+.q-card.svc { opacity: .55; }
+.q-card.sel { outline: 2px solid var(--accent); }
+.q-num { position: absolute; right: 12px; top: 10px; font-size: .72rem; color: var(--muted); }
+
+/* Огляд глави */
+.chapter-guide { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; }
+.chapter-guide.compact { background: none; border: 0; padding: 0; }
+.cg-ov { margin: 0 0 6px; font-size: 1rem; line-height: 1.5; }
+.cg-list { margin: 0; padding-left: 20px; }
+.cg-list li { margin: 3px 0; }
+.cg-hidden { margin-bottom: 10px; padding: 8px 12px; border-radius: var(--radius-sm); background: rgb(248 113 113 / 9%); border: 1px solid rgb(248 113 113 / 35%); font-size: .9rem; }
+
+@media (max-width: 800px) {
+  .chapter-page .split-main { flex: none; height: 68vh; }
+  .chapter-page .graph-hint { display: none; }
+  .chapter-page.list-mode .toolbar { top: 0; position: relative; }
+  .q-card { padding: 12px 12px 12px 14px; }
+  .q-ic.lg { width: 38px; height: 38px; }
+}

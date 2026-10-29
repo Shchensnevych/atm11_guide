@@ -2,14 +2,16 @@
 # Предмет (item/generated, шари layer0..n) — піксельна копія з відтінками; блок (елементи моделі) — ізометричний кубик (верх, північ, захід),
 # рослини-хрестики й «особливі» моделі (скрині тощо) — плоска текстура (kind: approx). Анімовані текстури — перший кадр.
 # Запуск з atm11_guide:  python3 -I tools/extract_icons.py [ns:id ...]      — без аргументів: усі ID з content/
+#                        python3 -I tools/extract_icons.py --quests [--redo RX] — іконки квестів (docs/data/quests/*.json), відсутні → raw/icons_missing_quests.txt; --redo — перемалювати ID за regex
 #                        python3 -I tools/extract_icons.py --find <regex>   — пошук ID предметів у збірці (напр. --find "occultism:.*chalk")
 # Предмети з власними «завантажувачами» моделей (Sophisticated*, Geckolib…) — ручні заміни в content/icons_override.json:
 #   {"id": {"item": "інший:id"} | {"cube": {"top": tex, "side": tex, "front"?: tex}} | {"models": [моделі з elements]} | {"texture": tex}, "tints"?: [ARGB]}
 #   | {"boxes": {"texture": tex, "cubes": [{"from": [x,y,z], "to": [x,y,z], "uv": [u, v]}]}}   — коробки з текстури істоти (box UV у пікселях)
+#   | {"bucket": "#RRGGBB"} — відро рідини (KubeJS-рідини без моделі; колір — зі startup-скрипта)
 #   "fit": true (для models / boxes) — вписати модель у всю іконку (дрібні труби, черепи)
 # Моделі Geckolib (.geo.json) малюються автоматично (усі кубики, без поворотів, вписано в 16³).
 # Джерела (перше знайдене перемагає): minecraft/kubejs/assets → jar модів → клієнтський jar Minecraft (common.CLIENT_JARS).
-import os, sys, glob, zipfile, json, io, re
+import os, sys, glob, zipfile, json, io, re, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import MODS, MC, UA, RAW, DOCS, CONTENT, CLIENT_JARS, jload, jsave
 from PIL import Image, ImageDraw
@@ -60,7 +62,7 @@ def tint_of(t):
     k = str(t.get('type', '')).replace('minecraft:', '')
     if k == 'grass': return GRASS
     if k == 'foliage': return FOLIAGE
-    return color(t.get('value', t.get('default')))
+    return color(t.get('value', t.get('color', t.get('default'))))       # constant: value; модові (productivetrees:tree…): color; решта — default
 
 def pick(m):
     """Вузол визначення предмета → (id моделі, tints). Беремо найпростішу гілку: fallback / перший випадок."""
@@ -223,8 +225,49 @@ def fit16(parts):
 
 CUBE = [{'from': [0, 0, 0], 'to': [16, 16, 16], 'faces': {'up': {'texture': '#top'}, 'north': {'texture': '#front'}, 'west': {'texture': '#side'}}}]
 
+def ftbtex(src, iid):
+    """Текстура з квестів FTB (ftbtex:<ns>/<шлях>): перший кадр анімації, неквадратна — вписана в квадрат."""
+    ns, p = iid.split(':', 1)[1].split('/', 1)
+    b = src.read(f'assets/{ns}/{p}.png')
+    if b is None: return None, 'немає текстури'
+    try: im = Image.open(io.BytesIO(b)).convert('RGBA')
+    except Exception: return None, 'не читається'
+    if im.height > im.width and im.height % im.width == 0: im = im.crop((0, 0, im.width, im.width))
+    side = max(im.size); sq = Image.new('RGBA', (side, side)); sq.paste(im, ((side - im.width) // 2, (side - im.height) // 2))
+    return sq.resize((FINAL, FINAL), Image.NEAREST if side <= FINAL else Image.LANCZOS), 'item'
+
+def avg_color(im):
+    px = [p for p in im.getdata() if p[3] > 0]
+    return tuple(sum(p[i] for p in px) // len(px) for i in range(3)) if px else (150, 150, 160)
+
+def bucket(src, fill):
+    """Відро з рідиною: ванільне відро + «рідина» (пікселі, якими відро з водою відрізняється від порожнього) кольору fill."""
+    b0, b1 = texture(src, 'minecraft:item/bucket'), texture(src, 'minecraft:item/water_bucket')
+    if b0 is None or b1 is None: return None
+    out = b0.copy(); px0, px1, po = b0.load(), b1.load(), out.load()
+    for y in range(b0.height):
+        for x in range(b0.width):
+            if px0[x, y] != px1[x, y] and px1[x, y][3]:
+                l = sum(px1[x, y][:3]) / (3 * 255) + 0.35                       # світлота з водяного відра → відтінок рідини
+                po[x, y] = tuple(min(255, int(c * l)) for c in fill) + (255,)
+    return flat([out])
+
+def fluid_fill(src, d):
+    """Колір рідини для neoforge:fluid_container: текстура рідини мода (…_still / fluid_source), інакше сірий."""
+    fl = str(((d or {}).get('model') or {}).get('fluid') or '')
+    ns, name = rl(fl) if fl else ('', '')
+    base = re.sub(r'_(source|still|fluid)$', '', name)
+    for cand in (f'{ns}:block/{base}_still', f'{ns}:block/fluid/{base}_still', f'{ns}:fluid/{base}_still', f'{ns}:block/{name}', f'{ns}:block/fluid_source'):
+        im = texture(src, cand) if ns else None
+        if im is not None: return avg_color(im)
+    return (150, 150, 160)
+
 def render(src, iid, ov=None):
+    if iid.startswith('ftbtex:'): return ftbtex(src, iid)
     o = (ov or {}).get(iid)
+    if o and o.get('bucket'):                                  # ручна заміна: відро рідини KubeJS з кольором зі скрипта
+        im = bucket(src, color(int(o['bucket'].lstrip('#'), 16)))
+        return (im, 'item') if im else (None, 'немає текстур відра')
     if o:                                                     # ручна заміна: content/icons_override.json
         tints = [color(t) for t in o.get('tints', [])]
         if o.get('item'): return render(src, o['item'])
@@ -255,7 +298,14 @@ def render(src, iid, ov=None):
         if parts:
             im = iso(src, parts, [])
             if im: return im, 'block'
-    if not mref: return None, 'немає моделі'
+    if d is not None and str((d.get('model') or {}).get('type', '')).endswith('fluid_container'):   # відра рідин модів (NeoForge)
+        im = bucket(src, fluid_fill(src, d))
+        if im: return im, 'item'
+    if not mref:                                                # предмет без моделі у файлах — пробуємо однойменну текстуру
+        for cand in (f'{ns}:item/{p}', f'{ns}:block/{p}'):
+            im = texture(src, cand)
+            if im is not None: return flat([im]), 'approx'
+        return None, 'немає моделі'
     tex, els, chain = model(src, mref)
     if any(c.endswith(fp) for c in chain for fp in FLAT_PARENTS) or (not els and 'layer0' in tex):
         layers = []
@@ -263,6 +313,8 @@ def render(src, iid, ov=None):
             if f'layer{i}' not in tex: break
             layers.append(tinted(texture(src, tex_ref(tex, f'layer{i}')), tints[i] if i < len(tints) else None))
         im = flat(layers)
+        if im is None:
+            im = next((flat([t]) for c in (f'{ns}:item/{p}', f'{ns}:block/{p}') if (t := texture(src, c)) is not None), None)
         return (im, 'item') if im else (None, 'немає текстури шару')
     if els:
         im = iso(src, [(tex, els)], tints)
@@ -299,6 +351,17 @@ def wanted():
     for f in glob.glob(os.path.join(CONTENT, '**', '*.json'), recursive=True): walk(jload(f, {}))
     return ids
 
+def quest_ids():
+    """ID іконок квестів і завдань з docs/data/quests/*.json (після extract_quests.py) + іконки глав."""
+    ids = set(); ok = lambda x: isinstance(x, str) and re.match(r'^[a-z0-9_.-]+:[a-z0-9_/.-]+$', x)
+    for f in glob.glob(os.path.join(DOCS, 'data', 'quests', '*.json')):
+        for q in (jload(f, {}) or {}).get('quests', []):
+            ids.update(x for x in [q.get('icon')] + [t.get('icon') for t in q.get('tasks', [])] + [o['id'] for t in q.get('tasks', []) for o in t.get('opts') or []] if ok(x))
+    for t in (jload(os.path.join(DOCS, 'data', 'reward_tables.json'), {}) or {}).values():          # що випадає з таблиць нагород
+        ids.update(x['item'] for x in t.get('items', []) if ok(x.get('item')) and not x.get('miss'))
+    ids.update(c['icon'] for c in (jload(os.path.join(DOCS, 'data', 'chapters.json'), {}) or {}).get('chapters', []) if ok(c.get('icon')))
+    return ids
+
 def sources():
     src = Src(); src.add_dir(os.path.join(MC, 'kubejs'))
     for j in sorted(glob.glob(os.path.join(MODS, '*.jar'))): src.add_zip(j)
@@ -315,17 +378,29 @@ def main():
             m = re.match(r'assets/([^/]+)/items/(.+)\.json$', n)
             if m and rx.search(f'{m[1]}:{m[2]}'): print(f'{m[1]}:{m[2]}', '—', nm.get(f'{m[1]}:{m[2]}', {}).get('uk', ''))
         return
-    ids = sorted(set(norm(a) for a in args) or wanted()); nm = names()
+    qmode = args[:1] == ['--quests']
+    ids = sorted(quest_ids() if qmode else (set(norm(a) for a in args) or wanted())); nm = names()
     db = jload(os.path.join(RAW, 'icons_auto.json'), {}) or {}; miss = []
     ov = {k: v for k, v in (jload(os.path.join(CONTENT, 'icons_override.json'), {}) or {}).items() if not k.startswith('_')}
-    for iid in ids:
+    mpath = os.path.join(RAW, 'icons_missing_quests.txt' if qmode else 'icons_missing.txt')
+    todo = ids
+    if qmode and '--force' not in args:   # квести: лише нові ID (наявні PNG і відомі відсутні — пропускаємо); частинами по ~140 с
+        known = {l.split('\t')[0]: l for l in open(mpath, encoding='utf-8').read().splitlines()} if os.path.exists(mpath) else {}
+        miss = [known[i] for i in ids if i in known]
+        redo = re.compile(args[args.index('--redo') + 1]) if '--redo' in args else None      # --redo RX: перемалювати ці ID (після зміни правил)
+        if redo: miss = [m for m in miss if not redo.search(m.split('\t')[0])]; known = {k: v for k, v in known.items() if not redo.search(k)}
+        todo = [i for i in ids if i not in known and (bool(redo and redo.search(i)) or not (i in db and os.path.exists(os.path.join(DOCS, db[i]['img']))))]
+    t0 = time.time(); left = 0
+    for n, iid in enumerate(todo):
+        if qmode and time.time() - t0 > 140: left = len(todo) - n; break
         im, kind = render(src, iid, ov); ns, p = rl(iid)
         if im is None: miss.append(f'{iid}\t{kind}'); db.pop(iid, None); continue
         out = os.path.join(OUT, ns, p + '.png'); os.makedirs(os.path.dirname(out), exist_ok=True); im.save(out, optimize=True)
         db[iid] = {'img': f'img/items/{ns}/{p}.png', 'kind': kind, **nm.get(iid, {'uk': '', 'en': p.split('/')[-1].replace('_', ' ')})}
     jsave(os.path.join(RAW, 'icons_auto.json'), dict(sorted(db.items())))
-    open(os.path.join(RAW, 'icons_missing.txt'), 'w', encoding='utf-8').write('\n'.join(miss) + ('\n' if miss else ''))
-    print('іконок', len(ids) - len(miss), 'з', len(ids), '| блоків', sum(1 for i in ids if db.get(i, {}).get('kind') == 'block'),
+    open(mpath, 'w', encoding='utf-8').write('\n'.join(sorted(set(miss))) + ('\n' if miss else ''))
+    print('іконок', len(ids) - len(miss) - left, 'з', len(ids), '| блоків', sum(1 for i in ids if db.get(i, {}).get('kind') == 'block'),
           '| наближених', sum(1 for i in ids if db.get(i, {}).get('kind') == 'approx'), '| немає', len(miss))
+    if left: print(f'!! не встигли: {left} — запустіть ще раз (продовжить з місця зупинки)')
     for m in miss[:15]: print('  !!', m)
 if __name__ == '__main__': main()

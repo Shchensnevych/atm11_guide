@@ -1,0 +1,10 @@
+{
+ "why": "Мода Nature's Aura у збірці 0.12.0-beta немає — 24 з 26 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+ "ref": [
+  "file:config/ftbquests/quests/chapters/natures_aura.json5~always_invisible: true",
+  "count:stubs:natures_aura=24",
+  "count:qall:natures_aura=26",
+  "count:items:naturesaura=0"
+ ],
+ "_src": "config/ftbquests/quests/chapters/<глава>.json5 (always_invisible), docs/data/quests (missing — ftbquests:missing_item), реєстр предметів (raw/registry_index.json)"
+}

@@ -22,4 +22,44 @@
   --mono: "Cascadia Code", Consolas, ui-monospace, monospace;
   --pixel: "Minecraft", "Press Start 2P", var(--mono);
   --topbar-h: 56px;
+  /* Полотна: SVG-лінії карти, мінікарта (canvas), глави квестів (Cytoscape) читають ці змінні (theme.js cssVar) і перемальовуються на 'themechange' */
+  --e-req: #9fb0c6; --e-syn: #facc15; --e-opt: #7c8aa0; --e-port: var(--bg); --trunk: #facc15;
+  --mm-band-1: rgba(255,255,255,.035); --mm-band-2: rgba(255,255,255,.07); --mm-frame: #facc15; --mm-done: #4ade80;
+  --q-node: #18212d; --q-node-line: #5b6b82; --q-avail: #facc15; --q-early: #5f8fb8; --q-start: #38bdf8; --q-start-bg: #152b3d;
+  --q-done: #4ade80; --q-done-bg: #123222; --q-miss: #7f4b4b; --q-miss-bg: #1a1517; --q-link: #7cc4ff; --q-locked-op: .62;
+  --q-edge: #55667e; --q-open: #c8a53a; --q-open-arrow: #e0b93d; --q-edge-done: #22c55e; --q-hl-in: #facc15; --q-hl-out: #fb923c;
+}
+
+[data-theme="light"] {
+  /* Основні фони та поверхні ("Slate Paper") */
+  --bg: #f4f6f9;                          /* Загальне тло сторінки */
+  --bg-2: #e9eef5;                        /* Панелі інструментів, бічні рейки, шапка */
+  --panel: #ffffff;                       /* Тло карток, модальних вікон */
+  --panel-2: #e8edf4;                     /* Підкладки під логотипи та іконки предметів */
+
+  /* Лінії та роздільники */
+  --line: #cbd5e1;                        /* Чіткі межі карток і блоків (Slate-300) */
+  --line-2: #94a3b8;                      /* Пунктирні та точкові роздільники (Slate-400) */
+
+  /* Типографіка */
+  --text: #0f172a;                        /* Основний текст (Slate-900, максимальна чіткість >14:1) */
+  --muted: #56657a;                       /* Підписи, другорядний текст (≥5:1 на всіх тлах) */
+
+  /* Акценти та стани */
+  --accent: #a84d08;                      /* Бурштин (Amber-700): текст і кнопки ≥4.5:1 */
+  --accent-2: #92400e;                    /* Активні стани (Amber-800) */
+  --link: #0369a1;                        /* Посилання (Sky-700) */
+  --ok: #166534;                          /* Green-700 */
+  --warn: #c2410c;                        /* Orange-700 */
+  --bad: #b91c1c;                         /* Red-700 */
+
+  /* Тіні */
+  --shadow: 0 4px 20px rgb(15 23 42 / 8%);
+
+  /* Полотна (див. :root) */
+  --e-req: #64748b; --e-syn: #0284c7; --e-opt: #ea580c; --trunk: var(--accent);
+  --mm-band-1: rgba(15,23,42,.035); --mm-band-2: rgba(15,23,42,.07); --mm-frame: var(--accent); --mm-done: #16a34a;
+  --q-node: #ffffff; --q-node-line: #7c8aa0; --q-avail: var(--accent); --q-early: #0284c7; --q-start: #0284c7; --q-start-bg: #e0f2fe;
+  --q-done: #16a34a; --q-done-bg: #dcfce7; --q-miss: #dc2626; --q-miss-bg: #fee2e2; --q-link: #0284c7; --q-locked-op: .5;
+  --q-edge: #7c8aa0; --q-open: var(--accent); --q-open-arrow: var(--accent); --q-edge-done: #16a34a; --q-hl-in: var(--accent); --q-hl-out: #ea580c;
 }

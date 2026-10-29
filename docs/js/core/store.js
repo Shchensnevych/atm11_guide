@@ -33,18 +33,20 @@ async function resolveInitialProgress(prog0) {
   return progress;
 }
 
-/** Основні дані: моди, класи, етапи, карта, глави, гілки, іконки предметів, прогрес із сейву. */
+/** Основні дані: моди, класи, етапи, карта, глави (+ огляди путівника guide.json), гілки, іконки предметів, прогрес із сейву. */
 export function load() {
   if (!base) base = Promise.all([
     getJSON('data/mods.json'), getJSON('data/classes.json'), getJSON('data/stages.json'), getJSON('data/roadmap.json'),
     getJSON('data/chapters.json'), getJSON('data/branches.json'), getJSON('data/meta.json'), getJSON('data/items.json'),
     getJSON('data/progress.json').catch(() => null),
-  ]).then(async ([mods, classes, stages, roadmap, chapters, branches, meta, items, prog0]) => {
+    getJSON('data/facts.json').catch(() => ({ facts: [] })),
+    getJSON('data/guide.json').catch(() => ({})),
+  ]).then(async ([mods, classes, stages, roadmap, chapters, branches, meta, items, prog0, facts, guide]) => {
     const progress = await resolveInitialProgress(prog0);
     initProgress(progress, roadmap);
     /** @type {Store} */
     const s = {
-      mods, classes: classes.classes, roles: classes.roles, stages: stages.stages, roadmap, chapters, branches, meta, items, progress,
+      mods, classes: classes.classes, roles: classes.roles, stages: stages.stages, roadmap, chapters, branches, meta, items, progress, facts: facts.facts || [], guide: guide || {},
       modById: new Map(mods.map((m) => [m.id, m])),
       classById: new Map(classes.classes.map((c) => [c.id, c])),
       stageById: new Map(stages.stages.map((x) => [x.id, x])),

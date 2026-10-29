@@ -82,6 +82,7 @@ def build(warn, write=True, mod_ids=None):
     # Моди на Balm (бібліотека клавіш Kuma API): модифікатор Ctrl/Shift/Alt у options.txt → StackOverflowError при запуску гри
     # (краш 2026-10-24, NativeKeyModifierReconciler). Таким діям — лише клавіші без модифікатора.
     for k in keys:
+        if k['ns'] in KUMA_NS: k['kuma'] = True                         # C2: міст компаньйона бере позначку з даних, а не власний список модів
         if k['ns'] in KUMA_NS and k['m']: warn(f"клавіші: {k['id']} — мод на Kuma API, модифікатор {k['m']} у options.txt крашить гру")
     # план перепризначень (content/keys.json → plan): застосувати до копії і перевірити, що не з'явилось нових конфліктів
     kid = {k['id']: k for k in keys}; planned = []; lines = []

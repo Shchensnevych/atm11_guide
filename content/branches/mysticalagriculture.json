@@ -1,0 +1,260 @@
+{
+ "_doc": "Гілка Mystical Agriculture (G5): кроки — квести глави «Mystical Agriculture» (quests), згруповані за рівнями; числа — з конфігів MA / Mystical Agradditions / Mystical Customization, правила збірки — KubeJS (ref, сито).",
+ "id": "mysticalagriculture",
+ "title": "Mystical Agriculture — ресурси з грядок",
+ "icon": "🌱",
+ "cls": "resources",
+ "mods": [
+  "mysticalagriculture",
+  "mysticalagradditions",
+  "mysticalautomation",
+  "mysticalcustomization",
+  "matc"
+ ],
+ "chapter": "mystical_agriculture",
+ "book": "Посібник Mystical Agriculture",
+ "enter": "s1",
+ "summary": "Руди інферію й процвітання → есенції → насіння на вівтарі наповнення → грядки, що ростуть ресурсами. Есенції підвищуються рівнями (інферій … супремій, пробуджений супремій, інсаній), а з ними — насіння від стихій і мобів до діамантів, кристалів Powah і металів ATM. Автоматизація — Mystical Automation і садильники Agritech: Evolved (поза главою); насіння 115 культур, увімкнених у збірці.",
+ "gives": [
+  "Есенції й насіння майже всіх руд, сплавів і самоцвітів збірки",
+  "Моб-насіння: дроп мобів без мобів",
+  "Насіння зірки Незеру, яйця дракона й нітро-кристала (рівень 6)",
+  "Насіння усемодію, вібранію й унобтанію (рівень «Magical»)"
+ ],
+ "_src": "квести глави mystical_agriculture (tools/quests_dump.py mystical_agriculture); config/mysticalagriculture-common.toml, mysticalagradditions-common.toml, config/mysticalcustomization/; KubeJS server_scripts/mods/mysticalagriculture/*",
+ "steps": [
+  {
+   "id": "start",
+   "x": 0,
+   "y": 1,
+   "title": "Інферій і процвітання",
+   "quests": [
+    "54735C5FCD2077B3",
+    "2DDA04088C8220D2",
+    "1CC4F8570A7A99EB"
+   ],
+   "text": "Руди інферію й процвітання генеруються у світі (конфіг); з інферієвої руди падає інферієва есенція, з руди процвітання — уламки процвітання, головний інгредієнт мода.",
+   "src": "квести «Містичне землеробство!», «Уламки процвітання», «Інферій»; config/mysticalagriculture-common.toml",
+   "ref": [
+    "config:config/mysticalagriculture-common.toml#World.generateInferiumOre=true",
+    "config:config/mysticalagriculture-common.toml#World.generateProsperityOre=true"
+   ]
+  },
+  {
+   "id": "tools",
+   "x": 1,
+   "y": 0,
+   "title": "Рілля, прискорювачі, інструменти",
+   "quests": [
+    "7DFF18CFEB0B8DBE",
+    "4821419D44F8083F",
+    "1636F3F12E92CAEA",
+    "4EF5DE3FBA2A7AE3",
+    "2A7E3F2CD335EAD0"
+   ],
+   "text": "Інферієва рілля, прискорювач зростання під грядкою, лійка, спорядження з есенції. Рівні есенції мають свою ріллю й прискорювач — глава повторює це для рівнів.",
+   "src": "квести «Інферієва рілля», «Інферієвий прискорювач зростання», «Лійка», «Інферієві інструменти / обладунки»"
+  },
+  {
+   "id": "altar",
+   "x": 1,
+   "y": 1,
+   "title": "Вівтар наповнення й перше насіння",
+   "quests": [
+    "1E0F92F07FDD162E",
+    "217DB12EA32E1724",
+    "0B37355262121DD5",
+    "13124A7E22999850",
+    "1E7DC8E0493BE99E",
+    "712EB19B26D405DD",
+    "62D572BAB055F56F"
+   ],
+   "text": "Насіннєва основа процвітання + есенції на 8 п'єдесталах вівтаря наповнення → насіння. Перше — стихії (вогонь, земля, вода, повітря). Кристал наповнення підвищує есенцію й витримує 1000 використань (конфіг).",
+   "src": "квести «Насіннєва основа процвітання», «Наповнюючий кристал», «Вівтар наповнення», насіння стихій; config/mysticalagriculture-common.toml",
+   "ref": [
+    "config:config/mysticalagriculture-common.toml#General.infusionCrystalUses=1000"
+   ]
+  },
+  {
+   "id": "tiers",
+   "x": 2,
+   "y": 1,
+   "title": "Рівні есенцій",
+   "quests": [
+    "73350AD668200E99",
+    "2C9C9CB71941DC01",
+    "66C52B137A4FF869",
+    "67DBE6C59C0D9D1B",
+    "219A5BDA5A01A420"
+   ],
+   "text": "4 есенції рівня + кристал наповнення → 1 есенція наступного: прудентій, тертій, імперій, супремій. Майстерський кристал наповнення не ламається; рівневі кристали MATC (256–4096 використань) — проміжний варіант.",
+   "src": "квести «Прудентій», «Тертій», «Імперій», «Супремій», «Наповнюючий кристал Майстера»; config/matc-server.toml",
+   "ref": [
+    "config:config/matc-server.toml#durability.inferiumDurability=256",
+    "config:config/matc-server.toml#durability.supremiumDurability=4096"
+   ]
+  },
+  {
+   "id": "mobs",
+   "x": 1,
+   "y": 2,
+   "title": "Моб-насіння",
+   "quests": [
+    "3EA2578C3A56FAE8",
+    "75560045ED084900",
+    "75D09040185B0E40",
+    "155A843A562DB7C4"
+   ],
+   "text": "Банки для душ наповнює соулієвий кинджал (вбивство мобів) або витягач душ (дроп мобів); соулієву руду (шанс 0.05 у камені душ, конфіг) шукайте в Незері. Заповнені банки — інгредієнт насіння мобів.",
+   "src": "квести «Витягач душ», «Створення моб-насіння», «Насіння свині», «Насіння зомбі»",
+   "ref": [
+    "config:config/mysticalagriculture-common.toml#World.souliumOreChance=0.05"
+   ]
+  },
+  {
+   "id": "res",
+   "x": 2,
+   "y": 0,
+   "title": "Ресурсне насіння рівнів 2–5",
+   "quests": [
+    "7A89560F303A8BE6",
+    "0AF5FB1B5AA5AA11",
+    "31EC6244E4A3CBD6",
+    "6A2AD67569F91F1F"
+   ],
+   "text": "Метали, самоцвіти, сплави й кристали інших модів. Насіння сталі, бронзи, латуні, кристалів Powah, флюїксу й сплавів Ender IO збірка робить з блоків (стиснених блоків 1x) замість злитків. Друге насіння з грядки — лише 1 % і лише до рівня 4.",
+   "src": "квести насіння (заліза, золота, електросталі, діаманта); KubeJS mods/mysticalagriculture/compatibility.js, crops.js",
+   "ref": [
+    "recipe:kjs:mods/mysticalagriculture/compatibility.js#L128",
+    "file:kubejs/server_scripts/mods/mysticalagriculture/crops.js~let SecondarySeed = 0.01",
+    "config:config/mysticalagriculture-common.toml#General.secondarySeedDrops=false",
+    "file:kubejs/server_scripts/mods/mysticalagriculture/crops.js~let TierSecondaryCutoff = 5"
+   ],
+   "abs_ok": "«лише 1 % і лише до рівня 4» — kubejs mods/mysticalagriculture/crops.js: SecondarySeed = 0.01, TierSecondaryCutoff = 5; secondarySeedDrops = false (конфіг)"
+  },
+  {
+   "id": "mach",
+   "x": 2,
+   "y": 2,
+   "title": "Машини",
+   "quests": [
+    "0EFEDB0DD90DFC81",
+    "5C590DB2F3D935E5",
+    "77C6667B4C37589C",
+    "16E3031D800B40D5"
+   ],
+   "text": "Комбайн збирає грядки, переробник насіння перетворює насіння на есенції, поліпшення машин прискорюють їх; соулієвий породжувач — моби з банок душ.",
+   "src": "квести «Комбайн», «Переробник насіння», «Поліпшення машин», «Соулієвий породжувач»"
+  },
+  {
+   "id": "awake",
+   "x": 3,
+   "y": 1,
+   "title": "Пробудження",
+   "quests": [
+    "33D23C65E7274A8F",
+    "7A103577EAE7B3F1",
+    "32B01BD789F0B037"
+   ],
+   "text": "Вівтар пробудження з 4 п'єдесталами й 4 посудинами есенцій стихій робить пробуджену супремієву есенцію. Її можна й вирощувати бджолами Productive Bees.",
+   "src": "квести «Пробудження», «Пробуджений Супремій», «Автоматизація Пробудженого Супремію»",
+   "ref": [
+    "recipe:productivebees:centrifuge/mysticalagriculture/honeycomb_awakened_supremium"
+   ]
+  },
+  {
+   "id": "insan",
+   "x": 3,
+   "y": 0,
+   "title": "Інсаній і рівень 6",
+   "quests": [
+    "202B1F54D3F06DAB",
+    "2FA6B8A1C8713DE0",
+    "31A370550BD592B6",
+    "44B22160850ACAB2",
+    "140DADB32EF10D58",
+    "6D0A876D4E4D35AB"
+   ],
+   "text": "Інсанієва есенція (Mystical Agradditions) → насіння нітро-кристала, зірки Незеру й яйця дракона. Вони ростуть з основою (crux) під ріллею, добрива на них не діють. Творча есенція — верстатний рецепт збірки.",
+   "src": "квести «Інсаній», «Інсанієва рілля», насіння рівня 6, «Творча есенція»; config/mysticalagradditions-common.toml; KubeJS modpack/att_items.js",
+   "ref": [
+    "config:config/mysticalagradditions-common.toml#General.fertilizableTier6Crops=false",
+    "item:mysticalagradditions:nether_star_crux",
+    "recipe:allthemods:allthetweaks/creative_essence"
+   ]
+  },
+  {
+   "id": "magic",
+   "x": 4,
+   "y": 0,
+   "title": "Рівень «Magical»: метали ATM",
+   "quests": [
+    "1E2B363E3365A62F",
+    "2BC325DEBDD2F5CA",
+    "404AA0F5557D7E35"
+   ],
+   "text": "Насіння усемодію, вібранію й унобтанію: інсанієва рілля, а під нею — «Чарівний ґрунт» (верстат або вівтар наповнення). Есенції крафтяться в самородки металів.",
+   "src": "квести насіння усемодію / вібранію / унобтанію; config/mysticalcustomization; KubeJS mods/mysticalagriculture/recipes.js, fusion_crafting.js",
+   "ref": [
+    "config:config/mysticalcustomization/crops/allthemodium.json#crux=kubejs:magical_soil",
+    "recipe:allthemods:kjs/magical_soil",
+    "recipe:kubejs:mysticalagriculture/allthemodium_essence_crafting"
+   ]
+  },
+  {
+   "id": "gear",
+   "x": 3,
+   "y": 2,
+   "title": "Спорядження й доповнення",
+   "quests": [
+    "41DBE44D7AA0B623",
+    "30E9255DEC69C061",
+    "5B1E0E3E876339E7"
+   ],
+   "text": "Інструменти й обладунки з есенцій різних рівнів; доповнення до них ставлять на складальному столі.",
+   "src": "квести «Складальний стіл», «Супремієві інструменти», «Супремієві обладунки»"
+  }
+ ],
+ "links": [
+  [
+   "start",
+   "tools"
+  ],
+  [
+   "start",
+   "altar"
+  ],
+  [
+   "altar",
+   "tiers"
+  ],
+  [
+   "altar",
+   "mobs"
+  ],
+  [
+   "tiers",
+   "res"
+  ],
+  [
+   "tools",
+   "mach"
+  ],
+  [
+   "tiers",
+   "awake"
+  ],
+  [
+   "tiers",
+   "insan"
+  ],
+  [
+   "insan",
+   "magic"
+  ],
+  [
+   "tiers",
+   "gear"
+  ]
+ ]
+}

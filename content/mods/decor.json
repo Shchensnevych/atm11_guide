@@ -1,0 +1,746 @@
+{
+  "_doc": "Група «Декор і будівництво» (G1f): різець Chisel + CTM, каркасні блоки FramedBlocks, меблі MrCrayfish's Furniture Mod: Refurbished + Framework, кольорові світні блоки Luminax, налаштовуване скло Crystalix, камуфляж Camol і 10 модів серії Macaw's. Факти — з jar (рецепти, lang), конфігів minecraft/config (chisel_common, framedblocks-*, refurbished_furniture.*, crystalix/*) і глави квестів Building Tips. Назви — ua_work/review/effective.tsv.",
+  "chisel": {
+    "cls": [
+      "decor"
+    ],
+    "role": "content",
+    "features": [],
+    "uk": "Класичний Chisel: різцем перетворює звичайні блоки (камінь, дерево, метали, скло) на сотні декоративних варіантів із з'єднаними текстурами — 11 838 предметів.",
+    "what": [
+      "Різці: звичайний (`chisel:chisel_iron`, міцність 512), діамантовий (`chisel_diamond`, 5096) і обсидіановий (`chisel_obsidian`, 10 048) — крафт із палиці та заліза / діаманта / обсидіану; міцність задано в config/chisel_common.toml",
+      "ПКМ різцем — вікно різця: покладіть стос блоків, виберіть візерунок і заберіть готові блоки; режими різання у світі (один блок, панель, стовпець, рядок та ін.) — `Shift` з різцем у руці",
+      "Авторізець (`chisel:auto_chisel`: кам'яна плита + залізо) перетворює вхідні блоки за взірцем; покращення — швидкість, стос, автоматизація, повернення",
+      "Посібник будівельника (`chisel:builders_guide`: залізо + смолоскип) проєктує фігуру заданого розміру для розмітки будівництва",
+      "Генерує у Верхньому світі жили мармуру (`chisel:marble_raw`) і вапняку (`chisel:limestone_raw`) — по 32 блоки",
+      "Окремі крафтові блоки: світлі блоки (морський ліхтар + барвник), фабричний блок (`factory_circuit`, камінь + залізо), лабораторний блок, блоки Futura, антиблоки"
+    ],
+    "stage": [
+      "s1",
+      "s2",
+      "s3",
+      "s4"
+    ],
+    "synergy": [
+      {
+        "mod": "framedblocks",
+        "why": "Chisel додає свої блоки до тегу блоків framedblocks:frameable — вирізьблені блоки можна накладати як камуфляж на каркасні схили й плити",
+        "src": "chisel jar: data/framedblocks/tags/block/frameable.json",
+        "ref": [
+          "jarfile:chisel-26.1.2.19!data/framedblocks/tags/block/frameable.json~chisel:"
+        ]
+      }
+    ],
+    "tips": [
+      "Клавіша вибору режиму — `Shift` (утримувати з різцем у руці; options.txt).",
+      "З'єднані текстури малює бібліотека CTM — обов'язкова залежність Chisel."
+    ],
+    "chapter": "building_tips",
+    "icons": [
+      "chisel:chisel_iron",
+      "chisel:chisel_diamond",
+      "chisel:auto_chisel",
+      "chisel:factory_circuit"
+    ],
+    "ref": [
+      "count:items:chisel=11838",
+      "config:config/chisel_common.toml#general.iron_chisel_durability=512",
+      "config:config/chisel_common.toml#general.diamond_chisel_durability=5096",
+      "config:config/chisel_common.toml#general.obsidian_chisel_durability=10048",
+      "recipe:chisel:chisel_iron",
+      "recipe:chisel:chisel_diamond",
+      "recipe:chisel:chisel_obsidian",
+      "lang:chisel.mode.single",
+      "lang:chisel.mode.panel",
+      "lang:chisel.mode.column",
+      "lang:chisel.mode.row",
+      "file:options.txt~key_key.chisel.mode_select:key.keyboard.left.shift",
+      "recipe:chisel:auto_chisel",
+      "item:chisel:upgrade_speed",
+      "item:chisel:upgrade_stack",
+      "item:chisel:upgrade_automation",
+      "item:chisel:upgrade_reversion",
+      "recipe:chisel:builders_guide",
+      "lang:chisel.builders_guide.size_changed",
+      "jarfile:chisel-26.1.2.19!data/chisel/worldgen/configured_feature/marble_configured_feature.json~\"size\": 32",
+      "jarfile:chisel-26.1.2.19!data/chisel/worldgen/configured_feature/limestone_configured_feature.json~chisel:limestone_raw",
+      "recipe:chisel:light_black_regular",
+      "recipe:chisel:factory_circuit",
+      "recipe:chisel:laboratory_checkerboard",
+      "recipe:chisel:futura_controller",
+      "recipe:chisel:antiblock_black",
+      "jarfile:chisel-26.1.2.19!META-INF/neoforge.mods.toml~modId=\"ctm\""
+    ]
+  },
+  "ctm": {
+    "cls": [
+      "library",
+      "decor"
+    ],
+    "role": "library",
+    "parent": "chisel",
+    "features": [],
+    "uk": "Бібліотека з'єднаних текстур (Connected Textures): блоки Chisel та інших модів утворюють суцільний візерунок замість сітки однакових плиток.",
+    "what": [
+      "CTM-моделі, накладки й багатоблокові візерунки для модів і ресурс-паків",
+      "Обов'язкова залежність Chisel"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:ctm-26.1.2.11!META-INF/neoforge.mods.toml~connected-texture library",
+      "jarfile:chisel-26.1.2.19!META-INF/neoforge.mods.toml~modId=\"ctm\""
+    ]
+  },
+  "framedblocks": {
+    "cls": [
+      "decor"
+    ],
+    "role": "content",
+    "features": [],
+    "uk": "Каркасні блоки різних форм — схили, вертикальні плити, чверть-блоки, піраміди тощо (231 предмет) — набувають вигляду звичайного блока-камуфляжу.",
+    "what": [
+      "Основа — каркасний куб (`framedblocks:framed_cube`: дошки + палиці); інші форми вирізають на каркасній пилці (`framing_saw`: залізо + каркасний куб) або електричній каркасній пилці (`powered_framing_saw`: + редстоун; 5000 FE, 50 FE за такт)",
+      "ПКМ блоком по каркасу — накласти камуфляж; блок-камуфляж витрачається (consumeCamoItem = true), а блоки з блок-сутністю (скрині, печі, машини) камуфляжем бути не можуть (allowBlockEntities = false)",
+      "Інструменти: каркасний молоток (`framed_hammer`), каркасний ключ (`framed_wrench`), каркасна викрутка (`framed_screwdriver`), `framed_key`, каркасне креслення (`framed_blueprint`), аплікатор камуфляжу, валик",
+      "Сяйна паста (`glow_paste`) робить каркасний блок джерелом світла 15; фантомна паста (прохідні блоки) у збірці вимкнена (enableIntangibleFeature = false)",
+      "Привиди розміщення, камуфляж у підказках Jade, рецепти камуфляжу в JEI (framedblocks-client.toml)"
+    ],
+    "stage": [
+      "s0",
+      "s1",
+      "s2",
+      "s3"
+    ],
+    "synergy": [
+      {
+        "mod": "jade",
+        "why": "Jade показує, який блок накладено як камуфляж (клас сумісності FramedBlocks; renderCamoInJade = true)",
+        "src": "FramedBlocks jar: common/compat/jade/FramedBlockComponentProvider; config/framedblocks-client.toml",
+        "ref": [
+          "config:config/framedblocks-client.toml#general.renderCamoInJade=True",
+          "jarfile:FramedBlocks-11.4.0!io/github/xfacthd/framedblocks/common/compat/jade/FramedBlockComponentProvider.class~snownee/jade/api/ITooltip"
+        ]
+      }
+    ],
+    "tips": [
+      "З каркасним блоком у руці: `Y` — перемкнути перебір станів розміщення, `Ctrl` (утримувати) — розблокувати перебір (options.txt).",
+      "У перекладі «Каркасний ключ» — і `framed_wrench`, і `framed_key`: розрізняйте їх за іконкою."
+    ],
+    "chapter": "building_tips",
+    "icons": [
+      "framedblocks:framed_cube",
+      "framedblocks:framed_blueprint",
+      "framedblocks:framing_saw",
+      "framedblocks:framed_hammer"
+    ],
+    "ref": [
+      "count:items:framedblocks=231",
+      "recipe:framedblocks:framed_cube",
+      "recipe:framedblocks:framing_saw",
+      "recipe:framedblocks:powered_framing_saw",
+      "config:config/framedblocks-server.toml#powered_framing_saw.energyCapacity=5000",
+      "config:config/framedblocks-server.toml#powered_framing_saw.consumption=50",
+      "config:config/framedblocks-server.toml#general.consumeCamoItem=True",
+      "config:config/framedblocks-server.toml#general.allowBlockEntities=False",
+      "item:framedblocks:framed_hammer",
+      "item:framedblocks:framed_wrench",
+      "item:framedblocks:framed_screwdriver",
+      "item:framedblocks:framed_key",
+      "item:framedblocks:framed_blueprint",
+      "item:framedblocks:camo_applicator",
+      "item:framedblocks:paint_roller",
+      "item:framedblocks:glow_paste",
+      "config:config/framedblocks-server.toml#general.glowstoneLightLevel=15",
+      "config:config/framedblocks-server.toml#general.enableIntangibleFeature=False",
+      "config:config/framedblocks-client.toml#general.showGhostBlocks=True",
+      "config:config/framedblocks-client.toml#general.showCamoCraftingInJei=True",
+      "file:options.txt~key_framedblocks.key.toggle_state_cycle:key.keyboard.y",
+      "file:options.txt~key_framedblocks.key.unlock_state_cycle:key.keyboard.left.control"
+    ]
+  },
+  "refurbished_furniture": {
+    "cls": [
+      "decor",
+      "farming"
+    ],
+    "role": "content",
+    "features": [],
+    "uk": "Меблі MrCrayfish нового покоління (491 предмет): кухня з робочою технікою, ванна, спальня, двір, телевізори й комп'ютери, пошта — багато меблів функціональні й живляться від власної електрики мода.",
+    "what": [
+      "Верстак (`refurbished_furniture:workbench`: дошки, дерев'яні плити, залізо, блок редстоуну, каменеріз) — у ньому виготовляються меблі (464 рецепти)",
+      "Власна електрика: генератор (`light_electricity_generator`: залізо, блок редстоуну, доменна піч) спалює паливо; ключ (`refurbished_furniture:wrench`) з'єднує генератор із приладами — до 12 зв'язків від генератора, 6 від вузла, до 64 вузлів, зона живлення радіусом 80 блоків",
+      "Кухня: холодильник, плита (успадковує рецепти багаття), мікрохвильовка, тостер, пательня, обробна дошка, мийка (3000 мБ, сама набирає воду) — піца, тости, сендвічі з сиром, джеми",
+      "Ванна (10 000 мБ), умивальник, унітаз, батут (відскок до 8 блоків), дверний дзвоник, телевізор із пультом, комп'ютер із програмою Smart Home для керування живленням",
+      "Пошта: поштові скриньки (до 16 на гравця) і поштова скриня (`post_box`) пересилають посилки іншим гравцям; предмети з власним інвентарем надсилати не можна",
+      "Смітник для переробки (`recycle_bin`) переробляє предмети й дає трохи досвіду (до 5 рівнів)"
+    ],
+    "stage": [
+      "s1",
+      "s2"
+    ],
+    "tips": [
+      "Почніть із верстака й генератора електрики, а ключем з'єднайте генератор із приладами.",
+      "Під час грози телевізор втрачає сигнал (так налаштовано в збірці)."
+    ],
+    "chapter": "building_tips",
+    "icons": [
+      "refurbished_furniture:workbench",
+      "refurbished_furniture:light_electricity_generator",
+      "refurbished_furniture:wrench",
+      "refurbished_furniture:television"
+    ],
+    "ref": [
+      "count:items:refurbished_furniture=491",
+      "recipe:refurbished_furniture:workbench",
+      "count:recipes:^refurbished_furniture:|workbench_constructing=464",
+      "recipe:refurbished_furniture:light_electricity_generator",
+      "item:refurbished_furniture:wrench",
+      "config:config/refurbished_furniture.server.toml#electricity.maximumLinksPerElectricityGenerator=12",
+      "config:config/refurbished_furniture.server.toml#electricity.maximumLinksPerElectricityNode=6",
+      "config:config/refurbished_furniture.server.toml#electricity.maximumNodesInNetwork=64",
+      "config:config/refurbished_furniture.server.toml#electricity.powerableAreaRadius=80",
+      "config:config/refurbished_furniture.server.toml#recipes.inheritCampfireRecipes=True",
+      "config:config/refurbished_furniture.server.toml#kitchenSink.fluidCapacity=3000",
+      "config:config/refurbished_furniture.server.toml#kitchenSink.dispenseWater=True",
+      "item:refurbished_furniture:light_fridge",
+      "item:refurbished_furniture:light_microwave",
+      "item:refurbished_furniture:light_toaster",
+      "item:refurbished_furniture:frying_pan",
+      "item:refurbished_furniture:oak_cutting_board",
+      "item:refurbished_furniture:cooked_vegetable_pizza",
+      "item:refurbished_furniture:cheese_sandwich",
+      "item:refurbished_furniture:sweet_berry_jam",
+      "config:config/refurbished_furniture.server.toml#bath.fluidCapacity=10000",
+      "config:config/refurbished_furniture.server.toml#trampoline.maxBounceHeight=8.0",
+      "item:refurbished_furniture:doorbell",
+      "item:refurbished_furniture:television_remote",
+      "item:refurbished_furniture:computer",
+      "lang:computer_program.refurbished_furniture.home_control",
+      "config:config/refurbished_furniture.server.toml#mailing.maxMailboxesPerPlayer=16",
+      "config:config/refurbished_furniture.server.toml#mailing.banSendingItemsWithInventories=True",
+      "item:refurbished_furniture:post_box",
+      "item:refurbished_furniture:recycle_bin",
+      "config:config/refurbished_furniture.server.toml#recycleBin.maximumExperienceLevels=5",
+      "config:config/refurbished_furniture.server.toml#television.looseSignalDuringThunderstorm=True"
+    ]
+  },
+  "framework": {
+    "cls": [
+      "library"
+    ],
+    "role": "library",
+    "parent": "refurbished_furniture",
+    "features": [],
+    "uk": "Бібліотека MrCrayfish для розробників модів — потрібна Refurbished Furniture.",
+    "what": [
+      "Обов'язкова залежність Refurbished Furniture; Configured використовує її необов'язково"
+    ],
+    "stage": [
+      "s0"
+    ],
+    "ref": [
+      "jarfile:framework-neoforge-26.1.2-0.13.23!META-INF/neoforge.mods.toml~powerful utilities for developers",
+      "jarfile:refurbished_furniture-neoforge-26.1.2-1.0.23!META-INF/neoforge.mods.toml~modId = \"framework\"",
+      "jarfile:configured-neoforge-26.1.2-2.7.5!META-INF/neoforge.mods.toml~modId = \"framework\""
+    ]
+  },
+  "luminax": {
+    "cls": [
+      "decor"
+    ],
+    "role": "content",
+    "features": [],
+    "uk": "Однотонні кольорові світні блоки без текстури — блок, плита, сходи, стіна, натискна плита й кнопка — і паличка, що змінює їм колір і вмикає світіння.",
+    "what": [
+      "Люмінаксовий блок (`luminax:luminax_block`): 4 шт. з каменю, світлокамінного пилу й білого барвника; з блоків — плити, сходи, стіни, натискна плита, з неї — кнопка",
+      "Люмінаксова паличка (`luminax:luminax_wand`): клацання по блоку гортає кольори вперед / назад",
+      "Світіння вмикається й вимикається окремо від кольору — блоки можна робити просто кольоровими"
+    ],
+    "stage": [
+      "s0",
+      "s1"
+    ],
+    "synergy": [
+      {
+        "mod": "framedblocks",
+        "why": "Люмінаксові блоки можна накладати як камуфляж на каркасні блоки — з кольором і світінням (клас сумісності Luminax для FramedBlocks)",
+        "src": "luminax jar: compat/framedblocks/LuminaxCamoContainer",
+        "ref": [
+          "jarfile:luminax!dev/satherov/luminax/compat/framedblocks/LuminaxCamoContainer.class"
+        ]
+      }
+    ],
+    "tips": [
+      "З паличкою в руці: `V` — вибір кольору з палітри, `X` — перемкнути світіння (options.txt; ті самі клавіші з предметом у руці має Crystalix — конфлікт лише можливий)."
+    ],
+    "chapter": "building_tips",
+    "icons": [
+      "luminax:luminax_block",
+      "luminax:luminax_wand"
+    ],
+    "abs_ok": "«конфлікт лише можливий» — правило путівника про клавіші «з предметом» (GUIDE_HANDOFF §3, keys.json), а не твердження про гру",
+    "ref": [
+      "recipe:luminax:luminax_block",
+      "recipe:luminax:luminax_slab",
+      "recipe:luminax:luminax_stair",
+      "recipe:luminax:luminax_wall",
+      "recipe:luminax:luminax_pressure_plate",
+      "recipe:luminax:luminax_button",
+      "recipe:luminax:luminax_wand",
+      "lang:tooltip.luminax.lmb",
+      "lang:tooltip.luminax.glowing.on",
+      "file:options.txt~key_key.luminax.open_color_picker:key.keyboard.v",
+      "file:options.txt~key_key.luminax.toggle_glowing:key.keyboard.x"
+    ]
+  },
+  "crystalix": {
+    "cls": [
+      "decor"
+    ],
+    "role": "content",
+    "features": [],
+    "uk": "Налаштовуване скло: один блок, якому жезлом задають колір, текстуру (звичайна, прозора, без плям) і властивості — без тіней, посилене, світне, прохідне, невидиме, провідник редстоуну тощо.",
+    "what": [
+      "Скло Crystalix (`crystalix:crystalix_glass`: 4 шт. зі скла й кварцу) і жезл Crystalix (`crystalix:crystalix_wand`: діамант, скло Crystalix, палиці)",
+      "Текстура: звичайна (як скло), повністю прозора, звичайна без плям; тонування — повне або ні",
+      "Властивості: без тіней, посилене (ламає його гравець, а не вибухи), світло (рівень 15 / блокує світло / світиться без реального впливу), прохідність (для гравців, тварин, монстрів…), невидимість, провідність і сигнал редстоуну, затоплюваність",
+      "Присівши — масове редагування з'єднаних блоків: до 262 144 за раз, по 256 за такт (config/crystalix)"
+    ],
+    "stage": [
+      "s1",
+      "s2"
+    ],
+    "synergy": [
+      {
+        "mod": "jade",
+        "why": "Jade показує властивості скла Crystalix — у збірці за умови, що в руці жезл (jade_mode = WAND; клас сумісності Crystalix)",
+        "src": "crystalix jar: compat/jade/CXJadePlugin; config/crystalix/crystalix-client.toml",
+        "ref": [
+          "config:config/crystalix/crystalix-client.toml#jade_mode=WAND",
+          "jarfile:crystalix!dev/satherov/crystalix/compat/jade/CXJadePlugin.class~snownee/jade/api/IWailaClientRegistration"
+        ]
+      },
+      {
+        "mod": "framedblocks",
+        "why": "Скло Crystalix можна накладати як камуфляж на каркасні блоки — з його кольором і властивостями (клас сумісності Crystalix для FramedBlocks)",
+        "src": "crystalix jar: compat/framedblocks/CrystalixGlassCamoContainer",
+        "ref": [
+          "jarfile:crystalix!dev/satherov/crystalix/compat/framedblocks/CrystalixGlassCamoContainer.class"
+        ]
+      }
+    ],
+    "tips": [
+      "З жезлом у руці: `V` — редактор жезла, `X` — взяти властивості з блока, `R` — підсвітити блоки Crystalix навколо (options.txt)."
+    ],
+    "chapter": "building_tips",
+    "icons": [
+      "crystalix:crystalix_glass",
+      "crystalix:crystalix_wand"
+    ],
+    "ref": [
+      "recipe:crystalix:crystalix_glass",
+      "recipe:crystalix:crystalix_wand",
+      "lang:tooltip.crystalix.material.normal",
+      "lang:tooltip.crystalix.material.clear",
+      "lang:tooltip.crystalix.material.bordered",
+      "lang:tooltip.crystalix.tinted.on",
+      "lang:tooltip.crystalix.shadeless.on",
+      "lang:tooltip.crystalix.reinforced.on",
+      "lang:tooltip.crystalix.light.light",
+      "lang:tooltip.crystalix.light.dark",
+      "lang:tooltip.crystalix.light.fake_light",
+      "lang:tooltip.crystalix.ghost.allow_player",
+      "lang:tooltip.crystalix.invisible.on",
+      "lang:tooltip.crystalix.conductor.on",
+      "lang:tooltip.crystalix.redstone",
+      "lang:tooltip.crystalix.waterloggable.on",
+      "lang:tooltip.crystalix.bulk",
+      "config:config/crystalix/crystalix-common.toml#max_block_edits=262144",
+      "config:config/crystalix/crystalix-common.toml#max_block_edits_per_tick=256",
+      "file:options.txt~key_key.crystalix.open_wand_editor:key.keyboard.v",
+      "file:options.txt~key_key.crystalix.pick_block:key.keyboard.x",
+      "file:options.txt~key_key.crystalix.highlight_blocks:key.keyboard.r"
+    ]
+  },
+  "camol": {
+    "cls": [
+      "decor",
+      "qol"
+    ],
+    "role": "qol",
+    "features": [],
+    "uk": "Камуфляж для вже поставлених блоків: камуфляжний блок маскує кабелі, труби чи машини під вигляд іншого блока.",
+    "what": [
+      "Камуфляжний блок (`camol:camo_item`): з червоного, зеленого, синього, чорного й білого барвників; скрафтіть його разом із блоком, вигляд якого хочете",
+      "ПКМ по блоку — замаскувати його",
+      "Звичайний камуфляж бере форму зіткнення замаскованого блока, камуфляж зі збереженням форми (`camol:solid_camo_item`) — форму блока-камуфляжу; обидва варіанти перетворюються один на одний крафтом"
+    ],
+    "stage": [
+      "s1",
+      "s2",
+      "s3"
+    ],
+    "tips": [
+      "Замаскований блок працює як оригінал — запам'ятайте, де сховали машини."
+    ],
+    "chapter": "building_tips",
+    "icons": [
+      "camol:camo_item",
+      "camol:solid_camo_item"
+    ],
+    "ref": [
+      "recipe:camol:camo_item",
+      "recipe:camol:simple_camo_item",
+      "recipe:camol:convert_normal_camo_item",
+      "recipe:camol:convert_solid_camo_item",
+      "item:camol:solid_camo_item",
+      "jarfile:camol!META-INF/neoforge.mods.toml~Camouflage blocks"
+    ]
+  },
+  "mcwbridges": {
+    "cls": [
+      "decor"
+    ],
+    "role": "content",
+    "features": [],
+    "uk": "Macaw's Bridges: мости з дерева, каменю, цегли й заліза — прольоти, опори, сходи мосту, мотузкові й рейкові мости та мостовий ліхтар (152 предмети).",
+    "what": [
+      "Прольоти мостів (`mcwbridges:iron_bridge`, кам'яні, цегляні, дерев'яні), опори (`*_bridge_pier`) і сходи мостів",
+      "Мотузкові мости (`rope_*_bridge`), рейкові мости (`*_rail_bridge`) і мостовий ліхтар (`bridge_lantern`)",
+      "Крафт на верстаті, кам'яні частини — також на каменерізі (68 рецептів)"
+    ],
+    "stage": [
+      "s0",
+      "s1"
+    ],
+    "chapter": "building_tips",
+    "icons": [
+      "mcwbridges:rope_oak_bridge",
+      "mcwbridges:iron_bridge",
+      "mcwbridges:bridge_lantern"
+    ],
+    "ref": [
+      "count:items:mcwbridges=152",
+      "item:mcwbridges:iron_bridge",
+      "item:mcwbridges:iron_bridge_pier",
+      "item:mcwbridges:acacia_rope_bridge_stair",
+      "item:mcwbridges:acacia_rail_bridge",
+      "item:mcwbridges:bridge_lantern",
+      "count:recipes:^mcwbridges:|stonecutting=68"
+    ]
+  },
+  "mcwdoors": {
+    "cls": [
+      "decor"
+    ],
+    "role": "content",
+    "features": [],
+    "uk": "Macaw's Doors: 279 дверей — сараю, японські, скляні, котеджні, модерн, лікарняні тощо — з різних порід дерева, плюс опускні решітки.",
+    "what": [
+      "Більшість стилів дверей — для порід дерева (`mcwdoors:oak_barn_door`, `oak_japanese_door`, `oak_modern_door`)",
+      "Опускні решітки — залізна (`mcwdoors:iron_portcullis`) і дерев'яна — для брами замку",
+      "Крафт на звичайному верстаті"
+    ],
+    "stage": [
+      "s0",
+      "s1"
+    ],
+    "chapter": "building_tips",
+    "icons": [
+      "mcwdoors:oak_barn_door",
+      "mcwdoors:oak_japanese_door",
+      "mcwdoors:iron_portcullis"
+    ],
+    "ref": [
+      "count:items:mcwdoors=279",
+      "item:mcwdoors:oak_barn_door",
+      "item:mcwdoors:oak_japanese_door",
+      "item:mcwdoors:oak_modern_door",
+      "item:mcwdoors:metal_hospital_door",
+      "item:mcwdoors:iron_portcullis",
+      "item:mcwdoors:wooden_portcullis",
+      "recipe:mcwdoors:oak_barn_door"
+    ]
+  },
+  "mcwfences": {
+    "cls": [
+      "decor"
+    ],
+    "role": "content",
+    "features": [],
+    "uk": "Macaw's Fences and Walls: паркани, ворота й стіни ванільного стилю (188 предметів) — живоплоти з листя, кам'яні стіни й колони, ворота з ґратами, рогатки та паркани з колючим дротом.",
+    "what": [
+      "Живоплоти з листя (`mcwfences:oak_hedge`), кам'яні стіни з травою зверху й стіни-колони",
+      "Ворота: вигнуті, з ґратами (`andesite_railing_gate`) тощо",
+      "Рогатки (`iron_cheval_de_frise`, дерев'яні) і паркани з колючим дротом (`*_wired_fence`)",
+      "Кам'яні огорожі — і на каменерізі (56 рецептів)"
+    ],
+    "stage": [
+      "s0",
+      "s1"
+    ],
+    "chapter": "building_tips",
+    "icons": [
+      "mcwfences:oak_hedge",
+      "mcwfences:iron_cheval_de_frise",
+      "mcwfences:andesite_railing_gate"
+    ],
+    "ref": [
+      "count:items:mcwfences=188",
+      "item:mcwfences:oak_hedge",
+      "item:mcwfences:andesite_grass_topped_wall",
+      "item:mcwfences:andesite_pillar_wall",
+      "item:mcwfences:acacia_curved_gate",
+      "item:mcwfences:andesite_railing_gate",
+      "item:mcwfences:iron_cheval_de_frise",
+      "item:mcwfences:wooden_cheval_de_frise",
+      "item:mcwfences:oak_wired_fence",
+      "count:recipes:^mcwfences:|stonecutting=56"
+    ]
+  },
+  "mcwfurnitures": {
+    "cls": [
+      "decor",
+      "storage"
+    ],
+    "role": "content",
+    "features": [],
+    "uk": "Macaw's Furniture: 716 меблів — стільці, столи, письмові столи, шафи, шухляди, книжкові полиці й кухонні шафки з різних порід дерева; на стільцях можна сидіти, шафи й шухляди мають власний інвентар.",
+    "what": [
+      "Стільці, столи, письмові столи (`mcwfurnitures:oak_desk`), кухонні стільниці й шафки",
+      "Шафи (`oak_wardrobe`), шухляди, книжкові полиці з шухлядами — меблі зі сховищем",
+      "Крафт на верстаті; для шаф потрібні двері шафи (`mcwfurnitures:cabinet_door`)",
+      "Варіанти зі звичайних і обтесаних колод різних порід"
+    ],
+    "stage": [
+      "s0",
+      "s1"
+    ],
+    "chapter": "building_tips",
+    "icons": [
+      "mcwfurnitures:oak_chair",
+      "mcwfurnitures:oak_desk",
+      "mcwfurnitures:oak_wardrobe"
+    ],
+    "ref": [
+      "count:items:mcwfurnitures=716",
+      "item:mcwfurnitures:oak_chair",
+      "item:mcwfurnitures:oak_desk",
+      "item:mcwfurnitures:oak_counter",
+      "item:mcwfurnitures:oak_wardrobe",
+      "item:mcwfurnitures:oak_drawer",
+      "item:mcwfurnitures:oak_bookshelf_drawer",
+      "recipe:mcwfurnitures:oak_wardrobe",
+      "item:mcwfurnitures:stripped_oak_chair",
+      "jarfile:mcw-furniture!com/mcwfurnitures/kikoz/storage/ChairEntity.class",
+      "jarfile:mcw-furniture!com/mcwfurnitures/kikoz/init/ContainerInit.class"
+    ]
+  },
+  "mcwlights": {
+    "cls": [
+      "decor"
+    ],
+    "role": "content",
+    "features": [],
+    "uk": "Macaw's Lights and Lamps: 142 джерела світла — паперові лампи, люстри, ланцюгові й дзвоникові ліхтарі, вуличні ліхтарні стовпи, тікі-смолоскипи.",
+    "what": [
+      "Паперові лампи 16 кольорів (`mcwlights:white_paper_lamp`)",
+      "Люстри (`copper_chandelier`, золоті), ланцюговий (`chain_lantern`) і дзвоникові ліхтарі (`bell_lantern`)",
+      "Вуличні ліхтарні стовпи (`classic_street_lamp`, подвійні, з вогнем душ), тікі-смолоскипи з різних порід дерева",
+      "Крафт на верстаті"
+    ],
+    "stage": [
+      "s0",
+      "s1"
+    ],
+    "chapter": "building_tips",
+    "icons": [
+      "mcwlights:classic_street_lamp",
+      "mcwlights:copper_chandelier",
+      "mcwlights:chain_lantern"
+    ],
+    "ref": [
+      "count:items:mcwlights=142",
+      "count:items:mcwlights|_paper_lamp$=16",
+      "item:mcwlights:white_paper_lamp",
+      "item:mcwlights:copper_chandelier",
+      "item:mcwlights:golden_chandelier",
+      "item:mcwlights:chain_lantern",
+      "item:mcwlights:bell_lantern",
+      "item:mcwlights:classic_street_lamp",
+      "item:mcwlights:soul_double_street_lamp",
+      "item:mcwlights:oak_tiki_torch",
+      "recipe:mcwlights:chain_lantern"
+    ]
+  },
+  "mcwpaths": {
+    "cls": [
+      "decor"
+    ],
+    "role": "content",
+    "features": [],
+    "uk": "Macaw's Paths and Pavings: 316 доріжок і бруківок — плитняк, кошикове плетіння, конюшина, ромби, соти — з каменю, цегли й дощок, у вигляді доріжок, блоків, плит і сходів.",
+    "what": [
+      "Кам'яні бруківки — на каменерізі (304 рецепти) з відповідного каменю",
+      "Дерев'яні доріжки — з плити (`mcwpaths:oak_planks_path`)"
+    ],
+    "stage": [
+      "s0",
+      "s1"
+    ],
+    "chapter": "building_tips",
+    "icons": [
+      "mcwpaths:andesite_flagstone_path",
+      "mcwpaths:oak_planks_path"
+    ],
+    "ref": [
+      "count:items:mcwpaths=316",
+      "item:mcwpaths:andesite_flagstone_path",
+      "item:mcwpaths:andesite_basket_weave_paving",
+      "item:mcwpaths:andesite_clover_paving",
+      "item:mcwpaths:andesite_diamond_paving",
+      "item:mcwpaths:andesite_honeycomb_paving",
+      "item:mcwpaths:andesite_flagstone_slab",
+      "item:mcwpaths:andesite_flagstone_stairs",
+      "count:recipes:^mcwpaths:|stonecutting=304",
+      "recipe:mcwpaths:oak_planks_path"
+    ]
+  },
+  "mcwroofs": {
+    "cls": [
+      "decor"
+    ],
+    "role": "content",
+    "features": [],
+    "uk": "Macaw's Roofs: 621 елемент даху — звичайні, круті, горищні, верхні й нижні схили, гребені — з дощок, каменю й цегли, а також ринви.",
+    "what": [
+      "Дахи різних форм із дощок (`mcwroofs:oak_planks_roof`) і з каменю (`andesite_roof`, горищні `*_attic_roof`, круті `*_steep_roof`)",
+      "Кам'яні дахи — на каменерізі (388 рецептів), дерев'яні — на верстаті",
+      "Ринви (`gutter_base*`) кількох кольорів"
+    ],
+    "stage": [
+      "s0",
+      "s1"
+    ],
+    "chapter": "building_tips",
+    "icons": [
+      "mcwroofs:oak_planks_roof",
+      "mcwroofs:andesite_roof",
+      "mcwroofs:oak_planks_steep_roof"
+    ],
+    "ref": [
+      "count:items:mcwroofs=621",
+      "item:mcwroofs:oak_planks_roof",
+      "item:mcwroofs:andesite_roof",
+      "item:mcwroofs:andesite_attic_roof",
+      "item:mcwroofs:acacia_steep_roof",
+      "item:mcwroofs:andesite_top_roof",
+      "count:recipes:^mcwroofs:|stonecutting=388",
+      "item:mcwroofs:gutter_base",
+      "item:mcwroofs:gutter_base_black"
+    ]
+  },
+  "mcwstairs": {
+    "cls": [
+      "decor"
+    ],
+    "role": "content",
+    "features": [],
+    "uk": "Macaw's Stairs and Balconies: 232 предмети — сходи (горищні, компактні, масивні, терасні тощо), поруччя, балкони й платформи з дерева й каменю.",
+    "what": [
+      "Різні форми сходів (`mcwstairs:andesite_loft_stairs`, `*_compact_stairs`, `*_bulk_stairs`, `*_terrace_stairs`), поруччя (`oak_railing`), балкони (`oak_balcony`) і платформи (`oak_platform`)",
+      "Кам'яні варіанти — на каменерізі (144 рецепти), решта — на верстаті"
+    ],
+    "stage": [
+      "s0",
+      "s1"
+    ],
+    "chapter": "building_tips",
+    "icons": [
+      "mcwstairs:oak_balcony",
+      "mcwstairs:andesite_loft_stairs",
+      "mcwstairs:oak_railing"
+    ],
+    "ref": [
+      "count:items:mcwstairs=232",
+      "item:mcwstairs:andesite_loft_stairs",
+      "item:mcwstairs:oak_compact_stairs",
+      "item:mcwstairs:oak_bulk_stairs",
+      "item:mcwstairs:oak_terrace_stairs",
+      "item:mcwstairs:oak_railing",
+      "item:mcwstairs:oak_balcony",
+      "item:mcwstairs:oak_platform",
+      "count:recipes:^mcwstairs:|stonecutting=144"
+    ]
+  },
+  "mcwtrpdoors": {
+    "cls": [
+      "decor"
+    ],
+    "role": "content",
+    "features": [],
+    "uk": "Macaw's Trapdoors: 207 люків — сараю, котеджу, скляні, бочкові, паперові тощо — з різних порід дерева.",
+    "what": [
+      "Стилі люків для порід дерева (`mcwtrpdoors:oak_barn_trapdoor`, `oak_cottage_trapdoor`, `oak_glass_trapdoor`, `oak_barrel_trapdoor`)",
+      "Крафт на верстаті"
+    ],
+    "stage": [
+      "s0",
+      "s1"
+    ],
+    "chapter": "building_tips",
+    "icons": [
+      "mcwtrpdoors:oak_barn_trapdoor",
+      "mcwtrpdoors:oak_cottage_trapdoor"
+    ],
+    "ref": [
+      "count:items:mcwtrpdoors=207",
+      "item:mcwtrpdoors:oak_barn_trapdoor",
+      "item:mcwtrpdoors:oak_cottage_trapdoor",
+      "item:mcwtrpdoors:oak_glass_trapdoor",
+      "item:mcwtrpdoors:oak_barrel_trapdoor",
+      "item:mcwtrpdoors:oak_paper_trapdoor",
+      "recipe:mcwtrpdoors:oak_barn_trapdoor"
+    ]
+  },
+  "mcwwindows": {
+    "cls": [
+      "decor"
+    ],
+    "role": "content",
+    "features": [],
+    "uk": "Macaw's Windows: 334 предмети — вікна, віконниці, жалюзі, завіси 16 кольорів, карнизи, парапети й мозаїчне скло.",
+    "what": [
+      "Вікна з дерева й каменю (`mcwwindows:andesite_window`)",
+      "Віконниці (`oak_shutter`, жалюзійні), жалюзі (`oak_blinds`), завіси (`black_curtain`) на карнизах (`oak_curtain_rod`)",
+      "Парапети з колод, дощок і каменю, мозаїчне скло й панелі",
+      "Крафт на верстаті"
+    ],
+    "stage": [
+      "s0",
+      "s1"
+    ],
+    "chapter": "building_tips",
+    "icons": [
+      "mcwwindows:andesite_window",
+      "mcwwindows:oak_blinds",
+      "mcwwindows:black_curtain"
+    ],
+    "ref": [
+      "count:items:mcwwindows=334",
+      "count:items:mcwwindows|_curtain$=16",
+      "item:mcwwindows:andesite_window",
+      "item:mcwwindows:oak_shutter",
+      "item:mcwwindows:oak_louvered_shutter",
+      "item:mcwwindows:oak_blinds",
+      "item:mcwwindows:black_curtain",
+      "item:mcwwindows:oak_curtain_rod",
+      "item:mcwwindows:oak_log_parapet",
+      "item:mcwwindows:andesite_parapet",
+      "item:mcwwindows:black_mosaic_glass",
+      "recipe:mcwwindows:oak_shutter"
+    ]
+  }
+}

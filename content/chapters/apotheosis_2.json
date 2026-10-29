@@ -1,0 +1,18 @@
+{
+ "ov": "Породжувачі мобів (Apothic Spawners): породжувач копається кайлом із Шовковим дотиком, руни породжувача змінюють його роботу (світло, гравці, ШІ, редстоун, дальність), незерський кварц у другій руці обертає дію руни; тут же породжувачі інших модів — електризований (Ender IO), соулієвий (Mystical Agriculture), реаніматор духів (EvilCraft).",
+ "ref": [
+  "quest:310969B8FE0A94DE",
+  "file:config/apotheosis/apothic_spawners.cfg~I:\"Spawner Silk Level\"=1",
+  "recipe:apotheosis:spawner_modifiers/no_ai",
+  "recipe:apotheosis:spawner_modifiers/_inverse/no_ai",
+  "quest:0F89BFD4A3F63A48",
+  "quest:30EB438C66324213",
+  "quest:0E02CE4469FCA4C9",
+  "quest:186593EBCE3FE8D8",
+  "quest:167E1474644C9908",
+  "quest:263860CADB3D76C6",
+  "quest:3F55F3CC8519D783",
+  "quest:76A3A2A97AB66C43"
+ ],
+ "_src": "квести глави, config/apotheosis/apothic_spawners.cfg, рецепти apotheosis:spawner_modifiers"
+}

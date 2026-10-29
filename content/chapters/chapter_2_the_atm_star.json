@@ -1,0 +1,14 @@
+{
+ "why": "Глава творчих предметів після ATM Star. 13 з 39 квестів — заглушки: Modern Industrialization, Actually Additions, Mekanism, PneumaticCraft — цих модів у збірці 0.12.0-beta немає. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
+ "ref": [
+  "file:config/ftbquests/quests/chapters/chapter_2_the_atm_star.json5~always_invisible: true",
+  "count:stubs:chapter_2_the_atm_star=13",
+  "count:qall:chapter_2_the_atm_star=39",
+  "count:items:modern_industrialization=0",
+  "count:items:actuallyadditions=0",
+  "count:items:mekanism=0",
+  "count:items:pneumaticcraft=0",
+  "file:config/ftbquests/quests/lang/en_us/chapter.json5~\"chapter.792AD692F1468B1F.title\": \"&aChapter 4&r: &dCreative\""
+ ],
+ "_src": "config/ftbquests/quests/chapters/<глава>.json5 (always_invisible), docs/data/quests (missing), реєстр предметів, KubeJS"
+}

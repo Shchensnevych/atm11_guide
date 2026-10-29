@@ -1,0 +1,12 @@
+{
+ "ov": "Ресурсні бджоли: гнізда у світі, вулики, центрифуги для стільників, схрещування й генетика в камері розведення. Бджоли модів, яких у збірці немає, не з'являються. 256 квестів — найбільша глава книги: від перших гнізд до усемодієвої, вібранієвої й унобтанієвої бджіл.",
+ "ref": [
+  "item:productivebees:advanced_oak_beehive",
+  "item:productivebees:centrifuge",
+  "item:productivebees:breeding_chamber",
+  "item:productivebees:gene",
+  "quest:5A9B2246E33065A5",
+  "count:qall:productive_bees=256"
+ ],
+ "_src": "реєстр productivebees, квести глави (count:qall — 256; більше квестів немає в жодній главі, перевірено перерахунком усіх 68)"
+}

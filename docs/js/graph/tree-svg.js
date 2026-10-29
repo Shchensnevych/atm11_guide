@@ -4,9 +4,9 @@
 
 const NS = 'http://www.w3.org/2000/svg';
 export const EDGE_KIND = {
-  req: { title: 'потрібно для', color: '#9fb0c6', dash: '' },
-  syn: { title: 'синергія (разом краще)', color: '#facc15', dash: '7 5' },
-  opt: { title: 'варіант / за бажанням', color: '#7c8aa0', dash: '2 5' },
+  req: { title: 'потрібно для', color: 'var(--e-req)', dash: '' },            // кольори — токени tokens.css (обидві теми)
+  syn: { title: 'синергія (разом краще)', color: 'var(--e-syn)', dash: '7 5' },
+  opt: { title: 'варіант / за бажанням', color: 'var(--e-opt)', dash: '2 5' },
 };
 
 /** @param {string} tag @param {Record<string, any>} [attrs] */
@@ -37,7 +37,7 @@ export function drawEdges(w, hgt, edges) {
   const defs = el('defs'); svg.append(defs);
   for (const [k, v] of Object.entries(EDGE_KIND)) {
     const m = el('marker', { id: `arr-${k}`, viewBox: '0 0 10 10', refX: 8.5, refY: 5, markerWidth: 7, markerHeight: 7, orient: 'auto-start-reverse', markerUnits: 'userSpaceOnUse' });
-    m.append(el('path', { d: 'M0,0 L10,5 L0,10 z', fill: v.color })); defs.append(m);
+    m.append(el('path', { d: 'M0,0 L10,5 L0,10 z', style: `fill: ${v.color}` })); defs.append(m);
   }
   /** @type {Map<string, SVGGElement>} */
   const byId = new Map();
@@ -49,9 +49,10 @@ export function drawEdges(w, hgt, edges) {
     const len = Math.hypot(last.x - prev.x, last.y - prev.y) || 1;                      // кінець лінії — до вістря стрілки (порт лишається видно)
     pts[pts.length - 1] = { x: last.x - (last.x - prev.x) / len * 5, y: last.y - (last.y - prev.y) / len * 5 };
     const d = roundedPath(pts, e.r || 14);
-    g.append(el('path', { class: 'e-glow', d }), el('path', { class: 'e-line', d, stroke: k.color, 'stroke-dasharray': k.dash || null, 'marker-end': `url(#arr-${e.kind})` }));
-    g.append(el('circle', { class: 'port', cx: e.points[0].x, cy: e.points[0].y, r: 4, fill: k.color }));
-    g.append(el('circle', { class: 'port', cx: last.x, cy: last.y, r: 3.2, fill: '#0b0f14', stroke: k.color, 'stroke-width': 2 }));
+    g.append(el('path', { class: 'e-glow', d }), el('path', { class: 'e-line', d, style: `stroke: ${k.color}`, 'stroke-dasharray': k.dash || null, 'marker-end': `url(#arr-${e.kind})` }));
+    const tip = el('title'); tip.textContent = `${k.title}${e.label ? ` · ${e.label}` : ''}${e.src ? `\nДжерело: ${e.src}` : ''}`; g.append(tip);
+    g.append(el('circle', { class: 'port', cx: e.points[0].x, cy: e.points[0].y, r: 4, style: `fill: ${k.color}` }));
+    g.append(el('circle', { class: 'port port-target', cx: last.x, cy: last.y, r: 3.2, style: `fill: var(--e-port); stroke: ${k.color}`, 'stroke-width': 2 }));
     if (e.label && e.labelPos) {
       const L = e.labelPos;
       g.append(el('rect', { class: 'e-label-bg', x: L.x, y: L.y, width: L.w, height: L.h, rx: 4 }));

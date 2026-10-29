@@ -1,3 +1,4 @@
+2 key.keyboard.o: iris:game Екран вибору пакету шейдерів | journeymap:gui Диспетчер налаштувань | inventoryhud:game Відкрити налаштування
 1 key.keyboard.space: minecraft:game Стрибок | ftbquests:gui Центрувати інтерфейс | starcatcher:game Удар у мінігрі | stellaris:vehicle Запустити ракету
 1 key.keyboard.tab: minecraft:game Список гравців | integratedterminals:gui Наступна вкладка термінала | refinedstorage:gui Фокус на рядок пошуку | craftingtweaks:gui Поповнити останнє | craftingtweaks:gui Поповнити останнє (Стос) | ftbquests:gui Наступний розділ | starcatcher:game Перемкнути накладання турніру
 1 key.keyboard.f: minecraft:game Поміняти місцями предмети в руках | journeymap:gui Стежити за гравцем | thaumaturge:held Змінити фокус жезла
@@ -17,6 +18,7 @@
 1 key.keyboard.f7: iceandfire:vehicle Камера дракона від третьої особи | moreoverlays:game Перемкнути накладку освітлення
 1 key.keyboard.n: railcraft:vehicle Змінити напрямок локомотива | occultism:held Відкрити медіум сховища | journeymap:gui Диспетчер маршрутних точок | thaumaturge:game Відкрити Thaumonomicon
 1 key.keyboard.down: railcraft:vehicle Спати у вагонетці з ліжком | ftbquests:gui Перемістити вибір / прокрутити вниз | ftbultimine:game* Попередня форма | journeymap:gui Зсунути на південь (16 блоків) | mahoutsukai:held Nobu Guns Down | jei:gui* Наступний пошук
+1 key.keyboard.k|C: modernui:game Відкрити Центр дій | apotheosis:held Перемкнути бонуси атрибутів чобіт
 1 key.keyboard.equal: ftbquests:gui Наблизити | journeymap:game Збільшити | ftbchunks:game Наблизити мінімапу
 1 key.keyboard.minus: ftbquests:gui Віддалити | journeymap:game Зменшити | ftbchunks:game Віддалити мінімапу
 1 key.keyboard.u: hostilenetworks:held Відкрити глибинного учня (Curio) | buildinggadgets2:held Скасувати | jei:gui Показати використання

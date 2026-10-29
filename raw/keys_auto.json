@@ -1350,16 +1350,6 @@
   "combo": "X"
  },
  {
-  "id": "key.crystalix.open_wand_editor",
-  "bind": "key.keyboard.v",
-  "mod": "",
-  "ns": "crystalix",
-  "en": "Open Wand Editor",
-  "uk": "Відкрити редактор жезла",
-  "key": "V",
-  "combo": "V"
- },
- {
   "id": "key.crystalix.highlight_blocks",
   "bind": "key.keyboard.r",
   "mod": "",
@@ -1370,12 +1360,12 @@
   "combo": "R"
  },
  {
-  "id": "key.luminax.open_color_picker",
+  "id": "key.crystalix.open_wand_editor",
   "bind": "key.keyboard.v",
   "mod": "",
-  "ns": "luminax",
-  "en": "Open Color Picker",
-  "uk": "Відкрити вибір кольору",
+  "ns": "crystalix",
+  "en": "Open Wand Editor",
+  "uk": "Відкрити редактор жезла",
   "key": "V",
   "combo": "V"
  },
@@ -1388,6 +1378,16 @@
   "uk": "Перемкнути світіння",
   "key": "X",
   "combo": "X"
+ },
+ {
+  "id": "key.luminax.open_color_picker",
+  "bind": "key.keyboard.v",
+  "mod": "",
+  "ns": "luminax",
+  "en": "Open Color Picker",
+  "uk": "Відкрити вибір кольору",
+  "key": "V",
+  "combo": "V"
  },
  {
   "id": "key.neovitae.edit_hud",
@@ -1721,13 +1721,13 @@
  },
  {
   "id": "key.modernui.openCenter",
-  "bind": "key.keyboard.insert",
-  "mod": "SHIFT",
+  "bind": "key.keyboard.k",
+  "mod": "CONTROL_OR_COMMAND",
   "ns": "modernui",
   "en": "Open Action Center",
   "uk": "Відкрити Центр дій",
-  "key": "Insert",
-  "combo": "Shift+Insert"
+  "key": "K",
+  "combo": "Ctrl+K"
  },
  {
   "id": "key.modernui.zoom",
@@ -2240,6 +2240,26 @@
   "combo": ""
  },
  {
+  "id": "key.sophisticatedbackpacks.toggle_upgrade_2",
+  "bind": "key.keyboard.x",
+  "mod": "ALT",
+  "ns": "sophisticatedbackpacks",
+  "en": "Switch Upgrade in the 2nd Slot On/Off",
+  "uk": "Увімкнути/вимкнути покращення в 2-му слоті",
+  "key": "X",
+  "combo": "Alt+X"
+ },
+ {
+  "id": "key.sophisticatedbackpacks.toggle_upgrade_3",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "sophisticatedbackpacks",
+  "en": "Switch Upgrade in the 3rd Slot On/Off",
+  "uk": "Увімкнути/вимкнути покращення в 3-му слоті",
+  "key": "",
+  "combo": ""
+ },
+ {
   "id": "key.sophisticatedbackpacks.toggle_upgrade_4",
   "bind": "key.keyboard.unknown",
   "mod": "",
@@ -2268,26 +2288,6 @@
   "uk": "Увімкнути/вимкнути покращення в 1-му слоті",
   "key": "Z",
   "combo": "Alt+Z"
- },
- {
-  "id": "key.sophisticatedbackpacks.toggle_upgrade_2",
-  "bind": "key.keyboard.x",
-  "mod": "ALT",
-  "ns": "sophisticatedbackpacks",
-  "en": "Switch Upgrade in the 2nd Slot On/Off",
-  "uk": "Увімкнути/вимкнути покращення в 2-му слоті",
-  "key": "X",
-  "combo": "Alt+X"
- },
- {
-  "id": "key.sophisticatedbackpacks.toggle_upgrade_3",
-  "bind": "key.keyboard.unknown",
-  "mod": "",
-  "ns": "sophisticatedbackpacks",
-  "en": "Switch Upgrade in the 3rd Slot On/Off",
-  "uk": "Увімкнути/вимкнути покращення в 3-му слоті",
-  "key": "",
-  "combo": ""
  },
  {
   "id": "key.ftbteams.open_gui",
@@ -3681,13 +3681,13 @@
  },
  {
   "id": "key.inventoryhud.openconfig",
-  "bind": "key.keyboard.home",
-  "mod": "CONTROL",
+  "bind": "key.keyboard.o",
+  "mod": "",
   "ns": "inventoryhud",
   "en": "Open config",
   "uk": "Відкрити налаштування",
-  "key": "Home",
-  "combo": "Ctrl+Home"
+  "key": "O",
+  "combo": "O"
  },
  {
   "id": "key.inventoryhud.togglepot",

@@ -12,8 +12,9 @@ import { computeStates, lineage } from './tree-state.js';
 import { layoutTree } from './elk-layout.js';
 import { layoutConstellations } from './constellation.js';
 import { drawEdges, EDGE_KIND } from './tree-svg.js';
+import { cssVar } from '../core/theme.js';
 import { drawBands } from './stage-bands.js';
-import { drawHubs } from './hubs.js';
+import { drawHubs, setHubProgress } from './hubs.js';
 
 const HOVER_IN = 110, HOVER_OUT = 170;   // мс: затримка наведення (без блимання між картками)
 
@@ -39,11 +40,16 @@ export async function createTreeView(host, s, o = {}) {
   const nodes = s.roadmap.nodes, edges = s.roadmap.edges;
   const vp = h(`div.tv.mode-${mode}`); const stage = h('div.tv-stage'); vp.append(stage, h('div.tv-loading', null, 'Розкладаю карту…'));
   host.replaceChildren(vp);
-  const L = mode === 'mods' ? await layoutConstellations(nodes, edges, s.roadmap.groups || [], o.elk) : await layoutTree(nodes, edges, s.stages, { elk: o.elk });
+  const L = mode === 'mods' ? await layoutConstellations(nodes, edges, s.roadmap.groups || [], o.elk, {
+    expand: o.expand, icons: (id) => (s.modById.get(id)?.icons || []).filter((x) => s.items[x]), modName: (id) => s.modById.get(id)?.name || id })
+    : await layoutTree(nodes, edges, s.stages, { elk: o.elk });
+  /** Віхи сузір'я (хаба) gid: за променями розкладки; стиснутий хаб — уся група. @param {string} gid */
+  const members = (gid) => { const sp = (L.spokes || []).filter((x) => x.group === gid).map((x) => x.id);
+    return sp.length ? sp : nodes.filter((n) => (n.group || n.lane) === gid).map((n) => n.id); };
   vp.querySelector('.tv-loading')?.remove();
   stage.style.width = `${L.width}px`; stage.style.height = `${L.height}px`;
   const bands = mode === 'tree' ? drawBands(stage, vp, L, s.stageById, 'rail', (id) => api.focusStage(id)) : null;
-  const deco = mode === 'mods' ? drawHubs(stage, L, s, (gid) => api.filterGroup(gid)) : null;
+  const deco = mode === 'mods' ? drawHubs(stage, L, s, (gid) => api.filterGroup(gid), o.onExpand) : null;
   const { svg, byId } = drawEdges(L.width, L.height, L.edges); stage.append(svg);
   /** ребро вузлів «from>to» → SVG-елементи (у «За модами» між групами — зведена лінія) @type {Map<string, Element[]>} */
   const edgeEls = new Map();
@@ -70,8 +76,8 @@ export async function createTreeView(host, s, o = {}) {
     const lit = new Set(edges.filter((e) => isDone(e.from)).flatMap(els));
     for (const g of byId.values()) g.classList.toggle('lit', lit.has(g));
     deco?.hubEls.forEach((el, gid) => {
-      const ids = nodes.filter((n) => (n.group || n.lane) === gid).map((n) => n.id);
-      /** @type {HTMLElement} */ (el.querySelector('.hub-n')).textContent = `зроблено ${ids.filter(isDone).length} / ${ids.length}`;
+      const ids = members(gid);
+      setHubProgress(el, ids.filter(isDone).length, ids.length);
     });
     mm?.draw();
   };
@@ -104,8 +110,9 @@ export async function createTreeView(host, s, o = {}) {
 
   const pz = createPanZoom(vp, stage, { onChange: (t) => { bands?.update(t); mm?.draw(); o.onTransform?.(t); } });
   const mm = createMinimap(vp, { w: L.width, h: L.height, bands: L.bands,
-    nodes: () => nodes.filter((n) => L.pos.has(n.id)).map((n) => { const st = states.get(n.id);
-      return { ...L.pos.get(n.id), state: st, color: st === 'done' ? '#4ade80' : n.trunk ? '#facc15' : s.classById.get(n.lane)?.color || '#888' }; }) }, pz, vp);
+    nodes: () => { const cDone = cssVar('--mm-done'), cTrunk = cssVar('--trunk');            // токени теми — мінікарта перемальовується на 'themechange'
+      return nodes.filter((n) => L.pos.has(n.id)).map((n) => { const st = states.get(n.id);
+        return { ...L.pos.get(n.id), state: st, color: st === 'done' ? cDone : n.trunk ? cTrunk : s.classById.get(n.lane)?.color || '#888' }; }); } }, pz, vp);
   const hidden = new Set(o.hiddenEdges || []);
   for (const k of hidden) vp.classList.add(`hide-${k}`);
   // легенда: типи ліній (клік — сховати), стани, піктограми можливостей. За замовчуванням — у панелі над картою (o.legendHost)
@@ -117,18 +124,19 @@ export async function createTreeView(host, s, o = {}) {
         it.classList.toggle('off', hidden.has(k));
         o.onHiddenChange?.([...hidden]);
       } },
-        h('span', { html: `<svg width="26" height="8"><line x1="1" y1="4" x2="25" y2="4" stroke="${v.color}" stroke-width="2.4" stroke-dasharray="${v.dash}"/></svg>` }), v.title);
+        h('span', { html: `<svg width="26" height="8"><line x1="1" y1="4" x2="25" y2="4" style="stroke:${v.color}" stroke-width="2.4" stroke-dasharray="${v.dash}"/></svg>` }), v.title);
       return it;
     }),
-    h('span.lg-sep'), h('span.lg-h', null, 'Стани:'), h('span', null, '✔ зроблено · ! доступно · 🔒 ще ні · ★ для ATM Star'),
-    h('span.lg-sep'), h('span.lg-h', null, 'На картках:'), featLegend(o.onFeat, o.selectedFeat));
+    h('span.lg-sep'), h('span.lg-h', null, 'Стани:'), h('span', null, '✔ зроблено · ! доступно · 🔒 ще ні · ∅ недоступно'),
+    ...(o.hideFeatLegend ? [] : [h('span.lg-sep'), h('span.lg-h', null, 'На картках:'), featLegend(o.onFeat, o.selectedFeat)]));
   if (o.legendHost) mount(o.legendHost, legend);
   vp.append(
     h('div.tv-ctrl.no-pan', null,
       h('button.btn', { title: 'Наблизити', onclick: () => pz.zoomBy(1.25) }, '+'),
       h('button.btn', { title: 'Віддалити', onclick: () => pz.zoomBy(0.8) }, '−'),
-      h('button.btn', { title: 'Уся карта', onclick: () => pz.fit(L.width, L.height) }, '⤢')),
-    o.legendHost ? null : legend);
+      h('button.btn', { title: 'Уся карта', onclick: () => pz.fit(L.width, L.height) }, '⤢'),
+      L.expanded && o.onExpand ? h('button.btn', { title: 'Згорнути: усі сузір\'я', onclick: () => o.onExpand?.('') }, '↩') : null),
+    ...(o.legendHost ? [] : [legend]));                                   // null у append() дав текст «null» на полотні
   const boxOf = (ids) => {
     const ps = ids.map((i) => L.pos.get(i)).filter(Boolean); if (!ps.length) return null;
     const x0 = Math.min(...ps.map((p) => p.x)), y0 = Math.min(...ps.map((p) => p.y));
@@ -161,7 +169,7 @@ export async function createTreeView(host, s, o = {}) {
     /** Підсвітити віхи мода (або '' — скинути). @param {string} modId @param {boolean} [keepTransform] */
     filterMod(modId, keepTransform = false) { focus(modId ? nodes.filter((n) => (n.mods || []).includes(modId)).map((n) => n.id) : null, keepTransform); },
     /** @param {string} gid @param {boolean} [keepTransform] */
-    filterGroup(gid, keepTransform = false) { focus(nodes.filter((n) => (n.group || n.lane) === gid).map((n) => n.id), keepTransform); },
+    filterGroup(gid, keepTransform = false) { focus(members(gid).filter((id) => L.pos.has(id)), keepTransform); },
     clearFilter() { focusSet = null; select(''); },
     /** Підсвітити набір віх без зміни масштабу (фільтри класів / можливостей); null — скинути. @param {string[] | null} ids */
     highlight(ids) { focusSet = ids ? new Set(ids) : null; paint(sel); },

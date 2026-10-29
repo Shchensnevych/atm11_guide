@@ -1,0 +1,13 @@
+{
+ "ov": "Техно-магія крові: темні самоцвіти, екстрактор крові, кривавий насичувач з обітницями (рівні I–III), піч духів. Довідник — «Витоки темряви».",
+ "ref": [
+  "item:evilcraft:dark_gem",
+  "item:evilcraft:blood_extractor",
+  "item:evilcraft:blood_infuser",
+  "item:evilcraft:promise_tier_1",
+  "item:evilcraft:promise_tier_3",
+  "item:evilcraft:spirit_furnace",
+  "item:evilcraft:origins_of_darkness"
+ ],
+ "_src": "реєстр evilcraft, опис мода в довіднику"
+}

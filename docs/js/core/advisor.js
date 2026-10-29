@@ -13,20 +13,17 @@ const WORLD_TIERS_UK = /** @type {Record<string, string>} */ ({
   pinnacle: 'Пік (V)',
 });
 
+// Ванільні виміри; модові додаються з даних путівника (mods.json → dims) на початку analyzePlayerState
 const DIMS_UK = /** @type {Record<string, string>} */ ({
   'minecraft:overworld': 'Верхній світ',
   'minecraft:the_nether': 'Незер',
   'minecraft:the_end': 'Енд',
-  'allthemodium:mining': 'Гірничий вимір ATM',
-  'allthemodium:the_other': 'Інший бік (The Other)',
-  'allthemodium:the_beyond': 'Потойбіччя (The Beyond)',
-  'aether:the_aether': 'Ефір (Aether II)',
-  'undergarden:undergarden': 'Підземний сад (Undergarden)',
 });
 
 /** Аналізує поточний сейв і дорожню карту, повертаючи пріоритетні наступні кроки, незавершені квести й поради.
  * @param {Store} s */
 export async function analyzePlayerState(s) {
+  for (const m of s.mods || []) for (const d of m.dims || []) if (d.id && d.name && !DIMS_UK[d.id]) DIMS_UK[d.id] = d.name;
   const p = s.progress;
   const nodes = s.roadmap.nodes || [];
   const edges = s.roadmap.edges || [];
@@ -53,7 +50,7 @@ export async function analyzePlayerState(s) {
     };
     if (st === 'done') doneNodes.push(info);
     else if (st === 'avail') availNodes.push(info);
-    else lockedNodes.push(info);
+    else if (st !== 'na') lockedNodes.push(info);                     // na — «у цій версії недоступно», не радимо
   }
 
   // 1. Головний шлях (стовбур): наступна доступна або перша невиконана віха стовбура
@@ -155,9 +152,9 @@ export async function analyzePlayerState(s) {
     tips.push({
       icon: '🥕',
       title: `Різноманітне харчування (скуштовано страв: ${foods})`,
-      text: 'Мод Spice of Life: Carrot Edition дає додаткові постійні серця здоров’я за куштування нових видів їжі. Поєднуйте грядки Productive Farming з кухнею Cooking for Blockheads.',
-      link: '#/roadmap?node=fa_food',
-      linkText: 'Віха «Їжа і здоров’я» →',
+      text: 'Мод Spice of Life: Carrot Edition дає додаткові постійні серця здоров’я за куштування нових видів їжі.',
+      link: '#/roadmap?node=f_food',
+      linkText: 'Віха «Фермерство й їжа» →',
     });
   }
 

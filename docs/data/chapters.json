@@ -59,8 +59,8 @@
    "title": "Розділ 1: Новий початок",
    "icon": "minecraft:crafting_table",
    "quests": 47,
+   "service": 1,
    "mods": [
-    "ftbfiltersystem",
     "naturescompass",
     "sophisticatedbackpacks",
     "artifacts",
@@ -76,9 +76,9 @@
    "title": "Розділ 2: Усемодій",
    "icon": "allthemodium:allthemodium_ingot",
    "quests": 28,
+   "service": 1,
    "mods": [
     "allthemodium",
-    "ftbfiltersystem",
     "quarryplus"
    ]
   },
@@ -91,13 +91,14 @@
    "icon": "allthetweaks:atm_star",
    "quests": 128,
    "hidden": true,
+   "service": 2,
    "mods": [
-    "ftbquests",
     "forbidden_arcanus",
     "allthecompressed",
     "mysticalagradditions",
     "evilcraft",
-    "mysticalagriculture"
+    "mysticalagriculture",
+    "ae2"
    ],
    "missing": [
     "modern_industrialization",
@@ -116,13 +117,15 @@
    "icon": "modularrouters:creative_module",
    "quests": 39,
    "hidden": true,
+   "service": 2,
    "mods": [
     "forbidden_arcanus",
-    "ftbquests",
     "kubejs",
     "powah",
     "ironjetpacks",
-    "integrateddynamics"
+    "integrateddynamics",
+    "ae2",
+    "railcraft"
    ],
    "missing": [
     "modern_industrialization",
@@ -138,9 +141,9 @@
    "title": "Спорядження Apotheosis",
    "icon": "apotheosis:godforged_pearl",
    "quests": 30,
+   "service": 1,
    "mods": [
     "apotheosis",
-    "ftbfiltersystem",
     "gateways"
    ]
   },
@@ -152,6 +155,7 @@
    "title": "Артефакти",
    "icon": "artifacts:umbrella",
    "quests": 50,
+   "service": 1,
    "mods": [
     "artifacts"
    ]
@@ -165,14 +169,15 @@
    "icon": "minecraft:diamond_chestplate",
    "quests": 129,
    "hidden": true,
+   "service": 2,
    "mods": [
-    "ftbquests",
     "mysticalagriculture",
     "undergarden",
     "allthemodium",
     "justdirethings",
     "rootsclassic",
-    "aquaculture"
+    "aquaculture",
+    "advanced_ae"
    ],
    "missing": [
     "irons_spellbooks",
@@ -190,14 +195,15 @@
    "icon": "minecraft:diamond_pickaxe",
    "quests": 78,
    "hidden": true,
+   "service": 2,
    "mods": [
-    "ftbfiltersystem",
-    "ftbquests",
     "mysticalagriculture",
     "allthemodium",
     "justdirethings",
     "ae2",
-    "undergarden"
+    "undergarden",
+    "aquaculture",
+    "evilcraft"
    ],
    "missing": [
     "mekanismtools",
@@ -224,12 +230,10 @@
    "group": "15E5B587D291A4AA",
    "order": 5,
    "title": "Реліквії",
-   "icon": "ftbquests:custom_icon",
+   "icon": "ftbtex:relics/textures/item/kinetic_belt_flawless",
    "quests": 23,
    "hidden": true,
-   "mods": [
-    "ftbquests"
-   ],
+   "service": 2,
    "missing": [
     "relics"
    ]
@@ -243,11 +247,11 @@
    "sub": "Та Productive Metalworks",
    "icon": "silentgear:pickaxe_blueprint",
    "quests": 69,
+   "service": 1,
    "mods": [
     "sgearmetalworks",
     "silentgear",
-    "productivemetalworks",
-    "ftbfiltersystem"
+    "productivemetalworks"
    ]
   },
   {
@@ -257,10 +261,10 @@
    "title": "Базове зберігання",
    "icon": "minecraft:chest",
    "quests": 89,
+   "service": 1,
    "mods": [
     "sophisticatedbackpacks",
     "functionalstorage",
-    "ftbfiltersystem",
     "sophisticatedstorage",
     "trashcans",
     "dimstorage"
@@ -272,12 +276,11 @@
    "group": "1AC60211DE7427FC",
    "order": 1,
    "title": "Applied Energistics 2",
-   "icon": "ftbquests:custom_icon",
+   "icon": "ftbtex:ae2/textures/block/controller_lights",
    "quests": 75,
+   "service": 2,
    "mods": [
     "ae2",
-    "ftbfiltersystem",
-    "ftbquests",
     "aeinfinitybooster",
     "ae2wtlib",
     "occultism"
@@ -294,10 +297,10 @@
    "title": "Extended & Advanced AE",
    "icon": "advanced_ae:shattered_singularity",
    "quests": 56,
+   "service": 1,
    "mods": [
     "advanced_ae",
     "extendedae",
-    "ftbfiltersystem",
     "ae2"
    ]
   },
@@ -309,12 +312,12 @@
    "title": "Refined Storage",
    "icon": "refinedstorage:creative_controller",
    "quests": 72,
+   "service": 1,
    "mods": [
     "refinedstorage",
     "cabletiers",
     "extradisks",
     "refinedstorage_quartz_arsenal",
-    "ftbfiltersystem",
     "interdimensionalwirelesstransmitter",
     "refinedtypes",
     "universalgrid"
@@ -328,11 +331,11 @@
    "sub": "Та LaserIO",
    "icon": "pipez:wrench",
    "quests": 33,
+   "service": 2,
    "mods": [
     "laserio",
     "pipez",
     "integratedtunnels",
-    "ftbfiltersystem",
     "integrateddynamics"
    ]
   },
@@ -357,9 +360,9 @@
    "title": "Integrated Dynamics",
    "icon": "integrateddynamics:crystalized_menril_chunk",
    "quests": 28,
+   "service": 1,
    "mods": [
     "integrateddynamics",
-    "ftbfiltersystem",
     "integratedcrafting",
     "integratedterminals",
     "mysticalagriculture",
@@ -374,9 +377,9 @@
    "title": "Modular Routers",
    "icon": "modularrouters:modular_router",
    "quests": 55,
+   "service": 1,
    "mods": [
-    "modularrouters",
-    "ftbfiltersystem"
+    "modularrouters"
    ]
   },
   {
@@ -387,9 +390,9 @@
    "title": "Pylons",
    "icon": "pylons:infusion_pylon",
    "quests": 13,
+   "service": 1,
    "mods": [
-    "pylons",
-    "ftbfiltersystem"
+    "pylons"
    ]
   },
   {
@@ -400,10 +403,9 @@
    "sub": "Та інші породжувачі",
    "icon": "minecraft:spawner",
    "quests": 35,
+   "service": 7,
    "mods": [
     "apotheosis",
-    "ftbquests",
-    "ftbfiltersystem",
     "evilcraft",
     "enderio",
     "mysticalagriculture",
@@ -424,9 +426,9 @@
    "title": "Food and Farming",
    "icon": "minecraft:cake",
    "quests": 35,
+   "service": 1,
    "mods": [
     "cookingforblockheads",
-    "ftbfiltersystem",
     "aquaculture",
     "silentgear",
     "farmingforblockheads"
@@ -441,9 +443,9 @@
    "icon": "hostilenetworks:data_model",
    "quests": 50,
    "hidden": true,
+   "service": 2,
    "mods": [
-    "hostilenetworks",
-    "ftbquests"
+    "hostilenetworks"
    ]
   },
   {
@@ -454,10 +456,10 @@
    "title": "Mystical Agriculture",
    "icon": "mysticalagradditions:insanium_essence",
    "quests": 168,
+   "service": 1,
    "mods": [
     "mysticalagriculture",
     "mysticalagradditions",
-    "ftbfiltersystem",
     "kubejs",
     "productivebees"
    ]
@@ -470,10 +472,10 @@
    "title": "Productive Bees",
    "icon": "minecraft:honeycomb",
    "quests": 256,
+   "service": 2,
    "mods": [
     "productivebees",
-    "productivelib",
-    "ftbfiltersystem"
+    "productivelib"
    ]
   },
   {
@@ -485,8 +487,7 @@
    "icon": "productivefarming:feeding_trough",
    "quests": 185,
    "mods": [
-    "productivefarming",
-    "ftbfiltersystem"
+    "productivefarming"
    ]
   },
   {
@@ -497,9 +498,9 @@
    "title": "Productive Trees",
    "icon": "minecraft:oak_sapling",
    "quests": 167,
+   "service": 1,
    "mods": [
-    "productivetrees",
-    "ftbfiltersystem"
+    "productivetrees"
    ]
   },
   {
@@ -510,10 +511,7 @@
    "icon": "ftbquests:missing_item",
    "quests": 91,
    "hidden": true,
-   "mods": [
-    "ftbquests",
-    "ftbfiltersystem"
-   ],
+   "service": 1,
    "missing": [
     "create"
    ]
@@ -527,10 +525,9 @@
    "icon": "ftbquests:missing_item",
    "quests": 141,
    "hidden": true,
+   "service": 2,
    "mods": [
-    "ftbquests",
-    "draconicevolution",
-    "ftbfiltersystem"
+    "draconicevolution"
    ],
    "missing": [
     "draconicevolution"
@@ -545,9 +542,8 @@
    "icon": "ftbquests:missing_item",
    "quests": 128,
    "hidden": true,
+   "service": 2,
    "mods": [
-    "ftbquests",
-    "ftbfiltersystem",
     "alltheores",
     "immersiveengineering"
    ],
@@ -564,9 +560,8 @@
    "icon": "ftbquests:missing_item",
    "quests": 79,
    "hidden": true,
+   "service": 2,
    "mods": [
-    "ftbquests",
-    "ftbfiltersystem",
     "ae2",
     "advanced_ae"
    ],
@@ -583,9 +578,9 @@
    "title": "Just Dire Things",
    "icon": "justdirethings:fuel_canister",
    "quests": 154,
+   "service": 1,
    "mods": [
-    "justdirethings",
-    "ftbfiltersystem"
+    "justdirethings"
    ]
   },
   {
@@ -597,9 +592,8 @@
    "icon": "ftbquests:missing_item",
    "quests": 91,
    "hidden": true,
+   "service": 2,
    "mods": [
-    "ftbquests",
-    "ftbfiltersystem",
     "alltheores"
    ],
    "missing": [
@@ -616,9 +610,8 @@
    "icon": "ftbquests:missing_item",
    "quests": 95,
    "hidden": true,
+   "service": 3,
    "mods": [
-    "ftbquests",
-    "ftbfiltersystem",
     "alltheores",
     "cookingforblockheads",
     "trashcans"
@@ -639,7 +632,6 @@
    "quests": 56,
    "mods": [
     "oritech",
-    "ftbfiltersystem",
     "alltheores"
    ]
   },
@@ -652,10 +644,7 @@
    "icon": "ftbquests:missing_item",
    "quests": 128,
    "hidden": true,
-   "mods": [
-    "ftbquests",
-    "ftbfiltersystem"
-   ],
+   "service": 3,
    "missing": [
     "pneumaticcraft"
    ]
@@ -668,9 +657,9 @@
    "title": "RailCraft",
    "icon": "railcraft:steam_locomotive",
    "quests": 52,
+   "service": 1,
    "mods": [
-    "railcraft",
-    "ftbfiltersystem"
+    "railcraft"
    ]
   },
   {
@@ -682,8 +671,7 @@
    "icon": "enderio:alloy_smelter",
    "quests": 35,
    "mods": [
-    "enderio",
-    "ftbfiltersystem"
+    "enderio"
    ]
   },
   {
@@ -695,10 +683,7 @@
    "icon": "ftbquests:missing_item",
    "quests": 28,
    "hidden": true,
-   "mods": [
-    "ftbquests",
-    "ftbfiltersystem"
-   ],
+   "service": 2,
    "missing": [
     "xycraft_machines",
     "xycraft_world"
@@ -712,10 +697,9 @@
    "icon": "alltheores:bronze_ingot",
    "quests": 31,
    "hidden": true,
+   "service": 1,
    "mods": [
-    "ftbquests",
-    "alltheores",
-    "ftbfiltersystem"
+    "alltheores"
    ],
    "missing": [
     "modern_industrialization",
@@ -731,10 +715,7 @@
    "icon": "ftbquests:missing_item",
    "quests": 51,
    "hidden": true,
-   "mods": [
-    "ftbquests",
-    "ftbfiltersystem"
-   ],
+   "service": 1,
    "missing": [
     "modern_industrialization",
     "extended_industrialization"
@@ -749,10 +730,7 @@
    "icon": "ftbquests:missing_item",
    "quests": 67,
    "hidden": true,
-   "mods": [
-    "ftbquests",
-    "ftbfiltersystem"
-   ],
+   "service": 1,
    "missing": [
     "modern_industrialization",
     "extended_industrialization"
@@ -767,9 +745,7 @@
    "icon": "ftbquests:missing_item",
    "quests": 26,
    "hidden": true,
-   "mods": [
-    "ftbquests"
-   ],
+   "service": 1,
    "missing": [
     "modern_industrialization"
    ]
@@ -782,9 +758,8 @@
    "icon": "ftbquests:missing_item",
    "quests": 35,
    "hidden": true,
+   "service": 1,
    "mods": [
-    "ftbquests",
-    "ftbfiltersystem",
     "pipez",
     "alltheores",
     "integrateddynamics",
@@ -807,8 +782,8 @@
    "icon": "ftbquests:missing_item",
    "quests": 34,
    "hidden": true,
+   "service": 2,
    "mods": [
-    "ftbquests",
     "alltheores"
    ],
    "missing": [
@@ -823,10 +798,10 @@
    "title": "Generators N Furnaces",
    "icon": "ironfurnaces:million_furnace",
    "quests": 47,
+   "service": 1,
    "mods": [
     "ironfurnaces",
-    "generatorgalore",
-    "ftbfiltersystem"
+    "generatorgalore"
    ]
   },
   {
@@ -837,9 +812,9 @@
    "title": "Powah",
    "icon": "powah:energizing_orb",
    "quests": 109,
+   "service": 1,
    "mods": [
-    "powah",
-    "ftbfiltersystem"
+    "powah"
    ]
   },
   {
@@ -851,7 +826,6 @@
    "quests": 58,
    "mods": [
     "apothic_enchanting",
-    "ftbfiltersystem",
     "apotheosis"
    ]
   },
@@ -863,6 +837,7 @@
    "title": "EvilCraft",
    "icon": "evilcraft:dark_power_gem",
    "quests": 45,
+   "service": 1,
    "mods": [
     "evilcraft"
    ]
@@ -875,14 +850,15 @@
    "title": "Forbidden Arcanus",
    "icon": "forbidden_arcanus:hephaestus_forge",
    "quests": 63,
+   "service": 1,
    "mods": [
     "forbidden_arcanus",
     "justdirethings",
-    "ftbquests",
-    "ftbfiltersystem",
     "evilcraft",
     "kubejs",
-    "productivebees"
+    "productivebees",
+    "cookingforblockheads",
+    "productivetrees"
    ],
    "missing": [
     "modern_industrialization",
@@ -899,10 +875,9 @@
    "icon": "ftbquests:missing_item",
    "quests": 103,
    "hidden": true,
+   "service": 2,
    "mods": [
-    "ftbquests",
-    "irons_spellbooks",
-    "ftbfiltersystem"
+    "irons_spellbooks"
    ],
    "missing": [
     "irons_spellbooks",
@@ -918,10 +893,7 @@
    "icon": "ftbquests:missing_item",
    "quests": 26,
    "hidden": true,
-   "mods": [
-    "ftbquests",
-    "ftbfiltersystem"
-   ],
+   "service": 2,
    "missing": [
     "naturesaura"
    ]
@@ -934,6 +906,7 @@
    "title": "Neo Vitae",
    "icon": "neovitae:crystallarium_maleficum",
    "quests": 49,
+   "service": 1,
    "mods": [
     "neovitae"
    ]
@@ -946,9 +919,9 @@
    "title": "Occultism",
    "icon": "occultism:ritual_dummy/summon_foliot_crusher",
    "quests": 62,
+   "service": 1,
    "mods": [
     "occultism",
-    "ftbfiltersystem",
     "alltheores"
    ]
   },
@@ -960,9 +933,9 @@
    "title": "Theurgy",
    "icon": "theurgy:alchemical_sulfur_sulfur",
    "quests": 45,
+   "service": 1,
    "mods": [
-    "theurgy",
-    "ftbfiltersystem"
+    "theurgy"
    ]
   },
   {
@@ -972,9 +945,9 @@
    "title": "Aether 2",
    "icon": "aether_ii:aether_portal_frame",
    "quests": 103,
+   "service": 1,
    "mods": [
-    "aether_ii",
-    "ftbfiltersystem"
+    "aether_ii"
    ]
   },
   {
@@ -986,10 +959,9 @@
    "icon": "minecraft:bee_nest",
    "quests": 115,
    "hidden": true,
+   "service": 2,
    "mods": [
-    "ftbquests",
-    "the_bumblezone",
-    "ftbfiltersystem"
+    "the_bumblezone"
    ],
    "missing": [
     "the_bumblezone"
@@ -1003,9 +975,9 @@
    "title": "Auroral",
    "icon": "auroral:aurora_bloom",
    "quests": 21,
+   "service": 1,
    "mods": [
-    "auroral",
-    "ftbfiltersystem"
+    "auroral"
    ]
   },
   {
@@ -1017,8 +989,8 @@
    "icon": "ftbquests:missing_item",
    "quests": 97,
    "hidden": true,
+   "service": 2,
    "mods": [
-    "ftbquests",
     "cataclysm"
    ],
    "missing": [
@@ -1034,10 +1006,9 @@
    "icon": "ftbquests:missing_item",
    "quests": 46,
    "hidden": true,
+   "service": 2,
    "mods": [
-    "ftbquests",
-    "deeperdarker",
-    "ftbfiltersystem"
+    "deeperdarker"
    ],
    "missing": [
     "deeperdarker"
@@ -1052,10 +1023,9 @@
    "icon": "ftbquests:missing_item",
    "quests": 131,
    "hidden": true,
+   "service": 2,
    "mods": [
-    "ftbquests",
-    "eternal_starlight",
-    "ftbfiltersystem"
+    "eternal_starlight"
    ],
    "missing": [
     "eternal_starlight"
@@ -1070,9 +1040,7 @@
    "icon": "ftbquests:missing_item",
    "quests": 57,
    "hidden": true,
-   "mods": [
-    "ftbquests"
-   ],
+   "service": 1,
    "missing": [
     "twilightforest"
    ]
@@ -1085,9 +1053,9 @@
    "title": "Ice and Fire",
    "icon": "iceandfire:dragon_skull_fire",
    "quests": 87,
+   "service": 1,
    "mods": [
     "iceandfire",
-    "ftbfiltersystem",
     "allthemodium"
    ]
   },
@@ -1099,6 +1067,7 @@
    "title": "The Undergarden",
    "icon": "undergarden:catalyst",
    "quests": 82,
+   "service": 1,
    "mods": [
     "undergarden"
    ]
@@ -1108,7 +1077,8 @@
    "file": "welcome",
    "title": "Ласкаво просимо",
    "icon": "ftbquests:book",
-   "quests": 6
+   "quests": 6,
+   "service": 1
   },
   {
    "id": "18A429E7F56AF5A9",
@@ -1131,9 +1101,8 @@
    "icon": "framedblocks:framed_cube",
    "quests": 92,
    "hidden": true,
+   "service": 2,
    "mods": [
-    "ftbfiltersystem",
-    "ftbquests",
     "artifacts",
     "justdirethings",
     "refurbished_furniture",
@@ -1152,15 +1121,16 @@
    "title": "Поради та хитрощі",
    "icon": "minecraft:recovery_compass",
    "quests": 24,
+   "service": 2,
    "mods": [
-    "ftbfiltersystem",
-    "ftbquests",
     "cookingforblockheads",
     "toolbelt",
     "easy_villagers",
     "utilitarian",
     "simplemagnets",
-    "ironjetpacks"
+    "ironjetpacks",
+    "rangedpumps",
+    "charginggadgets"
    ],
    "missing": [
     "mob_grinding_utils",

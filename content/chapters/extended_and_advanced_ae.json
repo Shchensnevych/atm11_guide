@@ -1,0 +1,14 @@
+{
+ "ov": "Доповнення AE2 для пізньої гри: розширені пристрої ExtendedAE (постачальник шаблонів, накопичувач, інтерфейс, кристалічний збирач), а з Advanced AE — квантовий комп'ютер, реакційна камера й квантова броня з картками-покращеннями.",
+ "ref": [
+  "item:extendedae:ex_pattern_provider",
+  "item:extendedae:ex_drive",
+  "item:extendedae:ex_interface",
+  "item:extendedae:crystal_assembler",
+  "item:advanced_ae:quantum_core",
+  "item:advanced_ae:reaction_chamber",
+  "item:advanced_ae:quantum_helmet",
+  "item:advanced_ae:flight_card"
+ ],
+ "_src": "реєстр extendedae / advanced_ae, опис модів у довіднику"
+}

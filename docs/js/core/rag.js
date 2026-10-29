@@ -1,7 +1,6 @@
 // @ts-check
-// Гібридний семантичний пошук (RAG) українською по базі путівника ATM11 (BM25 + укр. стемер + двомовні синоніми ATM11 + триграми)
-// та інтеграція з живим десктопним мостом ATM11-Companion (http://127.0.0.1:8812).
-import { buildPlayerContextPrompt } from './advisor.js';
+// Пошук по базі путівника для автономного режиму #/assistant (BM25 + укр. стемер + словник понять + триграми)
+// і запит до моста ATM11-Companion (http://127.0.0.1:8812) — єдиного «мозку» ШІ.
 
 const CFG_LS_KEY = 'atm11.assistant.cfg.v2';
 
@@ -19,82 +18,22 @@ export const COMPANION_VISION_MODELS = [
   { id: 'qwen/qwen2.5-vl-72b-instruct', label: '🏆 Qwen 2.5 VL 72B (~1.6 с — розбір скріншотів F2)' },
 ];
 
-/** Перевірені реверс-інжинірингом факти та обмеження збірки ATM11 26.1.2 (KubeJS, конфіги, jar). */
-export const PACK_FACTS = [
-  {
-    id: 'fact:atm_star',
-    title: 'Чому не крафтиться ATM Star (Зірка ATM) у цій версії?',
-    stage: 's7',
-    href: '#/roadmap?node=tr_star',
-    text: 'У поточній бета-версії ATM11 (Minecraft 26.1.2) фінальний рецепт ATM Star прив’язаний до зоряного вівтаря Modern Industrialization, але сам мод Modern Industrialization ще не портовано. З компонентів Зірки зараз активні лише: насіння вимірів, творча есенція (Mystical Agriculture) та стиснені блоки зірки Незеру 3x. Глава ATM Star у квестах прихована («NOT HERE YET»).',
-  },
-  {
-    id: 'fact:quarryplus',
-    title: 'Кар’єр QuarryPlus і чому не крафтиться Руйнівник чанків (adv_quarry)',
-    stage: 's6',
-    href: '#/mod/quarryplus',
-    text: 'У ATM11 базовий кар’єр QuarryPlus (quarryplus:quarry) перенесено в ендгейм (етап 6): його рецепт у KubeJS потребує усемодію, унобтанієвого кайла, кайла зі сплаву затемнення (Just Dire Things), покращеного руйнівника JDT і двох «Покращень: продуктивність омега». А «Руйнівник чанків» (quarryplus:adv_quarry, покращений кар’єр) повністю вимкнено скриптом KubeJS remove("quarryplus:adv_quarry"). Для раннього автовидобутку використовуйте генератори Cobblegen Galore, сита BBL Strainers, GeOre, бджіл або Mystical Agriculture.',
-  },
-  {
-    id: 'fact:steel',
-    title: 'Як зробити сталь (Чому не крафтиться сталь MFFS та Oritech)',
-    stage: 's2',
-    href: '#/roadmap?node=te_first',
-    text: 'Ручні рецепти сталі у верстаку для MFFS та Oritech у збірці прибрані уніфікацією KubeJS. Щоб отримати сталеві злитки (AllTheOres), використовуйте: 1) Піч для сплавів (Energized Power), 2) Плавильник сплавів (Ender IO), або 3) Коксову піч і домну (Railcraft Reborn). Сталеві шестерні та інструменти крафтяться зі сталі AllTheOres.',
-  },
-  {
-    id: 'fact:atm_alloys',
-    title: 'Як зробити сплави всемодію (Allthemodium / Vibranium / Unobtainium)',
-    stage: 's6',
-    href: '#/mod/powah',
-    text: 'Вібранієво-усемодієвий сплав у поточній версії виготовляється лише у сфері заряджання Powah (потребує 1 млрд FE енергії). Інші рецепти ATM-сплавів у KubeJS розраховані на Ars Nouveau або Industrial Foregoing, яких у цій версії 26.1.2 ще немає.',
-  },
-  {
-    id: 'fact:gadgets',
-    title: 'Гірничі гаджети (Mining Gadgets) та Будівельні гаджети (Building Gadgets 2)',
-    stage: 's5',
-    href: '#/mod/mininggadgets',
-    text: 'У ATM11 рецепти порожнього модуля покращення Mining Gadgets (mininggadgets:upgrade_empty) та будівельних гаджетів Building Gadgets 2 змінені через KubeJS і вимагають самородків усемодію (Allthemodium). Тому вони стають доступними лише на етапі 5 після виходу у виміри ATM. На старті для швидкого будівництва використовуйте будівельні палиці Construction Sticks (Ctrl+Z).',
-  },
-  {
-    id: 'fact:keys_kuma_balm',
-    title: 'Гарячі клавіші, конфлікти та краш Kuma API (Balm / Crafting Tweaks)',
-    stage: 's0',
-    href: '#/keys',
-    text: 'Усі конфлікти клавіш у збірці виправлено планом перепризначень: ранець — Миша 4, Curios — Shift+Миша 4 (або Ctrl+G), двигун джетпака — Ctrl+Миша 4, квести — Ctrl+Q, термінал AE2 — Ctrl+E, сітка RS — Ctrl+R, пояс — Ctrl+V, шейдери Iris — F8/F10. Важливо: модам на бібліотеці Balm (Crafting Tweaks, Inventory Essentials, Waystones, Trash Slot, Cooking/Farming for Blockheads) НЕ можна призначати клавіші з модифікаторами Ctrl/Shift/Alt у options.txt, інакше гра падає при запуску зі StackOverflowError у NativeKeyModifierReconciler. Крім того, Crafting Tweaks у бета-версії 0.12.0 не показує кнопок біля сітки 3×3.',
-  },
-  {
-    id: 'fact:magic_tweaks',
-    title: 'Особливості магії ATM11 (Forbidden Arcanus, Occultism, Neo Vitae, Mahou Tsukai)',
-    stage: 's3',
-    href: '#/mods?cls=magic',
-    text: 'Вічна Стелла (Кузня Гефеста 3 рівня) накладає незламність через ексклюзивний ритуал Occultism «Контакт Ронази» (misc_unbreakable) та кує інструменти зі сплавів ATM на Кузні 4 рівня. Ритуал Neo Vitae «Falling Tower» скидає метеорит AE2 та всі 22 руди GeOre (до унобтанію за 5 млн EV). Кристалічний вівтар насичення Occultism клонує диски AE2/RS 1→2. У Mahou Tsukai макс. мана 20 000, кап шкоди Калібурна/Морґана — 60.',
-  },
-  {
-    id: 'fact:hidden_chapters',
-    title: 'Приховані глави квестів та квести-заглушки (missing_item)',
-    stage: 's1',
-    href: '#/chapters',
-    text: 'Частина глав у книзі квестів перенесена розробниками з ATM10 і позначена always_invisible (Create, Mekanism, Immersive Engineering, Modern Industrialization, Twilight Forest, Iron’s Spells, MEGA Cells). Цих модів ще немає на неофорджі 26.1.2, тому такі глави в грі не відкриваються, а окремі квести з їхніми предметами позначені на сайті як квести-заглушки.',
-  },
-];
-
 /** Двомовне розширення запитів синонімами ATM11 для високої повноти пошуку українською. */
 const CONCEPT_EXPANSIONS = [
-  [/\b(що робити|куди далі|наступн\w* крок\w*|з чого почати|що далі|порад\w*|сейв\w*)\b/i, 'наступні кроки головний шлях стовбур початок етап квести'],
-  [/\b(сховищ\w*|скрин\w*|інвентар\w*|зберіга\w*|рюкзак\w*|ран\w*|мішок|мереж\w*)\b/i, 'storage sophisticatedbackpacks sophisticatedstorage functionalstorage ae2 refinedstorage deepnull шухляди комірки термінал'],
-  [/\b(енерг\w*|електрик\w*|генератор\w*|реактор\w*|fe|rf|живлен\w*|батаре\w*|заряд\w*)\b/i, 'energy powah generatorgalore energizedpower oritech enderio термогенератор сонячна панель реактор повах'],
-  [/\b(труб\w*|логістик\w*|передава\w*|транспорт\w*|фільтр\w*|кабел\w*|маршрут\w*)\b/i, 'logistics pipez laserio modularrouters sfm enderthing classicpipes integratedtunnels'],
-  [/\b(руд\w*|копат\w*|шахт\w*|видобу\w*|кар['’]?єр\w*|автовидобу\w*|сито|сита|ресурс\w*)\b/i, 'resources quarryplus mininggadgets cobblegengalore bblstrainers allthemodium geore mysticalagriculture productivebees'],
-  [/\b(літат\w*|політ|польот\w*|джетпак\w*|крил\w*)\b/i, 'ironjetpacks pylons mysticalagriculture паливний джетпак ранець політ'],
-  [/\b(магі\w*|ритуал\w*|дух\w*|алхімі\w*|заклинан\w*|відьм\w*|кров\w*|таум\w*)\b/i, 'magic occultism theurgy thaumaturge arsmagica neovitae evilcraft forbidden_arcanus witchery mahoutsukai'],
-  [/\b(їж\w*|ферм\w*|город\w*|серц\w*|здоров['’]?я|моркв\w*|кухн\w*|бджол\w*|насін\w*)\b/i, 'farming productivefarming cookingforblockheads solcarrot mysticalagriculture productivebees'],
-  [/\b(збро\w*|брон\w*|меч\w*|кайл\w*|інструмент\w*|зачарув\w*|самоцвіт\w*|апотеоз\w*)\b/i, 'gear silentgear apotheosis apothic_enchanting powerarmor allthemodium реліквії артефакти'],
-  [/\b(бос\w*|дракон\w*|данж\w*|вимір\w*|портал\w*|ефір|незер\w*|енд\w*)\b/i, 'exploration boss dimension aether undergarden allthemodium iceandfire'],
-  [/\b(клавіш\w*|кнопк\w*|хотке\w*|гаряч\w*|конфлікт\w*|управлін\w*|options\.txt)\b/i, 'keys клавіші конфлікт перепризначення миша ctrl shift alt'],
-  [/\b(не крафт\w*|не працю\w*|вимкнен\w*|заблокован\w*|чому не|краш\w*|помилк\w*)\b/i, 'fact kubejs прибрано неактивний заглушка сталь кар’єр зірка'],
-  [/\b(сталь\w*|сталев\w*|steel)\b/i, 'fact:steel сталь сплав піч домна energizedpower enderio railcraft mffs oritech'],
-  [/\b(зірк\w*|atm star|ендгейм\w*)\b/i, 'fact:atm_star tr_star зірка атм усемодій вібраній унобтаній творча есенція'],
+  [/(?<![\p{L}\d])(що робити|куди далі|наступн\p{L}* крок\p{L}*|з чого почати|що далі|порад\p{L}*|сейв\p{L}*)(?![\p{L}\d])/iu, 'наступні кроки головний шлях стовбур початок етап квести'],
+  [/(?<![\p{L}\d])(сховищ\p{L}*|скрин\p{L}*|інвентар\p{L}*|зберіга\p{L}*|рюкзак\p{L}*|ран\p{L}*|мішок|мереж\p{L}*)(?![\p{L}\d])/iu, 'storage sophisticatedbackpacks sophisticatedstorage functionalstorage ae2 refinedstorage deepnull шухляди комірки термінал'],
+  [/(?<![\p{L}\d])(енерг\p{L}*|електрик\p{L}*|генератор\p{L}*|реактор\p{L}*|fe|rf|живлен\p{L}*|батаре\p{L}*|заряд\p{L}*)(?![\p{L}\d])/iu, 'energy powah generatorgalore energizedpower oritech enderio термогенератор сонячна панель реактор повах'],
+  [/(?<![\p{L}\d])(труб\p{L}*|логістик\p{L}*|передава\p{L}*|транспорт\p{L}*|фільтр\p{L}*|кабел\p{L}*|маршрут\p{L}*)(?![\p{L}\d])/iu, 'logistics pipez laserio modularrouters sfm enderthing classicpipes integratedtunnels'],
+  [/(?<![\p{L}\d])(руд\p{L}*|копат\p{L}*|шахт\p{L}*|видобу\p{L}*|кар['’]?єр\p{L}*|автовидобу\p{L}*|сито|сита|ресурс\p{L}*)(?![\p{L}\d])/iu, 'resources quarryplus mininggadgets cobblegengalore bblstrainers allthemodium geore mysticalagriculture productivebees'],
+  [/(?<![\p{L}\d])(літат\p{L}*|політ|польот\p{L}*|джетпак\p{L}*|крил\p{L}*)(?![\p{L}\d])/iu, 'ironjetpacks pylons mysticalagriculture паливний джетпак ранець політ'],
+  [/(?<![\p{L}\d])(магі\p{L}*|ритуал\p{L}*|дух\p{L}*|алхімі\p{L}*|заклинан\p{L}*|відьм\p{L}*|кров\p{L}*|таум\p{L}*)(?![\p{L}\d])/iu, 'magic occultism theurgy thaumaturge arsmagica neovitae evilcraft forbidden_arcanus witchery mahoutsukai'],
+  [/(?<![\p{L}\d])(їж\p{L}*|ферм\p{L}*|город\p{L}*|серц\p{L}*|здоров['’]?я|моркв\p{L}*|кухн\p{L}*|бджол\p{L}*|насін\p{L}*)(?![\p{L}\d])/iu, 'farming productivefarming cookingforblockheads solcarrot mysticalagriculture productivebees'],
+  [/(?<![\p{L}\d])(збро\p{L}*|брон\p{L}*|меч\p{L}*|кайл\p{L}*|інструмент\p{L}*|зачарув\p{L}*|самоцвіт\p{L}*|апотеоз\p{L}*)(?![\p{L}\d])/iu, 'gear silentgear apotheosis apothic_enchanting powerarmor allthemodium реліквії артефакти'],
+  [/(?<![\p{L}\d])(бос\p{L}*|дракон\p{L}*|данж\p{L}*|вимір\p{L}*|портал\p{L}*|ефір|незер\p{L}*|енд\p{L}*)(?![\p{L}\d])/iu, 'exploration boss dimension aether undergarden allthemodium iceandfire'],
+  [/(?<![\p{L}\d])(клавіш\p{L}*|кнопк\p{L}*|хотке\p{L}*|гаряч\p{L}*|конфлікт\p{L}*|управлін\p{L}*|options\.txt)(?![\p{L}\d])/iu, 'keys клавіші конфлікт перепризначення миша ctrl shift alt'],
+  [/(?<![\p{L}\d])(не крафт\p{L}*|не працю\p{L}*|вимкнен\p{L}*|заблокован\p{L}*|чому не|краш\p{L}*|помилк\p{L}*)(?![\p{L}\d])/iu, 'fact kubejs прибрано неактивний заглушка сталь кар’єр зірка'],
+  [/(?<![\p{L}\d])(сталь\p{L}*|сталев\p{L}*|steel)(?![\p{L}\d])/iu, 'fact:steel сталь сплав піч домна energizedpower enderio railcraft mffs oritech'],
+  [/(?<![\p{L}\d])(зірк\p{L}*|atm star|ендгейм\p{L}*)(?![\p{L}\d])/iu, 'fact:atm_star tr_star зірка атм усемодій вібраній унобтаній творча есенція'],
 ];
 
 /** Простий український/англійський стемер для токенізації пошуку. @param {string} w */
@@ -160,7 +99,7 @@ export function buildCorpus(s) {
     docs.push({ ...d, tokens, tf, trigrams: trigramMap(d.title + ' ' + d.text) });
   };
 
-  for (const f of PACK_FACTS) {
+  for (const f of s.facts || []) {
     add({
       id: f.id, kind: 'fact', title: f.title, stage: f.stage, href: f.href,
       badge: '⚡ Особливість збірки', text: f.text, searchText: `${f.title} ${f.text}`,
@@ -224,14 +163,16 @@ export function buildCorpus(s) {
 
   for (const c of s.chapters?.chapters || []) {
     const modNames = (c.mods || []).map((id) => s.modById.get(id)?.name || id).join(', ');
-    const hidTxt = c.hidden ? `Прихована глава в грі (відсутні моди: ${(c.missing || []).join(', ') || 'не портовано'}).` : '';
+    const g = s.guide?.[c.file];
+    const hidTxt = c.hidden ? (g?.why ? `Прихована глава в грі: ${g.why}` : `Прихована глава в грі (відсутні моди: ${(c.missing || []).join(', ') || 'не портовано'}).`) : '';
+    const guideTxt = g ? [g.ov, g.steps?.length ? `Порядок: ${g.steps.join('; ')}.` : '', g.atm?.length ? `Особливості ATM11: ${g.atm.join('; ')}.` : ''].filter(Boolean).join(' ') : '';
     add({
       id: `chapter:${c.file}`, kind: 'chapter',
       title: `Глава квестів «${c.title}» (${c.quests} квестів)`,
       href: `#/chapter/${c.file}`,
       badge: '📜 Глава квестів',
-      text: `${c.sub ? c.sub + '. ' : ''}Квестів: ${c.quests}. ${modNames ? `Моди: ${modNames}. ` : ''}${hidTxt}`.trim(),
-      searchText: `${c.title} ${c.file} ${c.sub || ''} ${modNames} ${hidTxt}`,
+      text: `${guideTxt || (c.sub ? c.sub + '.' : '')} Квестів: ${c.quests - (c.service || 0)}. ${modNames ? `Моди: ${modNames}. ` : ''}${hidTxt}`.trim(),
+      searchText: `${c.title} ${c.file} ${c.sub || ''} ${modNames} ${hidTxt} ${guideTxt}`,
       mods: c.mods,
     });
   }
@@ -346,26 +287,15 @@ export function composeLocalAnswer(query, hits, an, _s) {
 
 // ── Налаштування та виклик живого моста ATM11-Companion (:8812) ──
 export function loadAssistantConfig() {
-  try {
-    const raw = JSON.parse(localStorage.getItem(CFG_LS_KEY) || '{}') || {};
-    return {
-      mode: raw.mode || 'local', // 'local' | 'bridge' | 'ollama'
-      bridgeUrl: raw.bridgeUrl || 'http://127.0.0.1:8812',
-      model: raw.model || 'deepseek-ai/DeepSeek-V4.1-Flash',
-      visionModel: raw.visionModel || 'qwen/qwen2.5-vl-72b-instruct',
-      ollamaUrl: raw.ollamaUrl || 'http://localhost:11434',
-      ollamaModel: raw.ollamaModel || 'llama3.1:8b',
-    };
-  } catch {
-    return {
-      mode: 'local',
-      bridgeUrl: 'http://127.0.0.1:8812',
-      model: 'deepseek-ai/DeepSeek-V4.1-Flash',
-      visionModel: 'qwen/qwen2.5-vl-72b-instruct',
-      ollamaUrl: 'http://localhost:11434',
-      ollamaModel: 'llama3.1:8b',
-    };
-  }
+  /** @type {Record<string, any>} */
+  let raw = {};
+  try { raw = JSON.parse(localStorage.getItem(CFG_LS_KEY) || '{}') || {}; } catch { raw = {}; }
+  return {
+    mode: raw.mode === 'local' || !raw.mode ? 'local' : 'bridge', // 'local' | 'bridge' (старі 'ollama' / 'openai' → міст)
+    bridgeUrl: raw.bridgeUrl || 'http://127.0.0.1:8812',
+    openaiModel: raw.openaiModel || raw.model || 'deepseek-ai/DeepSeek-V4.1-Flash',
+    visionModel: raw.visionModel || 'qwen/qwen2.5-vl-72b-instruct',
+  };
 }
 
 /** @param {Record<string, any>} cfg */
@@ -373,46 +303,26 @@ export function saveAssistantConfig(cfg) {
   try { localStorage.setItem(CFG_LS_KEY, JSON.stringify(cfg)); } catch {}
 }
 
-/** Запит до живого моста ATM11-Companion (:8812) або локальної Ollama.
- * @param {string} query @param {Array<{ doc: RagDoc, score: number }>} hits @param {any} an @param {Store} s @param {any} cfg @param {string} [logTail] */
-export async function askExternalPipeline(query, hits, an, s, cfg, logTail = '') {
-  const playerCtx = buildPlayerContextPrompt(s, an, logTail);
-  const ragCtx = hits.slice(0, 6).map((h, i) => `[Джерело ${i + 1}: ${h.doc.title} (${h.doc.href})]\n${h.doc.text}`).join('\n\n');
-  const sysPrompt = [
-    'Ти — експертний ШІ-помічник українського інтерактивного путівника по збірці Minecraft All the Mods 11 (ATM11, версія гри 26.1.2).',
-    'Відповідай ВИКЛЮЧНО українською мовою, лаконічно, точно і по суті, спираючись ТІЛЬКИ на наданий стан сейву гравця, словник ATM11-UA та витяги з бази путівника (KubeJS, конфіги, дорожня карта).',
-    'Не вигадуй рецептів чи механік з інших версій ATM, якщо в путівнику сказано, що мод відсутній або рецепт змінено.',
-  ].join('\n');
-  const userPrompt = `${playerCtx}\n\n=== ЗНАЙДЕНІ ДАНІ ПУТІВНИКА (RAG) ===\n${ragCtx || 'Немає додаткових витягів.'}\n\n=== ЗАПИТАННЯ ГРАВЦЯ ===\n${query || 'Що мені робити далі за моїм сейвом?'}`;
-
+/** Відповідь на питання: через міст ATM11-Companion (єдиний «мозок») або локально без ШІ.
+ * Режим мосту: сайт шле лише питання (і світ, вибраний у мості), базу путівника й стан світу міст додає сам.
+ * Локальний режим: відповідь складає composeLocalAnswer з пошуку сайту (без моделі).
+ * @param {string} query @param {Array<{ doc: RagDoc, score: number }>} hits @param {any} an @param {Store} s @param {any} cfg @param {string} [logTail]
+ * @param {{ world?: string }} [opts] */
+export async function askExternalPipeline(query, hits, an, s, cfg, logTail = '', opts = {}) {
   if (cfg.mode === 'bridge') {
     const base = (cfg.bridgeUrl || 'http://127.0.0.1:8812').replace(/\/$/, '');
+    /** @type {Record<string, string>} */
+    const body = { query: query || 'Що мені робити далі за моїм сейвом?' };
+    if (opts.world) body.world = opts.world;
     const r = await fetch(`${base}/api/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ query, systemPrompt: sysPrompt, userPrompt, model: cfg.model }),
+      body: JSON.stringify(body),
     });
-    if (!r.ok) throw new Error(`Міст ATM11-Companion повернув ${r.status}`);
-    const data = await r.json();
-    if (data.error) throw new Error(data.error);
-    return { answer: data.answer, provider: data.provider || `ATM11-Companion (${cfg.model})`, elapsedMs: data.elapsedMs };
-  }
-
-  if (cfg.mode === 'ollama') {
-    const url = `${(cfg.ollamaUrl || 'http://localhost:11434').replace(/\/$/, '')}/api/chat`;
-    const r = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: cfg.ollamaModel || 'llama3.1',
-        messages: [{ role: 'system', content: sysPrompt }, { role: 'user', content: userPrompt }],
-        stream: false,
-      }),
-    });
-    if (!r.ok) throw new Error(`Ollama повернула ${r.status}`);
-    const data = await r.json();
-    const msg = (data.message?.content || '').replace(/<think>[\s\S]*?<\/think>/gi, '').trim();
-    return { answer: msg, provider: `Ollama (${cfg.ollamaModel})` };
+    const data = await r.json().catch(() => ({}));
+    if (!r.ok || data.error) throw new Error(data.error || `Міст ATM11-Companion повернув ${r.status}`);
+    const mode = data.mode === 'tools' ? 'інструменти бази' : 'попередній пошук';
+    return { answer: data.answer, provider: `${data.provider || 'ATM11-Companion'} · ${mode}`, elapsedMs: data.elapsedMs, viaBridge: true };
   }
 
   return { answer: composeLocalAnswer(query, hits, an, s), provider: 'Локальний радник + Гібридний RAG' };

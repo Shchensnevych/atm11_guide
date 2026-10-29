@@ -1,0 +1,11 @@
+{
+ "ov": "Культури Productive Farming — овочі, зернові, ягоди, трави й квіти з характеристиками росту й урожаю; мутації — коли бджоли запилюють ділянку; мультиблокова автоферма, годівниця й напувалка для тварин.",
+ "ref": [
+  "quest:699F91BC5CA58FE2",
+  "quest:06B197EB778C17AC",
+  "quest:2AFB12E742596864",
+  "item:productivefarming:feeding_trough",
+  "item:productivefarming:watering_trough"
+ ],
+ "_src": "квести глави, конфіг і реєстр productivefarming (кількість культур не підтверджено — прибрано)"
+}
