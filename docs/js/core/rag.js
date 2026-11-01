@@ -312,7 +312,7 @@ export async function askExternalPipeline(query, hits, an, s, cfg, logTail = '',
   if (cfg.mode === 'bridge') {
     const base = (cfg.bridgeUrl || 'http://127.0.0.1:8812').replace(/\/$/, '');
     /** @type {Record<string, string>} */
-    const body = { query: query || 'Що мені робити далі за моїм сейвом?' };
+    const body = { query: query || 'Що мені робити далі за моїм сейвом?', source: 'site' };
     if (opts.world) body.world = opts.world;
     const r = await fetch(`${base}/api/chat`, {
       method: 'POST',

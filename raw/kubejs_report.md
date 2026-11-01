@@ -318,12 +318,12 @@
 - ServerEvents.loaded server_scripts/announcements/announcements.js:17 
 - PlayerEvents.loggedIn server_scripts/announcements/announcements.js:35 
 - ServerEvents.basicPublicCommand server_scripts/announcements/announcements.js:71 dismiss_announcements
-- PlayerEvents.chat server_scripts/atm11_companion.js:144 
-- ServerEvents.basicPublicCommand server_scripts/atm11_companion.js:157 ai
-- EntityEvents.death server_scripts/atm11_companion.js:167 
-- EntityEvents.afterHurt server_scripts/atm11_companion.js:201 
-- PlayerEvents.advancement server_scripts/atm11_companion.js:231 
-- PlayerEvents.tick server_scripts/atm11_companion.js:245 
+- PlayerEvents.chat server_scripts/atm11_companion.js:210 
+- ServerEvents.basicPublicCommand server_scripts/atm11_companion.js:226 ai
+- EntityEvents.death server_scripts/atm11_companion.js:236 
+- EntityEvents.afterHurt server_scripts/atm11_companion.js:270 
+- PlayerEvents.advancement server_scripts/atm11_companion.js:301 
+- PlayerEvents.tick server_scripts/atm11_companion.js:317 
 - ServerEvents.registry server_scripts/custom_additions.js:1 forbidden_arcanus:molten_material_type
 - PlayerEvents.tick server_scripts/fluid_bug.js:3 
 - PlayerEvents.loggedIn server_scripts/tweaks/fix_death_bug.js:1 

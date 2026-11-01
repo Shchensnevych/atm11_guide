@@ -1340,16 +1340,6 @@
   "combo": "F7"
  },
  {
-  "id": "key.crystalix.pick_block",
-  "bind": "key.keyboard.x",
-  "mod": "",
-  "ns": "crystalix",
-  "en": "Pick properties from block",
-  "uk": "Взяти властивості з блока",
-  "key": "X",
-  "combo": "X"
- },
- {
   "id": "key.crystalix.highlight_blocks",
   "bind": "key.keyboard.r",
   "mod": "",
@@ -1370,14 +1360,14 @@
   "combo": "V"
  },
  {
-  "id": "key.luminax.open_color_picker",
-  "bind": "key.keyboard.v",
+  "id": "key.crystalix.pick_block",
+  "bind": "key.keyboard.x",
   "mod": "",
-  "ns": "luminax",
-  "en": "Open Color Picker",
-  "uk": "Відкрити вибір кольору",
-  "key": "V",
-  "combo": "V"
+  "ns": "crystalix",
+  "en": "Pick properties from block",
+  "uk": "Взяти властивості з блока",
+  "key": "X",
+  "combo": "X"
  },
  {
   "id": "key.luminax.toggle_glowing",
@@ -1388,6 +1378,16 @@
   "uk": "Перемкнути світіння",
   "key": "X",
   "combo": "X"
+ },
+ {
+  "id": "key.luminax.open_color_picker",
+  "bind": "key.keyboard.v",
+  "mod": "",
+  "ns": "luminax",
+  "en": "Open Color Picker",
+  "uk": "Відкрити вибір кольору",
+  "key": "V",
+  "combo": "V"
  },
  {
   "id": "key.neovitae.edit_hud",

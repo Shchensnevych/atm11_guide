@@ -174,6 +174,7 @@ export async function render(el, _p, s) {
     answerMd: '',
     answerProvider: '',
     hits: /** @type {any[]} */ ([]),
+    chatHistory: /** @type {any[]} */ ([]),
   };
 
   let an = await analyzePlayerState(s);
@@ -287,6 +288,35 @@ export async function render(el, _p, s) {
           }
         } catch { /* ignore */ }
       });
+      sse.addEventListener('chat-history', (ev) => {
+        if (!el.isConnected) { sse?.close(); return; }
+        try {
+          const items = JSON.parse(/** @type {MessageEvent} */ (ev).data);
+          if (Array.isArray(items)) {
+            st.chatHistory = items;
+            drawRight();
+          }
+        } catch { /* ignore */ }
+      });
+      sse.addEventListener('chat-message', (ev) => {
+        if (!el.isConnected) { sse?.close(); return; }
+        try {
+          const msg = JSON.parse(/** @type {MessageEvent} */ (ev).data);
+          if (msg && msg.id) {
+            const idx = st.chatHistory.findIndex((m) => m.id === msg.id);
+            if (idx >= 0) st.chatHistory[idx] = msg;
+            else st.chatHistory.push(msg);
+            const limit = Number(st.liveState?.maxMessages) || 200;
+            if (st.chatHistory.length > limit) st.chatHistory = st.chatHistory.slice(-limit);
+            drawRight();
+          }
+        } catch { /* ignore */ }
+      });
+      sse.addEventListener('chat-cleared', () => {
+        if (!el.isConnected) { sse?.close(); return; }
+        st.chatHistory = [];
+        drawRight();
+      });
       sse.onerror = () => {
         st.liveConnected = false;
         sse?.close();
@@ -337,12 +367,12 @@ export async function render(el, _p, s) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           query: q,
+          source: 'site',
           visionModel: st.cfg.visionModel || 'qwen/qwen2.5-vl-72b-instruct',
         }),
       });
-      if (!r.ok) throw new Error(`HTTP ${r.status}`);
-      const d = await r.json();
-      if (d.error) throw new Error(d.error);
+      const d = await r.json().catch(() => ({}));
+      if (!r.ok || d.error) throw new Error(d.error || `HTTP ${r.status}`);
       st.answerMd = d.answer || '';
       st.answerProvider = `👁️ Vision AI: ${d.provider || st.cfg.visionModel}`;
     } catch (e) {
@@ -604,6 +634,90 @@ export async function render(el, _p, s) {
           }
           return box;
         })() : null,
+        st.liveConnected && st.chatHistory.length ? h('div.ai-shared-feed', { style: { marginTop: '14px' } },
+          h('div.ai-q-head', { style: { marginBottom: '8px' } },
+            h('h3.section', { style: { margin: 0 } }, `💬 Спільний діалог з ігровим HUD (${st.chatHistory.length})`),
+            h('button.btn.small', {
+              onclick: async () => {
+                try { await fetch(`${baseBridgeUrl()}/api/chat/clear`, { method: 'POST' }); } catch { /* ignore */ }
+              },
+            }, 'Очистити')),
+          h('div', { style: { display: 'flex', flexDirection: 'column', gap: '8px', maxHeight: '360px', overflowY: 'auto', paddingRight: '4px' } },
+            st.chatHistory.slice(-16).map((/** @type {any} */ m) => {
+              if (m.role === 'user') {
+                const srcMap = { game: 'з гри', demo: 'демо (без гри)', hud: 'HUD', site: 'сайт', panel: 'панель' };
+                const srcLabel = srcMap[/** @type {keyof typeof srcMap} */ (m.source)] || 'чат';
+                return h('div', {
+                  style: {
+                    alignSelf: 'flex-end',
+                    maxWidth: '88%',
+                    background: 'var(--panel-2)',
+                    border: '1px solid var(--line)',
+                    borderRadius: 'var(--radius)',
+                    padding: '6px 10px',
+                  },
+                },
+                h('div.small.muted', null, `${srcLabel} · ${m.time || ''}`),
+                m.attachment ? h('div.small', { style: { color: 'var(--accent)', fontWeight: '600' } }, `📷 ${m.attachment.label}`) : null,
+                h('div', { style: { fontWeight: '600', wordBreak: 'break-word' } }, m.text || m.rawCmd || ''));
+              }
+              return h('div', {
+                style: {
+                  background: 'var(--panel)',
+                  border: '1px solid var(--line)',
+                  borderRadius: 'var(--radius)',
+                  padding: '8px 10px',
+                },
+              },
+              m.pending
+                ? h('div.small.muted', null, `⏳ ${m.pendingLabel || 'Аналіз…'}`)
+                : m.error
+                  ? h('div.small', { style: { color: 'var(--bad)' } }, `⚠ ${m.error}`)
+                  : [
+                      m.voiceQuote ? h('div.small', {
+                        style: {
+                          padding: '6px 8px',
+                          marginBottom: '6px',
+                          borderRadius: 'var(--radius-sm)',
+                          border: '1px solid var(--accent)',
+                          background: 'var(--panel-2)',
+                        },
+                      }, `🔊 ${m.voiceQuote}`) : null,
+                      m.bodyMd ? renderMd(m.bodyMd) : null,
+                      (m.sources?.length || m.checkInGame) ? h('div.badges', { style: { marginTop: '6px' } },
+                        ...(m.sources || []).map((/** @type {string} */ src) => h('span.badge.ghost', null, src)),
+                        m.checkInGame ? h('span.badge', { style: { '--c': 'var(--warn)' } }, '⚑ Перевірити в грі') : null) : null,
+                      h('div.small.muted', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '6px', marginTop: '6px' } },
+                        h('div', { style: { display: 'flex', gap: '4px' } },
+                          h(`button.wb-btn${m.rating === 'up' ? '.on' : ''}`, {
+                            title: 'Корисна відповідь',
+                            onclick: async () => {
+                              const next = m.rating === 'up' ? null : 'up';
+                              try {
+                                await fetch(`${baseBridgeUrl()}/api/chat/rate`, {
+                                  method: 'POST',
+                                  headers: { 'Content-Type': 'application/json' },
+                                  body: JSON.stringify({ messageId: m.id, rating: next }),
+                                });
+                              } catch { /* ignore */ }
+                            },
+                          }, '👍'),
+                          h(`button.wb-btn${m.rating === 'down' ? '.on' : ''}`, {
+                            title: 'Неточна відповідь',
+                            onclick: async () => {
+                              const next = m.rating === 'down' ? null : 'down';
+                              try {
+                                await fetch(`${baseBridgeUrl()}/api/chat/rate`, {
+                                  method: 'POST',
+                                  headers: { 'Content-Type': 'application/json' },
+                                  body: JSON.stringify({ messageId: m.id, rating: next }),
+                                });
+                              } catch { /* ignore */ }
+                            },
+                          }, '👎')),
+                        h('span', null, `${m.shortModel || m.model || 'ШІ'} · ${((m.elapsedMs || 0) / 1000).toFixed(2).replace('.', ',')} с`))
+                    ]);
+            }))) : null,
         st.hits.length ? h('div.ai-hits', null,
           h('h3.section', { style: { marginTop: '14px' } }, '📚 Релевантні матеріали путівника'),
           h('div.ai-hits-list', null, st.hits.map((hit) => h('a.card.ai-hit', { href: hit.doc.href },
