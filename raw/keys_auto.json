@@ -1340,16 +1340,6 @@
   "combo": "F7"
  },
  {
-  "id": "key.crystalix.open_wand_editor",
-  "bind": "key.keyboard.v",
-  "mod": "",
-  "ns": "crystalix",
-  "en": "Open Wand Editor",
-  "uk": "Відкрити редактор жезла",
-  "key": "V",
-  "combo": "V"
- },
- {
   "id": "key.crystalix.pick_block",
   "bind": "key.keyboard.x",
   "mod": "",
@@ -1358,6 +1348,16 @@
   "uk": "Взяти властивості з блока",
   "key": "X",
   "combo": "X"
+ },
+ {
+  "id": "key.crystalix.open_wand_editor",
+  "bind": "key.keyboard.v",
+  "mod": "",
+  "ns": "crystalix",
+  "en": "Open Wand Editor",
+  "uk": "Відкрити редактор жезла",
+  "key": "V",
+  "combo": "V"
  },
  {
   "id": "key.crystalix.highlight_blocks",
@@ -2240,6 +2240,26 @@
   "combo": ""
  },
  {
+  "id": "key.sophisticatedbackpacks.toggle_upgrade_1",
+  "bind": "key.keyboard.z",
+  "mod": "ALT",
+  "ns": "sophisticatedbackpacks",
+  "en": "Switch Upgrade in the 1st Slot On/Off",
+  "uk": "Увімкнути/вимкнути покращення в 1-му слоті",
+  "key": "Z",
+  "combo": "Alt+Z"
+ },
+ {
+  "id": "key.sophisticatedbackpacks.toggle_upgrade_2",
+  "bind": "key.keyboard.x",
+  "mod": "ALT",
+  "ns": "sophisticatedbackpacks",
+  "en": "Switch Upgrade in the 2nd Slot On/Off",
+  "uk": "Увімкнути/вимкнути покращення в 2-му слоті",
+  "key": "X",
+  "combo": "Alt+X"
+ },
+ {
   "id": "key.sophisticatedbackpacks.toggle_upgrade_3",
   "bind": "key.keyboard.unknown",
   "mod": "",
@@ -2268,26 +2288,6 @@
   "uk": "Увімкнути/вимкнути покращення в 5-му слоті",
   "key": "",
   "combo": ""
- },
- {
-  "id": "key.sophisticatedbackpacks.toggle_upgrade_1",
-  "bind": "key.keyboard.z",
-  "mod": "ALT",
-  "ns": "sophisticatedbackpacks",
-  "en": "Switch Upgrade in the 1st Slot On/Off",
-  "uk": "Увімкнути/вимкнути покращення в 1-му слоті",
-  "key": "Z",
-  "combo": "Alt+Z"
- },
- {
-  "id": "key.sophisticatedbackpacks.toggle_upgrade_2",
-  "bind": "key.keyboard.x",
-  "mod": "ALT",
-  "ns": "sophisticatedbackpacks",
-  "en": "Switch Upgrade in the 2nd Slot On/Off",
-  "uk": "Увімкнути/вимкнути покращення в 2-му слоті",
-  "key": "X",
-  "combo": "Alt+X"
  },
  {
   "id": "key.ftbteams.open_gui",
@@ -4270,22 +4270,22 @@
   "combo": ""
  },
  {
-  "id": "key.ae2.appliedthaumaturge.wireless_essentia_terminal",
-  "bind": "key.keyboard.unknown",
-  "mod": "",
-  "ns": "appliedthaumaturge",
-  "en": "Open Wireless Essentia Terminal",
-  "uk": "Відкрити бездротовий термінал Essentia",
-  "key": "",
-  "combo": ""
- },
- {
   "id": "key.ae2.wireless_quantum_crafter_terminal",
   "bind": "key.keyboard.unknown",
   "mod": "",
   "ns": "advanced_ae",
   "en": "Open Wireless Quantum Crafter Terminal",
   "uk": "Відкрити бездротовий термінал квантового майструвача",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.ae2.appliedthaumaturge.wireless_essentia_terminal",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "appliedthaumaturge",
+  "en": "Open Wireless Essentia Terminal",
+  "uk": "Відкрити бездротовий термінал Essentia",
   "key": "",
   "combo": ""
  },
