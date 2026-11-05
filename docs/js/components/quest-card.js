@@ -4,6 +4,7 @@ import { h } from '../core/dom.js';
 import { ftb } from '../core/fmt.js';
 import { isQuestDone } from '../core/progress.js';
 import { iconUrl, questState, taskDone, taskLabel, taskGlyph, rewardLabel, qTitle, questIconId, depsRule, visibleInGame } from '../core/quests-model.js';
+import { tableView } from '../core/rewards.js';
 
 const STATE = { done: ['✔ Виконано', 'var(--ok)'], started: ['⏳ У процесі', 'var(--link)'], avail: ['● Доступний', 'var(--accent)'], locked: ['🔒 Спершу попередні', 'var(--muted)'],
   early: ['◐ Можна заздалегідь', 'var(--link)'] };
@@ -72,14 +73,13 @@ export function questDetail(s, ctx, q, o) {
   ];
 }
 
-/** Що може випасти з таблиці нагород (reward_tables): шанс — вага предмета / сума ваг (так рахує FTB Quests). @param {any} r @param {import('../core/quests-model.js').ChapterCtx} ctx */
+/** Що може випасти з таблиці нагород (reward_tables): шанс — вага / сума ваг (core/rewards.js — спільний з мостом компаньйона). @param {any} r @param {import('../core/quests-model.js').ChapterCtx} ctx */
 function tableBox(r, ctx) {
-  const t = ctx.tables[r.tid]; const sum = t.items.reduce((/** @type {number} */ a, /** @type {any} */ x) => a + (x.w ?? 1), 0) || 1;
-  const head = r.t === 'choice' ? 'На вибір один із' : r.t === 'loot' ? 'Лут-набір: може випасти' : `Випадково ${t.n > 1 ? t.n + ' з' : 'одне з'}`;
-  return h('details.q-table', null, h('summary.small', null, `${head} ${t.items.length}${t.title ? ` («${t.title}»)` : ''}`),
-    h('ul.q-tasks.small', null, t.items.map((/** @type {any} */ x) => h('li' + (x.miss ? '.muted' : ''), null,
-      x.t ? h('span.q-gl', null, '✨') : qIcon(x.item, ctx, x.miss ? '∅' : '🎁', '.sm'),
-      x.t ? `${x.n} ${x.t === 'xp' ? 'досвіду' : 'рів. досвіду'}` : `${x.name || x.item}${x.n > 1 ? ` × ${x.n}` : ''}`,
-      r.t !== 'choice' ? h('span.muted', null, ` — ${Math.round(((x.w ?? 1) / sum) * 1000) / 10}%`) : null,
+  const v = tableView(r, ctx.tables[r.tid]);
+  return h('details.q-table', null, h('summary.small', null, v.head),
+    h('ul.q-tasks.small', null, v.items.map((x) => h('li' + (x.miss ? '.muted' : ''), null,
+      x.xp ? h('span.q-gl', null, '✨') : qIcon(x.item, ctx, x.miss ? '∅' : '🎁', '.sm'),
+      x.label,
+      x.chance !== null ? h('span.muted', null, ` — ${x.chance}%`) : null,
       x.miss ? h('span.muted', null, ' (мода немає в збірці)') : null))));
 }

@@ -2,6 +2,9 @@
 // Глава квестів: дані сторінки (квести, наявні іконки, дописи путівника, огляд), стан квесту із сейву, порядок читання, підписи завдань і нагород.
 import { getJSON, quests as loadQuests } from './store.js';
 import { isQuestDone, isQuestStarted, isTaskDone, isItemObtained, isAdvDone } from './progress.js';
+import { nice, rewardLabel } from './rewards.js';
+
+export { rewardLabel };   // підписи нагород — спільний модуль core/rewards.js (сайт і міст компаньйона)
 
 /** @typedef {{ file: string, quests: any[], byId: Map<string, any>, ext: Record<string, any>, links: any[], img: any[], qicons: Set<string>,
  *   qimages: Record<string, [string, number, number]>, tables: Record<string, any>,
@@ -102,7 +105,6 @@ export function readingOrder(qs) {
   return [...qs].sort((a, b) => depth.get(a.id) - depth.get(b.id) || (a.y || 0) - (b.y || 0) || (a.x || 0) - (b.x || 0));
 }
 
-const nice = (/** @type {string} */ id) => String(id || '').replace(/^#/, '').split(':').pop()?.split('/').pop()?.replace(/_/g, ' ') || '';
 
 /** Текст завдання українською. @param {any} t @param {ChapterCtx} ctx */
 export function taskLabel(t, ctx) {
@@ -124,19 +126,6 @@ export function taskLabel(t, ctx) {
 
 /** Піктограма завдання без іконки предмета. @param {any} t */
 export const taskGlyph = (t) => ({ checkmark: '☑', kill: '⚔', dimension: '🌀', structure: '🏛', biome: '🌲', advancement: '🏆', observation: '👁', forge_energy: '⚡', xp: '✨' })[t.type] || '•';
-
-/** Нагорода: { glyph | icon, text }. @param {any} r */
-export function rewardLabel(r) {
-  switch (r.t) {
-    case 'item': return { icon: r.item, text: `${r.name || nice(r.item)}${r.n > 1 ? ` × ${r.n}` : ''}` };
-    case 'xp': return { glyph: '✨', text: `${r.n} досвіду` };
-    case 'xp_levels': return { glyph: '✨', text: `${r.n} рів. досвіду` };
-    case 'random': return { glyph: '🎲', text: `Випадковий предмет${r.table ? ` («${r.table}»)` : ''}` };
-    case 'loot': return { glyph: '🎁', text: `Лут-набір${r.table ? ` «${r.table}»` : ''}` };
-    case 'choice': return { glyph: '🔀', text: `На вибір${r.table ? ` з «${r.table}»` : ''}` };
-    default: return { glyph: '•', text: r.t };
-  }
-}
 
 /** Картинка книги квестів (полотно глави, {image:…} в описі): [шлях, ширина, висота] або null. @param {string} ref @param {ChapterCtx} ctx */
 export const imageOf = (ref, ctx) => ctx.qimages[ref] || null;

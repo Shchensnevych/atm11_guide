@@ -7,7 +7,7 @@
  "game_type": 0,
  "last_played": "2026-11-01 12:25",
  "last_played_ts": 1793528714,
- "updated": "2026-11-01 14:37",
+ "updated": "2026-11-05 13:31",
  "play_hours": 1.39,
  "player": {
   "uuid": "832ceed6-e820-31f9-aa40-6acd5077a2ac",
@@ -163,7 +163,7 @@
    "mode_uk": "Виживання",
    "last_played": "2026-11-01 12:25",
    "last_played_ts": 1793528714,
-   "updated": "2026-11-01 14:37",
+   "updated": "2026-11-05 13:31",
    "play_hours": 1.39,
    "quests_done": 7,
    "quests_visible_done": 7,
@@ -177,15 +177,15 @@
    "folder": "Творчість",
    "mode": "creative",
    "mode_uk": "Творчість",
-   "last_played": "2026-11-01 12:11",
-   "last_played_ts": 1793527907,
-   "updated": "2026-11-01 14:37",
-   "play_hours": 13.12,
-   "quests_done": 8,
-   "quests_visible_done": 8,
-   "quests_started": 13,
-   "advancements_done": 22,
-   "items_obtained": 42
+   "last_played": "2026-11-05 13:31",
+   "last_played_ts": 1793878276,
+   "updated": "2026-11-05 13:31",
+   "play_hours": 15.68,
+   "quests_done": 13,
+   "quests_visible_done": 13,
+   "quests_started": 17,
+   "advancements_done": 24,
+   "items_obtained": 56
   }
  ]
 }

@@ -78,7 +78,12 @@ export async function render(el, _p, s) {
   };
   const lit = (/** @type {string|null} */ bind) => {
     stage.querySelectorAll('.lit').forEach((x) => x.classList.remove('lit'));
-    if (bind) stage.querySelectorAll(`[data-bind="${CSS.escape(bind)}"]`).forEach((x) => x.classList.add('lit'));
+    if (bind) {
+      for (const part of String(bind).split(',')) {
+        const b = part.trim();
+        if (b) stage.querySelectorAll(`[data-bind="${CSS.escape(b)}"]`).forEach((x) => x.classList.add('lit'));
+      }
+    }
   };
   const onKeyHover = (/** @type {string|null} */ bind, /** @type {MouseEvent|undefined} */ e) => { lit(bind); showTip(bind, /** @type {any} */ (e?.currentTarget)); };
   const onCardHover = (/** @type {string|null} */ bind, /** @type {HTMLElement|undefined} */ card) => {
@@ -88,8 +93,22 @@ export async function render(el, _p, s) {
   };
 
   const select = (/** @type {string} */ l, /** @type {string} */ b) => { st.layer = l; st.sel = b; save(); drawSidebar(); drawKb(); drawCard(); drawPanel(); };
-  const pick = (/** @type {string} */ bind) => {
-    tip.classList.remove('on'); st.sel = st.sel === bind ? '' : bind; save(); drawKb(); drawCard();
+  const pick = (/** @type {string} */ bind, /** @type {string|undefined} */ targetLayer) => {
+    tip.classList.remove('on');
+    if (typeof targetLayer === 'string' && targetLayer !== st.layer) {
+      st.layer = targetLayer;
+      st.sel = bind;
+      save();
+      drawSidebar();
+      drawKb();
+      drawCard();
+      drawPanel();
+    } else {
+      st.sel = st.sel === bind ? '' : bind;
+      save();
+      drawKb();
+      drawCard();
+    }
     if (st.sel) requestAnimationFrame(() => {
       const r = cardBox.getBoundingClientRect();
       const cr = center.getBoundingClientRect();
@@ -314,7 +333,7 @@ export async function render(el, _p, s) {
 
   function drawCard() {
     const dashNode = keysDashboard(s, kd, st, by, {
-      onPick: (b) => pick(b),
+      onPick: (b, l) => pick(b, l),
       onHover: (b) => lit(b),
     });
 

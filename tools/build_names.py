@@ -11,6 +11,24 @@ RX_DIM = re.compile(r'^dimension\.([a-z0-9_-]+)\.([a-z0-9_/-]+)$')
 RX_BIOME = re.compile(r'^biome\.([a-z0-9_-]+)\.([a-z0-9_/-]+)$')
 RX_BOOK = re.compile(r'^book\.([a-z0-9_-]+)\.([a-z0-9_-]+)\.name$')
 
+# Назви-шаблони, які гра заповнює назвою блока з тим самим шляхом (C5e; «переклад гри — істинне джерело назв»).
+# Crafting on a Stick: lang `item.crafting_on_a_stick.crafting_table` = "%s", а клас предмета (jar: item/CoasItem.class)
+# будує назву як Component.translatable(ключ, block.getName()) — блок ванільний (Blocks.CRAFTING_TABLE…) → у грі «Верстак».
+TPL_ARG_BLOCK = {'crafting_on_a_stick': 'minecraft'}
+RX_TPL_ONLY = re.compile(r'^%(1\$)?s$')
+
+def _resolve_templates(items):
+    n = 0
+    for iid, v in items.items():
+        ns, _, path = iid.partition(':')
+        src_ns = TPL_ARG_BLOCK.get(ns)
+        if not src_ns or not RX_TPL_ONLY.match(v[0] or ''): continue
+        src = items.get(f'{src_ns}:{path}')
+        if not src or RX_TPL_ONLY.match(src[0] or ''): continue
+        items[iid] = [x for x in src[:2] if x] or v
+        n += 1
+    return n
+
 def _pair(uk, en):
     uk, en = strip_fmt(uk), strip_fmt(en)
     uk = uk or en
@@ -51,6 +69,7 @@ def build(warn, write=True):
             m = RX_BOOK.match(k)
             if m: books[f'{m.group(1)}:{m.group(2)}'] = _pair(c[4], c[3]); continue
             if k.startswith('key.') and not k.startswith('key.categories.'): keys[k] = _pair(c[4], c[3])
+    _resolve_templates(items)
     for bid, v in bauto.items():                      # ключ мови → переклад; текст без ключа — як у грі
         nm = v.get('name') if isinstance(v, dict) else None
         if not nm: continue

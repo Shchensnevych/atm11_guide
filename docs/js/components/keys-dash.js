@@ -44,7 +44,7 @@ let accordionOpen = true;
  * @param {any} kd KeysData
  * @param {{layer: string, sel: string|null, layout: string}} st
  * @param {Map<string, {lvl: number, acts: any[]}>} by
- * @param {{onPick: (bind: string) => void, onHover: (bind: string|null) => void}} handlers
+ * @param {{onPick: (bind: string, layer?: string) => void, onHover: (bind: string|null) => void}} handlers
  */
 export function keysDashboard(s, kd, st, by, handlers) {
   const layerPrefix = st.layer ? MOD_TITLE[st.layer] + '+' : '';
@@ -195,6 +195,68 @@ export function keysDashboard(s, kd, st, by, handlers) {
     )
   );
 
+  // ── Картка 0: Клавіші та швидкі дії ATM11-Companion ──
+  const companionItems = [
+    {
+      kbd: 'Alt+Q',
+      layer: 'A',
+      bind: 'key.keyboard.q',
+      hoverBinds: 'key.keyboard.left.alt,key.keyboard.q',
+      title: 'HUD-оверлей поверх гри',
+      desc: 'Розгортає вікно компаньйона, ставить гру на паузу та звільняє курсор миші (перекриває Left Alt радіального меню).'
+    },
+    {
+      kbd: 'F2',
+      layer: '',
+      bind: 'key.keyboard.f2',
+      hoverBinds: 'key.keyboard.f2',
+      title: 'Скріншот у Vision ШІ',
+      desc: 'Зберігає знімок у minecraft/screenshots і підсвічує у HUD кнопку «📸 Розібрати скріншот F2».'
+    },
+    {
+      kbd: 'Ctrl+V',
+      layer: 'C',
+      bind: 'key.keyboard.v',
+      hoverBinds: 'key.keyboard.left.control,key.keyboard.v',
+      title: 'Вставка кропу з буфера',
+      desc: 'У відкритому чаті HUD вставляє вирізану ділянку екрана (Win+Shift+S) для розбору схеми чи вікна JEI.'
+    },
+    {
+      kbd: '!що · !як · !де · !клавіші',
+      layer: '',
+      bind: 'key.keyboard.t',
+      hoverBinds: 'key.keyboard.t',
+      title: 'Швидкі команди в чаті гри (T) або HUD',
+      desc: 'Предмет у руці/прицілі (!що), рецепт і застосування (!як), пошук у скринях/рюкзаках з напрямком (!де), вільні клавіші (!клавіші).'
+    }
+  ];
+
+  const companionCard = h('div.kbd-companion-card', null,
+    h('div.kbd-card-h', null,
+      h('div.kbd-card-title', null,
+        h('span.kbd-card-icon', null, '🤖'),
+        h('b', null, 'Клавіші та швидкі дії ATM11-Companion'),
+        h('span.kbd-badge.companion', null, 'HUD + Гра')
+      ),
+      h('span.small.muted', null, 'глобальні комбінації оверлею та команди KubeJS-моста')
+    ),
+    h('div.kbd-companion-grid', null, companionItems.map((it) => {
+      const isSelected = st.sel === it.bind && st.layer === it.layer;
+      return h(`div.kbd-companion-item${isSelected ? '.sel' : ''}`, {
+        onclick: () => handlers.onPick(it.bind, it.layer),
+        onmouseenter: () => handlers.onHover(it.hoverBinds || it.bind),
+        onmouseleave: () => handlers.onHover(null),
+        title: 'Клік — увімкнути відповідний шар і підсвітити комбінацію на розкладці'
+      },
+        h('div.kbd-companion-top', null,
+          h('span.kbd.kbd-comp-key', null, it.kbd),
+          h('span.kbd-comp-title', null, it.title)
+        ),
+        h('div.kbd-comp-desc.small.muted', null, it.desc)
+      );
+    }))
+  );
+
   // ── Сітка 3 карток дашборду ──
   const dashboardCards = h('div.kbd-grid', null, conflictCard, topKeysCard, numpadCard);
 
@@ -256,5 +318,5 @@ export function keysDashboard(s, kd, st, by, handlers) {
 
   const accordionSection = h('div.kbd-acc-wrap', null, accordionToggleBtn, accordionContent);
 
-  return h('div.kb-dashboard-box', null, dashboardCards, accordionSection);
+  return h('div.kb-dashboard-box', null, companionCard, dashboardCards, accordionSection);
 }

@@ -38,7 +38,7 @@
   {"ns": "minecraft", "re": "^key\\.occultism\\.familiar\\.drikwing$", "mod": "occultism", "name": "Перемкнути здібності: Дрікрил (Drikwing)"},
   {"ns": "minecraft", "re": "^key\\.occultism\\.familiar\\.wingnis$", "mod": "occultism", "name": "Перемкнути здібності: Вінгніс (Wingnis)"},
   {"ns": "keybindbundles", "cat": "ui", "ctx": "game"},
-  {"re": "^key\\.keybindbundles\\.open_radial_menu$", "note": "утримувати — кругове меню наборів клавіш"},
+  {"re": "^key\\.keybindbundles\\.open_radial_menu$", "note": "утримувати — кругове меню наборів клавіш; при натисканні Alt+Q (HUD компаньйона) автоматично закривається для паузи й курсора"},
   {"ns": "sky_aesthetics", "cat": "screen", "ctx": "game"},
   {"ns": "energizedpower", "cat": "vehicle", "ctx": "game", "soft": true, "note": "стоячи на телепортері Energized Power"},
   {"ns": "simplemagnets", "cat": "gear", "ctx": "held", "note": "магніт в інвентарі"},

@@ -129,3 +129,27 @@ a.ai-kpi:hover { border-color: var(--accent); text-decoration: none; }
   .ai-model-picker select { max-width: 190px; }
   .ai-hero .badge, .ai-radar-row .badge, .ai-kbd, .wb-btn { white-space: normal; word-break: break-word; }
 }
+
+/* C5: вкладка «🧠 Ядро Джарвіса + 📦 Сховища» (components/jarvis-card.js) */
+.jv-wrap { display: flex; flex-direction: column; gap: 10px; }
+.jv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 10px; }
+.jv-card { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.jv-card .seg { flex-wrap: wrap; height: auto; max-width: 100%; }
+.jv-card .seg button { white-space: normal; min-height: 30px; }
+.jv-card .chip { white-space: normal; }
+.jv-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.jv-cu { height: 7px; border-radius: 999px; background: var(--bg-2); overflow: hidden; }
+.jv-cu-fill { height: 100%; background: var(--accent); transition: width .2s ease; }
+.jv-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+.jv-mods { display: flex; flex-direction: column; gap: 5px; }
+.jv-mod { display: grid; grid-template-columns: auto auto 1fr auto; align-items: center; gap: 8px; padding: 6px 8px; border: 1px solid var(--line); border-radius: var(--radius-sm); cursor: pointer; }
+.jv-mod.on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, transparent); }
+.jv-mod-txt { display: flex; flex-direction: column; min-width: 0; }
+.jv-cu-cost { font-size: .78rem; font-weight: 700; color: var(--accent); white-space: nowrap; }
+.jv-key { font-family: ui-monospace, Consolas, monospace; }
+.jv-seg-wide { display: flex; height: auto; }
+.jv-seg-wide button { flex: 1; }
+.jv-check ul { margin: 4px 0; padding-left: 18px; }
+.jv-st-list { display: flex; flex-direction: column; gap: 8px; }
+.jv-st { padding: 8px 10px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg-2); display: flex; flex-direction: column; gap: 4px; }
+@media (max-width: 600px) { .jv-grid { grid-template-columns: 1fr; } .seg button { padding: 0 6px; font-size: .74rem; } }
