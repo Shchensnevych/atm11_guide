@@ -41,7 +41,7 @@
       },
       {
         "mod": "occultism",
-        "why": "Просякнені інструменти й обладунки Occultism (ритуал із прив'язаним джином) збірка робить із срібних інструментів і срібних обладунків Ice and Fire.",
+        "why": "Насичені інструменти й обладунки Occultism (ритуал із прив'язаним джином) збірка робить із срібних інструментів і срібних обладунків Ice and Fire.",
         "src": "KubeJS server_scripts/unification/tools.js — ритуали occultism:ritual/craft_infused_*",
         "ref": [
           "recipe:occultism:ritual/craft_infused_pickaxe",
@@ -175,7 +175,7 @@
     "synergy": [
       {
         "mod": "apotheosis",
-        "why": "Рівневі брами Apotheosis (Кордон → Сходження → Вершина → Пік) крафтяться з пилу самоцвітів і реагентів Apotheosis; за браму Піку — перлина Нескінченної брами загарбників.",
+        "why": "Рівневі брами Apotheosis (Кордон → Сходження → Вершина → Пік): першу крафтять із ванільних матеріалів (кістки, перлини Енду, залізо, гнила плоть, павучі очі), наступні — з пилу самоцвітів і реагентів Apotheosis; за браму Піку — перлина Нескінченної брами загарбників.",
         "src": "рецепти apotheosis:gateways/tiered/*; дані apotheosis/gateways/gateways/*; квести «Апофеотичні брами», «Перлина брами — Нескінченна брама апофеотичних загарбників»",
         "ref": [
           "recipe:apotheosis:gateways/tiered/frontier",
@@ -368,7 +368,7 @@
       },
       {
         "mod": "forbidden_arcanus",
-        "why": "Яйце дракона + золота луска дракона → чарівне яйце дракона Forbidden Arcanus.",
+        "why": "Яйце дракона + золота луска дракона → містичне яйце дракона Forbidden Arcanus.",
         "src": "рецепт forbidden_arcanus:arcane_dragon_egg",
         "ref": [
           "recipe:forbidden_arcanus:arcane_dragon_egg"
@@ -376,7 +376,7 @@
       },
       {
         "mod": "allthetweaks",
-        "why": "Яйце дракона — у рецепті мініатюрного порталу виходу (ATM).",
+        "why": "Чотири яйця дракона — у рецепті мініатюрного порталу виходу (ATM).",
         "src": "KubeJS server_scripts/modpack/mini_portals.js",
         "ref": [
           "recipe:allthemods:allthetweaks/mini_exit"

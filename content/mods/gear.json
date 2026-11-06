@@ -319,7 +319,7 @@
     "synergy": [
       {
         "mod": "apothic_enchanting",
-        "why": "Apotheosis має модуль сумісності з Apothic Enchanting: рецепти стола зачарування Ворона й боготвореної злитої перлини, а рівні світу підвищують гравцеві максимальну Етерну.",
+        "why": "Apotheosis має модуль сумісності з Apothic Enchanting: рецепти стола зачарування Ворона й богозлитої перлини, а рівні світу підвищують гравцеві максимальну Етерну.",
         "src": "клас dev/shadowsoffire/apotheosis/compat/enchanting/ApothicEnchantingCompat; рецепт apotheosis:raven_enchanting_table; tier_augments/*/max_eterna.json",
         "ref": [
           "recipe:apotheosis:raven_enchanting_table",
@@ -517,7 +517,7 @@
       },
       {
         "mod": "lootr",
-        "why": "Завдяки Lootr гравці на сервері мають власний шанс знайти артефакти у скринях данжів",
+        "why": "Артефакти, які мод додає в лут скринь данжів, у скринях Lootr випадають окремо для гравця; Мімік підлаштовує текстуру під налаштування Lootr (клас LootrCompat).",
         "src": "клас artifacts/integration/lootr/LootrCompat",
         "ref": [
           "jarfile:artifacts!artifacts/integration/lootr/LootrCompat.class~lootr"
@@ -609,10 +609,11 @@
     "synergy": [
       {
         "mod": "curios",
-        "why": "Амулет сердець і амулет душі носяться в слоті Curios — контейнери сердець усередині амулета не займають інвентар.",
+        "why": "Амулет сердець і амулет душі носяться в окремому слоті Curios «амулет сердець» — контейнери сердець усередині амулета не займають інвентар.",
         "src": "теги curios (bhc)",
         "ref": [
-          "tag:curios:necklace"
+          "jarfile:baubley-heart-canisters!data/curios/tags/item/heart_amulet.json~bhc:heart_amulet",
+          "jarfile:baubley-heart-canisters!data/bhc/curios/entities/add_slot_heartamulet.json~heart_amulet"
         ]
       }
     ],

@@ -1,0 +1,76 @@
+# Звіт аудиту синергій модів All the Mods 11 (Minecraft 26.1.2) — Батч 3 (33 синергії)
+
+Було проведено ретельну перевірку всіх 33 синергій з файлу `batch_3.json` із зіставленням проти бази перекладів `names.json` та файлів гри (рецепти, KubeJS-скрипти, конфігурації, FTB Quests, класи JAR-модів).
+
+---
+
+## 📊 Загальна статистика Батчу 3
+
+- **Всього синергій:** 33
+- **✅ Точно (без суттєвих зауважень):** 26 (78.8%)
+- **⚠️ Дрібні зауваження (термінологія, формулювання, контекст):** 6 (18.2%)
+- **❌ Помилки (невірна атрибуція пари / серйозна неточність):** 1 (3.0%)
+- **⚑ Рекомендовано перевірити в грі (рантайм/візуал/клієнтські механіки):** 4 синергії (№15, №20, №21, №31)
+
+---
+
+## 📋 Детальна таблиця аудиту всіх 33 синергій
+
+| № | Пара (`from` → `to`) | Статус | Аналіз, підтвердження ref та зауваження |
+|---|---|:---:|---|
+| 1 | `geore` → `inworldrecipes` | ✅ Точно | **Ref підтверджено:** `kubejs/server_scripts/mods/geore/crystalline_wand.js` (L34) реєструє рецепти типу `inworldrecipes:world_recipe` для зняття блоків `geore:budding_*` жезлом `kubejs:crystalline_wand` (шанс 50%) та `kubejs:perfected_crystalline_wand` (шанс 100%).<br>• *Дрібне:* у полі `to_name` варто виправити `inworldrecipes` на `"In World Recipes"`. |
+| 2 | `hostilenetworks` → `apothic_enchanting` | ✅ Точно | **Ref підтверджено:** `kubejs/dynamic_data/hostilenetworks/data_models/warden.json` у секції `fabricator_drops` містить `apothic_enchanting:warden_tendril`.<br>• Переклад точний: `minecraft:warden` = «Боронитель», `warden_tendril` = «Вусик боронителя» (повний збіг з `names.json`). |
+| 3 | `iceandfire` → `allthemodium` | ✅ Точно | **Ref підтверджено:** У `kubejs/dynamic_data/iceandfire/recipe/dragonforge/` є 3 рецепти (`allthemodium-vibranium.json`, `allthemodium-unobtainium.json`, `vibranium-unobtainium.json`) з `cookTime: 1000`. У `fire.json` додано біом `allthemodium:crimson_forest`.<br>• Числа й назви (усемодій, вібраній, унобтаній, Інший світ) 100% точні. |
+| 4 | `iceandfire` → `occultism` | ✅ Точно | **Ref підтверджено:** У `kubejs/server_scripts/unification/tools.js` (L66-120) при завантажених обох модах срібні інструменти та обладунки Ice and Fire (`iceandfire:silver_*`, `iceandfire:armor_silver_metal_*`) використовуються у ритуалах Окультизму з прив'язаним джином (`occultism:craft_djinni`) для створення просякненого спорядження (`occultism:infused_*`). |
+| 5 | `iceandfire` → `productivebees` | ✅ Точно | **Ref підтверджено:** JAR Productive Bees містить рецепти кузні дракона (`data/iceandfire/recipe/dragonforge/*_dragonsteel_bee.json`) з кров'ю дракона, рецепти центрифуги для драконесталевих стільників, а квести `1C0F4D1610530FEC`, `019CC48531E7759B`, `3EB6CBA0B1374BDD` наявні в главі `productive_bees.json5`. |
+| 6 | `integrateddynamics` → `mysticalagriculture` | ✅ Точно | **Ref підтверджено:** `cropInfo.json` містить `"menril"`, що активує культуру в KubeJS. У JAR Mystical Agriculture присутні рецепти крафту з есенції колод (`menril_log.json`), ягід (`menril_berries.json`) та саджанців (`menril_sapling.json`). |
+| 7 | `integrateddynamics` → `productivebees` | ⚠️ Дрібне | **Ref підтверджено:** У JAR Productive Bees є `recipe/centrifuge/integrateddynamics/honeycomb_menril.json`.<br>• *Зауваження:* речення починається з малої літери («менрілові бджоли...»). За `names.json` вихід центрифуги — «Шматок кристалізованого менрілу» (`crystalized_menril_chunk`, шанс 10%) та 50 mB рідкої менрілової смоли (`menril_resin`). Рекомендовано: *«Менрілові бджоли дають стільники, які в центрифузі переробляються на шматки кристалізованого менрілу та менрілову смолу.»* |
+| 8 | `integratedterminals` → `integratedcrafting` | ✅ Точно | **Ref підтверджено:** У JAR `integratedterminals` присутній пакет `org/cyclops/integratedterminals/modcompat/integratedcrafting/`, зокрема клас `CraftingJobFinishedToastListener.class` та `TerminalCraftingPlanCraftingJobDependencyGraph.class`. Термінал створення замовляє та візуалізує автокрафт. |
+| 9 | `inworldrecipes` → `ae2` | ✅ Точно | **Ref підтверджено:** У `kubejs/server_scripts/mods/geore/crystalline_wand.js` (L29, L34) блок `ae2:flawless_budding_quartz` додано до списку цілей для жезла через In World Recipes.<br>• *Уточнення термінології:* за `names.json` назва блоку — «Бездоганний родючий істинний кварц» (варто додати слово «істинний»). |
+| 10 | `inworldrecipes` → `occultism` | ❌ Помилка | **Ref:** `recipe:allthemods:crystalline_infusion/crystalline_wand`.<br>• **Аналіз помилки:**<br>1) **Невірна атрибуція пари:** Мод `inworldrecipes` взагалі не містить предметів чи жезлів і не бере участі в ритуалі Окультизму. Жезли `kubejs:crystalline_wand` та `kubejs:perfected_crystalline_wand` створені авторами збірки (KubeJS) для збору руд GeOre. Ритуал накреслюється в Occultism з використанням предметів збірки, GeOre, Construction Wand тощо.<br>2) **Незрозумілий контекст:** Фраза *«Обидва жезли робляться ритуалами Occultism»* відірвана від назв предметів (гравець не знає, про які жезли йдеться).<br>• *Рекомендація:* Перенести або перейменувати зв'язок на `geore` → `occultism` (або `kubejs` → `occultism`) та чітко вказати назву: *«Недосконалий та досконалий кристалічні резонансні жезли створюються через ритуал Окультизму "Crystalline Infusion".»* |
+| 11 | `ironfurnaces` → `generatorgalore` | ⚠️ Дрібне | **Ref підтверджено:** Квести `49F08DE190AAD0D8` (Фабрика), `20EC8001A05CE2C8` (Приймач тепла), `07753C5D94312A50` (Генератор) та `618F1434757C8E69` (Мідний генератор) містяться у спільній главі `generators.json5`.<br>• *Зауваження до перекладу:* В українському тексті написано *«бездротовий **передавач** тепла»*, тоді як за `names.json` предмет `ironfurnaces:heater` перекладається як **«Бездротовий приймач тепла»** (Wireless Heat Receiver). Потрібно замінити «передавач» на «приймач». |
+| 12 | `ironfurnaces` → `allthemodium` | ✅ Точно | **Ref підтверджено:** У JAR Iron Furnaces є вбудована інтеграція під ATM-метали: `allthemodium_furnace.json`, `vibranium_furnace.json`, `unobtainium_furnace.json` та покращення до них за тегами `c:ingots/allthemodium` тощо. Квест `3A4C17878FC8315B` підтверджено. |
+| 13 | `ironjetpacks` → `curios` | ✅ Точно | **Ref підтверджено:** У JAR Iron Jetpacks є клас `CuriosCompat.class` і тег `data/curios/tags/item/back.json` з `ironjetpacks:jetpack`. Дозволяє надягати ранець у слот спини Curios. |
+| 14 | `irons_jewelry` → `curios` | ✅ Точно | **Ref підтверджено:** Теги `curios:ring` та `curios:necklace` зареєстровані в JAR мода, а атрибути та бонуси коштовностей нараховуються через Curios API (`AttributeBonusType.class`). |
+| 15 | `jade` → `jei` | ✅ Точно <br>*(⚑ перевірити в грі)* | **Ref підтверджено:** У JAR Jade наявний клас `snownee/jade/compat/JEICompat.class`.<br>• *Позначка:* ⚑ Рекомендовано перевірити в грі роботу гарячих клавіш (R/U при наведенні на блок у світі для відкриття вікна рецептів у JEI). |
+| 16 | `jearchaeology` → `allthemodium` | ✅ Точно | **Ref підтверджено:** `config/jearchaeology-common.toml` має `atm_compat = true`. У JAR AllTheModium таблиці луту археології `data/allthemodium/loot_table/arch.json` та `arch2.json` містять ковальські шаблони усемодію та вібранію. Квести `71E4FD61787DE299` та `226B8B60AF864FEF` підтверджені. |
+| 17 | `justdirethings` → `quarryplus` | ✅ Точно | **Ref підтверджено:** У `kubejs/server_scripts/mods/quarryplus/recipes.js` (L10) кар'єр `quarryplus:quarry` крафтиться з `justdirethings:eclipsealloy_pickaxe` (кайло зі сплаву затемнення) та `justdirethings:blockbreakert2` (покращений руйнівник блоків). |
+| 18 | `justdirethings` → `allthemodium` | ✅ Точно | **Ref підтверджено:** У `kubejs/server_scripts/mods/justdirethings/recipes.js` видалено стандартний рецепт `upgrade_orexray` і додано новий з використанням `#c:ingots/unobtainium`. Переклад «Покращення: X-Ray руди» відповідає `names.json`. |
+| 19 | `logisticsnetworks` → `ae2` | ✅ Точно | **Ref підтверджено:** У JAR мода присутній рецепт `data/logisticsnetworks/recipe/network_upgrade_ae2.json` (потребує шини, кабелі та картки прискорення AE2) та пакет `me/almana/logisticsnetworks/integration/ae2/` для доступу до МЕ-мережі й автокрафту. |
+| 20 | `lootr` → `allthemodium` | ✅ Точно <br>*(⚑ перевірити в грі)* | **Ref підтверджено:** AllTheModium містить повноцінну інтеграцію з Lootr (`net/allthemods/allthemodium/compat/lootr/`), де через `ClayConversionProvider`, `SoulSandConversionProvider` і теги `clays.json`/`soul_sands.json` підозрілі блоки конвертуються в персональні Lootr-блоки.<br>• *Позначка:* ⚑ Рекомендовано перевірити в грі коректність поведінки щітки (brushable mixin) для кожного гравця в мультиплеєрі. |
+| 21 | `luminax` → `framedblocks` | ✅ Точно <br>*(⚑ перевірити в грі)* | **Ref підтверджено:** У JAR Luminax є клас `dev/satherov/luminax/compat/framedblocks/LuminaxCamoContainer.class`.<br>• *Позначка:* ⚑ Перевірити в грі рендеринг та збереження світіння блоків Luminax у каркасних блоках FramedBlocks. |
+| 22 | `mahoutsukai` → `apothic_enchanting` | ✅ Точно | **Ref підтверджено:** Квести `03DCDFB32CD4BD85` (Калібурн) та `012912FDAFCD1C66` (Покращення Калібурна) вимагають меч з чарами Smite («Небесна кара») та 6 зірок Незеру для підняття стелі шкоди. Квест `6884E25641A1020C` (Бібліотека чар) підтверджує зберігання та комбінування високорівневих книг Apothic Enchanting. |
+| 23 | `mahoutsukai` → `easy_villagers` | ✅ Точно | **Ref підтверджено:** `config/mahoutsukai-server.toml` задає `MORGAN_ADULT_INCREASE = 0.1` та `MORGAN_CHILD_INCREASE = 0.5`. Квест `777BB82B56038ED3` підтверджує механіку вбивства селян. Блок `easy_villagers:breeder` («Розмножувач» за `names.json`) забезпечує компактне розведення селян. |
+| 24 | `matc` → `mysticalagriculture` | ✅ Точно | **Ref підтверджено:** Мод MATC (Mystical Agriculture Tiered Crystals) додає проміжні кристали наповнення (прудентієвий, терцієвий, імперієвий, супремієвий) з рецептами в звичайному верстаку (`matc:imperium_essence`, `matc:imperium_crystal`). |
+| 25 | `mffs` → `powah` | ⚠️ Дрібне | **Ref підтверджено:** `mffs-common.toml` встановлює `feCostPerFortron = 600`. Конфіг `powah.json5` встановлює генерацію нітро-реактора на рівні `500000` FE/t.<br>• *Зауваження до термінології:* За `names.json` блок `mffs:coercion_deriver` називається **«Примусовий деривататор»** (Coercion Deriver), а не «Деривататор примусу». |
+| 26 | `mininggadgets` → `allthemodium` | ✅ Точно | **Ref підтверджено:** `kubejs/server_scripts/mods/mininggadgets/recipes.js` (L6) замінює рецепт `mininggadgets:upgrade_empty`, додаючи самородки усемодію (`#c:nuggets/allthemodium`).<br>• *Дрібне:* за `names.json` предмет називається «Порожній модуль покращення». |
+| 27 | `moredragoneggs` → `productivebees` | ⚠️ Дрібне | **Ref підтверджено:** Рецепт `productivebees:dragon_egg_hive` створює вулик із `minecraft:dragon_egg` + `minecraft:beehive`.<br>• *Зауваження:* У `why` не пояснено роль мода `moredragoneggs`. Мод робить яйце дракона поновлюваним (випадає при кожному повторному вбивстві Ендер-дракона), завдяки чому яйця можна вільно витрачати на вулики Productive Bees. Без цього пояснення здається, що синергія стосується ванільного Minecraft. |
+| 28 | `moredragoneggs` → `theurgy` | ✅ Точно | **Ref підтверджено:** У Theurgy є рецепти розрідження яйця на сірку (`liquefaction/alchemical_sulfur_dragon_egg_from_dragon_egg.json`), прожарювання на сіль істот та інкубації нового яйця дракона (`incubation/dragon_egg.json`). Текст чітко згадує використання повторних яєць. |
+| 29 | `moredragoneggs` → `forbidden_arcanus` | ⚠️ Дрібне | **Ref підтверджено:** Рецепт `forbidden_arcanus:arcane_dragon_egg` з яйця дракона та золотої луски.<br>• *Зауваження:* 1) За `names.json` предмет називається **«Містичне яйце дракона»** (Arcane Dragon Egg), а не «чарівне яйце». 2) Варто підкреслити контекст поновлюваності яйця від More Dragon Eggs. |
+| 30 | `moredragoneggs` → `allthetweaks` | ⚠️ Дрібне | **Ref підтверджено:** `kubejs/server_scripts/modpack/mini_portals.js` (L28) містить рецепт `allthetweaks:mini_exit`.<br>• *Зауваження:* Рецепт вимагає **аж 4 яйця дракона** (`minecraft:dragon_egg`), тому без More Dragon Eggs скрафтити його у звичайному виживанні неможливо! Варто прямо вказати число: *«Потребує 4 яйця дракона...»*. За `names.json` предмет зветься **«Мініатюрний вихідний портал»**. |
+| 31 | `moreoverlays` → `jei` | ✅ Точно <br>*(⚑ перевірити в грі)* | **Ref підтверджено:** `at/ridgo8/moreoverlays/itemsearch/GuiRenderer.class` викликає JEI API; `config/moreoverlays.toml` містить параметр `search_enabled = true` (*«double click the JEI search bar for item searching»*).<br>• *Позначка:* ⚑ Перевірити подвійний клік по пошуковому рядку JEI та затемнення невідповідних предметів у скринях у грі. |
+| 32 | `mysticalagradditions` → `hostilenetworks` | ✅ Точно | **Ref підтверджено:** `kubejs/server_scripts/mods/mysticalagriculture/recipes.js` додає рецепт «Висушеної душі» (`mysticalagradditions:withering_soul`), де використовується `hostilenetworks:prediction` з моделлю `hostilenetworks:wither`.<br>• Переклади («Передбачення Візера», «Висушена душа», «Нев'януча троянда») 100% узгоджені з `names.json`. |
+| 33 | `mysticalagradditions` → `productivebees` | ✅ Точно | **Ref підтверджено:** Той самий рецепт `allthemods:mysticalagradditions/withering_soul` вимагає стільники висушеної бджоли `productivebees:configurable_comb` (`bee_type="productivebees:withered"`). Повний збіг. |
+
+---
+
+## 🔍 Головні висновки та рекомендовані виправлення
+
+1. **Критична помилка атрибуції (Синергія №10):**
+   - Пара `inworldrecipes -> occultism` є помилковою, оскільки `inworldrecipes` не додає жезлів і не фігурує в ритуалах Окультизму. Жезли належать до кастомних предметів KubeJS (`kubejs:crystalline_wand` та `kubejs:perfected_crystalline_wand`), створених авторами для збору GeOre-блоків. Цю синергію слід переприв'язати до `geore -> occultism` та конкретизувати назву жезлів.
+
+2. **Виправлення термінології за `names.json`:**
+   - **№11 (`ironfurnaces`):** змінити «бездротовий передавач тепла» ➔ **«бездротовий приймач тепла»** (`ironfurnaces:heater` / Wireless Heat Receiver).
+   - **№25 (`mffs`):** замінити «Деривататор примусу» ➔ **«Примусовий деривататор»** (`mffs:coercion_deriver`).
+   - **№29 (`forbidden_arcanus`):** змінити «чарівне яйце дракона» ➔ **«Містичне яйце дракона»** (`forbidden_arcanus:arcane_dragon_egg`).
+   - **№30 (`allthetweaks`):** за `names.json` назва блоку — **«Мініатюрний вихідний портал»**, і варто додати число **4 яйця дракона** у вимогах рецепта.
+   - **№7 (`integrateddynamics`):** виправити малу літеру та уточнити вихід центрифуги — **«шматки кристалізованого менрілу та менрілова смола»**.
+
+3. **Смислове уточнення синергій More Dragon Eggs (№27, №29, №30):**
+   - Обов'язково пояснити гравцеві, чому саме More Dragon Eggs створює синергію: *«Завдяки More Dragon Eggs яйця дракона стають нескінченно поновлюваними при повторних викликах боса, що дозволяє витрачати їх як витратний матеріал на крафти...»*.
+
+4. **Кандидати на тестування у клієнті (⚑):**
+   - №15 (`jade -> jei`): хоткеї пошуку рецептів на блоці у світі.
+   - №20 (`lootr -> allthemodium`): мультиплеєрне щіткування підозрілої глини/піску душ.
+   - №21 (`luminax -> framedblocks`): коректність рендерингу світіння камуфляжу.
+   - №31 (`moreoverlays -> jei`): інтерактивний пошук подвійним кліком по рядку JEI.

@@ -38,7 +38,7 @@
     "synergy": [
       {
         "mod": "agritechevolved",
-        "why": "Садівники AgriTech Evolved вирощують рослини Етеру (живці ехорової рослини, папороть Етеру тощо) — автоматична ферма ресурсів виміру.",
+        "why": "Садильники AgriTech Evolved вирощують рослини Етеру (живці ехорової рослини, етерну папороть тощо) — автоматична ферма ресурсів виміру.",
         "src": "рецепти agritechevolved:planter/crop/aether_ii/*",
         "ref": [
           "recipe:agritechevolved:planter/crop/aether_ii/aechor_cutting",
@@ -626,7 +626,7 @@
       },
       {
         "mod": "occultism",
-        "why": "Мандрівний камінь — інгредієнт ритуалу кристалічного просякнення Occultism для Досконалого кристалічного резонансного жезла (ATM).",
+        "why": "Мандрівний камінь — інгредієнт ритуалу кристалічного насичення Occultism для Досконалого кристалічного резонансного жезла (ATM).",
         "src": "KubeJS server_scripts/mods/geore/crystalline_wand.js",
         "ref": [
           "recipe:allthemods:crystalline_infusion/perfect_crystalline_wand",
@@ -727,7 +727,7 @@
     "synergy": [
       {
         "mod": "alltheores",
-        "why": "Рецепт компаса в збірці — з 4 ендерієвих шестерень AllTheOres (і незериту з компасом відновлення).",
+        "why": "Рецепт компаса в збірці — з 4 ендеріюмових шестерень AllTheOres (і незериту з компасом відновлення).",
         "src": "KubeJS server_scripts/mods/explorerscompass/recipes.js",
         "ref": [
           "recipe:kjs:mods/explorerscompass/recipes.js#L6"

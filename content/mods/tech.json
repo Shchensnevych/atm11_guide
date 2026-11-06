@@ -53,7 +53,7 @@
    },
    {
     "mod": "powah",
-    "why": "Сфера заряджання Powah робить матеріали Oritech: флюксит з аметисту, енергітовий злиток з нікелю й флюксита, плутонієвий пил з уранітового кристала.",
+    "why": "Сфера заряджання Powah робить матеріали Oritech: флюксит з аметисту, енергітовий злиток з нікелю й флюкситу, плутонієвий пил з уранітового кристала.",
     "src": "рецепти oritech:compat/powah/energizing/fluxite, energite, uranite",
     "ref": [
      "recipe:oritech:compat/powah/energizing/fluxite",
@@ -147,7 +147,7 @@
    },
    {
     "mod": "refinedtypes",
-    "why": "Удосконалені схеми Energized Power — інгредієнт частин енергосховища Refined Types (рецепти збірки).",
+    "why": "Покращені схеми Energized Power — інгредієнт частин енергосховища Refined Types (рецепти збірки).",
     "src": "KubeJS server_scripts/mods/refined_storage/refined_types.js",
     "ref": [
      "recipe:kjs:mods/refined_storage/refined_types.js#L5"
@@ -212,7 +212,7 @@
    },
    {
     "mod": "refinedstorage",
-    "why": "Провідник Refined Storage (кабель RS + сполучна речовина провідника) несе мережу RS у тому самому пучку, що й інші провідники Ender IO.",
+    "why": "Провідник Refined Storage (кабель RS + зв'язувальний елемент провідників) несе мережу RS у тому самому пучку, що й інші провідники Ender IO.",
     "src": "рецепт enderio:rs_conduit",
     "ref": [
      "recipe:enderio:rs_conduit"
@@ -261,7 +261,7 @@
   "synergy": [
    {
     "mod": "enderio",
-    "why": "Провідники Endergy крафтяться зі сполучної речовини провідника Ender IO і стають звичайними провідниками Ender IO; конденсатори Endergy — для машин Ender IO.",
+    "why": "Провідники Endergy крафтяться зі зв'язувального елемента провідників Ender IO і стають звичайними провідниками Ender IO; конденсатори Endergy — для машин Ender IO.",
     "src": "рецепти enderio_endergy:crude_energy_conduit, melodic_energy_conduit, basic_capacitor",
     "ref": [
      "recipe:enderio_endergy:crude_energy_conduit",
@@ -375,7 +375,7 @@
   "synergy": [
    {
     "mod": "silentgear",
-    "why": "З доповненням Silent Gear Metalworks ливарня відливає злитки металів Silent Gear (лазурне срібло й електрум, багряне залізо…) і частини спорядження у формах.",
+    "why": "З доповненням Silent Gear Metalworks ливарня відливає злитки металів Silent Gear (блакитне срібло й блакитний електрум, багряне залізо…) і частини спорядження у формах.",
     "src": "рецепти productivemetalworks:casting/ingots/silentgear/*, sgearmetalworks:casting/*_cast",
     "ref": [
      "recipe:productivemetalworks:casting/ingots/silentgear/azure_electrum",
@@ -497,7 +497,7 @@
   "synergy": [
    {
     "mod": "generatorgalore",
-    "why": "Доповнення «Фабрика» і бездротовий передавач тепла переводять печі на FE — її дають генератори Generator Galore зі спільної глави «Generators N Furnaces»; доповнення «Генератор», навпаки, робить із печі генератор.",
+    "why": "Доповнення «Фабрика» і бездротовий приймач тепла переводять печі на FE — її дають генератори Generator Galore зі спільної глави «Generators N Furnaces»; доповнення «Генератор», навпаки, робить із печі генератор.",
     "src": "квести «Доповнення: Фабрика», «Бездротовий приймач тепла», «Доповнення: Генератор», «Мідний генератор»",
     "ref": [
      "quest:49F08DE190AAD0D8",
@@ -605,7 +605,7 @@
      "!recipe:railcraft:iron_gear",
      "recipe:alltheores:crafting/iron/gear",
      "recipe:railcraft:manual_rolling_machine",
-     "tag:c:gears/iron"
+     "tag:c:gears/bronze"
     ]
    }
   ],
@@ -651,7 +651,7 @@
   "synergy": [
    {
     "mod": "powah",
-    "why": "Деривататор примусу робить фортрон із FE — 600 FE на одиницю (конфіг MFFS), тож силові поля живлять великими генераторами, як-от реактор Powah (Нітро — 500 000 FE/такт, конфіг).",
+    "why": "Примусовий деривататор робить фортрон із FE — 600 FE на одиницю (конфіг MFFS), тож силові поля живлять великими генераторами, як-от реактор Powah (Нітро — 500 000 FE/такт, конфіг).",
     "src": "config/mffs-common.toml: coercion_deriver.feCostPerFortron; config/powah.json5: generators.reactors.generation_rates",
     "ref": [
      "config:config/mffs-common.toml#coercion_deriver.feCostPerFortron=600",
@@ -1011,7 +1011,7 @@
   "synergy": [
    {
     "mod": "ae2",
-    "why": "Генератор робить небесний пил AE2 з блоком небесного каменю.",
+    "why": "Генератор робить пил небесного каменю AE2 з небесним каменем.",
     "src": "рецепт cobblegengalore:blockgen/ae2/skystone",
     "ref": [
      "recipe:cobblegengalore:blockgen/ae2/skystone"
@@ -1019,7 +1019,7 @@
    },
    {
     "mod": "allthemodium",
-    "why": "Стародавній камінь AllTheModium — генератор із синім льодом і окисненою міддю.",
+    "why": "Стародавній камінь AllTheModium — генератор із лавою душ, синім льодом і окисненою міддю.",
     "src": "рецепт cobblegengalore:blockgen/atm/ancient_stone",
     "ref": [
      "recipe:cobblegengalore:blockgen/atm/ancient_stone"

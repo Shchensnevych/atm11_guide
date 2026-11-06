@@ -396,7 +396,7 @@
   "synergy": [
    {
     "mod": "mysticalagriculture",
-    "why": "Культура менрілу Mystical Agriculture увімкнена в збірці (cropInfo.json): есенція крафтиться в ягоди, колоди й саджанці менрілу.",
+    "why": "Культура менрілу Mystical Agriculture увімкнена в збірці (cropInfo.json): есенція крафтиться в ягоди, колоди й паростки менрілу.",
     "src": "kubejs mods/mysticalagriculture/cropInfo.json; рецепти mysticalagriculture:essence/integrateddynamics/menril_*",
     "ref": [
      "file:kubejs/server_scripts/mods/mysticalagriculture/cropInfo.json~\"menril\"",
@@ -405,7 +405,7 @@
    },
    {
     "mod": "productivebees",
-    "why": "менрілові бджоли дають кристалізований менріл",
+    "why": "Менрілові бджоли: центрифуга дає шматки кристалізованого менрілу.",
     "src": "рецепт productivebees:centrifuge/integrateddynamics/honeycomb_menril",
     "ref": [
      "recipe:productivebees:centrifuge/integrateddynamics/honeycomb_menril"

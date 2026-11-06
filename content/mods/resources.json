@@ -56,7 +56,7 @@
    },
    {
     "mod": "mysticalcustomization",
-    "why": "Насіння усемодію, вібранію й унобтанію (рівень «Magical») на «Чарівному ґрунті»; есенції крафтяться в самородки.",
+    "why": "Насіння усемодію, вібранію й унобтанію (рівень «Magical») садять на «Інсанієву ріллю», під якою лежить «Чарівний ґрунт»; есенції крафтяться в самородки.",
     "src": "config/mysticalcustomization/crops/allthemodium.json; KubeJS mods/mysticalagriculture/fusion_crafting.js",
     "ref": [
      "config:config/mysticalcustomization/crops/allthemodium.json#crux=kubejs:magical_soil",
@@ -205,10 +205,11 @@
    },
    {
     "mod": "mysticalagradditions",
-    "why": "Творчу есенцію Mystical Agradditions збірка крафтить з блоків інсанію й майстерського кристала наповнення (att_items.js).",
+    "why": "Творчу есенцію Mystical Agradditions збірка крафтить із 4 інсанієвих блоків, 4 блоків інсанієвих самоцвітів і майстерського кристала наповнення (att_items.js); вона потрібна, напр., для творчого реактивного ранця разом із зіркою ATM.",
     "src": "KubeJS modpack/att_items.js (allthemods:allthetweaks/creative_essence)",
     "ref": [
-     "recipe:allthemods:allthetweaks/creative_essence"
+     "recipe:allthemods:allthetweaks/creative_essence",
+     "file:kubejs/server_scripts/modpack/atm_star_creative.js~allthetweaks:atm_star"
     ]
    }
   ],
@@ -278,7 +279,7 @@
    },
    {
     "mod": "oritech",
-    "why": "Збирач Oritech робить родючий блок GeOre будь-якої з 29 руд з 2 уламків, ендерного складу й перезарядженого кристала.",
+    "why": "Збирач Oritech робить родючий блок GeOre будь-якої з 29 руд з 2 уламків, ендерової сполуки й перезарядженого кристала.",
     "src": "рецепти oritech:compat/geore/assembler/*",
     "ref": [
      "recipe:oritech:compat/geore/assembler/budding_allthemodium",
@@ -350,7 +351,7 @@
    },
    {
     "mod": "occultism",
-    "why": "Обидва жезли робляться ритуалами Occultism.",
+    "why": "Кристалічні резонансні жезли, якими працюють рецепти InWorldRecipes з родючими блоками, крафтяться ритуалами Occultism.",
     "src": "KubeJS mods/geore/crystalline_wand.js (allthemods:crystalline_infusion/*)",
     "ref": [
      "recipe:allthemods:crystalline_infusion/crystalline_wand"
@@ -401,7 +402,7 @@
   "synergy": [
    {
     "mod": "mysticalagradditions",
-    "why": "Додає 6-й рівень — інсанієву есенцію й рілля — і насіння зірки Незеру, яйця дракона й нітро-кристала, які ростуть з основою (crux) під ріллею.",
+    "why": "Додає 6-й рівень — інсанієву есенцію й ріллю — і насіння зірки Незеру, яйця дракона й нітро-кристала, які ростуть з основою (crux) під ріллею.",
     "src": "квест «Інсаній» (глава «Mystical Agriculture»); предмети mysticalagradditions:*_crux",
     "ref": [
      "quest:202B1F54D3F06DAB",
@@ -410,7 +411,7 @@
    },
    {
     "mod": "allthecompressed",
-    "why": "Насіння сталі, кристалів Powah та інших сплавів збірка робить зі стиснених блоків 1x AllTheCompressed.",
+    "why": "Насіння кристалів Powah, сплавів та інших ресурсів збірка робить зі стиснених блоків 1x AllTheCompressed (для насіння сталі є й рецепт зі звичайних сталевих злитків).",
     "src": "KubeJS mods/mysticalagriculture/compatibility.js",
     "ref": [
      "recipe:kjs:mods/mysticalagriculture/compatibility.js#L128"
@@ -1006,7 +1007,7 @@
   "synergy": [
    {
     "mod": "occultism",
-    "why": "Потойбічна квітка Occultism розмножує барвники Dyenamics: квітка + барвник → 4 барвники.",
+    "why": "Іншоквітка Occultism розмножує барвники Dyenamics: квітка + барвник → 4 барвники.",
     "src": "KubeJS mods/dyenamics/recipes.js (allthemods:crafting/otherflower_to_*_dye)",
     "ref": [
      "recipe:allthemods:crafting/otherflower_to_honey_dye"

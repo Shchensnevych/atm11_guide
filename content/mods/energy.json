@@ -207,7 +207,7 @@
    },
    {
     "mod": "pipez",
-    "why": "Лічильник у розриві енергетичної труби Pipez: без покращення труба пропускає 256 FE/такт, з остаточним — 131 072 (конфіг).",
+    "why": "Лічильник у розриві енергетичної труби Pipez: без покращення труба пропускає 256 FE/такт, з найвищим покращенням — 131 072 (конфіг).",
     "src": "config/pipez-server.toml: energy_pipe.amount",
     "ref": [
      "config:config/pipez-server.toml#energy_pipe.amount.no_upgrade=256",

@@ -1148,7 +1148,7 @@
    },
    {
     "mod": "productivebees",
-    "why": "Стеларитову бджолу створює ритуал Кузні Гефеста: у збірці (KubeJS dynamic_data замінює ритуал Productive Bees) — 5 рівень, яйце незеритової бджоли, 4 Вічні Стелли, 2 блоки вібранію, 2 шматки стелариту; есенцію задано ключем souls — перевірити в JEI.",
+    "why": "Стеларитову бджолу створює ритуал Кузні Гефеста: у збірці (KubeJS dynamic_data замінює ритуал Productive Bees) — 5 рівень, яйце стародавньої бджоли, 4 Вічні Стелли, 2 блоки вібранію, 2 шматки стелариту; есенцію задано ключем souls — перевірити в JEI.",
     "src": "productivebees (jar): data/productivebees/forbidden_arcanus/hephaestus_forge/ritual/stellarite_bee.json",
     "ref": [
      "jarfile:data/productivebees/forbidden_arcanus/hephaestus_forge/ritual/stellarite_bee.json~forbidden_arcanus:eternal_stella",
@@ -1705,7 +1705,7 @@
   "synergy": [
    {
     "mod": "mysticalagriculture",
-    "why": "Лілію родючості в ATM11 роблять на вівтарі пробудження Mystical Agriculture (латаття, вібранієва пластина, 3 есенції родючості Reliquary і по 40 есенцій чотирьох стихій) — ручний рецепт Reliquary прибрано; троянда без візера — інгредієнт душі візера Mystical Agradditions.",
+    "why": "Лілію родючості в ATM11 роблять на вівтарі пробудження Mystical Agriculture (латаття, вібранієва пластина, 3 есенції родючості Reliquary і по 40 есенцій чотирьох стихій) — ручний рецепт Reliquary прибрано; нев'януча троянда — інгредієнт висушеної душі Mystical Agradditions.",
     "src": "KubeJS server_scripts/mods/mysticalagriculture/awakened_essence_crafting.js (awakening/fertile_lily_pad; remove output reliquary:fertile_lily_pad), mods/mysticalagriculture/recipes.js (mysticalagradditions/withering_soul)",
     "ref": [
      "recipe:allthemods:mysticalagriculture/awakening/fertile_lily_pad",
