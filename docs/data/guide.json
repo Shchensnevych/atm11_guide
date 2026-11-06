@@ -314,7 +314,29 @@
    "item:routers:mod_filter",
    "item:routers:tag_filter",
    "item:routers:stock_filter"
-  ]
+  ],
+  "atm": [
+   "Рівні покращень предметів, рідин, енергії й швидкості — ланцюжок: рівень I — з залізного злитка й основи типу (предмети — скриня, рідини — відро, енергія — пил і блок редстоуну, швидкість — кварц), наступні — з попереднього рівня, основи (енергія — пил редстоуну без блока) й нового матеріалу: золото (II) → діамант (III) → незерит (IV) → зірка Незеру (V). Покращення швидкості має лише рівні I–IV. Скільки саме переносить рівень, показує підказка предмета в грі."
+  ],
+  "item_ref": {
+   "atm": {
+    "0": [
+     "recipe:routers:item_upgrade_1",
+     "recipe:routers:item_upgrade_2",
+     "recipe:routers:item_upgrade_3",
+     "recipe:routers:item_upgrade_4",
+     "recipe:routers:item_upgrade_5",
+     "recipe:routers:fluid_upgrade_1",
+     "recipe:routers:rf_upgrade_1",
+     "recipe:routers:rf_upgrade_5",
+     "recipe:routers:speed_upgrade_1",
+     "recipe:routers:speed_upgrade_4",
+     "!item:routers:speed_upgrade_5",
+     "lang:tooltip.routers.item_upgrade",
+     "lang:tooltip.routers.speed_upgrade"
+    ]
+   }
+  }
  },
  "bounty_board": {
   "ov": "Необов'язкова сторінка квестів: нагороди за вбивства мобів — заодно лічильник, кого ви вже перемогли (зокрема босів Undergarden і Aether 2).",
@@ -547,7 +569,23 @@
    "item:advanced_ae:reaction_chamber",
    "item:advanced_ae:quantum_helmet",
    "item:advanced_ae:flight_card"
-  ]
+  ],
+  "atm": [
+   "Квантову броню в ATM11 крафтять з унобтанієвої броні замість незеритової; картки-покращення — на базовій картці квантового покращення; у картці сили незеритовий меч замінено вібранієвим."
+  ],
+  "item_ref": {
+   "atm": {
+    "0": [
+     "kjs:server_scripts/mods/advanced_ae/recipes.js",
+     "file:kubejs/server_scripts/mods/advanced_ae/recipes.js~\"allthemodium:unobtainium_helmet\"",
+     "file:kubejs/server_scripts/mods/advanced_ae/recipes.js~\"allthemodium:vibranium_sword\"",
+     "recipe:advanced_ae:quantum_base_card",
+     "recipe:advanced_ae:walk_speed_card",
+     "recipe:advanced_ae:flight_card"
+    ]
+   }
+  },
+  "notes": 2
  },
  "extreme_reactors": {
   "why": "Мода Extreme Reactors у збірці 0.12.0-beta немає — 28 з 34 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
@@ -738,7 +776,24 @@
    "item:justdirethings:blockbreakert1",
    "item:justdirethings:blockplacert1",
    "item:justdirethings:clickert1"
-  ]
+  ],
+  "atm": [
+   "Покращені машини — з простої машини того ж виду, целестигему, ока Енду й редстоуну на верстаті; покращений замінник блоків замість целестигему бере злиток сплаву затемнення."
+  ],
+  "item_ref": {
+   "atm": {
+    "0": [
+     "recipe:justdirethings:blockbreakert2",
+     "recipe:justdirethings:blockplacert2",
+     "recipe:justdirethings:clickert2",
+     "recipe:justdirethings:sensort2",
+     "recipe:justdirethings:droppert2",
+     "recipe:justdirethings:fluidplacert2",
+     "recipe:justdirethings:fluidcollectort2",
+     "recipe:justdirethings:blockswappert2"
+    ]
+   }
+  }
  },
  "mahou_tsukai": {
   "ov": "Магія крові й кіл Mahou Tsukai (за мотивами Fate/stay night): коло з крові — отримати шкоду (є кинджал) і швидко натиснути M, кола з порошків самоцвітів і металів, сувої проєкції та легендарна зброя (Калібурн, Морґан, Кларент).",
@@ -839,7 +894,7 @@
    "Інферієва есенція (копання, моби, вирощування) і уламки процвітання → насіннєва основа процвітання",
    "Есенція наступного рівня: 4 есенції + кристал наповнення свого рівня (мод MATC) або майстерський; оригінальний рецепт Mystical Agriculture вимкнено",
    "Вівтар наповнення з п'єдесталами: насіння стихій, далі ресурсне насіння",
-   "Соулієва руда в Незері → соулієвий кинджал і банки душ → насіння мобів",
+   "Соулієва руда в Незері → соулієвий кинджал і банки для душ → насіння мобів",
    "Есенційна рілля, прискорювачі зростання (ставлять під рослину — прискорюють першу рослину над собою), інструменти й обладунки п'яти рівнів; пробуджений супремій — ендгейм"
   ],
   "item_ref": {
@@ -976,7 +1031,8 @@
    "item:powah:reactor_nitro"
   ],
   "atm": [
-   "Сплав вібранію й усемодію робиться в сфері заряджання Powah: злиток — 1 млрд FE (+ 2 серця Піґліча й блок нітро-кристалів), блок — 9 млрд FE; блок сплаву дає й вогняна драконяча кузня Ice and Fire (факт «Сплави ATM»)"
+   "Сплав вібранію й усемодію робиться в сфері заряджання Powah: злиток — 1 млрд FE (+ 2 серця Піґліча й блок нітро-кристалів), блок — 9 млрд FE; блок сплаву дає й вогняна драконяча кузня Ice and Fire (факт «Сплави ATM»)",
+   "Рівні машин — ланцюжок: машину рівня крафтять з тієї ж машини попереднього рівня, конденсатора цього рівня й матеріалу рівня (базовий — залізний злиток, загартований — заряджена сталь, палаючий / ніотичний / надзаряджений / нітро — кристал свого рівня зі сфери заряджання) на діелектричному корпусі (кабелі — на діелектричному стрижні, реактори — з уранінітом). Конденсатор рівня (від загартованого) — «Базовий конденсатор (Великий)» + матеріал рівня + діелектрична паста; базовий конденсатор — залізний злиток, блок редстоуну й діелектрична паста. Батареї Енду попередньої батареї не беруть: обсидіан + ядро Енду + матеріал рівня."
   ],
   "item_ref": {
    "atm": {
@@ -987,6 +1043,20 @@
      "kjs:dynamic_data/iceandfire/recipe/dragonforge/allthemodium-vibranium.json~\"dragonType\": \"fire\"",
      "file:kubejs/server_scripts/modpack/atm_alloys.js~1000000000,",
      "file:kubejs/server_scripts/modpack/atm_alloys.js~      9000000000,"
+    ],
+    "1": [
+     "recipe:powah:crafting/magmator_basic",
+     "recipe:powah:crafting/magmator_hardened",
+     "recipe:powah:crafting/magmator_blazing",
+     "recipe:powah:crafting/solar_panel_nitro",
+     "recipe:powah:crafting/energy_cell_blazing",
+     "recipe:powah:crafting/cable_hardened",
+     "recipe:powah:crafting/reactor_blazing",
+     "recipe:powah:crafting/capacitor_hardened",
+     "recipe:powah:crafting/capacitor_nitro",
+     "recipe:powah:crafting/ender_cell_hardened",
+     "recipe:powah:crafting/ender_cell_nitro",
+     "recipe:powah:crafting/ender_cell_basic"
     ]
    }
   }
@@ -1010,7 +1080,22 @@
    "quest:2AFB12E742596864",
    "item:productivefarming:feeding_trough",
    "item:productivefarming:watering_trough"
-  ]
+  ],
+  "atm": [
+   "Звичайні культури продають селяни-фермери (насіння або саму культуру; квест «Культури»), а 19 сортів — помідори, перці, кукурудза, виноград, золота малина й чудо-ягода — селяни не продають, їх дає мутація від запилення: пилок однієї культури на іншій з шансом 20–50 % (рецепти «запилення», вкладка JEI)."
+  ],
+  "item_ref": {
+   "atm": {
+    "0": [
+     "quest:699F91BC5CA58FE2",
+     "count:recipes:^productivefarming:pollination/|productivefarming:crop_mutation=19",
+     "recipe:productivefarming:pollination/miracle_berry",
+     "recipe:productivefarming:pollination/beefsteak_tomato",
+     "recipe:productivefarming:pollination/black_bell_pepper",
+     "jarfile:productivefarming!cy/jdkdigital/productivefarming/registry/ModTrades.class~isMutatedCrop"
+    ]
+   }
+  }
  },
  "productive_trees": {
   "ov": "Селекція дерев: пилок з листя одного дерева запилює інше — і виростає паросток нової породи (у збірці 163 паростки й 149 рецептів запилення): фрукти, горіхи, прянощі, каучук, деревообробні машини — лісопилка, очищувач кори, деревообробний верстат.",
@@ -1062,7 +1147,33 @@
    "item:cabletiers:elite_importer",
    "item:cabletiers:mega_disk_interface",
    "item:extradisks:256k_item_storage_disk"
-  ]
+  ],
+  "atm": [
+   "Частини сховища — ланцюжок. Першу («1K частина сховища», «64B частина сховища рідин») крафтять зі збагаченого кварцом заліза, скла й кремнію (+ редстоун або відро), кожну наступну — з попередньої частини, збагаченого кварцом заліза, процесора й редстоуну чи відра: базовий → покращений → просунутий процесор, а для «262M частина сховища», «1048M частина сховища» й «1048KB частина сховища рідин» — в'янучий процесор (сирий в'янучий процесор — із зірки Незеру, кремнію, редстоуну й сполучної речовини для процесорів, потім піч). Диск — частина + корпус сховища; частини Extra Disks (з «256K частина сховища» і «16384B частина сховища рідин») — з поліпшеним корпусом сховища. Нескінченні частини й диски Extra Disks збірка вимкнула."
+  ],
+  "item_ref": {
+   "atm": {
+    "0": [
+     "recipe:refinedstorage:1k_storage_part",
+     "recipe:refinedstorage:64b_fluid_storage_part",
+     "recipe:refinedstorage:4k_storage_part",
+     "recipe:refinedstorage:16k_storage_part",
+     "recipe:refinedstorage:64k_storage_part",
+     "recipe:refinedstorage:256b_fluid_storage_part",
+     "recipe:extradisks:part/256k_item_storage_part",
+     "recipe:extradisks:part/262144k_item_storage_part",
+     "recipe:extradisks:part/1048576b_fluid_storage_part",
+     "recipe:extradisks:raw_withering_processor",
+     "recipe:extradisks:withering_processor",
+     "recipe:refinedstorage:1k_storage_disk_from_storage_housing",
+     "recipe:extradisks:disk/shapeless/256k_item_storage_disk",
+     "recipe:extradisks:disk/shapeless/16384b_fluid_storage_disk",
+     "!recipe:extradisks:part/infinite_item_storage_part",
+     "!recipe:extradisks:disk/shapeless/infinite_fluid_storage_disk",
+     "kjs:server_scripts/mods/extradisks/recipes.js#L8"
+    ]
+   }
+  }
  },
  "relics": {
   "why": "Мода Relics у збірці 0.12.0-beta немає — 17 з 23 квестів глави заглушки. Глава позначена невидимою (always_invisible) — у грі не відкривається.",
@@ -1165,7 +1276,7 @@
   "steps": [
    "Ранець і основа покращень — головний «кишеньковий» інвентар",
    "Скрині й діжки Sophisticated: покращення рівня ставиться на вже поставлену скриню, контролер сховищ об'єднує їх у склад",
-   "Шухляди Functional Storage для кругляку, землі й руд; покращення місткості ×8…×32, контролер шухляд",
+   "Шухляди Functional Storage для кругляку, землі й руд; покращення місткості ×8…×32, контролер сховищ",
    "Смітники (предмети, рідини, енергія) — щоб ферми й кар'єри не забивали склад"
   ],
   "item_ref": {

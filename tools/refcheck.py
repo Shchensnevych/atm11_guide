@@ -401,6 +401,13 @@ class Refs:
         if not xs: return 'fix', f'тег {reg} #{v} порожній у збірці', ms
         return 'ok', f'тег #{v}: {len(xs)}', ms
 
+    def tag_items(self, v):
+        """G8: вміст тегу (ref tag:… без схеми) — множина ID предметів / блоків / рідин (з KubeJS); None — тегу немає."""
+        reg = 'item'
+        if v.split(':')[0] in ('block', 'fluid', 'item') and v.count(':') == 2: reg, v = v.split(':', 1)
+        v = v.lstrip('#'); xs = set(self.T.get(reg, {}).get(v, [])) | self.ktags.get(f'{reg}:{v}', set())
+        return xs if (v in self.T.get(reg, {}) or f'{reg}:{v}' in self.ktags) else None
+
     def c_config(self, v):
         f, _, kv = v.partition('#'); key, eq, want = kv.partition('=')
         d = self.C.get(f)

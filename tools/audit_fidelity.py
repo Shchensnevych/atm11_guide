@@ -97,6 +97,27 @@ def sieve(where, rec, text='', need=(), required=False, extra=(), claim=None, mo
     need = {m for m in need if m}
     if need and ok and not (touched & need): FIX('виправити: ref не стосуються модів, які твердження поєднує', f'{where}: потрібно {", ".join(sorted(need))}; ref стосуються {", ".join(sorted(touched)) or "—"}')
     if ing: out['інфо: перевірити в грі (ingame)'].append(f'{where}: {ing}')
+TAG_USE = collections.defaultdict(set)                                     # G8: тег → моди, чиї активні рецепти беруть його інгредієнтом
+for _rid, _e in RF.R.items():
+    if _e.get('a') is False: continue
+    for _x in _e.get('in', []):
+        if _x.startswith('#'): TAG_USE[_x[1:]] |= {_rid.split(':')[0]} | set(_e.get('m') or [])
+for _f, _d in RF.C.items():                                              # … і моди, чий конфіг називає тег (generatorgalore: fuelTag = c:honey)
+    _m = re.split(r'[-_./]', _f.removeprefix('config/'))[0]
+    for _v in (_d or {}).values():
+        for _x in (_v if isinstance(_v, list) else [_v]):
+            if isinstance(_x, str) and re.fullmatch(r'#?[a-z0-9_.\-]+:[a-z0-9_/.\-]+', _x): TAG_USE[_x.lstrip('#')].add(_m)
+def tag_owner(where, rec, mods_ok, owner=()):
+    """G8: tag:<тег> доводить запис мода, лише якщо в тезі є предмет мода-власника або партнера (G7: амулети BHC «у тезі намиста», а їх там немає),
+    або тег — власний тег мода-власника (простір імен), або активний рецепт / конфіг мода-власника бере цей тег."""
+    if not isinstance(rec, dict) or rec.get('ingame'): return
+    mods_ok = {m for m in mods_ok if m}; owner = {m for m in owner if m}
+    for raw in refs_of(rec):
+        if not raw.startswith('tag:'): continue
+        xs = RF.tag_items(raw[4:])
+        if not xs: continue                                                 # немає / порожній — уже «виправити» в sieve
+        have = {x.lstrip('#').split(':')[0] for x in xs}; tg = raw[4:].split(':', 1)[1] if raw[4:].split(':')[0] in ('block', 'fluid', 'item') and raw.count(':') == 3 else raw[4:]
+        if not have & mods_ok and tg.split(':')[0] not in owner and not TAG_USE.get(tg.lstrip('#'), set()) & owner: out['виправити: тег не містить предметів мода-власника / партнера (tag: доводить лише вміст)'].append(f"{where}: `{raw}` — у тезі {len(xs)} ({', '.join(sorted(have)[:6])}), потрібно {', '.join(sorted(mods_ok))}")
 NEG = re.compile(r'немає|неактивн|відсутн|не портован|заглушк|прихован|не працю|не скрафтити|не зібрати|очікують|бракує|ще не|в дусі|переосмислення|за мотивами', re.I)
 def scan(where, text):
     for m in set(x.group(0) for x in rx.finditer(text or '')):
@@ -155,10 +176,13 @@ for m in mods:
     plain = ' '.join([m.get('uk', ''), *[x for f in ('what', 'tips') for i, x in enumerate(m.get(f, [])) if (f, i) not in own], m.get('spoiler', '') or ''])
     txt_req = (m.get('cls') or [''])[0] in TXT_AUDITED
     sieve(f'{w} (текст)', m, ' '.join([m.get('uk', ''), *m.get('what', []), *m.get('tips', []), m.get('spoiler', '') or '']), required=txt_req, claim=plain)
+    tag_owner(f'{w} (текст)', m, {m['id']}, {m['id']})
     for (f, i), rs in own.items():
         sieve(f'{w} {f}[{i}]', {'ref': rs}, m.get(f, [''] * (i + 1))[i], required=True, more_ev=refs_of(m))
+        tag_owner(f'{w} {f}[{i}]', {'ref': rs}, {m['id']}, {m['id']})
     for sy in m.get('synergy', []):
         sieve(f"{w} → {sy.get('mod')}", sy, f"{sy.get('why', '')} {sy.get('src', '')}", need={sy.get('mod')}, required=(m.get('cls') or [''])[0] in SYN_AUDITED, claim=sy.get('why', ''))
+        tag_owner(f"{w} → {sy.get('mod')}", sy, {m['id'], sy.get('mod')}, {m['id']})
         if sy.get('src'): continue
         if (m.get('cls') or [''])[0] in SYN_AUDITED: out['виправити: синергія мода без src (рецепт / тег / конфіг / сумісність)'].append(f"{w} → {sy.get('mod')}: {sy.get('why', '')[:90]}")
         else: out['інфо: синергія мода без src (клас ще не звірено — G4–G6)'].append(f"{w} → {sy.get('mod')}")
@@ -169,6 +193,7 @@ for b in br:
     if b.get('verify'): out['виправити: гілка — ⚑ чернетка'].append(w)
     for st in b.get('steps', []):
         sieve(f"{w}/{st.get('id')}", st, ' '.join([st.get('title', ''), st.get('text', ''), st.get('src', '') or '']), required=True, extra=[f'quest:{q}' for q in st.get('quests', [])], claim=' '.join([st.get('title', ''), st.get('text', '')]))
+        tag_owner(f"{w}/{st.get('id')}", st, set(b.get('mods', [])), set(b.get('mods', [])))
         if not st.get('src'): out['виправити: крок гілки без src'].append(f"{w}/{st.get('id')} «{st.get('title')}»")
         if st.get('verify'): out['виправити: крок гілки — ⚑ (не підтверджено)'].append(f"{w}/{st.get('id')} «{st.get('title')}»")
         for qid in st.get('quests', []):

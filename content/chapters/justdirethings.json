@@ -12,5 +12,20 @@
   "item:justdirethings:blockplacert1",
   "item:justdirethings:clickert1"
  ],
- "_src": "реєстр предметів justdirethings, опис мода в довіднику"
+ "_src": "реєстр предметів justdirethings, опис мода в довіднику",
+ "atm": [
+  {
+   "t": "Покращені машини — з простої машини того ж виду, целестигему, ока Енду й редстоуну на верстаті; покращений замінник блоків замість целестигему бере злиток сплаву затемнення.",
+   "ref": [
+    "recipe:justdirethings:blockbreakert2",
+    "recipe:justdirethings:blockplacert2",
+    "recipe:justdirethings:clickert2",
+    "recipe:justdirethings:sensort2",
+    "recipe:justdirethings:droppert2",
+    "recipe:justdirethings:fluidplacert2",
+    "recipe:justdirethings:fluidcollectort2",
+    "recipe:justdirethings:blockswappert2"
+   ]
+  }
+ ]
 }

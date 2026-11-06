@@ -25,7 +25,7 @@
    ]
   },
   {
-   "t": "Шухляди Functional Storage для кругляку, землі й руд; покращення місткості ×8…×32, контролер шухляд",
+   "t": "Шухляди Functional Storage для кругляку, землі й руд; покращення місткості ×8…×32, контролер сховищ",
    "ref": [
     "config:config/functionalstorage/functionalstorage-common.toml#FunctionalStorageConfig.COPPER_MULTIPLIER=8",
     "config:config/functionalstorage/functionalstorage-common.toml#FunctionalStorageConfig.NETHERITE_MULTIPLIER=32",
@@ -197,7 +197,7 @@
    ]
   },
   "7C0F7A1B3AB9A1A1": {
-   "text": "Просунута версія «Поновнення»: базове покращення + золоті злитки, діамант і редстоун на верстаті. Що дає: 12 слотів-запасів замість 6.",
+   "text": "Просунута версія «Дозаповнення»: базове покращення + золоті злитки, діамант і редстоун на верстаті. Що дає: 12 слотів-запасів замість 6.",
    "ref": [
     "config:config/sophisticatedbackpacks-server.toml#refillUpgrade.filterSlots=6",
     "config:config/sophisticatedbackpacks-server.toml#advancedRefillUpgrade.filterSlots=12",

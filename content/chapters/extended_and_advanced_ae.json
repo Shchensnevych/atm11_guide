@@ -10,5 +10,36 @@
   "item:advanced_ae:quantum_helmet",
   "item:advanced_ae:flight_card"
  ],
- "_src": "реєстр extendedae / advanced_ae, опис модів у довіднику"
+ "_src": "реєстр extendedae / advanced_ae, опис модів у довіднику",
+ "atm": [
+  {
+   "t": "Квантову броню в ATM11 крафтять з унобтанієвої броні замість незеритової; картки-покращення — на базовій картці квантового покращення; у картці сили незеритовий меч замінено вібранієвим.",
+   "ref": [
+    "kjs:server_scripts/mods/advanced_ae/recipes.js",
+    "file:kubejs/server_scripts/mods/advanced_ae/recipes.js~\"allthemodium:unobtainium_helmet\"",
+    "file:kubejs/server_scripts/mods/advanced_ae/recipes.js~\"allthemodium:vibranium_sword\"",
+    "recipe:advanced_ae:quantum_base_card",
+    "recipe:advanced_ae:walk_speed_card",
+    "recipe:advanced_ae:flight_card"
+   ]
+  }
+ ],
+ "notes": {
+  "07E5B0BF7D8E055A": {
+   "text": "У ATM11 рецепт замінено: базова картка квантового покращення, 4 пластини квантового сплаву й чотири картки — швидкості ходьби, бігу, атаки й плавання (тому квест і стоїть після них).",
+   "ref": [
+    "!recipe:advanced_ae:evasion_card",
+    "kjs:server_scripts/mods/advanced_ae/recipes.js#L44",
+    "file:kubejs/server_scripts/mods/advanced_ae/recipes.js~[\"WPR\", \"PCP\", \"APS\"]"
+   ]
+  },
+  "2303BB17339B240D": {
+   "text": "У ATM11 рецепт замінено: базова картка квантового покращення + магнітна картка ae2wtlib, 5 блоків заліза, блок редстоуну й блок лазуриту.",
+   "ref": [
+    "!recipe:advanced_ae:magnet_card",
+    "kjs:server_scripts/mods/advanced_ae/recipes.js#L34",
+    "file:kubejs/server_scripts/mods/advanced_ae/recipes.js~[\"RML\", \"ICI\", \"III\"]"
+   ]
+  }
+ }
 }

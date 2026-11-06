@@ -14,5 +14,25 @@
   "item:routers:tag_filter",
   "item:routers:stock_filter"
  ],
- "_src": "реєстр предметів routers, опис мода в довіднику"
+ "_src": "реєстр предметів routers, опис мода в довіднику",
+ "atm": [
+  {
+   "t": "Рівні покращень предметів, рідин, енергії й швидкості — ланцюжок: рівень I — з залізного злитка й основи типу (предмети — скриня, рідини — відро, енергія — пил і блок редстоуну, швидкість — кварц), наступні — з попереднього рівня, основи (енергія — пил редстоуну без блока) й нового матеріалу: золото (II) → діамант (III) → незерит (IV) → зірка Незеру (V). Покращення швидкості має лише рівні I–IV. Скільки саме переносить рівень, показує підказка предмета в грі.",
+   "ref": [
+    "recipe:routers:item_upgrade_1",
+    "recipe:routers:item_upgrade_2",
+    "recipe:routers:item_upgrade_3",
+    "recipe:routers:item_upgrade_4",
+    "recipe:routers:item_upgrade_5",
+    "recipe:routers:fluid_upgrade_1",
+    "recipe:routers:rf_upgrade_1",
+    "recipe:routers:rf_upgrade_5",
+    "recipe:routers:speed_upgrade_1",
+    "recipe:routers:speed_upgrade_4",
+    "!item:routers:speed_upgrade_5",
+    "lang:tooltip.routers.item_upgrade",
+    "lang:tooltip.routers.speed_upgrade"
+   ]
+  }
+ ]
 }

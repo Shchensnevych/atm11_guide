@@ -22,6 +22,23 @@
     "file:kubejs/server_scripts/modpack/atm_alloys.js~1000000000,",
     "file:kubejs/server_scripts/modpack/atm_alloys.js~      9000000000,"
    ]
+  },
+  {
+   "t": "Рівні машин — ланцюжок: машину рівня крафтять з тієї ж машини попереднього рівня, конденсатора цього рівня й матеріалу рівня (базовий — залізний злиток, загартований — заряджена сталь, палаючий / ніотичний / надзаряджений / нітро — кристал свого рівня зі сфери заряджання) на діелектричному корпусі (кабелі — на діелектричному стрижні, реактори — з уранінітом). Конденсатор рівня (від загартованого) — «Базовий конденсатор (Великий)» + матеріал рівня + діелектрична паста; базовий конденсатор — залізний злиток, блок редстоуну й діелектрична паста. Батареї Енду попередньої батареї не беруть: обсидіан + ядро Енду + матеріал рівня.",
+   "ref": [
+    "recipe:powah:crafting/magmator_basic",
+    "recipe:powah:crafting/magmator_hardened",
+    "recipe:powah:crafting/magmator_blazing",
+    "recipe:powah:crafting/solar_panel_nitro",
+    "recipe:powah:crafting/energy_cell_blazing",
+    "recipe:powah:crafting/cable_hardened",
+    "recipe:powah:crafting/reactor_blazing",
+    "recipe:powah:crafting/capacitor_hardened",
+    "recipe:powah:crafting/capacitor_nitro",
+    "recipe:powah:crafting/ender_cell_hardened",
+    "recipe:powah:crafting/ender_cell_nitro",
+    "recipe:powah:crafting/ender_cell_basic"
+   ]
   }
  ],
  "_src": "реєстр і конфіг powah, KubeJS atm_alloys.js, датапак збірки iceandfire (факт atm_alloys)"

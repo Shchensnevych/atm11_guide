@@ -7,5 +7,18 @@
   "item:productivefarming:feeding_trough",
   "item:productivefarming:watering_trough"
  ],
- "_src": "квести глави, конфіг і реєстр productivefarming (кількість культур не підтверджено — прибрано)"
+ "_src": "квести глави, конфіг і реєстр productivefarming (кількість культур не підтверджено — прибрано)",
+ "atm": [
+  {
+   "t": "Звичайні культури продають селяни-фермери (насіння або саму культуру; квест «Культури»), а 19 сортів — помідори, перці, кукурудза, виноград, золота малина й чудо-ягода — селяни не продають, їх дає мутація від запилення: пилок однієї культури на іншій з шансом 20–50 % (рецепти «запилення», вкладка JEI).",
+   "ref": [
+    "quest:699F91BC5CA58FE2",
+    "count:recipes:^productivefarming:pollination/|productivefarming:crop_mutation=19",
+    "recipe:productivefarming:pollination/miracle_berry",
+    "recipe:productivefarming:pollination/beefsteak_tomato",
+    "recipe:productivefarming:pollination/black_bell_pepper",
+    "jarfile:productivefarming!cy/jdkdigital/productivefarming/registry/ModTrades.class~isMutatedCrop"
+   ]
+  }
+ ]
 }

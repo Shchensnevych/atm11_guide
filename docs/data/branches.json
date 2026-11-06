@@ -3409,7 +3409,7 @@
      "0104C2E2E30B966B",
      "5A8F4CA0F09F4842"
     ],
-    "text": "Кривава скриня (і колосальна — швидше, більше предметів) лагодить предмети кров'ю, але зрідка накладає шкідливі чари (напр. «Прокляття поломки»). Очищувач з відром крові знімає такі прокляття, а повністю заповнений кров'ю з блуком переносить випадкову чару з предмета на блук (3 відра крові).",
+    "text": "Кривава скриня (і колосальна — швидше, більше предметів) лагодить предмети кров'ю, але зрідка накладає шкідливі чари (напр. «Прокляття ламкості»). Очищувач з відром крові знімає такі прокляття, а повністю заповнений кров'ю з блуком переносить випадкову чару з предмета на блук (3 відра крові).",
     "src": "квести «Лагодимо інструменти кров'ю», «Колосальний ремонт», «Знімаємо чари і прокляття»",
     "ref": [
      "lang:info_book.evilcraft.second_age.blood_infusion.blood_chest.text",
@@ -7141,7 +7141,7 @@
   "chapter": "neo_vitae",
   "book": "Lex Vitae",
   "enter": "s3",
-  "summary": "Вівтар Ara Vitae збирає життєву силу (EV) і росте кільцями рун до Tier V; Сфери Vitae — ваша мережа EV. Горно пекельного вогню на Spiritus, сигіли, ритуали, тау й атанор, Нескінченне царство з шахтами й Наглядачем. У ATM11 ритуал метеора скидає метеорити AE2 і GeOre.",
+  "summary": "Вівтар Ara Vitae збирає життєву силу (EV) і росте кільцями рун до Tier V; Сфери Vitae — ваша мережа EV. Горно пекельного вогню на Spiritus, сигіли, ритуали, тау й атанор, Нескінченне царство з шахтами й Наглядачем. У ATM11 ритуал Meteo скидає метеорити AE2 і GeOre.",
   "gives": [
    "Сфери Vitae 5 рівнів — запас EV для сигілів і ритуалів",
    "Сигіли (вода, лава, порожнеча…) і зілля",
@@ -7464,7 +7464,7 @@
     "y": 2,
     "title": "Метеорити ATM11",
     "spoiler": true,
-    "text": "Ритуал метеора (рецепти KubeJS): за кристал істинного кварцу — метеорит AE2 (флюїкс і кварц у небесному камені, бездоганний родючий кварц; 500 000 EV). За каталізатор GeOre — метеорит з блоків і родючих жеод однієї з 22 руд (0,5–5 млн EV). Каталізатори роблять на Кристалічному вівтарі насичення Occultism, складеному з ритуальних каменів Neo Vitae.",
+    "text": "Ритуал Meteo (рецепти KubeJS): за кристал істинного кварцу — метеорит AE2 (флюїкс і кварц у небесному камені, бездоганний родючий істинний кварц; 500 000 EV). За каталізатор GeOre — метеорит з блоків і родючих жеод однієї з 22 руд (0,5–5 млн EV). Каталізатори роблять на Кристалічному вівтарі насичення Occultism, складеному з ритуальних каменів Neo Vitae.",
     "src": "KubeJS server_scripts/mods/neovitae/meteor.js (neovitae:meteor/ae2, georeMeteor, occultism:<руда>_catalyst); data/occultism/modonomicon/multiblocks/crystalline_infusion.json",
     "ref": [
      "kjs:server_scripts/mods/neovitae/meteor.js",
@@ -8012,7 +8012,7 @@
     "y": 1,
     "title": "Пентаклі ATM11",
     "spoiler": true,
-    "text": "Незламність: «Контакт Ронази» з Вічною Стеллою (Forbidden Arcanus), скупченням самоцвітів корінної породи, ієснієвим і незеритовим злитками, жертва — заклинач; предмет з тегу atm:unbreakable (інструменти й броня модів; спорядження ATM з тегу вилучено) стає незламним. Стародавній незбагненний шахтар: серце піґліча, унобтанієве й ієснієве кайла, 5 марідів-майстрів — копає руди вібранію й унобтанію. Кристалічний вівтар насичення (з ритуальних каменів Neo Vitae): каталізатори метеоритів GeOre, трансмутація злитків в уламки GeOre, кристалічні резонансні жезли. Метеоричне насичення: нескінченна частина, диск і блок енергосховища Refined Types.",
+    "text": "Незламність: «Контакт Ронази» з Вічною Стеллою (Forbidden Arcanus), скупченням самоцвітів корінної породи, ієснієвим і незеритовим злитками, жертва — заклинач; предмет з тегу atm:unbreakable (інструменти й броня модів, а також форми пресу Energized Power; більшу частину спорядження ATM з тегу вилучено) стає незламним. Стародавній незбагненний шахтар: серце піґліча, унобтанієве й ієснієве кайла, 5 марідів-майстрів — копає руди вібранію й унобтанію. Кристалічний вівтар насичення (з ритуальних каменів Neo Vitae): каталізатори метеоритів GeOre, трансмутація злитків в уламки GeOre, кристалічні резонансні жезли. Метеоритне насичення: нескінченна частина, диск і блок енергосховища Refined Types.",
     "src": "KubeJS: data/occultism/recipe/ritual/misc_unbreakable.json + server_scripts/tweaks/tags.js (atm:unbreakable); dynamic_data/occultism/recipe/ritual/misc_miner_ancient_eldritch.json; data/occultism/modonomicon/multiblocks/crystalline_infusion.json; server_scripts/mods/neovitae/meteor.js, mods/geore/crystalline_wand.js, mods/refined_storage/refined_types.js",
     "ref": [
      "kjs:data/occultism/recipe/ritual/misc_unbreakable.json~forbidden_arcanus:eternal_stella",
@@ -8023,7 +8023,9 @@
      "recipe:occultism:copper_transumtation",
      "kjs:server_scripts/mods/geore/crystalline_wand.js",
      "recipe:allthemods:meteoric_infusion/inf_part",
-     "kjs:server_scripts/tweaks/tags.js#L71"
+     "kjs:server_scripts/tweaks/tags.js#L71",
+     "file:kubejs/server_scripts/tweaks/tags.js~\"energizedpower:gear_press_mold\"",
+     "file:kubejs/server_scripts/tweaks/tags.js~allthemods.remove(\"atm:unbreakable\""
     ]
    }
   ],

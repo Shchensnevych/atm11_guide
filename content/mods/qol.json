@@ -1075,7 +1075,7 @@
       "server_scripts: уніфікація металів (unification/), правки рецептів по модах (mods/), сплави й предмети збірки (modpack/), вимкнені таблиці здобичі й біомні модифікатори (tweaks/), бан-лист (banlist_script.js)",
       "client_scripts: підказки предметів (tooltips.js), приховування вимкненого в JEI (RecipeViewer.js), назви предметів (lang.js)",
       "Власні блоки й предмети збірки — startup_scripts/custom_additions.js (напр. пластини Silent Allthemodium / Vibranium / Unobtainium)",
-      "Рецепти предметів All The Tweaks — зерно вимірів і міні-портали (server_scripts/modpack)",
+      "Рецепти предметів All The Tweaks — насіння вимірів і міні-портали (server_scripts/modpack)",
       "Скрипт української локалізації (zz_ua_fixes.js) і скрипт моста ATM11-Companion (atm11_companion.js: команди чату `!що`, `!клавіші`, `!як`, `!бос`)"
     ],
     "stage": [

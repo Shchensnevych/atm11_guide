@@ -9,5 +9,29 @@
   "item:cabletiers:mega_disk_interface",
   "item:extradisks:256k_item_storage_disk"
  ],
- "_src": "реєстр refinedstorage / cabletiers / extradisks (Cable Tiers — пристрої, а не кабелі)"
+ "_src": "реєстр refinedstorage / cabletiers / extradisks (Cable Tiers — пристрої, а не кабелі)",
+ "atm": [
+  {
+   "t": "Частини сховища — ланцюжок. Першу («1K частина сховища», «64B частина сховища рідин») крафтять зі збагаченого кварцом заліза, скла й кремнію (+ редстоун або відро), кожну наступну — з попередньої частини, збагаченого кварцом заліза, процесора й редстоуну чи відра: базовий → покращений → просунутий процесор, а для «262M частина сховища», «1048M частина сховища» й «1048KB частина сховища рідин» — в'янучий процесор (сирий в'янучий процесор — із зірки Незеру, кремнію, редстоуну й сполучної речовини для процесорів, потім піч). Диск — частина + корпус сховища; частини Extra Disks (з «256K частина сховища» і «16384B частина сховища рідин») — з поліпшеним корпусом сховища. Нескінченні частини й диски Extra Disks збірка вимкнула.",
+   "ref": [
+    "recipe:refinedstorage:1k_storage_part",
+    "recipe:refinedstorage:64b_fluid_storage_part",
+    "recipe:refinedstorage:4k_storage_part",
+    "recipe:refinedstorage:16k_storage_part",
+    "recipe:refinedstorage:64k_storage_part",
+    "recipe:refinedstorage:256b_fluid_storage_part",
+    "recipe:extradisks:part/256k_item_storage_part",
+    "recipe:extradisks:part/262144k_item_storage_part",
+    "recipe:extradisks:part/1048576b_fluid_storage_part",
+    "recipe:extradisks:raw_withering_processor",
+    "recipe:extradisks:withering_processor",
+    "recipe:refinedstorage:1k_storage_disk_from_storage_housing",
+    "recipe:extradisks:disk/shapeless/256k_item_storage_disk",
+    "recipe:extradisks:disk/shapeless/16384b_fluid_storage_disk",
+    "!recipe:extradisks:part/infinite_item_storage_part",
+    "!recipe:extradisks:disk/shapeless/infinite_fluid_storage_disk",
+    "kjs:server_scripts/mods/extradisks/recipes.js#L8"
+   ]
+  }
+ ]
 }

@@ -213,7 +213,7 @@
    "y": 1,
    "title": "Пентаклі ATM11",
    "spoiler": true,
-   "text": "Незламність: «Контакт Ронази» з Вічною Стеллою (Forbidden Arcanus), скупченням самоцвітів корінної породи, ієснієвим і незеритовим злитками, жертва — заклинач; предмет з тегу atm:unbreakable (інструменти й броня модів; спорядження ATM з тегу вилучено) стає незламним. Стародавній незбагненний шахтар: серце піґліча, унобтанієве й ієснієве кайла, 5 марідів-майстрів — копає руди вібранію й унобтанію. Кристалічний вівтар насичення (з ритуальних каменів Neo Vitae): каталізатори метеоритів GeOre, трансмутація злитків в уламки GeOre, кристалічні резонансні жезли. Метеоричне насичення: нескінченна частина, диск і блок енергосховища Refined Types.",
+   "text": "Незламність: «Контакт Ронази» з Вічною Стеллою (Forbidden Arcanus), скупченням самоцвітів корінної породи, ієснієвим і незеритовим злитками, жертва — заклинач; предмет з тегу atm:unbreakable (інструменти й броня модів, а також форми пресу Energized Power; більшу частину спорядження ATM з тегу вилучено) стає незламним. Стародавній незбагненний шахтар: серце піґліча, унобтанієве й ієснієве кайла, 5 марідів-майстрів — копає руди вібранію й унобтанію. Кристалічний вівтар насичення (з ритуальних каменів Neo Vitae): каталізатори метеоритів GeOre, трансмутація злитків в уламки GeOre, кристалічні резонансні жезли. Метеоритне насичення: нескінченна частина, диск і блок енергосховища Refined Types.",
    "src": "KubeJS: data/occultism/recipe/ritual/misc_unbreakable.json + server_scripts/tweaks/tags.js (atm:unbreakable); dynamic_data/occultism/recipe/ritual/misc_miner_ancient_eldritch.json; data/occultism/modonomicon/multiblocks/crystalline_infusion.json; server_scripts/mods/neovitae/meteor.js, mods/geore/crystalline_wand.js, mods/refined_storage/refined_types.js",
    "ref": [
     "kjs:data/occultism/recipe/ritual/misc_unbreakable.json~forbidden_arcanus:eternal_stella",
@@ -224,7 +224,9 @@
     "recipe:occultism:copper_transumtation",
     "kjs:server_scripts/mods/geore/crystalline_wand.js",
     "recipe:allthemods:meteoric_infusion/inf_part",
-    "kjs:server_scripts/tweaks/tags.js#L71"
+    "kjs:server_scripts/tweaks/tags.js#L71",
+    "file:kubejs/server_scripts/tweaks/tags.js~\"energizedpower:gear_press_mold\"",
+    "file:kubejs/server_scripts/tweaks/tags.js~allthemods.remove(\"atm:unbreakable\""
    ]
   }
  ],
