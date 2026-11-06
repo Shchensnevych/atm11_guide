@@ -37,13 +37,13 @@ const CONCEPT_EXPANSIONS = [
 ];
 
 /** Простий український/англійський стемер для токенізації пошуку. @param {string} w */
-function stemUk(w) {
+export function stemUk(w) {
   if (w.length <= 3) return w;
   return w.replace(/(ями|ами|ові|еві|ього|ому|им|ім|их|іх|ість|ості|ння|ття|увати|ювати|ати|яти|ити|іти|ою|єю|ах|ях|ів|їв|ей|ам|ям|ом|ем|а|я|о|е|и|і|у|ю|ї|й)$/, '') || w.slice(0, 3);
 }
 
 /** Розбиває текст на нормалізовані токени та стеми. @param {string} text */
-function tokenize(text) {
+export function tokenize(text) {
   const raw = (text || '').toLowerCase().replace(/['’`]/g, '').match(/[a-zа-яіїєґ0-9_]+/g) || [];
   const out = [];
   for (const w of raw) {

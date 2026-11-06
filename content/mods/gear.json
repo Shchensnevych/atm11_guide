@@ -26,15 +26,6 @@
     ],
     "synergy": [
       {
-        "mod": "allthemodium",
-        "why": "Скрипти KubeJS додають пластини Silent з усемодію, вібранію й унобтанію (kubejs:silent_allthemodium_plate тощо) — матеріали Silent Gear із власними рисами (datapack збірки).",
-        "src": "KubeJS server_scripts/mods/allthemodium/recipes.js; kubejs/dynamic_data/silentgear/silentgear_materials/allthemodium.json",
-        "ref": [
-          "kjs:server_scripts/mods/allthemodium/recipes.js~kubejs:silent_allthemodium_plate",
-          "kjs:dynamic_data/silentgear/silentgear_materials/allthemodium.json"
-        ]
-      },
-      {
         "mod": "apotheosis",
         "why": "Датапак збірки відносить булаву, сокиру, спис і щит Silent Gear до категорій афіксів Apotheosis (зброя ближнього бою, щит) — вони отримують афікси.",
         "src": "kubejs/dynamic_data/apotheosis/data_maps/item/loot_category_overrides.json",

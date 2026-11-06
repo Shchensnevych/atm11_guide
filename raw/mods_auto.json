@@ -22,7 +22,7 @@
   "uk_keys": 240,
   "books": [],
   "guideme": true,
-  "logo": null,
+  "logo": "img/mods/advanced_ae.png",
   "world": {
    "dims": [],
    "structures": 0,
@@ -1675,7 +1675,7 @@
    "guide"
   ],
   "guideme": false,
-  "logo": null,
+  "logo": "img/mods/croptopia.png",
   "world": {
    "dims": [],
    "structures": 0,
@@ -2062,7 +2062,7 @@
   "uk_keys": 36,
   "books": [],
   "guideme": false,
-  "logo": null,
+  "logo": "img/mods/dyenamics.png",
   "world": {
    "dims": [],
    "structures": 0,
@@ -4109,7 +4109,7 @@
   "uk_keys": 156,
   "books": [],
   "guideme": false,
-  "logo": null,
+  "logo": "img/mods/ironfurnaces.png",
   "world": {
    "dims": [],
    "structures": 0,
@@ -4343,10 +4343,10 @@
    "mezz_config_gui"
   ],
   "counts": {},
-  "uk_keys": 425,
+  "uk_keys": 426,
   "books": [],
   "guideme": false,
-  "logo": null,
+  "logo": "img/mods/jei.png",
   "world": {
    "dims": [],
    "structures": 0,
@@ -4930,7 +4930,7 @@
    "fluid": 2,
    "item": 82
   },
-  "uk_keys": 354,
+  "uk_keys": 355,
   "books": [],
   "guideme": false,
   "logo": null,
@@ -5714,7 +5714,7 @@
    "item": 193,
    "enchantment": 2
   },
-  "uk_keys": 150,
+  "uk_keys": 151,
   "books": [
    "guide"
   ],
@@ -6065,7 +6065,7 @@
   "uk_keys": 139,
   "books": [],
   "guideme": false,
-  "logo": null,
+  "logo": "img/mods/oritech.png",
   "world": {
    "dims": [],
    "structures": 0,
@@ -6235,7 +6235,7 @@
   "uk_keys": 0,
   "books": [],
   "guideme": false,
-  "logo": null,
+  "logo": "img/mods/potentials.png",
   "world": {
    "dims": [],
    "structures": 0,
@@ -6290,7 +6290,7 @@
    "block": 106,
    "item": 42
   },
-  "uk_keys": 11,
+  "uk_keys": 29,
   "books": [],
   "guideme": true,
   "logo": null,
@@ -6583,7 +6583,7 @@
    "entity": 14,
    "item": 165
   },
-  "uk_keys": 605,
+  "uk_keys": 606,
   "books": [
    "guide_book"
   ],
@@ -6948,7 +6948,7 @@
    "enchantment": 1,
    "fluid": 1
   },
-  "uk_keys": 333,
+  "uk_keys": 335,
   "books": [],
   "guideme": false,
   "logo": "img/mods/reliquary.png",
@@ -8497,7 +8497,7 @@
   "uk_keys": 0,
   "books": [],
   "guideme": false,
-  "logo": null,
+  "logo": "img/mods/villagesandpillages.png",
   "world": {
    "dims": [],
    "structures": 1,

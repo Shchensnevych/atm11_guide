@@ -82,16 +82,6 @@
     ]
    },
    {
-    "mod": "geore",
-    "why": "На Кристалічному вівтарі насичення уламки GeOre стають каталізаторами метеоритів, а злитки (мідь…унобтаній) перетворюються на уламки GeOre.",
-    "src": "KubeJS server_scripts/mods/neovitae/meteor.js (occultism:<руда>_catalyst, occultism:<руда>_transumtation)",
-    "ref": [
-     "kjs:server_scripts/mods/neovitae/meteor.js",
-     "recipe:occultism:copper_catalyst",
-     "recipe:occultism:copper_transumtation"
-    ]
-   },
-   {
     "mod": "ae2",
     "why": "Жезл ворожіння Occultism, заряджений у зарядному пристрої AE2, стає жезлом ворожіння метеоритів — шукає таємничий куб метеорита AE2.",
     "src": "KubeJS server_scripts/mods/ae2/recipes.js: ae2:charger → occultism:divination_rod (divination_linked_block = ae2:mysterious_cube)",

@@ -791,17 +791,6 @@
    "s4",
    "s5"
   ],
-  "synergy": [
-   {
-    "mod": "thaumaturge",
-    "why": "автоматизує есенцію й рецепти Thaumaturge",
-    "src": "рецепти арканного верстата appliedthaumaturge:arcane_workbench/* (21)",
-    "ref": [
-     "recipe:appliedthaumaturge:arcane_workbench/arcane_terminal",
-     "count:recipes:^appliedthaumaturge:arcane_workbench/=21"
-    ]
-   }
-  ],
   "icons": [
    "appliedthaumaturge:essentia_cell_1k",
    "appliedthaumaturge:arcane_terminal",

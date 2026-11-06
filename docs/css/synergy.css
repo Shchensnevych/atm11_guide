@@ -1,0 +1,82 @@
+/* G7: мапа синергій (#/synergy — views/synergy.js, graph/syn-model.js, graph/synergy-classes.js, graph/synergy-ego.js) */
+.syn-page { display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 22px; align-items: start; }
+.syn-aside { position: sticky; top: calc(var(--topbar-h) + 12px); max-height: calc(100vh - var(--topbar-h) - 24px); display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.syn-search, .syn-sel { width: 100%; padding: 6px 9px; font-size: .85rem; border-radius: var(--radius-sm); background: var(--bg-2); color: var(--text); border: 1px solid var(--line-2); }
+.syn-total { padding: 0 2px; }
+.syn-list { overflow-y: auto; min-height: 0; padding-right: 4px; }
+.syn-group { margin-bottom: 8px; }
+.syn-ghead { display: block; padding: 4px 8px; font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: var(--text); border-left: 3px solid var(--c); text-decoration: none; }
+.syn-ghead:hover, .syn-ghead.on { background: color-mix(in srgb, var(--c) 16%, transparent); text-decoration: none; }
+.syn-row { display: flex; align-items: center; gap: 8px; padding: 4px 8px; border-radius: var(--radius-sm); color: var(--text); text-decoration: none; font-size: .86rem; }
+.syn-row:hover { background: var(--panel); text-decoration: none; }
+.syn-row.on { background: var(--panel-2); box-shadow: inset 2px 0 0 var(--accent); }
+.syn-row-name { flex: 1; min-width: 0; }
+.syn-n { color: var(--muted); font-size: .75rem; white-space: nowrap; }
+
+/* значок мода: логотип / ключовий предмет / літера */
+.syn-ic { flex-shrink: 0; object-fit: contain; border-radius: 6px; }
+.syn-ic.item { image-rendering: pixelated; }
+.syn-ic.sm { width: 22px; height: 22px; }
+.syn-ic.md { width: 36px; height: 36px; }
+.syn-ic.lg { width: 60px; height: 60px; }
+.syn-ic.mono { display: inline-flex; align-items: center; justify-content: center; font-weight: 700; color: #fff; background: color-mix(in srgb, var(--c) 70%, #000); }
+.syn-ic.mono.sm { font-size: .75rem; } .syn-ic.mono.md { font-size: 1rem; } .syn-ic.mono.lg { font-size: 1.6rem; }
+.syn-chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 3px; }
+.syn-chip { font-size: .72rem; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--c); color: var(--text); white-space: nowrap; }
+
+.syn-head h1 { margin: 0 0 6px; }
+.syn-head p { margin: 0 0 12px; max-width: 900px; }
+
+/* огляд: коло класів + моди */
+.syn-overview { display: grid; grid-template-columns: minmax(0, 700px) minmax(0, 1fr); gap: 24px; align-items: start; }
+.syn-diagram svg { width: 100%; height: auto; display: block; }
+.syn-classes .lk path { fill: none; stroke: var(--line-2); opacity: .55; transition: opacity .15s, stroke .15s; }
+.syn-classes .lk .cnt { font-size: 13px; font-weight: 700; fill: var(--text); text-anchor: middle; opacity: 0; paint-order: stroke; stroke: var(--bg); stroke-width: 4px; pointer-events: none; }
+.syn-classes .lk.on path { stroke: var(--c); opacity: .9; }
+.syn-classes .lk.on .cnt, .syn-classes .lk.hover .cnt { opacity: 1; }
+.syn-classes.has-active .lk:not(.on) path, .syn-classes.hovering .lk:not(.hover) path { opacity: .12; }
+.syn-classes .lk.hover path { stroke: var(--accent); opacity: .95; }
+.syn-classes .nd { cursor: pointer; outline: none; }
+.syn-classes .nd circle { fill: color-mix(in srgb, var(--c) 22%, var(--panel)); stroke: var(--c); stroke-width: 2.5; transition: stroke-width .15s; }
+.syn-classes .nd:hover circle, .syn-classes .nd:focus circle, .syn-classes .nd.on circle { stroke-width: 5; }
+.syn-classes .nd .ic { font-size: 18px; text-anchor: middle; pointer-events: none; }
+.syn-classes .nd .lb { font-size: 14px; font-weight: 700; fill: var(--text); }
+.syn-classes .nd .sub { font-size: 11.5px; font-weight: 400; fill: var(--muted); }
+.syn-tiles-box h2 { font-size: 1.05rem; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.syn-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px; }
+.syn-tile { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: var(--radius-sm); background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--c); color: var(--text); text-decoration: none; min-width: 0; }
+.syn-tile:hover { border-color: var(--c); text-decoration: none; }
+.syn-tile-name { flex: 1; min-width: 0; font-size: .88rem; line-height: 1.25; }
+.syn-tile .syn-n { display: none; }
+.syn-tile:hover .syn-n { display: inline; }
+
+/* «мод у центрі»: картки HTML + лінії SVG (ELK) */
+.syn-ego { position: relative; overflow: hidden; }
+.syn-stage { position: relative; transform-origin: 0 0; }
+.syn-lines { position: absolute; left: 0; top: 0; pointer-events: none; overflow: visible; }
+.syn-edge { fill: none; stroke: var(--c); stroke-width: 2; opacity: .55; transition: opacity .15s, stroke-width .15s; }
+.syn-edge.hl { opacity: 1; stroke-width: 3.5; }
+.syn-card { position: absolute; width: 300px; box-sizing: border-box; padding: 10px 12px; border-radius: var(--radius-sm); background: var(--panel); border: 1px solid var(--line); border-left: 4px solid var(--c); overflow-wrap: anywhere; }
+.syn-card:hover { border-color: var(--c); }
+.syn-card.center { width: 340px; border: 2px solid var(--accent); box-shadow: var(--shadow); }
+.syn-card-top { display: flex; gap: 10px; align-items: center; }
+.syn-card h2, .syn-card h3 { margin: 0; line-height: 1.2; }
+.syn-card h3 { font-size: .98rem; }
+.syn-why { margin: 8px 0 4px; font-size: .86rem; line-height: 1.38; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; cursor: pointer; }
+.syn-why.open { display: block; -webkit-line-clamp: unset; }
+.syn-main.stacked .syn-why { display: block; -webkit-line-clamp: unset; cursor: default; }
+.syn-src { margin: 0; font-size: .74rem; color: var(--muted); }
+.syn-src summary { cursor: pointer; }
+.syn-src > div { margin-top: 3px; }
+.syn-card-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 8px; }
+.syn-card-foot .btn { text-decoration: none; }
+.syn-card.center .syn-card-foot { justify-content: space-between; }
+.syn-col-h { font-size: 1rem; margin: 16px 0 8px; }
+.syn-main.stacked .syn-card { position: static; width: auto; margin-bottom: 10px; visibility: visible; }
+
+@media (max-width: 1250px) { .syn-overview { grid-template-columns: minmax(0, 1fr); } .syn-diagram { max-width: 640px; } }
+@media (max-width: 900px) {
+  .syn-page { grid-template-columns: minmax(0, 1fr); }
+  .syn-aside { position: static; max-height: none; }
+  .syn-list { max-height: 240px; border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 4px; }
+}

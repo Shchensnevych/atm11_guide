@@ -46,14 +46,6 @@
   ],
   "synergy": [
    {
-    "mod": "forbidden_arcanus",
-    "why": "Меч, сокира й лопата зі сплаву — ритуал на кузні Гефеста рівня 4: унобтанієвий інструмент, три злитки сплавів, три луски дракона й дві вічні стели.",
-    "src": "KubeJS dynamic_data/allthemodium/forbidden_arcanus/hephaestus_forge/ritual/alloy_sword.json",
-    "ref": [
-     "kjs:dynamic_data/allthemodium/forbidden_arcanus/hephaestus_forge/ritual/alloy_sword.json~forbidden_arcanus:eternal_stella"
-    ]
-   },
-   {
     "mod": "silentgear",
     "why": "Пластини Silent з усемодію, вібранію й унобтанію (ковальський шаблон + пластина) — матеріали Silent Gear (dynamic_data/silentgear/silentgear_materials).",
     "src": "KubeJS mods/allthemodium/recipes.js; dynamic_data/silentgear/silentgear_materials/allthemodium.json",
@@ -78,7 +70,8 @@
     "src": "рецепти productivebees:centrifuge/atm/*; KubeJS mods/productivebees/recipes.js",
     "ref": [
      "recipe:productivebees:centrifuge/atm/honeycomb_vibranium",
-     "recipe:kjs:mods/productivebees/recipes.js#L6"
+     "recipe:kjs:mods/productivebees/recipes.js#L6",
+     "quest:6EFFF0DC80C1C8A3"
     ]
    }
   ],
@@ -273,11 +266,14 @@
   "synergy": [
    {
     "mod": "occultism",
-    "why": "Ритуали Occultism роблять каталізатори метеоритів з уламків GeOre і кристалічні жезли; кристалізація Occultism вирощує уламки з блоків GeOre.",
+    "why": "Ритуали Occultism (скрипт KubeJS збірки) роблять із уламків GeOre каталізатори метеоритів, а з уламка GeOre й ресурсу (злиток, самоцвіт, вугілля — від міді до унобтанію) — уламок цього ресурсу; кристалізація Occultism вирощує уламки з блоків GeOre.",
     "src": "KubeJS mods/neovitae/meteor.js (occultism:*_catalyst), mods/geore/crystalline_wand.js; рецепти occultism:crystallize/geore_*",
     "ref": [
      "recipe:occultism:allthemodium_catalyst",
-     "recipe:occultism:crystallize/geore_allthemodium"
+     "recipe:occultism:crystallize/geore_allthemodium",
+     "recipe:occultism:copper_transumtation",
+     "recipe:occultism:unobtainium_transumtation",
+     "recipe:occultism:coal_transumtation"
     ]
    },
    {
@@ -413,15 +409,6 @@
     ]
    },
    {
-    "mod": "productivebees",
-    "why": "Бджоли есенцій: центрифуга перетворює їхні стільники на есенції від інферію до пробудженого супремію — квест «Автоматизація Пробудженого Супремію».",
-    "src": "квест «Автоматизація Пробудженого Супремію»; рецепти productivebees:centrifuge/mysticalagriculture/*",
-    "ref": [
-     "quest:32B01BD789F0B037",
-     "recipe:productivebees:centrifuge/mysticalagriculture/honeycomb_inferium"
-    ]
-   },
-   {
     "mod": "allthecompressed",
     "why": "Насіння сталі, кристалів Powah та інших сплавів збірка робить зі стиснених блоків 1x AllTheCompressed.",
     "src": "KubeJS mods/mysticalagriculture/compatibility.js",
@@ -435,7 +422,8 @@
     "src": "KubeJS mods/mysticalagriculture/experience_droplet.js",
     "ref": [
      "recipe:kjs:mods/mysticalagriculture/experience_droplet.js#L8"
-    ]
+    ],
+    "pair_ok": "різні механізми: тут — прес ID вичавлює рідкий досвід із краплі досвіду MA; на сторінці Integrated Dynamics — культура менрілу MA"
    }
   ],
   "tips": [

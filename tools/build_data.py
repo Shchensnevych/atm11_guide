@@ -1,10 +1,10 @@
 # Зводить raw/ + content/ → docs/data/*.json і перевіряє посилання. Запуск з atm11_guide: python3 -I tools/build_data.py [--check]
-# Вихід: mods.json (усі моди: авто + ручне), keys.json (build_keys.py), guide.json + notes/ + qicons.json (build_chapters.py), classes.json, stages.json, roadmap.json, branches.json, facts.json, meta.json; звіт — raw/build_report.txt
+# Вихід: mods.json (усі моди: авто + ручне), search.json (build_search.py, G7), keys.json (build_keys.py), guide.json + notes/ + qicons.json (build_chapters.py), classes.json, stages.json, roadmap.json, branches.json, facts.json, meta.json; звіт — raw/build_report.txt
 import os, sys, glob, re, datetime, collections
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import RAW, CONTENT, DATA, UA, jload, jsave
 refs_of_ = lambda x: [x['ref']] if isinstance(x.get('ref'), str) else list(x.get('ref') or [])
-import build_keys, build_chapters, build_names, hashlib
+import build_keys, build_chapters, build_names, build_search, hashlib
 
 PERF = re.compile(r'sodium|ferrite|modernfix|immediatelyfast|fastsuite|fastfurnace|fastbench|spark|imfast|flickerfix|maxhealthfix|attributefix|netherportalfix|crash|bcc|clumps|getittogether', re.I)
 LIB = re.compile(r'\b(lib|library|api|core|codelib|framework|config)\b|lib$|^lib|corelib|configlib', re.I)
@@ -230,6 +230,7 @@ def main():
     stat = collections.Counter('curated' if not m['auto'] else ('auto:' + m['role']) for m in mods)
     meta = {'built': datetime.datetime.now().strftime('%Y-%m-%d %H:%M'), 'mods': len(mods), 'curated': stat['curated'],
             'content_mods': sum(1 for m in mods if m['role'] in ('content', 'addon'))}
+    sr = {'rows': 0}
     if '--check' not in sys.argv:
         jsave(os.path.join(DATA, 'mods.json'), mods, compact=True)
         jsave(os.path.join(DATA, 'classes.json'), classes)
@@ -238,13 +239,14 @@ def main():
         jsave(os.path.join(DATA, 'branches.json'), branches)
         jsave(os.path.join(DATA, 'items.json'), items)
         jsave(os.path.join(DATA, 'facts.json'), facts)
+        sr = build_search.build(warn, True, mods, road, branches, items, stages.get('stages', []), classes.get('classes', []))   # G7: глобальний пошук сайту → search.json
         if wg: jsave(os.path.join(DATA, 'worldgen_blocks.json'), {'generated': wg.get('generated'), 'count': len(wg.get('blocks', [])), 'blocks': wg.get('blocks', [])}, compact=True)
         meta['fingerprint'] = fingerprint()
         jsave(os.path.join(DATA, 'meta.json'), meta)
     open(os.path.join(RAW, 'build_report.txt'), 'w', encoding='utf-8').write('\n'.join(rep) + '\n')
     print('модів', len(mods), dict(stat), '| етапів', len(st_ids), '| вузлів карти', len(nid), '| гілок', len(branches), '| іконок', len(items), '| з можливостями', sum(1 for m in mods if m['features']),
           f"| клавіш {ks['keys']} (конфліктів {ks['conflicts']}, можливих {ks['maybe']}, важливих непризначених {ks['imp_unbound']})",
-          f"| назв {nm['items']} / істот {nm['entities']}", f"| блоків генерації світу {len(wg['blocks']) if wg else 0}",
+          f"| назв {nm['items']} / істот {nm['entities']}", f"| пошук {sr['rows'] if '--check' not in sys.argv else '-'}", f"| блоків генерації світу {len(wg['blocks']) if wg else 0}",
           f"| глав з оглядом {cs['guides']} (прихованих {cs['hidden']}), дописів {cs['notes']} (⚑ {cs['verify']}), німих {cs['silent']}, іконок квестів {cs['qicons']}", '| попереджень', len(rep))
     for r in rep[:15]: print('  ', r)
 if __name__ == '__main__': main()

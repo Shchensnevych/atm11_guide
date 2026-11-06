@@ -5,8 +5,10 @@ import { route } from './router.js';
 import { load, switchWorld, applyBrowserGameState } from './store.js';
 import { pickGameFolder, rescanSavedGameFolder, getBrowserGameState } from './game-folder.js';
 import { initTheme } from './theme.js';
+import { mountSearch } from '../components/global-search.js';
 
 initTheme();
+{ const gs = document.getElementById('gsearch'); if (gs) mountSearch(gs); }   // G7: глобальний пошук у шапці
 
 window.addEventListener('hashchange', route);
 // кнопка «нагору»: з'являється після прокрутки на ~1,5 екрана

@@ -58,8 +58,21 @@ def uk_count(ns):
     try: return len(json.load(open(p, encoding='utf-8')))
     except Exception: return 0
 
+LOGO_FALLBACK = (r'^logo\.png$', r'^[\w.-]*logo[\w.-]*\.png$', r'^[\w.-]*icon\.png$', r'^assets/{ns}/(icon|logo)\.png$')   # G7: без logoFile у mods.toml
+
+def logo_path(z, path, mid):
+    """logoFile з mods.toml; G7: інакше — логотип у корені jar (logo.png, *_logo.png, jei-icon.png) або assets/<мод>/icon.png."""
+    names = z.namelist()
+    if path and path in names: return path
+    for rx in LOGO_FALLBACK:
+        r = re.compile(rx.replace('{ns}', re.escape(mid)), re.I)
+        hit = sorted(n for n in names if r.match(n))
+        if hit: return hit[0]
+    return None
+
 def logo(z, path, mid):
-    if not path or not Image or path not in z.namelist(): return None
+    path = logo_path(z, path, mid)
+    if not path or not Image: return None
     try:
         im = Image.open(io.BytesIO(z.read(path))).convert('RGBA')
         im.thumbnail((64, 64), Image.NEAREST if max(im.size) <= 64 else Image.LANCZOS)

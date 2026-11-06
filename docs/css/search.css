@@ -1,0 +1,22 @@
+/* G7: глобальний пошук у шапці (components/global-search.js) */
+.gsearch { position: relative; flex: 0 1 230px; min-width: 140px; display: flex; align-items: center; }
+.gs-ic { position: absolute; left: 9px; font-size: .8rem; opacity: .65; pointer-events: none; }
+.gsearch input.gs-input { width: 100%; padding: 6px 10px 6px 28px; font-size: .85rem; border-radius: var(--radius-sm); background: var(--bg-2); color: var(--text); border: 1px solid var(--line-2); }
+.gsearch input.gs-input:focus { outline: none; border-color: var(--accent); }
+.gs-drop { position: absolute; top: calc(100% + 6px); left: 0; z-index: 60; width: min(560px, calc(100vw - 20px)); max-height: 70vh; overflow-y: auto; overflow-x: hidden;
+  background: var(--panel); border: 1px solid var(--line-2); border-radius: var(--radius-sm); box-shadow: var(--shadow); padding: 4px 0; }
+.gs-drop[hidden] { display: none; }
+.gs-group + .gs-group { border-top: 1px solid var(--line); }
+.gs-head { padding: 6px 12px 2px; font-size: .72rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; }
+.gs-row { display: flex; flex-direction: column; gap: 1px; padding: 5px 12px; color: var(--text); text-decoration: none; min-width: 0; }
+.gs-row:hover, .gs-row.on { background: var(--panel-2); text-decoration: none; }
+.gs-title { font-size: .88rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.gs-sub { font-size: .74rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.gs-empty { padding: 10px 12px; font-size: .85rem; color: var(--muted); }
+/* шапка з полем пошуку тісніша: без підпису бренду й часу знімка на середніх ширинах */
+@media (max-width: 1700px) { .topbar { gap: 16px; } .brand-sub { display: none; } }
+@media (max-width: 1280px) { .wb-time { display: none; } }
+@media (max-width: 800px) {
+  .gsearch { order: 2; flex: 1 1 100%; }
+  .gs-drop { width: 100%; }
+}

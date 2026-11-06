@@ -27,22 +27,13 @@
   ],
   "synergy": [
    {
-    "mod": "allthemodium",
-    "why": "Усемодієва, вібранієва й унобтанієва бджоли: центрифуга дає самородки цих металів.",
-    "src": "рецепти productivebees:centrifuge/atm/honeycomb_allthemodium, _vibranium, _unobtainium; квести «Усемодієва / Вібранієва / Унобтанієва бджола»",
-    "ref": [
-     "recipe:productivebees:centrifuge/atm/honeycomb_allthemodium",
-     "recipe:productivebees:centrifuge/atm/honeycomb_unobtainium",
-     "quest:6EFFF0DC80C1C8A3"
-    ]
-   },
-   {
     "mod": "mysticalagriculture",
     "why": "Бджоли есенцій: центрифуга дає есенції від інферію до пробудженого супремію та уламки процвітання.",
     "src": "рецепти productivebees:centrifuge/mysticalagriculture/*",
     "ref": [
      "recipe:productivebees:centrifuge/mysticalagriculture/honeycomb_awakened_supremium",
-     "recipe:productivebees:centrifuge/mysticalagriculture/honeycomb_prosperity"
+     "recipe:productivebees:centrifuge/mysticalagriculture/honeycomb_prosperity",
+     "quest:32B01BD789F0B037"
     ]
    },
    {

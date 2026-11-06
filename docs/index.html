@@ -24,6 +24,8 @@
   <link rel="stylesheet" href="css/tree.css" />
   <link rel="stylesheet" href="css/keys.css" />
   <link rel="stylesheet" href="css/assistant.css" />
+  <link rel="stylesheet" href="css/search.css" />
+  <link rel="stylesheet" href="css/synergy.css" />
   <link rel="stylesheet" href="css/light.css" />
   <!-- Бібліотеки (локальні копії, див. vendor/VERSIONS.txt). ELK (vendor/elk.bundled.js) вантажиться ліниво — лише на дорожній карті. -->
   <script src="vendor/cytoscape.min.js" defer></script>
@@ -38,9 +40,11 @@
       <a href="#/mods" data-nav="mods">Моди</a>
       <a href="#/chapters" data-nav="chapters">Квести</a>
       <a href="#/branches" data-nav="branches">Гілки</a>
+      <a href="#/synergy" data-nav="synergy">Синергії</a>
       <a href="#/keys" data-nav="keys">Клавіші</a>
       <a href="#/assistant" data-nav="assistant"><span class="btn-ic">🤖</span> Помічник</a>
     </nav>
+    <div class="gsearch" id="gsearch"></div>
     <div class="world-bar" id="world-bar"></div>
     <button id="theme-toggle" class="theme-toggle" type="button" title="Перемкнути тему" aria-label="Перемкнути тему">
       <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>

@@ -200,6 +200,12 @@ for k, ws in DUP.items():
     facts_ = [w for w in ws if w.startswith('факт/')]                                                                  # рецепт із предметами кількох модів законно доводить різні пари
     if any(c > 1 for c in pairs.values()) or len(facts_) > 1: out['перевірити: один механізм (ref) описано в записах кількох модів / фактів — звести в одне місце (мод-власник або факт), партнер бачить зворотну синергію'].append(f"`{k}` — {' · '.join(ws)}")
     elif len(ws) > 1: out['інфо: те саме джерело в різних поданнях (карта / гілка / довідник / факт) — узгодженість перевіряти при правках'].append(f"`{k}` — {' · '.join(ws)}")
+# G7: пара модів, описана в обидва боки (A → B і B → A) з різними ref, — сито вище її не ловить (немає спільного ref). Той самий
+#   механізм — звести в один запис мода-власника (партнер бачить synergy_in); різні механізми — pair_ok: "чому" в одному із записів.
+_syn = {(m['id'], x['mod']): x for m in J(f'{D}/mods.json') for x in m.get('synergy', [])}
+for (a, b), x in sorted(_syn.items()):
+    if a < b and (b, a) in _syn and not (x.get('pair_ok') or _syn[(b, a)].get('pair_ok')):
+        out['перевірити: пара модів описана в обидва боки (A → B і B → A) — той самий механізм звести в один запис мода-власника; різні механізми — pair_ok: "чому"'].append(f'{a} ⇄ {b}')
 for q in sorted(QSEEN):                                                     # G6b: квест як джерело — англійський оригінал поруч; розбіжність чисел uk ≠ en — спірне для ua_work
     uk, en = RF.quest_text(q)
     if en and sorted(text_nums(uk)) != sorted(text_nums(en)): out['інфо: квест-джерело — числа в перекладі ≠ en (спірне для ua_work; брати en)'].append(f"{q}: uk {sorted(text_nums(uk))} «{uk[:110]}» · en {sorted(text_nums(en))} «{en[:110]}»")

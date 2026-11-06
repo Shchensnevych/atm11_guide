@@ -14,6 +14,7 @@ const ROUTES = [
   [/^#\/chapter\/([\w-]+)(?:\/([\w]+))?$/, 'chapter', 'chapters'],
   [/^#\/branches$/, 'branches', 'branches'],
   [/^#\/branch\/([\w-]+)$/, 'branch', 'branches'],
+  [/^#\/synergy$/, 'synergy', 'synergy'],
   [/^#\/keys$/, 'keys', 'keys'],
   [/^#\/assistant$/, 'assistant', 'assistant'],
 ];
