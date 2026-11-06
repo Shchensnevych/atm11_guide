@@ -5,10 +5,10 @@
  "mode": "creative",
  "mode_uk": "Творчість",
  "game_type": 1,
- "last_played": "2026-11-06 15:48",
- "last_played_ts": 1793972937,
- "updated": "2026-11-06 15:49",
- "play_hours": 2.45,
+ "last_played": "2026-11-06 16:49",
+ "last_played_ts": 1793976575,
+ "updated": "2026-11-06 16:57",
+ "play_hours": 2.79,
  "player": {
   "uuid": "832ceed6-e820-31f9-aa40-6acd5077a2ac",
   "xp_level": 0,
@@ -20,6 +20,7 @@
  "quests": {
   "done": [
    "0542FE108089A0A2",
+   "05437E6D19E6DD11",
    "0682DC1F2417DAEB",
    "08405A885ACDADFC",
    "0FD16AD855DAD5BD",
@@ -51,6 +52,7 @@
   ],
   "done_visible": [
    "0542FE108089A0A2",
+   "05437E6D19E6DD11",
    "0682DC1F2417DAEB",
    "08405A885ACDADFC",
    "0FD16AD855DAD5BD",
@@ -141,6 +143,7 @@
    "611CC8005150DC9B",
    "63F391DE2563954A",
    "64FADC78A8AD3FE4",
+   "65DB2C06F991BC0D",
    "66013401F4FA44FC",
    "660D1C03E49919EB",
    "667004CD0469493D",
@@ -166,23 +169,9 @@
     ],
     "started": []
    },
-   "storage": {
-    "done": [
-     "0682DC1F2417DAEB",
-     "134608BB2B04D96E",
-     "1659A59303C15CC9",
-     "25AFD10D008DF30B",
-     "2746575C929B6C50",
-     "33AADC1B97E9F7A9",
-     "5A94A2664BFDD7B9",
-     "6A2B2C5E2ADCE366"
-    ],
-    "started": [
-     "3D5852E6D0ADF651"
-    ]
-   },
    "chapter_1_the_beginning": {
     "done": [
+     "05437E6D19E6DD11",
      "08405A885ACDADFC",
      "0FD16AD855DAD5BD",
      "3DBDF0350DC69A70",
@@ -198,6 +187,21 @@
      "612FE1CBA627D9AB",
      "6CA3111E5B9FE80B",
      "6EB05138B989CAD9"
+    ]
+   },
+   "storage": {
+    "done": [
+     "0682DC1F2417DAEB",
+     "134608BB2B04D96E",
+     "1659A59303C15CC9",
+     "25AFD10D008DF30B",
+     "2746575C929B6C50",
+     "33AADC1B97E9F7A9",
+     "5A94A2664BFDD7B9",
+     "6A2B2C5E2ADCE366"
+    ],
+    "started": [
+     "3D5852E6D0ADF651"
     ]
    },
    "railcraft": {
@@ -395,6 +399,7 @@
    "minecraft:shulker_box",
    "minecraft:spruce_log",
    "minecraft:spruce_planks",
+   "minecraft:stone_sword",
    "minecraft:white_bed",
    "minecraft:wooden_pickaxe",
    "minecraft:zombie_spawn_egg",
@@ -421,6 +426,7 @@
    "minecraft:rail": 1,
    "minecraft:shulker_box": 1,
    "minecraft:spruce_planks": 4,
+   "minecraft:stone_sword": 1,
    "minecraft:white_bed": 1,
    "minecraft:wooden_pickaxe": 1,
    "mysticalagriculture:inferium_essence": 1,

@@ -1350,16 +1350,6 @@
   "combo": "V"
  },
  {
-  "id": "key.crystalix.pick_block",
-  "bind": "key.keyboard.x",
-  "mod": "",
-  "ns": "crystalix",
-  "en": "Pick properties from block",
-  "uk": "Взяти властивості з блока",
-  "key": "X",
-  "combo": "X"
- },
- {
   "id": "key.crystalix.highlight_blocks",
   "bind": "key.keyboard.r",
   "mod": "",
@@ -1368,6 +1358,16 @@
   "uk": "Підсвітити блоки",
   "key": "R",
   "combo": "R"
+ },
+ {
+  "id": "key.crystalix.pick_block",
+  "bind": "key.keyboard.x",
+  "mod": "",
+  "ns": "crystalix",
+  "en": "Pick properties from block",
+  "uk": "Взяти властивості з блока",
+  "key": "X",
+  "combo": "X"
  },
  {
   "id": "key.luminax.toggle_glowing",
@@ -2240,14 +2240,14 @@
   "combo": ""
  },
  {
-  "id": "key.sophisticatedbackpacks.toggle_upgrade_2",
-  "bind": "key.keyboard.x",
-  "mod": "ALT",
+  "id": "key.sophisticatedbackpacks.toggle_upgrade_4",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
   "ns": "sophisticatedbackpacks",
-  "en": "Switch Upgrade in the 2nd Slot On/Off",
-  "uk": "Увімкнути/вимкнути покращення в 2-му слоті",
-  "key": "X",
-  "combo": "Alt+X"
+  "en": "Switch Upgrade in the 4th Slot On/Off",
+  "uk": "Увімкнути/вимкнути покращення в 4-му слоті",
+  "key": "",
+  "combo": ""
  },
  {
   "id": "key.sophisticatedbackpacks.toggle_upgrade_3",
@@ -2260,24 +2260,14 @@
   "combo": ""
  },
  {
-  "id": "key.sophisticatedbackpacks.toggle_upgrade_4",
-  "bind": "key.keyboard.unknown",
-  "mod": "",
+  "id": "key.sophisticatedbackpacks.toggle_upgrade_2",
+  "bind": "key.keyboard.x",
+  "mod": "ALT",
   "ns": "sophisticatedbackpacks",
-  "en": "Switch Upgrade in the 4th Slot On/Off",
-  "uk": "Увімкнути/вимкнути покращення в 4-му слоті",
-  "key": "",
-  "combo": ""
- },
- {
-  "id": "key.sophisticatedbackpacks.toggle_upgrade_5",
-  "bind": "key.keyboard.unknown",
-  "mod": "",
-  "ns": "sophisticatedbackpacks",
-  "en": "Switch Upgrade in the 5th Slot On/Off",
-  "uk": "Увімкнути/вимкнути покращення в 5-му слоті",
-  "key": "",
-  "combo": ""
+  "en": "Switch Upgrade in the 2nd Slot On/Off",
+  "uk": "Увімкнути/вимкнути покращення в 2-му слоті",
+  "key": "X",
+  "combo": "Alt+X"
  },
  {
   "id": "key.sophisticatedbackpacks.toggle_upgrade_1",
@@ -2288,6 +2278,16 @@
   "uk": "Увімкнути/вимкнути покращення в 1-му слоті",
   "key": "Z",
   "combo": "Alt+Z"
+ },
+ {
+  "id": "key.sophisticatedbackpacks.toggle_upgrade_5",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "sophisticatedbackpacks",
+  "en": "Switch Upgrade in the 5th Slot On/Off",
+  "uk": "Увімкнути/вимкнути покращення в 5-му слоті",
+  "key": "",
+  "combo": ""
  },
  {
   "id": "key.ftbteams.open_gui",
@@ -4270,22 +4270,22 @@
   "combo": ""
  },
  {
-  "id": "key.ae2.wireless_quantum_crafter_terminal",
-  "bind": "key.keyboard.unknown",
-  "mod": "",
-  "ns": "advanced_ae",
-  "en": "Open Wireless Quantum Crafter Terminal",
-  "uk": "Відкрити бездротовий термінал квантового майструвача",
-  "key": "",
-  "combo": ""
- },
- {
   "id": "key.ae2.appliedthaumaturge.wireless_essentia_terminal",
   "bind": "key.keyboard.unknown",
   "mod": "",
   "ns": "appliedthaumaturge",
   "en": "Open Wireless Essentia Terminal",
   "uk": "Відкрити бездротовий термінал Essentia",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.ae2.wireless_quantum_crafter_terminal",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "advanced_ae",
+  "en": "Open Wireless Quantum Crafter Terminal",
+  "uk": "Відкрити бездротовий термінал квантового майструвача",
   "key": "",
   "combo": ""
  },
