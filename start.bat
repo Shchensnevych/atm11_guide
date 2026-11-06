@@ -6,7 +6,7 @@ rem   start.bat 2 / keys - update keybinds from minecraft\options.txt (extract_k
 rem   start.bat 3 / save - update progress from minecraft\saves (extract_progress + build_data), then open
 rem                        Note: make sure the game has saved the world (exit to main menu or autosave).
 rem   start.bat 4 / all  - update everything: quest names from translation, keybinds, progress (extract_quests,
-rem                        extract_keys, extract_progress), build_data, audit_fidelity; then open.
+rem                        extract_keys, extract_progress, extract_worldgen), build_data, audit_fidelity; then open.
 rem                        A running ATM11-Companion bridge picks up the new data by itself (no restart needed);
 rem                        while the companion runs, the guide is also served at http://127.0.0.1:8812/site/
 rem                        After an ATM11 pack update run the full chain from GUIDE_HANDOFF section 4 first.
@@ -60,6 +60,8 @@ if errorlevel 1 goto fail
 %PY% -I -X utf8 tools\extract_keys.py
 if errorlevel 1 goto fail
 %PY% -I -X utf8 tools\extract_progress.py
+if errorlevel 1 goto fail
+%PY% -I -X utf8 tools\extract_worldgen.py
 if errorlevel 1 goto fail
 %PY% -I -X utf8 tools\build_data.py
 if errorlevel 1 goto fail

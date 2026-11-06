@@ -7,7 +7,7 @@
  "game_type": 0,
  "last_played": "2026-11-01 12:25",
  "last_played_ts": 1793528714,
- "updated": "2026-11-05 17:42",
+ "updated": "2026-11-06 15:49",
  "play_hours": 1.39,
  "player": {
   "uuid": "832ceed6-e820-31f9-aa40-6acd5077a2ac",
@@ -163,7 +163,7 @@
    "mode_uk": "Виживання",
    "last_played": "2026-11-01 12:25",
    "last_played_ts": 1793528714,
-   "updated": "2026-11-05 17:42",
+   "updated": "2026-11-06 15:49",
    "play_hours": 1.39,
    "quests_done": 7,
    "quests_visible_done": 7,
@@ -172,20 +172,36 @@
    "items_obtained": 13
   },
   {
+   "slug": "stend",
+   "world": "Стенд",
+   "folder": "Стенд",
+   "mode": "creative",
+   "mode_uk": "Творчість",
+   "last_played": "2026-11-06 15:48",
+   "last_played_ts": 1793972937,
+   "updated": "2026-11-06 15:49",
+   "play_hours": 2.45,
+   "quests_done": 29,
+   "quests_visible_done": 29,
+   "quests_started": 20,
+   "advancements_done": 37,
+   "items_obtained": 47
+  },
+  {
    "slug": "tvorchist",
    "world": "Творчість",
    "folder": "Творчість",
    "mode": "creative",
    "mode_uk": "Творчість",
-   "last_played": "2026-11-05 17:41",
-   "last_played_ts": 1793893316,
-   "updated": "2026-11-05 17:42",
-   "play_hours": 17.16,
-   "quests_done": 14,
-   "quests_visible_done": 14,
-   "quests_started": 17,
-   "advancements_done": 25,
-   "items_obtained": 59
+   "last_played": "2026-11-05 19:02",
+   "last_played_ts": 1793898121,
+   "updated": "2026-11-06 15:49",
+   "play_hours": 17.35,
+   "quests_done": 15,
+   "quests_visible_done": 15,
+   "quests_started": 18,
+   "advancements_done": 26,
+   "items_obtained": 62
   }
  ]
 }

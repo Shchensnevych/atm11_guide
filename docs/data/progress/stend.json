@@ -1,0 +1,430 @@
+{
+ "slug": "stend",
+ "world": "Стенд",
+ "folder": "Стенд",
+ "mode": "creative",
+ "mode_uk": "Творчість",
+ "game_type": 1,
+ "last_played": "2026-11-06 15:48",
+ "last_played_ts": 1793972937,
+ "updated": "2026-11-06 15:49",
+ "play_hours": 2.45,
+ "player": {
+  "uuid": "832ceed6-e820-31f9-aa40-6acd5077a2ac",
+  "xp_level": 0,
+  "dimension": "minecraft:overworld",
+  "world_tier": "haven",
+  "unique_foods": 0,
+  "name": "Nexius"
+ },
+ "quests": {
+  "done": [
+   "0542FE108089A0A2",
+   "0682DC1F2417DAEB",
+   "08405A885ACDADFC",
+   "0FD16AD855DAD5BD",
+   "134608BB2B04D96E",
+   "1659A59303C15CC9",
+   "175D943160C10646",
+   "196312DF0D2E2CB6",
+   "1CC4F8570A7A99EB",
+   "25AFD10D008DF30B",
+   "2746575C929B6C50",
+   "2893F483C10293E6",
+   "33AADC1B97E9F7A9",
+   "378C95C18798D413",
+   "3BC0A50886A3222B",
+   "3DBDF0350DC69A70",
+   "3E75AFE3482834C5",
+   "47750F3CB020104C",
+   "54735C5FCD2077B3",
+   "565703CBB06CEABF",
+   "5A94A2664BFDD7B9",
+   "5EE945A1185E8336",
+   "616352EBF422192F",
+   "637EF6D9DFC59EE8",
+   "6A2B2C5E2ADCE366",
+   "6A58B95BF0F26496",
+   "6ECB27052FCB874E",
+   "6F7230B34D1D5A6B",
+   "79DD4CCCECC3F974"
+  ],
+  "done_visible": [
+   "0542FE108089A0A2",
+   "0682DC1F2417DAEB",
+   "08405A885ACDADFC",
+   "0FD16AD855DAD5BD",
+   "134608BB2B04D96E",
+   "1659A59303C15CC9",
+   "175D943160C10646",
+   "196312DF0D2E2CB6",
+   "1CC4F8570A7A99EB",
+   "25AFD10D008DF30B",
+   "2746575C929B6C50",
+   "2893F483C10293E6",
+   "33AADC1B97E9F7A9",
+   "378C95C18798D413",
+   "3BC0A50886A3222B",
+   "3DBDF0350DC69A70",
+   "3E75AFE3482834C5",
+   "47750F3CB020104C",
+   "54735C5FCD2077B3",
+   "565703CBB06CEABF",
+   "5A94A2664BFDD7B9",
+   "5EE945A1185E8336",
+   "616352EBF422192F",
+   "637EF6D9DFC59EE8",
+   "6A2B2C5E2ADCE366",
+   "6A58B95BF0F26496",
+   "6ECB27052FCB874E",
+   "6F7230B34D1D5A6B",
+   "79DD4CCCECC3F974"
+  ],
+  "started": [
+   "0AE25EC6B6089F3B",
+   "0BBDB63F944F61A7",
+   "0D18BBB04693885A",
+   "1326E3016B881BFD",
+   "13B84D532D8B9FD7",
+   "167E1474644C9908",
+   "1697CC05D08B388D",
+   "18AA64DF63F68762",
+   "1F748ACA3976A92F",
+   "2CFD0DF119CC5E85",
+   "31E7F7464D79F881",
+   "38A1295878B68F83",
+   "3D5852E6D0ADF651",
+   "429B5A81DF6C43FE",
+   "4E9B35DCA018FD42",
+   "4F35D04721DFC9FF",
+   "612FE1CBA627D9AB",
+   "6CA3111E5B9FE80B",
+   "6EB05138B989CAD9",
+   "711826BBCA832EE2"
+  ],
+  "tasks_done": [
+   "02C93CCE15B79995",
+   "073D1C45B3018BBA",
+   "0A074866CCBD8FD5",
+   "0A3853BD4F62B78E",
+   "13F86953093670F6",
+   "17393180EFF15717",
+   "1D2EE97FA68B9589",
+   "20D72B07EE11DDCB",
+   "2127C51D41F36E20",
+   "297D80507C3A56E1",
+   "2A07AF6A43DCEA8C",
+   "2E04D0F6EEABE677",
+   "2E797D3AB714E29A",
+   "33218EFDD498E9DB",
+   "34F6C74C0D167C8B",
+   "365C31F15DC05036",
+   "37AF49F3A7074892",
+   "3B1F1A7CAC8B7BC7",
+   "3B3DD779F3710157",
+   "3C5F4B4AC86F20EF",
+   "3CAD6AD06BE4C3D3",
+   "3CF660F500E99BA9",
+   "3DF1F367C3EA9631",
+   "3E2EDA6892016DB4",
+   "408C5263C4664195",
+   "44897A2E9DD09CE4",
+   "44C764E9E235DA2E",
+   "45F8C32B36B510E7",
+   "51CC9A8E36385400",
+   "52A3EC00B0885573",
+   "52B4CBE9BE14AD70",
+   "586916ED82D2DD2C",
+   "5E8A262AF1E9DB0B",
+   "5EFB41F907C996CA",
+   "606B73596F3EAFE5",
+   "611CC8005150DC9B",
+   "63F391DE2563954A",
+   "64FADC78A8AD3FE4",
+   "66013401F4FA44FC",
+   "660D1C03E49919EB",
+   "667004CD0469493D",
+   "6B38E9AF8B97B65E",
+   "6E42698E5E252CF7",
+   "703D7D142BD7CEC9",
+   "704D0B6CBDB29691",
+   "70D108356F710F9B",
+   "71A3B742D8757C89",
+   "7330FAC338D718B8",
+   "7570E5AAAC5CCA39",
+   "77CD677B96B1D46F",
+   "7AD8269107F61422",
+   "7CB9C080F0597A4D",
+   "7EDA9BD14A177D8D",
+   "7FD9A02EA29669F6"
+  ],
+  "rewards_claimed": 0,
+  "by_chapter": {
+   "theurgy": {
+    "done": [
+     "0542FE108089A0A2"
+    ],
+    "started": []
+   },
+   "storage": {
+    "done": [
+     "0682DC1F2417DAEB",
+     "134608BB2B04D96E",
+     "1659A59303C15CC9",
+     "25AFD10D008DF30B",
+     "2746575C929B6C50",
+     "33AADC1B97E9F7A9",
+     "5A94A2664BFDD7B9",
+     "6A2B2C5E2ADCE366"
+    ],
+    "started": [
+     "3D5852E6D0ADF651"
+    ]
+   },
+   "chapter_1_the_beginning": {
+    "done": [
+     "08405A885ACDADFC",
+     "0FD16AD855DAD5BD",
+     "3DBDF0350DC69A70",
+     "616352EBF422192F",
+     "6A58B95BF0F26496",
+     "6F7230B34D1D5A6B",
+     "79DD4CCCECC3F974"
+    ],
+    "started": [
+     "0AE25EC6B6089F3B",
+     "1326E3016B881BFD",
+     "13B84D532D8B9FD7",
+     "612FE1CBA627D9AB",
+     "6CA3111E5B9FE80B",
+     "6EB05138B989CAD9"
+    ]
+   },
+   "railcraft": {
+    "done": [
+     "175D943160C10646",
+     "3E75AFE3482834C5"
+    ],
+    "started": []
+   },
+   "apotheosis_gear": {
+    "done": [
+     "196312DF0D2E2CB6"
+    ],
+    "started": []
+   },
+   "mystical_agriculture": {
+    "done": [
+     "1CC4F8570A7A99EB",
+     "54735C5FCD2077B3"
+    ],
+    "started": []
+   },
+   "applied_energistics_2": {
+    "done": [
+     "2893F483C10293E6"
+    ],
+    "started": []
+   },
+   "tips_and_tricks": {
+    "done": [
+     "378C95C18798D413",
+     "5EE945A1185E8336"
+    ],
+    "started": []
+   },
+   "welcome": {
+    "done": [
+     "3BC0A50886A3222B"
+    ],
+    "started": []
+   },
+   "generators": {
+    "done": [
+     "47750F3CB020104C"
+    ],
+    "started": []
+   },
+   "mahou_tsukai": {
+    "done": [
+     "565703CBB06CEABF"
+    ],
+    "started": []
+   },
+   "auroral": {
+    "done": [
+     "637EF6D9DFC59EE8"
+    ],
+    "started": [
+     "0BBDB63F944F61A7"
+    ]
+   },
+   "ice_and_fire": {
+    "done": [
+     "6ECB27052FCB874E"
+    ],
+    "started": []
+   },
+   "occultism": {
+    "done": [],
+    "started": [
+     "0D18BBB04693885A",
+     "38A1295878B68F83",
+     "429B5A81DF6C43FE",
+     "4F35D04721DFC9FF"
+    ]
+   },
+   "apotheosis_2": {
+    "done": [],
+    "started": [
+     "167E1474644C9908"
+    ]
+   },
+   "food_and_farming": {
+    "done": [],
+    "started": [
+     "1697CC05D08B388D"
+    ]
+   },
+   "apothic_enchanting": {
+    "done": [],
+    "started": [
+     "18AA64DF63F68762",
+     "1F748ACA3976A92F",
+     "31E7F7464D79F881"
+    ]
+   },
+   "productive_farming": {
+    "done": [],
+    "started": [
+     "2CFD0DF119CC5E85"
+    ]
+   },
+   "justdirethings": {
+    "done": [],
+    "started": [
+     "4E9B35DCA018FD42"
+    ]
+   },
+   "silent_gear": {
+    "done": [],
+    "started": [
+     "711826BBCA832EE2"
+    ]
+   }
+  }
+ },
+ "advancements": {
+  "done": [
+   "ae2:main/glass_cable",
+   "ae2:main/root",
+   "ae2:main/storage_bus",
+   "ae2:main/storage_cell",
+   "apotheosis:progression/root",
+   "apothic_spawners:capturing",
+   "auroral:root",
+   "dimstorage:dimensional_chest",
+   "dungeons_arise:wda_root",
+   "energizedpower:main/basics/crusher",
+   "energizedpower:main/basics/energizedpower_basics",
+   "iceandfire:iceandfire/root",
+   "lootr:1chest",
+   "lootr:root",
+   "mffs:grant_book_on_first_join",
+   "minecraft:adventure/sleep_in_bed",
+   "minecraft:nether/root",
+   "minecraft:story/enter_the_nether",
+   "minecraft:story/form_obsidian",
+   "minecraft:story/iron_tools",
+   "minecraft:story/mine_diamond",
+   "minecraft:story/mine_stone",
+   "minecraft:story/root",
+   "minecraft:story/smelt_iron",
+   "minecraft:story/upgrade_tools",
+   "occultism:chalks/root",
+   "occultism:occultism/root",
+   "railcraft:tracks/regular_track",
+   "refinedstorage:drives",
+   "refinedstorage:storing_items",
+   "refinedstorage:viewing_your_storage",
+   "regions_unexplored:parent",
+   "silentgear:nether",
+   "silentgear:root",
+   "theurgy:book_root",
+   "undergarden:undergarden/root",
+   "witchery:root"
+  ]
+ },
+ "items": {
+  "obtained": [
+   "ae2:creative_energy_cell",
+   "ae2:drive",
+   "ae2:fluix_glass_cable",
+   "ae2:storage_bus",
+   "ae2:terminal",
+   "bhc:red_heart",
+   "deepnullreforged:deep_null_0",
+   "dimstorage:dimensional_chest",
+   "enderthing:key",
+   "enderthing:key_chest",
+   "enderthing:lock",
+   "energizedpower:crusher",
+   "functionalstorage:oak_1",
+   "functionalstorage:oak_4",
+   "mcwfurnitures:oak_wardrobe",
+   "minecraft:anvil",
+   "minecraft:arrow",
+   "minecraft:barrel",
+   "minecraft:bone",
+   "minecraft:bundle",
+   "minecraft:chest",
+   "minecraft:chest_minecart",
+   "minecraft:crafting_table",
+   "minecraft:creeper_spawn_egg",
+   "minecraft:diamond_sword",
+   "minecraft:ender_chest",
+   "minecraft:ender_eye",
+   "minecraft:flint_and_steel",
+   "minecraft:furnace",
+   "minecraft:gold_block",
+   "minecraft:hopper",
+   "minecraft:obsidian",
+   "minecraft:rail",
+   "minecraft:red_sand",
+   "minecraft:rotten_flesh",
+   "minecraft:shulker_box",
+   "minecraft:spruce_log",
+   "minecraft:spruce_planks",
+   "minecraft:white_bed",
+   "minecraft:wooden_pickaxe",
+   "minecraft:zombie_spawn_egg",
+   "mysticalagriculture:inferium_essence",
+   "refinedstorage:creative_controller",
+   "refinedstorage:disk_drive",
+   "refinedstorage:grid",
+   "sophisticatedstorage:iron_chest",
+   "toolbelt:belt"
+  ],
+  "crafted": {
+   "minecraft:crafting_table": 1,
+   "minecraft:spruce_planks": 8
+  },
+  "inventory": {
+   "bhc:red_heart": 2,
+   "deepnullreforged:deep_null_0": 1,
+   "minecraft:barrel": 1,
+   "minecraft:bundle": 1,
+   "minecraft:chest": 1,
+   "minecraft:crafting_table": 1,
+   "minecraft:diamond_sword": 2,
+   "minecraft:ender_eye": 2,
+   "minecraft:rail": 1,
+   "minecraft:shulker_box": 1,
+   "minecraft:spruce_planks": 4,
+   "minecraft:white_bed": 1,
+   "minecraft:wooden_pickaxe": 1,
+   "mysticalagriculture:inferium_essence": 1,
+   "toolbelt:belt": 1
+  }
+ }
+}

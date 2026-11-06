@@ -225,6 +225,8 @@ def main():
     ks = build_keys.build(warn, '--check' not in sys.argv, ids)       # вкладка «Клавіші» → docs/data/keys.json
     cs = build_chapters.build(warn, '--check' not in sys.argv)       # вкладка «Квести»: огляди глав, дописи, іконки → guide.json, notes/, qicons.json
     nm = build_names.build(warn, '--check' not in sys.argv)          # назви з перекладу для моста компаньйона → names.json (C2)
+    wg = jload(os.path.join(RAW, 'worldgen_blocks_auto.json'), None)   # C6b: блоки генерації світу (tools/extract_worldgen.py) → для «моє» в компаньйоні
+    if wg and not wg.get('vanilla'): warn('worldgen_blocks_auto.json без ванільних структур — не беру (extract_worldgen.py з клієнтським jar)'); wg = None
     stat = collections.Counter('curated' if not m['auto'] else ('auto:' + m['role']) for m in mods)
     meta = {'built': datetime.datetime.now().strftime('%Y-%m-%d %H:%M'), 'mods': len(mods), 'curated': stat['curated'],
             'content_mods': sum(1 for m in mods if m['role'] in ('content', 'addon'))}
@@ -236,12 +238,13 @@ def main():
         jsave(os.path.join(DATA, 'branches.json'), branches)
         jsave(os.path.join(DATA, 'items.json'), items)
         jsave(os.path.join(DATA, 'facts.json'), facts)
+        if wg: jsave(os.path.join(DATA, 'worldgen_blocks.json'), {'generated': wg.get('generated'), 'count': len(wg.get('blocks', [])), 'blocks': wg.get('blocks', [])}, compact=True)
         meta['fingerprint'] = fingerprint()
         jsave(os.path.join(DATA, 'meta.json'), meta)
     open(os.path.join(RAW, 'build_report.txt'), 'w', encoding='utf-8').write('\n'.join(rep) + '\n')
     print('модів', len(mods), dict(stat), '| етапів', len(st_ids), '| вузлів карти', len(nid), '| гілок', len(branches), '| іконок', len(items), '| з можливостями', sum(1 for m in mods if m['features']),
           f"| клавіш {ks['keys']} (конфліктів {ks['conflicts']}, можливих {ks['maybe']}, важливих непризначених {ks['imp_unbound']})",
-          f"| назв {nm['items']} / істот {nm['entities']}",
+          f"| назв {nm['items']} / істот {nm['entities']}", f"| блоків генерації світу {len(wg['blocks']) if wg else 0}",
           f"| глав з оглядом {cs['guides']} (прихованих {cs['hidden']}), дописів {cs['notes']} (⚑ {cs['verify']}), німих {cs['silent']}, іконок квестів {cs['qicons']}", '| попереджень', len(rep))
     for r in rep[:15]: print('  ', r)
 if __name__ == '__main__': main()

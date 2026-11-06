@@ -5,10 +5,10 @@
  "mode": "creative",
  "mode_uk": "Творчість",
  "game_type": 1,
- "last_played": "2026-11-05 17:41",
- "last_played_ts": 1793893316,
- "updated": "2026-11-05 17:42",
- "play_hours": 17.16,
+ "last_played": "2026-11-05 19:02",
+ "last_played_ts": 1793898121,
+ "updated": "2026-11-06 15:49",
+ "play_hours": 17.35,
  "player": {
   "uuid": "832ceed6-e820-31f9-aa40-6acd5077a2ac",
   "xp_level": 1,
@@ -27,6 +27,7 @@
    "28E60192912BEBAD",
    "3BC0A50886A3222B",
    "3DBDF0350DC69A70",
+   "5577F49A93ADB19C",
    "565703CBB06CEABF",
    "5A94A2664BFDD7B9",
    "5D8E259D3F0CAE29",
@@ -43,6 +44,7 @@
    "28E60192912BEBAD",
    "3BC0A50886A3222B",
    "3DBDF0350DC69A70",
+   "5577F49A93ADB19C",
    "565703CBB06CEABF",
    "5A94A2664BFDD7B9",
    "5D8E259D3F0CAE29",
@@ -57,6 +59,7 @@
    "1F748ACA3976A92F",
    "233C7CAA573D6045",
    "29EFA8ABC8823B4C",
+   "2AD68066C1948C90",
    "36BA83035E215D49",
    "3B0DB0F878FF3B79",
    "4E895C54651A3CB3",
@@ -73,6 +76,7 @@
    "05B8FF96F6CCFB6A",
    "073D1C45B3018BBA",
    "0A3853BD4F62B78E",
+   "0A4AA41F06C7DE11",
    "0F19D50BFD611C81",
    "13F86953093670F6",
    "157C28027F8EEFFE",
@@ -92,6 +96,7 @@
    "586916ED82D2DD2C",
    "6038387EA35404CD",
    "65DB2C06F991BC0D",
+   "6609E5E7EDE6F92B",
    "687604B3D5E1E78C",
    "6AAF612711A3A7AA",
    "6B38E9AF8B97B65E",
@@ -150,6 +155,12 @@
      "6F7230B34D1D5A6B"
     ]
    },
+   "productive_trees": {
+    "done": [
+     "5577F49A93ADB19C"
+    ],
+    "started": []
+   },
    "mahou_tsukai": {
     "done": [
      "565703CBB06CEABF"
@@ -195,16 +206,17 @@
      "553C44F85E508DE3"
     ]
    },
+   "occultism": {
+    "done": [],
+    "started": [
+     "2AD68066C1948C90",
+     "6C1BBA559963B3DF"
+    ]
+   },
    "justdirethings": {
     "done": [],
     "started": [
      "4E9B35DCA018FD42"
-    ]
-   },
-   "occultism": {
-    "done": [],
-    "started": [
-     "6C1BBA559963B3DF"
     ]
    }
   }
@@ -219,6 +231,7 @@
    "dungeons_arise:wda_root",
    "iceandfire:iceandfire/root",
    "logisticsnetworks:root",
+   "lootr:10loot",
    "lootr:1barrel",
    "lootr:1chest",
    "lootr:root",
@@ -259,10 +272,12 @@
    "mahoutsukai:guidebook",
    "mahoutsukai:scroll_reality_marble",
    "merequester:requester",
+   "minecraft:birch_sapling",
    "minecraft:book",
    "minecraft:chest",
    "minecraft:crafting_table",
    "minecraft:creeper_spawn_egg",
+   "minecraft:diamond_block",
    "minecraft:diamond_pickaxe",
    "minecraft:diamond_sword",
    "minecraft:flower_pot",
@@ -292,6 +307,7 @@
    "regions_unexplored:kapok_boat",
    "reliquary:catalyzing_gland",
    "reliquary:mob_charm",
+   "rootsclassic:whitecurrant",
    "silentgear:material_book",
    "silentgems:nether_moldavite_ore",
    "starcatcher:starcatcher_guide",
@@ -310,9 +326,11 @@
    "guideme:guide": 1,
    "integrateddynamics:on_the_dynamics_of_integration": 1,
    "mahoutsukai:guidebook": 1,
+   "minecraft:birch_sapling": 1,
    "minecraft:book": 1,
    "minecraft:chest": 1,
    "minecraft:crafting_table": 1,
+   "minecraft:diamond_block": 1,
    "neovitae:experience_tome": 1,
    "neovitae:guide_book": 1,
    "neovitae:ritual_ledger": 1,
@@ -321,6 +339,7 @@
    "occultism:taboo_book": 1,
    "patchouli:guide_book": 10,
    "powah:book": 1,
+   "rootsclassic:whitecurrant": 1,
    "silentgear:material_book": 1,
    "starcatcher:starcatcher_guide": 1,
    "thaumaturge:thaumonomicon": 1,
