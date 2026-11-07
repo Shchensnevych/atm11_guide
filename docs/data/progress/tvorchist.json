@@ -7,12 +7,21 @@
  "game_type": 1,
  "last_played": "2026-11-05 19:02",
  "last_played_ts": 1793898121,
- "updated": "2026-11-06 16:57",
+ "updated": "2026-11-07 14:37",
  "play_hours": 17.35,
  "player": {
   "uuid": "832ceed6-e820-31f9-aa40-6acd5077a2ac",
   "xp_level": 1,
+  "selected_slot": 3,
+  "health": 20.0,
+  "food_level": 20,
+  "pos": [
+   -606,
+   68,
+   44
+  ],
   "dimension": "minecraft:overworld",
+  "dimension_uk": "Верхній світ",
   "world_tier": "haven",
   "unique_foods": 0,
   "name": "Nexius"
@@ -322,6 +331,7 @@
   "inventory": {
    "allthemodium:vibranium_ore": 1,
    "auroral:guide": 1,
+   "bhc:red_heart": 1,
    "croptopia:guide": 1,
    "guideme:guide": 1,
    "integrateddynamics:on_the_dynamics_of_integration": 1,
@@ -331,6 +341,7 @@
    "minecraft:chest": 1,
    "minecraft:crafting_table": 1,
    "minecraft:diamond_block": 1,
+   "minecraft:oak_log": 32,
    "neovitae:experience_tome": 1,
    "neovitae:guide_book": 1,
    "neovitae:ritual_ledger": 1,
@@ -345,6 +356,588 @@
    "thaumaturge:thaumonomicon": 1,
    "theurgy:the_hermetica": 1,
    "witchery:guidebook": 1
+  },
+  "names": {
+   "ae2:cell_workbench": "Верстак для комірок",
+   "ae2:drive": "ME накопичувач",
+   "ae2:spatial_anchor": "Просторовий якір",
+   "allthemodium:vibranium_ore": "Вібранієва руда",
+   "alltheores:deepslate_cinnabar_ore": "Глибосланцева кіноварна руда",
+   "auroral:guide": "Посібник Auroral",
+   "bhc:red_heart": "Мініатюрне червоне серце",
+   "croptopia:guide": "Croptopia",
+   "easy_villagers:villager": "Селянин",
+   "enderthing:pack": "Рюкзак Енду",
+   "energymeter:meter": "Лічильник енергії",
+   "energymeter:monitor": "Зовнішній монітор",
+   "guideme:guide": "Посібник",
+   "integrateddynamics:on_the_dynamics_of_integration": "Про динаміку інтеграції",
+   "logisticsnetworks:computer": "Комп'ютер",
+   "logisticsnetworks:server_rack": "Логістичний сервер",
+   "mahoutsukai:guidebook": "Збірник знань Mahou Tsukai",
+   "mahoutsukai:scroll_reality_marble": "Сувій мармурової реальності",
+   "merequester:requester": "ME запитувач",
+   "minecraft:birch_sapling": "Паросток берези",
+   "minecraft:book": "Книга",
+   "minecraft:chest": "Скриня",
+   "minecraft:crafting_table": "Верстак",
+   "minecraft:creeper_spawn_egg": "Яйце виклику кріпера",
+   "minecraft:diamond_block": "Блок діаманта",
+   "minecraft:diamond_pickaxe": "Діамантове кайло",
+   "minecraft:diamond_sword": "Діамантовий меч",
+   "minecraft:flower_pot": "Квітковий горщик",
+   "minecraft:grass_block": "Трав'яний блок",
+   "minecraft:iron_sword": "Залізний меч",
+   "minecraft:loom": "Ткацький верстат",
+   "minecraft:oak_log": "Дубова колода",
+   "minecraft:oak_planks": "Дубові дошки",
+   "minecraft:red_sand": "Червоний пісок",
+   "minecraft:sandstone_stairs": "Пісковикові сходи",
+   "minecraft:stone": "Камінь",
+   "minecraft:stone_sword": "Кам'яний меч",
+   "minecraft:strider_spawn_egg": "Яйце виклику блукача",
+   "minecraft:torch": "Смолоскип",
+   "minecraft:wheat_seeds": "Насіння пшениці",
+   "neovitae:experience_tome": "Фоліант Peritia",
+   "neovitae:guide_book": "Scriptura Vitae",
+   "neovitae:ritual_ledger": "Реєстр ритуалів",
+   "occultism:book_of_calling_foliot_transport_items": "Книга виклику: Фоліот-перевізник",
+   "occultism:dictionary_of_spirits": "dictionary of spirits (Occultism)",
+   "occultism:taboo_book": "Книга табу",
+   "oritech:machine_yield_addon": "Доповнювач врожайності",
+   "patchouli:guide_book": "Путівник",
+   "powah:book": "Посібник (Powah!)",
+   "productivefarming:nutrient_water_bucket": "Відро поживної води",
+   "regions_unexplored:grass_sprouts": "Паростки трави",
+   "regions_unexplored:kapok_boat": "Човен з капоку",
+   "reliquary:catalyzing_gland": "Каталізуюча залоза",
+   "reliquary:mob_charm": "Шарм",
+   "rootsclassic:whitecurrant": "Біла смородина",
+   "silentgear:material_book": "Книга матеріалів",
+   "silentgems:nether_moldavite_ore": "nether moldavite ore (Silent's Gems)",
+   "starcatcher:starcatcher_guide": "Посібник зореловця",
+   "thaumaturge:ingot_thaumium": "Злиток Thaumium",
+   "thaumaturge:thaumonomicon": "Thaumonomicon",
+   "theurgy:the_hermetica": "Герметика",
+   "witchery:guidebook": "Посібник"
   }
+ },
+ "slots": {
+  "mainHand": null,
+  "offHand": {
+   "id": "minecraft:torch",
+   "uk": "Смолоскип",
+   "count": 1,
+   "slot": null,
+   "slotLabel": "Друга рука (Offhand)",
+   "slotKind": "offHand",
+   "ns": "minecraft",
+   "modName": "Minecraft"
+  },
+  "hotbar": [
+   {
+    "id": "allthemodium:vibranium_ore",
+    "uk": "Вібранієва руда",
+    "count": 1,
+    "slot": 0,
+    "slotLabel": "Гаряча панель (слот 1)",
+    "slotKind": "hotbar",
+    "ns": "allthemodium",
+    "modName": "AllTheModium"
+   },
+   {
+    "id": "rootsclassic:whitecurrant",
+    "uk": "Біла смородина",
+    "count": 1,
+    "slot": 1,
+    "slotLabel": "Гаряча панель (слот 2)",
+    "slotKind": "hotbar",
+    "ns": "rootsclassic",
+    "modName": "Roots Classic"
+   },
+   {
+    "id": "minecraft:birch_sapling",
+    "uk": "Паросток берези",
+    "count": 1,
+    "slot": 2,
+    "slotLabel": "Гаряча панель (слот 3)",
+    "slotKind": "hotbar",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
+    "id": "minecraft:diamond_block",
+    "uk": "Блок діаманта",
+    "count": 1,
+    "slot": 4,
+    "slotLabel": "Гаряча панель (слот 5)",
+    "slotKind": "hotbar",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
+    "id": "minecraft:chest",
+    "uk": "Скриня",
+    "count": 1,
+    "slot": 5,
+    "slotLabel": "Гаряча панель (слот 6)",
+    "slotKind": "hotbar",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
+    "id": "patchouli:guide_book",
+    "uk": "Mystical Agriculture",
+    "count": 1,
+    "slot": 6,
+    "slotLabel": "Гаряча панель (слот 7)",
+    "slotKind": "hotbar",
+    "ns": "patchouli",
+    "modName": "Patchouli"
+   },
+   {
+    "id": "minecraft:crafting_table",
+    "uk": "Верстак",
+    "count": 1,
+    "slot": 7,
+    "slotLabel": "Гаряча панель (слот 8)",
+    "slotKind": "hotbar",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
+    "id": "neovitae:guide_book",
+    "uk": "Scriptura Vitae",
+    "count": 1,
+    "slot": 8,
+    "slotLabel": "Гаряча панель (слот 9)",
+    "slotKind": "hotbar",
+    "ns": "neovitae",
+    "modName": "Neo Vitae"
+   }
+  ],
+  "inventory": [
+   {
+    "id": "occultism:book_of_calling_foliot_transport_items",
+    "uk": "Книга виклику: Фоліот-перевізник",
+    "count": 1,
+    "slot": 9,
+    "slotLabel": "Інвентар (слот 9)",
+    "slotKind": "inventory",
+    "ns": "occultism",
+    "modName": "Occultism"
+   },
+   {
+    "id": "witchery:guidebook",
+    "uk": "Посібник",
+    "count": 1,
+    "slot": 10,
+    "slotLabel": "Інвентар (слот 10)",
+    "slotKind": "inventory",
+    "ns": "witchery",
+    "modName": "Witchery"
+   },
+   {
+    "id": "patchouli:guide_book",
+    "uk": "Велика книга металургії",
+    "count": 1,
+    "slot": 11,
+    "slotLabel": "Інвентар (слот 11)",
+    "slotKind": "inventory",
+    "ns": "patchouli",
+    "modName": "Patchouli"
+   },
+   {
+    "id": "auroral:guide",
+    "uk": "Посібник Auroral",
+    "count": 1,
+    "slot": 12,
+    "slotLabel": "Інвентар (слот 12)",
+    "slotKind": "inventory",
+    "ns": "auroral",
+    "modName": "Auroral"
+   },
+   {
+    "id": "patchouli:guide_book",
+    "uk": "Хроніки тіней",
+    "count": 1,
+    "slot": 13,
+    "slotLabel": "Інвентар (слот 13)",
+    "slotKind": "inventory",
+    "ns": "patchouli",
+    "modName": "Patchouli"
+   },
+   {
+    "id": "minecraft:book",
+    "uk": "Книга",
+    "count": 1,
+    "slot": 14,
+    "slotLabel": "Інвентар (слот 14)",
+    "slotKind": "inventory",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
+    "id": "patchouli:guide_book",
+    "uk": "LaserIO 101",
+    "count": 1,
+    "slot": 15,
+    "slotLabel": "Інвентар (слот 15)",
+    "slotKind": "inventory",
+    "ns": "patchouli",
+    "modName": "Patchouli"
+   },
+   {
+    "id": "powah:book",
+    "uk": "Посібник (Powah!)",
+    "count": 1,
+    "slot": 16,
+    "slotLabel": "Інвентар (слот 16)",
+    "slotKind": "inventory",
+    "ns": "powah",
+    "modName": "Powah"
+   },
+   {
+    "id": "neovitae:experience_tome",
+    "uk": "Фоліант Peritia",
+    "count": 1,
+    "slot": 17,
+    "slotLabel": "Інвентар (слот 17)",
+    "slotKind": "inventory",
+    "ns": "neovitae",
+    "modName": "Neo Vitae"
+   },
+   {
+    "id": "neovitae:ritual_ledger",
+    "uk": "Реєстр ритуалів",
+    "count": 1,
+    "slot": 18,
+    "slotLabel": "Інвентар (слот 18)",
+    "slotKind": "inventory",
+    "ns": "neovitae",
+    "modName": "Neo Vitae"
+   },
+   {
+    "id": "occultism:taboo_book",
+    "uk": "Книга табу",
+    "count": 1,
+    "slot": 19,
+    "slotLabel": "Інвентар (слот 19)",
+    "slotKind": "inventory",
+    "ns": "occultism",
+    "modName": "Occultism"
+   },
+   {
+    "id": "integrateddynamics:on_the_dynamics_of_integration",
+    "uk": "Про динаміку інтеграції",
+    "count": 1,
+    "slot": 20,
+    "slotLabel": "Інвентар (слот 20)",
+    "slotKind": "inventory",
+    "ns": "integrateddynamics",
+    "modName": "IntegratedDynamics"
+   },
+   {
+    "id": "starcatcher:starcatcher_guide",
+    "uk": "Посібник зореловця",
+    "count": 1,
+    "slot": 21,
+    "slotLabel": "Інвентар (слот 21)",
+    "slotKind": "inventory",
+    "ns": "starcatcher",
+    "modName": "Starcatcher"
+   },
+   {
+    "id": "croptopia:guide",
+    "uk": "Croptopia",
+    "count": 1,
+    "slot": 22,
+    "slotLabel": "Інвентар (слот 22)",
+    "slotKind": "inventory",
+    "ns": "croptopia",
+    "modName": "Croptopia"
+   },
+   {
+    "id": "guideme:guide",
+    "uk": "Посібник Energy Meter (energymeter:guide)",
+    "count": 1,
+    "slot": 23,
+    "slotLabel": "Інвентар (слот 23)",
+    "slotKind": "inventory",
+    "ns": "guideme",
+    "modName": "GuideME"
+   },
+   {
+    "id": "mahoutsukai:guidebook",
+    "uk": "Збірник знань Mahou Tsukai",
+    "count": 1,
+    "slot": 24,
+    "slotLabel": "Інвентар (слот 24)",
+    "slotKind": "inventory",
+    "ns": "mahoutsukai",
+    "modName": "Mahou Tsukai"
+   },
+   {
+    "id": "patchouli:guide_book",
+    "uk": "Gadgets for Derps",
+    "count": 1,
+    "slot": 26,
+    "slotLabel": "Інвентар (слот 26)",
+    "slotKind": "inventory",
+    "ns": "patchouli",
+    "modName": "Patchouli"
+   },
+   {
+    "id": "patchouli:guide_book",
+    "uk": "Gadgets for Derps",
+    "count": 1,
+    "slot": 27,
+    "slotLabel": "Інвентар (слот 27)",
+    "slotKind": "inventory",
+    "ns": "patchouli",
+    "modName": "Patchouli"
+   },
+   {
+    "id": "patchouli:guide_book",
+    "uk": "Big Book of Trees",
+    "count": 1,
+    "slot": 28,
+    "slotLabel": "Інвентар (слот 28)",
+    "slotKind": "inventory",
+    "ns": "patchouli",
+    "modName": "Patchouli"
+   },
+   {
+    "id": "patchouli:guide_book",
+    "uk": "Big Book of Bees",
+    "count": 1,
+    "slot": 29,
+    "slotLabel": "Інвентар (слот 29)",
+    "slotKind": "inventory",
+    "ns": "patchouli",
+    "modName": "Patchouli"
+   },
+   {
+    "id": "thaumaturge:thaumonomicon",
+    "uk": "Thaumonomicon",
+    "count": 1,
+    "slot": 30,
+    "slotLabel": "Інвентар (слот 30)",
+    "slotKind": "inventory",
+    "ns": "thaumaturge",
+    "modName": "Thaumaturge"
+   },
+   {
+    "id": "occultism:dictionary_of_spirits",
+    "uk": "Словник духів",
+    "count": 1,
+    "slot": 31,
+    "slotLabel": "Інвентар (слот 31)",
+    "slotKind": "inventory",
+    "ns": "occultism",
+    "modName": "Occultism"
+   },
+   {
+    "id": "patchouli:guide_book",
+    "uk": "Посібник Modular Routers",
+    "count": 1,
+    "slot": 32,
+    "slotLabel": "Інвентар (слот 32)",
+    "slotKind": "inventory",
+    "ns": "patchouli",
+    "modName": "Patchouli"
+   },
+   {
+    "id": "theurgy:the_hermetica",
+    "uk": "Герметика",
+    "count": 1,
+    "slot": 33,
+    "slotLabel": "Інвентар (слот 33)",
+    "slotKind": "inventory",
+    "ns": "theurgy",
+    "modName": "Theurgy"
+   },
+   {
+    "id": "patchouli:guide_book",
+    "uk": "Посібник із силових полів",
+    "count": 1,
+    "slot": 34,
+    "slotLabel": "Інвентар (слот 34)",
+    "slotKind": "inventory",
+    "ns": "patchouli",
+    "modName": "Patchouli"
+   },
+   {
+    "id": "silentgear:material_book",
+    "uk": "Книга матеріалів",
+    "count": 1,
+    "slot": 35,
+    "slotLabel": "Інвентар (слот 35)",
+    "slotKind": "inventory",
+    "ns": "silentgear",
+    "modName": "Silent Gear"
+   }
+  ],
+  "armor": [],
+  "curios": [
+   {
+    "id": "sophisticatedbackpacks:backpack",
+    "uk": "Ранець",
+    "count": 1,
+    "slot": 0,
+    "slotLabel": "Curios: Спина",
+    "slotKind": "curios",
+    "ns": "sophisticatedbackpacks",
+    "modName": "Sophisticated Backpacks",
+    "curiosSlot": "back",
+    "curiosSlotUk": "Спина",
+    "curiosIndex": 0
+   },
+   {
+    "id": "irons_jewelry:ring",
+    "uk": "Каблучка",
+    "count": 1,
+    "slot": 1,
+    "slotLabel": "Curios: Перстень",
+    "slotKind": "curios",
+    "ns": "irons_jewelry",
+    "modName": "Iron's Gems 'n Jewelry",
+    "curiosSlot": "ring",
+    "curiosSlotUk": "Перстень",
+    "curiosIndex": 1
+   },
+   {
+    "id": "crafting_on_a_stick:crafting_table",
+    "uk": "Верстак",
+    "count": 1,
+    "slot": 0,
+    "slotLabel": "Curios: Створення на паличці",
+    "slotKind": "curios",
+    "ns": "crafting_on_a_stick",
+    "modName": "Crafting on a Stick",
+    "curiosSlot": "crafting_on_a_stick",
+    "curiosSlotUk": "Створення на паличці",
+    "curiosIndex": 0
+   }
+  ],
+  "curiosTypes": [
+   {
+    "id": "refinedstorage_curios_integration",
+    "uk": "Refined Storage",
+    "size": 2
+   },
+   {
+    "id": "head",
+    "uk": "Голова",
+    "size": 1
+   },
+   {
+    "id": "necklace",
+    "uk": "Намисто",
+    "size": 1
+   },
+   {
+    "id": "back",
+    "uk": "Спина",
+    "size": 1
+   },
+   {
+    "id": "body",
+    "uk": "Тіло",
+    "size": 1
+   },
+   {
+    "id": "bracelet",
+    "uk": "Браслет",
+    "size": 1
+   },
+   {
+    "id": "hands",
+    "uk": "Руки",
+    "size": 2
+   },
+   {
+    "id": "ring",
+    "uk": "Перстень",
+    "size": 2
+   },
+   {
+    "id": "belt",
+    "uk": "Пояс",
+    "size": 1
+   },
+   {
+    "id": "feet",
+    "uk": "Ступні",
+    "size": 1
+   },
+   {
+    "id": "charm",
+    "uk": "Амулет",
+    "size": 2
+   },
+   {
+    "id": "crafting_on_a_stick",
+    "uk": "Створення на паличці",
+    "size": 1
+   },
+   {
+    "id": "adv_pattern_encoder",
+    "uk": "Кодувальник шаблонів",
+    "size": 1
+   },
+   {
+    "id": "deep_learner",
+    "uk": "Глибинний учень",
+    "size": 1
+   },
+   {
+    "id": "heart_amulet",
+    "uk": "Амулет сердець",
+    "size": 1
+   },
+   {
+    "id": "poppet",
+    "uk": "Лялька",
+    "size": 1
+   }
+  ],
+  "toolbelt": [],
+  "toolbeltTools": [],
+  "backpacks": [
+   {
+    "id": "bhc:red_heart",
+    "uk": "Мініатюрне червоне серце",
+    "count": 1,
+    "slot": null,
+    "slotLabel": "Рюкзак «Ранець»",
+    "slotKind": "backpack",
+    "ns": "bhc",
+    "modName": "Baubley Heart Canisters",
+    "bpTitle": "Ранець",
+    "bpKey": "cc37663e-e6b5-482c-a4a9-147702869ea8",
+    "bpKind": "backpack",
+    "bpCapacity": 27,
+    "bpSlot": 0,
+    "bpWhere": "Curios: Спина"
+   },
+   {
+    "id": "minecraft:oak_log",
+    "uk": "Дубова колода",
+    "count": 32,
+    "slot": null,
+    "slotLabel": "Рюкзак «Ранець»",
+    "slotKind": "backpack",
+    "ns": "minecraft",
+    "modName": "Minecraft",
+    "bpTitle": "Ранець",
+    "bpKey": "cc37663e-e6b5-482c-a4a9-147702869ea8",
+    "bpKind": "backpack",
+    "bpCapacity": 27,
+    "bpSlot": 1,
+    "bpWhere": "Curios: Спина"
+   }
+  ],
+  "enderChest": []
  }
 }

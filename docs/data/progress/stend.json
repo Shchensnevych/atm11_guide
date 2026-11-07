@@ -5,14 +5,23 @@
  "mode": "creative",
  "mode_uk": "Творчість",
  "game_type": 1,
- "last_played": "2026-11-06 16:49",
- "last_played_ts": 1793976575,
- "updated": "2026-11-06 16:57",
- "play_hours": 2.79,
+ "last_played": "2026-11-06 17:36",
+ "last_played_ts": 1793979375,
+ "updated": "2026-11-07 14:37",
+ "play_hours": 3.24,
  "player": {
   "uuid": "832ceed6-e820-31f9-aa40-6acd5077a2ac",
   "xp_level": 0,
+  "selected_slot": 6,
+  "health": 20.0,
+  "food_level": 20,
+  "pos": [
+   510,
+   63,
+   1231
+  ],
   "dimension": "minecraft:overworld",
+  "dimension_uk": "Верхній світ",
   "world_tier": "haven",
   "unique_foods": 0,
   "name": "Nexius"
@@ -35,6 +44,7 @@
    "33AADC1B97E9F7A9",
    "378C95C18798D413",
    "3BC0A50886A3222B",
+   "3BF5B8DE7A1CC4D7",
    "3DBDF0350DC69A70",
    "3E75AFE3482834C5",
    "47750F3CB020104C",
@@ -67,6 +77,7 @@
    "33AADC1B97E9F7A9",
    "378C95C18798D413",
    "3BC0A50886A3222B",
+   "3BF5B8DE7A1CC4D7",
    "3DBDF0350DC69A70",
    "3E75AFE3482834C5",
    "47750F3CB020104C",
@@ -100,6 +111,7 @@
    "4E9B35DCA018FD42",
    "4F35D04721DFC9FF",
    "612FE1CBA627D9AB",
+   "6220EDE42C813C1B",
    "6CA3111E5B9FE80B",
    "6EB05138B989CAD9",
    "711826BBCA832EE2"
@@ -133,6 +145,7 @@
    "44897A2E9DD09CE4",
    "44C764E9E235DA2E",
    "45F8C32B36B510E7",
+   "4644C76CEC129AA4",
    "51CC9A8E36385400",
    "52A3EC00B0885573",
    "52B4CBE9BE14AD70",
@@ -147,6 +160,7 @@
    "66013401F4FA44FC",
    "660D1C03E49919EB",
    "667004CD0469493D",
+   "67D884FA6DD22065",
    "6B38E9AF8B97B65E",
    "6E42698E5E252CF7",
    "703D7D142BD7CEC9",
@@ -213,7 +227,8 @@
    },
    "apotheosis_gear": {
     "done": [
-     "196312DF0D2E2CB6"
+     "196312DF0D2E2CB6",
+     "3BF5B8DE7A1CC4D7"
     ],
     "started": []
    },
@@ -295,7 +310,8 @@
     "started": [
      "18AA64DF63F68762",
      "1F748ACA3976A92F",
-     "31E7F7464D79F881"
+     "31E7F7464D79F881",
+     "6220EDE42C813C1B"
     ]
    },
    "productive_farming": {
@@ -366,6 +382,8 @@
    "ae2:fluix_glass_cable",
    "ae2:storage_bus",
    "ae2:terminal",
+   "apotheosis:gem",
+   "apotheosis:potion_charm",
    "bhc:red_heart",
    "deepnullreforged:deep_null_0",
    "dimstorage:dimensional_chest",
@@ -383,15 +401,19 @@
    "minecraft:bundle",
    "minecraft:chest",
    "minecraft:chest_minecart",
+   "minecraft:cobblestone",
    "minecraft:crafting_table",
    "minecraft:creeper_spawn_egg",
    "minecraft:diamond_sword",
    "minecraft:ender_chest",
    "minecraft:ender_eye",
+   "minecraft:firework_rocket",
    "minecraft:flint_and_steel",
    "minecraft:furnace",
    "minecraft:gold_block",
    "minecraft:hopper",
+   "minecraft:iron_pickaxe",
+   "minecraft:lantern",
    "minecraft:obsidian",
    "minecraft:rail",
    "minecraft:red_sand",
@@ -400,6 +422,7 @@
    "minecraft:spruce_log",
    "minecraft:spruce_planks",
    "minecraft:stone_sword",
+   "minecraft:string",
    "minecraft:white_bed",
    "minecraft:wooden_pickaxe",
    "minecraft:zombie_spawn_egg",
@@ -407,6 +430,7 @@
    "refinedstorage:creative_controller",
    "refinedstorage:disk_drive",
    "refinedstorage:grid",
+   "silentgear:helmet_plates",
    "sophisticatedstorage:iron_chest",
    "toolbelt:belt"
   ],
@@ -415,22 +439,439 @@
    "minecraft:spruce_planks": 8
   },
   "inventory": {
+   "apotheosis:gem": 1,
+   "apotheosis:potion_charm": 2,
    "bhc:red_heart": 2,
    "deepnullreforged:deep_null_0": 1,
-   "minecraft:barrel": 1,
    "minecraft:bundle": 1,
    "minecraft:chest": 1,
+   "minecraft:cobblestone": 64,
    "minecraft:crafting_table": 1,
    "minecraft:diamond_sword": 2,
    "minecraft:ender_eye": 2,
-   "minecraft:rail": 1,
+   "minecraft:firework_rocket": 16,
+   "minecraft:iron_pickaxe": 1,
+   "minecraft:lantern": 3,
    "minecraft:shulker_box": 1,
    "minecraft:spruce_planks": 4,
-   "minecraft:stone_sword": 1,
+   "minecraft:string": 5,
    "minecraft:white_bed": 1,
-   "minecraft:wooden_pickaxe": 1,
-   "mysticalagriculture:inferium_essence": 1,
+   "mysticalagriculture:inferium_essence": 2,
    "toolbelt:belt": 1
+  },
+  "names": {
+   "ae2:creative_energy_cell": "Творча комірка енергії",
+   "ae2:drive": "ME накопичувач",
+   "ae2:fluix_glass_cable": "Флюїксовий ME скляний кабель",
+   "ae2:storage_bus": "ME шина зберігання",
+   "ae2:terminal": "ME термінал",
+   "apotheosis:gem": "Апофеотичний самоцвіт",
+   "apotheosis:potion_charm": "Амулет",
+   "bhc:red_heart": "Мініатюрне червоне серце",
+   "deepnullreforged:deep_null_0": "DeepNull",
+   "dimstorage:dimensional_chest": "Міжвимірна скриня",
+   "enderthing:key": "Ключ Енду",
+   "enderthing:key_chest": "Скриня Енду з ключем",
+   "enderthing:lock": "Замок Енду",
+   "energizedpower:crusher": "Дробарка",
+   "functionalstorage:oak_1": "Дубова шухляда (1x1)",
+   "functionalstorage:oak_4": "Дубова шухляда (2x2)",
+   "mcwfurnitures:oak_wardrobe": "Дубова шафа",
+   "minecraft:anvil": "Ковадло",
+   "minecraft:arrow": "Стріла",
+   "minecraft:barrel": "Діжка",
+   "minecraft:bone": "Кістка",
+   "minecraft:bundle": "Мішечок",
+   "minecraft:chest": "Скриня",
+   "minecraft:chest_minecart": "Вагонетка зі скринею",
+   "minecraft:cobblestone": "Кругляк",
+   "minecraft:crafting_table": "Верстак",
+   "minecraft:creeper_spawn_egg": "Яйце виклику кріпера",
+   "minecraft:diamond_sword": "Діамантовий меч",
+   "minecraft:ender_chest": "Скриня Енду",
+   "minecraft:ender_eye": "Око Енду",
+   "minecraft:firework_rocket": "Феєрверкова ракета",
+   "minecraft:flint_and_steel": "Кресало",
+   "minecraft:furnace": "Піч",
+   "minecraft:gold_block": "Блок золота",
+   "minecraft:hopper": "Лійка",
+   "minecraft:iron_pickaxe": "Залізне кайло",
+   "minecraft:lantern": "Ліхтар",
+   "minecraft:obsidian": "Обсидіан",
+   "minecraft:rail": "Рейки",
+   "minecraft:red_sand": "Червоний пісок",
+   "minecraft:rotten_flesh": "Гнила плоть",
+   "minecraft:shulker_box": "Шалкерова коробка",
+   "minecraft:spruce_log": "Смерекова колода",
+   "minecraft:spruce_planks": "Смерекові дошки",
+   "minecraft:stone_sword": "Кам'яний меч",
+   "minecraft:string": "Нитка",
+   "minecraft:white_bed": "Біле ліжко",
+   "minecraft:wooden_pickaxe": "Дерев'яне кайло",
+   "minecraft:zombie_spawn_egg": "Яйце виклику зомбі",
+   "mysticalagriculture:inferium_essence": "Інферієва есенція",
+   "refinedstorage:creative_controller": "Творчий контролер",
+   "refinedstorage:disk_drive": "Дисковод",
+   "refinedstorage:grid": "Сітка",
+   "silentgear:helmet_plates": "Пластини шолома",
+   "sophisticatedstorage:iron_chest": "Залізна скриня",
+   "toolbelt:belt": "Інструментальний пояс"
   }
+ },
+ "slots": {
+  "mainHand": null,
+  "offHand": null,
+  "hotbar": [
+   {
+    "id": "minecraft:iron_pickaxe",
+    "uk": "Залізне кайло",
+    "count": 1,
+    "slot": 0,
+    "slotLabel": "Гаряча панель (слот 1)",
+    "slotKind": "hotbar",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
+    "id": "minecraft:chest",
+    "uk": "Скриня",
+    "count": 1,
+    "slot": 1,
+    "slotLabel": "Гаряча панель (слот 2)",
+    "slotKind": "hotbar",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
+    "id": "minecraft:diamond_sword",
+    "uk": "Діамантовий меч",
+    "count": 1,
+    "slot": 3,
+    "slotLabel": "Гаряча панель (слот 4)",
+    "slotKind": "hotbar",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
+    "id": "apotheosis:potion_charm",
+    "uk": "Амулет",
+    "count": 1,
+    "slot": 4,
+    "slotLabel": "Гаряча панель (слот 5)",
+    "slotKind": "hotbar",
+    "ns": "apotheosis",
+    "modName": "Apotheosis"
+   },
+   {
+    "id": "apotheosis:gem",
+    "uk": "Апофеотичний самоцвіт",
+    "count": 1,
+    "slot": 5,
+    "slotLabel": "Гаряча панель (слот 6)",
+    "slotKind": "hotbar",
+    "ns": "apotheosis",
+    "modName": "Apotheosis"
+   }
+  ],
+  "inventory": [
+   {
+    "id": "minecraft:bundle",
+    "uk": "Мішечок",
+    "count": 1,
+    "slot": 10,
+    "slotLabel": "Інвентар (слот 10)",
+    "slotKind": "inventory",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
+    "id": "minecraft:shulker_box",
+    "uk": "Шалкерова коробка",
+    "count": 1,
+    "slot": 11,
+    "slotLabel": "Інвентар (слот 11)",
+    "slotKind": "inventory",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
+    "id": "deepnullreforged:deep_null_0",
+    "uk": "DeepNull",
+    "count": 1,
+    "slot": 12,
+    "slotLabel": "Інвентар (слот 12)",
+    "slotKind": "inventory",
+    "ns": "deepnullreforged",
+    "modName": "DeepNull Reforged"
+   },
+   {
+    "id": "mysticalagriculture:inferium_essence",
+    "uk": "Інферієва есенція",
+    "count": 2,
+    "slot": 13,
+    "slotLabel": "Інвентар (слот 13)",
+    "slotKind": "inventory",
+    "ns": "mysticalagriculture",
+    "modName": "Mystical Agriculture"
+   },
+   {
+    "id": "minecraft:spruce_planks",
+    "uk": "Смерекові дошки",
+    "count": 4,
+    "slot": 14,
+    "slotLabel": "Інвентар (слот 14)",
+    "slotKind": "inventory",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
+    "id": "minecraft:white_bed",
+    "uk": "Біле ліжко",
+    "count": 1,
+    "slot": 15,
+    "slotLabel": "Інвентар (слот 15)",
+    "slotKind": "inventory",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
+    "id": "minecraft:crafting_table",
+    "uk": "Верстак",
+    "count": 1,
+    "slot": 16,
+    "slotLabel": "Інвентар (слот 16)",
+    "slotKind": "inventory",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
+    "id": "bhc:red_heart",
+    "uk": "Мініатюрне червоне серце",
+    "count": 2,
+    "slot": 27,
+    "slotLabel": "Інвентар (слот 27)",
+    "slotKind": "inventory",
+    "ns": "bhc",
+    "modName": "Baubley Heart Canisters"
+   },
+   {
+    "id": "minecraft:diamond_sword",
+    "uk": "Діамантовий меч",
+    "count": 1,
+    "slot": 32,
+    "slotLabel": "Інвентар (слот 32)",
+    "slotKind": "inventory",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
+    "id": "apotheosis:potion_charm",
+    "uk": "Амулет",
+    "count": 1,
+    "slot": 33,
+    "slotLabel": "Інвентар (слот 33)",
+    "slotKind": "inventory",
+    "ns": "apotheosis",
+    "modName": "Apotheosis"
+   }
+  ],
+  "armor": [],
+  "curios": [
+   {
+    "id": "sophisticatedbackpacks:backpack",
+    "uk": "Ранець",
+    "count": 1,
+    "slot": 0,
+    "slotLabel": "Curios: Спина",
+    "slotKind": "curios",
+    "ns": "sophisticatedbackpacks",
+    "modName": "Sophisticated Backpacks",
+    "curiosSlot": "back",
+    "curiosSlotUk": "Спина",
+    "curiosIndex": 0
+   }
+  ],
+  "curiosTypes": [
+   {
+    "id": "refinedstorage_curios_integration",
+    "uk": "Refined Storage",
+    "size": 2
+   },
+   {
+    "id": "head",
+    "uk": "Голова",
+    "size": 1
+   },
+   {
+    "id": "necklace",
+    "uk": "Намисто",
+    "size": 1
+   },
+   {
+    "id": "back",
+    "uk": "Спина",
+    "size": 1
+   },
+   {
+    "id": "body",
+    "uk": "Тіло",
+    "size": 1
+   },
+   {
+    "id": "bracelet",
+    "uk": "Браслет",
+    "size": 1
+   },
+   {
+    "id": "hands",
+    "uk": "Руки",
+    "size": 2
+   },
+   {
+    "id": "ring",
+    "uk": "Перстень",
+    "size": 2
+   },
+   {
+    "id": "belt",
+    "uk": "Пояс",
+    "size": 1
+   },
+   {
+    "id": "feet",
+    "uk": "Ступні",
+    "size": 1
+   },
+   {
+    "id": "charm",
+    "uk": "Амулет",
+    "size": 2
+   },
+   {
+    "id": "crafting_on_a_stick",
+    "uk": "Створення на паличці",
+    "size": 1
+   },
+   {
+    "id": "adv_pattern_encoder",
+    "uk": "Кодувальник шаблонів",
+    "size": 1
+   },
+   {
+    "id": "deep_learner",
+    "uk": "Глибинний учень",
+    "size": 1
+   },
+   {
+    "id": "heart_amulet",
+    "uk": "Амулет сердець",
+    "size": 1
+   },
+   {
+    "id": "poppet",
+    "uk": "Лялька",
+    "size": 1
+   }
+  ],
+  "toolbelt": [
+   {
+    "id": "toolbelt:belt",
+    "uk": "Інструментальний пояс",
+    "count": 1,
+    "slot": null,
+    "slotLabel": "Пояс (Tool Belt)",
+    "slotKind": "toolbelt",
+    "ns": "toolbelt",
+    "modName": "Tool Belt"
+   }
+  ],
+  "toolbeltTools": [
+   {
+    "id": "silentgear:pickaxe",
+    "uk": "Кайло",
+    "count": 1,
+    "slot": null,
+    "slotLabel": "У поясі (слот 2)",
+    "slotKind": "toolbelt",
+    "ns": "silentgear",
+    "modName": "Silent Gear",
+    "beltSlot": 1
+   }
+  ],
+  "backpacks": [
+   {
+    "id": "minecraft:string",
+    "uk": "Нитка",
+    "count": 5,
+    "slot": null,
+    "slotLabel": "Усередині «Мішечок»",
+    "slotKind": "backpack",
+    "ns": "minecraft",
+    "modName": "Minecraft",
+    "bpTitle": "Мішечок",
+    "bpKey": "Інвентар (слот 10)|Мішечок",
+    "bpKind": "bundle",
+    "bpSlot": 0,
+    "bpWhere": "Інвентар (слот 10)"
+   },
+   {
+    "id": "minecraft:lantern",
+    "uk": "Ліхтар",
+    "count": 3,
+    "slot": null,
+    "slotLabel": "Усередині «Шалкерова коробка»",
+    "slotKind": "backpack",
+    "ns": "minecraft",
+    "modName": "Minecraft",
+    "bpTitle": "Шалкерова коробка",
+    "bpKey": "Інвентар (слот 11)|Шалкерова коробка",
+    "bpKind": "shulker",
+    "bpSlot": 0,
+    "bpWhere": "Інвентар (слот 11)"
+   },
+   {
+    "id": "minecraft:cobblestone",
+    "uk": "Кругляк",
+    "count": 64,
+    "slot": null,
+    "slotLabel": "Усередині «DeepNull»",
+    "slotKind": "backpack",
+    "ns": "minecraft",
+    "modName": "Minecraft",
+    "bpTitle": "DeepNull",
+    "bpKey": "Інвентар (слот 12)|DeepNull",
+    "bpKind": "deepnull",
+    "bpSlot": 0,
+    "bpWhere": "Інвентар (слот 12)"
+   },
+   {
+    "id": "minecraft:firework_rocket",
+    "uk": "Феєрверкова ракета",
+    "count": 16,
+    "slot": null,
+    "slotLabel": "Рюкзак «Ранець»",
+    "slotKind": "backpack",
+    "ns": "minecraft",
+    "modName": "Minecraft",
+    "bpTitle": "Ранець",
+    "bpKey": "826a0485-8487-4204-9b63-3f9e11b404da",
+    "bpKind": "backpack",
+    "bpCapacity": 27,
+    "bpSlot": 0,
+    "bpWhere": "Curios: Спина"
+   }
+  ],
+  "enderChest": [
+   {
+    "id": "minecraft:ender_eye",
+    "uk": "Око Енду",
+    "count": 2,
+    "slot": 0,
+    "slotLabel": "Ендер-скриня",
+    "slotKind": "enderChest",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   }
+  ]
  }
 }

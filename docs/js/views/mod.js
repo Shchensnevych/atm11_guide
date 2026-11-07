@@ -7,7 +7,7 @@ import { spoiler } from '../components/spoiler.js';
 import { featRow } from '../components/feat.js';
 import { itemList } from '../components/items.js';
 import { hiddenWhy } from '../core/fmt.js';
-import { loadKeys, analyze } from '../core/keys-model.js';
+import { loadKeys, syncBridgeOptions, getActiveBridgeBase, analyze } from '../core/keys-model.js';
 import { modKeysBlock } from '../components/keys-list.js';
 import { getModBackTarget } from '../core/view-state.js';
 
@@ -25,7 +25,18 @@ export function render(el, [id], s) {
   const parent = m.parent ? s.modById.get(m.parent) : null;
   const c = m.counts || {};
   const keysBox = h('div');                                  // блок «Клавіші» — ліниво з data/keys.json (+ власний options.txt)
-  loadKeys().then((kd) => { if (keysBox.isConnected) mount(keysBox, modKeysBlock(s, kd, id, analyze(kd.keys, new Set(['game', 'held', 'vehicle', 'gui', 'debug'])))); }).catch(() => {});
+  const drawModKeys = () => {
+    loadKeys().then((kd) => {
+      if (keysBox.isConnected) mount(keysBox, modKeysBlock(s, kd, id, analyze(kd.keys, new Set(['game', 'held', 'vehicle', 'gui', 'debug']))));
+    }).catch(() => {});
+  };
+  drawModKeys();
+  const bridgeBase = getActiveBridgeBase();
+  if (bridgeBase) {
+    fetch(`${bridgeBase}/api/state`).then((r) => (r.ok ? r.json() : null)).then((d) => {
+      if (d?.keyBinds && syncBridgeOptions(d.keyBinds, d.keyStats?.sig)) drawModKeys();
+    }).catch(() => {});
+  }
   mount(el,
     h('div', { style: { marginBottom: '12px' } },
       h('a.btn.small', { href: back.href, style: { display: 'inline-flex', alignItems: 'center', gap: '6px', textDecoration: 'none' } }, back.label)),

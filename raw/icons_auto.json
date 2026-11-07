@@ -605,6 +605,12 @@
   "uk": "Флюїксовий пил",
   "en": "Fluix Dust"
  },
+ "ae2:fluix_glass_cable": {
+  "img": "img/items/ae2/fluix_glass_cable.png",
+  "kind": "block",
+  "uk": "Флюїксовий ME скляний кабель",
+  "en": "Fluix ME Glass Cable"
+ },
  "ae2:fluix_pickaxe": {
   "img": "img/items/ae2/fluix_pickaxe.png",
   "kind": "item",
@@ -2405,6 +2411,12 @@
   "uk": "Вібранієва булава",
   "en": "Vibranium Mace"
  },
+ "allthemodium:vibranium_ore": {
+  "img": "img/items/allthemodium/vibranium_ore.png",
+  "kind": "block",
+  "uk": "Вібранієва руда",
+  "en": "Vibranium Ore"
+ },
  "allthemodium:vibranium_pickaxe": {
   "img": "img/items/allthemodium/vibranium_pickaxe.png",
   "kind": "item",
@@ -2488,6 +2500,12 @@
   "kind": "item",
   "uk": "Мідний молот для руди",
   "en": "Copper Ore Hammer"
+ },
+ "alltheores:deepslate_cinnabar_ore": {
+  "img": "img/items/alltheores/deepslate_cinnabar_ore.png",
+  "kind": "block",
+  "uk": "Глибосланцева кіноварна руда",
+  "en": "Deepslate Cinnabar Ore"
  },
  "alltheores:electrum_ingot": {
   "img": "img/items/alltheores/electrum_ingot.png",
@@ -3797,6 +3815,12 @@
   "uk": "Насіння світлопорею",
   "en": "Glow-Leek Seeds"
  },
+ "auroral:guide": {
+  "img": "img/items/auroral/guide.png",
+  "kind": "item",
+  "uk": "Посібник Auroral",
+  "en": "The Auroral Guidebook"
+ },
  "auroral:hearthwood_log": {
   "img": "img/items/auroral/hearthwood_log.png",
   "kind": "item",
@@ -3922,6 +3946,12 @@
   "kind": "item",
   "uk": "Амулет сердець",
   "en": "Heart Amulet"
+ },
+ "bhc:red_heart": {
+  "img": "img/items/bhc/red_heart.png",
+  "kind": "item",
+  "uk": "Мініатюрне червоне серце",
+  "en": "Miniature Red Heart"
  },
  "bhc:red_heart_canister": {
   "img": "img/items/bhc/red_heart_canister.png",
@@ -4306,6 +4336,12 @@
   "kind": "item",
   "uk": "Універсальний харчовий прес",
   "en": "All Purpose Food Press"
+ },
+ "croptopia:guide": {
+  "img": "img/items/croptopia/guide.png",
+  "kind": "item",
+  "uk": "Croptopia",
+  "en": "Croptopia"
  },
  "croptopia:knife": {
   "img": "img/items/croptopia/knife.png",
@@ -4804,6 +4840,12 @@
   "kind": "block",
   "uk": "Скриня Енду з ключем",
   "en": "Ender Key Chest"
+ },
+ "enderthing:lock": {
+  "img": "img/items/enderthing/lock.png",
+  "kind": "item",
+  "uk": "Замок Енду",
+  "en": "Ender Lock"
  },
  "enderthing:pack": {
   "img": "img/items/enderthing/pack.png",
@@ -6785,6 +6827,12 @@
   "uk": "Родючий GeOre: залізо",
   "en": "Budding Iron GeOre"
  },
+ "guideme:guide": {
+  "img": "img/items/guideme/guide.png",
+  "kind": "approx",
+  "uk": "Посібник",
+  "en": "Guide"
+ },
  "hostilenetworks:blank_data_model": {
   "img": "img/items/hostilenetworks/blank_data_model.png",
   "kind": "item",
@@ -8033,6 +8081,18 @@
   "uk": "Місячний камінь",
   "en": "Moonstone"
  },
+ "irons_jewelry:necklace": {
+  "img": "img/items/irons_jewelry/necklace.png",
+  "kind": "item",
+  "uk": "Намисто",
+  "en": "Necklace"
+ },
+ "irons_jewelry:ring": {
+  "img": "img/items/irons_jewelry/ring.png",
+  "kind": "item",
+  "uk": "Каблучка",
+  "en": "Ring"
+ },
  "irons_jewelry:ruby": {
   "img": "img/items/irons_jewelry/ruby.png",
   "kind": "item",
@@ -9233,6 +9293,12 @@
   "uk": "Логістичний вузол",
   "en": "Logistics Node"
  },
+ "logisticsnetworks:server_rack": {
+  "img": "img/items/logisticsnetworks/server_rack.png",
+  "kind": "block",
+  "uk": "Логістичний сервер",
+  "en": "Logistics Server"
+ },
  "logisticsnetworks:wrench": {
   "img": "img/items/logisticsnetworks/wrench.png",
   "kind": "item",
@@ -9418,6 +9484,12 @@
   "kind": "item",
   "uk": "Сувій обміну імунітетом",
   "en": "Scroll of Immunity Exchange"
+ },
+ "mahoutsukai:scroll_reality_marble": {
+  "img": "img/items/mahoutsukai/scroll_reality_marble.png",
+  "kind": "item",
+  "uk": "Сувій мармурової реальності",
+  "en": "Scroll of the Reality Marble"
  },
  "mahoutsukai:spatial_disorientation_staff": {
   "img": "img/items/mahoutsukai/spatial_disorientation_staff.png",
@@ -9791,6 +9863,12 @@
   "uk": "Щиток броненосця",
   "en": "Armadillo Scute"
  },
+ "minecraft:arrow": {
+  "img": "img/items/minecraft/arrow.png",
+  "kind": "item",
+  "uk": "Стріла",
+  "en": "Arrow"
+ },
  "minecraft:bamboo": {
   "img": "img/items/minecraft/bamboo.png",
   "kind": "item",
@@ -9904,6 +9982,12 @@
   "kind": "item",
   "uk": "Ковальський шаблон",
   "en": "Smithing Template"
+ },
+ "minecraft:bone": {
+  "img": "img/items/minecraft/bone.png",
+  "kind": "item",
+  "uk": "Кістка",
+  "en": "Bone"
  },
  "minecraft:bone_meal": {
   "img": "img/items/minecraft/bone_meal.png",
@@ -10465,7 +10549,7 @@
  },
  "minecraft:ender_chest": {
   "img": "img/items/minecraft/ender_chest.png",
-  "kind": "approx",
+  "kind": "block",
   "uk": "Скриня Енду",
   "en": "Ender Chest"
  },
@@ -10529,6 +10613,12 @@
   "uk": "Перо",
   "en": "Feather"
  },
+ "minecraft:fern": {
+  "img": "img/items/minecraft/fern.png",
+  "kind": "item",
+  "uk": "Папороть",
+  "en": "Fern"
+ },
  "minecraft:filled_map": {
   "img": "img/items/minecraft/filled_map.png",
   "kind": "item",
@@ -10540,6 +10630,12 @@
   "kind": "item",
   "uk": "Заряд вогню",
   "en": "Fire Charge"
+ },
+ "minecraft:firework_rocket": {
+  "img": "img/items/minecraft/firework_rocket.png",
+  "kind": "item",
+  "uk": "Феєрверкова ракета",
+  "en": "Firework Rocket"
  },
  "minecraft:fishing_rod": {
   "img": "img/items/minecraft/fishing_rod.png",
@@ -10558,6 +10654,12 @@
   "kind": "item",
   "uk": "Ковальський шаблон",
   "en": "Smithing Template"
+ },
+ "minecraft:flower_pot": {
+  "img": "img/items/minecraft/flower_pot.png",
+  "kind": "item",
+  "uk": "Квітковий горщик",
+  "en": "Flower Pot"
  },
  "minecraft:fox_spawn_egg": {
   "img": "img/items/minecraft/fox_spawn_egg.png",
@@ -10877,17 +10979,35 @@
   "uk": "Програвач",
   "en": "Jukebox"
  },
+ "minecraft:jungle_leaves": {
+  "img": "img/items/minecraft/jungle_leaves.png",
+  "kind": "block",
+  "uk": "Тропічне листя",
+  "en": "Jungle Leaves"
+ },
  "minecraft:jungle_log": {
   "img": "img/items/minecraft/jungle_log.png",
   "kind": "block",
   "uk": "Тропічна колода",
   "en": "Jungle Log"
  },
+ "minecraft:jungle_planks": {
+  "img": "img/items/minecraft/jungle_planks.png",
+  "kind": "block",
+  "uk": "Тропічні дошки",
+  "en": "Jungle Planks"
+ },
  "minecraft:jungle_sapling": {
   "img": "img/items/minecraft/jungle_sapling.png",
   "kind": "item",
   "uk": "Паросток тропічного дерева",
   "en": "Jungle Sapling"
+ },
+ "minecraft:jungle_slab": {
+  "img": "img/items/minecraft/jungle_slab.png",
+  "kind": "block",
+  "uk": "Тропічна плита",
+  "en": "Jungle Slab"
  },
  "minecraft:kelp": {
   "img": "img/items/minecraft/kelp.png",
@@ -10978,6 +11098,12 @@
   "kind": "block",
   "uk": "Лаймовий бетон",
   "en": "Lime Concrete"
+ },
+ "minecraft:loom": {
+  "img": "img/items/minecraft/loom.png",
+  "kind": "block",
+  "uk": "Ткацький верстат",
+  "en": "Loom"
  },
  "minecraft:magenta_concrete": {
   "img": "img/items/minecraft/magenta_concrete.png",
@@ -11170,6 +11296,12 @@
   "kind": "block",
   "uk": "Дубова колода",
   "en": "Oak Log"
+ },
+ "minecraft:oak_planks": {
+  "img": "img/items/minecraft/oak_planks.png",
+  "kind": "block",
+  "uk": "Дубові дошки",
+  "en": "Oak Planks"
  },
  "minecraft:oak_sapling": {
   "img": "img/items/minecraft/oak_sapling.png",
@@ -11429,6 +11561,12 @@
   "uk": "Червона незерська цегла",
   "en": "Red Nether Bricks"
  },
+ "minecraft:red_sand": {
+  "img": "img/items/minecraft/red_sand.png",
+  "kind": "block",
+  "uk": "Червоний пісок",
+  "en": "Red Sand"
+ },
  "minecraft:redstone": {
   "img": "img/items/minecraft/redstone.png",
   "kind": "item",
@@ -11483,6 +11621,12 @@
   "uk": "Трояндовий кущ",
   "en": "Rose Bush"
  },
+ "minecraft:rotten_flesh": {
+  "img": "img/items/minecraft/rotten_flesh.png",
+  "kind": "item",
+  "uk": "Гнила плоть",
+  "en": "Rotten Flesh"
+ },
  "minecraft:saddle": {
   "img": "img/items/minecraft/saddle.png",
   "kind": "item",
@@ -11500,6 +11644,12 @@
   "kind": "block",
   "uk": "Пісковик",
   "en": "Sandstone"
+ },
+ "minecraft:sandstone_stairs": {
+  "img": "img/items/minecraft/sandstone_stairs.png",
+  "kind": "block",
+  "uk": "Пісковикові сходи",
+  "en": "Sandstone Stairs"
  },
  "minecraft:sculk": {
   "img": "img/items/minecraft/sculk.png",
@@ -11554,6 +11704,12 @@
   "kind": "approx",
   "uk": "Щит",
   "en": "Shield"
+ },
+ "minecraft:shulker_box": {
+  "img": "img/items/minecraft/shulker_box.png",
+  "kind": "block",
+  "uk": "Шалкерова коробка",
+  "en": "Shulker Box"
  },
  "minecraft:shulker_shell": {
   "img": "img/items/minecraft/shulker_shell.png",
@@ -11681,6 +11837,12 @@
   "uk": "Смерекова колода",
   "en": "Spruce Log"
  },
+ "minecraft:spruce_planks": {
+  "img": "img/items/minecraft/spruce_planks.png",
+  "kind": "block",
+  "uk": "Смерекові дошки",
+  "en": "Spruce Planks"
+ },
  "minecraft:spruce_sapling": {
   "img": "img/items/minecraft/spruce_sapling.png",
   "kind": "item",
@@ -11740,6 +11902,12 @@
   "kind": "item",
   "uk": "Кам'яний меч",
   "en": "Stone Sword"
+ },
+ "minecraft:strider_spawn_egg": {
+  "img": "img/items/minecraft/strider_spawn_egg.png",
+  "kind": "item",
+  "uk": "Яйце виклику блукача",
+  "en": "Strider Spawn Egg"
  },
  "minecraft:string": {
   "img": "img/items/minecraft/string.png",
@@ -11932,6 +12100,12 @@
   "kind": "approx",
   "uk": "Білий стяг",
   "en": "White Banner"
+ },
+ "minecraft:white_bed": {
+  "img": "img/items/minecraft/white_bed.png",
+  "kind": "block",
+  "uk": "Біле ліжко",
+  "en": "White Bed"
  },
  "minecraft:white_wool": {
   "img": "img/items/minecraft/white_wool.png",
@@ -14417,6 +14591,18 @@
   "uk": "Відро Essentia Vitae",
   "en": "Bucket of Essentia Vitae"
  },
+ "neovitae:experience_tome": {
+  "img": "img/items/neovitae/experience_tome.png",
+  "kind": "item",
+  "uk": "Фоліант Peritia",
+  "en": "Tome of Peritia"
+ },
+ "neovitae:guide_book": {
+  "img": "img/items/neovitae/guide_book.png",
+  "kind": "item",
+  "uk": "Scriptura Vitae",
+  "en": "Scriptura Vitae"
+ },
  "neovitae:hellfire_forge": {
   "img": "img/items/neovitae/hellfire_forge.png",
   "kind": "approx",
@@ -14524,6 +14710,12 @@
   "kind": "item",
   "uk": "Ритуальний віщун [Tenebrae]",
   "en": "Ritual Diviner [Tenebrae]"
+ },
+ "neovitae:ritual_ledger": {
+  "img": "img/items/neovitae/ritual_ledger.png",
+  "kind": "item",
+  "uk": "Реєстр ритуалів",
+  "en": "Ritual Ledger"
  },
  "neovitae:routing_conduit": {
   "img": "img/items/neovitae/routing_conduit.png",
@@ -14764,6 +14956,12 @@
   "kind": "item",
   "uk": "Книга прив'язування: Фоліот",
   "en": "Book of Binding: Foliot"
+ },
+ "occultism:book_of_calling_foliot_transport_items": {
+  "img": "img/items/occultism/book_of_calling_foliot_transport_items.png",
+  "kind": "item",
+  "uk": "Книга виклику: Фоліот-перевізник",
+  "en": "Book of Calling: Foliot Transporter"
  },
  "occultism:brush": {
   "img": "img/items/occultism/brush.png",
@@ -15311,6 +15509,12 @@
   "uk": "Темний вимірний стабілізатор сховища Tier 5",
   "en": "Tier 5 Dark Dimensional Storage Stabilizer"
  },
+ "occultism:taboo_book": {
+  "img": "img/items/occultism/taboo_book.png",
+  "kind": "item",
+  "uk": "Книга табу",
+  "en": "Taboo Book"
+ },
  "occultism:trinity_gem": {
   "img": "img/items/occultism/trinity_gem.png",
   "kind": "item",
@@ -15622,6 +15826,12 @@
   "kind": "block",
   "uk": "Доповнювач швидкості",
   "en": "Speed Addon"
+ },
+ "oritech:machine_yield_addon": {
+  "img": "img/items/oritech/machine_yield_addon.png",
+  "kind": "block",
+  "uk": "Доповнювач врожайності",
+  "en": "Yield Addon"
  },
  "oritech:magnetic_coil": {
   "img": "img/items/oritech/magnetic_coil.png",
@@ -15946,6 +16156,12 @@
   "kind": "block",
   "uk": "Блок пломеніючого кристала",
   "en": "Block Of Blazing Crystal"
+ },
+ "powah:book": {
+  "img": "img/items/powah/book.png",
+  "kind": "item",
+  "uk": "Посібник (Powah!)",
+  "en": "Manual (Powah!)"
  },
  "powah:capacitor_basic": {
   "img": "img/items/powah/capacitor_basic.png",
@@ -17602,6 +17818,12 @@
   "kind": "item",
   "uk": "Гірчиця",
   "en": "Mustard"
+ },
+ "productivefarming:nutrient_water_bucket": {
+  "img": "img/items/productivefarming/nutrient_water_bucket.png",
+  "kind": "item",
+  "uk": "Відро поживної води",
+  "en": "Nutrient Water Bucket"
  },
  "productivefarming:oats": {
   "img": "img/items/productivefarming/oats.png",
@@ -20363,6 +20585,18 @@
   "uk": "Бірюзові фарбовані дошки",
   "en": "Cyan Painted Planks"
  },
+ "regions_unexplored:elephant_ear": {
+  "img": "img/items/regions_unexplored/elephant_ear.png",
+  "kind": "item",
+  "uk": "Слоняче вухо",
+  "en": "Elephant Ear"
+ },
+ "regions_unexplored:grass_sprouts": {
+  "img": "img/items/regions_unexplored/grass_sprouts.png",
+  "kind": "item",
+  "uk": "Паростки трави",
+  "en": "Grass Sprouts"
+ },
  "regions_unexplored:gray_painted_planks": {
   "img": "img/items/regions_unexplored/gray_painted_planks.png",
   "kind": "block",
@@ -20374,6 +20608,12 @@
   "kind": "block",
   "uk": "Зелені фарбовані дошки",
   "en": "Green Painted Planks"
+ },
+ "regions_unexplored:kapok_boat": {
+  "img": "img/items/regions_unexplored/kapok_boat.png",
+  "kind": "item",
+  "uk": "Човен з капоку",
+  "en": "Kapok Boat"
  },
  "regions_unexplored:light_blue_painted_planks": {
   "img": "img/items/regions_unexplored/light_blue_painted_planks.png",
@@ -20447,6 +20687,12 @@
   "uk": "Том алкагестрії",
   "en": "Tome of Alkahestry"
  },
+ "reliquary:catalyzing_gland": {
+  "img": "img/items/reliquary/catalyzing_gland.png",
+  "kind": "item",
+  "uk": "Каталізуюча залоза",
+  "en": "Catalyzing Gland"
+ },
  "reliquary:fertile_lily_pad": {
   "img": "img/items/reliquary/fertile_lily_pad.png",
   "kind": "item",
@@ -20458,6 +20704,12 @@
   "kind": "item",
   "uk": "Монета удачі",
   "en": "Coin of Fortune"
+ },
+ "reliquary:mob_charm": {
+  "img": "img/items/reliquary/mob_charm.png",
+  "kind": "item",
+  "uk": "Шарм: %s",
+  "en": "%s Charm"
  },
  "reliquary:mob_charm_fragment": {
   "img": "img/items/reliquary/mob_charm_fragment.png",
@@ -20566,6 +20818,12 @@
   "kind": "item",
   "uk": "Зелена гілочка",
   "en": "Verdant Sprig"
+ },
+ "rootsclassic:whitecurrant": {
+  "img": "img/items/rootsclassic/whitecurrant.png",
+  "kind": "item",
+  "uk": "Біла смородина",
+  "en": "Whitecurrant"
  },
  "rootsclassic:wildwood_boots": {
   "img": "img/items/rootsclassic/wildwood_boots.png",
@@ -21083,6 +21341,12 @@
   "uk": "",
   "en": "grip blueprint"
  },
+ "silentgear:helmet_plates": {
+  "img": "img/items/silentgear/helmet_plates.png",
+  "kind": "item",
+  "uk": "Пластини шолома",
+  "en": "Helmet Plates"
+ },
  "silentgear:lining_blueprint": {
   "img": "img/items/silentgear/lining_blueprint.png",
   "kind": "item",
@@ -21094,6 +21358,12 @@
   "kind": "item",
   "uk": "",
   "en": "mace blueprint"
+ },
+ "silentgear:material_book": {
+  "img": "img/items/silentgear/material_book.png",
+  "kind": "item",
+  "uk": "Книга матеріалів",
+  "en": "Material Book"
  },
  "silentgear:material_grader": {
   "img": "img/items/silentgear/material_grader.png",
@@ -21178,6 +21448,12 @@
   "kind": "block",
   "uk": "Руда хаосу",
   "en": "Chaos Ore"
+ },
+ "silentgems:nether_moldavite_ore": {
+  "img": "img/items/silentgems/nether_moldavite_ore.png",
+  "kind": "block",
+  "uk": "",
+  "en": "nether moldavite ore"
  },
  "silentgems:teleporter_anchor": {
   "img": "img/items/silentgems/teleporter_anchor.png",
@@ -21748,6 +22024,12 @@
   "kind": "block",
   "uk": "Рунічна матриця",
   "en": "Runic Matrix"
+ },
+ "thaumaturge:ingot_thaumium": {
+  "img": "img/items/thaumaturge/ingot_thaumium.png",
+  "kind": "item",
+  "uk": "Злиток Thaumium",
+  "en": "Thaumium Ingot"
  },
  "thaumaturge:thaumonomicon": {
   "img": "img/items/thaumaturge/thaumonomicon.png",

@@ -349,6 +349,8 @@ def wanted():
         elif isinstance(o, list):
             for v in o: walk(v)
     for f in glob.glob(os.path.join(CONTENT, '**', '*.json'), recursive=True): walk(jload(f, {}))
+    for f in glob.glob(os.path.join(DOCS, 'data', 'progress', '*.json')):
+        ids.update(x for x in (((jload(f, {}) or {}).get('items') or {}).get('names') or {}) if re.match(r'^[a-z0-9_.-]+:[a-z0-9_/.-]+$', str(x)))
     return ids
 
 def quest_ids():

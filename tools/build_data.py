@@ -225,6 +225,13 @@ def main():
     ks = build_keys.build(warn, '--check' not in sys.argv, ids)       # вкладка «Клавіші» → docs/data/keys.json
     cs = build_chapters.build(warn, '--check' not in sys.argv)       # вкладка «Квести»: огляди глав, дописи, іконки → guide.json, notes/, qicons.json
     nm = build_names.build(warn, '--check' not in sys.argv)          # назви з перекладу для моста компаньйона → names.json (C2)
+    nm_items = (jload(os.path.join(DATA, 'names.json'), {}) or {}).get('items') or {}
+    for iid, rec in items.items():
+        nv = nm_items.get(iid)
+        if isinstance(nv, list) and nv and (not rec.get('uk') or rec.get('uk') == '%s'):
+            rec['uk'] = nv[0]
+            if len(nv) > 1 and nv[1] and (not rec.get('en') or rec.get('en') == '%s'):
+                rec['en'] = nv[1]
     wg = jload(os.path.join(RAW, 'worldgen_blocks_auto.json'), None)   # C6b: блоки генерації світу (tools/extract_worldgen.py) → для «моє» в компаньйоні
     if wg and not wg.get('vanilla'): warn('worldgen_blocks_auto.json без ванільних структур — не беру (extract_worldgen.py з клієнтським jar)'); wg = None
     stat = collections.Counter('curated' if not m['auto'] else ('auto:' + m['role']) for m in mods)

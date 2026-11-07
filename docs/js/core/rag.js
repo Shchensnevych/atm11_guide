@@ -18,7 +18,7 @@ export const COMPANION_VISION_MODELS = [
   { id: 'qwen/qwen2.5-vl-72b-instruct', label: '🏆 Qwen 2.5 VL 72B (~1.6 с — розбір скріншотів F2)' },
 ];
 
-/** Двомовне розширення запитів синонімами ATM11 для високої повноти пошуку українською. */
+/** Двомовне розширення запитів синонімами ATM11 для високої повноти пошуку українською. @type {[RegExp, string][]} */
 const CONCEPT_EXPANSIONS = [
   [/(?<![\p{L}\d])(що робити|куди далі|наступн\p{L}* крок\p{L}*|з чого почати|що далі|порад\p{L}*|сейв\p{L}*)(?![\p{L}\d])/iu, 'наступні кроки головний шлях стовбур початок етап квести'],
   [/(?<![\p{L}\d])(сховищ\p{L}*|скрин\p{L}*|інвентар\p{L}*|зберіга\p{L}*|рюкзак\p{L}*|ран\p{L}*|мішок|мереж\p{L}*)(?![\p{L}\d])/iu, 'storage sophisticatedbackpacks sophisticatedstorage functionalstorage ae2 refinedstorage deepnull шухляди комірки термінал'],
@@ -183,7 +183,7 @@ export function buildCorpus(s) {
 
 /** Виконує миттєвий гібридний пошук (BM25 + український стемер + двомовні синоніми ATM11 + триграми).
  * @param {Store} s @param {string} query @param {any} [analysis] @param {number} [topK] */
-export async function searchGuide(s, query, analysis, topK = 8) {
+export function searchGuideSync(s, query, analysis, topK = 8) {
   const corpus = buildCorpus(s);
   let expanded = query || '';
   for (const [re, addWords] of CONCEPT_EXPANSIONS) {
@@ -236,6 +236,11 @@ export async function searchGuide(s, query, analysis, topK = 8) {
   return scored.slice(0, topK);
 }
 
+/** @param {Store} s @param {string} query @param {any} [analysis] @param {number} [topK] */
+export async function searchGuide(s, query, analysis, topK = 8) {
+  return searchGuideSync(s, query, analysis, topK);
+}
+
 /** Синтезує локальну структуровану відповідь українською мовою без зовнішнього API.
  * @param {string} query @param {Array<{ doc: RagDoc, score: number }>} hits @param {any} an @param {Store} _s */
 export function composeLocalAnswer(query, hits, an, _s) {
@@ -245,6 +250,11 @@ export function composeLocalAnswer(query, hits, an, _s) {
   const asksNext = /(що робити|куди далі|наступн\w* крок|з чого почати|що далі|мій сейв|моєму світі)/i.test(q);
   if (asksNext || !q) {
     const p = an.world;
+    const nt0 = an.nextTrunk[0];
+    const voiceLine = nt0
+      ? `Зараз твій етап — «${an.currentStage.title}». Головна віха далі — «${nt0.node.title}», а у сейві розпочато ${an.startedQuests.length} квестів.`
+      : `Твій поточний етап — «${an.currentStage.title}», відкрито ${an.availNodes.length} віх для розвитку.`;
+    lines.push(`🗣️ [${voiceLine}]`);
     lines.push(`### 🎯 План дій для світу «${p?.world || 'Новий світ'}» (${an.currentStage.icon} Етап ${an.currentStage.n}: ${an.currentStage.title})`);
     if (an.nextTrunk.length) {
       const nt = an.nextTrunk[0];
@@ -263,15 +273,23 @@ export function composeLocalAnswer(query, hits, an, _s) {
         lines.push(`3. **Відкриті гілки розвитку на поточному етапі:** ${topAvail.map((/** @type {any} */ x) => `**${x.node.title}** (${x.node.text.split('.')[0]})`).join('; ')}.`);
       }
     }
-    if (!q) return lines.join('\n\n');
+    if (!q) {
+      lines.push(`Джерело: сейв світу «${p?.world || 'Новий світ'}» та дорожня карта ATM11`);
+      return lines.join('\n\n');
+    }
   }
 
   if (!hits.length) {
+    lines.push(`🗣️ [За запитом «${query}» точних збігів у путівнику не знайдено.]`);
     lines.push(`За запитом **«${query}»** точних збігів не знайдено. Спробуйте інше формулювання (наприклад: *«де зберігати речі»*, *«перша енергія»*, *«як зробити сталь»*, *«клавіша ранця»*).`);
     return lines.join('\n\n');
   }
 
   const top = hits[0].doc;
+  if (!asksNext && q) {
+    const firstSent = (top.text.split(/(?<=[.!?])\s+/)[0] || top.title).replace(/\s+/g, ' ').trim().slice(0, 210);
+    lines.push(`🗣️ [${top.title}: ${firstSent}]`);
+  }
   lines.push(`### 💡 Відповідь за базою путівника: ${top.title}`);
   lines.push(top.text);
 
@@ -282,6 +300,7 @@ export function composeLocalAnswer(query, hits, an, _s) {
       lines.push(`- **${h.doc.title}** [${h.doc.badge}]: ${h.doc.text.slice(0, 260)}${h.doc.text.length > 260 ? '…' : ''}`);
     }
   }
+  lines.push(`Джерело: база путівника сайту (${hits.slice(0, 3).map((h) => h.doc.title).join(', ')})`);
   return lines.join('\n\n');
 }
 
@@ -292,9 +311,12 @@ export function loadAssistantConfig() {
   try { raw = JSON.parse(localStorage.getItem(CFG_LS_KEY) || '{}') || {}; } catch { raw = {}; }
   return {
     mode: raw.mode === 'local' || !raw.mode ? 'local' : 'bridge', // 'local' | 'bridge' (старі 'ollama' / 'openai' → міст)
+    modeExplicit: Boolean(raw.modeExplicit),
     bridgeUrl: raw.bridgeUrl || 'http://127.0.0.1:8812',
     openaiModel: raw.openaiModel || raw.model || 'deepseek-ai/DeepSeek-V4.1-Flash',
     visionModel: raw.visionModel || 'qwen/qwen2.5-vl-72b-instruct',
+    ttsVoice: raw.ttsVoice || '',
+    autoSpeak: Boolean(raw.autoSpeak),
   };
 }
 

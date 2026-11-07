@@ -145,8 +145,6 @@
   border-right: 1px solid var(--line);
   padding: 16px 14px;
   box-sizing: border-box;
-  scrollbar-width: thin;
-  scrollbar-color: var(--line-2) transparent;
   display: flex;
   flex-direction: column;
 }
@@ -193,20 +191,16 @@
 .rm-seg a:hover,
 .rm-seg-btn:hover {
   color: var(--text);
-  background: var(--panel-hover, rgba(255, 255, 255, 0.05));
+  background: var(--panel-hover);
 }
 .rm-seg a.on,
-.rm-seg-btn.on {
-  color: #0b0f14 !important;
-  background: var(--accent) !important;
-  font-weight: 700 !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
-}
-[data-theme="light"] .rm-seg a.on,
-[data-theme="light"] .rm-seg-btn.on {
-  color: #ffffff !important;
-  background: var(--accent) !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+.rm-seg-btn.on,
+.rm-seg a.on:hover,
+.rm-seg-btn.on:hover {
+  color: var(--on-accent);
+  background: var(--accent);
+  font-weight: 700;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
 }
 
 .rm-layout .rm-main {
@@ -262,9 +256,6 @@
 .fl-item { display: inline-flex; align-items: center; gap: 4px; }
 .fl-item.pick { cursor: pointer; padding: 1px 6px; border-radius: 999px; border: 1px solid transparent; }
 .fl-item.pick:hover { border-color: var(--line-2); } .fl-item.pick.on { border-color: var(--accent); color: var(--text); background: rgb(250 204 21 / 10%); }
-.rm-cls { flex: 1; display: flex; flex-wrap: wrap; gap: 5px; min-width: 0; align-items: center; }
-.rm-cls .chip { font-size: .78rem; padding: 3px 9px; }
-.rm-cls .chip.on { border: 2px dashed var(--c); padding: 2px 8px; }
 
 /* піктограми можливостей (feat.js) */
 .feats { display: inline-flex; gap: 3px; align-items: center; }
@@ -287,7 +278,6 @@
 .nc-star { color: var(--accent); font-size: 15px; line-height: 1; width: 18px; text-align: center; text-shadow: 0 0 8px rgb(250 204 21 / 60%); }
 .nc-logo { display: block; line-height: 0; border-radius: 4px; }
 .nc-logo:hover { outline: 1px solid var(--accent); }
-.lg-kind { cursor: pointer; } .lg-kind.off { opacity: .35; text-decoration: line-through; }
 .tv.hide-req .edge.req, .tv.hide-syn .edge.syn, .tv.hide-opt .edge.opt { display: none; }
 /* «За модами»: рамки сузір'їв, хаби, промені */
 .tv-cframe { position: absolute; border: 1px dashed rgb(148 163 184 / 16%); border-radius: 40px; }

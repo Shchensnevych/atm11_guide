@@ -1,11 +1,6 @@
 /* Вкладка «Квести»: сторінка глави (схема / список), картка квесту, огляд глави */
 .chapter-page { display: flex; flex-direction: column; width: 100%; min-width: 0; }
 .chapter-page.list-mode .toolbar { position: sticky; top: var(--topbar-h); z-index: 20; margin: -20px -28px 0; }
-.seg { display: inline-flex; border: 1px solid var(--line-2); border-radius: var(--radius-sm); overflow: hidden; }
-.seg button { background: var(--panel); color: var(--muted); border: 0; padding: 4px 10px; font: inherit; font-size: .82rem; cursor: pointer; }
-.seg button + button { border-left: 1px solid var(--line-2); }
-.seg button.on { background: var(--accent); color: var(--bg); font-weight: 600; }
-.seg button:not(.on):hover { color: var(--text); }
 .chk { display: inline-flex; align-items: center; gap: 4px; cursor: pointer; user-select: none; }
 
 /* Картинки книги на полотні глави — під вузлами (graph/quests-cy.js, шар рухається разом із полотном) */

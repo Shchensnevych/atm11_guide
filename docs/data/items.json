@@ -314,7 +314,7 @@
  "apotheosis:gem": {
   "img": "img/items/apotheosis/gem.png",
   "kind": "item",
-  "uk": "",
+  "uk": "Апофеотичний самоцвіт",
   "en": "gem"
  },
  "apotheosis:gem_cutting_table": {
@@ -740,26 +740,26 @@
  "crafting_on_a_stick:anvil": {
   "img": "img/items/crafting_on_a_stick/anvil.png",
   "kind": "item",
-  "uk": "",
-  "en": "%s"
+  "uk": "Ковадло",
+  "en": "Anvil"
  },
  "crafting_on_a_stick:crafting_table": {
   "img": "img/items/crafting_on_a_stick/crafting_table.png",
   "kind": "item",
-  "uk": "",
-  "en": "%s"
+  "uk": "Верстак",
+  "en": "Crafting Table"
  },
  "crafting_on_a_stick:smithing_table": {
   "img": "img/items/crafting_on_a_stick/smithing_table.png",
   "kind": "item",
-  "uk": "",
-  "en": "%s"
+  "uk": "Ковальський стіл",
+  "en": "Smithing Table"
  },
  "crafting_on_a_stick:stonecutter": {
   "img": "img/items/crafting_on_a_stick/stonecutter.png",
   "kind": "item",
-  "uk": "",
-  "en": "%s"
+  "uk": "Каменеріз",
+  "en": "Stonecutter"
  },
  "croptopia:cooking_pot": {
   "img": "img/items/croptopia/cooking_pot.png",
@@ -1388,13 +1388,13 @@
  "integratedcrafting:part_crafting_writer": {
   "img": "img/items/integratedcrafting/part_crafting_writer.png",
   "kind": "block",
-  "uk": "",
+  "uk": "Записувач створення",
   "en": "part crafting writer"
  },
  "integratedcrafting:part_interface_crafting": {
   "img": "img/items/integratedcrafting/part_interface_crafting.png",
   "kind": "block",
-  "uk": "",
+  "uk": "Інтерфейс створення",
   "en": "part interface crafting"
  },
  "integrateddynamics:cable": {
@@ -1424,7 +1424,7 @@
  "integratedterminals:part_terminal_storage": {
   "img": "img/items/integratedterminals/part_terminal_storage.png",
   "kind": "block",
-  "uk": "",
+  "uk": "Термінал сховища",
   "en": "part terminal storage"
  },
  "integratedterminals:terminal_storage_portable": {
@@ -1436,19 +1436,19 @@
  "integratedtunnels:part_exporter_world_block": {
   "img": "img/items/integratedtunnels/part_exporter_world_block.png",
   "kind": "block",
-  "uk": "",
+  "uk": "Світовий експортер блоків",
   "en": "part exporter world block"
  },
  "integratedtunnels:part_importer_item": {
   "img": "img/items/integratedtunnels/part_importer_item.png",
   "kind": "block",
-  "uk": "",
+  "uk": "Імпортер предметів",
   "en": "part importer item"
  },
  "integratedtunnels:part_interface_item": {
   "img": "img/items/integratedtunnels/part_interface_item.png",
   "kind": "block",
-  "uk": "",
+  "uk": "Інтерфейс предметів",
   "en": "part interface item"
  },
  "interdimensionalwirelesstransmitter:interdimensional_wireless_transmitter": {
@@ -1550,13 +1550,13 @@
  "itemcollectors:advanced_collector": {
   "img": "img/items/itemcollectors/advanced_collector.png",
   "kind": "block",
-  "uk": "",
+  "uk": "Покращений збирач предметів",
   "en": "advanced collector"
  },
  "itemcollectors:basic_collector": {
   "img": "img/items/itemcollectors/basic_collector.png",
   "kind": "block",
-  "uk": "",
+  "uk": "Простий збирач предметів",
   "en": "basic collector"
  },
  "justdirethings:celestigem": {
@@ -3206,13 +3206,13 @@
  "simplemagnets:advancedmagnet": {
   "img": "img/items/simplemagnets/advancedmagnet.png",
   "kind": "item",
-  "uk": "",
+  "uk": "Покращений магніт",
   "en": "advancedmagnet"
  },
  "simplemagnets:basicmagnet": {
   "img": "img/items/simplemagnets/basicmagnet.png",
   "kind": "item",
-  "uk": "",
+  "uk": "Магніт",
   "en": "basicmagnet"
  },
  "solcarrot:food_book": {
@@ -3512,25 +3512,25 @@
  "trashcans:energy_trash_can": {
   "img": "img/items/trashcans/energy_trash_can.png",
   "kind": "block",
-  "uk": "",
+  "uk": "Смітник для енергії",
   "en": "energy trash can"
  },
  "trashcans:item_trash_can": {
   "img": "img/items/trashcans/item_trash_can.png",
   "kind": "block",
-  "uk": "",
+  "uk": "Смітник для предметів",
   "en": "item trash can"
  },
  "trashcans:liquid_trash_can": {
   "img": "img/items/trashcans/liquid_trash_can.png",
   "kind": "block",
-  "uk": "",
+  "uk": "Смітник для рідин",
   "en": "liquid trash can"
  },
  "trashcans:ultimate_trash_can": {
   "img": "img/items/trashcans/ultimate_trash_can.png",
   "kind": "block",
-  "uk": "",
+  "uk": "Найкращий смітник",
   "en": "ultimate trash can"
  },
  "trophymanager:trophy": {

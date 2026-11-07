@@ -3,7 +3,7 @@
 // Працює миттєво в браузері без зовнішніх API, спираючись на progress.json (або обрану теку гри), roadmap.json, mods.json і quests/*.json.
 import { isDone, isAutoDone, isManualDone, whyDone, isTaskDone, isItemObtained, isAdvDone } from './progress.js';
 import { computeStates, lineage } from '../graph/tree-state.js';
-import { quests as loadChapterQuests } from './store.js';
+import { quests as loadChapterQuests, itemIconUrl, itemNameUk, dimNameUk, advNameUk } from './store.js';
 
 const WORLD_TIERS_UK = /** @type {Record<string, string>} */ ({
   haven: 'Гавань (початковий)',
@@ -13,17 +13,9 @@ const WORLD_TIERS_UK = /** @type {Record<string, string>} */ ({
   pinnacle: 'Пік (V)',
 });
 
-// Ванільні виміри; модові додаються з даних путівника (mods.json → dims) на початку analyzePlayerState
-const DIMS_UK = /** @type {Record<string, string>} */ ({
-  'minecraft:overworld': 'Верхній світ',
-  'minecraft:the_nether': 'Незер',
-  'minecraft:the_end': 'Енд',
-});
-
 /** Аналізує поточний сейв і дорожню карту, повертаючи пріоритетні наступні кроки, незавершені квести й поради.
  * @param {Store} s */
 export async function analyzePlayerState(s) {
-  for (const m of s.mods || []) for (const d of m.dims || []) if (d.id && d.name && !DIMS_UK[d.id]) DIMS_UK[d.id] = d.name;
   const p = s.progress;
   const nodes = s.roadmap.nodes || [];
   const edges = s.roadmap.edges || [];
@@ -93,9 +85,9 @@ export async function analyzePlayerState(s) {
         const tasks = (q.tasks || []).map((/** @type {any} */ t) => {
           const tDone = (t.id && isTaskDone(t.id)) || (t.item && isItemObtained(t.item)) || (t.adv && isAdvDone(t.adv));
           const rawName = t.name
-            || (t.item && (s.items[t.item]?.uk || s.items[t.item]?.en || t.item))
-            || (t.dim && `Вимір: ${DIMS_UK[t.dim] || t.dim}`)
-            || (t.adv && `Досягнення: ${t.adv}`)
+            || (t.item && itemNameUk(s, t.item))
+            || (t.dim && `Вимір: ${dimNameUk(s, t.dim)}`)
+            || (t.adv && `Досягнення: ${advNameUk(s, t.adv)}`)
             || (t.type === 'advancement' ? 'Виконати досягнення мода' : t.type === 'checkmark' ? 'Поставити галочку в книзі квестів' : (t.entity || t.type || 'Завдання'));
           const label = `${rawName}${t.count ? ` × ${t.count}` : ''}`;
           return { text: label, done: !!tDone, item: t.item };
@@ -106,19 +98,21 @@ export async function analyzePlayerState(s) {
   }
 
   // 4. Предмети в інвентарі та скрафчені з назвами й іконками
-  const invEntries = Object.entries(p?.items?.inventory || {}).map(([id, count]) => ({
-    id,
-    count,
-    meta: s.items[id] || null,
-    name: s.items[id]?.uk || s.items[id]?.en || id,
-  })).sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, 'uk'));
+  const toItemEntry = (/** @type {[string, number]} */ [id, count]) => {
+    const img = itemIconUrl(s, id);
+    const name = itemNameUk(s, id);
+    return {
+      id,
+      count,
+      meta: img ? { img, kind: s.items[id]?.kind || 'item', uk: name, en: s.items[id]?.en } : null,
+      name,
+    };
+  };
+  const invEntries = Object.entries(p?.items?.inventory || {}).map(toItemEntry)
+    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, 'uk'));
 
-  const craftedEntries = Object.entries(p?.items?.crafted || {}).map(([id, count]) => ({
-    id,
-    count,
-    meta: s.items[id] || null,
-    name: s.items[id]?.uk || s.items[id]?.en || id,
-  })).sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, 'uk'));
+  const craftedEntries = Object.entries(p?.items?.crafted || {}).map(toItemEntry)
+    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, 'uk'));
 
   // 5. Персональні поради на основі стану сейву
   /** @type {Array<{ icon: string, title: string, text: string, link?: string, linkText?: string }>} */
@@ -161,8 +155,8 @@ export async function analyzePlayerState(s) {
   if (invEntries.some((x) => x.id === 'auroral:guide')) {
     tips.push({
       icon: '📖',
-      title: 'Путівник Auroral у вашому інвентарі',
-      text: 'У вас у сумці лежить «Путівник по сяйву» (auroral:guide). Мод Auroral додає холодні біоми, мобів та спорядження — зазирніть у главу квестів Auroral або покладіть книгу на полицю.',
+      title: 'Посібник Auroral у вашому інвентарі',
+      text: `У вас у сумці лежить «${itemNameUk(s, 'auroral:guide')}» (auroral:guide). Мод Auroral додає холодні біоми, мобів та спорядження — зазирніть у главу квестів Auroral або покладіть книгу на полицю.`,
       link: '#/chapter/auroral',
       linkText: 'Глава Auroral →',
     });
@@ -197,7 +191,7 @@ export async function analyzePlayerState(s) {
     tips,
     stageProgress,
     worldTierUk: WORLD_TIERS_UK[tier] || tier,
-    dimUk: DIMS_UK[p?.player?.dimension || 'minecraft:overworld'] || (p?.player?.dimension || 'Верхній світ'),
+    dimUk: dimNameUk(s, p?.player?.dimension || 'minecraft:overworld'),
   };
 }
 

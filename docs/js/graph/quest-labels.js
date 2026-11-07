@@ -57,6 +57,7 @@ export function attachLabels(cy, host, meta, o = {}) {
     vis.sort((a, b) => b.pri - a.pri);
     /** @type {number[][]} */
     const placed = [];
+    /** @type {[number, number, number, number, string][]} */
     const nodeBoxes = vis.map((v) => [v.x - v.r, v.y - v.r, v.x + v.r, v.y + v.r, v.id]);
     const free = (/** @type {number[]} */ b, /** @type {string} */ own) => {
       if (b[0] < 0 || b[1] < 0 || b[2] > W || b[3] > H) return false;

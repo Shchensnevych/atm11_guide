@@ -30,6 +30,6 @@
 .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(295px, 1fr)); }
 @media (max-width: 800px) {
   .topbar { height: auto; min-height: var(--topbar-h); flex-wrap: wrap; gap: 6px 10px; padding: 6px 10px; } .brand-sub, .wb-time { display: none; }
-  .theme-toggle { order: 1; margin-left: auto; width: 28px; height: 28px; } .nav { order: 2; } .world-bar { order: 3; }   /* кнопка теми — у рядку з назвою, не окремим рядком */
+  .theme-toggle { order: 1; margin-left: auto; width: 28px; height: 28px; } .nav { order: 2; } .world-bar { order: 3; flex-wrap: wrap; }   /* кнопка теми — у рядку з назвою, не окремим рядком */
   .split { flex-direction: column; height: auto; } .split-main { height: 70vh; } .split-side { width: auto; max-width: none; border-left: 0; border-top: 1px solid var(--line); }
 }

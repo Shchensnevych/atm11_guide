@@ -78,12 +78,39 @@ export function parseOptions(text) {
 export function userOptions() {
   try { const v = JSON.parse(localStorage.getItem(LS) || 'null'); return v && v.binds ? v : null; } catch { return null; }
 }
-/** @param {{name: string, date: string, binds: Record<string, [string, string]>} | null} v */
+/** @param {{name: string, date: string, sig?: string, binds: Record<string, [string, string]>} | null} v */
 export function saveUserOptions(v) {
   try { if (v) localStorage.setItem(LS, JSON.stringify(v)); else localStorage.removeItem(LS); } catch { /* приватний режим */ }
 }
 
-/** Дані вкладки: дії збірки + (за наявності) прив'язки з власного options.txt. Повертає {cats, ctxs, keys, user}. */
+/** Синхронізує актуальні прив'язки з живого моста (:8812) у localStorage, якщо змінився відбиток options.txt.
+ * @param {Record<string, [string, string]> | null | undefined} binds @param {string} [sig] @returns {boolean} */
+export function syncBridgeOptions(binds, sig = '') {
+  if (!binds || typeof binds !== 'object' || !Object.keys(binds).length) return false;
+  const cur = userOptions();
+  if (cur && sig && cur.sig === sig) return false;
+  saveUserOptions({
+    name: 'options.txt (живий міст)',
+    date: new Date().toLocaleTimeString('uk-UA'),
+    sig,
+    binds,
+  });
+  return true;
+}
+
+/** Повертає базовий URL активного моста ATM11-Companion (:8812), якщо він відомий у сесії або відкритий через /site/. */
+export function getActiveBridgeBase() {
+  if (typeof location !== 'undefined' && location.pathname.startsWith('/site')) return location.origin;
+  try {
+    const s = sessionStorage.getItem('atm11.bridge.online');
+    if (s) return s.replace(/\/$/, '');
+    const cfg = JSON.parse(localStorage.getItem('atm11.assistant.cfg.v2') || 'null');
+    if (cfg?.bridgeUrl) return String(cfg.bridgeUrl).replace(/\/$/, '');
+  } catch { /* ignore */ }
+  return '';
+}
+
+/** Дані вкладки: дії збірки + (за наявності) прив'язки з власного options.txt. Повертає {cats, ctxs, stat, keys, user}. */
 export async function loadKeys() {
   const d = await getJSON('data/keys.json');
   const user = userOptions();
@@ -91,12 +118,33 @@ export async function loadKeys() {
   let keys = d.keys;
   if (user) {
     const known = new Set(keys.map((k) => k.id));
-    keys = keys.map((k) => (user.binds[k.id] ? { ...k, bind: user.binds[k.id][0], m: user.binds[k.id][1] } : k));
+    keys = keys.map((k) => {
+      if (!user.binds[k.id]) return k;
+      const [bind, m] = user.binds[k.id];
+      const next = { ...k, bind, m };
+      if (k.plan) {
+        const p = parseSuggest(k.plan);
+        next.plan_done = bind === p.bind && m === p.l;
+      }
+      return next;
+    });
     for (const [id, [bind, m]] of Object.entries(user.binds)) {   // дії, яких немає в збірці (інша збірка / новий мод)
       if (!known.has(id)) keys.push({ id, ns: (/^key\.([a-z0-9_]+)\./.exec(id) || [, '?'])[1] || '?', name: id, bind, m, cat: 'ui', ctx: 'game', extra: true });
     }
   }
-  return { cats: d.cats, ctxs: d.ctxs, stat: d.stat, keys, user };
+  const allCtx = new Set(['game', 'held', 'vehicle', 'gui', 'debug']);
+  const curBy = user ? analyze(keys, allCtx) : null;
+  const planKeys = user ? withPlan(keys) : null;
+  const planBy = planKeys ? analyze(planKeys, allCtx) : null;
+  const stat = (user && curBy && planBy && planKeys) ? {
+    ...d.stat,
+    conflicts: [...curBy.values()].filter((v) => v.lvl === 2).length,
+    maybe: [...curBy.values()].filter((v) => v.lvl === 1).length,
+    imp_unbound: keys.filter((k) => k.bind === UNBOUND && k.imp).length,
+    plan_conflicts: [...planBy.values()].filter((v) => v.lvl === 2).length,
+    plan_imp_unbound: planKeys.filter((k) => k.bind === UNBOUND && k.imp).length,
+  } : d.stat;
+  return { cats: d.cats, ctxs: d.ctxs, stat, keys, user };
 }
 
 /**

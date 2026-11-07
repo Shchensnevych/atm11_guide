@@ -6,21 +6,19 @@ import { h, mount } from '../core/dom.js';
 import { createTreeView } from '../graph/tree-view.js';
 import { isDone, setDone, countDone, countAutoDone, whyDone } from '../core/progress.js';
 import { stageBadge, clsBadge } from '../components/badge.js';
-import { FEATS, FEAT_ORDER, featIcon, featuresOf, featRow, clsIcon } from '../components/feat.js';
+import { FEATS, featIcon, featuresOf, featRow, clsIcon } from '../components/feat.js';
 import { spoiler } from '../components/spoiler.js';
 import { getViewState, setViewState } from '../core/view-state.js';
-
-const searchIconSvg = () => h('span.sidebar-search-icon', {
-  html: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>'
-});
-
-const checkSvg = () => '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
-
-const chevronDownSvg = () => '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>';
+import { ensureNames, itemNameUk, itemIconUrl, advNameUk } from '../core/store.js';
+import {
+  searchIconSvg, buildCategoryFilterList, buildFeatureFilterGrid, activeChip,
+} from '../components/filter-sidebar.js';
 
 /** @param {HTMLElement} el @param {string[]} p @param {Store} s */
 export async function render(el, [stageId], s) {
   el.className = 'view full';
+  ensureNames(s).catch(() => {});
+
   const q = new URLSearchParams(location.hash.split('?')[1] || '');
   const saved = getViewState('roadmap', {
     mode: 'tree',
@@ -38,7 +36,9 @@ export async function render(el, [stageId], s) {
   const canvas = h('div.tv-host');
   const ids = s.roadmap.nodes.map((n) => n.id);
 
-  const onMap = [...new Set(s.roadmap.nodes.flatMap((n) => n.mods || []))].map((id) => s.modById.get(id)).filter(Boolean)
+  const onMap = /** @type {ModEntry[]} */ ([...new Set(s.roadmap.nodes.flatMap((n) => n.mods || []))]
+    .map((id) => s.modById.get(id))
+    .filter(Boolean))
     .sort((a, b) => a.name.localeCompare(b.name, 'uk'));
 
   const expand = mode === 'mods' ? (q.get('expand') || '') : '';
@@ -49,8 +49,8 @@ export async function render(el, [stageId], s) {
     feat: new Set(hasExplicitTarget ? [] : (saved.feat || [])),
   };
 
-  const nodeCls = (n) => new Set([n.lane, ...(n.mods || []).flatMap((id) => s.modById.get(id)?.cls || [])]);
-  const nodeFeat = (n) => new Set(featuresOf(s, n.mods || [], n.features).list);
+  const nodeCls = (/** @type {RoadNode} */ n) => new Set([n.lane, ...(n.mods || []).flatMap((id) => s.modById.get(id)?.cls || [])]);
+  const nodeFeat = (/** @type {RoadNode} */ n) => new Set(featuresOf(s, n.mods || [], n.features).list);
 
   const syncFilters = () => {
     setViewState('roadmap', { cls: [...flt.cls], feat: [...flt.feat], search: searchInp.value });
@@ -58,6 +58,8 @@ export async function render(el, [stageId], s) {
 
   const applyFlt = () => {
     syncFilters();
+    catList.sync(flt.cls);
+    featGrid.sync(flt.feat);
     if (!flt.cls.size && !flt.feat.size) {
       tv?.highlight(null);
     } else {
@@ -67,8 +69,7 @@ export async function render(el, [stageId], s) {
     renderActiveChips();
   };
 
-  // Перемикач режимів
-  const link = (v) => `#/roadmap${stageId ? `/${stageId}` : ''}?view=${v}`;
+  const link = (/** @type {string} */ v) => `#/roadmap${stageId ? `/${stageId}` : ''}?view=${v}`;
   const seg = h('div.rm-seg', null,
     h(mode === 'tree' ? 'a.rm-seg-btn.on' : 'a.rm-seg-btn', {
       href: link('tree'),
@@ -77,17 +78,16 @@ export async function render(el, [stageId], s) {
     h(mode === 'mods' ? 'a.rm-seg-btn.on' : 'a.rm-seg-btn', {
       href: link('mods'),
       title: 'Режим сузір\'їв за модами',
-    }, '✦ За модами')
+    }, '✦ За модами'),
   );
 
-  // Пошук мода
   const searchInp = /** @type {HTMLInputElement} */ (h('input', {
     type: 'search',
     list: 'rm-mods',
     value: hasExplicitTarget ? '' : String(saved.search || ''),
     placeholder: 'Знайти мод на карті…',
-    oninput: (e) => {
-      const val = e.target.value.trim();
+    oninput: (/** @type {Event} */ e) => {
+      const val = /** @type {HTMLInputElement} */ (e.target).value.trim();
       if (!val) {
         pickMod('');
       } else if (onMap.some((m) => m.name.toLowerCase() === val.toLowerCase())) {
@@ -95,8 +95,8 @@ export async function render(el, [stageId], s) {
       }
       renderActiveChips();
     },
-    onchange: (e) => {
-      pickMod(e.target.value.trim());
+    onchange: (/** @type {Event} */ e) => {
+      pickMod(/** @type {HTMLInputElement} */ (e.target).value.trim());
       renderActiveChips();
     },
   }));
@@ -104,10 +104,9 @@ export async function render(el, [stageId], s) {
   const searchWrap = h('div.sidebar-search-wrap', null,
     searchInp,
     searchIconSvg(),
-    h('datalist#rm-mods', null, onMap.map((m) => h('option', { value: m.name })))
+    h('datalist#rm-mods', null, onMap.map((m) => h('option', { value: m.name }))),
   );
 
-  // Лічильник прогресу та активні фільтри
   const counterEl = h('div.rm-counter-text');
   const updProgress = () => {
     const auto = countAutoDone(ids);
@@ -116,69 +115,64 @@ export async function render(el, [stageId], s) {
 
   const chipsWrap = h('div.rm-active-chips');
 
+  const catList = buildCategoryFilterList({
+    items: s.classes
+      .map((cls) => ({ cls, count: s.roadmap.nodes.filter((x) => nodeCls(x).has(cls.id)).length }))
+      .filter((x) => x.count > 0),
+    selected: flt.cls,
+    titleFor: (cls, count) => `${cls.desc || cls.title} — підсвітити віхи (${count})`,
+    onToggle: (id) => {
+      flt.cls.has(id) ? flt.cls.delete(id) : flt.cls.add(id);
+      applyFlt();
+    },
+  });
+
+  const featGrid = buildFeatureFilterGrid({
+    countOf: (f) => s.roadmap.nodes.filter((n) => nodeFeat(n).has(f)).length,
+    selected: flt.feat,
+    titleFor: (_f, feat, count) => `${feat.title} — підсвітити такі віхи (${count})`,
+    onToggle: (f) => {
+      flt.feat.has(f) ? flt.feat.delete(f) : flt.feat.add(f);
+      applyFlt();
+    },
+  });
+
   const renderActiveChips = () => {
-    const activeChips = [];
+    const chips = [];
     const curSearch = searchInp.value.trim();
     if (curSearch) {
-      activeChips.push(h('span.rm-active-chip', null,
-        `Пошук: "${curSearch}"`,
-        h('span.rm-active-chip-x', {
-          title: 'Очистити пошук',
-          onclick: () => {
-            pickMod('');
-          },
-        }, '✕')
-      ));
+      chips.push(activeChip('rm', [`Пошук: "${curSearch}"`], 'Очистити пошук', () => pickMod('')));
     }
 
     for (const cid of flt.cls) {
       const c = s.classes.find((x) => x.id === cid);
       if (c) {
-        activeChips.push(h('span.rm-active-chip', null,
-          clsIcon(c.id, c.color),
-          c.title,
-          h('span.rm-active-chip-x', {
-            title: `Зняти фільтр "${c.title}"`,
-            onclick: () => {
-              flt.cls.delete(cid);
-              const row = catRows.get(cid)?.el;
-              if (row) row.classList.remove('on');
-              applyFlt();
-            },
-          }, '✕')
-        ));
+        chips.push(activeChip('rm', [clsIcon(c.id, c.color), c.title], `Зняти фільтр "${c.title}"`, () => {
+          flt.cls.delete(cid);
+          applyFlt();
+        }));
       }
     }
 
     for (const fid of flt.feat) {
       const f = FEATS[fid];
       if (f) {
-        activeChips.push(h('span.rm-active-chip', null,
-          featIcon(fid),
-          f.short,
-          h('span.rm-active-chip-x', {
-            title: `Зняти фільтр "${f.title}"`,
-            onclick: () => {
-              flt.feat.delete(fid);
-              const btn = featBtns.get(fid);
-              if (btn) btn.classList.remove('on');
-              applyFlt();
-            },
-          }, '✕')
-        ));
+        chips.push(activeChip('rm', [featIcon(fid), f.short], `Зняти фільтр "${f.title}"`, () => {
+          flt.feat.delete(fid);
+          applyFlt();
+        }));
       }
     }
 
-    const hasAnyActive = Boolean(curSearch || flt.cls.size || flt.feat.size);
-    if (hasAnyActive) {
-      activeChips.push(h('button.rm-clear-all-btn', {
+    if (curSearch || flt.cls.size || flt.feat.size) {
+      chips.push(h('button.rm-clear-all-btn', {
         type: 'button',
         onclick: () => {
           searchInp.value = '';
           flt.cls.clear();
           flt.feat.clear();
-          for (const { el: row } of catRows.values()) row.classList.remove('on');
-          for (const btn of featBtns.values()) btn.classList.remove('on');
+          catList.sync(flt.cls);
+          featGrid.sync(flt.feat);
           tv?.clearFilter();
           tv?.highlight(null);
           setViewState('roadmap', { cls: [], feat: [], search: '', sel: '' });
@@ -187,110 +181,18 @@ export async function render(el, [stageId], s) {
       }, 'Очистити все'));
     }
 
-    mount(chipsWrap, activeChips);
+    mount(chipsWrap, chips);
   };
-
-  // Список категорій
-  const catsWithCount = s.classes
-    .map((c) => ({ c, n: s.roadmap.nodes.filter((x) => nodeCls(x).has(c.id)).length }))
-    .filter((x) => x.n > 0);
-
-  /** @type {Map<string, { el: HTMLElement, index: number }>} */
-  const catRows = new Map();
-  let catExpanded = (flt.cls.size > 0 && catsWithCount.slice(8).some((x) => flt.cls.has(x.c.id)));
-
-  const updateCatVisibility = () => {
-    for (const [_, { el: row, index }] of catRows) {
-      if (index >= 8) {
-        row.style.display = catExpanded ? 'flex' : 'none';
-      }
-    }
-    if (moreBtn) {
-      moreBtnText.textContent = catExpanded ? 'Згорнути' : `Ще ${catsWithCount.length - 8} категорій`;
-      moreBtn.classList.toggle('expanded', catExpanded);
-    }
-  };
-
-  const moreBtnText = h('span', null, catExpanded ? 'Згорнути' : `Ще ${catsWithCount.length - 8} категорій`);
-  const moreBtnIcon = h('span.sidebar-more-icon', { html: chevronDownSvg() });
-  /** @type {HTMLElement | null} */
-  let moreBtn = null;
-  if (catsWithCount.length > 8) {
-    moreBtn = h('button.sidebar-more-btn', {
-      type: 'button',
-      className: `sidebar-more-btn${catExpanded ? ' expanded' : ''}`,
-      onclick: () => {
-        catExpanded = !catExpanded;
-        updateCatVisibility();
-      },
-    }, moreBtnText, moreBtnIcon);
-  }
-
-  const catListWrap = h('div.sidebar-cat-list');
-  catsWithCount.forEach(({ c, n }, index) => {
-    const row = h('div.sidebar-cat-row', {
-      'data-cls': c.id,
-      style: {
-        '--c': c.color,
-        display: (index < 8 || catExpanded) ? 'flex' : 'none',
-      },
-      title: `${c.desc || c.title} — підсвітити віхи (${n})`,
-      onclick: () => {
-        flt.cls.has(c.id) ? flt.cls.delete(c.id) : flt.cls.add(c.id);
-        row.classList.toggle('on', flt.cls.has(c.id));
-        applyFlt();
-      },
-    },
-      h('div.sidebar-cat-left', null,
-        clsIcon(c.id, c.color),
-        h('span.sidebar-cat-name', null, c.title),
-        h('span.sidebar-cat-count', null, `(${n})`)
-      ),
-      h('span.sidebar-check-box', { html: checkSvg() })
-    );
-    if (flt.cls.has(c.id)) row.classList.add('on');
-    catRows.set(c.id, { el: row, index });
-    catListWrap.append(row);
-  });
-  if (moreBtn) catListWrap.append(moreBtn);
-
-  // Сітка можливостей (На картках)
-  /** @type {Map<string, HTMLElement>} */
-  const featBtns = new Map();
-  const featGridWrap = h('div.sidebar-feat-grid');
-  FEAT_ORDER.forEach((f) => {
-    const count = s.roadmap.nodes.filter((n) => nodeFeat(n).has(f)).length;
-    const btn = h('button.sidebar-feat-btn', {
-      type: 'button',
-      'data-feat': f,
-      style: { '--c': FEATS[f].color },
-      title: `${FEATS[f].title} — підсвітити такі віхи (${count})`,
-      onclick: () => {
-        flt.feat.has(f) ? flt.feat.delete(f) : flt.feat.add(f);
-        btn.classList.toggle('on', flt.feat.has(f));
-        applyFlt();
-      },
-    },
-      h('span', { style: { display: 'inline-flex', alignItems: 'center', gap: '5px' } },
-        featIcon(f),
-        h('span', null, FEATS[f].short)
-      ),
-      h('span.sidebar-feat-cnt', null, String(count))
-    );
-    if (flt.feat.has(f)) btn.classList.add('on');
-    featBtns.set(f, btn);
-    featGridWrap.append(btn);
-  });
 
   const sidebar = h('aside.rm-sidebar', null,
     seg,
     searchWrap,
     h('div.sidebar-divider'),
     h('div.sidebar-sec-title', null, 'Категорії'),
-    catListWrap,
+    catList.el,
     h('div.sidebar-divider'),
     h('div.sidebar-sec-title', null, 'Додає у світ'),
-    featGridWrap
+    featGrid.el,
   );
 
   const topBar = h('div.rm-top-bar', null, chipsWrap, counterEl);
@@ -303,6 +205,7 @@ export async function render(el, [stageId], s) {
   updProgress();
   renderActiveChips();
 
+  /** @type {Record<string, string>} */
   const elk = {};
   for (const [k, v] of q) {
     if (k.startsWith('elk.') || k.startsWith('trunk.')) elk[k] = v;
@@ -314,7 +217,7 @@ export async function render(el, [stageId], s) {
     elk,
     expand,
     onExpand: (gid) => { location.hash = `#/roadmap?view=mods${gid ? `&expand=${gid}` : ''}`; },
-    hideFeatLegend: true, // особливості винесені у бічну панель
+    hideFeatLegend: true,
     selectedFeat: flt.feat,
     initialTransform,
     hiddenEdges: saved.hiddenEdges || [],
@@ -325,8 +228,6 @@ export async function render(el, [stageId], s) {
     },
     onFeat: (f, on) => {
       on ? flt.feat.add(f) : flt.feat.delete(f);
-      const btn = featBtns.get(f);
-      if (btn) btn.classList.toggle('on', on);
       applyFlt();
     },
     onSelect: (id) => { setViewState('roadmap', { sel: id }); showNode(id); },
@@ -373,32 +274,46 @@ export async function render(el, [stageId], s) {
 
 /** @param {Store} s @param {RoadNode} n @param {() => void} changed @param {(id: string) => void} go */
 function nodePanel(s, n, changed, go) {
-  const T = (x) => s.roadmap.nodes.find((k) => k.id === x);
+  const T = (/** @type {string} */ x) => s.roadmap.nodes.find((k) => k.id === x);
+  /** @type {Record<string, string>} */
   const KIND = { req: 'потрібно', syn: 'синергія', opt: 'варіант' };
-  const inn = s.roadmap.edges.filter((e) => e.to === n.id), out = s.roadmap.edges.filter((e) => e.from === n.id);
+  const inn = s.roadmap.edges.filter((e) => e.to === n.id);
+  const out = s.roadmap.edges.filter((e) => e.from === n.id);
   const ch = n.chapter && s.chapterByFile.get(n.chapter);
   const body = [h('p', null, n.text), n.verify ? h('p.small', { style: { color: 'var(--warn)' } }, '⚑ Чернетка: факт ще звіряється з книгою мода.') : null];
-  const nl = (e, k) => { const x = T(e[k]); return h('a', { href: '#', onclick: (ev) => { ev.preventDefault(); go(e[k]); } }, x?.title || e[k]); };
-  /** Зв'язок: віха, тип, підпис і джерело (квест / рецепт / KubeJS / конфіг) — щоб було видно, чому лінія є. */
-  const linkRow = (e, k) => h('li', null, nl(e, k), ` — ${KIND[e.kind]}${e.label ? `: ${e.label}` : ''}`, e.src ? h('div.muted.rm-src', null, e.src) : null);
+  const nl = (/** @type {RoadEdge} */ e, /** @type {'from' | 'to'} */ k) => {
+    const x = T(e[k]);
+    return h('a', { href: '#', onclick: (/** @type {Event} */ ev) => { ev.preventDefault(); go(e[k]); } }, x?.title || e[k]);
+  };
+  const linkRow = (/** @type {RoadEdge} */ e, /** @type {'from' | 'to'} */ k) => h('li', null,
+    nl(e, k), ` — ${KIND[e.kind] || e.kind}${e.label ? `: ${e.label}` : ''}`, e.src ? h('div.muted.rm-src', null, e.src) : null);
   const f = featuresOf(s, [], n.features);
   return h('div', null,
     h('div.badges', null, stageBadge(s, n.stage), n.trunk ? h('span.badge', { style: { '--c': 'var(--accent)' } }, '⭐ Головний шлях') : clsBadge(s, n.lane)),
     h('h2', { style: { marginTop: '10px' } }, n.title),
     n.na ? h('p.small.na-note', null, h('b', null, '∅ У цій версії збірки недоступно. '), n.na) : null,
     n.spoiler ? spoiler(body) : body,
-    n.icons?.length ? h('div.rm-items', null, n.icons.map((id) => { const it = s.items[id];
-      return h('div.rm-item', { title: id }, it ? h('img', { src: it.img, alt: '' }) : h('span.nc-q', null, '?'), h('span', null, it?.uk || it?.en || id)); })) : null,
+    n.icons?.length ? h('div.rm-items', null, n.icons.map((id) => {
+      const img = itemIconUrl(s, id);
+      return h('div.rm-item', { title: id },
+        img ? h('img', { src: img, alt: '' }) : h('span.nc-q', null, '?'),
+        h('span', null, itemNameUk(s, id)),
+      );
+    })) : null,
     f.list.length ? h('div', { style: { margin: '8px 0' } }, featRow(f.list, f.dims, true)) : null,
     n.mods?.length ? h('div.section', null, h('h3', null, 'Моди'), h('ul.list-clean', null, n.mods.map((id) => {
-      const m = s.modById.get(id); const ff = featuresOf(s, [id]);
+      const m = s.modById.get(id);
+      const ff = featuresOf(s, [id]);
       return h('li.rm-mod', null, h('a', { href: `#/mod/${id}` }, m?.name || id), ' ', featRow(ff.list, ff.dims));
     }))) : null,
     ch ? h('p', { style: { marginTop: '12px' } }, '📜 Глава квестів: ', h('a', { href: `#/chapter/${ch.file}` }, ch.title)) : null,
-    (() => { const bs = s.branches.filter((b) => (b.mods || []).some((x) => n.mods?.includes(x))); return bs.length ? h('p', null, '🌿 Гілка: ', bs.map((b, i) => [i ? ' · ' : '', h('a', { href: `#/branch/${b.id}` }, b.title)])) : null; })(),
+    (() => {
+      const bs = s.branches.filter((b) => (b.mods || []).some((/** @type {string} */ x) => n.mods?.includes(x)));
+      return bs.length ? h('p', null, '🌿 Гілка: ', bs.map((b, i) => [i ? ' · ' : '', h('a', { href: `#/branch/${b.id}` }, b.title)])) : null;
+    })(),
     doneByBlock(s, n),
     n.na ? null : h('label.check', { style: { marginTop: '14px' } },
-      h('input', { type: 'checkbox', checked: isDone(n.id), onchange: (e) => { setDone(n.id, e.target.checked); changed(); } }),
+      h('input', { type: 'checkbox', checked: isDone(n.id), onchange: (/** @type {Event} */ e) => { setDone(n.id, /** @type {HTMLInputElement} */ (e.target).checked); changed(); } }),
       whyDone(n).auto ? 'Зроблено (позначено автоматично з сейву)' : 'Зроблено'),
     inn.length || out.length ? h('div.section.small.rm-links', null,
       inn.length ? [h('b', null, 'Перед цим:'), h('ul.list-clean', null, inn.map((e) => linkRow(e, 'from')))] : null,
@@ -410,16 +325,25 @@ function nodePanel(s, n, changed, go) {
 function doneByBlock(s, n) {
   const w = whyDone(n);
   if (!w.quests.length && !w.advancements.length && !w.items.length) return null;
-  const qi = s.roadmap.quest_info || {}; const ai = s.roadmap.adv_info || {};
-  const row = (st, kind, body, id) => h('li', { class: st, title: id }, h('span.db-kind', null, kind), body);
+  const qi = s.roadmap.quest_info || {};
+  const ai = s.roadmap.adv_info || {};
+  const row = (/** @type {string} */ st, /** @type {string} */ kind, /** @type {any} */ body, /** @type {string} */ id) =>
+    h('li', { class: st, title: id }, h('span.db-kind', null, kind), body);
   const rows = [
-    ...w.quests.map((q) => { const info = qi[q.id];
-      return row(q.done ? 'db-done' : q.started ? 'db-part' : '', 'Квест', info ? h('a', { href: `#/chapter/${info.chapter}/${q.id}` }, info.title) : q.id, q.id); }),
-    ...w.advancements.map((a) => { const x = ai[a.id] || {};
+    ...w.quests.map((q) => {
+      const info = qi[q.id];
+      return row(q.done ? 'db-done' : q.started ? 'db-part' : '', 'Квест', info ? h('a', { href: `#/chapter/${info.chapter}/${q.id}` }, info.title) : q.id, q.id);
+    }),
+    ...w.advancements.map((a) => {
+      const x = ai[a.id] || {};
       const mod = s.modById.get(a.id.split(':')[0])?.name;
-      return row(a.done ? 'db-done' : '', 'Досягнення', x.hidden ? h('span.muted', null, `службове${mod ? ` (${mod})` : ''}`) : `«${x.uk || x.en || a.id}»`, a.id); }),
-    ...w.items.map((it) => { const meta = s.items[it.id];
-      return row(it.done ? 'db-done' : '', 'Предмет', meta ? h('span.db-item', null, h('img', { src: meta.img, alt: '' }), meta.uk || meta.en) : it.id, it.id); }),
+      return row(a.done ? 'db-done' : '', 'Досягнення', x.hidden ? h('span.muted', null, `службове${mod ? ` (${mod})` : ''}`) : `«${advNameUk(s, a.id)}»`, a.id);
+    }),
+    ...w.items.map((it) => {
+      const img = itemIconUrl(s, it.id);
+      const uk = itemNameUk(s, it.id);
+      return row(it.done ? 'db-done' : '', 'Предмет', h('span.db-item', null, img ? h('img', { src: img, alt: '' }) : null, uk), it.id);
+    }),
   ];
   return h('div.section.small.db-box', null,
     h('div.db-head', null, w.auto
@@ -438,5 +362,5 @@ const intro = (s, mode, goStage) => h('div', null, h('h2', null, 'Як чита�
   h('p.small.muted', null, 'Кожен зв\'язок «потрібно» й «синергія» має джерело — залежність квестів, рецепт (jar / KubeJS) або конфіг; його видно в панелі віхи й у підказці над лінією.'),
   h('p.small.muted', null, 'Наведіть на віху — підсвітиться шлях до неї й далі; клік — деталі (і закріплена підсвітка); подвійний клік — «зроблено». Колесо — масштаб, перетягування — рух. Прогрес зберігається у браузері.'),
   h('ul.list-clean.small', null, s.stages.map((st) => h('li', null,
-    h('a', { href: mode === 'tree' ? '#' : `#/roadmap/${st.id}`, onclick: (e) => { if (mode === 'tree') { e.preventDefault(); goStage(st.id); } } }, `${st.icon} ${st.n}. ${st.title}`),
+    h('a', { href: mode === 'tree' ? '#' : `#/roadmap/${st.id}`, onclick: (/** @type {Event} */ e) => { if (mode === 'tree') { e.preventDefault(); goStage(st.id); } } }, `${st.icon} ${st.n}. ${st.title}`),
     h('div.muted', null, st.goal)))));

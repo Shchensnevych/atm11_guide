@@ -62,6 +62,7 @@ export async function layoutConstellations(nodes, edges, groups, extra = {}, opt
   const subOf = (n) => `${exp}/${n.mods?.[0] || 'hub'}`;                     // під-сузір'я розгорнутої групи — за головним модом віхи
   const gOf = (n) => (exp && base(n) === exp ? subOf(n) : base(n));
   const parent = groups.find((g) => g.id === exp);
+  /** @type {{id: string, title: string, cls: string, mods?: string[], desc?: string, compact?: boolean, sub?: boolean, parent?: string}[]} */
   const gs = groups.filter((g) => g.id !== exp && nodes.some((n) => base(n) === g.id)).map((g) => ({ ...g, compact: !!exp }));
   for (const n of nodes) {
     const id = gOf(n); if (gs.some((g) => g.id === id)) continue;
@@ -72,7 +73,7 @@ export async function layoutConstellations(nodes, edges, groups, extra = {}, opt
   }
   const shown = (n) => !exp || base(n) === exp;                                // у розгорнутому вигляді картки — лише в групі exp
   const local = new Map(gs.map((g) => [g.id, g.compact ? cluster([]) : cluster(nodes.filter((n) => gOf(n) === g.id),
-    g.sub && g.mods[0] ? (opt.icons?.(g.mods[0]) || []).slice(0, 8) : [])]));
+    g.sub && g.mods?.[0] ? (opt.icons?.(g.mods[0]) || []).slice(0, 8) : [])]));
   const byId = new Map(nodes.map((n) => [n.id, n]));
   // зв'язки між групами → одна лінія на пару груп
   /** @type {Map<string, {from: string, to: string, kind: string, members: RoadEdge[]}>} */

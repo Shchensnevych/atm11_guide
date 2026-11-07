@@ -110,6 +110,313 @@ def fmt_ts(ts):
     if not ts: return ''
     return datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M')
 
+def strip_mc_codes(s):
+    if not isinstance(s, str) or not s: return ''
+    s = re.sub(r'§[0-9a-fk-or]', '', s, flags=re.I)
+    s = re.sub(r'&#[0-9a-fA-F]{6}', '', s)
+    return s.replace('\\&', '&').strip()
+
+def is_tpl(s):
+    return isinstance(s, str) and bool(re.search(r'%(\d+\$)?s', s))
+
+def untemplate(s):
+    s = re.sub(r'%(\d+\$)?[sd]', ' ', str(s or ''))
+    s = re.sub(r'\s*[:—–-]\s*$', '', s)
+    s = re.sub(r'^\s*[:—–-]\s*', '', s)
+    s = re.sub(r'\(\s*\)', '', s)
+    return re.sub(r'\s{2,}', ' ', s).strip()
+
+BACKPACK_STORAGE_FILES = (
+    'dimensions/minecraft/overworld/data/sophisticatedbackpacks/backpack_storage.dat',
+    'data/sophisticatedbackpacks/backpack_storage.dat',
+    'data/sophisticatedbackpacks.dat',
+    'data/sophisticatedcore/sophisticatedbackpacks.dat',
+)
+
+CURIOS_SLOT_UK = {
+    'back': 'Спина',
+    'belt': 'Пояс',
+    'body': 'Тіло',
+    'bracelet': 'Браслет',
+    'charm': 'Амулет',
+    'curio': 'Аксесуар',
+    'hands': 'Руки',
+    'head': 'Голова',
+    'necklace': 'Намисто',
+    'ring': 'Перстень',
+    'feet': 'Ступні',
+    'heart_amulet': 'Амулет сердець',
+    'crafting_on_a_stick': 'Створення на паличці',
+    'adv_pattern_encoder': 'Кодувальник шаблонів',
+    'deep_learner': 'Глибинний учень',
+    'refinedstorage_curios_integration': 'Refined Storage',
+    'poppet': 'Лялька',
+    'sentient_armour_socket': 'Гніздо живої броні',
+}
+
+def uuid_key(v):
+    if v is None:
+        return ''
+    if isinstance(v, list) and len(v) == 4 and all(isinstance(n, int) for n in v):
+        hx = ''.join(f'{(n & 0xFFFFFFFF):08x}' for n in v)
+        return f'{hx[:8]}-{hx[8:12]}-{hx[12:16]}-{hx[16:20]}-{hx[20:]}'
+    return str(v).strip().lower()
+
+def custom_name_of(stack):
+    if not isinstance(stack, dict):
+        return ''
+    comp = stack.get('components')
+    if not isinstance(comp, dict):
+        return ''
+    v = comp.get('minecraft:custom_name')
+    def text_of(x, depth=0):
+        if x is None or depth > 4:
+            return ''
+        if isinstance(x, str):
+            t = x.strip()
+            if t[:1] in '{["':
+                try:
+                    return text_of(json.loads(t), depth + 1)
+                except Exception:
+                    pass
+            return t
+        if isinstance(x, list):
+            return ''.join(text_of(e, depth + 1) for e in x)
+        if isinstance(x, dict):
+            base = x.get('text') if isinstance(x.get('text'), str) else ''
+            extra = ''.join(text_of(e, depth + 1) for e in x.get('extra', [])) if isinstance(x.get('extra'), list) else ''
+            return base + extra
+        return ''
+    return strip_mc_codes(text_of(v))[:80]
+
+def load_names_dict():
+    """Українські назви предметів, книг і вимірів з docs/data/names.json та mods.json (як у services/ua-dictionary.js)."""
+    nd = jload(os.path.join(DATA, 'names.json'), {}) or {}
+    mods = jload(os.path.join(DATA, 'mods.json'), []) or []
+    mod_names = {m['id']: m.get('name') or m['id'] for m in mods if isinstance(m, dict) and m.get('id')}
+    items = nd.get('items') or {}
+    books = {k: strip_mc_codes(v[0]) for k, v in (nd.get('books') or {}).items() if isinstance(v, list) and v}
+    dims = {k: strip_mc_codes(v[0]) for k, v in (nd.get('dims') or {}).items() if isinstance(v, list) and v}
+    for m in mods:
+        for d in (m.get('dims') or []) if isinstance(m, dict) else []:
+            if d.get('id') and d.get('name') and d['id'] not in dims:
+                dims[d['id']] = d['name']
+    return items, dims, mod_names, books
+
+def resolve_item_uk(iid, names_items, mod_names, components=None, books=None):
+    if not iid or iid == 'minecraft:air': return ''
+    if isinstance(components, dict):
+        book = components.get('patchouli:book') or components.get('modonomicon:book_id') or components.get('guideme:guide_id')
+        if isinstance(book, str) and book:
+            if books and book in books and books[book]:
+                return books[book]
+            bns = book.split(':', 1)[0]
+            return f"Посібник {mod_names.get(bns, bns)} ({book})"
+    hit = names_items.get(iid)
+    if isinstance(hit, list) and hit:
+        uk = strip_mc_codes(hit[0] if len(hit) > 0 else '')
+        en = strip_mc_codes(hit[1] if len(hit) > 1 else uk)
+        if uk and not is_tpl(uk): return uk
+        if en and not is_tpl(en): return en
+        part = untemplate(uk) or untemplate(en)
+        if re.match(r"^[A-ZА-ЯІЇЄҐ][A-Za-zА-Яа-яІіЇїЄєҐґ'ʼ]", part):
+            return part
+    if ':' in iid:
+        ns, p = iid.split(':', 1)
+        return f"{p.replace('_', ' ')} ({mod_names.get(ns, ns)})"
+    return iid
+
+def extract_structured_slots(pnbt, wdir, names_items, mod_names, books, inv_counts):
+    slots = {
+        'mainHand': None, 'offHand': None, 'hotbar': [], 'inventory': [],
+        'armor': [], 'curios': [], 'curiosTypes': [],
+        'toolbelt': [], 'toolbeltTools': [], 'backpacks': [], 'enderChest': [],
+    }
+    bp_map = {}
+    for bp_rel in BACKPACK_STORAGE_FILES:
+        bp_path = os.path.join(wdir, bp_rel)
+        if os.path.exists(bp_path):
+            bp_nbt = read_nbt(bp_path)
+            cl = (bp_nbt.get('data') or {}).get('backpackContents') or bp_nbt.get('backpackContents') or {}
+            if isinstance(cl, list):
+                for entry in cl:
+                    if isinstance(entry, dict) and entry.get('contents'):
+                        k = uuid_key(entry.get('uuid'))
+                        if k: bp_map[k] = entry['contents']
+            elif isinstance(cl, dict):
+                for raw_id, contents in cl.items():
+                    k = uuid_key(raw_id)
+                    if k and isinstance(contents, dict): bp_map[k] = contents
+
+    def fmt_stack(raw_stack, slot_label, slot_kind):
+        if not isinstance(raw_stack, dict): return None
+        iid = raw_stack.get('id')
+        if not isinstance(iid, str) or not iid or iid == 'minecraft:air': return None
+        cnt = int(raw_stack.get('count', raw_stack.get('Count', 1)) or 0)
+        if cnt <= 0: return None
+        comp = raw_stack.get('components') if isinstance(raw_stack.get('components'), dict) else None
+        uk = resolve_item_uk(iid, names_items, mod_names, comp, books)
+        cname = custom_name_of(raw_stack)
+        ns = iid.split(':', 1)[0] if ':' in iid else 'minecraft'
+        out = {
+            'id': iid,
+            'uk': uk,
+            'count': cnt,
+            'slot': raw_stack.get('Slot'),
+            'slotLabel': slot_label,
+            'slotKind': slot_kind,
+            'ns': ns,
+            'modName': 'Minecraft' if ns == 'minecraft' else mod_names.get(ns, ns),
+        }
+        if cname and cname != uk:
+            out['customName'] = cname
+        if comp:
+            dmg = int(comp.get('minecraft:damage') or 0)
+            max_dmg = int(comp.get('minecraft:max_damage') or 0)
+            if max_dmg > 0:
+                out['durabilityPct'] = max(0, min(100, round(((max_dmg - dmg) / max_dmg) * 100)))
+        return out
+
+    def extract_nested(raw_item, title, out_arr, where=''):
+        if not isinstance(raw_item, dict): return
+        comp = raw_item.get('components')
+        if not isinstance(comp, dict): return
+        s_uuid = uuid_key(comp.get('sophisticatedcore:storage_uuid') or comp.get('storage_uuid'))
+        bp_cap = int(comp.get('sophisticatedcore:number_of_inventory_slots') or 0)
+        def tag(f_item, bp_slot=None, bp_kind='container'):
+            f_item['bpTitle'] = title
+            f_item['bpKey'] = s_uuid or f'{where}|{title}'
+            f_item['bpKind'] = bp_kind
+            if bp_cap: f_item['bpCapacity'] = bp_cap
+            if bp_slot is not None: f_item['bpSlot'] = bp_slot
+            if where: f_item['bpWhere'] = where
+            inv_counts[f_item['id']] += f_item['count']
+            return f_item
+
+        mc_cont = comp.get('minecraft:container')
+        if isinstance(mc_cont, list):
+            for idx, entry in enumerate(mc_cont):
+                inner = entry.get('item') if isinstance(entry, dict) and 'item' in entry else entry
+                f = fmt_stack(inner, f'Усередині «{title}»', 'backpack')
+                if f: out_arr.append(tag(f, int(entry.get('slot', idx)) if isinstance(entry, dict) else idx, 'shulker'))
+
+        bundle = comp.get('minecraft:bundle_contents')
+        if isinstance(bundle, list):
+            for idx, inner in enumerate(bundle):
+                f = fmt_stack(inner, f'Усередині «{title}»', 'backpack')
+                if f: out_arr.append(tag(f, idx, 'bundle'))
+
+        dn_inv = ((comp.get('minecraft:custom_data') or {}).get('DeepNull') or {}).get('Inventory') if isinstance(comp.get('minecraft:custom_data'), dict) else None
+        if isinstance(dn_inv, list):
+            for idx, entry in enumerate(dn_inv):
+                if not isinstance(entry, dict): continue
+                inner = entry.get('Stack') or entry.get('item') or entry
+                f = fmt_stack(inner, f'Усередині «{title}»', 'backpack')
+                if f:
+                    big_cnt = int(entry.get('Count', entry.get('count', f['count'])) or f['count'])
+                    if big_cnt > 0: f['count'] = big_cnt
+                    out_arr.append(tag(f, int(entry.get('Slot', idx)), 'deepnull'))
+
+        if s_uuid and s_uuid in bp_map:
+            bp_c = bp_map[s_uuid]
+            stks = (bp_c.get('inventory') or {}).get('stacks') or bp_c.get('Items') or []
+            if isinstance(stks, list):
+                for idx, st in enumerate(stks):
+                    f = fmt_stack(st, f'Рюкзак «{title}»', 'backpack')
+                    if f: out_arr.append(tag(f, int(st.get('Slot', idx)) if isinstance(st, dict) and st.get('Slot') is not None else idx, 'backpack'))
+
+    sel = int(pnbt.get('SelectedItemSlot', 0) or 0)
+    armor_names = {100: ('feet', 'Черевики'), 101: ('legs', 'Наголінники'), 102: ('chest', 'Нагрудник'), 103: ('head', 'Шолом')}
+    for raw_item in (pnbt.get('Inventory') or []):
+        if not isinstance(raw_item, dict): continue
+        sl = int(raw_item.get('Slot', -1))
+        kind, label = 'inventory', f'Інвентар (слот {sl})'
+        if 0 <= sl <= 8:
+            kind = 'mainHand' if sl == sel else 'hotbar'
+            label = f'Головна рука (слот {sl + 1})' if sl == sel else f'Гаряча панель (слот {sl + 1})'
+        elif sl == -106:
+            kind, label = 'offHand', 'Друга рука (Offhand)'
+        elif sl in armor_names:
+            kind, label = 'armor', f'Броня ({armor_names[sl][1]})'
+        f = fmt_stack(raw_item, label, kind)
+        if not f: continue
+        if sl in armor_names: f['armorSlot'] = armor_names[sl][0]
+        if sl == sel:
+            slots['mainHand'] = f
+            slots['hotbar'].append(f)
+        elif kind == 'hotbar':
+            slots['hotbar'].append(f)
+        elif kind == 'offHand':
+            slots['offHand'] = f
+        elif kind == 'armor':
+            slots['armor'].append(f)
+        else:
+            slots['inventory'].append(f)
+        extract_nested(raw_item, custom_name_of(raw_item) or f['uk'], slots['backpacks'], label)
+
+    eq = pnbt.get('equipment')
+    eq_uk = {'feet': 'Черевики', 'legs': 'Наголінники', 'chest': 'Нагрудник', 'head': 'Шолом'}
+    if isinstance(eq, dict):
+        for eq_slot, eq_stack in eq.items():
+            if not isinstance(eq_stack, dict): continue
+            if eq_slot == 'mainhand' and not slots['mainHand']:
+                slots['mainHand'] = fmt_stack(eq_stack, 'Головна рука', 'mainHand')
+            elif eq_slot == 'offhand' and not slots['offHand']:
+                slots['offHand'] = fmt_stack(eq_stack, 'Друга рука (Offhand)', 'offHand')
+            elif eq_slot in eq_uk:
+                arm = fmt_stack(eq_stack, f'Броня ({eq_uk[eq_slot]})', 'armor')
+                if arm:
+                    arm['armorSlot'] = eq_slot
+                    slots['armor'].append(arm)
+
+    att = pnbt.get('neoforge:attachments') or {}
+    cur_list = (att.get('curios:inventory') or {}).get('Curios') or []
+    if isinstance(cur_list, list):
+        for cur_entry in cur_list:
+            if not isinstance(cur_entry, dict): continue
+            for slot_id, slot_data in cur_entry.items():
+                if not isinstance(slot_data, dict): continue
+                id_name = slot_data.get('Identifier') or slot_id
+                slot_uk = CURIOS_SLOT_UK.get(id_name, id_name)
+                size = int((slot_data.get('Stacks') or {}).get('Size') or slot_data.get('Size') or 0)
+                if size > 0:
+                    slots['curiosTypes'].append({'id': id_name, 'uk': slot_uk, 'size': size})
+                items = (slot_data.get('Stacks') or {}).get('Items') or []
+                if isinstance(items, list):
+                    for c_idx, c_item in enumerate(items):
+                        f = fmt_stack(c_item, f'Curios: {slot_uk}', 'curios')
+                        if f:
+                            f['curiosSlot'] = id_name
+                            f['curiosSlotUk'] = slot_uk
+                            f['curiosIndex'] = int(c_item.get('Slot', c_idx)) if isinstance(c_item, dict) else c_idx
+                            slots['curios'].append(f)
+                            extract_nested(c_item, custom_name_of(c_item) or f['uk'], slots['backpacks'], f'Curios: {slot_uk}')
+
+    belt_data = att.get('toolbelt:belt')
+    if isinstance(belt_data, dict):
+        belt_items = belt_data.get('Items') or belt_data.get('stacks') or []
+        if isinstance(belt_items, list):
+            for b_item in belt_items:
+                f = fmt_stack(b_item, 'Пояс (Tool Belt)', 'toolbelt')
+                if f:
+                    slots['toolbelt'].append(f)
+                    inner = (b_item.get('components') or {}).get('minecraft:container') if isinstance(b_item, dict) and isinstance(b_item.get('components'), dict) else None
+                    if isinstance(inner, list):
+                        for entry in inner:
+                            t_stack = entry.get('item') if isinstance(entry, dict) and 'item' in entry else entry
+                            b_slot = int(entry.get('slot', 0)) if isinstance(entry, dict) else 0
+                            tf = fmt_stack(t_stack, f'У поясі (слот {b_slot + 1})', 'toolbelt')
+                            if tf:
+                                tf['beltSlot'] = b_slot
+                                slots['toolbeltTools'].append(tf)
+
+    for e_item in (pnbt.get('EnderItems') or []):
+        f = fmt_stack(e_item, 'Ендер-скриня', 'enderChest')
+        if f:
+            slots['enderChest'].append(f)
+            extract_nested(e_item, f"Усередині Ендер-скрині ({custom_name_of(e_item) or f['uk']})", slots['enderChest'], 'Ендер-скриня')
+    return slots
+
 def load_quest_catalog():
     """Каталог квестів і завдань з docs/data/chapters.json, docs/data/quests/*.json та config/ftbquests."""
     chs = jload(os.path.join(DATA, 'chapters.json'), {'chapters': []}).get('chapters', [])
@@ -163,7 +470,11 @@ def find_player_uuid(wdir):
     cands.sort(reverse=True)
     return cands[0][1]
 
-def extract_world(wdir, slug, ch_meta, q_meta, t_meta, now_str):
+def extract_world(wdir, slug, ch_meta, q_meta, t_meta, now_str, names_items=None, names_dims=None, mod_names=None, names_books=None):
+    names_items = names_items or {}
+    names_dims = names_dims or {}
+    mod_names = mod_names or {}
+    names_books = names_books or {}
     folder = os.path.basename(wdir)
     ld_path = os.path.join(wdir, 'level.dat')
     ld = read_nbt(ld_path).get('Data', {})
@@ -181,6 +492,7 @@ def extract_world(wdir, slug, ch_meta, q_meta, t_meta, now_str):
     # 1. Дані гравця (.dat NBT)
     inv_counts = collections.Counter()
     p_info = {'uuid': uuid or ''}
+    slots_data = None
     if uuid:
         pdat = os.path.join(wdir, 'players', 'data', f'{uuid}.dat')
         if not os.path.exists(pdat):
@@ -191,10 +503,20 @@ def extract_world(wdir, slug, ch_meta, q_meta, t_meta, now_str):
             for k in ('Inventory', 'EnderItems', 'equipment', 'neoforge:attachments'):
                 if k in pnbt:
                     collect_nbt_items(pnbt[k], inv_counts)
+            slots_data = extract_structured_slots(pnbt, wdir, names_items, mod_names, names_books, inv_counts)
             if pnbt.get('playerGameType') == 1 and mode != 'creative':
                 mode, mode_uk = 'creative', 'Творчість'
             p_info['xp_level'] = int(pnbt.get('XpLevel', 0))
-            p_info['dimension'] = pnbt.get('Dimension', 'minecraft:overworld')
+            p_info['selected_slot'] = int(pnbt.get('SelectedItemSlot', 0) or 0)
+            p_info['health'] = round(float(pnbt.get('Health', 20) or 20), 1)
+            p_info['food_level'] = int(pnbt.get('foodLevel', 20) or 20)
+            pos_raw = pnbt.get('Pos')
+            if isinstance(pos_raw, list) and len(pos_raw) >= 3:
+                p_info['pos'] = [int(float(v)) for v in pos_raw[:3]]
+            dim_id = pnbt.get('Dimension', 'minecraft:overworld')
+            p_info['dimension'] = dim_id
+            if dim_id in names_dims:
+                p_info['dimension_uk'] = names_dims[dim_id]
             att = pnbt.get('neoforge:attachments') or {}
             if isinstance(att.get('apotheosis:world_tier'), dict):
                 p_info['world_tier'] = att['apotheosis:world_tier'].get('tier', 'haven')
@@ -274,9 +596,11 @@ def extract_world(wdir, slug, ch_meta, q_meta, t_meta, now_str):
                 play_ticks = pt
 
     obtained = sorted(set(crafted) | set(picked_up) | set(used) | set(mined) | set(dropped) | set(inv_counts))
+    all_item_ids = sorted(set(obtained) | set(crafted) | set(inv_counts))
+    item_names = {iid: resolve_item_uk(iid, names_items, mod_names, None, names_books) for iid in all_item_ids} if names_items else {}
     last_ts = int(max(mtimes)) if mtimes else 0
 
-    return {
+    res = {
         'slug': slug,
         'world': world_name,
         'folder': folder,
@@ -303,8 +627,12 @@ def extract_world(wdir, slug, ch_meta, q_meta, t_meta, now_str):
             'obtained': obtained,
             'crafted': dict(sorted(crafted.items())),
             'inventory': dict(sorted(inv_counts.items())),
+            'names': item_names,
         },
     }
+    if slots_data:
+        res['slots'] = slots_data
+    return res
 
 def main():
     want_world = None
@@ -321,6 +649,7 @@ def main():
             i += 1
 
     ch_meta, q_meta, t_meta = load_quest_catalog()
+    names_items, names_dims, mod_names, names_books = load_names_dict()
     now_str = datetime.datetime.now().strftime('%Y-%m-%d %H:%M')
     os.makedirs(PROG_DIR, exist_ok=True)
 
@@ -340,7 +669,7 @@ def main():
         while slug in used_slugs:
             slug = f'{base_slug}_{n}'; n += 1
         used_slugs.add(slug)
-        wdata = extract_world(wdir, slug, ch_meta, q_meta, t_meta, now_str)
+        wdata = extract_world(wdir, slug, ch_meta, q_meta, t_meta, now_str, names_items, names_dims, mod_names, names_books)
         extracted.append(wdata)
 
     # Сортуємо світи: спершу не-творчі (виживання/пригода), усередині — за часом останньої гри (найновіші зверху)

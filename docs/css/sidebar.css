@@ -1,0 +1,511 @@
+/* Бічна панель фільтрів і макет довідника модів (#/mods, #/roadmap, #/keys) */
+
+.view.mods-view {
+  max-width: none;
+  padding: 0 28px 20px 0;
+  margin: 0;
+}
+
+.mods-layout {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.mods-sidebar {
+  flex: 0 0 270px;
+  width: 270px;
+  position: sticky;
+  top: var(--topbar-h);
+  height: calc(100vh - var(--topbar-h));
+  max-height: calc(100vh - var(--topbar-h));
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: var(--panel);
+  border-right: 1px solid var(--line);
+  padding: 18px 16px;
+  box-sizing: border-box;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.mods-sidebar::-webkit-scrollbar { width: 5px; }
+.mods-sidebar::-webkit-scrollbar-track { background: transparent; }
+.mods-sidebar::-webkit-scrollbar-thumb { background: var(--line-2); border-radius: 4px; }
+.mods-sidebar::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+.mods-main {
+  flex: 1;
+  min-width: 0;
+  padding-top: 20px;
+}
+
+.mods-main .grid {
+  grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
+  gap: 16px;
+}
+
+.mods-head { margin-bottom: 12px; }
+.mods-head h1 { margin: 0 0 4px; }
+
+/* Поле пошуку в сайдбарі */
+.sidebar-search-wrap {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.sidebar-search-wrap input {
+  width: 100%;
+  height: 38px;
+  padding: 8px 12px 8px 36px;
+  border-radius: 8px;
+  background: var(--bg-2);
+  border: 1px solid var(--line-2);
+  color: var(--text);
+  font-size: 0.88rem;
+  box-sizing: border-box;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.sidebar-search-wrap input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+.sidebar-search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.sidebar-search-icon svg,
+.sidebar-select-arrow svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Селект сортування */
+.sidebar-select-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.sidebar-select-wrap select {
+  width: 100%;
+  height: 36px;
+  padding: 6px 32px 6px 12px;
+  border-radius: 8px;
+  background: var(--bg-2);
+  border: 1px solid var(--line-2);
+  color: var(--text);
+  font-size: 0.86rem;
+  box-sizing: border-box;
+  appearance: none;
+  cursor: pointer;
+  transition: border-color .15s ease;
+}
+
+.sidebar-select-wrap select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.sidebar-select-arrow {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+/* Роздільники та заголовки секцій */
+.sidebar-divider {
+  border-top: 1px dashed var(--line-2);
+  margin: 14px 0 12px;
+}
+
+.sidebar-sec-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.sidebar-sec-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.sidebar-sec-head .sidebar-sec-title { margin-bottom: 0; }
+
+.sidebar-sub-lbl {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sidebar-switch-group.mt { margin-top: 10px; }
+
+/* Список категорій */
+.sidebar-cat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sidebar-cat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  transition: background .15s ease;
+}
+
+.sidebar-cat-row:hover { background: var(--bg-2); }
+.sidebar-cat-row.on { background: color-mix(in srgb, var(--accent) 12%, var(--bg-2)); }
+
+.sidebar-cat-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.sidebar-cat-row .feat {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-cat-row .feat svg { width: 16px; height: 16px; }
+
+.sidebar-cat-name {
+  font-size: 0.86rem;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-cat-count {
+  font-size: 0.76rem;
+  color: var(--muted);
+  margin-left: 2px;
+  flex-shrink: 0;
+}
+
+.sidebar-cat-row.on .sidebar-cat-name { font-weight: 600; }
+.sidebar-cat-row.on .sidebar-cat-count { color: var(--text); }
+
+.sidebar-check-box {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1.5px solid var(--line-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color .15s, background-color .15s;
+  box-sizing: border-box;
+}
+
+.sidebar-cat-row.on .sidebar-check-box {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+
+.sidebar-cat-row.on .sidebar-check-box svg { display: block; }
+.sidebar-cat-row:not(.on) .sidebar-check-box svg { display: none; }
+
+.sidebar-more-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 6px 10px;
+  margin-top: 6px;
+  border-radius: 6px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .15s ease;
+  user-select: none;
+}
+
+.sidebar-more-btn:hover {
+  background: var(--line);
+  color: var(--text);
+  border-color: var(--line-2);
+}
+
+.sidebar-more-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .2s ease;
+  color: var(--muted);
+}
+
+.sidebar-more-btn:hover .sidebar-more-icon { color: var(--text); }
+.sidebar-more-btn.expanded .sidebar-more-icon { transform: rotate(180deg); }
+
+/* Сітка "Додає у світ" */
+.sidebar-feat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.sidebar-feat-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-size: 0.82rem;
+  cursor: pointer;
+  user-select: none;
+  transition: all .15s ease;
+}
+
+.sidebar-feat-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.sidebar-feat-btn:hover {
+  border-color: var(--line-2);
+  background: color-mix(in srgb, var(--c) 8%, var(--bg-2));
+}
+
+.sidebar-feat-btn.on {
+  border-color: var(--c);
+  background: color-mix(in srgb, var(--c) 20%, var(--bg-2));
+  font-weight: 600;
+}
+
+.sidebar-feat-cnt {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-left: 4px;
+}
+
+.sidebar-feat-btn.on .sidebar-feat-cnt { color: var(--text); }
+
+/* Тумблери "Показати" */
+.sidebar-switch-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 0.84rem;
+  color: var(--text);
+  cursor: pointer;
+  user-select: none;
+}
+
+.sidebar-switch-row:hover span:first-child { color: var(--text-strong); }
+
+.switch-control {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.switch-control input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.switch-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: var(--line-2);
+  border-radius: 20px;
+  transition: background-color .2s ease;
+}
+
+.switch-slider::before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: transform .2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.switch-control input:checked + .switch-slider { background-color: var(--accent); }
+
+.switch-control input:checked + .switch-slider::before {
+  transform: translateX(16px);
+  background-color: var(--on-accent);
+}
+
+/* Рядок активних фільтрів над картками та над полотном схеми */
+.mods-top-bar,
+.rm-top-bar {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.mods-top-bar { margin-bottom: 16px; min-height: 36px; }
+
+.rm-top-bar {
+  padding: 8px 16px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  min-height: 44px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.mods-active-chips,
+.rm-active-chips {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.mods-active-chip,
+.rm-active-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: border-color .15s ease;
+}
+
+.mods-active-chip .feat,
+.rm-active-chip .feat {
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mods-active-chip .feat svg,
+.rm-active-chip .feat svg { width: 14px; height: 14px; }
+
+.mods-active-chip:hover,
+.rm-active-chip:hover { border-color: var(--line-2); }
+
+.mods-active-chip-x,
+.rm-active-chip-x {
+  cursor: pointer;
+  font-size: 0.95rem;
+  line-height: 1;
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mods-active-chip-x:hover,
+.rm-active-chip-x:hover { color: var(--bad); }
+
+.mods-clear-all-btn,
+.rm-clear-all-btn {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 6px;
+  transition: opacity .15s ease;
+  white-space: nowrap;
+}
+
+.mods-clear-all-btn:hover,
+.rm-clear-all-btn:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+
+.mods-counter-text,
+.rm-counter-text {
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-size: 0.84rem;
+  color: var(--muted);
+  margin-left: auto;
+  padding-top: 5px;
+}
+
+.mods-counter-text b,
+.rm-counter-text b { color: var(--text); }
+
+@media (max-width: 900px) {
+  .view.mods-view { padding: 16px; }
+  .mods-layout { flex-direction: column; gap: 16px; }
+  .mods-sidebar {
+    width: 100%;
+    flex: none;
+    position: static;
+    height: auto;
+    max-height: none;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: none;
+    padding: 16px;
+  }
+  .mods-main { padding-top: 0; }
+}
+

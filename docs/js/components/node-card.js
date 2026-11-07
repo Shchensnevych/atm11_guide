@@ -3,6 +3,7 @@
 import { h } from '../core/dom.js';
 import { featuresOf, featRow } from './feat.js';
 import { isAutoDone } from '../core/progress.js';
+import { itemIconUrl, itemNameUk } from '../core/store.js';
 
 export const CARD = { w: 220, h: 86, tw: 240, th: 92 };   // звичайна / стовбур
 const STATE_TIP = { done: 'Зроблено', avail: 'Доступно — можна братися', locked: 'Ще не доступно: спершу попередні кроки', na: 'У цій версії збірки недоступно' };
@@ -25,8 +26,10 @@ export function nodeCard(n, s, o = {}) {
       m.logo ? h('img', { src: m.logo, alt: '', loading: 'lazy' }) : h('span.nc-mono', null, monogram(m.name))))) : null,
     h('div.nc-icons', null, (n.icons || []).slice(0, max).map((id) => {
       const it = items[id];
-      return h('span.nc-ic', { title: it ? (it.uk || it.en) + (it.uk && it.en ? ` (${it.en})` : '') : id },
-        it ? h('img', { src: it.img, alt: '', loading: 'lazy' }) : h('span.nc-q', null, '?'));
+      const img = it?.img || itemIconUrl(s, id);
+      const uk = it?.uk || itemNameUk(s, id);
+      return h('span.nc-ic', { title: uk + (it?.en && it.en !== uk ? ` (${it.en})` : '') },
+        img ? h('img', { src: img, alt: '', loading: 'lazy' }) : h('span.nc-q', null, '?'));
     })),
     h('div.nc-feat', null, n.star ? h('span.nc-star', { title: 'Потрібно для ATM Star (ендгейм)' }, '★') : null, featRow(f.list.slice(0, n.star ? 3 : 4), f.dims)),
     h('span.nc-state', { title: '' }));

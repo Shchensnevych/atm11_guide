@@ -7,12 +7,21 @@
  "game_type": 0,
  "last_played": "2026-11-01 12:25",
  "last_played_ts": 1793528714,
- "updated": "2026-11-06 16:57",
+ "updated": "2026-11-07 14:37",
  "play_hours": 1.39,
  "player": {
   "uuid": "832ceed6-e820-31f9-aa40-6acd5077a2ac",
   "xp_level": 8,
+  "selected_slot": 2,
+  "health": 16.0,
+  "food_level": 17,
+  "pos": [
+   -2,
+   123,
+   -37
+  ],
   "dimension": "minecraft:overworld",
+  "dimension_uk": "Верхній світ",
   "world_tier": "haven",
   "unique_foods": 0,
   "name": "Nexius"
@@ -151,6 +160,186 @@
    "minecraft:dirt": 3,
    "minecraft:jungle_planks": 1,
    "minecraft:jungle_slab": 6
+  },
+  "names": {
+   "auroral:guide": "Посібник Auroral",
+   "minecraft:bone_meal": "Кісткове борошно",
+   "minecraft:cooked_beef": "Стейк",
+   "minecraft:crafting_table": "Верстак",
+   "minecraft:dirt": "Ґрунт",
+   "minecraft:fern": "Папороть",
+   "minecraft:grass_block": "Трав'яний блок",
+   "minecraft:jungle_leaves": "Тропічне листя",
+   "minecraft:jungle_log": "Тропічна колода",
+   "minecraft:jungle_planks": "Тропічні дошки",
+   "minecraft:jungle_slab": "Тропічна плита",
+   "minecraft:vine": "Лози",
+   "regions_unexplored:elephant_ear": "Слоняче вухо"
   }
+ },
+ "slots": {
+  "mainHand": {
+   "id": "minecraft:bone_meal",
+   "uk": "Кісткове борошно",
+   "count": 3,
+   "slot": 2,
+   "slotLabel": "Головна рука (слот 3)",
+   "slotKind": "mainHand",
+   "ns": "minecraft",
+   "modName": "Minecraft"
+  },
+  "offHand": null,
+  "hotbar": [
+   {
+    "id": "minecraft:cooked_beef",
+    "uk": "Стейк",
+    "count": 8,
+    "slot": 0,
+    "slotLabel": "Гаряча панель (слот 1)",
+    "slotKind": "hotbar",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
+    "id": "minecraft:dirt",
+    "uk": "Ґрунт",
+    "count": 3,
+    "slot": 1,
+    "slotLabel": "Гаряча панель (слот 2)",
+    "slotKind": "hotbar",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
+    "id": "minecraft:bone_meal",
+    "uk": "Кісткове борошно",
+    "count": 3,
+    "slot": 2,
+    "slotLabel": "Головна рука (слот 3)",
+    "slotKind": "mainHand",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
+    "id": "auroral:guide",
+    "uk": "Посібник Auroral",
+    "count": 1,
+    "slot": 3,
+    "slotLabel": "Гаряча панель (слот 4)",
+    "slotKind": "hotbar",
+    "ns": "auroral",
+    "modName": "Auroral"
+   }
+  ],
+  "inventory": [
+   {
+    "id": "minecraft:jungle_planks",
+    "uk": "Тропічні дошки",
+    "count": 1,
+    "slot": 13,
+    "slotLabel": "Інвентар (слот 13)",
+    "slotKind": "inventory",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
+    "id": "minecraft:jungle_slab",
+    "uk": "Тропічна плита",
+    "count": 6,
+    "slot": 15,
+    "slotLabel": "Інвентар (слот 15)",
+    "slotKind": "inventory",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   }
+  ],
+  "armor": [],
+  "curios": [],
+  "curiosTypes": [
+   {
+    "id": "refinedstorage_curios_integration",
+    "uk": "Refined Storage",
+    "size": 2
+   },
+   {
+    "id": "head",
+    "uk": "Голова",
+    "size": 1
+   },
+   {
+    "id": "necklace",
+    "uk": "Намисто",
+    "size": 1
+   },
+   {
+    "id": "back",
+    "uk": "Спина",
+    "size": 1
+   },
+   {
+    "id": "body",
+    "uk": "Тіло",
+    "size": 1
+   },
+   {
+    "id": "bracelet",
+    "uk": "Браслет",
+    "size": 1
+   },
+   {
+    "id": "hands",
+    "uk": "Руки",
+    "size": 2
+   },
+   {
+    "id": "ring",
+    "uk": "Перстень",
+    "size": 2
+   },
+   {
+    "id": "belt",
+    "uk": "Пояс",
+    "size": 1
+   },
+   {
+    "id": "feet",
+    "uk": "Ступні",
+    "size": 1
+   },
+   {
+    "id": "charm",
+    "uk": "Амулет",
+    "size": 2
+   },
+   {
+    "id": "crafting_on_a_stick",
+    "uk": "Створення на паличці",
+    "size": 1
+   },
+   {
+    "id": "adv_pattern_encoder",
+    "uk": "Кодувальник шаблонів",
+    "size": 1
+   },
+   {
+    "id": "deep_learner",
+    "uk": "Глибинний учень",
+    "size": 1
+   },
+   {
+    "id": "heart_amulet",
+    "uk": "Амулет сердець",
+    "size": 1
+   },
+   {
+    "id": "poppet",
+    "uk": "Лялька",
+    "size": 1
+   }
+  ],
+  "toolbelt": [],
+  "toolbeltTools": [],
+  "backpacks": [],
+  "enderChest": []
  }
 }

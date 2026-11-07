@@ -23,6 +23,9 @@ const HOVER_IN = 110, HOVER_OUT = 170;   // мс: затримка наведе�
  * @param {Store} s
  * @param {{
  *   mode?: 'tree' | 'mods',
+ *   expand?: string,
+ *   onExpand?: (gid: string) => void,
+ *   hideFeatLegend?: boolean,
  *   onSelect?: (id: string) => void,
  *   onProgress?: () => void,
  *   elk?: Record<string, string>,

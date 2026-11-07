@@ -6,6 +6,8 @@ import os, re
 from common import UA, DATA, RAW, jload, jsave, strip_fmt
 
 RX_ITEM = re.compile(r'^(item|block)\.([a-z0-9_.-]+?)\.([a-z0-9_/-]+)$')
+RX_ITEM_NS = re.compile(r'^([a-z0-9_-]+)\.(item|block)\.([a-z0-9_/-]+)$')
+RX_PARTTYPE = re.compile(r'^parttype\.([a-z0-9_-]+)\.([a-z0-9_/-]+)$')
 RX_ENT = re.compile(r'^entity\.([a-z0-9_-]+)\.([a-z0-9_/-]+)$')
 RX_DIM = re.compile(r'^dimension\.([a-z0-9_-]+)\.([a-z0-9_/-]+)$')
 RX_BIOME = re.compile(r'^biome\.([a-z0-9_-]+)\.([a-z0-9_/-]+)$')
@@ -59,6 +61,26 @@ def build(warn, write=True):
                     v = _pair(c[4], c[3])
                     if m.group(1) == 'block': v.append('b') if len(v) == 2 else v.extend(['', 'b'])
                     items[iid] = v
+                continue
+            m = RX_ITEM_NS.match(k)
+            if m and m.group(1) == c[1] and '.' not in m.group(3):
+                iid = f'{m.group(1)}:{m.group(3)}'
+                old = items.get(iid)
+                if old is None or (m.group(2) == 'item' and old[-1] == 'b'):
+                    v = _pair(c[4], c[3])
+                    if m.group(2) == 'block': v.append('b') if len(v) == 2 else v.extend(['', 'b'])
+                    items[iid] = v
+                continue
+            m = RX_PARTTYPE.match(k)
+            if m and m.group(1) == c[1] and '.' not in m.group(2):
+                iid = f'{m.group(1)}:part_{m.group(2)}'
+                if iid not in items:
+                    items[iid] = _pair(c[4], c[3])
+                continue
+            if k == 'reward.apotheosis.gem' and 'apotheosis:gem' not in items:
+                uk_g = re.sub(r'\s*\(%(\d+\$)?s\)', '', strip_fmt(c[4])).strip()
+                en_g = re.sub(r'\s*\(%(\d+\$)?s\)', '', strip_fmt(c[3])).strip()
+                if uk_g or en_g: items['apotheosis:gem'] = _pair(uk_g, en_g)
                 continue
             m = RX_ENT.match(k)
             if m: ents[f'{m.group(1)}:{m.group(2)}'] = _pair(c[4], c[3]); continue

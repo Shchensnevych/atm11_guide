@@ -2,11 +2,14 @@
 // Мобільність у браузері (Варіант Б): кнопка «📂 Вказати теку гри» (showDirectoryPicker + fallback на <input webkitdirectory>).
 // Читає прямо в браузері minecraft/saves/<світ> (level.dat, ftbquests, advancements, stats, <uuid>.dat), minecraft/options.txt та logs/latest.log.
 import { slugify, readNbt, collectNbtItems, toHexId, parseJson5 } from './nbt.js';
+import { extractSlotsInBrowser } from './nbt-slots.js';
 import { parseOptions, saveUserOptions } from './keys-model.js';
+import { ensureNames, itemNameUk, dimNameUk } from './store.js';
+import { saveDirHandle, getSavedDirHandle, clearSavedDirHandle, wrapHandle, wrapFileList, resolveMinecraftLayout } from './game-fs.js';
+
+export { getSavedDirHandle };
 
 const LS_KEY = 'atm11.gameFolder.v1';
-const IDB_NAME = 'atm11-game-folder-db';
-const IDB_STORE = 'handles';
 
 /** @type {Record<number, [string, string]>} */
 const GAME_MODES = {
@@ -24,183 +27,8 @@ function fmtTs(ts) {
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
 }
 
-// ── Збереження FileSystemDirectoryHandle у IndexedDB для оновлення в 1 клік ──
-function openIdb() {
-  return new Promise((resolve, reject) => {
-    const req = indexedDB.open(IDB_NAME, 1);
-    req.onupgradeneeded = () => req.result.createObjectStore(IDB_STORE);
-    req.onsuccess = () => resolve(req.result);
-    req.onerror = () => reject(req.error);
-  });
-}
-
-/** @param {any} handle */
-async function saveDirHandle(handle) {
-  try {
-    const db = /** @type {IDBDatabase} */ (await openIdb());
-    await new Promise((res, rej) => {
-      const tx = db.transaction(IDB_STORE, 'readwrite');
-      tx.objectStore(IDB_STORE).put(handle, 'root');
-      tx.oncomplete = () => res(true);
-      tx.onerror = () => rej(tx.error);
-    });
-  } catch { /* ігноруємо в приватному режимі */ }
-}
-
-export async function getSavedDirHandle() {
-  try {
-    const db = /** @type {IDBDatabase} */ (await openIdb());
-    return await new Promise((res) => {
-      const tx = db.transaction(IDB_STORE, 'readonly');
-      const r = tx.objectStore(IDB_STORE).get('root');
-      r.onsuccess = () => res(r.result || null);
-      r.onerror = () => res(null);
-    });
-  } catch {
-    return null;
-  }
-}
-
-async function clearSavedDirHandle() {
-  try {
-    const db = /** @type {IDBDatabase} */ (await openIdb());
-    const tx = db.transaction(IDB_STORE, 'readwrite');
-    tx.objectStore(IDB_STORE).delete('root');
-  } catch {}
-}
-
-// ── Уніфіковане віртуальне дерево для showDirectoryPicker та <input webkitdirectory> ──
-/** @typedef {{ name: string, kind: 'dir', getDir: (p: string) => Promise<VDir | null>, getFile: (p: string) => Promise<File | null>, listDirs: () => Promise<VDir[]>, listFiles: () => Promise<File[]> }} VDir */
-
-/** @param {any} handle @returns {VDir} */
-function wrapHandle(handle) {
-  /** @param {any} hDir @param {string[]} parts @returns {Promise<any>} */
-  async function walkDir(hDir, parts) {
-    let cur = hDir;
-    for (const p of parts) {
-      if (!p) continue;
-      try { cur = await cur.getDirectoryHandle(p); } catch { return null; }
-    }
-    return cur;
-  }
-  return {
-    name: handle.name || 'game',
-    kind: 'dir',
-    async getDir(relPath) {
-      const parts = relPath.split('/').filter(Boolean);
-      const sub = await walkDir(handle, parts);
-      return sub ? wrapHandle(sub) : null;
-    },
-    async getFile(relPath) {
-      const parts = relPath.split('/').filter(Boolean);
-      const fn = parts.pop();
-      if (!fn) return null;
-      const dir = await walkDir(handle, parts);
-      if (!dir) return null;
-      try {
-        const fh = await dir.getFileHandle(fn);
-        return await fh.getFile();
-      } catch {
-        return null;
-      }
-    },
-    async listDirs() {
-      /** @type {VDir[]} */
-      const out = [];
-      try {
-        for await (const [, entry] of handle.entries()) {
-          if (entry.kind === 'directory') out.push(wrapHandle(entry));
-        }
-      } catch {}
-      return out.sort((a, b) => a.name.localeCompare(b.name));
-    },
-    async listFiles() {
-      /** @type {File[]} */
-      const out = [];
-      try {
-        for await (const [, entry] of handle.entries()) {
-          if (entry.kind === 'file') out.push(await entry.getFile());
-        }
-      } catch {}
-      return out;
-    },
-  };
-}
-
-/** Будує VDir із FileList від <input webkitdirectory>. @param {FileList} fileList @returns {VDir} */
-function wrapFileList(fileList) {
-  /** @type {{ name: string, dirs: Map<string, any>, files: Map<string, File> }} */
-  const root = { name: 'game', dirs: new Map(), files: new Map() };
-  for (let i = 0; i < fileList.length; i++) {
-    const f = fileList[i];
-    const rel = (f.webkitRelativePath || f.name).replace(/\\/g, '/');
-    const parts = rel.split('/').filter(Boolean);
-    if (parts.length > 1 && root.name === 'game') root.name = parts[0];
-    const subParts = parts.length > 1 ? parts.slice(1) : parts;
-    const fn = subParts.pop();
-    if (!fn) continue;
-    let cur = root;
-    for (const p of subParts) {
-      if (!cur.dirs.has(p)) cur.dirs.set(p, { name: p, dirs: new Map(), files: new Map() });
-      cur = cur.dirs.get(p);
-    }
-    cur.files.set(fn, f);
-  }
-  /** @param {typeof root} node @returns {VDir} */
-  function makeNode(node) {
-    /** @param {string[]} parts */
-    const walk = (parts) => {
-      let c = node;
-      for (const p of parts) { if (!p) continue; c = c?.dirs.get(p); if (!c) return null; }
-      return c;
-    };
-    return {
-      name: node.name,
-      kind: 'dir',
-      async getDir(relPath) {
-        const sub = walk(relPath.split('/').filter(Boolean));
-        return sub ? makeNode(sub) : null;
-      },
-      async getFile(relPath) {
-        const parts = relPath.split('/').filter(Boolean);
-        const fn = parts.pop();
-        if (!fn) return null;
-        const d = walk(parts);
-        return d?.files.get(fn) || null;
-      },
-      async listDirs() {
-        return [...node.dirs.values()].map(makeNode).sort((a, b) => a.name.localeCompare(b.name));
-      },
-      async listFiles() {
-        return [...node.files.values()];
-      },
-    };
-  }
-  return makeNode(root);
-}
-
-/** Знаходить теку minecraft/, saves/ або окремого світу всередині обраної користувачем теки. @param {VDir} root */
-async function resolveMinecraftLayout(root) {
-  // Варіант 1: обрано корінь інстансу (всередині є minecraft/ або .minecraft/)
-  const mcSub = (await root.getDir('minecraft')) || (await root.getDir('.minecraft'));
-  if (mcSub) {
-    return { mcDir: mcSub, savesDir: await mcSub.getDir('saves'), singleWorldDir: null };
-  }
-  // Варіант 2: обрано саму теку minecraft/ (є saves/ або options.txt)
-  const savesSub = await root.getDir('saves');
-  if (savesSub || (await root.getFile('options.txt'))) {
-    return { mcDir: root, savesDir: savesSub, singleWorldDir: null };
-  }
-  // Варіант 3: обрано конкретний світ (є level.dat)
-  if (await root.getFile('level.dat')) {
-    return { mcDir: null, savesDir: null, singleWorldDir: root };
-  }
-  // Варіант 4: обрано теку saves/ (всередині підтеки зі світами)
-  return { mcDir: null, savesDir: root, singleWorldDir: null };
-}
-
 /** Будує каталог квестів і завдань з уже завантаженого Store + за наявності з config/ftbquests/quests/chapters/*.json5.
- * @param {Store} store @param {VDir | null} mcDir */
+ * @param {Store} store @param {import('./game-fs.js').VDir | null} mcDir */
 async function buildQuestCatalog(store, mcDir) {
   /** @type {Record<string, { title: string, hidden: boolean, quests: number }>} */
   const chMeta = {};
@@ -212,7 +40,6 @@ async function buildQuestCatalog(store, mcDir) {
   for (const [qid, info] of Object.entries(store.roadmap?.quest_info || {})) {
     qMeta[qid] = { chapter: info.chapter, title: info.title, hidden: !!chMeta[info.chapter]?.hidden, optional: false };
   }
-  // Довантажуємо каталоги глав квестів із локальних JSON сайту (паралельно з кешем store)
   const chFiles = (store.chapters?.chapters || []).map((c) => c.file);
   const loadedChs = await Promise.all(chFiles.map((fn) => fetch(`data/quests/${fn}.json`).then((r) => (r.ok ? r.json() : null)).catch(() => null)));
   for (const d of loadedChs) {
@@ -243,7 +70,7 @@ async function buildQuestCatalog(store, mcDir) {
   return { chMeta, qMeta, tMeta };
 }
 
-/** Знаходить UUID активного гравця у світі за найновішим часом модифікації файлів. @param {VDir} wdir */
+/** Знаходить UUID активного гравця у світі за найновішим часом модифікації файлів. @param {import('./game-fs.js').VDir} wdir */
 async function findPlayerUuid(wdir) {
   /** @type {[number, string][]} */
   const cands = [];
@@ -267,12 +94,12 @@ async function findPlayerUuid(wdir) {
 }
 
 /** Розбирає один світ у теці saves/<світ>/ (повний аналог extract_world у tools/extract_progress.py).
- * @param {VDir} wdir @param {string} slug @param {any} cat @param {string} nowStr */
-async function extractWorldInBrowser(wdir, slug, cat, nowStr) {
+ * @param {import('./game-fs.js').VDir} wdir @param {string} slug @param {any} cat @param {string} nowStr @param {Store} store */
+async function extractWorldInBrowser(wdir, slug, cat, nowStr, store) {
   const { qMeta, tMeta } = cat;
   const folder = wdir.name;
   const ldFile = await wdir.getFile('level.dat');
-  const ldRoot = ldFile ? await readNbt(await ldFile.arrayBuffer()).catch(() => ({})) : {};
+  const ldRoot = /** @type {Record<string, any>} */ (ldFile ? await readNbt(await ldFile.arrayBuffer()).catch(() => ({})) : {});
   const ld = ldRoot.Data || {};
   const worldName = ld.LevelName || folder;
   const gt = Number(ld.GameType ?? 0);
@@ -289,17 +116,25 @@ async function extractWorldInBrowser(wdir, slug, cat, nowStr) {
   const invCounts = {};
   /** @type {Record<string, any>} */
   const pInfo = { uuid: uuid || '' };
+  /** @type {PlayerSlotsData | null} */
+  let slotsData = null;
   if (uuid) {
     const pFile = (await wdir.getFile(`players/data/${uuid}.dat`)) || (await wdir.getFile(`playerdata/${uuid}.dat`));
     if (pFile) {
       if (pFile.lastModified) mtimes.push(pFile.lastModified / 1000);
-      const pnbt = await readNbt(await pFile.arrayBuffer()).catch(() => ({}));
+      const pnbt = /** @type {Record<string, any>} */ (await readNbt(await pFile.arrayBuffer()).catch(() => ({})));
       for (const k of ['Inventory', 'EnderItems', 'equipment', 'neoforge:attachments']) {
         if (pnbt[k]) collectNbtItems(pnbt[k], invCounts);
       }
+      slotsData = await extractSlotsInBrowser(pnbt, wdir, store, invCounts);
       if (pnbt.playerGameType === 1 && mode !== 'creative') [mode, modeUk] = ['creative', 'Творчість'];
       pInfo.xp_level = Number(pnbt.XpLevel || 0);
+      pInfo.selected_slot = Number(pnbt.SelectedItemSlot || 0);
+      pInfo.health = Math.round(Number(pnbt.Health ?? 20) * 10) / 10;
+      pInfo.food_level = Number(pnbt.foodLevel ?? 20);
+      if (Array.isArray(pnbt.Pos) && pnbt.Pos.length >= 3) pInfo.pos = pnbt.Pos.slice(0, 3).map((/** @type {number} */ v) => Math.floor(Number(v) || 0));
       pInfo.dimension = pnbt.Dimension || 'minecraft:overworld';
+      pInfo.dimension_uk = dimNameUk(store, pInfo.dimension);
       const att = pnbt['neoforge:attachments'] || {};
       if (att['apotheosis:world_tier'] && typeof att['apotheosis:world_tier'] === 'object') {
         pInfo.world_tier = att['apotheosis:world_tier'].tier || 'haven';
@@ -400,6 +235,12 @@ async function extractWorldInBrowser(wdir, slug, cat, nowStr) {
     }
   }
 
+  /** @type {Record<string, string>} */
+  const itemNames = {};
+  for (const iid of [...obtainedSet].sort()) {
+    itemNames[iid] = itemNameUk(store, iid);
+  }
+
   const lastTs = mtimes.length ? Math.floor(Math.max(...mtimes)) : 0;
   return {
     slug,
@@ -426,7 +267,9 @@ async function extractWorldInBrowser(wdir, slug, cat, nowStr) {
       obtained: [...obtainedSet].sort(),
       crafted: Object.fromEntries(Object.entries(crafted).sort(([a], [b]) => a.localeCompare(b))),
       inventory: Object.fromEntries(Object.entries(invCounts).sort(([a], [b]) => a.localeCompare(b))),
+      names: itemNames,
     },
+    ...(slotsData ? { slots: slotsData } : {}),
   };
 }
 
@@ -448,12 +291,12 @@ export async function clearBrowserGameState() {
 }
 
 /** Читає VDir теки гри, оновлює світи, options.txt та latest.log, зберігає у localStorage.
- * @param {VDir} rootDir @param {Store} store */
+ * @param {import('./game-fs.js').VDir} rootDir @param {Store} store */
 async function scanGameRoot(rootDir, store) {
+  await ensureNames(store);
   const { mcDir, savesDir, singleWorldDir } = await resolveMinecraftLayout(rootDir);
   const nowStr = fmtTs(Math.floor(Date.now() / 1000));
 
-  // 1. Оновлюємо клавіші з options.txt (якщо є)
   let keysUpdated = 0;
   const optFile = mcDir ? await mcDir.getFile('options.txt') : null;
   if (optFile) {
@@ -464,8 +307,7 @@ async function scanGameRoot(rootDir, store) {
     }
   }
 
-  // 2. Оновлюємо світи з saves/<світ>/
-  /** @type {VDir[]} */
+  /** @type {import('./game-fs.js').VDir[]} */
   const worldDirs = [];
   if (singleWorldDir) {
     worldDirs.push(singleWorldDir);
@@ -485,7 +327,7 @@ async function scanGameRoot(rootDir, store) {
     let n = 2;
     while (usedSlugs.has(slug)) slug = `${baseSlug}_${n++}`;
     usedSlugs.add(slug);
-    extracted.push(await extractWorldInBrowser(wd, slug, cat, nowStr));
+    extracted.push(await extractWorldInBrowser(wd, slug, cat, nowStr, store));
   }
 
   extracted.sort((a, b) => Number(a.mode === 'creative') - Number(b.mode === 'creative') || (b.last_played_ts - a.last_played_ts));
@@ -506,7 +348,6 @@ async function scanGameRoot(rootDir, store) {
     bySlug[w.slug] = { ...w, default: chosen?.slug || '', worlds: worldsSummary, from_browser: true };
   }
 
-  // 3. Зчитуємо останні рядки logs/latest.log (якщо є)
   let logTail = '';
   const logFile = mcDir ? await mcDir.getFile('logs/latest.log') : null;
   if (logFile) {

@@ -29,6 +29,11 @@ def quest_icon_ids():
         ids.update(v['icon'] for v in ((jload(f, {}) or {}).get('ext') or {}).values() if v.get('icon'))
     ids.update(c['icon'] for c in (jload(os.path.join(DATA, 'chapters.json'), {}) or {}).get('chapters', []) if c.get('icon'))   # іконки глав
     for t in (jload(os.path.join(DATA, 'reward_tables.json'), {}) or {}).values(): ids.update(x['item'] for x in t.get('items', []) if x.get('item'))
+    for f in glob.glob(os.path.join(DATA, 'progress', '*.json')):
+        pd = jload(f, {}) or {}; it = pd.get('items') or {}; sl = pd.get('slots') or {}
+        ids.update(it.get('names') or {}); ids.update(it.get('inventory') or {}); ids.update(it.get('crafted') or {}); ids.update(it.get('obtained') or [])
+        for arr in sl.values():
+            if isinstance(arr, list): ids.update(x['id'] for x in arr if isinstance(x, dict) and ':' in str(x.get('id', '')))
     return ids
 
 def build(warn, write=True):

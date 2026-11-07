@@ -58,7 +58,10 @@ function renderWorldBar(s) {
 
 load().then((s) => {
   renderWorldBar(s);
-  window.addEventListener('worldchange', () => { renderWorldBar(s); route(); });
+  window.addEventListener('worldchange', () => {
+    renderWorldBar(s);
+    if (location.hash.split('?')[0] !== '#/assistant') route();
+  });
   const f = document.getElementById('footer');
   if (f) f.textContent = `Модів: ${s.meta.mods} · описано вручну: ${s.meta.curated} · дані зібрано ${s.meta.built} · ATM11 26.1.2`;
 }).catch(() => {});
