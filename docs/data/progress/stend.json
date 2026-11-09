@@ -5,20 +5,20 @@
  "mode": "creative",
  "mode_uk": "Творчість",
  "game_type": 1,
- "last_played": "2026-11-07 19:25",
- "last_played_ts": 1794072354,
- "updated": "2026-11-09 15:51",
- "play_hours": 3.38,
+ "last_played": "2026-11-09 16:35",
+ "last_played_ts": 1794234925,
+ "updated": "2026-11-09 16:36",
+ "play_hours": 3.75,
  "player": {
   "uuid": "832ceed6-e820-31f9-aa40-6acd5077a2ac",
   "xp_level": 0,
-  "selected_slot": 6,
+  "selected_slot": 0,
   "health": 20.0,
-  "food_level": 20,
+  "food_level": 18,
   "pos": [
-   519,
-   92,
-   753
+   558,
+   136,
+   1192
   ],
   "dimension": "minecraft:overworld",
   "dimension_uk": "Верхній світ",
@@ -28,6 +28,7 @@
  },
  "quests": {
   "done": [
+   "0460DDEEFDEB0AAF",
    "0542FE108089A0A2",
    "05437E6D19E6DD11",
    "0682DC1F2417DAEB",
@@ -41,6 +42,7 @@
    "25AFD10D008DF30B",
    "2746575C929B6C50",
    "2893F483C10293E6",
+   "3166CA00032C18F7",
    "33AADC1B97E9F7A9",
    "378C95C18798D413",
    "3BC0A50886A3222B",
@@ -61,6 +63,7 @@
    "79DD4CCCECC3F974"
   ],
   "done_visible": [
+   "0460DDEEFDEB0AAF",
    "0542FE108089A0A2",
    "05437E6D19E6DD11",
    "0682DC1F2417DAEB",
@@ -74,6 +77,7 @@
    "25AFD10D008DF30B",
    "2746575C929B6C50",
    "2893F483C10293E6",
+   "3166CA00032C18F7",
    "33AADC1B97E9F7A9",
    "378C95C18798D413",
    "3BC0A50886A3222B",
@@ -134,10 +138,12 @@
    "34F6C74C0D167C8B",
    "365C31F15DC05036",
    "37AF49F3A7074892",
+   "3ABECD22D09DEEFB",
    "3B1F1A7CAC8B7BC7",
    "3B3DD779F3710157",
    "3C5F4B4AC86F20EF",
    "3CAD6AD06BE4C3D3",
+   "3CC50EAEEE1E8A56",
    "3CF660F500E99BA9",
    "3DF1F367C3EA9631",
    "3E2EDA6892016DB4",
@@ -166,6 +172,7 @@
    "703D7D142BD7CEC9",
    "704D0B6CBDB29691",
    "70D108356F710F9B",
+   "712E417F37C644AB",
    "71A3B742D8757C89",
    "7330FAC338D718B8",
    "7570E5AAAC5CCA39",
@@ -175,10 +182,11 @@
    "7EDA9BD14A177D8D",
    "7FD9A02EA29669F6"
   ],
-  "rewards_claimed": 0,
+  "rewards_claimed": 2,
   "by_chapter": {
    "theurgy": {
     "done": [
+     "0460DDEEFDEB0AAF",
      "0542FE108089A0A2"
     ],
     "started": []
@@ -245,6 +253,13 @@
     ],
     "started": []
    },
+   "ice_and_fire": {
+    "done": [
+     "3166CA00032C18F7",
+     "6ECB27052FCB874E"
+    ],
+    "started": []
+   },
    "tips_and_tricks": {
     "done": [
      "378C95C18798D413",
@@ -277,12 +292,6 @@
     "started": [
      "0BBDB63F944F61A7"
     ]
-   },
-   "ice_and_fire": {
-    "done": [
-     "6ECB27052FCB874E"
-    ],
-    "started": []
    },
    "occultism": {
     "done": [],
@@ -343,6 +352,7 @@
    "apotheosis:progression/root",
    "apothic_spawners:capturing",
    "auroral:root",
+   "constructionstick:root",
    "dimstorage:dimensional_chest",
    "dungeons_arise:wda_root",
    "energizedpower:main/basics/crusher",
@@ -350,6 +360,7 @@
    "iceandfire:iceandfire/root",
    "lootr:1chest",
    "lootr:root",
+   "lootr:trapped_chest",
    "mffs:grant_book_on_first_join",
    "minecraft:adventure/sleep_in_bed",
    "minecraft:nether/root",
@@ -398,12 +409,14 @@
    "minecraft:arrow",
    "minecraft:barrel",
    "minecraft:bone",
+   "minecraft:bookshelf",
    "minecraft:bundle",
    "minecraft:chest",
    "minecraft:chest_minecart",
    "minecraft:cobblestone",
    "minecraft:crafting_table",
    "minecraft:creeper_spawn_egg",
+   "minecraft:diamond_pickaxe",
    "minecraft:diamond_sword",
    "minecraft:ender_chest",
    "minecraft:ender_eye",
@@ -413,16 +426,27 @@
    "minecraft:gold_block",
    "minecraft:hopper",
    "minecraft:iron_pickaxe",
+   "minecraft:item_frame",
    "minecraft:lantern",
+   "minecraft:oak_planks",
+   "minecraft:oak_slab",
    "minecraft:obsidian",
+   "minecraft:piston",
    "minecraft:rail",
    "minecraft:red_sand",
    "minecraft:rotten_flesh",
+   "minecraft:sandstone_stairs",
    "minecraft:shulker_box",
+   "minecraft:smooth_sandstone",
+   "minecraft:smooth_sandstone_slab",
+   "minecraft:smooth_sandstone_stairs",
    "minecraft:spruce_log",
    "minecraft:spruce_planks",
+   "minecraft:stick",
    "minecraft:stone_sword",
    "minecraft:string",
+   "minecraft:stripped_oak_wood",
+   "minecraft:torch",
    "minecraft:white_bed",
    "minecraft:wooden_pickaxe",
    "minecraft:zombie_spawn_egg",
@@ -431,6 +455,7 @@
    "refinedstorage:disk_drive",
    "refinedstorage:grid",
    "silentgear:helmet_plates",
+   "silentgear:pickaxe",
    "sophisticatedstorage:iron_chest",
    "toolbelt:belt"
   ],
@@ -447,16 +472,22 @@
    "minecraft:chest": 1,
    "minecraft:cobblestone": 64,
    "minecraft:crafting_table": 1,
+   "minecraft:diamond_pickaxe": 1,
    "minecraft:diamond_sword": 2,
    "minecraft:ender_eye": 2,
    "minecraft:firework_rocket": 16,
-   "minecraft:iron_pickaxe": 1,
    "minecraft:lantern": 3,
+   "minecraft:oak_planks": 2,
+   "minecraft:piston": 1,
    "minecraft:shulker_box": 1,
    "minecraft:spruce_planks": 4,
+   "minecraft:stick": 8,
    "minecraft:string": 5,
+   "minecraft:stripped_oak_wood": 9,
+   "minecraft:torch": 16,
    "minecraft:white_bed": 1,
    "mysticalagriculture:inferium_essence": 2,
+   "silentgear:pickaxe": 1,
    "toolbelt:belt": 1
   },
   "names": {
@@ -481,12 +512,14 @@
    "minecraft:arrow": "Стріла",
    "minecraft:barrel": "Діжка",
    "minecraft:bone": "Кістка",
+   "minecraft:bookshelf": "Книжкова полиця",
    "minecraft:bundle": "Мішечок",
    "minecraft:chest": "Скриня",
    "minecraft:chest_minecart": "Вагонетка зі скринею",
    "minecraft:cobblestone": "Кругляк",
    "minecraft:crafting_table": "Верстак",
    "minecraft:creeper_spawn_egg": "Яйце виклику кріпера",
+   "minecraft:diamond_pickaxe": "Діамантове кайло",
    "minecraft:diamond_sword": "Діамантовий меч",
    "minecraft:ender_chest": "Скриня Енду",
    "minecraft:ender_eye": "Око Енду",
@@ -496,16 +529,27 @@
    "minecraft:gold_block": "Блок золота",
    "minecraft:hopper": "Лійка",
    "minecraft:iron_pickaxe": "Залізне кайло",
+   "minecraft:item_frame": "Рамка для предметів",
    "minecraft:lantern": "Ліхтар",
+   "minecraft:oak_planks": "Дубові дошки",
+   "minecraft:oak_slab": "Дубова плита",
    "minecraft:obsidian": "Обсидіан",
+   "minecraft:piston": "Поршень",
    "minecraft:rail": "Рейки",
    "minecraft:red_sand": "Червоний пісок",
    "minecraft:rotten_flesh": "Гнила плоть",
+   "minecraft:sandstone_stairs": "Пісковикові сходи",
    "minecraft:shulker_box": "Шалкерова коробка",
+   "minecraft:smooth_sandstone": "Гладкий пісковик",
+   "minecraft:smooth_sandstone_slab": "Плита з гладкого пісковику",
+   "minecraft:smooth_sandstone_stairs": "Сходи з гладкого пісковику",
    "minecraft:spruce_log": "Смерекова колода",
    "minecraft:spruce_planks": "Смерекові дошки",
+   "minecraft:stick": "Палиця",
    "minecraft:stone_sword": "Кам'яний меч",
    "minecraft:string": "Нитка",
+   "minecraft:stripped_oak_wood": "Обтесана дубова деревина",
+   "minecraft:torch": "Смолоскип",
    "minecraft:white_bed": "Біле ліжко",
    "minecraft:wooden_pickaxe": "Дерев'яне кайло",
    "minecraft:zombie_spawn_egg": "Яйце виклику зомбі",
@@ -514,21 +558,31 @@
    "refinedstorage:disk_drive": "Дисковод",
    "refinedstorage:grid": "Сітка",
    "silentgear:helmet_plates": "Пластини шолома",
+   "silentgear:pickaxe": "Кайло",
    "sophisticatedstorage:iron_chest": "Залізна скриня",
    "toolbelt:belt": "Інструментальний пояс"
   }
  },
  "slots": {
-  "mainHand": null,
+  "mainHand": {
+   "id": "minecraft:diamond_pickaxe",
+   "uk": "Діамантове кайло",
+   "count": 1,
+   "slot": 0,
+   "slotLabel": "Головна рука (слот 1)",
+   "slotKind": "mainHand",
+   "ns": "minecraft",
+   "modName": "Minecraft"
+  },
   "offHand": null,
   "hotbar": [
    {
-    "id": "minecraft:iron_pickaxe",
-    "uk": "Залізне кайло",
+    "id": "minecraft:diamond_pickaxe",
+    "uk": "Діамантове кайло",
     "count": 1,
     "slot": 0,
-    "slotLabel": "Гаряча панель (слот 1)",
-    "slotKind": "hotbar",
+    "slotLabel": "Головна рука (слот 1)",
+    "slotKind": "mainHand",
     "ns": "minecraft",
     "modName": "Minecraft"
    },
@@ -538,6 +592,16 @@
     "count": 1,
     "slot": 1,
     "slotLabel": "Гаряча панель (слот 2)",
+    "slotKind": "hotbar",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
+    "id": "minecraft:oak_planks",
+    "uk": "Дубові дошки",
+    "count": 2,
+    "slot": 2,
+    "slotLabel": "Гаряча панель (слот 3)",
     "slotKind": "hotbar",
     "ns": "minecraft",
     "modName": "Minecraft"
@@ -571,9 +635,49 @@
     "slotKind": "hotbar",
     "ns": "apotheosis",
     "modName": "Apotheosis"
+   },
+   {
+    "id": "minecraft:piston",
+    "uk": "Поршень",
+    "count": 1,
+    "slot": 6,
+    "slotLabel": "Гаряча панель (слот 7)",
+    "slotKind": "hotbar",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
+    "id": "minecraft:torch",
+    "uk": "Смолоскип",
+    "count": 16,
+    "slot": 7,
+    "slotLabel": "Гаряча панель (слот 8)",
+    "slotKind": "hotbar",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
+    "id": "minecraft:stick",
+    "uk": "Палиця",
+    "count": 8,
+    "slot": 8,
+    "slotLabel": "Гаряча панель (слот 9)",
+    "slotKind": "hotbar",
+    "ns": "minecraft",
+    "modName": "Minecraft"
    }
   ],
   "inventory": [
+   {
+    "id": "minecraft:stripped_oak_wood",
+    "uk": "Обтесана дубова деревина",
+    "count": 9,
+    "slot": 9,
+    "slotLabel": "Інвентар (слот 9)",
+    "slotKind": "inventory",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
    {
     "id": "minecraft:bundle",
     "uk": "Мішечок",
@@ -643,6 +747,16 @@
     "slotKind": "inventory",
     "ns": "minecraft",
     "modName": "Minecraft"
+   },
+   {
+    "id": "silentgear:pickaxe",
+    "uk": "Кайло",
+    "count": 1,
+    "slot": 22,
+    "slotLabel": "Інвентар (слот 22)",
+    "slotKind": "inventory",
+    "ns": "silentgear",
+    "modName": "Silent Gear"
    },
    {
     "id": "bhc:red_heart",
@@ -787,14 +901,14 @@
   ],
   "toolbeltTools": [
    {
-    "id": "silentgear:pickaxe",
-    "uk": "Кайло",
+    "id": "minecraft:iron_pickaxe",
+    "uk": "Залізне кайло",
     "count": 1,
     "slot": null,
     "slotLabel": "У поясі (слот 2)",
     "slotKind": "toolbelt",
-    "ns": "silentgear",
-    "modName": "Silent Gear",
+    "ns": "minecraft",
+    "modName": "Minecraft",
     "beltSlot": 1
    }
   ],
