@@ -26,7 +26,7 @@ def names_map():
     p = os.path.join(UA, 'review', 'effective.tsv'); M = {}
     if not os.path.exists(p): return M
     for r in csv.reader(open(p, encoding='utf-8'), delimiter='\t'):
-        if len(r) > 4 and r[0].split('.')[0] in ('item', 'block', 'entity', 'fluid', 'crop', 'parttype'): M[r[0]] = (r[3], r[4] or r[3])
+        if len(r) > 4 and r[0].split('.')[0] in ('item', 'block', 'entity', 'fluid', 'crop', 'parttype', 'tag'): M[r[0]] = (r[3], r[4] or r[3])
     return M
 
 def item_name(iid, M):
@@ -131,6 +131,16 @@ def filter_opts(item, M):
     mods = list(dict.fromkeys(re.findall(r'mod\(([a-z0-9_.-]+)\)', f)))
     return ([{'id': i, 'name': item_name(i, M) or ''} for i in ids] or None), ([*('#' + t for t in tags), *('@' + m for m in mods)] or None)
 
+def tag_names(tags, M):
+    """Назви груп предметів з перекладу гри: «#c:rods/wooden» → «Дерев'яні стрижні» (ключ tag.item.c.rods.wooden). Немає — пропуск."""
+    out = {}
+    for t in tags or []:
+        if not t.startswith('#'): continue
+        ns, _, path = t[1:].partition(':')
+        v = M.get(f'tag.item.{ns}.{path.replace("/", ".")}')
+        if v and (v[1] or v[0]): out[t] = v[1] or v[0]
+    return out or None
+
 def comp_note(item, M):
     """Властивості предмета, які гра перевіряє (зілля, зачарування, тип бджоли, назва…) — коротким рядком."""
     c = ((item or {}).get('components') or {}) if isinstance(item, dict) else {}
@@ -192,7 +202,7 @@ def main():
                 opts, tags = filter_opts(t.get('item'), M) if iid == 'ftbfiltersystem:smart_filter' else (None, None)
                 tasks.append({k: v for k, v in {'id': t['id'], 'type': t.get('type'), 'item': iid, 'icon': task_icon(t, have), 'count': cnt,
                               'entity': ent, 'dim': dim, 'adv': t.get('advancement'), 'structure': t.get('structure'), 'biome': t.get('biome'),
-                              'opt': t.get('optional_task'), 'opts': opts, 'tags': tags, 'comp': comp_note(t.get('item'), M),
+                              'opt': t.get('optional_task'), 'opts': opts, 'tags': tags, 'tagn': tag_names(tags, M), 'comp': comp_note(t.get('item'), M),
                               'consume': t.get('consume_items'),
                               'name': ttl or item_name(iid or ent, M)}.items() if v not in (None, '', 1, False)})
             title = strip_fmt(text(Lu, Le, f'quest.{qid}.title') or '') or (tasks[0].get('name') if tasks else '') or ''

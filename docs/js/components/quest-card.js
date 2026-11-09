@@ -59,7 +59,7 @@ export function questDetail(s, ctx, q, o) {
         t.opt ? h('span.muted.small', null, ' (необов\'язкове)') : null,
         t.consume ? h('span.muted.small', { title: 'Предмети забираються з інвентаря під час здачі' }, ' — забирається') : null),
         t.opts?.length || t.tags?.length ? h('div.q-opts', null, 'будь-що з: ', (t.opts || []).map((x) => h('span.q-opt', { title: x.id }, qIcon(x.id, ctx, '•', '.sm'), x.name || x.id.split(':')[1])),
-          (t.tags || []).map((x) => h('span.q-opt', null, x.startsWith('@') ? `увесь мод ${x.slice(1)}` : `тег ${x.slice(1)}`))) : null);
+          (t.tags || []).map((x) => h('span.q-opt', { title: x.slice(1) }, x.startsWith('@') ? `увесь мод ${x.slice(1)}` : (t.tagn?.[x] ? `«${t.tagn[x]}»` : `група ${x.slice(1)}`)))) : null);
     }))] : null,
     q.rw?.length ? [h('h4.q-sec', null, 'Нагороди'), h('div.q-rw', null, q.rw.map((r) => {
       const L = rewardLabel(r);

@@ -12,3 +12,5 @@ raw/lang_index.json
 raw/registry_index.json
 raw/config_index.json
 raw/kubejs_index.json
+# граф рецептів (R1, R1b) — 74 МБ, генерує tools/build_recipes_db.py (копія — ATM11-Companion/data/recipes.db)
+raw/recipes.db
