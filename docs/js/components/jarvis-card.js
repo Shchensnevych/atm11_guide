@@ -1,28 +1,18 @@
 // @ts-check
-// components/jarvis-card.js — вкладка «🧠 Ядро Джарвіса та сховища» (#/assistant):
-// сучасна 2-колонкова станція керування (категорії зліва + панель налаштувань праворуч), синхронізована з HUD ⚙️ та ATM11-Companion.
-// Дані — лише з живого моста (:8812); DOM — виключно через h() / textContent (SECURITY §4).
+// components/jarvis-card.js — вкладка «🧩 Компаньйон і сховища» (#/assistant): що зараз працює (стан конструктора
+// компаньйона — лише показ; налаштування змінюються в одному місці, у вікні ATM11-Companion → «Конструктор»),
+// зони й пошук у сховищах, пам'ять, діагностика.
+// Дані — лише з живого моста (:8812): поле `components` повного стану; DOM — виключно через h() / textContent (SECURITY §4).
 import { h, mount } from '../core/dom.js';
 
 const SEC_LS_KEY = 'atm11.site.jarvis.sec';
 const NAV_ITEMS = [
-  ['mode', '⚙️', 'Режим і характер'],
-  ['mods', '🧩', 'Модулі (CU)'],
-  ['voice', '🎙️', 'Голосовий ввід'],
-  ['soul', '✨', 'Живий супутник'],
+  ['build', '🧩', 'Що працює'],
   ['storage', '📦', 'Сховища'],
   ['memory', '🧠', 'Пам’ять'],
   ['help', '🩺', 'Діагностика'],
 ];
-
-const PTT_MODE = /** @type {Record<string, string>} */ ({
-  hook: '🟢 тримай-говори (uiohook)',
-  shortcut: '🟡 перемикач (globalShortcut)',
-  unavailable: '🔴 недоступно',
-  off: '⚪ модуль вимкнено',
-  error: '🔴 помилка',
-  unknown: '— (стан повідомляє вікно компаньйона)',
-});
+const SECTIONS = new Set(NAV_ITEMS.map(([id]) => id));
 
 const MEM_ICON = /** @type {Record<string, string>} */ ({
   death: '💀', advancement: '🏆', dimension: '🌀', milestone: '🗺️', quest: '📜',
@@ -34,11 +24,11 @@ const DIAG_ICON = /** @type {Record<string, string>} */ ({
 
 const cache = {
   /** @type {HTMLElement | null} */ root: null,
-  sec: (() => { try { return localStorage.getItem(SEC_LS_KEY) || 'mode'; } catch { return 'mode'; } })(),
+  sec: (() => { try { const v = localStorage.getItem(SEC_LS_KEY) || ''; return SECTIONS.has(v) ? v : 'build'; } catch { return 'build'; } })(),
   baseUrl: 'http://127.0.0.1:8812',
   connected: false,
   /** @type {(() => Promise<void> | void) | null} */ onReconnect: null,
-  /** @type {any} */ last: null,
+  /** @type {any} */ comp: null,   // стан конструктора з моста: { groups, components, profiles, profile }
   /** @type {any} */ stats: null,
   /** @type {any} */ ownData: null,
   ownLoadedAt: 0,
@@ -47,7 +37,6 @@ const cache = {
   noteDraft: '',
   /** @type {any} */ diagReport: null,
   diagBusy: false,
-  /** @type {any} */ pttCheck: null,
   toast: '',
   storageQuery: '',
   /** @type {HTMLElement | null} */ storageResultsEl: null,
@@ -70,23 +59,18 @@ function setToast(msg) {
 }
 
 /** @param {any} patch */
-async function updateJarvis(patch) {
-  try {
-    const { r, d } = await apiCall('/api/jarvis/config', patch);
-    if (r.status === 409 && d.check) {
-      cache.pttCheck = d.check;
-      cache.toast = '';
-    } else if (!r.ok || !d.ok) {
-      cache.toast = `⚠ ${d.error || `HTTP ${r.status}`}`;
-    } else {
-      cache.last = d;
-      cache.pttCheck = null;
-      cache.toast = '';
-    }
-  } catch (e) {
-    cache.toast = `⚠ Міст недоступний: ${e instanceof Error ? e.message : String(e)}`;
-  }
-  draw();
+/** Значення налаштування словами (тип — з реєстру моста). @param {any} s */
+function settingText(s) {
+  if (s.type === 'toggle') return s.value ? 'так' : 'ні';
+  if (s.type === 'choice') return (s.options || []).find((/** @type {any} */ o) => o.id === s.value)?.name || String(s.value);
+  return `${s.value}${s.unit ? ` ${s.unit}` : ''}`;
+}
+
+/** Стан компонента одним словом. @param {any} x */
+function stateText(x) {
+  if ((x.blockedBy || []).length) return `потрібен: ${x.blockedBy.join(', ')}`;
+  if (!x.enabled) return 'вимкнено';
+  return x.status?.text || 'працює';
 }
 
 async function ensureOwnLoaded(force = false) {
@@ -152,134 +136,33 @@ async function searchStorage(text) {
 }
 
 /** Рендерить активну категорію налаштувань Ядра праворуч. @param {any} j */
-function renderActivePane(j) {
+function renderActivePane(c) {
   const sec = cache.sec;
 
-  if (sec === 'mode') {
-    const bonuses = (j.capacity?.bonuses || []).map((/** @type {any} */ b) => b.label).join(' · ');
+  if (sec === 'build') {
+    const profile = (c.profiles || []).find((/** @type {any} */ p) => p.id === c.profile);
     return h('div.jv-sec', null,
-      h('h4.jv-sec-title', null, '⚙️ Режим і характер'),
-      h('div.jv-set-row', null,
-        h('div.jv-set-lbl', null,
-          h('span', null, 'Ємність ядра'),
-          h('small.muted', null, '100 CU — усі модулі одразу; «Прогресія» — 50 CU + бонуси за прогрес світу')),
-        h('div.seg', null, [['sandbox', '100 CU'], ['progression', 'Прогресія']].map(([id, lbl]) =>
-          h(`button${j.mode === id ? '.on' : ''}`, { type: 'button', onclick: () => updateJarvis({ mode: id }) }, lbl)))),
-      h('div.jv-set-row', null,
-        h('div.jv-set-lbl', null, h('span', null, 'Характер супутника')),
-        h('select.wb-select', {
-          'aria-label': 'Характер супутника',
-          onchange: (/** @type {Event} */ e) => updateJarvis({ persona: /** @type {HTMLSelectElement} */ (e.target).value }),
-        }, (j.personas || []).map((/** @type {any} */ p) => h('option', { value: p.id, selected: p.id === j.persona }, p.name)))),
-      h('div.jv-set-row', null,
-        h('div.jv-set-lbl', null,
-          h('span', null, 'Голосові тригери загроз'),
-          h('small.muted', null, 'Озвучення ворогів зі спини, критичного ХП та зносу броні (0 токенів API)')),
-        renderSwitch(Boolean(j.voiceAlertsEnabled), (v) => updateJarvis({ voiceAlertsEnabled: v }), 'Голосові тригери загроз')),
-      h('div.jv-group-title', null, 'Швидкі набори модулів'),
-      h('div.jv-presets', null, (j.presets || []).map((/** @type {any} */ p) =>
-        h('button.btn.small', { type: 'button', onclick: () => updateJarvis({ preset: p.id }) }, p.name))),
-      bonuses ? h('div.small.muted.jv-note', null, bonuses) : null);
-  }
-
-  if (sec === 'mods') {
-    return h('div.jv-sec', null,
-      h('h4.jv-sec-title', null, '🧩 Модулі ядра (CU)'),
-      h('div.jv-mods', null, (j.modules || []).map((/** @type {any} */ m) =>
-        h(`div.jv-mod-row${m.enabled ? '.on' : ''}`, { title: m.desc || '' },
-          h('span.jv-mod-ic', null, m.icon),
-          h('div.jv-mod-txt', null,
-            h('b', null, m.name),
-            h('small.muted', null, m.shortDesc || '')),
-          h('span.jv-cu-cost', null, `${m.cost} CU`),
-          renderSwitch(Boolean(m.enabled), (v) => updateJarvis({ enabledModules: { [m.id]: v } }), m.name)))));
-  }
-
-  if (sec === 'voice') {
-    const st = j.pttStatus || {};
-    const chk = cache.pttCheck;
-    const stt = j.stt || {};
-    return h('div.jv-sec', null,
-      h('h4.jv-sec-title', null, '🎙️ Голосовий ввід у грі (Push-to-Talk)'),
-      h('div.jv-set-row', null,
-        h('div.jv-set-lbl', null, h('span', null, 'Клавіша у грі')),
-        h('kbd.ai-kbd.jv-key', null, j.pttHotkey ? `${j.pttHotkey}${j.pttHotkeyTitle && j.pttHotkeyTitle !== j.pttHotkey ? ` — ${j.pttHotkeyTitle}` : ''}` : '—')),
-      h('div.jv-set-row', null,
-        h('div.jv-set-lbl', null,
-          h('span', null, 'Стан перехоплення'),
-          st.message ? h('small.muted', null, st.message) : null),
-        h('span.small', null, PTT_MODE[st.mode] || PTT_MODE.unknown)),
-      h('div.jv-group-title', null, 'Швидке призначення бічної кнопки миші'),
-      h('div.jv-btns', null,
-        h('button.btn.small', { type: 'button', onclick: () => updateJarvis({ pttHotkey: 'Mouse5' }) }, '🖱️ Mouse5 (дальня)'),
-        h('button.btn.small', { type: 'button', onclick: () => updateJarvis({ pttHotkey: 'Mouse4' }) }, '🖱️ Mouse4 (ближня)')),
-      chk ? h('div.jv-check', null,
-        h('div.small', { style: { color: 'var(--bad)' } }, `✕ «${chk.canonical}» перетинається з клавішами гри (${chk.source}):`),
-        h('ul.small', null, (chk.conflicts || []).slice(0, 6).map((/** @type {any} */ c) => h('li', null, h('b', null, c.name), ` · ${c.ns} — ${c.why}`))),
-        h('button.btn.small', { type: 'button', onclick: () => updateJarvis({ pttHotkey: chk.canonical, force: true }) }, '⚠ Все одно призначити')) : null,
-      h('div.jv-set-row', null,
-        h('div.jv-set-lbl', null, h('span', null, 'Надсилати одразу після диктування')),
-        renderSwitch(j.pttAutoSend !== false, (v) => updateJarvis({ pttAutoSend: v }), 'Автонадсилання голосу')),
-      h('div.small.muted.jv-note', null,
-        'Довільну комбінацію з Ctrl / Shift / Alt призначає рекордер у HUD (Alt+Q → ⚙️) або у вікні ATM11-Companion. Для голосового вводу прямо на сайті використовуйте кнопку 🎙️ у полі чату праворуч.'),
-      h('div.small.muted.jv-note', null,
-        stt.available === false
-          ? 'Whisper STT у компаньйоні вимкнено (немає TOGETHER_API_KEY у .env).'
-          : `Whisper STT: ${stt.model || 'openai/whisper-large-v3'} · запитів ${stt.requests || 0} (успішно ${stt.ok || 0}, аудіо ${stt.audioSec || 0} с)`));
-  }
-
-  if (sec === 'soul') {
-    const soul = j.soul || {};
-    const soulOn = Boolean((j.modules || []).find((/** @type {any} */ m) => m.id === 'companion_soul')?.enabled);
-    const fd = (j.soulFrequencies || []).find((/** @type {any} */ f) => f.id === j.soulFrequency);
-    return h('div.jv-sec', null,
-      h('h4.jv-sec-title', null, '✨ Живий супутник'),
-      h('div.jv-group-title', null, 'Частота реплік'),
-      h('div.seg.jv-seg-wide', null, (j.soulFrequencies || []).map((/** @type {any} */ f) =>
-        h(`button${j.soulFrequency === f.id ? '.on' : ''}`, { type: 'button', title: f.desc, onclick: () => updateJarvis({ soulFrequency: f.id }) }, f.name))),
-      h('div.small.muted.jv-note', null, soulOn ? (fd?.desc || '') : 'Модуль «Живий характер супутника» вимкнено в розділі «Модулі (CU)».'),
-      h('div.small.jv-note', null, `Реплік за сесію: ${soul.lines || 0} · порад ШІ: ${soul.advice || 0} / ${soul.adviceMax || 0}`),
-      h('div.jv-group-title', null, 'Тест реплік супутника'),
-      h('div.jv-btns', null, [['dim', '🌀 Тест: вимір'], ['deep_dark', '🌑 Глибини'], ['night', '🌙 Ніч']].map(([id, lbl]) =>
-        h('button.btn.small', {
-          type: 'button',
-          onclick: async () => {
-            const { r, d } = await apiCall('/api/jarvis/soul-test', { type: id });
-            setToast(r.ok ? `✨ ${d.alert?.text || 'Репліку надіслано в HUD'}` : `⚠ ${d.error || r.status}`);
-          },
-        }, lbl))),
-      h('div.jv-group-title', null, '🔊 Тест тригерів загроз'),
-      h('div.jv-btns', null, [['stealth_mob', '💥 Ворог ззаду'], ['low_hp', '❤️‍🩹 ХП ≤30%'], ['low_gear', '🛡️ Знос <5%']].map(([id, lbl]) =>
-        h('button.btn.small', {
-          type: 'button',
-          onclick: async () => {
-            const { r } = await apiCall('/api/jarvis/test-alert', { type: id });
-            setToast(r.ok ? '🔊 Тестовий сигнал надіслано в HUD' : '⚠ Не вдалося надіслати сигнал');
-          },
-        }, lbl))),
-      (soul.recent || []).length ? h('div.chips.jv-note', null,
-        soul.recent.map((/** @type {any} */ x) => h('span.chip', { title: new Date(x.ts).toLocaleTimeString() }, x.text))) : null);
+      h('h4.jv-sec-title', null, '🧩 Що зараз працює'),
+      h('p.small.muted', null,
+        `Стан конструктора компаньйона${profile ? ` · профіль «${profile.name}»` : ''}. Змінити — у вікні ATM11-Companion → вкладка «Конструктор».`),
+      (c.groups || []).map((/** @type {any} */ g) => {
+        const list = c.components.filter((/** @type {any} */ x) => x.group === g.id);
+        return list.length ? h('div.jv-cmp-group', null,
+          h('div.jv-group-title', null, `${g.icon} ${g.name}`),
+          list.map((/** @type {any} */ x) => h(`div.jv-cmp${x.active ? '.on' : ''}`, null,
+            h('span.jv-mod-ic', null, x.icon),
+            h('div.jv-mod-txt', null,
+              h('b', null, x.name),
+              h('small.muted', null, x.desc),
+              x.active && (x.settings || []).length ? h('div.chips.jv-note', null,
+                x.settings.map((/** @type {any} */ st) => h('span.chip', null, `${st.label}: ${settingText(st)}`))) : null),
+            h(`span.badge${x.active ? '' : '.ghost'}`, null, stateText(x))))) : null;
+      }));
   }
 
   if (sec === 'storage') {
     ensureOwnLoaded(false);
-    const rv = Math.max(16, Math.min(128, Math.round((Number(j.ownZoneRadius) || 48) / 8) * 8));
-    const pct = `${(((rv - 16) / (128 - 16)) * 100).toFixed(1)}%`;
-    const badgeEl = h('span.badge', { style: { '--c': 'var(--accent)' } }, `${rv} бл.`);
-    const rangeEl = /** @type {HTMLInputElement} */ (h('input.jv-range', {
-      type: 'range',
-      min: '16',
-      max: '128',
-      step: '8',
-      value: String(rv),
-      style: { '--slider-pct': pct },
-      oninput: () => {
-        const v = Number(rangeEl.value) || 48;
-        rangeEl.style.setProperty('--slider-pct', `${(((v - 16) / (128 - 16)) * 100).toFixed(1)}%`);
-        badgeEl.textContent = `${v} бл.`;
-      },
-      onchange: () => updateJarvis({ ownZoneRadius: Number(rangeEl.value) || 48 }),
-    }));
+    const zone = c.components.find((/** @type {any} */ x) => x.id === 'storage_nav')?.settings.find((/** @type {any} */ x) => x.key === 'zoneRadius');
     const stStats = cache.stats;
     const own = cache.ownData;
     const stInp = /** @type {HTMLInputElement} */ (h('input.ai-input', {
@@ -295,19 +178,7 @@ function renderActivePane(j) {
 
     return h('div.jv-sec', null,
       h('h4.jv-sec-title', null, '📦 Мої сховища та Навігатор (!де)'),
-      h('div.jv-set-col', null,
-        h('div.jv-set-top', null,
-          h('div.jv-set-lbl', null,
-            h('span', null, 'Радіус зони «тут моя база / шахта / ферма»'),
-            h('small.muted', null, 'Поставлені й сусідні скрині у цьому радіусі вважаються вашими')),
-          badgeEl),
-        h('div.jv-slider-wrap', null,
-          rangeEl,
-          h('div.jv-slider-ticks', null,
-            h('span', null, '16'),
-            h('span', null, '48 (типово)'),
-            h('span', null, '96'),
-            h('span', null, '128 бл.')))),
+      zone ? h('p.small.muted', null, `Радіус зони «тут моя база / шахта / ферма»: ${settingText(zone)} — змінюється в «Конструкторі» компаньйона.`) : null,
       h('div.jv-group-title', null, 'Активні зони гравця'),
       own ? h('div.jv-own-box', null,
         (own.zones || []).length
@@ -431,14 +302,14 @@ function renderActivePane(j) {
 
 function draw() {
   if (!cache.root) return;
-  const j = cache.last;
-  if (!cache.connected || !j || !Array.isArray(j.modules)) {
+  const c = cache.comp;
+  if (!cache.connected || !c || !Array.isArray(c.components)) {
     mount(cache.root, h('div.card.jv-offline', null,
       h('div.jv-head', null,
-        h('h3', null, '🧠 Ядро Компаньйона (Джарвіс V1.0) та 📦 Сховища'),
+        h('h3', null, '🧩 Компаньйон і 📦 сховища'),
         h('span.badge.ghost', null, 'Міст офлайн')),
       h('p.small.muted', null,
-        'Ця вкладка керує живим ядром ATM11-Companion (:8812): модулями CU, характером Джарвіса, Push-to-Talk, радіусом зон бази та миттєвим пошуком по скринях (!де). Запустіть ATM11-Companion на ПК, щоб активувати панель.'),
+        'Тут видно, що зараз увімкнено в ATM11-Companion (:8812), зони й пошук у сховищах, пам’ять і діагностику. Запустіть компаньйон — дані з’являться самі.'),
       h('div.jv-btns', null,
         cache.onReconnect ? h('button.btn.small.primary', {
           type: 'button',
@@ -447,22 +318,19 @@ function draw() {
     return;
   }
 
-  const used = Number(j.usedCu) || 0;
-  const max = Number(j.maxCu) || 100;
-  const pct = max ? Math.min(100, Math.round((used / max) * 100)) : 0;
+  const active = c.components.filter((/** @type {any} */ x) => x.active).length;
 
   mount(cache.root, h('div.card.jv-shell', null,
     h('div.jv-head', null,
       h('div', null,
-        h('h3', null, '🧠 Ядро Компаньйона (Джарвіс V1.0)'),
-        h('span.small.muted', null, 'Ті самі налаштування, що в ігровому HUD (Alt+Q) та вікні ATM11-Companion')),
-      h('span.badge', { style: { '--c': used > max ? 'var(--bad)' : 'var(--accent)' } }, `${used} / ${max} CU`)),
-    h('div.jv-cu', null, h('div.jv-cu-fill', { style: { width: `${pct}%` } })),
+        h('h3', null, '🧩 Компаньйон'),
+        h('span.small.muted', null, 'Стан із живого моста; налаштування — у вікні ATM11-Companion → «Конструктор»')),
+      h('span.badge', { style: { '--c': 'var(--accent)' } }, `працює ${active} з ${c.components.length}`)),
     cache.toast ? h('div.small.jv-toast', null,
       h('span', null, cache.toast),
       h('button.wb-btn', { type: 'button', onclick: () => setToast('') }, '✕')) : null,
     h('div.jv-layout', null,
-      h('nav.jv-nav', { role: 'tablist', 'aria-label': 'Розділи ядра Джарвіса' },
+      h('nav.jv-nav', { role: 'tablist', 'aria-label': 'Розділи компаньйона' },
         NAV_ITEMS.map(([id, ic, lbl]) => h(`button.jv-nav-item${cache.sec === id ? '.on' : ''}`, {
           type: 'button',
           role: 'tab',
@@ -473,11 +341,11 @@ function draw() {
             draw();
           },
         }, h('span.jv-nav-ic', null, ic), h('span', null, lbl)))),
-      h('div.jv-pane', null, renderActivePane(j)))));
+      h('div.jv-pane', null, renderActivePane(c)))));
 }
 
 /**
- * Рендерить вкладку «🧠 Ядро Джарвіса та сховища».
+ * Рендерить вкладку «🧩 Компаньйон і сховища».
  * @param {any} st
  * @param {string} baseUrl
  * @param {() => Promise<void> | void} [onReconnect]
@@ -486,22 +354,17 @@ export function renderJarvisTab(st, baseUrl, onReconnect) {
   cache.baseUrl = baseUrl;
   cache.connected = Boolean(st.liveConnected);
   cache.onReconnect = onReconnect || null;
-  if (st.liveState?.jarvis) cache.last = st.liveState.jarvis;
+  if (st.liveState?.components) cache.comp = st.liveState.components;
   cache.stats = st.liveState?.storageIndexStats || cache.stats;
   if (!cache.root) cache.root = h('div.jv-wrap');
   draw();
   return cache.root;
 }
 
-/** Оновлення з події SSE jarvis-state. @param {any} j */
-export function updateJarvisState(j) {
-  if (!j || !Array.isArray(j.modules)) return;
-  // Не перериваємо перетягування повзунка радіуса зони під час SSE-оновлення
-  const active = document.activeElement;
-  if (active && active.classList?.contains('jv-range')) {
-    cache.last = { ...j, ownZoneRadius: cache.last?.ownZoneRadius ?? j.ownZoneRadius };
-    return;
-  }
-  cache.last = j;
+/** Новий стан конструктора (поле `components` події SSE `state`). @param {any} c */
+export function updateComponentsState(c) {
+  if (!c || !Array.isArray(c.components)) return;
+  if (JSON.stringify(c) === JSON.stringify(cache.comp)) return;   // стан приходить кожні 2,5 с — без змін не перемальовуємо
+  cache.comp = c;
   draw();
 }

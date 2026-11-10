@@ -9,7 +9,7 @@ import { loadKeys, syncBridgeOptions } from '../core/keys-model.js';
 import { pickGameFolder, rescanSavedGameFolder, getBrowserGameState } from '../core/game-folder.js';
 import { analyzePlayerState } from '../core/advisor.js';
 import { buildCorpus, searchGuide, composeLocalAnswer, loadAssistantConfig, saveAssistantConfig } from '../core/rag.js';
-import { renderJarvisTab, updateJarvisState } from '../components/jarvis-card.js';
+import { renderJarvisTab, updateComponentsState } from '../components/jarvis-card.js';
 import { renderSlotsAndKeysTab } from './assistant/slots-view.js';
 import { kpi, countSlotItems, renderNextTab, renderLogTab } from './assistant/tabs.js';
 import { createUnifiedChatView } from './assistant/chat-feed.js';
@@ -404,7 +404,10 @@ export async function render(el, _p, s) {
       sse = new EventSource(`${url}/events`);
       sse.addEventListener('state', (ev) => {
         if (!el.isConnected) { cleanup(); return; }
-        try { applyLiveCompanionState(JSON.parse(/** @type {MessageEvent} */ (ev).data), false); } catch { /* ignore */ }
+        try {
+          applyLiveCompanionState(JSON.parse(/** @type {MessageEvent} */ (ev).data), false);
+          if (st.leftTab === 'core') updateComponentsState(st.liveState?.components);
+        } catch { /* ignore */ }
       });
       sse.addEventListener('game-event', (ev) => {
         if (!el.isConnected) { cleanup(); return; }
@@ -435,14 +438,6 @@ export async function render(el, _p, s) {
             if (st.chatHistory.length > limit) st.chatHistory = st.chatHistory.slice(-limit);
             chatView.syncStream(false);
           }
-        } catch { /* ignore */ }
-      });
-      sse.addEventListener('jarvis-state', (ev) => {
-        if (!el.isConnected) { cleanup(); return; }
-        try {
-          const j = JSON.parse(/** @type {MessageEvent} */ (ev).data);
-          if (st.liveState) st.liveState.jarvis = j;
-          if (st.leftTab === 'core') updateJarvisState(j);
         } catch { /* ignore */ }
       });
       sse.addEventListener('chat-cleared', () => {
@@ -587,7 +582,7 @@ export async function render(el, _p, s) {
         [['slots', `🎒 Слоти й клавіші (${slotCnt})`],
          ['next', `🧭 Наступні кроки (${an.availNodes.length})`],
          ['log', `📜 Події та лог${evCount ? ` (${evCount})` : ''}`],
-         ['core', '🧠 Ядро Джарвіса та сховища']].map(([id, label]) =>
+         ['core', '🧩 Компаньйон і сховища']].map(([id, label]) =>
           h(`button${st.leftTab === id ? '.on' : ''}`, {
             type: 'button',
             role: 'tab',

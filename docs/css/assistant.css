@@ -291,8 +291,6 @@ a.ai-kpi:hover { border-color: var(--accent); text-decoration: none; }
 .jv-wrap { display: flex; flex-direction: column; gap: 12px; }
 .jv-shell, .jv-offline { display: flex; flex-direction: column; gap: 10px; }
 .jv-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; }
-.jv-cu { height: 6px; border-radius: 999px; background: var(--bg-2); border: 1px solid var(--line); overflow: hidden; }
-.jv-cu-fill { height: 100%; background: linear-gradient(90deg, var(--accent-2), var(--accent)); transition: width .2s ease; }
 .jv-toast { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 6px 10px; border-radius: var(--radius-sm); background: var(--bg-2); border: 1px solid var(--accent); color: var(--accent); }
 
 .jv-layout { display: grid; grid-template-columns: 192px minmax(0, 1fr); gap: 14px; align-items: start; margin-top: 4px; }
@@ -327,10 +325,8 @@ a.ai-kpi:hover { border-color: var(--accent); text-decoration: none; }
 
 .jv-group-title { font-size: .76rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin-top: 4px; }
 .jv-group-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin-top: 4px; }
-.jv-presets, .jv-btns { display: flex; flex-wrap: wrap; gap: 7px; }
+.jv-btns { display: flex; flex-wrap: wrap; gap: 7px; }
 .jv-note { line-height: 1.4; }
-.jv-seg-wide { display: flex; width: 100%; height: auto; }
-.jv-seg-wide button { flex: 1; min-height: 32px; }
 
 /* Перемикач .ui-switch */
 .ui-switch { position: relative; display: inline-block; width: 40px; height: 22px; flex-shrink: 0; cursor: pointer; }
@@ -342,50 +338,18 @@ a.ai-kpi:hover { border-color: var(--accent); text-decoration: none; }
 
 /* Список модулів CU */
 .jv-mods { display: flex; flex-direction: column; gap: 7px; }
-.jv-mod-row { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto auto; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 8px; background: var(--panel); border: 1px solid var(--line); }
-.jv-mod-row.on { border-color: color-mix(in srgb, var(--accent) 65%, var(--line)); }
+.jv-cmp-group { display: flex; flex-direction: column; gap: 6px; }
+.jv-cmp { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; align-items: start; gap: 10px; padding: 9px 11px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg-2); }
+.jv-cmp.on { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+.jv-cmp:not(.on) .jv-mod-txt, .jv-cmp:not(.on) .jv-mod-ic { opacity: .6; }
 .jv-mod-ic { font-size: 1.05rem; text-align: center; }
 .jv-mod-txt { display: flex; flex-direction: column; min-width: 0; }
 .jv-mod-txt b { font-size: .85rem; }
 .jv-mod-txt small { font-size: .74rem; }
-.jv-cu-cost { padding: 2px 7px; border-radius: 6px; background: var(--bg-2); border: 1px solid var(--line-2); font: 700 .74rem/1.3 var(--mono); color: var(--accent); white-space: nowrap; }
-.jv-key { white-space: normal; word-break: break-word; }
 .jv-check { padding: 8px 10px; border-radius: 8px; background: var(--panel); border: 1px solid var(--bad); }
 .jv-check ul { margin: 4px 0 8px; padding-left: 18px; }
 
 /* Повзунок радіуса зони бази (16..128 бл.) */
-.jv-slider-wrap { display: flex; flex-direction: column; gap: 5px; width: 100%; }
-.jv-range {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 100%;
-  height: 7px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--accent) var(--slider-pct, 28.6%), var(--line-2) var(--slider-pct, 28.6%));
-  outline: none;
-  cursor: pointer;
-}
-.jv-range::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: var(--accent);
-  border: 2px solid var(--bg);
-  box-shadow: 0 1px 5px rgb(0 0 0 / 45%);
-  cursor: grab;
-}
-.jv-range::-moz-range-thumb {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: var(--accent);
-  border: 2px solid var(--bg);
-  box-shadow: 0 1px 5px rgb(0 0 0 / 45%);
-  cursor: grab;
-}
-.jv-slider-ticks { display: flex; justify-content: space-between; font-size: .72rem; color: var(--muted); }
 
 /* Сховища, пам'ять і діагностика */
 .jv-own-box { display: flex; flex-direction: column; gap: 6px; padding: 8px 10px; border-radius: 8px; background: var(--panel); border: 1px solid var(--line); }
