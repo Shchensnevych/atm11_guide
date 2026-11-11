@@ -74,65 +74,76 @@ def categorize(t):
         return 'farming', 0
     return 'machine_processing', 0
 
+RX_REF = re.compile(r'^#?[a-z0-9_.-]+:[a-z0-9_./-]+$')   # ns:шлях або #ns:шлях — усе інше в базу не йде
+WRAPPERS = ('ingredient', 'content', 'result', 'stack', 'output')   # обгортка: сам запис — усередині (кількість / шанс — зовні)
+
+def _clean_ref(s):
+    """Рядок запису → (id або #тег, кількість): «3x ns:id», «ns:id[компоненти]»."""
+    s = str(s).strip(); count = 1.0
+    m = re.match(r'^(\d+)x\s+(.+)$', s)
+    if m: count, s = float(m.group(1)), m.group(2)
+    s = re.sub(r'\[.*$', '', s).strip()
+    if s and ':' not in s: s = ('#minecraft:' + s[1:]) if s.startswith('#') else 'minecraft:' + s   # без простору імен — ванільний (як у грі)
+    return s, count
+
+def _num(v, default=1.0):
+    try: return float(v)
+    except (TypeError, ValueError): return default
+
 def parse_ingredient_entry(ing):
-    """Розбирає запис інгредієнта -> list of (item_or_tag, is_tag, count)."""
+    """Розбирає запис інгредієнта -> list of (item_or_tag, is_tag, count).
+    Запис — рядок, список записів або об'єкт будь-якої вкладеності: поле item / id / items (рядок, об'єкт або список
+    варіантів — тоді перший), tag, або обгортка (WRAPPERS). Кількість обгортки множиться на внутрішню."""
     if not ing:
         return []
     if isinstance(ing, str):
-        count = 1.0
-        m = re.match(r'^(\d+)x\s+(.+)$', ing.strip())
-        if m:
-            count, ing = float(m.group(1)), m.group(2)
-        ing = re.sub(r'\[.*$', '', ing).strip()
-        is_tag = ing.startswith('#')
-        return [(ing, 1 if is_tag else 0, count)]
-    if isinstance(ing, dict):
-        count = float(ing.get('count', 1.0))
-        if 'item' in ing:
-            return [(str(ing['item']), 0, count)]
-        if 'tag' in ing:
-            t = str(ing['tag'])
-            if not t.startswith('#'):
-                t = '#' + t
-            return [(t, 1, count)]
-        if 'id' in ing:
-            return [(str(ing['id']), 0, count)]
-        if 'ingredient' in ing:
-            return parse_ingredient_entry(ing['ingredient'])
+        ref, count = _clean_ref(ing)
+        return [(ref, 1 if ref.startswith('#') else 0, count)] if RX_REF.match(ref) else []
     if isinstance(ing, list):
         res = []
         for x in ing:
             res.extend(parse_ingredient_entry(x))
         return res
+    if isinstance(ing, dict):
+        count = _num(ing.get('count', 1.0))
+        scaled = lambda sub: [(ref, is_tag, c * count) for ref, is_tag, c in sub]
+        for key in ('item', 'id', 'items', 'value'):
+            if key in ing:
+                v = ing[key]
+                if key in ('items', 'value') and isinstance(v, list): v = v[:1]   # варіанти на вибір — беремо перший (у схемі бази варіантів немає)
+                sub = parse_ingredient_entry(v)
+                if sub: return scaled(sub)
+        if 'tag' in ing and isinstance(ing['tag'], str):
+            t = ing['tag'] if ing['tag'].startswith('#') else '#' + ing['tag']
+            return [(t, 1, count)] if RX_REF.match(t) else []
+        for key in WRAPPERS:
+            if key in ing:
+                sub = parse_ingredient_entry(ing[key])
+                if sub: return scaled(sub)
     return []
 
 def parse_output_entry(out):
-    """Розбирає результат рецепта -> list of (item_id, count, chance, is_primary)."""
+    """Розбирає результат рецепта -> list of (item_id, count, chance, is_primary). Форми запису — як в інгредієнта."""
     if not out:
         return []
     if isinstance(out, str):
-        count = 1.0
-        m = re.match(r'^(\d+)x\s+(.+)$', out.strip())
-        if m:
-            count, out = float(m.group(1)), m.group(2)
-        out = re.sub(r'\[.*$', '', out).strip()
-        return [(out, count, 1.0, 1)]
-    if isinstance(out, dict):
-        count = float(out.get('count', 1.0))
-        chance = float(out.get('chance', 1.0))
-        item_id = out.get('id') or out.get('item') or ''
-        if not item_id and 'result' in out:
-            return parse_output_entry(out['result'])
-        item_id = re.sub(r'\[.*$', '', str(item_id)).strip()
-        if item_id:
-            return [(item_id, count, chance, 1)]
+        ref, count = _clean_ref(out)
+        return [(ref, count, 1.0, 1)] if RX_REF.match(ref) else []   # вихід-тег («будь-що з групи») лишається як є
     if isinstance(out, list):
         res = []
         for i, x in enumerate(out):
-            sub = parse_output_entry(x)
-            for item_id, count, chance, _ in sub:
+            for item_id, count, chance, _ in parse_output_entry(x):
                 res.append((item_id, count, chance, 1 if i == 0 else 0))
         return res
+    if isinstance(out, dict):
+        count = _num(out.get('count', 1.0)); chance = _num(out.get('chance', 1.0))
+        if chance > 1.0: chance = min(1.0, chance / 10000.0)   # імовірність понад 1 — запис у десятитисячних (10000 = завжди)
+        for key in ('id', 'item', 'items') + WRAPPERS:
+            if key in out:
+                v = out[key]
+                if key == 'items' and isinstance(v, list): v = v[:1]
+                sub = parse_output_entry(v)
+                if sub: return [(item_id, c * count, ch * chance if chance != 1.0 else ch, prim) for item_id, c, ch, prim in sub]
     return []
 
 def parse_fluids(d):
@@ -488,6 +499,14 @@ def main():
                             parsed_outs.extend(parse_output_entry(raw_d[k]))
                             break
                     parsed_fls = parse_fluids(raw_d)
+
+            # Вхід, записаний окремим полем рецепта (не в ingredients / input): рядок верхнього рівня, який індекс сита
+            # знає як вхід цього рецепта, — теж інгредієнт (за структурою запису, без переліку полів під моди)
+            if parsed_ings and raw_d and isinstance(raw_d, dict) and meta.get('in'):
+                known = {i for i, _, _, _, _ in parsed_ings}
+                for v in raw_d.values():
+                    if isinstance(v, str) and v in meta['in'] and v not in known:
+                        parsed_ings.append((v, 1 if v.startswith('#') else 0, 1.0, 'input', None)); known.add(v)
 
             # Якщо raw_d не було або парсинг порожній — беремо з індексу сита
             if not parsed_ings and meta.get('in'):

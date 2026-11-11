@@ -26,7 +26,7 @@ def names_map():
     p = os.path.join(UA, 'review', 'effective.tsv'); M = {}
     if not os.path.exists(p): return M
     for r in csv.reader(open(p, encoding='utf-8'), delimiter='\t'):
-        if len(r) > 4 and r[0].split('.')[0] in ('item', 'block', 'entity', 'fluid', 'crop', 'parttype', 'tag'): M[r[0]] = (r[3], r[4] or r[3])
+        if len(r) > 4 and r[0].split('.')[0] in ('item', 'block', 'entity', 'fluid', 'crop', 'parttype', 'tag', 'enchantment'): M[r[0]] = (r[3], r[4] or r[3])
     return M
 
 def item_name(iid, M):
@@ -145,11 +145,16 @@ def comp_note(item, M):
     """Властивості предмета, які гра перевіряє (зілля, зачарування, тип бджоли, назва…) — коротким рядком."""
     c = ((item or {}).get('components') or {}) if isinstance(item, dict) else {}
     out = []
+    uk = lambda key: (M.get(key) or ('', ''))[1] or (M.get(key) or ('', ''))[0]   # назва з перекладу гри за ключем
     pc = c.get('minecraft:potion_contents')
-    if isinstance(pc, dict) and pc.get('potion'): out.append('зілля ' + pc['potion'].split(':')[-1])
+    if isinstance(pc, dict) and pc.get('potion'):   # назва зілля — як у грі (ключ ванільного зілля з цим вмістом); немає — id
+        pid = pc['potion'].split(':')[-1]   # подовжене / посилене зілля (long_ / strong_) гра називає так само, як звичайне
+        out.append(uk('item.minecraft.potion.effect.' + pid) or uk('item.minecraft.potion.effect.' + re.sub(r'^(long|strong)_', '', pid)) or 'зілля ' + pid)
     for k in ('minecraft:stored_enchantments', 'minecraft:enchantments'):
         e = c.get(k)
-        if isinstance(e, dict): out.append('чари ' + ', '.join(f"{x.split(':')[-1]} {v}" for x, v in (e.get('levels') or e).items() if isinstance(v, int)))
+        if isinstance(e, dict):
+            ench = lambda x: uk('enchantment.' + x.replace(':', '.').replace('/', '.')) or x.split(':')[-1]
+            out.append('чари ' + ', '.join(f"{ench(x)} {v}" for x, v in (e.get('levels') or e).items() if isinstance(v, int)))
     for k, lbl in (('productivebees:bee_type', 'бджола'), ('productivefarming:color', 'колір'), ('gateways:gateway', 'брама'), ('sophisticatedstorage:wood_type', 'деревина')):
         if isinstance(c.get(k), str): out.append(f"{lbl} {c[k].split(':')[-1]}")
     if c.get('minecraft:custom_name'): out.append('з власною назвою')
@@ -158,7 +163,10 @@ def comp_note(item, M):
 def reward(r, M, RT):
     t = r.get('type'); it = oid(r.get('item'))
     if t == 'item' and it:
-        return {'t': 'item', 'item': it, 'n': r.get('count') or (r.get('item') or {}).get('count') or 1, 'name': item_name(it, M) or ''}
+        out = {'t': 'item', 'item': it, 'n': r.get('count') or (r.get('item') or {}).get('count') or 1, 'name': item_name(it, M) or ''}
+        comp = comp_note(r.get('item'), M)   # що саме за зілля / чари / тип — як у завданнях
+        if comp: out['comp'] = comp
+        return out
     if t in ('xp', 'xp_levels'): return {'t': t, 'n': r.get(t) or 0}
     if t in ('random', 'loot', 'choice'):
         tid = r.get('table_id')
@@ -198,7 +206,7 @@ def main():
                 ttl = strip_fmt(text(Lu, Le, f'task.{t["id"]}.title') or '')
                 if ttl == 'AllRightsReserved': arr = True
                 cnt = (t.get('item') or {}).get('count') if isinstance(t.get('item'), dict) else None
-                cnt = t.get('count') or cnt
+                cnt = t.get('count') or cnt or t.get('value')   # value — скільки вбити / набрати (завдання без предмета)
                 opts, tags = filter_opts(t.get('item'), M) if iid == 'ftbfiltersystem:smart_filter' else (None, None)
                 tasks.append({k: v for k, v in {'id': t['id'], 'type': t.get('type'), 'item': iid, 'icon': task_icon(t, have), 'count': cnt,
                               'entity': ent, 'dim': dim, 'adv': t.get('advancement'), 'structure': t.get('structure'), 'biome': t.get('biome'),
@@ -262,6 +270,7 @@ def main():
             i = oid(it); mid = missing_id(it) if i == 'ftbquests:missing_item' else None
             x = {'item': mid or i, 'name': item_name(mid or i, M) or '', 'n': r.get('count') or it.get('count') or 1, 'w': r.get('weight', 1.0)}
             if mid and mid.split(':')[0] not in have: x['miss'] = 1
+            if comp_note(it, M): x['comp'] = comp_note(it, M)
             if r.get('type') in ('xp', 'xp_levels'): x = {'t': r['type'], 'n': r.get(r['type']) or 0, 'w': r.get('weight', 1.0)}
             if x.get('item') or x.get('t'): its.append(x)
         tables[t['id']] = {'title': strip_fmt(RT.get(f"reward_table.{t['id']}.title") or ''), 'n': t.get('loot_size', 1), 'items': its}
