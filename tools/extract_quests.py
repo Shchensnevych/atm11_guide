@@ -9,6 +9,7 @@
 import os, sys, glob, csv, collections, re, json
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import QUESTS, UA, DATA, RAW, json5, jsave, jload, strip_fmt
+import build_names
 csv.field_size_limit(10 ** 9)
 ID_RX = re.compile(r'^[a-z0-9_.-]+:[a-z0-9_/.-]+$')
 
@@ -26,7 +27,7 @@ def names_map():
     p = os.path.join(UA, 'review', 'effective.tsv'); M = {}
     if not os.path.exists(p): return M
     for r in csv.reader(open(p, encoding='utf-8'), delimiter='\t'):
-        if len(r) > 4 and r[0].split('.')[0] in ('item', 'block', 'entity', 'fluid', 'crop', 'parttype', 'tag', 'enchantment'): M[r[0]] = (r[3], r[4] or r[3])
+        if len(r) > 4 and r[0].split('.')[0] in ('item', 'block', 'entity', 'fluid', 'parttype', 'tag', 'enchantment', 'structure'): M[r[0]] = (r[3], r[4] or r[3])
     return M
 
 def item_name(iid, M):
@@ -34,17 +35,40 @@ def item_name(iid, M):
     return re.sub(r'\s*%s\s*', ' ', n).strip(' :') if n and '%s' in n else n   # шаблон «Передбачення: %s» без компонента — без «%s»
 
 def _item_name(iid, M):
+    if 'shared' not in M: M['shared'] = build_names.shared_templates(v[1] for k, v in M.items() if k.startswith(('item.', 'block.')))
+    return build_names.pick(_tsv_name(iid, M), GAME_ITEMS.get(iid), (GAME_BASE.get(iid) or [None])[0], M['shared'])[0]   # те саме правило, що й у names.json
+
+def _tsv_name(iid, M):
     if not isinstance(iid, str) or ':' not in iid: return None
     ns, path = iid.split(':', 1)
     for pre in ('item', 'block', 'entity', 'fluid'):
         k = f'{pre}.{ns}.{path.replace("/", ".")}'
         if k in M: return M[k][1]
     if path.startswith('part_') and (v := M.get(f'parttype.{ns}.{path[5:]}')): return v[1]   # частини Integrated Dynamics
-    m = re.match(r'(.+)_(seeds|essence)$', path) if ns == 'mysticalagriculture' else None   # «Насіння %s» / «Есенція %s» + назва рослини
-    if m and (pat := M.get(f'item.mysticalagriculture.mystical_{m[2]}')):
-        crop = next((v[1] for k, v in M.items() if k.startswith('crop.') and k.endswith('.' + m[1])), None)
-        if crop: return pat[1].replace('%s', crop)
     return None
+
+# K5: назви й заголовки, які гра складає кодом, — зі знімків гри (tools/extract_game_names.py), за формою запису, без правил під моди
+_GI = jload(os.path.join(RAW, 'game_item_names.json'), {}) or {}
+GAME_ITEMS, GAME_BASE = _GI.get('names') or {}, _GI.get('base') or {}
+GAME_Q = jload(os.path.join(RAW, 'game_quest_names.json'), {}) or {}
+RX_COUNT = re.compile(r'^(\d+(-\d+)?x )+')                       # «5x », «1-2x » — кількість перед назвою в заголовку книги квестів
+RX_RAW = re.compile(r'^[a-z0-9_.-]+[:.][a-z0-9_./:-]+$')          # id або ключ перекладу замість назви (перекладу немає й у грі)
+
+def game_title(kind, oid_, item, plain):
+    """Заголовок завдання / нагороди з гри — лише коли предмет має властивості (компоненти) і заголовок відрізняється від
+    назви предмета: тоді в ньому те, чого немає у файлах перекладу («Стільник: Деорумова бджола», «Зілля швидкости»)."""
+    return stack_title((GAME_Q.get(kind) or {}).get(oid_), item, plain)
+
+def stack_title(t, item, plain):
+    comps = (item.get('components') or {}) if isinstance(item, dict) else {}
+    if not isinstance(t, str) or not any(not k.startswith('ftbquests:') for k in comps): return None
+    t = re.sub(r'^[\\"]+|[\\"]+$', '', RX_COUNT.sub('', t)).strip()   # власна назва у файлах квестів записана з \"…\"
+    return t if t and t != plain and not RX_RAW.match(t) else None
+
+def part_after_colon(t):
+    """«Досягнення: Кам'яна доба» → «Кам'яна доба» (заголовок завдання без предмета: тип і об'єкт)."""
+    t = t.split(': ', 1)[1].strip() if isinstance(t, str) and ': ' in t else ''
+    return t if t and not RX_RAW.match(t) else ''
 
 def text(L, Len, key):
     v = L.get(key, Len.get(key))
@@ -141,13 +165,14 @@ def tag_names(tags, M):
         if v and (v[1] or v[0]): out[t] = v[1] or v[0]
     return out or None
 
-def comp_note(item, M):
-    """Властивості предмета, які гра перевіряє (зілля, зачарування, тип бджоли, назва…) — коротким рядком."""
+def comp_note(item, M, titled=False):
+    """Властивості предмета, яких немає в назві (зілля, зачарування) — коротким рядком. titled — заголовок узято з гри:
+    зілля й власна назва вже в ньому, лишаються чари (гра показує їх у підказці, не в назві)."""
     c = ((item or {}).get('components') or {}) if isinstance(item, dict) else {}
     out = []
     uk = lambda key: (M.get(key) or ('', ''))[1] or (M.get(key) or ('', ''))[0]   # назва з перекладу гри за ключем
     pc = c.get('minecraft:potion_contents')
-    if isinstance(pc, dict) and pc.get('potion'):   # назва зілля — як у грі (ключ ванільного зілля з цим вмістом); немає — id
+    if isinstance(pc, dict) and pc.get('potion') and not titled:   # назва зілля — як у грі (ключ ванільного зілля з цим вмістом); немає — id
         pid = pc['potion'].split(':')[-1]   # подовжене / посилене зілля (long_ / strong_) гра називає так само, як звичайне
         out.append(uk('item.minecraft.potion.effect.' + pid) or uk('item.minecraft.potion.effect.' + re.sub(r'^(long|strong)_', '', pid)) or 'зілля ' + pid)
     for k in ('minecraft:stored_enchantments', 'minecraft:enchantments'):
@@ -155,16 +180,15 @@ def comp_note(item, M):
         if isinstance(e, dict):
             ench = lambda x: uk('enchantment.' + x.replace(':', '.').replace('/', '.')) or x.split(':')[-1]
             out.append('чари ' + ', '.join(f"{ench(x)} {v}" for x, v in (e.get('levels') or e).items() if isinstance(v, int)))
-    for k, lbl in (('productivebees:bee_type', 'бджола'), ('productivefarming:color', 'колір'), ('gateways:gateway', 'брама'), ('sophisticatedstorage:wood_type', 'деревина')):
-        if isinstance(c.get(k), str): out.append(f"{lbl} {c[k].split(':')[-1]}")
-    if c.get('minecraft:custom_name'): out.append('з власною назвою')
     return '; '.join(out) or None
 
 def reward(r, M, RT):
     t = r.get('type'); it = oid(r.get('item'))
     if t == 'item' and it:
-        out = {'t': 'item', 'item': it, 'n': r.get('count') or (r.get('item') or {}).get('count') or 1, 'name': item_name(it, M) or ''}
-        comp = comp_note(r.get('item'), M)   # що саме за зілля / чари / тип — як у завданнях
+        plain = item_name(it, M) or ''
+        gt = game_title('rewards', r.get('id'), r.get('item'), plain)
+        out = {'t': 'item', 'item': it, 'n': r.get('count') or (r.get('item') or {}).get('count') or 1, 'name': gt or plain}
+        comp = comp_note(r.get('item'), M, bool(gt))   # що саме за зілля / чари — як у завданнях
         if comp: out['comp'] = comp
         return out
     if t in ('xp', 'xp_levels'): return {'t': t, 'n': r.get(t) or 0}
@@ -172,7 +196,8 @@ def reward(r, M, RT):
         tid = r.get('table_id')
         if isinstance(tid, int): tid = f'{tid & 0xFFFFFFFFFFFFFFFF:016X}'     # у файлах квесту — десяткове long, у таблицях — hex
         return {'t': t, 'tid': tid, 'table': strip_fmt(RT.get(f'reward_table.{tid}.title') or '')}
-    return None   # command / toast — службове
+    if t == 'command' and isinstance(r.get('command'), str): return {'t': 'command', 'cmd': r['command'], 'icon': oid(r.get('icon'))}   # книга квестів показує «Команда: …»
+    return None   # toast — сповіщення на екрані, не нагорода
 
 def main():
     M = names_map()
@@ -208,11 +233,20 @@ def main():
                 cnt = (t.get('item') or {}).get('count') if isinstance(t.get('item'), dict) else None
                 cnt = t.get('count') or cnt or t.get('value')   # value — скільки вбити / набрати (завдання без предмета)
                 opts, tags = filter_opts(t.get('item'), M) if iid == 'ftbfiltersystem:smart_filter' else (None, None)
+                plain = item_name(iid or ent, M)
+                gt = game_title('tasks', t['id'], t.get('item'), plain) if iid else None
+                obs = t.get('to_observe') if t.get('type') == 'observation' and isinstance(t.get('to_observe'), str) else None
+                obs_id, _, obs_state = (obs or '').partition('[')            # «мод:блок[властивість=значення]»
+                other = (part_after_colon((GAME_Q.get('tasks') or {}).get(t['id'])) if t.get('type') == 'advancement' else
+                         (M.get('structure.' + t['structure'].replace(':', '.').replace('/', '.')) or ('', ''))[1] if isinstance(t.get('structure'), str) and not t['structure'].startswith('#') else
+                         item_name(obs_id, M) if obs_id else None)
                 tasks.append({k: v for k, v in {'id': t['id'], 'type': t.get('type'), 'item': iid, 'icon': task_icon(t, have), 'count': cnt,
                               'entity': ent, 'dim': dim, 'adv': t.get('advancement'), 'structure': t.get('structure'), 'biome': t.get('biome'),
-                              'opt': t.get('optional_task'), 'opts': opts, 'tags': tags, 'tagn': tag_names(tags, M), 'comp': comp_note(t.get('item'), M),
+                              'observe': obs_id or None, 'otype': t.get('observation_type') if obs else None,
+                              'opt': t.get('optional_task'), 'opts': opts, 'tags': tags, 'tagn': tag_names(tags, M),
+                              'comp': comp_note(t.get('item'), M, bool(gt)) or (obs_state.rstrip(']').replace('=', ': ') or None),
                               'consume': t.get('consume_items'),
-                              'name': ttl or item_name(iid or ent, M)}.items() if v not in (None, '', 1, False)})
+                              'name': ttl or gt or plain or other}.items() if v not in (None, '', 1, False)})
             title = strip_fmt(text(Lu, Le, f'quest.{qid}.title') or '') or (tasks[0].get('name') if tasks else '') or ''
             deps = q.get('dependencies', [])
             for d in deps:
@@ -265,12 +299,16 @@ def main():
     tables = {}
     for f in glob.glob(os.path.join(QUESTS, 'reward_tables', '*.json5')):
         t = l5(f); its = []
-        for r in t.get('rewards', []):
+        rows = (GAME_Q.get('tables') or {}).get(t['id']) or []
+        if len(rows) != len(t.get('rewards', [])): rows = []        # порядок рядків не той — заголовків не беремо
+        for ri, r in enumerate(t.get('rewards', [])):
             it = r.get('item') if isinstance(r.get('item'), dict) else {}
             i = oid(it); mid = missing_id(it) if i == 'ftbquests:missing_item' else None
-            x = {'item': mid or i, 'name': item_name(mid or i, M) or '', 'n': r.get('count') or it.get('count') or 1, 'w': r.get('weight', 1.0)}
+            plain = item_name(mid or i, M) or ''
+            gt = stack_title(rows[ri], it, plain) if rows and not mid else None
+            x = {'item': mid or i, 'name': gt or plain, 'n': r.get('count') or it.get('count') or 1, 'w': r.get('weight', 1.0)}
             if mid and mid.split(':')[0] not in have: x['miss'] = 1
-            if comp_note(it, M): x['comp'] = comp_note(it, M)
+            if comp_note(it, M, bool(gt)): x['comp'] = comp_note(it, M, bool(gt))
             if r.get('type') in ('xp', 'xp_levels'): x = {'t': r['type'], 'n': r.get(r['type']) or 0, 'w': r.get('weight', 1.0)}
             if x.get('item') or x.get('t'): its.append(x)
         tables[t['id']] = {'title': strip_fmt(RT.get(f"reward_table.{t['id']}.title") or ''), 'n': t.get('loot_size', 1), 'items': its}

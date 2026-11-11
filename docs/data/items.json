@@ -740,26 +740,26 @@
  "crafting_on_a_stick:anvil": {
   "img": "img/items/crafting_on_a_stick/anvil.png",
   "kind": "item",
-  "uk": "Ковадло",
-  "en": "Anvil"
+  "uk": "Ковадло на паличці",
+  "en": "%s"
  },
  "crafting_on_a_stick:crafting_table": {
   "img": "img/items/crafting_on_a_stick/crafting_table.png",
   "kind": "item",
-  "uk": "Верстак",
-  "en": "Crafting Table"
+  "uk": "Верстак на паличці",
+  "en": "%s"
  },
  "crafting_on_a_stick:smithing_table": {
   "img": "img/items/crafting_on_a_stick/smithing_table.png",
   "kind": "item",
-  "uk": "Ковальський стіл",
-  "en": "Smithing Table"
+  "uk": "Ковальський стіл на паличці",
+  "en": "%s"
  },
  "crafting_on_a_stick:stonecutter": {
   "img": "img/items/crafting_on_a_stick/stonecutter.png",
   "kind": "item",
-  "uk": "Каменеріз",
-  "en": "Stonecutter"
+  "uk": "Каменеріз на паличці",
+  "en": "%s"
  },
  "croptopia:cooking_pot": {
   "img": "img/items/croptopia/cooking_pot.png",

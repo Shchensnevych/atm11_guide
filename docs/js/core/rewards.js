@@ -14,6 +14,7 @@ export function rewardLabel(r) {
     case 'random': return { glyph: '🎲', text: `Випадковий предмет${r.table ? ` («${r.table}»)` : ''}` };
     case 'loot': return { glyph: '🎁', text: `Лут-набір${r.table ? ` «${r.table}»` : ''}` };
     case 'choice': return { glyph: '🔀', text: `На вибір${r.table ? ` з «${r.table}»` : ''}` };
+    case 'command': return { icon: r.icon || undefined, glyph: '⚙', text: `Команда: ${r.cmd}` };   // як у книзі квестів
     default: return { glyph: '•', text: r.t };
   }
 }
