@@ -312,10 +312,12 @@ def parse_raw(rtype, raw_d, ingr=parse_ingredient_entry):
             elif isinstance(sac, str):
                 sacrifice_entity = sac
 
+            # предмет активації (ним клацають по золотій чаші) витрачається: усі класи ритуалів Occultism у finish
+            # викликають activationItem.shrink(1) (K8, байт-код; ритуал Tier 5 робить стабілізатор Tier 5 із самого Tier 4)
             act_item = raw_d.get('activation_item')
             if act_item:
                 for it, ist, c in ingr(act_item):
-                    parsed_ings.append((it, ist, c, 'catalyst', None))
+                    parsed_ings.append((it, ist, c, 'activation', None))
 
             for ing in raw_d.get('ingredients', []):
                 for it, ist, c in ingr(ing):

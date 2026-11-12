@@ -104,6 +104,10 @@ CASES += [
     (B.Kinds(REGC, set(TAGS), set(), set(), True).of('#' + GC), 'item', 'група варіантів — вхід-предмет'),
     (IC({'item': [{'content': {'ingredient': {'items': 'x:a'}, 'count': 2}}, {'content': {'ingredient': {'tag': 'c:a'}, 'count': 4}}]}), ([('x:a', 0, 2.0), ('#c:a', 1, 4.0)], {}), 'список під полем item — перелік входів, а не варіанти'),
 ]
+# K8: предмет активації ритуалу Occultism витрачається (усі класи ритуалів у finish викликають activationItem.shrink(1) —
+# байт-код occultism, raw/tmp/k8/jdis.py): роль activation, а не «невитратний каталізатор»
+RIT = B.parse_raw('occultism:ritual', {'activation_item': 'x:t4', 'ingredients': ['x:a'], 'result': {'id': 'x:t5'}}, I)[0]
+CASES += [([(x[0], x[3]) for x in RIT], [('x:t4', 'activation'), ('x:a', 'pedestal')], 'ритуал: предмет активації — витратний вхід (роль activation)')]
 bad = [(why, got, want) for got, want, why in CASES if got != want]
 for why, got, want in bad: print(f'❌ {why}: {got} ≠ {want}')
 print(f'Розбір записів рецептів: {len(CASES) - len(bad)} з {len(CASES)}')
