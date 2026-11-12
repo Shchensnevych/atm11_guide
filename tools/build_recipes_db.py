@@ -4,7 +4,7 @@
 # оригінальні JSON-файли з JAR-пакетів та KubeJS, звіряє ситом із логами гри, і будує:
 #   • atm11_guide/raw/recipes.db
 #   • копію в ATM11-Companion/data/recipes.db
-import os, sys, json, sqlite3, zipfile, io, re, csv, time, shutil, collections
+import os, sys, json, sqlite3, zipfile, io, re, csv, time, shutil, collections, hashlib
 
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
@@ -102,46 +102,85 @@ def _common_item(kids, tags):
     common = set.intersection(*sets) if sets else set()
     return min(common, key=lambda i: (not i.startswith('minecraft:'), i)) if common else None
 
-def parse_ingredient_entry(ing, tags=None):
-    """Розбирає запис інгредієнта -> list of (item_or_tag, is_tag, count).
-    Запис — рядок, список записів або об'єкт будь-якої вкладеності: поле item / id / items (рядок, об'єкт або список
-    варіантів — тоді перший), tag, або обгортка (WRAPPERS). Кількість обгортки множиться на внутрішню.
+CHOICE_NS = 'choice'   # простір імен груп «на вибір» серед тегів бази (item_tags): `choice:<відбиток складу>`
+
+class Choices:
+    """Слоти «на вибір» (K8): у грі в такий слот підходить будь-який предмет із переліку варіантів. Слот стає входом-групою
+    `#choice:<відбиток>` — як тег: склад групи (лише предмети гри) пишеться в item_tags, тож міст працює з нею так само, як з
+    тегом гри (будь-який предмет групи, представник, запаси). items — реєстр предметів гри (None — не відомий: варіанти не
+    відсіюються), tags — тег → предмети. groups — зібрані групи: id → предмети в порядку рецепта."""
+    def __init__(self, items=None, tags=None):
+        self.items, self.tags, self.groups = items, tags or {}, {}
+
+    @staticmethod
+    def gid(members):
+        return CHOICE_NS + ':' + hashlib.sha1('\n'.join(sorted(members)).encode('utf-8')).hexdigest()[:12]
+
+    def one(self, variants):
+        """Варіанти слота [(ref, is_tag, count)] → один вхід (ref, is_tag, count): група, якщо предметів гри серед варіантів
+        кілька; єдиний предмет гри — він сам; склад невідомий (тег поза індексом) або предметів гри немає — перший варіант."""
+        members = []
+        for ref, is_tag, _ in variants:
+            if is_tag and ref[1:] not in self.tags: return variants[0]
+            for m in (self.tags[ref[1:]] if is_tag else [ref]):
+                if (self.items is None or m in self.items) and m not in members: members.append(m)
+        count = variants[0][2]
+        if len(members) > 1:
+            g = self.gid(members); self.groups[g] = members
+            return ('#' + g, 1, count)
+        return (members[0], 0, count) if members else variants[0]
+
+def _one_of(variants, choices):
+    """Слот з варіантами (по одному запису на варіант) → один вхід: різних варіантів немає — він сам; є облік груп (choices) —
+    група або єдиний предмет гри (Choices.one); без обліку — перший варіант."""
+    seen = []
+    for v in variants:
+        if v and not any(v[0] == s[0] for s in seen): seen.append(v)
+    if len(seen) < 2: return seen
+    return [choices.one(seen)] if choices else seen[:1]
+
+def parse_ingredient_entry(ing, tags=None, choices=None):
+    """Розбирає запис інгредієнта (слота) -> list of (item_or_tag, is_tag, count).
+    Запис — рядок, об'єкт будь-якої вкладеності (поле item / id / items / value, tag або обгортка WRAPPERS; кількість обгортки
+    множиться на внутрішню) або список — це варіанти «на вибір» (як у грі: список у місці інгредієнта — будь-який із них),
+    так само список у полі items / value і «будь-що з переліку» (children). Варіанти → один вхід-група (choices, K8), без
+    обліку груп — перший варіант. Перелік різних входів рецепта розбирає той, хто його знає (parse_raw), по одному;
+    виняток — список під полем item / id (поле одного предмета): це перелік записів, кожен — окремий вхід.
     Складені інгредієнти NeoForge (K6): різниця — основа (base); перетин (children) — спільний предмет груп, якщо
-    tags (тег → предмети) його показує, інакше перша частина; «будь-що з переліку» (children) — перша частина."""
+    tags (тег → предмети) його показує, інакше перша частина."""
     if not ing:
         return []
     if isinstance(ing, str):
         ref, count = _clean_ref(ing)
         return [(ref, 1 if ref.startswith('#') else 0, count)] if RX_REF.match(ref) else []
     if isinstance(ing, list):
-        res = []
-        for x in ing:
-            res.extend(parse_ingredient_entry(x, tags))
-        return res
+        return _one_of([v for x in ing for v in parse_ingredient_entry(x, tags, choices)], choices)
     if isinstance(ing, dict):
         count = _num(ing.get('count', 1.0))
         scaled = lambda sub: [(ref, is_tag, c * count) for ref, is_tag, c in sub]
         for key in ('item', 'id', 'items', 'value'):
             if key in ing:
                 v = ing[key]
-                if key in ('items', 'value') and isinstance(v, list): v = v[:1]   # варіанти на вибір — беремо перший (у схемі бази варіантів немає)
-                sub = parse_ingredient_entry(v, tags)
+                if key in ('item', 'id') and isinstance(v, list):   # список під полем одного предмета — перелік записів (не варіанти): кожен окремо
+                    sub = [e for x in v for e in parse_ingredient_entry(x, tags, choices)]
+                else: sub = parse_ingredient_entry(v, tags, choices)
                 if sub: return scaled(sub)
         if 'base' in ing:
-            sub = parse_ingredient_entry(ing['base'], tags)
+            sub = parse_ingredient_entry(ing['base'], tags, choices)
             if sub: return scaled(sub[:1])
         if isinstance(ing.get('children'), list):
-            kids = [parse_ingredient_entry(x, tags) for x in ing['children']]
-            one = _common_item(kids, tags) if str(ing.get('neoforge:ingredient_type', '')).endswith(':intersection') else None
-            if one: return scaled([(one, 0, 1.0)])
-            sub = next((k for k in kids if k), [])
+            kids = [parse_ingredient_entry(x, tags, choices) for x in ing['children']]
+            if str(ing.get('neoforge:ingredient_type', '')).endswith(':intersection'):   # перетин груп
+                one = _common_item(kids, tags)
+                sub = [(one, 0, 1.0)] if one else next((k for k in kids if k), [])
+            else: sub = _one_of([k[0] for k in kids if k], choices)   # «будь-що з переліку»
             if sub: return scaled(sub[:1])
         if 'tag' in ing and isinstance(ing['tag'], str):
             t = ing['tag'] if ing['tag'].startswith('#') else '#' + ing['tag']
             return [(t, 1, count)] if RX_REF.match(t) else []
         for key in WRAPPERS:
             if key in ing:
-                sub = parse_ingredient_entry(ing[key], tags)
+                sub = parse_ingredient_entry(ing[key], tags, choices)
                 if sub: return scaled(sub)
     return []
 
@@ -331,9 +370,9 @@ def parse_raw(rtype, raw_d, ingr=parse_ingredient_entry):
         elif rtype.startswith('enderio:'):
             energy_fe = int(raw_d.get('energy', 0))
             dur_ticks = int(raw_d.get('time', 0))
-            inp = raw_d.get('input') or raw_d.get('inputs')
-            if inp:
-                for it, ist, c in ingr(inp):
+            many = raw_d.get('inputs')   # input — один інгредієнт; inputs — перелік входів (кожен запис — окремий вхід)
+            for ing in ([raw_d['input']] if raw_d.get('input') else many if isinstance(many, list) else [many] if many else []):
+                for it, ist, c in ingr(ing):
                     parsed_ings.append((it, ist, c, 'input', None))
             for out in raw_d.get('outputs', []):
                 parsed_outs.extend(parse_output_entry(out))
@@ -345,7 +384,9 @@ def parse_raw(rtype, raw_d, ingr=parse_ingredient_entry):
             for k in ('ingredient', 'ingredients', 'input', 'inputs', 'itemInputs'):
                 if k in raw_d:
                     val = raw_d[k]
-                    vals = val if isinstance(val, list) else [val]
+                    # список — перелік входів; виняток — поле ingredient (один інгредієнт, як у ванільних рецептах): там список —
+                    # варіанти «на вибір» (K8, замір по всіх рецептах: 168 зі 168 — варіанти)
+                    vals = val if isinstance(val, list) and k != 'ingredient' else [val]
                     for slot, ing in enumerate(vals):
                         for it, ist, c in ingr(ing):
                             parsed_ings.append((it, ist, c, 'input', slot))
@@ -511,7 +552,8 @@ def main():
     item_tags = tags_idx.get('item', {})
     kinds = Kinds(set(reg_idx.get('items', [])), set(item_tags), set(reg_idx.get('fluids', [])), set(tags_idx.get('fluid', {})), reg_idx.get('items_src') == 'game')
     if not kinds.strict: print("⚠ реєстр предметів — не з гри (немає знімка raw/game_item_names.json): записи поза реєстром лишаються предметами")
-    ingr = lambda x: parse_ingredient_entry(x, item_tags)
+    choices = Choices(kinds.items if kinds.strict else None, item_tags)
+    ingr = lambda x: parse_ingredient_entry(x, item_tags, choices)
 
     os.makedirs(os.path.dirname(DB_OUT_RAW), exist_ok=True)
     if os.path.exists(DB_OUT_RAW):
@@ -637,6 +679,9 @@ def main():
         clean_tag = tag_name.lstrip('#')
         for item_id in items:
             tag_rows.append((clean_tag, item_id))
+    for gid, members in choices.groups.items():   # K8: групи «на вибір» — поруч із тегами гри, у власному просторі імен
+        tag_rows.extend((gid, item_id) for item_id in members)
+    print(f"   груп «на вибір»: {len(choices.groups)}")
     cur.executemany("INSERT OR IGNORE INTO item_tags VALUES (?,?)", tag_rows)
     db.commit()
 

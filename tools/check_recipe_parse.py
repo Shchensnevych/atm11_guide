@@ -23,7 +23,7 @@ CASES = [
     (I({'value': ['#c:ingots/copper', '#c:dusts/copper'], 'count': 8}), [('#c:ingots/copper', 1, 8.0)], 'інгредієнт: варіанти в полі value з кількістю'),
     (I('#logs'), [('#minecraft:logs', 1, 1.0)], 'тег без простору імен — ванільний'),
     (I({'item': 'stick'}), [('minecraft:stick', 0, 1.0)], 'предмет без простору імен — ванільний'),
-    (I(['a:b', {'id': 'c:d'}]), [('a:b', 0, 1.0), ('c:d', 0, 1.0)], 'список інгредієнтів'),
+    (I(['a:b', {'id': 'c:d'}]), [('a:b', 0, 1.0)], 'список у місці інгредієнта — варіанти одного слота; без обліку груп — перший'),
     (I("{'id': 'x:y'}"), [], 'рядок з об\'єкта — не id'),
 ]
 # K6: складені інгредієнти NeoForge (difference / intersection / compound) — раніше слот зникав з рецепта (скриня в лійці)
@@ -74,6 +74,35 @@ CASES += [
     (E.pick_registry({'x:water', 'x:type_only'}, {'x:water', 'x:molten'}), ({'x:water', 'x:molten'}, 'game'), 'реєстр рідин: є знімок гри — він і є реєстром'),
     ([B.Kinds({'x:ingot'}, set(), E.pick_registry({'x:water', 'x:type_only'}, {'x:water', 'x:molten'})[0], set(), True).of(x) for x in ('x:molten', 'x:type_only')], ['fluid', 'other'], 'вид запису за реєстром рідин гри'),
     (B.parse_fluids({'result': {'id': 'x:molten', 'amount': 90}}, B.Kinds(set(), set(), {'x:molten'}, set(), True)), [('x:molten', 90, 'output')], 'рідина-вихід з реєстру гри — з кількістю'),
+]
+# K8: слот «на вибір» (у грі підходить будь-який із переліку) — одна група з усіма варіантами, а не перший варіант і не кожен
+# варіант окремим обов'язковим входом. Група — лише з предметів гри; id групи не залежить від порядку варіантів.
+REGC = {'x:coal', 'x:charcoal', 'x:a', 'x:b', 'x:1', 'x:2', 'minecraft:z', 'x:t'}
+def IC(ing):
+    c = B.Choices(REGC, TAGS); return B.parse_ingredient_entry(ing, TAGS, c), c.groups
+def PC(t, d):
+    c = B.Choices(REGC, TAGS); r = B.parse_raw(t, d, lambda x: B.parse_ingredient_entry(x, TAGS, c)); return [(x[0], x[2]) for x in r[0]]
+G = lambda *m: B.Choices.gid(m)
+GC, GAB = G('x:coal', 'x:charcoal'), G('x:a', 'x:b')
+CASES += [
+    (IC(['x:coal', 'x:charcoal']), ([('#' + GC, 1, 1.0)], {GC: ['x:coal', 'x:charcoal']}), 'варіанти на вибір — одна група з усіма варіантами'),
+    (IC(['x:charcoal', 'x:coal'])[0], [('#' + GC, 1, 1.0)], 'та сама група за будь-якого порядку варіантів'),
+    (IC({'items': ['x:a', 'x:b'], 'count': 2}), ([('#' + GAB, 1, 2.0)], {GAB: ['x:a', 'x:b']}), 'варіанти в полі items з кількістю'),
+    (IC({'neoforge:ingredient_type': 'neoforge:compound', 'children': ['#c:a', 'x:b']}), ([('#' + G('x:1', 'x:2', 'minecraft:z', 'x:b'), 1, 1.0)], {G('x:1', 'x:2', 'minecraft:z', 'x:b'): ['x:1', 'x:2', 'minecraft:z', 'x:b']}), 'складений інгредієнт: група з предметів тегу й окремого предмета'),
+    (IC(['x:coal', 'x:ghost']), ([('x:coal', 0, 1.0)], {}), 'варіант поза реєстром гри відкидається: лишився один — це просто предмет'),
+    (IC(['x:ghost', 'x:coal']), ([('x:coal', 0, 1.0)], {}), 'перший варіант поза реєстром — береться той, що є в грі'),
+    (IC(['#c:unknown', 'x:coal']), ([('#c:unknown', 1, 1.0)], {}), 'серед варіантів невідомий тег — склад групи невідомий: перший варіант, як раніше'),
+    (IC(['x:coal', 'x:coal']), ([('x:coal', 0, 1.0)], {}), 'однакові варіанти — не вибір'),
+    (PC('minecraft:crafting_shapeless', {'ingredients': ['x:a', ['x:coal', 'x:charcoal']], 'result': 'x:t'}), [('x:a', 1.0), ('#' + GC, 1.0)], 'без форми: слот з варіантами — один вхід-група'),
+    (PC('minecraft:crafting_shaped', {'pattern': ['CC'], 'key': {'C': ['x:coal', 'x:charcoal']}, 'result': 'x:t'}), [('#' + GC, 1.0)] * 2, 'сітка: слот з варіантами — група в кожному слоті'),
+    (PC('occultism:ritual', {'ingredients': [['x:coal', 'x:charcoal'], ['x:coal', 'x:charcoal'], 'x:a'], 'result': {'id': 'x:t'}}), [('#' + GC, 1.0), ('#' + GC, 1.0), ('x:a', 1.0)], 'ритуал: два слоти «на вибір» — дві групи, а не чотири обов\'язкові входи'),
+    (PC('x:compound_part', {'ingredients': [['x:a', 'x:b'], ['x:a', 'x:b']], 'result': {'id': 'x:t'}}), [('#' + GAB, 1.0)] * 2, 'рецепт мода (загальний розбір): слоти «на вибір»'),
+    (PC('x:smelting', {'ingredient': ['x:a', 'x:b'], 'result': {'id': 'x:t'}}), [('#' + GAB, 1.0)], 'поле ingredient (один інгредієнт) зі списком — варіанти, а не два входи'),
+    (PC('x:alchemy', {'input': ['x:a', 'x:b'], 'output': {'id': 'x:t'}}), [('x:a', 1.0), ('x:b', 1.0)], 'поле input зі списком — перелік входів (як було)'),
+    (PC('enderio:alloy_smelting', {'inputs': [{'count': 1, 'ingredient': ['x:coal', 'x:charcoal']}, {'count': 2, 'ingredient': '#c:a'}], 'output': {'id': 'x:t'}}), [('#' + GC, 1.0), ('#c:a', 2.0)], 'перелік входів (inputs): кожен запис — окремий вхід, варіанти всередині — група'),
+    (PC('enderio:slicing', {'inputs': ['x:a', 'x:b', 'x:a'], 'output': {'id': 'x:t'}}), [('x:a', 1.0), ('x:b', 1.0), ('x:a', 1.0)], 'перелік входів рядками — усі входи, не варіанти'),
+    (B.Kinds(REGC, set(TAGS), set(), set(), True).of('#' + GC), 'item', 'група варіантів — вхід-предмет'),
+    (IC({'item': [{'content': {'ingredient': {'items': 'x:a'}, 'count': 2}}, {'content': {'ingredient': {'tag': 'c:a'}, 'count': 4}}]}), ([('x:a', 0, 2.0), ('#c:a', 1, 4.0)], {}), 'список під полем item — перелік входів, а не варіанти'),
 ]
 bad = [(why, got, want) for got, want, why in CASES if got != want]
 for why, got, want in bad: print(f'❌ {why}: {got} ≠ {want}')
