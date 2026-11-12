@@ -392,6 +392,7 @@ def parse_raw(rtype, raw_d, ingr=parse_ingredient_entry):
                     for slot, ing in enumerate(vals):
                         for it, ist, c in ingr(ing):
                             parsed_ings.append((it, ist, c, 'input', slot))
+                    if parsed_ings: parsed_ings += field_entries(raw_d, k, ingr)   # K9: входи окремим полем — на перевірку в complete
                     break
             for k in ('result', 'results', 'output', 'outputs', 'itemResults'):
                 if k in raw_d:
@@ -400,12 +401,45 @@ def parse_raw(rtype, raw_d, ingr=parse_ingredient_entry):
 
     return parsed_ings, parsed_outs, dur_ticks, energy_fe, structure_id, sacrifice_entity, extra_data
 
+FIELD = 'field'   # роль запису, знайденого поза відомим полем входів (parse_raw → complete): ще не перевірений вхід
+
+def field_entries(raw_d, used, ingr):
+    """Записи у формі інгредієнта з решти полів верхнього рівня рецепта (K9) — для рецептів, які розбирає загальна гілка parse_raw
+    (вона знає лише назви ingredient / ingredients / input / inputs / itemInputs; used — поле, яке вона вже розібрала): перелік
+    (кожен запис — окремий вхід), {id}, {ingredient} тощо. Рядки верхнього рівня бере complete. Типи з власною гілкою розбору
+    свої поля знають самі — туди це не заходить (ritual_dummy ритуалів — мітка, не вхід). -> записи з роллю FIELD.
+    Замір K9 по всіх 33 245 активних рецептах з JSON: у загальній гілці таких полів три — incenses (125 входів, ритуали
+    Roots Classic), extraIngredient (12), fuel (6); службових серед них немає."""
+    res = []
+    for k, v in raw_d.items():
+        if k == used or k in SKIPK or OUTK.search(k) or not isinstance(v, (list, dict)): continue
+        for entry in (v if isinstance(v, list) else [v]):
+            res += [(ref, is_tag, cnt, FIELD, None) for ref, is_tag, cnt in ingr(entry)]
+    return res
+
+def check_fields(ings, outs, known_in, known_out, fls, kinds):
+    """Записи з роллю FIELD → входи, якщо це справді вхід: предмет гри або тег предметів, який сито знає як вхід цього рецепта;
+    не вихід цього ж рецепта (поле-опис: значок, зразок), не рідина рецепта (запис з amount) і не повтор уже розібраного."""
+    have = {i for i, _, _, role, _ in ings if role != FIELD}
+    bad = {o[0] for o in outs} | set(known_out or ()) | {f for f, _, _ in fls}
+    known_in = set(known_in or ()); res = []
+    for ref, is_tag, cnt, role, slot in ings:
+        if role == FIELD:
+            ok = (ref[1:] in kinds.item_tags) if ref.startswith('#') else (ref in kinds.items)
+            if not ok or ref not in known_in or ref in bad or ref in have: continue
+            role = 'input'   # той самий предмет двічі в полі — два входи (пахощі ритуалу)
+        res.append((ref, is_tag, cnt, role, slot))
+    return res
+
 def complete(raw_d, ings, outs, known_in, known_out, kinds):
     """Доповнити розібране тим, що знає індекс сита (known_in / known_out — id входів і виходів), і розкласти за видами.
-    Вхід окремим полем рецепта (рядок верхнього рівня, який сито знає як вхід) — теж інгредієнт; запису немає або розбір
-    порожній — входи / виходи з індексу (кількість невідома → 1). -> (ings, outs, fluids, other) — див. split_kinds."""
+    Вхід окремим полем рецепта, який сито знає як вхід, — теж інгредієнт: запис у формі інгредієнта (FIELD — check_fields, K9)
+    або рядок верхнього рівня; запису немає або розбір порожній — входи / виходи з індексу (кількість невідома → 1).
+    -> (ings, outs, fluids, other) — див. split_kinds."""
     ings, outs = list(ings), list(outs)
     is_d = isinstance(raw_d, dict)
+    fls = parse_fluids(raw_d, kinds) if is_d else []
+    ings = check_fields(ings, outs, known_in, known_out, fls, kinds)
     if ings and is_d and known_in:
         known = {i for i, _, _, _, _ in ings}
         for v in raw_d.values():
@@ -415,7 +449,7 @@ def complete(raw_d, ings, outs, known_in, known_out, kinds):
         ings = [(ing, 1 if ing.startswith('#') else 0, 1.0, 'input', slot) for slot, ing in enumerate(known_in)]
     if not outs and known_out:
         outs = [(out_id, 1.0, 1.0, 1 if i == 0 else 0) for i, out_id in enumerate(known_out)]
-    return split_kinds(ings, outs, parse_fluids(raw_d, kinds) if is_d else [], kinds)
+    return split_kinds(ings, outs, fls, kinds)
 
 def init_schema(db):
     """Створює схему бази даних SQLite."""

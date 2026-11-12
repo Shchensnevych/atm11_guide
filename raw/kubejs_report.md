@@ -327,9 +327,9 @@
 - FTBQuestsEvents.completed server_scripts/atm11_companion_quests.js:196 
 - FTBQuestsEvents.started server_scripts/atm11_companion_quests.js:197 
 - ServerEvents.tick server_scripts/atm11_companion_quests.js:235 
-- BlockEvents.placed server_scripts/atm11_companion_world.js:329 
-- BlockEvents.broken server_scripts/atm11_companion_world.js:340 
-- ServerEvents.tick server_scripts/atm11_companion_world.js:516 
+- BlockEvents.placed server_scripts/atm11_companion_world.js:350 
+- BlockEvents.broken server_scripts/atm11_companion_world.js:361 
+- ServerEvents.tick server_scripts/atm11_companion_world.js:537 
 - ServerEvents.registry server_scripts/custom_additions.js:1 forbidden_arcanus:molten_material_type
 - PlayerEvents.tick server_scripts/fluid_bug.js:3 
 - PlayerEvents.loggedIn server_scripts/tweaks/fix_death_bug.js:1 

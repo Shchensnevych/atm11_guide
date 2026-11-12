@@ -80,7 +80,7 @@ RX_RECIPE = re.compile(r'data/([^/]+)/(recipes?)/(.+)\.json$')
 RX_TAG = re.compile(r'data/([^/]+)/tags/(item|block|fluid)s?/(.+)\.json$')
 SKIPK = {'type', 'neoforge:conditions', 'conditions', 'fabric:load_conditions', 'bookshelf:load_conditions', 'group', 'category', 'recipe_type', 'sound', 'texture', 'advancement'}
 PRIMARY = {'result', 'results', 'output', 'outputs', 'result_item'}
-OUTK = re.compile(r'result|output|product|byproduct|secondar|^outs?$|drops?$', re.I)
+OUTK = re.compile(r'result|output|product|byproduct|secondar|tertiar|^outs?$|drops?$', re.I)
 
 def registry(srcs, rep, en):
     items, blocks, fluids = set(), set(), set()

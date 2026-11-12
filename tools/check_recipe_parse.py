@@ -108,6 +108,30 @@ CASES += [
 # байт-код occultism, raw/tmp/k8/jdis.py): роль activation, а не «невитратний каталізатор»
 RIT = B.parse_raw('occultism:ritual', {'activation_item': 'x:t4', 'ingredients': ['x:a'], 'result': {'id': 'x:t5'}}, I)[0]
 CASES += [([(x[0], x[3]) for x in RIT], [('x:t4', 'activation'), ('x:a', 'pedestal')], 'ритуал: предмет активації — витратний вхід (роль activation)')]
+# K9: входи окремим полем рецепта, записані не рядком (перелік, {id}, {ingredient}), — у рецептах загальної гілки розбору; вхід —
+# лише предмет гри / тег предметів, який сито знає як вхід; вихід цього ж рецепта, рідина, не-предмети й повтори — ні
+K9 = B.Kinds({'x:a', 'x:b', 'x:c', 'x:jar', 'x:f', 'x:dummy', 'x:out', 'x:ore', 'x:ore2', 'x:blood'}, {'c:dust'}, {'x:blood'}, set(), True)
+def CF(extra, known, t='x:machine', base=None):
+    raw = {'type': t, **(base or {'ingredients': ['x:a']}), 'result': {'id': 'x:out'}, **extra}
+    r = B.parse_raw(t, raw, I)
+    return [(i, c) for i, _, c, _, _ in B.complete(raw, r[0], r[1], ['x:a'] + known, ['x:out'], K9)[0]]
+CASES += [
+    (CF({'incenses': ['x:b', {'item': 'x:c', 'count': 3}]}, ['x:b', 'x:c']), [('x:a', 1.0), ('x:b', 1.0), ('x:c', 3.0)], 'вхід окремим полем: перелік — кожен запис окремий вхід (не варіанти), з кількістю'),
+    (CF({'incenses': ['x:b', 'x:b']}, ['x:b']), [('x:a', 1.0), ('x:b', 1.0), ('x:b', 1.0)], 'той самий предмет двічі в переліку — два входи'),
+    (CF({'extraIngredient': {'id': 'x:jar'}}, ['x:jar']), [('x:a', 1.0), ('x:jar', 1.0)], 'вхід окремим полем: {id}'),
+    (CF({'fuel': {'ingredient': '#c:dust', 'count': 2}}, ['#c:dust']), [('x:a', 1.0), ('#c:dust', 2.0)], 'вхід окремим полем: {ingredient} з кількістю, тег предметів'),
+    (CF({'fuel': {'ingredient': 'x:f'}}, ['x:f'], base={'ingredient': 'x:a'}), [('x:a', 1.0), ('x:f', 1.0)], 'те саме, коли основний вхід — поле ingredient'),
+    (CF({'ritual_dummy': {'id': 'x:dummy'}}, ['x:dummy'], t='occultism:ritual'), [('x:a', 1.0)], 'тип з власною гілкою розбору знає свої поля сам: мітка ритуалу — не вхід'),
+    (CF({'entity_to_sacrifice': {'tag': 'c:bats'}}, ['#c:bats']), [('x:a', 1.0)], 'тег не предметів (істоти) — не вхід'),
+    (CF({'unknown': {'id': 'x:b'}}, []), [('x:a', 1.0)], 'предмет, якого сито не знає як вхід цього рецепта, — не вхід'),
+    (CF({'icon': {'id': 'x:out'}}, ['x:out']), [('x:a', 1.0)], 'предмет, що є виходом цього ж рецепта, з окремого поля — не вхід'),
+    (CF({'again': {'id': 'x:a'}}, []), [('x:a', 1.0)], 'уже розібраний вхід не дублюється'),
+    (CF({'fluid': {'ingredient': 'x:blood', 'amount': 100}}, ['x:blood']), [('x:a', 1.0)], 'рідина з кількістю в мВ лишається рідиною, навіть якщо є й такий предмет'),
+    (CF({'layers': [{'fill': 'x:ore', 'radius': 4, 'weighted': [{'entry': 'x:ore2', 'weight': 5}]}]}, ['x:ore', 'x:ore2']), [('x:a', 1.0)], 'службова вкладена структура без форми інгредієнта — не вхід'),
+    (CF({'mainhand': 'x:b'}, ['x:b']), [('x:a', 1.0), ('x:b', 1.0)], 'рядок верхнього рівня — вхід, як і раніше'),
+    (CF({'soil': {'id': 'x:b'}}, ['x:b'], base={'seed': 'x:a'}), [('x:a', 1.0), ('x:b', 1.0)], 'відомого поля входів немає — входи з індексу сита, як і раніше'),
+    (bool(E.OUTK.search('tertiary')), True, 'третій вихід (tertiary) — вихід, як і secondary'),
+]
 bad = [(why, got, want) for got, want, why in CASES if got != want]
 for why, got, want in bad: print(f'❌ {why}: {got} ≠ {want}')
 print(f'Розбір записів рецептів: {len(CASES) - len(bad)} з {len(CASES)}')
