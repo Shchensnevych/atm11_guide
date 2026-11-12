@@ -5,25 +5,25 @@
  "mode": "creative",
  "mode_uk": "Творчість",
  "game_type": 1,
- "last_played": "2026-11-09 16:35",
- "last_played_ts": 1794234925,
- "updated": "2026-11-09 16:36",
- "play_hours": 3.75,
+ "last_played": "2026-11-11 18:02",
+ "last_played_ts": 1794412961,
+ "updated": "2026-11-12 04:13",
+ "play_hours": 5.63,
  "player": {
   "uuid": "832ceed6-e820-31f9-aa40-6acd5077a2ac",
-  "xp_level": 0,
-  "selected_slot": 0,
+  "xp_level": 23,
+  "selected_slot": 8,
   "health": 20.0,
-  "food_level": 18,
+  "food_level": 20,
   "pos": [
-   558,
-   136,
-   1192
+   562,
+   124,
+   1019
   ],
   "dimension": "minecraft:overworld",
   "dimension_uk": "Верхній світ",
   "world_tier": "haven",
-  "unique_foods": 0,
+  "unique_foods": 1,
   "name": "Nexius"
  },
  "quests": {
@@ -32,6 +32,7 @@
    "0542FE108089A0A2",
    "05437E6D19E6DD11",
    "0682DC1F2417DAEB",
+   "0790D3BB481162A6",
    "08405A885ACDADFC",
    "0FD16AD855DAD5BD",
    "134608BB2B04D96E",
@@ -39,11 +40,14 @@
    "175D943160C10646",
    "196312DF0D2E2CB6",
    "1CC4F8570A7A99EB",
+   "25133422CC46ADC4",
    "25AFD10D008DF30B",
    "2746575C929B6C50",
    "2893F483C10293E6",
+   "2D50702DCC000821",
    "3166CA00032C18F7",
    "33AADC1B97E9F7A9",
+   "377A41499D8218C9",
    "378C95C18798D413",
    "3BC0A50886A3222B",
    "3BF5B8DE7A1CC4D7",
@@ -53,6 +57,8 @@
    "54735C5FCD2077B3",
    "565703CBB06CEABF",
    "5A94A2664BFDD7B9",
+   "5D8E259D3F0CAE29",
+   "5E4BC0F59C90433A",
    "5EE945A1185E8336",
    "616352EBF422192F",
    "637EF6D9DFC59EE8",
@@ -60,6 +66,7 @@
    "6A58B95BF0F26496",
    "6ECB27052FCB874E",
    "6F7230B34D1D5A6B",
+   "6FB11D14C251D0B6",
    "79DD4CCCECC3F974"
   ],
   "done_visible": [
@@ -67,6 +74,7 @@
    "0542FE108089A0A2",
    "05437E6D19E6DD11",
    "0682DC1F2417DAEB",
+   "0790D3BB481162A6",
    "08405A885ACDADFC",
    "0FD16AD855DAD5BD",
    "134608BB2B04D96E",
@@ -74,11 +82,14 @@
    "175D943160C10646",
    "196312DF0D2E2CB6",
    "1CC4F8570A7A99EB",
+   "25133422CC46ADC4",
    "25AFD10D008DF30B",
    "2746575C929B6C50",
    "2893F483C10293E6",
+   "2D50702DCC000821",
    "3166CA00032C18F7",
    "33AADC1B97E9F7A9",
+   "377A41499D8218C9",
    "378C95C18798D413",
    "3BC0A50886A3222B",
    "3BF5B8DE7A1CC4D7",
@@ -88,6 +99,8 @@
    "54735C5FCD2077B3",
    "565703CBB06CEABF",
    "5A94A2664BFDD7B9",
+   "5D8E259D3F0CAE29",
+   "5E4BC0F59C90433A",
    "5EE945A1185E8336",
    "616352EBF422192F",
    "637EF6D9DFC59EE8",
@@ -95,46 +108,65 @@
    "6A58B95BF0F26496",
    "6ECB27052FCB874E",
    "6F7230B34D1D5A6B",
+   "6FB11D14C251D0B6",
    "79DD4CCCECC3F974"
   ],
   "started": [
+   "07FE5B1322E4B33C",
+   "09774296C8D8EA29",
+   "0A397CED848039BF",
    "0AE25EC6B6089F3B",
    "0BBDB63F944F61A7",
+   "0C38AE572FADAC1B",
    "0D18BBB04693885A",
    "1326E3016B881BFD",
    "13B84D532D8B9FD7",
    "167E1474644C9908",
    "1697CC05D08B388D",
+   "16C74B5F99AD6724",
    "18AA64DF63F68762",
    "1F748ACA3976A92F",
+   "29EFA8ABC8823B4C",
    "2CFD0DF119CC5E85",
    "31E7F7464D79F881",
+   "36BA83035E215D49",
    "38A1295878B68F83",
+   "3B0DB0F878FF3B79",
    "3D5852E6D0ADF651",
    "429B5A81DF6C43FE",
+   "47FA810348A7F46D",
    "4E9B35DCA018FD42",
    "4F35D04721DFC9FF",
+   "5444DC19B7956063",
    "612FE1CBA627D9AB",
    "6220EDE42C813C1B",
+   "635620A03E3505BF",
+   "67B87570C340C243",
    "6CA3111E5B9FE80B",
    "6EB05138B989CAD9",
+   "70A5DCA586C8B5CD",
    "711826BBCA832EE2"
   ],
   "tasks_done": [
    "02C93CCE15B79995",
+   "05B8FF96F6CCFB6A",
    "073D1C45B3018BBA",
    "0A074866CCBD8FD5",
    "0A3853BD4F62B78E",
+   "0F19D50BFD611C81",
    "13F86953093670F6",
    "17393180EFF15717",
    "1D2EE97FA68B9589",
+   "1E398AE91607F514",
    "20D72B07EE11DDCB",
    "2127C51D41F36E20",
+   "25C23B427D68CA6A",
    "297D80507C3A56E1",
    "2A07AF6A43DCEA8C",
    "2E04D0F6EEABE677",
    "2E797D3AB714E29A",
    "33218EFDD498E9DB",
+   "33BA49A7B9E9A04E",
    "34F6C74C0D167C8B",
    "365C31F15DC05036",
    "37AF49F3A7074892",
@@ -145,21 +177,29 @@
    "3CAD6AD06BE4C3D3",
    "3CC50EAEEE1E8A56",
    "3CF660F500E99BA9",
+   "3DA5C6D9AC59240F",
    "3DF1F367C3EA9631",
    "3E2EDA6892016DB4",
    "408C5263C4664195",
+   "40B39896B6CD41C6",
    "44897A2E9DD09CE4",
    "44C764E9E235DA2E",
    "45F8C32B36B510E7",
    "4644C76CEC129AA4",
+   "48EDCE05C353EE55",
    "51CC9A8E36385400",
    "52A3EC00B0885573",
    "52B4CBE9BE14AD70",
+   "5824C93C84312142",
    "586916ED82D2DD2C",
+   "599C4C766040FA0A",
+   "5D6CD01654F653FD",
    "5E8A262AF1E9DB0B",
    "5EFB41F907C996CA",
+   "6038387EA35404CD",
    "606B73596F3EAFE5",
    "611CC8005150DC9B",
+   "6205B6B93B306A12",
    "63F391DE2563954A",
    "64FADC78A8AD3FE4",
    "65DB2C06F991BC0D",
@@ -167,22 +207,29 @@
    "660D1C03E49919EB",
    "667004CD0469493D",
    "67D884FA6DD22065",
+   "687604B3D5E1E78C",
    "6B38E9AF8B97B65E",
    "6E42698E5E252CF7",
    "703D7D142BD7CEC9",
    "704D0B6CBDB29691",
    "70D108356F710F9B",
    "712E417F37C644AB",
+   "713EFE882A8DF739",
    "71A3B742D8757C89",
    "7330FAC338D718B8",
    "7570E5AAAC5CCA39",
+   "76F3B5C3CB49DDBD",
    "77CD677B96B1D46F",
+   "78D8C3B1803409CD",
    "7AD8269107F61422",
    "7CB9C080F0597A4D",
+   "7CE44AC85EEC031F",
    "7EDA9BD14A177D8D",
+   "7FAE69BD20CE7D52",
+   "7FCBD0F05D9B1197",
    "7FD9A02EA29669F6"
   ],
-  "rewards_claimed": 2,
+  "rewards_claimed": 55,
   "by_chapter": {
    "theurgy": {
     "done": [
@@ -196,6 +243,8 @@
      "05437E6D19E6DD11",
      "08405A885ACDADFC",
      "0FD16AD855DAD5BD",
+     "25133422CC46ADC4",
+     "2D50702DCC000821",
      "3DBDF0350DC69A70",
      "616352EBF422192F",
      "6A58B95BF0F26496",
@@ -206,6 +255,7 @@
      "0AE25EC6B6089F3B",
      "1326E3016B881BFD",
      "13B84D532D8B9FD7",
+     "47FA810348A7F46D",
      "612FE1CBA627D9AB",
      "6CA3111E5B9FE80B",
      "6EB05138B989CAD9"
@@ -220,11 +270,20 @@
      "2746575C929B6C50",
      "33AADC1B97E9F7A9",
      "5A94A2664BFDD7B9",
+     "5E4BC0F59C90433A",
      "6A2B2C5E2ADCE366"
     ],
     "started": [
      "3D5852E6D0ADF651"
     ]
+   },
+   "tips_and_tricks": {
+    "done": [
+     "0790D3BB481162A6",
+     "378C95C18798D413",
+     "5EE945A1185E8336"
+    ],
+    "started": []
    },
    "railcraft": {
     "done": [
@@ -236,9 +295,12 @@
    "apotheosis_gear": {
     "done": [
      "196312DF0D2E2CB6",
+     "377A41499D8218C9",
      "3BF5B8DE7A1CC4D7"
     ],
-    "started": []
+    "started": [
+     "16C74B5F99AD6724"
+    ]
    },
    "mystical_agriculture": {
     "done": [
@@ -260,13 +322,6 @@
     ],
     "started": []
    },
-   "tips_and_tricks": {
-    "done": [
-     "378C95C18798D413",
-     "5EE945A1185E8336"
-    ],
-    "started": []
-   },
    "welcome": {
     "done": [
      "3BC0A50886A3222B"
@@ -284,6 +339,23 @@
      "565703CBB06CEABF"
     ],
     "started": []
+   },
+   "bounty_board": {
+    "done": [
+     "5D8E259D3F0CAE29",
+     "6FB11D14C251D0B6"
+    ],
+    "started": [
+     "07FE5B1322E4B33C",
+     "09774296C8D8EA29",
+     "0A397CED848039BF",
+     "0C38AE572FADAC1B",
+     "29EFA8ABC8823B4C",
+     "36BA83035E215D49",
+     "3B0DB0F878FF3B79",
+     "5444DC19B7956063",
+     "70A5DCA586C8B5CD"
+    ]
    },
    "auroral": {
     "done": [
@@ -311,7 +383,8 @@
    "food_and_farming": {
     "done": [],
     "started": [
-     "1697CC05D08B388D"
+     "1697CC05D08B388D",
+     "635620A03E3505BF"
     ]
    },
    "apothic_enchanting": {
@@ -332,7 +405,8 @@
    "justdirethings": {
     "done": [],
     "started": [
-     "4E9B35DCA018FD42"
+     "4E9B35DCA018FD42",
+     "67B87570C340C243"
     ]
    },
    "silent_gear": {
@@ -349,6 +423,7 @@
    "ae2:main/root",
    "ae2:main/storage_bus",
    "ae2:main/storage_cell",
+   "apotheosis:progression/haven",
    "apotheosis:progression/root",
    "apothic_spawners:capturing",
    "auroral:root",
@@ -358,11 +433,15 @@
    "energizedpower:main/basics/crusher",
    "energizedpower:main/basics/energizedpower_basics",
    "iceandfire:iceandfire/root",
+   "lootr:1barrel",
    "lootr:1chest",
    "lootr:root",
    "lootr:trapped_chest",
    "mffs:grant_book_on_first_join",
+   "minecraft:adventure/kill_a_mob",
+   "minecraft:adventure/root",
    "minecraft:adventure/sleep_in_bed",
+   "minecraft:husbandry/root",
    "minecraft:nether/root",
    "minecraft:story/enter_the_nether",
    "minecraft:story/form_obsidian",
@@ -370,6 +449,7 @@
    "minecraft:story/mine_diamond",
    "minecraft:story/mine_stone",
    "minecraft:story/root",
+   "minecraft:story/shiny_gear",
    "minecraft:story/smelt_iron",
    "minecraft:story/upgrade_tools",
    "occultism:chalks/root",
@@ -381,6 +461,7 @@
    "regions_unexplored:parent",
    "silentgear:nether",
    "silentgear:root",
+   "spider_overhaul:kill_mod_spider",
    "theurgy:book_root",
    "undergarden:undergarden/root",
    "witchery:root"
@@ -395,6 +476,7 @@
    "ae2:terminal",
    "apotheosis:gem",
    "apotheosis:potion_charm",
+   "auroral:guide",
    "bhc:red_heart",
    "deepnullreforged:deep_null_0",
    "dimstorage:dimensional_chest",
@@ -402,18 +484,24 @@
    "enderthing:key_chest",
    "enderthing:lock",
    "energizedpower:crusher",
+   "forbidden_arcanus:artisan_relic",
    "functionalstorage:oak_1",
    "functionalstorage:oak_4",
    "mcwfurnitures:oak_wardrobe",
    "minecraft:anvil",
    "minecraft:arrow",
+   "minecraft:bamboo_raft",
    "minecraft:barrel",
    "minecraft:bone",
    "minecraft:bookshelf",
+   "minecraft:bow",
    "minecraft:bundle",
    "minecraft:chest",
    "minecraft:chest_minecart",
    "minecraft:cobblestone",
+   "minecraft:cooked_beef",
+   "minecraft:copper_block",
+   "minecraft:copper_ore",
    "minecraft:crafting_table",
    "minecraft:creeper_spawn_egg",
    "minecraft:diamond_pickaxe",
@@ -423,15 +511,21 @@
    "minecraft:firework_rocket",
    "minecraft:flint_and_steel",
    "minecraft:furnace",
+   "minecraft:glass",
    "minecraft:gold_block",
+   "minecraft:golden_apple",
+   "minecraft:golden_shovel",
    "minecraft:hopper",
    "minecraft:iron_pickaxe",
    "minecraft:item_frame",
    "minecraft:lantern",
+   "minecraft:oak_log",
    "minecraft:oak_planks",
    "minecraft:oak_slab",
    "minecraft:obsidian",
+   "minecraft:orange_terracotta",
    "minecraft:piston",
+   "minecraft:potion",
    "minecraft:rail",
    "minecraft:red_sand",
    "minecraft:rotten_flesh",
@@ -440,54 +534,67 @@
    "minecraft:smooth_sandstone",
    "minecraft:smooth_sandstone_slab",
    "minecraft:smooth_sandstone_stairs",
+   "minecraft:spruce_leaves",
    "minecraft:spruce_log",
    "minecraft:spruce_planks",
    "minecraft:stick",
+   "minecraft:stone_axe",
    "minecraft:stone_sword",
    "minecraft:string",
    "minecraft:stripped_oak_wood",
+   "minecraft:terracotta",
    "minecraft:torch",
    "minecraft:white_bed",
    "minecraft:wooden_pickaxe",
    "minecraft:zombie_spawn_egg",
    "mysticalagriculture:inferium_essence",
+   "patchouli:guide_book",
    "refinedstorage:creative_controller",
    "refinedstorage:disk_drive",
    "refinedstorage:grid",
    "silentgear:helmet_plates",
    "silentgear:pickaxe",
+   "sophisticatedstorage:chest",
    "sophisticatedstorage:iron_chest",
+   "sophisticatedstorage:packing_tape",
    "toolbelt:belt"
   ],
   "crafted": {
    "minecraft:crafting_table": 1,
-   "minecraft:spruce_planks": 8
+   "minecraft:spruce_planks": 12
   },
   "inventory": {
    "apotheosis:gem": 1,
    "apotheosis:potion_charm": 2,
-   "bhc:red_heart": 2,
+   "bhc:red_heart": 3,
    "deepnullreforged:deep_null_0": 1,
+   "forbidden_arcanus:artisan_relic": 1,
+   "minecraft:bow": 1,
    "minecraft:bundle": 1,
-   "minecraft:chest": 1,
-   "minecraft:cobblestone": 64,
+   "minecraft:chest": 11,
+   "minecraft:cobblestone": 74,
+   "minecraft:cooked_beef": 28,
    "minecraft:crafting_table": 1,
    "minecraft:diamond_pickaxe": 1,
    "minecraft:diamond_sword": 2,
    "minecraft:ender_eye": 2,
    "minecraft:firework_rocket": 16,
+   "minecraft:golden_apple": 64,
+   "minecraft:golden_shovel": 1,
+   "minecraft:hopper": 1,
    "minecraft:lantern": 3,
+   "minecraft:oak_log": 6,
    "minecraft:oak_planks": 2,
    "minecraft:piston": 1,
+   "minecraft:potion": 1,
    "minecraft:shulker_box": 1,
-   "minecraft:spruce_planks": 4,
-   "minecraft:stick": 8,
-   "minecraft:string": 5,
-   "minecraft:stripped_oak_wood": 9,
-   "minecraft:torch": 16,
+   "minecraft:spruce_planks": 20,
+   "minecraft:string": 7,
    "minecraft:white_bed": 1,
-   "mysticalagriculture:inferium_essence": 2,
+   "mysticalagriculture:inferium_essence": 5,
+   "patchouli:guide_book": 1,
    "silentgear:pickaxe": 1,
+   "sophisticatedstorage:chest": 3,
    "toolbelt:belt": 1
   },
   "names": {
@@ -498,6 +605,7 @@
    "ae2:terminal": "ME термінал",
    "apotheosis:gem": "Апофеотичний самоцвіт",
    "apotheosis:potion_charm": "Амулет",
+   "auroral:guide": "Посібник Auroral",
    "bhc:red_heart": "Мініатюрне червоне серце",
    "deepnullreforged:deep_null_0": "DeepNull",
    "dimstorage:dimensional_chest": "Міжвимірна скриня",
@@ -505,18 +613,24 @@
    "enderthing:key_chest": "Скриня Енду з ключем",
    "enderthing:lock": "Замок Енду",
    "energizedpower:crusher": "Дробарка",
+   "forbidden_arcanus:artisan_relic": "Реліквія майстра",
    "functionalstorage:oak_1": "Дубова шухляда (1x1)",
    "functionalstorage:oak_4": "Дубова шухляда (2x2)",
    "mcwfurnitures:oak_wardrobe": "Дубова шафа",
    "minecraft:anvil": "Ковадло",
    "minecraft:arrow": "Стріла",
+   "minecraft:bamboo_raft": "Бамбуковий пліт",
    "minecraft:barrel": "Діжка",
    "minecraft:bone": "Кістка",
    "minecraft:bookshelf": "Книжкова полиця",
+   "minecraft:bow": "Лук",
    "minecraft:bundle": "Мішечок",
    "minecraft:chest": "Скриня",
    "minecraft:chest_minecart": "Вагонетка зі скринею",
    "minecraft:cobblestone": "Кругляк",
+   "minecraft:cooked_beef": "Стейк",
+   "minecraft:copper_block": "Блок міді",
+   "minecraft:copper_ore": "Мідна руда",
    "minecraft:crafting_table": "Верстак",
    "minecraft:creeper_spawn_egg": "Яйце виклику кріпера",
    "minecraft:diamond_pickaxe": "Діамантове кайло",
@@ -526,15 +640,21 @@
    "minecraft:firework_rocket": "Феєрверкова ракета",
    "minecraft:flint_and_steel": "Кресало",
    "minecraft:furnace": "Піч",
+   "minecraft:glass": "Скло",
    "minecraft:gold_block": "Блок золота",
+   "minecraft:golden_apple": "Золоте яблуко",
+   "minecraft:golden_shovel": "Золота лопата",
    "minecraft:hopper": "Лійка",
    "minecraft:iron_pickaxe": "Залізне кайло",
    "minecraft:item_frame": "Рамка для предметів",
    "minecraft:lantern": "Ліхтар",
+   "minecraft:oak_log": "Дубова колода",
    "minecraft:oak_planks": "Дубові дошки",
    "minecraft:oak_slab": "Дубова плита",
    "minecraft:obsidian": "Обсидіан",
+   "minecraft:orange_terracotta": "Помаранчева кераміка",
    "minecraft:piston": "Поршень",
+   "minecraft:potion": "Зілля",
    "minecraft:rail": "Рейки",
    "minecraft:red_sand": "Червоний пісок",
    "minecraft:rotten_flesh": "Гнила плоть",
@@ -543,33 +663,39 @@
    "minecraft:smooth_sandstone": "Гладкий пісковик",
    "minecraft:smooth_sandstone_slab": "Плита з гладкого пісковику",
    "minecraft:smooth_sandstone_stairs": "Сходи з гладкого пісковику",
+   "minecraft:spruce_leaves": "Смерекове листя",
    "minecraft:spruce_log": "Смерекова колода",
    "minecraft:spruce_planks": "Смерекові дошки",
    "minecraft:stick": "Палиця",
+   "minecraft:stone_axe": "Кам'яна сокира",
    "minecraft:stone_sword": "Кам'яний меч",
    "minecraft:string": "Нитка",
    "minecraft:stripped_oak_wood": "Обтесана дубова деревина",
+   "minecraft:terracotta": "Кераміка",
    "minecraft:torch": "Смолоскип",
    "minecraft:white_bed": "Біле ліжко",
    "minecraft:wooden_pickaxe": "Дерев'яне кайло",
    "minecraft:zombie_spawn_egg": "Яйце виклику зомбі",
    "mysticalagriculture:inferium_essence": "Інферієва есенція",
+   "patchouli:guide_book": "Путівник",
    "refinedstorage:creative_controller": "Творчий контролер",
    "refinedstorage:disk_drive": "Дисковод",
    "refinedstorage:grid": "Сітка",
    "silentgear:helmet_plates": "Пластини шолома",
    "silentgear:pickaxe": "Кайло",
+   "sophisticatedstorage:chest": "Скриня",
    "sophisticatedstorage:iron_chest": "Залізна скриня",
+   "sophisticatedstorage:packing_tape": "Пакувальна стрічка",
    "toolbelt:belt": "Інструментальний пояс"
   }
  },
  "slots": {
   "mainHand": {
-   "id": "minecraft:diamond_pickaxe",
-   "uk": "Діамантове кайло",
-   "count": 1,
-   "slot": 0,
-   "slotLabel": "Головна рука (слот 1)",
+   "id": "minecraft:golden_apple",
+   "uk": "Золоте яблуко",
+   "count": 64,
+   "slot": 8,
+   "slotLabel": "Головна рука (слот 9)",
    "slotKind": "mainHand",
    "ns": "minecraft",
    "modName": "Minecraft"
@@ -577,18 +703,18 @@
   "offHand": null,
   "hotbar": [
    {
-    "id": "minecraft:diamond_pickaxe",
-    "uk": "Діамантове кайло",
+    "id": "minecraft:diamond_sword",
+    "uk": "Діамантовий меч",
     "count": 1,
     "slot": 0,
-    "slotLabel": "Головна рука (слот 1)",
-    "slotKind": "mainHand",
+    "slotLabel": "Гаряча панель (слот 1)",
+    "slotKind": "hotbar",
     "ns": "minecraft",
     "modName": "Minecraft"
    },
    {
-    "id": "minecraft:chest",
-    "uk": "Скриня",
+    "id": "minecraft:diamond_pickaxe",
+    "uk": "Діамантове кайло",
     "count": 1,
     "slot": 1,
     "slotLabel": "Гаряча панель (слот 2)",
@@ -597,9 +723,9 @@
     "modName": "Minecraft"
    },
    {
-    "id": "minecraft:oak_planks",
-    "uk": "Дубові дошки",
-    "count": 2,
+    "id": "minecraft:cooked_beef",
+    "uk": "Стейк",
+    "count": 28,
     "slot": 2,
     "slotLabel": "Гаряча панель (слот 3)",
     "slotKind": "hotbar",
@@ -607,14 +733,14 @@
     "modName": "Minecraft"
    },
    {
-    "id": "minecraft:diamond_sword",
-    "uk": "Діамантовий меч",
+    "id": "silentgear:pickaxe",
+    "uk": "Кайло",
     "count": 1,
     "slot": 3,
     "slotLabel": "Гаряча панель (слот 4)",
     "slotKind": "hotbar",
-    "ns": "minecraft",
-    "modName": "Minecraft"
+    "ns": "silentgear",
+    "modName": "Silent Gear"
    },
    {
     "id": "apotheosis:potion_charm",
@@ -647,9 +773,9 @@
     "modName": "Minecraft"
    },
    {
-    "id": "minecraft:torch",
-    "uk": "Смолоскип",
-    "count": 16,
+    "id": "minecraft:bow",
+    "uk": "Лук",
+    "count": 1,
     "slot": 7,
     "slotLabel": "Гаряча панель (слот 8)",
     "slotKind": "hotbar",
@@ -657,26 +783,26 @@
     "modName": "Minecraft"
    },
    {
-    "id": "minecraft:stick",
-    "uk": "Палиця",
-    "count": 8,
+    "id": "minecraft:golden_apple",
+    "uk": "Золоте яблуко",
+    "count": 64,
     "slot": 8,
-    "slotLabel": "Гаряча панель (слот 9)",
-    "slotKind": "hotbar",
+    "slotLabel": "Головна рука (слот 9)",
+    "slotKind": "mainHand",
     "ns": "minecraft",
     "modName": "Minecraft"
    }
   ],
   "inventory": [
    {
-    "id": "minecraft:stripped_oak_wood",
-    "uk": "Обтесана дубова деревина",
-    "count": 9,
+    "id": "patchouli:guide_book",
+    "uk": "Mystical Agriculture",
+    "count": 1,
     "slot": 9,
     "slotLabel": "Інвентар (слот 9)",
     "slotKind": "inventory",
-    "ns": "minecraft",
-    "modName": "Minecraft"
+    "ns": "patchouli",
+    "modName": "Patchouli"
    },
    {
     "id": "minecraft:bundle",
@@ -711,7 +837,7 @@
    {
     "id": "mysticalagriculture:inferium_essence",
     "uk": "Інферієва есенція",
-    "count": 2,
+    "count": 5,
     "slot": 13,
     "slotLabel": "Інвентар (слот 13)",
     "slotKind": "inventory",
@@ -721,7 +847,7 @@
    {
     "id": "minecraft:spruce_planks",
     "uk": "Смерекові дошки",
-    "count": 4,
+    "count": 20,
     "slot": 14,
     "slotLabel": "Інвентар (слот 14)",
     "slotKind": "inventory",
@@ -749,19 +875,100 @@
     "modName": "Minecraft"
    },
    {
-    "id": "silentgear:pickaxe",
-    "uk": "Кайло",
+    "id": "minecraft:oak_log",
+    "uk": "Дубова колода",
+    "count": 6,
+    "slot": 17,
+    "slotLabel": "Інвентар (слот 17)",
+    "slotKind": "inventory",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
+    "id": "minecraft:hopper",
+    "uk": "Лійка",
     "count": 1,
+    "slot": 18,
+    "slotLabel": "Інвентар (слот 18)",
+    "slotKind": "inventory",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
+    "id": "minecraft:oak_planks",
+    "uk": "Дубові дошки",
+    "count": 2,
+    "slot": 19,
+    "slotLabel": "Інвентар (слот 19)",
+    "slotKind": "inventory",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
+    "id": "minecraft:chest",
+    "uk": "Скриня",
+    "count": 11,
+    "slot": 20,
+    "slotLabel": "Інвентар (слот 20)",
+    "slotKind": "inventory",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
+    "id": "minecraft:cobblestone",
+    "uk": "Кругляк",
+    "count": 10,
+    "slot": 21,
+    "slotLabel": "Інвентар (слот 21)",
+    "slotKind": "inventory",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
+    "id": "sophisticatedstorage:chest",
+    "uk": "Скриня",
+    "count": 3,
     "slot": 22,
     "slotLabel": "Інвентар (слот 22)",
     "slotKind": "inventory",
-    "ns": "silentgear",
-    "modName": "Silent Gear"
+    "ns": "sophisticatedstorage",
+    "modName": "Sophisticated Storage"
+   },
+   {
+    "id": "forbidden_arcanus:artisan_relic",
+    "uk": "Реліквія майстра",
+    "count": 1,
+    "slot": 24,
+    "slotLabel": "Інвентар (слот 24)",
+    "slotKind": "inventory",
+    "ns": "forbidden_arcanus",
+    "modName": "Forbidden Arcanus"
+   },
+   {
+    "id": "minecraft:golden_shovel",
+    "uk": "Золота лопата",
+    "count": 1,
+    "slot": 25,
+    "slotLabel": "Інвентар (слот 25)",
+    "slotKind": "inventory",
+    "ns": "minecraft",
+    "modName": "Minecraft",
+    "customName": "Ornate Scoop"
+   },
+   {
+    "id": "minecraft:potion",
+    "uk": "Зілля",
+    "count": 1,
+    "slot": 26,
+    "slotLabel": "Інвентар (слот 26)",
+    "slotKind": "inventory",
+    "ns": "minecraft",
+    "modName": "Minecraft"
    },
    {
     "id": "bhc:red_heart",
     "uk": "Мініатюрне червоне серце",
-    "count": 2,
+    "count": 3,
     "slot": 27,
     "slotLabel": "Інвентар (слот 27)",
     "slotKind": "inventory",
@@ -772,8 +979,8 @@
     "id": "minecraft:diamond_sword",
     "uk": "Діамантовий меч",
     "count": 1,
-    "slot": 32,
-    "slotLabel": "Інвентар (слот 32)",
+    "slot": 28,
+    "slotLabel": "Інвентар (слот 28)",
     "slotKind": "inventory",
     "ns": "minecraft",
     "modName": "Minecraft"
@@ -789,7 +996,52 @@
     "modName": "Apotheosis"
    }
   ],
-  "armor": [],
+  "armor": [
+   {
+    "id": "minecraft:diamond_helmet",
+    "uk": "Діамантовий шолом",
+    "count": 1,
+    "slot": null,
+    "slotLabel": "Броня (Шолом)",
+    "slotKind": "armor",
+    "ns": "minecraft",
+    "modName": "Minecraft",
+    "armorSlot": "head"
+   },
+   {
+    "id": "minecraft:diamond_boots",
+    "uk": "Діамантові чоботи",
+    "count": 1,
+    "slot": null,
+    "slotLabel": "Броня (Черевики)",
+    "slotKind": "armor",
+    "ns": "minecraft",
+    "modName": "Minecraft",
+    "armorSlot": "feet"
+   },
+   {
+    "id": "minecraft:diamond_chestplate",
+    "uk": "Діамантовий нагрудник",
+    "count": 1,
+    "slot": null,
+    "slotLabel": "Броня (Нагрудник)",
+    "slotKind": "armor",
+    "ns": "minecraft",
+    "modName": "Minecraft",
+    "armorSlot": "chest"
+   },
+   {
+    "id": "minecraft:diamond_leggings",
+    "uk": "Діамантові наголінники",
+    "count": 1,
+    "slot": null,
+    "slotLabel": "Броня (Наголінники)",
+    "slotKind": "armor",
+    "ns": "minecraft",
+    "modName": "Minecraft",
+    "armorSlot": "legs"
+   }
+  ],
   "curios": [
    {
     "id": "sophisticatedbackpacks:backpack",
@@ -802,6 +1054,19 @@
     "modName": "Sophisticated Backpacks",
     "curiosSlot": "back",
     "curiosSlotUk": "Спина",
+    "curiosIndex": 0
+   },
+   {
+    "id": "crafting_on_a_stick:anvil",
+    "uk": "Ковадло на паличці",
+    "count": 1,
+    "slot": 0,
+    "slotLabel": "Curios: Створення на паличці",
+    "slotKind": "curios",
+    "ns": "crafting_on_a_stick",
+    "modName": "Crafting on a Stick",
+    "curiosSlot": "crafting_on_a_stick",
+    "curiosSlotUk": "Створення на паличці",
     "curiosIndex": 0
    }
   ],
@@ -905,18 +1170,18 @@
     "uk": "Залізне кайло",
     "count": 1,
     "slot": null,
-    "slotLabel": "У поясі (слот 2)",
+    "slotLabel": "У поясі (слот 1)",
     "slotKind": "toolbelt",
     "ns": "minecraft",
     "modName": "Minecraft",
-    "beltSlot": 1
+    "beltSlot": 0
    }
   ],
   "backpacks": [
    {
     "id": "minecraft:string",
     "uk": "Нитка",
-    "count": 5,
+    "count": 7,
     "slot": null,
     "slotLabel": "Усередині «Мішечок»",
     "slotKind": "backpack",

@@ -1,0 +1,1076 @@
+# Звіт для перекладача — K6 (2026-11-12)
+
+Джерело: знімок назв з гри `raw/game_item_names.json` (усі предмети реєстру гри, мова гри uk_ua) і `raw/game_quest_names.json`.
+
+- Предметів із назвою: 36653; **англійською (без кирилиці): 68**; змішаних (кирилиця + англійське слово): 910; гра показує ключем перекладу: 38.
+
+## Англійською — за модами
+
+- potionsmaster: 20
+- deepnullreforged: 12
+- neovitae: 10
+- thaumaturge: 10
+- kubejs: 8
+- mahoutsukai: 3
+- croptopia: 1
+- enderio: 1
+- iceandfire: 1
+- occultism: 1
+- strainers: 1
+
+## Англійською — перелік (id → назва в грі)
+
+### potionsmaster
+
+- `potionsmaster:calcinated_coal_oresight_powder` — Calcinated Coal Oresight Powder
+- `potionsmaster:calcinated_copper_oresight_powder` — Calcinated Copper Oresight Powder
+- `potionsmaster:calcinated_diamond_oresight_powder` — Calcinated Diamond Oresight Powder
+- `potionsmaster:calcinated_emerald_oresight_powder` — Calcinated Emerald Oresight Powder
+- `potionsmaster:calcinated_gold_oresight_powder` — Calcinated Gold Oresight Powder
+- `potionsmaster:calcinated_iron_oresight_powder` — Calcinated Iron Oresight Powder
+- `potionsmaster:calcinated_lapis_oresight_powder` — Calcinated Lapis Oresight Powder
+- `potionsmaster:calcinated_netherite_oresight_powder` — Calcinated Netherite Oresight Powder
+- `potionsmaster:calcinated_quartz_oresight_powder` — Calcinated Quartz Oresight Powder
+- `potionsmaster:calcinated_redstone_oresight_powder` — Calcinated Redstone Oresight Powder
+- `potionsmaster:coal_oresight_powder` — Coal Oresight Powder
+- `potionsmaster:copper_oresight_powder` — Copper Oresight Powder
+- `potionsmaster:diamond_oresight_powder` — Diamond Oresight Powder
+- `potionsmaster:emerald_oresight_powder` — Emerald Oresight Powder
+- `potionsmaster:gold_oresight_powder` — Gold Oresight Powder
+- `potionsmaster:iron_oresight_powder` — Iron Oresight Powder
+- `potionsmaster:lapis_oresight_powder` — Lapis Oresight Powder
+- `potionsmaster:netherite_oresight_powder` — Netherite Oresight Powder
+- `potionsmaster:quartz_oresight_powder` — Quartz Oresight Powder
+- `potionsmaster:redstone_oresight_powder` — Redstone Oresight Powder
+
+### deepnullreforged
+
+- `deepnullreforged:damp_null_0` — DampNull
+- `deepnullreforged:damp_null_1` — DampNull MK II
+- `deepnullreforged:damp_null_2` — DampNull MK III
+- `deepnullreforged:damp_null_3` — DampNull MK IV
+- `deepnullreforged:damp_null_4` — DampNull MK V
+- `deepnullreforged:damp_null_5` — DampNull MK VI
+- `deepnullreforged:deep_null_0` — DeepNull
+- `deepnullreforged:deep_null_1` — DeepNull MK II
+- `deepnullreforged:deep_null_2` — DeepNull MK III
+- `deepnullreforged:deep_null_3` — DeepNull MK IV
+- `deepnullreforged:deep_null_4` — DeepNull MK V
+- `deepnullreforged:deep_null_5` — DeepNull MK VI
+
+### neovitae
+
+- `neovitae:ara_vitae` — Ara Vitae
+- `neovitae:crystallarium_maleficum` — Crystallarium Maleficum
+- `neovitae:guide_book` — Scriptura Vitae
+- `neovitae:lex_vitae` — Lex Vitae
+- `neovitae:tabula_aetherea` — Tabula Aetherea
+- `neovitae:tabula_animata` — Tabula Animata
+- `neovitae:tabula_rasa` — Tabula Rasa
+- `neovitae:tabula_robur` — Tabula Robur
+- `neovitae:tabula_spiritus` — Tabula Spiritus
+- `neovitae:tabula_vitae` — Tabula Vitae
+
+### thaumaturge
+
+- `thaumaturge:alumentum` — Alumentum
+- `thaumaturge:cinderpearl` — Cinderpearl
+- `thaumaturge:greatwood` — Greatwood
+- `thaumaturge:salis_mundus` — Salis Mundus
+- `thaumaturge:shimmerleaf` — Shimmerleaf
+- `thaumaturge:silverwood` — Silverwood
+- `thaumaturge:thaumatorium` — Thaumatorium
+- `thaumaturge:thaumometer` — Thaumometer
+- `thaumaturge:thaumonomicon` — Thaumonomicon
+- `thaumaturge:vishroom` — Vishroom
+
+### kubejs
+
+- `kubejs:arcane_sulfur` — Alchemical Sulfur [Arcane Crystal]
+- `kubejs:bort_sulfur` — Alchemical Sulfur [Bort]
+- `kubejs:iesnium_sulfur` — Alchemical Sulfur [Iesnium]
+- `kubejs:prosperity_sulfur` — Alchemical Sulfur [Prosperity Shard]
+- `kubejs:runic_sulfur` — Alchemical Sulfur [Rune]
+- `kubejs:salt_sulfur` — Alchemical Sulfur [Salt]
+- `kubejs:stellarite_sulfur` — Alchemical Sulfur [Stellarite Piece]
+- `kubejs:sulfur_sulfur` — Alchemical Sulfur [Sulfur]
+
+### mahoutsukai
+
+- `mahoutsukai:mahoujin` — Mahoujin
+- `mahoutsukai:nobu` — Nobu
+- `mahoutsukai:william` — William
+
+### croptopia
+
+- `croptopia:guide` — Croptopia
+
+### enderio
+
+- `enderio:enderface` — Ender IO
+
+### iceandfire
+
+- `iceandfire:weezer_blue_album` — Weezer
+
+### occultism
+
+- `occultism:ritual_dummy/meteoric_infusion` — Ritual: Meteoric Infusion
+
+### strainers
+
+- `strainers:ore_piece` — THIS IS BROKEN REPORT TO DEV
+
+## Змішані назви
+
+- `agritechevolved:capacitor_tier1` — Конденсатор, Tier 1
+- `agritechevolved:capacitor_tier2` — Конденсатор, Tier 2
+- `agritechevolved:capacitor_tier3` — Конденсатор, Tier 3
+- `allthecompressed:greg_star_block_1x` — Блок GregStar 1x
+- `allthecompressed:greg_star_block_2x` — Блок GregStar 2x
+- `allthecompressed:greg_star_block_3x` — Блок GregStar 3x
+- `allthecompressed:greg_star_block_4x` — Блок GregStar 4x
+- `allthecompressed:greg_star_block_5x` — Блок GregStar 5x
+- `allthecompressed:greg_star_block_6x` — Блок GregStar 6x
+- `allthecompressed:greg_star_block_7x` — Блок GregStar 7x
+- `allthecompressed:greg_star_block_8x` — Блок GregStar 8x
+- `allthecompressed:greg_star_block_9x` — Блок GregStar 9x
+- `allthemodium:silent_allthemodium_plate` — Усемодієва пластина Silent
+- `allthemodium:silent_unobtainium_plate` — Унобтанієва пластина Silent
+- `allthemodium:silent_vibranium_plate` — Вібранієва пластина Silent
+- `allthetweaks:trophy_atm` — Трофей All The Mods
+- `appliedthaumaturge:essentia_cell_16k` — 16K ME комірка зберігання Essentia
+- `appliedthaumaturge:essentia_cell_1k` — 1K ME комірка зберігання Essentia
+- `appliedthaumaturge:essentia_cell_4k` — 4K ME комірка зберігання Essentia
+- `appliedthaumaturge:essentia_cell_64k` — 64K ME комірка зберігання Essentia
+- `appliedthaumaturge:essentia_cell_creative` — Творча ME комірка зберігання Essentia
+- `appliedthaumaturge:essentia_cell_housing` — Корпус ME комірки Essentia
+- `appliedthaumaturge:essentia_component_16k` — 16K ME компонент зберігання Essentia
+- `appliedthaumaturge:essentia_component_1k` — 1K ME компонент зберігання Essentia
+- `appliedthaumaturge:essentia_component_4k` — 4K ME компонент зберігання Essentia
+- `appliedthaumaturge:essentia_component_64k` — 64K ME компонент зберігання Essentia
+- `appliedthaumaturge:essentia_export_bus` — ME шина експорту Essentia
+- `appliedthaumaturge:essentia_import_bus` — ME шина імпорту Essentia
+- `appliedthaumaturge:essentia_interface` — ME інтерфейс Essentia
+- `appliedthaumaturge:essentia_level_emitter` — ME випромінювач рівня Essentia
+- `appliedthaumaturge:essentia_storage_bus` — ME шина зберігання Essentia
+- `appliedthaumaturge:essentia_terminal` — ME термінал Essentia
+- `appliedthaumaturge:portable_essentia_cell_16k` — 16K портативна комірка Essentia
+- `appliedthaumaturge:portable_essentia_cell_1k` — 1K портативна комірка Essentia
+- `appliedthaumaturge:portable_essentia_cell_4k` — 4K портативна комірка Essentia
+- `appliedthaumaturge:portable_essentia_cell_64k` — 64K портативна комірка Essentia
+- `appliedthaumaturge:wireless_essentia_terminal` — Бездротовий термінал Essentia
+- `arsmagicalegacy:inscription_table_upgrade_tier_1` — Покращення столу написання (Tier 1)
+- `arsmagicalegacy:inscription_table_upgrade_tier_2` — Покращення столу написання (Tier 2)
+- `arsmagicalegacy:inscription_table_upgrade_tier_3` — Покращення столу написання (Tier 3)
+- `auroral:guide` — Посібник Auroral
+- `chisel:futura_controller` — Блок Futura
+- `chisel:futura_controller_purple` — Блок Futura
+- `chisel:futura_matrix` — Блок Futura
+- `chisel:futura_matrix_purple` — Блок Futura
+- `chisel:futura_rainbow` — Блок Futura
+- `chisel:futura_screen_cyan` — Блок Futura
+- `chisel:futura_screen_gray` — Блок Futura
+- `chisel:nexus_core` — Блок Nexus
+- `chisel:nexus_grate_pillar` — Блок Nexus
+- `chisel:nexus_junction` — Блок Nexus
+- `chisel:nexus_link` — Блок Nexus
+- `chisel:nexus_path` — Блок Nexus
+- `chisel:nexus_plate` — Блок Nexus
+- `chisel:nexus_plating_pillar` — Блок Nexus
+- `chisel:nexus_railing_pillar` — Блок Nexus
+- `chisel:nexus_weave_pillar` — Блок Nexus
+- `crystalix:crystalix_glass` — Скло Crystalix
+- `crystalix:crystalix_wand` — Жезл Crystalix
+- `deepnullreforged:damp_null_6` — Творчий DampNull
+- `deepnullreforged:deep_null_6` — Творчий DeepNull
+- `deepnullreforged:deep_null_panel_0` — Редстоунова панель DeepNull
+- `deepnullreforged:deep_null_panel_1` — Лазуритова панель DeepNull
+- `deepnullreforged:deep_null_panel_2` — Залізна панель DeepNull
+- `deepnullreforged:deep_null_panel_3` — Золота панель DeepNull
+- `deepnullreforged:deep_null_panel_4` — Діамантова панель DeepNull
+- `deepnullreforged:deep_null_panel_5` — Смарагдова панель DeepNull
+- `deepnullreforged:deepnull_dock` — Док-станція DeepNull
+- `deepnullreforged:null_workbench` — Верстак Null
+- `enderio:redstone_nand_filter` — Редстоуновий NAND фільтр
+- `enderio:redstone_xnor_filter` — Редстоуновий XNOR фільтр
+- `enderio:yeta_wrench` — Yeta-ключ
+- `energizedpower:battery_1` — Батарея (Tier I)
+- `energizedpower:battery_10` — Батарея (Tier X)
+- `energizedpower:battery_2` — Батарея (Tier II)
+- `energizedpower:battery_3` — Батарея (Tier III)
+- `energizedpower:battery_4` — Батарея (Tier IV)
+- `energizedpower:battery_5` — Батарея (Tier V)
+- `energizedpower:battery_6` — Батарея (Tier VI)
+- `energizedpower:battery_7` — Батарея (Tier VII)
+- `energizedpower:battery_8` — Батарея (Tier VIII)
+- `energizedpower:battery_9` — Батарея (Tier IX)
+- `energizedpower:duration_upgrade_module_1` — Модуль покращення тривалості (Tier I)
+- `energizedpower:duration_upgrade_module_2` — Модуль покращення тривалості (Tier II)
+- `energizedpower:duration_upgrade_module_3` — Модуль покращення тривалості (Tier III)
+- `energizedpower:duration_upgrade_module_4` — Модуль покращення тривалості (Tier IV)
+- `energizedpower:duration_upgrade_module_5` — Модуль покращення тривалості (Tier V)
+- `energizedpower:duration_upgrade_module_6` — Модуль покращення тривалості (Tier VI)
+- `energizedpower:energized_power_book` — Книга Energized Power
+- `energizedpower:energizing_speed_upgrade_module_1` — Модуль покращення швидкості енергізації (Tier I)
+- `energizedpower:energizing_speed_upgrade_module_2` — Модуль покращення швидкості енергізації (Tier II)
+- `energizedpower:energizing_speed_upgrade_module_3` — Модуль покращення швидкості енергізації (Tier III)
+- `energizedpower:energizing_speed_upgrade_module_4` — Модуль покращення швидкості енергізації (Tier IV)
+- `energizedpower:energizing_speed_upgrade_module_5` — Модуль покращення швидкості енергізації (Tier V)
+- `energizedpower:energizing_speed_upgrade_module_6` — Модуль покращення швидкості енергізації (Tier VI)
+- `energizedpower:energizing_speed_upgrade_module_7` — Модуль покращення швидкості енергізації (Tier VII)
+- `energizedpower:energizing_speed_upgrade_module_8` — Модуль покращення швидкості енергізації (Tier VIII)
+- `energizedpower:energy_capacity_upgrade_module_1` — Модуль покращення енергомісткості (Tier I)
+- `energizedpower:energy_capacity_upgrade_module_2` — Модуль покращення енергомісткості (Tier II)
+- `energizedpower:energy_capacity_upgrade_module_3` — Модуль покращення енергомісткості (Tier III)
+- `energizedpower:energy_capacity_upgrade_module_4` — Модуль покращення енергомісткості (Tier IV)
+- `energizedpower:energy_capacity_upgrade_module_5` — Модуль покращення енергомісткості (Tier V)
+- `energizedpower:energy_capacity_upgrade_module_6` — Модуль покращення енергомісткості (Tier VI)
+- `energizedpower:energy_capacity_upgrade_module_7` — Модуль покращення енергомісткості (Tier VII)
+- `energizedpower:energy_capacity_upgrade_module_8` — Модуль покращення енергомісткості (Tier VIII)
+- `energizedpower:energy_efficiency_upgrade_module_1` — Модуль покращення енергоефективності (Tier I)
+- `energizedpower:energy_efficiency_upgrade_module_2` — Модуль покращення енергоефективності (Tier II)
+- `energizedpower:energy_efficiency_upgrade_module_3` — Модуль покращення енергоефективності (Tier III)
+- `energizedpower:energy_efficiency_upgrade_module_4` — Модуль покращення енергоефективності (Tier IV)
+- `energizedpower:energy_efficiency_upgrade_module_5` — Модуль покращення енергоефективності (Tier V)
+- `energizedpower:energy_efficiency_upgrade_module_6` — Модуль покращення енергоефективності (Tier VI)
+- `energizedpower:energy_efficiency_upgrade_module_7` — Модуль покращення енергоефективності (Tier VII)
+- `energizedpower:energy_efficiency_upgrade_module_8` — Модуль покращення енергоефективності (Tier VIII)
+- `energizedpower:energy_production_upgrade_module_1` — Модуль покращення виробітку енергії (Tier I)
+- `energizedpower:energy_production_upgrade_module_2` — Модуль покращення виробітку енергії (Tier II)
+- `energizedpower:energy_production_upgrade_module_3` — Модуль покращення виробітку енергії (Tier III)
+- `energizedpower:energy_production_upgrade_module_4` — Модуль покращення виробітку енергії (Tier IV)
+- `energizedpower:energy_production_upgrade_module_5` — Модуль покращення виробітку енергії (Tier V)
+- `energizedpower:energy_production_upgrade_module_6` — Модуль покращення виробітку енергії (Tier VI)
+- `energizedpower:energy_production_upgrade_module_7` — Модуль покращення виробітку енергії (Tier VII)
+- `energizedpower:energy_production_upgrade_module_8` — Модуль покращення виробітку енергії (Tier VIII)
+- `energizedpower:extraction_depth_upgrade_module_1` — Модуль покращення глибини видобування (Tier I)
+- `energizedpower:extraction_depth_upgrade_module_2` — Модуль покращення глибини видобування (Tier II)
+- `energizedpower:extraction_depth_upgrade_module_3` — Модуль покращення глибини видобування (Tier III)
+- `energizedpower:extraction_depth_upgrade_module_4` — Модуль покращення глибини видобування (Tier IV)
+- `energizedpower:extraction_depth_upgrade_module_5` — Модуль покращення глибини видобування (Tier V)
+- `energizedpower:extraction_depth_upgrade_module_6` — Модуль покращення глибини видобування (Tier VI)
+- `energizedpower:extraction_range_upgrade_module_1` — Модуль покращення радіуса видобування (Tier I)
+- `energizedpower:extraction_range_upgrade_module_2` — Модуль покращення радіуса видобування (Tier II)
+- `energizedpower:extraction_range_upgrade_module_3` — Модуль покращення радіуса видобування (Tier III)
+- `energizedpower:extraction_range_upgrade_module_4` — Модуль покращення радіуса видобування (Tier IV)
+- `energizedpower:extraction_range_upgrade_module_5` — Модуль покращення радіуса видобування (Tier V)
+- `energizedpower:extraction_range_upgrade_module_6` — Модуль покращення радіуса видобування (Tier VI)
+- `energizedpower:item_ejector_upgrade_module_1` — Модуль покращення викидання предметів (Tier I)
+- `energizedpower:item_ejector_upgrade_module_2` — Модуль покращення викидання предметів (Tier II)
+- `energizedpower:item_ejector_upgrade_module_3` — Модуль покращення викидання предметів (Tier III)
+- `energizedpower:item_ejector_upgrade_module_4` — Модуль покращення викидання предметів (Tier IV)
+- `energizedpower:item_ejector_upgrade_module_5` — Модуль покращення викидання предметів (Tier V)
+- `energizedpower:item_ejector_upgrade_module_6` — Модуль покращення викидання предметів (Tier VI)
+- `energizedpower:item_ejector_upgrade_module_7` — Модуль покращення викидання предметів (Tier VII)
+- `energizedpower:item_ejector_upgrade_module_8` — Модуль покращення викидання предметів (Tier VIII)
+- `energizedpower:item_pulling_upgrade_module_1` — Модуль покращення затягування предметів (Tier I)
+- `energizedpower:item_pulling_upgrade_module_2` — Модуль покращення затягування предметів (Tier II)
+- `energizedpower:item_pulling_upgrade_module_3` — Модуль покращення затягування предметів (Tier III)
+- `energizedpower:item_pulling_upgrade_module_4` — Модуль покращення затягування предметів (Tier IV)
+- `energizedpower:item_pulling_upgrade_module_5` — Модуль покращення затягування предметів (Tier V)
+- `energizedpower:item_pulling_upgrade_module_6` — Модуль покращення затягування предметів (Tier VI)
+- `energizedpower:item_pulling_upgrade_module_7` — Модуль покращення затягування предметів (Tier VII)
+- `energizedpower:item_pulling_upgrade_module_8` — Модуль покращення затягування предметів (Tier VIII)
+- `energizedpower:moon_light_upgrade_module_1` — Модуль покращення місячного світла (Tier I)
+- `energizedpower:moon_light_upgrade_module_2` — Модуль покращення місячного світла (Tier II)
+- `energizedpower:moon_light_upgrade_module_3` — Модуль покращення місячного світла (Tier III)
+- `energizedpower:moon_light_upgrade_module_4` — Модуль покращення місячного світла (Tier IV)
+- `energizedpower:moon_light_upgrade_module_5` — Модуль покращення місячного світла (Tier V)
+- `energizedpower:range_upgrade_module_1` — Модуль покращення радіуса (Tier I)
+- `energizedpower:range_upgrade_module_2` — Модуль покращення радіуса (Tier II)
+- `energizedpower:range_upgrade_module_3` — Модуль покращення радіуса (Tier III)
+- `energizedpower:solar_panel_1` — Сонячна панель (Tier I)
+- `energizedpower:solar_panel_2` — Сонячна панель (Tier II)
+- `energizedpower:solar_panel_3` — Сонячна панель (Tier III)
+- `energizedpower:solar_panel_4` — Сонячна панель (Tier IV)
+- `energizedpower:solar_panel_5` — Сонячна панель (Tier V)
+- `energizedpower:solar_panel_6` — Сонячна панель (Tier VI)
+- `energizedpower:solar_panel_7` — Сонячна панель (Tier VII)
+- `energizedpower:speed_upgrade_module_1` — Модуль покращення швидкості (Tier I)
+- `energizedpower:speed_upgrade_module_2` — Модуль покращення швидкості (Tier II)
+- `energizedpower:speed_upgrade_module_3` — Модуль покращення швидкості (Tier III)
+- `energizedpower:speed_upgrade_module_4` — Модуль покращення швидкості (Tier IV)
+- `energizedpower:speed_upgrade_module_5` — Модуль покращення швидкості (Tier V)
+- `energizedpower:speed_upgrade_module_6` — Модуль покращення швидкості (Tier VI)
+- `energizedpower:speed_upgrade_module_7` — Модуль покращення швидкості (Tier VII)
+- `energizedpower:speed_upgrade_module_8` — Модуль покращення швидкості (Tier VIII)
+- `energizedpower:xp_extraction_upgrade_module_1` — Модуль покращення вилучення досвіду (Tier I)
+- `energizedpower:xp_extraction_upgrade_module_2` — Модуль покращення вилучення досвіду (Tier II)
+- `energizedpower:xp_extraction_upgrade_module_3` — Модуль покращення вилучення досвіду (Tier III)
+- `energizedpower:xp_extraction_upgrade_module_4` — Модуль покращення вилучення досвіду (Tier IV)
+- `energizedpower:xp_extraction_upgrade_module_5` — Модуль покращення вилучення досвіду (Tier V)
+- `energizedpower:xp_extraction_upgrade_module_6` — Модуль покращення вилучення досвіду (Tier VI)
+- `energizedpower:xp_extraction_upgrade_module_7` — Модуль покращення вилучення досвіду (Tier VII)
+- `energizedpower:xp_extraction_upgrade_module_8` — Модуль покращення вилучення досвіду (Tier VIII)
+- `evilcraft:bowl_of_promises_tier0` — Миска обіцянок: Tier 0
+- `evilcraft:bowl_of_promises_tier1` — Миска обіцянок: Tier 1
+- `evilcraft:bowl_of_promises_tier2` — Миска обіцянок: Tier 2
+- `evilcraft:bowl_of_promises_tier3` — Миска обіцянок: Tier 3
+- `ftbquests:custom_icon` — Текстура: minecraft:textures/misc/unknown_pack.png
+- `geore:allthemodium_block` — Блок GeOre: усемодій
+- `geore:allthemodium_cluster` — Друза GeOre: усемодій
+- `geore:allthemodium_shard` — Уламок GeOre: усемодій
+- `geore:allthemodium_spyglass` — Підзорна труба GeOre: усемодій
+- `geore:aluminum_block` — Блок GeOre: алюміній
+- `geore:aluminum_cluster` — Друза GeOre: алюміній
+- `geore:aluminum_shard` — Уламок GeOre: алюміній
+- `geore:aluminum_spyglass` — Підзорна труба GeOre: алюміній
+- `geore:ancient_debris_block` — Блок GeOre: стародавні уламки
+- `geore:ancient_debris_cluster` — Друза GeOre: стародавні уламки
+- `geore:ancient_debris_shard` — Уламок GeOre: стародавні уламки
+- `geore:ancient_debris_spyglass` — Підзорна труба GeOre: стародавні уламки
+- `geore:black_quartz_block` — Блок GeOre: чорний кварц
+- `geore:black_quartz_cluster` — Друза GeOre: чорний кварц
+- `geore:black_quartz_shard` — Уламок GeOre: чорний кварц
+- `geore:black_quartz_spyglass` — Підзорна труба GeOre: чорний кварц
+- `geore:budding_allthemodium` — Родючий GeOre: усемодій
+- `geore:budding_aluminum` — Родючий GeOre: алюміній
+- `geore:budding_ancient_debris` — Родючий GeOre: стародавні уламки
+- `geore:budding_black_quartz` — Родючий GeOre: чорний кварц
+- `geore:budding_coal` — Родючий GeOre: вугілля
+- `geore:budding_copper` — Родючий GeOre: мідь
+- `geore:budding_diamond` — Родючий GeOre: діамант
+- `geore:budding_emerald` — Родючий GeOre: смарагд
+- `geore:budding_gold` — Родючий GeOre: золото
+- `geore:budding_iron` — Родючий GeOre: залізо
+- `geore:budding_lapis` — Родючий GeOre: лазурит
+- `geore:budding_lead` — Родючий GeOre: свинець
+- `geore:budding_monazite` — Родючий GeOre: монацит
+- `geore:budding_nickel` — Родючий GeOre: нікель
+- `geore:budding_osmium` — Родючий GeOre: осмій
+- `geore:budding_platinum` — Родючий GeOre: платина
+- `geore:budding_quartz` — Родючий GeOre: кварц
+- `geore:budding_redstone` — Родючий GeOre: редстоун
+- `geore:budding_ruby` — Родючий GeOre: рубін
+- `geore:budding_sapphire` — Родючий GeOre: сапфір
+- `geore:budding_silver` — Родючий GeOre: срібло
+- `geore:budding_tin` — Родючий GeOre: олово
+- `geore:budding_topaz` — Родючий GeOre: топаз
+- `geore:budding_tungsten` — Родючий GeOre: вольфрам
+- `geore:budding_unobtainium` — Родючий GeOre: унобтаній
+- `geore:budding_uraninite` — Родючий GeOre: уранініт
+- `geore:budding_uranium` — Родючий GeOre: уран
+- `geore:budding_vibranium` — Родючий GeOre: вібраній
+- `geore:budding_zinc` — Родючий GeOre: цинк
+- `geore:coal_block` — Блок GeOre: вугілля
+- `geore:coal_cluster` — Друза GeOre: вугілля
+- `geore:coal_shard` — Уламок GeOre: вугілля
+- `geore:coal_spyglass` — Підзорна труба GeOre: вугілля
+- `geore:copper_block` — Блок GeOre: мідь
+- `geore:copper_cluster` — Друза GeOre: мідь
+- `geore:copper_shard` — Уламок GeOre: мідь
+- `geore:copper_spyglass` — Підзорна труба GeOre: мідь
+- `geore:diamond_block` — Блок GeOre: діамант
+- `geore:diamond_cluster` — Друза GeOre: діамант
+- `geore:diamond_shard` — Уламок GeOre: діамант
+- `geore:diamond_spyglass` — Підзорна труба GeOre: діамант
+- `geore:emerald_block` — Блок GeOre: смарагд
+- `geore:emerald_cluster` — Друза GeOre: смарагд
+- `geore:emerald_shard` — Уламок GeOre: смарагд
+- `geore:emerald_spyglass` — Підзорна труба GeOre: смарагд
+- `geore:gold_block` — Блок GeOre: золото
+- `geore:gold_cluster` — Друза GeOre: золото
+- `geore:gold_shard` — Уламок GeOre: золото
+- `geore:gold_spyglass` — Підзорна труба GeOre: золото
+- `geore:iron_block` — Блок GeOre: залізо
+- `geore:iron_cluster` — Друза GeOre: залізо
+- `geore:iron_shard` — Уламок GeOre: залізо
+- `geore:iron_spyglass` — Підзорна труба GeOre: залізо
+- `geore:lapis_block` — Блок GeOre: лазурит
+- `geore:lapis_cluster` — Друза GeOre: лазурит
+- `geore:lapis_shard` — Уламок GeOre: лазурит
+- `geore:lapis_spyglass` — Підзорна труба GeOre: лазурит
+- `geore:large_allthemodium_bud` — Великий зародок GeOre: усемодій
+- `geore:large_aluminum_bud` — Великий зародок GeOre: алюміній
+- `geore:large_ancient_debris_bud` — Великий зародок GeOre: стародавні уламки
+- `geore:large_black_quartz_bud` — Великий зародок GeOre: чорний кварц
+- `geore:large_coal_bud` — Великий зародок GeOre: вугілля
+- `geore:large_copper_bud` — Великий зародок GeOre: мідь
+- `geore:large_diamond_bud` — Великий зародок GeOre: діамант
+- `geore:large_emerald_bud` — Великий зародок GeOre: смарагд
+- `geore:large_gold_bud` — Великий зародок GeOre: золото
+- `geore:large_iron_bud` — Великий зародок GeOre: залізо
+- `geore:large_lapis_bud` — Великий зародок GeOre: лазурит
+- `geore:large_lead_bud` — Великий зародок GeOre: свинець
+- `geore:large_monazite_bud` — Великий зародок GeOre: монацит
+- `geore:large_nickel_bud` — Великий зародок GeOre: нікель
+- `geore:large_osmium_bud` — Великий зародок GeOre: осмій
+- `geore:large_platinum_bud` — Великий зародок GeOre: платина
+- `geore:large_quartz_bud` — Великий зародок GeOre: кварц
+- `geore:large_redstone_bud` — Великий зародок GeOre: редстоун
+- `geore:large_ruby_bud` — Великий зародок GeOre: рубін
+- `geore:large_sapphire_bud` — Великий зародок GeOre: сапфір
+- `geore:large_silver_bud` — Великий зародок GeOre: срібло
+- `geore:large_tin_bud` — Великий зародок GeOre: олово
+- `geore:large_topaz_bud` — Великий зародок GeOre: топаз
+- `geore:large_tungsten_bud` — Великий зародок GeOre: вольфрам
+- `geore:large_unobtainium_bud` — Великий зародок GeOre: унобтаній
+- `geore:large_uraninite_bud` — Великий зародок GeOre: уранініт
+- `geore:large_uranium_bud` — Великий зародок GeOre: уран
+- `geore:large_vibranium_bud` — Великий зародок GeOre: вібраній
+- `geore:large_zinc_bud` — Великий зародок GeOre: цинк
+- `geore:lead_block` — Блок GeOre: свинець
+- `geore:lead_cluster` — Друза GeOre: свинець
+- `geore:lead_shard` — Уламок GeOre: свинець
+- `geore:lead_spyglass` — Підзорна труба GeOre: свинець
+- `geore:medium_allthemodium_bud` — Середній зародок GeOre: усемодій
+- `geore:medium_aluminum_bud` — Середній зародок GeOre: алюміній
+- `geore:medium_ancient_debris_bud` — Середній зародок GeOre: стародавні уламки
+- `geore:medium_black_quartz_bud` — Середній зародок GeOre: чорний кварц
+- `geore:medium_coal_bud` — Середній зародок GeOre: вугілля
+- `geore:medium_copper_bud` — Середній зародок GeOre: мідь
+- `geore:medium_diamond_bud` — Середній зародок GeOre: діамант
+- `geore:medium_emerald_bud` — Середній зародок GeOre: смарагд
+- `geore:medium_gold_bud` — Середній зародок GeOre: золото
+- `geore:medium_iron_bud` — Середній зародок GeOre: залізо
+- `geore:medium_lapis_bud` — Середній зародок GeOre: лазурит
+- `geore:medium_lead_bud` — Середній зародок GeOre: свинець
+- `geore:medium_monazite_bud` — Середній зародок GeOre: монацит
+- `geore:medium_nickel_bud` — Середній зародок GeOre: нікель
+- `geore:medium_osmium_bud` — Середній зародок GeOre: осмій
+- `geore:medium_platinum_bud` — Середній зародок GeOre: платина
+- `geore:medium_quartz_bud` — Середній зародок GeOre: кварц
+- `geore:medium_redstone_bud` — Середній зародок GeOre: редстоун
+- `geore:medium_ruby_bud` — Середній зародок GeOre: рубін
+- `geore:medium_sapphire_bud` — Середній зародок GeOre: сапфір
+- `geore:medium_silver_bud` — Середній зародок GeOre: срібло
+- `geore:medium_tin_bud` — Середній зародок GeOre: олово
+- `geore:medium_topaz_bud` — Середній зародок GeOre: топаз
+- `geore:medium_tungsten_bud` — Середній зародок GeOre: вольфрам
+- `geore:medium_unobtainium_bud` — Середній зародок GeOre: унобтаній
+- `geore:medium_uraninite_bud` — Середній зародок GeOre: уранініт
+- `geore:medium_uranium_bud` — Середній зародок GeOre: уран
+- `geore:medium_vibranium_bud` — Середній зародок GeOre: вібраній
+- `geore:medium_zinc_bud` — Середній зародок GeOre: цинк
+- `geore:monazite_block` — Блок GeOre: монацит
+- `geore:monazite_cluster` — Друза GeOre: монацит
+- `geore:monazite_shard` — Уламок GeOre: монацит
+- `geore:monazite_spyglass` — Підзорна труба GeOre: монацит
+- `geore:nickel_block` — Блок GeOre: нікель
+- `geore:nickel_cluster` — Друза GeOre: нікель
+- `geore:nickel_shard` — Уламок GeOre: нікель
+- `geore:nickel_spyglass` — Підзорна труба GeOre: нікель
+- `geore:osmium_block` — Блок GeOre: осмій
+- `geore:osmium_cluster` — Друза GeOre: осмій
+- `geore:osmium_shard` — Уламок GeOre: осмій
+- `geore:osmium_spyglass` — Підзорна труба GeOre: осмій
+- `geore:platinum_block` — Блок GeOre: платина
+- `geore:platinum_cluster` — Друза GeOre: платина
+- `geore:platinum_shard` — Уламок GeOre: платина
+- `geore:platinum_spyglass` — Підзорна труба GeOre: платина
+- `geore:quartz_block` — Блок GeOre: кварц
+- `geore:quartz_cluster` — Друза GeOre: кварц
+- `geore:quartz_shard` — Уламок GeOre: кварц
+- `geore:quartz_spyglass` — Підзорна труба GeOre: кварц
+- `geore:redstone_block` — Блок GeOre: редстоун
+- `geore:redstone_cluster` — Друза GeOre: редстоун
+- `geore:redstone_shard` — Уламок GeOre: редстоун
+- `geore:redstone_spyglass` — Підзорна труба GeOre: редстоун
+- `geore:ruby_block` — Блок GeOre: рубін
+- `geore:ruby_cluster` — Друза GeOre: рубін
+- `geore:ruby_shard` — Уламок GeOre: рубін
+- `geore:ruby_spyglass` — Підзорна труба GeOre: рубін
+- `geore:sapphire_block` — Блок GeOre: сапфір
+- `geore:sapphire_cluster` — Друза GeOre: сапфір
+- `geore:sapphire_shard` — Уламок GeOre: сапфір
+- `geore:sapphire_spyglass` — Підзорна труба GeOre: сапфір
+- `geore:silver_block` — Блок GeOre: срібло
+- `geore:silver_cluster` — Друза GeOre: срібло
+- `geore:silver_shard` — Уламок GeOre: срібло
+- `geore:silver_spyglass` — Підзорна труба GeOre: срібло
+- `geore:small_allthemodium_bud` — Малий зародок GeOre: усемодій
+- `geore:small_aluminum_bud` — Малий зародок GeOre: алюміній
+- `geore:small_ancient_debris_bud` — Малий зародок GeOre: стародавні уламки
+- `geore:small_black_quartz_bud` — Малий зародок GeOre: чорний кварц
+- `geore:small_coal_bud` — Малий зародок GeOre: вугілля
+- `geore:small_copper_bud` — Малий зародок GeOre: мідь
+- `geore:small_diamond_bud` — Малий зародок GeOre: діамант
+- `geore:small_emerald_bud` — Малий зародок GeOre: смарагд
+- `geore:small_gold_bud` — Малий зародок GeOre: золото
+- `geore:small_iron_bud` — Малий зародок GeOre: залізо
+- `geore:small_lapis_bud` — Малий зародок GeOre: лазурит
+- `geore:small_lead_bud` — Малий зародок GeOre: свинець
+- `geore:small_monazite_bud` — Малий зародок GeOre: монацит
+- `geore:small_nickel_bud` — Малий зародок GeOre: нікель
+- `geore:small_osmium_bud` — Малий зародок GeOre: осмій
+- `geore:small_platinum_bud` — Малий зародок GeOre: платина
+- `geore:small_quartz_bud` — Малий зародок GeOre: кварц
+- `geore:small_redstone_bud` — Малий зародок GeOre: редстоун
+- `geore:small_ruby_bud` — Малий зародок GeOre: рубін
+- `geore:small_sapphire_bud` — Малий зародок GeOre: сапфір
+- `geore:small_silver_bud` — Малий зародок GeOre: срібло
+- `geore:small_tin_bud` — Малий зародок GeOre: олово
+- `geore:small_topaz_bud` — Малий зародок GeOre: топаз
+- `geore:small_tungsten_bud` — Малий зародок GeOre: вольфрам
+- `geore:small_unobtainium_bud` — Малий зародок GeOre: унобтаній
+- `geore:small_uraninite_bud` — Малий зародок GeOre: уранініт
+- `geore:small_uranium_bud` — Малий зародок GeOre: уран
+- `geore:small_vibranium_bud` — Малий зародок GeOre: вібраній
+- `geore:small_zinc_bud` — Малий зародок GeOre: цинк
+- `geore:tin_block` — Блок GeOre: олово
+- `geore:tin_cluster` — Друза GeOre: олово
+- `geore:tin_shard` — Уламок GeOre: олово
+- `geore:tin_spyglass` — Підзорна труба GeOre: олово
+- `geore:topaz_block` — Блок GeOre: топаз
+- `geore:topaz_cluster` — Друза GeOre: топаз
+- `geore:topaz_shard` — Уламок GeOre: топаз
+- `geore:topaz_spyglass` — Підзорна труба GeOre: топаз
+- `geore:tungsten_block` — Блок GeOre: вольфрам
+- `geore:tungsten_cluster` — Друза GeOre: вольфрам
+- `geore:tungsten_shard` — Уламок GeOre: вольфрам
+- `geore:tungsten_spyglass` — Підзорна труба GeOre: вольфрам
+- `geore:unobtainium_block` — Блок GeOre: унобтаній
+- `geore:unobtainium_cluster` — Друза GeOre: унобтаній
+- `geore:unobtainium_shard` — Уламок GeOre: унобтаній
+- `geore:unobtainium_spyglass` — Підзорна труба GeOre: унобтаній
+- `geore:uraninite_block` — Блок GeOre: уранініт
+- `geore:uraninite_cluster` — Друза GeOre: уранініт
+- `geore:uraninite_shard` — Уламок GeOre: уранініт
+- `geore:uraninite_spyglass` — Підзорна труба GeOre: уранініт
+- `geore:uranium_block` — Блок GeOre: уран
+- `geore:uranium_cluster` — Друза GeOre: уран
+- `geore:uranium_shard` — Уламок GeOre: уран
+- `geore:uranium_spyglass` — Підзорна труба GeOre: уран
+- `geore:vibranium_block` — Блок GeOre: вібраній
+- `geore:vibranium_cluster` — Друза GeOre: вібраній
+- `geore:vibranium_shard` — Уламок GeOre: вібраній
+- `geore:vibranium_spyglass` — Підзорна труба GeOre: вібраній
+- `geore:zinc_block` — Блок GeOre: цинк
+- `geore:zinc_cluster` — Друза GeOre: цинк
+- `geore:zinc_shard` — Уламок GeOre: цинк
+- `geore:zinc_spyglass` — Підзорна труба GeOre: цинк
+- `hostilenetworks:data_model` — Модель даних: BROKEN
+- `hostilenetworks:prediction` — Передбачення: BROKEN
+- `ironjetpacks:capacitor` — Undefined конденсатор
+- `ironjetpacks:cell` — Undefined батарея
+- `ironjetpacks:jetpack` — Undefined реактивний ранець
+- `ironjetpacks:thruster` — Undefined рушій
+- `irons_lib:player_statue` — Статуя Patreon
+- `irons_lib:transmog_table` — Стіл трансмогрифікації Patreon
+- `kubejs:silent_allthemodium_plate` — Усемодієва пластина Silent
+- `kubejs:silent_unobtainium_plate` — Унобтанієва пластина Silent
+- `kubejs:silent_vibranium_plate` — Вібранієва пластина Silent
+- `logisticsnetworks:mekanism_chemical_upgrade` — Покращення хімікатів Mekanism
+- `mahoutsukai:guidebook` — Збірник знань Mahou Tsukai
+- `mahoutsukai:mahoujin_projector` — Проєктор Mahoujin
+- `mahoutsukai:mana_circuit_magitech` — Magitech ланцюг мани
+- `mahoutsukai:scroll_fallen_down` — Сувій Fallen Down
+- `mahoutsukai:scroll_gandr` — Сувій Gandr
+- `mahoutsukai:scroll_geas` — Сувій Geas
+- `mininggadgets:upgrade_battery_1` — Покращення: батарея, Tier 1
+- `mininggadgets:upgrade_battery_2` — Покращення: батарея, Tier 2
+- `mininggadgets:upgrade_battery_3` — Покращення: батарея, Tier 3
+- `mininggadgets:upgrade_efficiency_1` — Покращення: ефективність, Tier 1
+- `mininggadgets:upgrade_efficiency_2` — Покращення: ефективність, Tier 2
+- `mininggadgets:upgrade_efficiency_3` — Покращення: ефективність, Tier 3
+- `mininggadgets:upgrade_efficiency_4` — Покращення: ефективність, Tier 4
+- `mininggadgets:upgrade_efficiency_5` — Покращення: ефективність, Tier 5
+- `mininggadgets:upgrade_fortune_1` — Покращення: удача, Tier 1
+- `mininggadgets:upgrade_fortune_2` — Покращення: удача, Tier 2
+- `mininggadgets:upgrade_fortune_3` — Покращення: удача, Tier 3
+- `mininggadgets:upgrade_range_1` — Покращення: дальність, Tier 1
+- `mininggadgets:upgrade_range_2` — Покращення: дальність, Tier 2
+- `mininggadgets:upgrade_range_3` — Покращення: дальність, Tier 3
+- `morered:bitwise_xnor_gate` — Побітовий вентиль XNOR
+- `morered:nand_gate` — Вентиль NAND
+- `morered:two_input_nand_gate` — Двовходовий вентиль NAND
+- `morered:xnor_gate` — Вентиль XNOR
+- `mysticalagriculture:allthemodium_essence` — Есенція Allthemodium
+- `mysticalagriculture:allthemodium_seeds` — Насіння Allthemodium
+- `mysticalagriculture:azure_silver_essence` — Есенція Azure Silver
+- `mysticalagriculture:azure_silver_seeds` — Насіння Azure Silver
+- `mysticalagriculture:black_quartz_essence` — Есенція Black Quartz
+- `mysticalagriculture:black_quartz_seeds` — Насіння Black Quartz
+- `mysticalagriculture:crimson_iron_essence` — Есенція Crimson Iron
+- `mysticalagriculture:crimson_iron_seeds` — Насіння Crimson Iron
+- `mysticalagriculture:darkstone_essence` — Есенція Darkstone
+- `mysticalagriculture:darkstone_seeds` — Насіння Darkstone
+- `mysticalagriculture:entro_essence` — Есенція Entro
+- `mysticalagriculture:entro_seeds` — Насіння Entro
+- `mysticalagriculture:sky_steel_essence` — Есенція Sky Steel
+- `mysticalagriculture:sky_steel_seeds` — Насіння Sky Steel
+- `mysticalagriculture:unexplored_wood_essence` — Есенція Unexplored Wood
+- `mysticalagriculture:unexplored_wood_seeds` — Насіння Unexplored Wood
+- `mysticalagriculture:unobtainium_essence` — Есенція Unobtainium
+- `mysticalagriculture:unobtainium_seeds` — Насіння Unobtainium
+- `mysticalagriculture:vibranium_essence` — Есенція Vibranium
+- `mysticalagriculture:vibranium_seeds` — Насіння Vibranium
+- `mysticalagriculture:xychorium_gem_essence` — Есенція Xychorium Gem
+- `mysticalagriculture:xychorium_gem_seeds` — Насіння Xychorium Gem
+- `neovitae:activation_crystal_divinus` — Кристал активації Divinus
+- `neovitae:animated_spiritus` — Анімований Spiritus
+- `neovitae:animated_spiritus_bucket` — Відро анімованого Spiritus
+- `neovitae:animus_mote` — Частинка Animus
+- `neovitae:base_spiritus_soul_invictus` — Есенція Spiritus Invictus
+- `neovitae:base_spiritus_soul_nihilum` — Есенція Spiritus Nihilum
+- `neovitae:base_spiritus_soul_raw` — Есенція Spiritus
+- `neovitae:base_spiritus_soul_ruina` — Есенція Spiritus Ruina
+- `neovitae:base_spiritus_soul_vindicta` — Есенція Spiritus Vindicta
+- `neovitae:blood_orb_apprentice` — Сфера Vitae Discipulus
+- `neovitae:blood_orb_archmage` — Сфера Vitae Dominus
+- `neovitae:blood_orb_magician` — Сфера Vitae Veneficus
+- `neovitae:blood_orb_master` — Сфера Vitae Magus
+- `neovitae:blood_orb_transcendent` — Сфера Vitae Divinus
+- `neovitae:blood_orb_weak` — Сфера Vitae Novicius
+- `neovitae:daemonium_animaris_spawn_egg` — Яйце виклику: Daemonium Animaris
+- `neovitae:daemonium_corrodis_spawn_egg` — Яйце виклику: Daemonium Corrodis
+- `neovitae:daemonium_cruoris_spawn_egg` — Яйце виклику: Daemonium Cruoris
+- `neovitae:daemonium_doloris_spawn_egg` — Яйце виклику: Daemonium Doloris
+- `neovitae:daemonium_fervidis_spawn_egg` — Яйце виклику: Daemonium Fervidis
+- `neovitae:daemonium_glaciaris_spawn_egg` — Яйце виклику: Daemonium Glaciaris
+- `neovitae:daemonium_ignis_spawn_egg` — Яйце виклику: Daemonium Ignis
+- `neovitae:daemonium_pestis_spawn_egg` — Яйце виклику: Daemonium Pestis
+- `neovitae:daemonium_rancoris_spawn_egg` — Яйце виклику: Daemonium Rancoris
+- `neovitae:daemonium_voraxis_spawn_egg` — Яйце виклику: Daemonium Voraxis
+- `neovitae:deus_cutting_fluid` — Різальна рідина Deus
+- `neovitae:deus_explosive_cell` — Вибухова комірка Deus
+- `neovitae:deus_hydration_cell` — Зволожувальна комірка Deus
+- `neovitae:deus_resonator` — Резонатор Deus
+- `neovitae:deus_reverter` — Повертач Deus
+- `neovitae:deus_ritual_stone` — Ритуальний камінь Deus
+- `neovitae:deus_scribe_tool` — Інструмент нанесення: Deus
+- `neovitae:dungeon_brick1_c` — Цегла підземелля Ruina
+- `neovitae:dungeon_brick1_d` — Цегла підземелля Nihilum
+- `neovitae:dungeon_brick1_st` — Цегла підземелля Invictus
+- `neovitae:dungeon_brick1_v` — Цегла підземелля Vindicta
+- `neovitae:dungeon_brick2_c` — Цегла підземелля 2 Ruina
+- `neovitae:dungeon_brick2_d` — Цегла підземелля 2 Nihilum
+- `neovitae:dungeon_brick2_st` — Цегла підземелля 2 Invictus
+- `neovitae:dungeon_brick2_v` — Цегла підземелля 2 Vindicta
+- `neovitae:dungeon_brick3_c` — Цегла підземелля 3 Ruina
+- `neovitae:dungeon_brick3_d` — Цегла підземелля 3 Nihilum
+- `neovitae:dungeon_brick3_st` — Цегла підземелля 3 Invictus
+- `neovitae:dungeon_brick3_v` — Цегла підземелля 3 Vindicta
+- `neovitae:dungeon_brick_gate_c` — Цегляна брама підземелля Ruina
+- `neovitae:dungeon_brick_gate_d` — Цегляна брама підземелля Nihilum
+- `neovitae:dungeon_brick_gate_st` — Цегляна брама підземелля Invictus
+- `neovitae:dungeon_brick_gate_v` — Цегляна брама підземелля Vindicta
+- `neovitae:dungeon_brick_slab_c` — Цегляна плита підземелля Ruina
+- `neovitae:dungeon_brick_slab_d` — Цегляна плита підземелля Nihilum
+- `neovitae:dungeon_brick_slab_st` — Цегляна плита підземелля Invictus
+- `neovitae:dungeon_brick_slab_v` — Цегляна плита підземелля Vindicta
+- `neovitae:dungeon_brick_stairs_c` — Цегляні сходи підземелля Ruina
+- `neovitae:dungeon_brick_stairs_d` — Цегляні сходи підземелля Nihilum
+- `neovitae:dungeon_brick_stairs_st` — Цегляні сходи підземелля Invictus
+- `neovitae:dungeon_brick_stairs_v` — Цегляні сходи підземелля Vindicta
+- `neovitae:dungeon_brick_wall_c` — Цегляна стіна підземелля Ruina
+- `neovitae:dungeon_brick_wall_d` — Цегляна стіна підземелля Nihilum
+- `neovitae:dungeon_brick_wall_st` — Цегляна стіна підземелля Invictus
+- `neovitae:dungeon_brick_wall_v` — Цегляна стіна підземелля Vindicta
+- `neovitae:dungeon_eye_c` — Око підземелля Ruina
+- `neovitae:dungeon_eye_d` — Око підземелля Nihilum
+- `neovitae:dungeon_eye_st` — Око підземелля Invictus
+- `neovitae:dungeon_eye_v` — Око підземелля Vindicta
+- `neovitae:dungeon_metal_c` — Метал підземелля Ruina
+- `neovitae:dungeon_metal_d` — Метал підземелля Nihilum
+- `neovitae:dungeon_metal_st` — Метал підземелля Invictus
+- `neovitae:dungeon_metal_v` — Метал підземелля Vindicta
+- `neovitae:dungeon_pillar_cap_c` — Капітель колони підземелля Ruina
+- `neovitae:dungeon_pillar_cap_d` — Капітель колони підземелля Nihilum
+- `neovitae:dungeon_pillar_cap_st` — Капітель колони підземелля Invictus
+- `neovitae:dungeon_pillar_cap_v` — Капітель колони підземелля Vindicta
+- `neovitae:dungeon_pillar_center_c` — Колона підземелля Ruina
+- `neovitae:dungeon_pillar_center_d` — Колона підземелля Nihilum
+- `neovitae:dungeon_pillar_center_st` — Колона підземелля Invictus
+- `neovitae:dungeon_pillar_center_v` — Колона підземелля Vindicta
+- `neovitae:dungeon_pillar_special_c` — Особлива колона підземелля Ruina
+- `neovitae:dungeon_pillar_special_d` — Особлива колона підземелля Nihilum
+- `neovitae:dungeon_pillar_special_st` — Особлива колона підземелля Invictus
+- `neovitae:dungeon_pillar_special_v` — Особлива колона підземелля Vindicta
+- `neovitae:dungeon_polished_c` — Шліфований камінь підземелля Ruina
+- `neovitae:dungeon_polished_d` — Шліфований камінь підземелля Nihilum
+- `neovitae:dungeon_polished_gate_c` — Брама зі шліфованого каменю підземелля Ruina
+- `neovitae:dungeon_polished_gate_d` — Брама зі шліфованого каменю підземелля Nihilum
+- `neovitae:dungeon_polished_gate_st` — Брама зі шліфованого каменю підземелля Invictus
+- `neovitae:dungeon_polished_gate_v` — Брама зі шліфованого каменю підземелля Vindicta
+- `neovitae:dungeon_polished_slab_c` — Плита зі шліфованого каменю підземелля Ruina
+- `neovitae:dungeon_polished_slab_d` — Плита зі шліфованого каменю підземелля Nihilum
+- `neovitae:dungeon_polished_slab_st` — Плита зі шліфованого каменю підземелля Invictus
+- `neovitae:dungeon_polished_slab_v` — Плита зі шліфованого каменю підземелля Vindicta
+- `neovitae:dungeon_polished_st` — Шліфований камінь підземелля Invictus
+- `neovitae:dungeon_polished_stairs_c` — Сходи зі шліфованого каменю підземелля Ruina
+- `neovitae:dungeon_polished_stairs_d` — Сходи зі шліфованого каменю підземелля Nihilum
+- `neovitae:dungeon_polished_stairs_st` — Сходи зі шліфованого каменю підземелля Invictus
+- `neovitae:dungeon_polished_stairs_v` — Сходи зі шліфованого каменю підземелля Vindicta
+- `neovitae:dungeon_polished_v` — Шліфований камінь підземелля Vindicta
+- `neovitae:dungeon_polished_wall_c` — Стіна зі шліфованого каменю підземелля Ruina
+- `neovitae:dungeon_polished_wall_d` — Стіна зі шліфованого каменю підземелля Nihilum
+- `neovitae:dungeon_polished_wall_st` — Стіна зі шліфованого каменю підземелля Invictus
+- `neovitae:dungeon_polished_wall_v` — Стіна зі шліфованого каменю підземелля Vindicta
+- `neovitae:dungeon_smallbrick_c` — Дрібна цегла підземелля Ruina
+- `neovitae:dungeon_smallbrick_d` — Дрібна цегла підземелля Nihilum
+- `neovitae:dungeon_smallbrick_st` — Дрібна цегла підземелля Invictus
+- `neovitae:dungeon_smallbrick_v` — Дрібна цегла підземелля Vindicta
+- `neovitae:dungeon_stone_c` — Камінь підземелля Ruina
+- `neovitae:dungeon_stone_d` — Камінь підземелля Nihilum
+- `neovitae:dungeon_stone_slab_c` — Кам'яна плита підземелля Ruina
+- `neovitae:dungeon_stone_slab_d` — Кам'яна плита підземелля Nihilum
+- `neovitae:dungeon_stone_slab_st` — Кам'яна плита підземелля Invictus
+- `neovitae:dungeon_stone_slab_v` — Кам'яна плита підземелля Vindicta
+- `neovitae:dungeon_stone_st` — Камінь підземелля Invictus
+- `neovitae:dungeon_stone_stairs_c` — Кам'яні сходи підземелля Ruina
+- `neovitae:dungeon_stone_stairs_d` — Кам'яні сходи підземелля Nihilum
+- `neovitae:dungeon_stone_stairs_st` — Кам'яні сходи підземелля Invictus
+- `neovitae:dungeon_stone_stairs_v` — Кам'яні сходи підземелля Vindicta
+- `neovitae:dungeon_stone_v` — Камінь підземелля Vindicta
+- `neovitae:dungeon_stone_wall_c` — Кам'яна стіна підземелля Ruina
+- `neovitae:dungeon_stone_wall_d` — Кам'яна стіна підземелля Nihilum
+- `neovitae:dungeon_stone_wall_st` — Кам'яна стіна підземелля Invictus
+- `neovitae:dungeon_stone_wall_v` — Кам'яна стіна підземелля Vindicta
+- `neovitae:dungeon_tile_c` — Плитка підземелля Ruina
+- `neovitae:dungeon_tile_d` — Плитка підземелля Nihilum
+- `neovitae:dungeon_tile_slab_c` — Плита з плитки підземелля Ruina
+- `neovitae:dungeon_tile_slab_d` — Плита з плитки підземелля Nihilum
+- `neovitae:dungeon_tile_slab_st` — Плита з плитки підземелля Invictus
+- `neovitae:dungeon_tile_slab_v` — Плита з плитки підземелля Vindicta
+- `neovitae:dungeon_tile_st` — Плитка підземелля Invictus
+- `neovitae:dungeon_tile_v` — Плитка підземелля Vindicta
+- `neovitae:dungeon_tile_wall_c` — Стіна з плитки підземелля Ruina
+- `neovitae:dungeon_tile_wall_d` — Стіна з плитки підземелля Nihilum
+- `neovitae:dungeon_tile_wall_st` — Стіна з плитки підземелля Invictus
+- `neovitae:dungeon_tile_wall_v` — Стіна з плитки підземелля Vindicta
+- `neovitae:dungeon_tilespecial_c` — Особлива плитка підземелля Ruina
+- `neovitae:dungeon_tilespecial_d` — Особлива плитка підземелля Nihilum
+- `neovitae:dungeon_tilespecial_st` — Особлива плитка підземелля Invictus
+- `neovitae:dungeon_tilespecial_v` — Особлива плитка підземелля Vindicta
+- `neovitae:essentia_vitae_bucket` — Відро Essentia Vitae
+- `neovitae:experience_tome` — Фоліант Peritia
+- `neovitae:fortune_anointment` — Екстракт Fortuna
+- `neovitae:fortune_anointment_2` — Екстракт Fortuna II
+- `neovitae:fortune_anointment_3` — Екстракт Fortuna III
+- `neovitae:fortune_anointment_l` — Екстракт Fortuna L
+- `neovitae:fortune_anointment_xl` — Екстракт Fortuna XL
+- `neovitae:orb_filling_link` — Ланка наповнення Сфери Vitae
+- `neovitae:prismatic_spiritus_gem` — Призматичний самоцвіт Spiritus
+- `neovitae:raw_crystal_shard` — Кристал Spiritus
+- `neovitae:raw_spiritus` — Необроблений Spiritus
+- `neovitae:ritual_diviner_deus` — Ритуальний віщун [Deus]
+- `neovitae:ritual_diviner_tenebrae` — Ритуальний віщун [Tenebrae]
+- `neovitae:sands_of_vitae` — Піски Vitae
+- `neovitae:slime_vitae_spawn_egg` — Яйце виклику: Слиз Vitae
+- `neovitae:spira_infernalis` — Канал Spiritus
+- `neovitae:spiritus_drain_anointment` — Помазання висмоктування Spiritus
+- `neovitae:spiritus_gauge` — Вимірювач аури Spiritus
+- `neovitae:spiritus_gem_common` — Звичайний самоцвіт Spiritus
+- `neovitae:spiritus_gem_grand` — Величний самоцвіт Spiritus
+- `neovitae:spiritus_gem_greater` — Великий самоцвіт Spiritus
+- `neovitae:spiritus_gem_lesser` — Малий самоцвіт Spiritus
+- `neovitae:spiritus_gem_petty` — Дрібний самоцвіт Spiritus
+- `neovitae:spiritus_invictus_catalyst` — Каталізатор Spiritus Invictus
+- `neovitae:spiritus_invictus_crystal` — Кристалічна друза Spiritus Invictus
+- `neovitae:spiritus_invictus_shard` — Кристал Spiritus Invictus
+- `neovitae:spiritus_nihilum_catalyst` — Каталізатор Spiritus Nihilum
+- `neovitae:spiritus_nihilum_crystal` — Кристалічна друза Spiritus Nihilum
+- `neovitae:spiritus_nihilum_shard` — Кристал Spiritus Nihilum
+- `neovitae:spiritus_ruina_catalyst` — Каталізатор Spiritus Ruina
+- `neovitae:spiritus_ruina_crystal` — Кристалічна друза Spiritus Ruina
+- `neovitae:spiritus_ruina_shard` — Кристал Spiritus Ruina
+- `neovitae:spiritus_vindicta_catalyst` — Каталізатор Spiritus Vindicta
+- `neovitae:spiritus_vindicta_crystal` — Кристалічна друза Spiritus Vindicta
+- `neovitae:spiritus_vindicta_shard` — Кристал Spiritus Vindicta
+- `neovitae:tabula_ampoule` — Ампула Tabula
+- `neovitae:tabula_vial` — Флакон Tabula
+- `neovitae:tenebrae_ritual_stone` — Ритуальний камінь Tenebrae
+- `neovitae:tenebrae_scribe_tool` — Інструмент нанесення: Tenebrae
+- `neovitae:vas_maleficum` — Тигель Spiritus
+- `neovitae:vitae_link` — Ланка Vitae
+- `neovitae:vitae_morsel` — Шматочок Vitae
+- `occultism:ritual_dummy/craft_stabilizer_tier1` — Ритуал: Створення стабілізатора сховища Tier 1
+- `occultism:ritual_dummy/craft_stabilizer_tier1_dark` — Ритуал: Створення темного стабілізатора сховища Tier 1
+- `occultism:ritual_dummy/craft_stabilizer_tier2` — Ритуал: Створення стабілізатора сховища Tier 2
+- `occultism:ritual_dummy/craft_stabilizer_tier2_dark` — Ритуал: Створення темного стабілізатора сховища Tier 2
+- `occultism:ritual_dummy/craft_stabilizer_tier3` — Ритуал: Створення стабілізатора сховища Tier 3
+- `occultism:ritual_dummy/craft_stabilizer_tier3_dark` — Ритуал: Створення темного стабілізатора сховища Tier 3
+- `occultism:ritual_dummy/craft_stabilizer_tier4` — Ритуал: Створення стабілізатора сховища Tier 4
+- `occultism:ritual_dummy/craft_stabilizer_tier4_dark` — Ритуал: Створення темного стабілізатора сховища Tier 4
+- `occultism:ritual_dummy/misc_stabilizer_tier5` — Ритуал: Кування стабілізатора сховища Tier 5
+- `occultism:ritual_dummy/misc_stabilizer_tier5_dark` — Ритуал: Кування темного стабілізатора сховища Tier 5
+- `occultism:storage_stabilizer_tier1` — Вимірний стабілізатор сховища Tier 1
+- `occultism:storage_stabilizer_tier1_dark` — Темний вимірний стабілізатор сховища Tier 1
+- `occultism:storage_stabilizer_tier2` — Вимірний стабілізатор сховища Tier 2
+- `occultism:storage_stabilizer_tier2_dark` — Темний вимірний стабілізатор сховища Tier 2
+- `occultism:storage_stabilizer_tier3` — Вимірний стабілізатор сховища Tier 3
+- `occultism:storage_stabilizer_tier3_dark` — Темний вимірний стабілізатор сховища Tier 3
+- `occultism:storage_stabilizer_tier4` — Вимірний стабілізатор сховища Tier 4
+- `occultism:storage_stabilizer_tier4_dark` — Темний вимірний стабілізатор сховища Tier 4
+- `occultism:storage_stabilizer_tier5` — Вимірний стабілізатор сховища Tier 5
+- `occultism:storage_stabilizer_tier5_dark` — Темний вимірний стабілізатор сховища Tier 5
+- `powah:book` — Посібник (Powah!)
+- `quarryplus:frame` — Рамка QuarryPlus
+- `refinedtypes:1024k_essentia_storage_block` — 1024K блок сховища Essentia
+- `refinedtypes:1024k_essentia_storage_disk` — 1024K диск сховища Essentia
+- `refinedtypes:1024k_essentia_storage_part` — 1024K частина сховища Essentia
+- `refinedtypes:1048576k_essentia_storage_block` — 1048576K блок сховища Essentia
+- `refinedtypes:1048576k_essentia_storage_disk` — 1048576K диск сховища Essentia
+- `refinedtypes:1048576k_essentia_storage_part` — 1048576K частина сховища Essentia
+- `refinedtypes:256k_essentia_storage_block` — 256K блок сховища Essentia
+- `refinedtypes:256k_essentia_storage_disk` — 256K диск сховища Essentia
+- `refinedtypes:256k_essentia_storage_part` — 256K частина сховища Essentia
+- `refinedtypes:262144k_essentia_storage_block` — 262144K блок сховища Essentia
+- `refinedtypes:262144k_essentia_storage_disk` — 262144K диск сховища Essentia
+- `refinedtypes:262144k_essentia_storage_part` — 262144K частина сховища Essentia
+- `refinedtypes:64k_essentia_storage_block` — 64K блок сховища Essentia
+- `refinedtypes:64k_essentia_storage_disk` — 64K диск сховища Essentia
+- `refinedtypes:64k_essentia_storage_part` — 64K частина сховища Essentia
+- `refinedtypes:65536k_essentia_storage_block` — 65536K блок сховища Essentia
+- `refinedtypes:65536k_essentia_storage_disk` — 65536K диск сховища Essentia
+- `refinedtypes:65536k_essentia_storage_part` — 65536K частина сховища Essentia
+- `refinedtypes:8192k_essentia_storage_block` — 8192K блок сховища Essentia
+- `refinedtypes:8192k_essentia_storage_disk` — 8192K диск сховища Essentia
+- `refinedtypes:8192k_essentia_storage_part` — 8192K частина сховища Essentia
+- `refinedtypes:8388608k_essentia_storage_block` — 8388608K блок сховища Essentia
+- `refinedtypes:8388608k_essentia_storage_disk` — 8388608K диск сховища Essentia
+- `refinedtypes:8388608k_essentia_storage_part` — 8388608K частина сховища Essentia
+- `refinedtypes:creative_essentia_storage_block` — Творчий блок сховища Essentia
+- `refinedtypes:creative_essentia_storage_disk` — Творчий диск сховища Essentia
+- `refinedtypes:infinite_essentia_storage_block` — Нескінченний блок сховища Essentia
+- `refinedtypes:infinite_essentia_storage_disk` — Нескінченний диск сховища Essentia
+- `refinedtypes:infinite_essentia_storage_part` — Нескінченна частина сховища Essentia
+- `routers:essentia_upgrade_1` — Покращення Essentia I
+- `routers:essentia_upgrade_2` — Покращення Essentia II
+- `routers:essentia_upgrade_3` — Покращення Essentia III
+- `routers:essentia_upgrade_4` — Покращення Essentia IV
+- `routers:essentia_upgrade_5` — Покращення Essentia V
+- `sophisticatedbackpacks:stack_downgrade_tier_1` — Погіршення «Стос» Tier 1
+- `sophisticatedbackpacks:stack_downgrade_tier_2` — Погіршення «Стос» Tier 2
+- `sophisticatedbackpacks:stack_downgrade_tier_3` — Погіршення «Стос» Tier 3
+- `sophisticatedbackpacks:stack_upgrade_starter_tier_to_tier_1_conversion` — Конвертація покращення «Стос»: Початковий рівень у Tier 1
+- `sophisticatedbackpacks:stack_upgrade_starter_tier_to_tier_2_conversion` — Конвертація покращення «Стос»: Початковий рівень у Tier 2
+- `sophisticatedbackpacks:stack_upgrade_starter_tier_to_tier_3_conversion` — Конвертація покращення «Стос»: Початковий рівень у Tier 3
+- `sophisticatedbackpacks:stack_upgrade_starter_tier_to_tier_4_conversion` — Конвертація покращення «Стос»: Початковий рівень у Tier 4
+- `sophisticatedbackpacks:stack_upgrade_tier_1` — Покращення «Стос» Tier 1
+- `sophisticatedbackpacks:stack_upgrade_tier_1_to_tier_2_conversion` — Конвертація покращення «Стос»: Tier 1 у Tier 2
+- `sophisticatedbackpacks:stack_upgrade_tier_1_to_tier_3_conversion` — Конвертація покращення «Стос»: Tier 1 у Tier 3
+- `sophisticatedbackpacks:stack_upgrade_tier_1_to_tier_4_conversion` — Конвертація покращення «Стос»: Tier 1 у Tier 4
+- `sophisticatedbackpacks:stack_upgrade_tier_2` — Покращення «Стос» Tier 2
+- `sophisticatedbackpacks:stack_upgrade_tier_2_to_tier_3_conversion` — Конвертація покращення «Стос»: Tier 2 у Tier 3
+- `sophisticatedbackpacks:stack_upgrade_tier_2_to_tier_4_conversion` — Конвертація покращення «Стос»: Tier 2 у Tier 4
+- `sophisticatedbackpacks:stack_upgrade_tier_3` — Покращення «Стос» Tier 3
+- `sophisticatedbackpacks:stack_upgrade_tier_3_to_tier_4_conversion` — Конвертація покращення «Стос»: Tier 3 у Tier 4
+- `sophisticatedbackpacks:stack_upgrade_tier_4` — Покращення «Стос» Tier 4
+- `sophisticatedstorage:stack_downgrade_tier_1` — Погіршення «Стос» Tier 1
+- `sophisticatedstorage:stack_downgrade_tier_2` — Погіршення «Стос» Tier 2
+- `sophisticatedstorage:stack_downgrade_tier_3` — Погіршення «Стос» Tier 3
+- `sophisticatedstorage:stack_upgrade_tier_1` — Покращення «Стос» Tier 1
+- `sophisticatedstorage:stack_upgrade_tier_1_plus` — Покращення «Стос» Tier 1+
+- `sophisticatedstorage:stack_upgrade_tier_1_plus_to_tier_2_conversion` — Конвертація покращення «Стос»: Tier 1+ у Tier 2
+- `sophisticatedstorage:stack_upgrade_tier_1_plus_to_tier_3_conversion` — Конвертація покращення «Стос»: Tier 1+ у Tier 3
+- `sophisticatedstorage:stack_upgrade_tier_1_plus_to_tier_4_conversion` — Конвертація покращення «Стос»: Tier 1+ у Tier 4
+- `sophisticatedstorage:stack_upgrade_tier_1_plus_to_tier_5_conversion` — Конвертація покращення «Стос»: Tier 1+ у Tier 5
+- `sophisticatedstorage:stack_upgrade_tier_1_to_tier_1_plus_conversion` — Конвертація покращення «Стос»: Tier 1 у Tier 1+
+- `sophisticatedstorage:stack_upgrade_tier_1_to_tier_2_conversion` — Конвертація покращення «Стос»: Tier 1 у Tier 2
+- `sophisticatedstorage:stack_upgrade_tier_1_to_tier_3_conversion` — Конвертація покращення «Стос»: Tier 1 у Tier 3
+- `sophisticatedstorage:stack_upgrade_tier_1_to_tier_4_conversion` — Конвертація покращення «Стос»: Tier 1 у Tier 4
+- `sophisticatedstorage:stack_upgrade_tier_1_to_tier_5_conversion` — Конвертація покращення «Стос»: Tier 1 у Tier 5
+- `sophisticatedstorage:stack_upgrade_tier_2` — Покращення «Стос» Tier 2
+- `sophisticatedstorage:stack_upgrade_tier_2_to_tier_3_conversion` — Конвертація покращення «Стос»: Tier 2 у Tier 3
+- `sophisticatedstorage:stack_upgrade_tier_2_to_tier_4_conversion` — Конвертація покращення «Стос»: Tier 2 у Tier 4
+- `sophisticatedstorage:stack_upgrade_tier_2_to_tier_5_conversion` — Конвертація покращення «Стос»: Tier 2 у Tier 5
+- `sophisticatedstorage:stack_upgrade_tier_3` — Покращення «Стос» Tier 3
+- `sophisticatedstorage:stack_upgrade_tier_3_to_tier_4_conversion` — Конвертація покращення «Стос»: Tier 3 у Tier 4
+- `sophisticatedstorage:stack_upgrade_tier_3_to_tier_5_conversion` — Конвертація покращення «Стос»: Tier 3 у Tier 5
+- `sophisticatedstorage:stack_upgrade_tier_4` — Покращення «Стос» Tier 4
+- `sophisticatedstorage:stack_upgrade_tier_4_to_tier_5_conversion` — Конвертація покращення «Стос»: Tier 4 у Tier 5
+- `sophisticatedstorage:stack_upgrade_tier_5` — Покращення «Стос» Tier 5
+- `stellaris:astrum_liquidus_bucket` — Відро Astrum Liquidus
+- `stellaris:astrum_vitreus_block` — Блок Astrum Vitreus
+- `stellaris:astrum_vitreus_cluster` — Друза Astrum Vitreus
+- `stellaris:casus_astrum_dirt` — Ґрунт Casus Astrum
+- `stellaris:casus_astrum_grass` — Трава Casus Astrum
+- `stellaris:casus_astrum_stone` — Камінь Casus Astrum
+- `stellaris:casus_astrum_stone_slab` — Плита з каменю Casus Astrum
+- `stellaris:casus_astrum_stone_stairs` — Сходи з каменю Casus Astrum
+- `stellaris:fluid_tank_t1` — Резервуар для рідин (Tier 1)
+- `stellaris:power_bank_t1` — Енергобанк (Tier 1)
+- `thaumaturge:bottle_taint` — Пляшка Taint
+- `thaumaturge:button_greatwood` — Кнопка Greatwood
+- `thaumaturge:button_silverwood` — Кнопка Silverwood
+- `thaumaturge:candle_holder_thaumium` — Свічник з Thaumium
+- `thaumaturge:centrifuge` — Центрифуга Essentia
+- `thaumaturge:condenser` — Конденсатор Flux
+- `thaumaturge:condenser_lattice` — Решітка конденсатора Flux
+- `thaumaturge:condenser_lattice_dirty` — Забита решітка конденсатора Flux
+- `thaumaturge:creative_flux_sponge` — Творча губка Flux
+- `thaumaturge:crystal_vitium` — Кристал Flux
+- `thaumaturge:curio_eldritch` — Дивовижа Eldritch
+- `thaumaturge:door_greatwood` — Двері Greatwood
+- `thaumaturge:door_silverwood` — Двері Silverwood
+- `thaumaturge:eldritch_altar` — Вівтар Eldritch
+- `thaumaturge:eldritch_capstone` — Навершя Eldritch
+- `thaumaturge:eldritch_crab_spawn_egg` — Яйце виклику краба Eldritch
+- `thaumaturge:eldritch_crust` — Кірка Eldritch
+- `thaumaturge:eldritch_crust_glowing` — Сяюча кірка Eldritch
+- `thaumaturge:eldritch_door` — Сяючий камінь Eldritch
+- `thaumaturge:eldritch_eye` — Око Eldritch
+- `thaumaturge:eldritch_golem_spawn_egg` — Яйце виклику голема Eldritch
+- `thaumaturge:eldritch_guardian_spawn_egg` — Яйце виклику охоронця Eldritch
+- `thaumaturge:eldritch_lock` — Замок Eldritch
+- `thaumaturge:eldritch_obelisk` — Обеліск Eldritch
+- `thaumaturge:eldritch_pedestal` — П'єдестал Eldritch
+- `thaumaturge:eldritch_pillar` — Колона Eldritch
+- `thaumaturge:eldritch_rock` — Порода Eldritch
+- `thaumaturge:eldritch_stone` — Камінь Eldritch
+- `thaumaturge:eldritch_stone_crystal` — Кристалізований камінь Eldritch
+- `thaumaturge:eldritch_stone_inert` — Інертний камінь Eldritch
+- `thaumaturge:eldritch_trap` — Камінь Eldritch
+- `thaumaturge:eldritch_warden_spawn_egg` — Яйце виклику вартового Eldritch
+- `thaumaturge:essentia_crystalizer` — Кристалізатор Essentia
+- `thaumaturge:essentia_input` — Трансфузер Essentia (заповнення)
+- `thaumaturge:essentia_output` — Трансфузер Essentia (спорожнення)
+- `thaumaturge:essentia_reservoir` — Резервуар Essentia
+- `thaumaturge:fence_gate_greatwood` — Хвіртка Greatwood
+- `thaumaturge:fence_gate_silverwood` — Хвіртка Silverwood
+- `thaumaturge:fence_greatwood` — Паркан Greatwood
+- `thaumaturge:fence_silverwood` — Паркан Silverwood
+- `thaumaturge:filter` — Фільтр Essentia
+- `thaumaturge:flux_scrubber` — Очищувач Flux
+- `thaumaturge:fortress_chest` — Кіраса фортеці з Thaumium
+- `thaumaturge:fortress_helm` — Шолом фортеці з Thaumium
+- `thaumaturge:fortress_legs` — Набедреники фортеці з Thaumium
+- `thaumaturge:ingot_thaumium` — Злиток Thaumium
+- `thaumaturge:leaves_greatwood` — Листя Greatwood
+- `thaumaturge:leaves_silverwood` — Листя Silverwood
+- `thaumaturge:log_greatwood` — Колода Greatwood
+- `thaumaturge:log_silverwood` — Колода Silverwood
+- `thaumaturge:metal_thaumium` — Блок Thaumium
+- `thaumaturge:mirror_essentia` — Дзеркало Essentia
+- `thaumaturge:nitor_black` — Чорний Nitor
+- `thaumaturge:nitor_blue` — Синій Nitor
+- `thaumaturge:nitor_brown` — Коричневий Nitor
+- `thaumaturge:nitor_cyan` — Бірюзовий Nitor
+- `thaumaturge:nitor_gray` — Сірий Nitor
+- `thaumaturge:nitor_green` — Зелений Nitor
+- `thaumaturge:nitor_light_blue` — Блакитний Nitor
+- `thaumaturge:nitor_light_gray` — Світло-сірий Nitor
+- `thaumaturge:nitor_lime` — Лаймовий Nitor
+- `thaumaturge:nitor_magenta` — Пурпуровий Nitor
+- `thaumaturge:nitor_orange` — Помаранчевий Nitor
+- `thaumaturge:nitor_pink` — Рожевий Nitor
+- `thaumaturge:nitor_purple` — Фіолетовий Nitor
+- `thaumaturge:nitor_red` — Червоний Nitor
+- `thaumaturge:nitor_white` — Білий Nitor
+- `thaumaturge:nitor_yellow` — Жовтий Nitor
+- `thaumaturge:nugget_thaumium` — Самородок Thaumium
+- `thaumaturge:pech_spawn_egg` — Яйце виклику Pech
+- `thaumaturge:pech_wand` — Жезл Pech
+- `thaumaturge:pedestal_eldritch` — П'єдестал Eldritch
+- `thaumaturge:pillar_eldritch` — Колона насичення Eldritch
+- `thaumaturge:plank_greatwood` — Дошки Greatwood
+- `thaumaturge:plank_silverwood` — Дошки Silverwood
+- `thaumaturge:plate_thaumium` — Пластина Thaumium
+- `thaumaturge:pressure_plate_greatwood` — Натискна плита Greatwood
+- `thaumaturge:pressure_plate_silverwood` — Натискна плита Silverwood
+- `thaumaturge:resonator` — Резонатор Essentia
+- `thaumaturge:sapling_greatwood` — Паросток Greatwood
+- `thaumaturge:sapling_silverwood` — Паросток Silverwood
+- `thaumaturge:slab_eldritch` — Плита з кам'яної плитки Eldritch
+- `thaumaturge:slab_eldritch_rock` — Плита з породи Eldritch
+- `thaumaturge:slab_eldritch_stone` — Плита з каменю Eldritch
+- `thaumaturge:slab_greatwood` — Плита Greatwood
+- `thaumaturge:slab_silverwood` — Плита Silverwood
+- `thaumaturge:smelter_basic` — Плавильня Essentia
+- `thaumaturge:smelter_thaumium` — Плавильня Essentia з Thaumium
+- `thaumaturge:smelter_void` — Плавильня Essentia з металу порожнечі
+- `thaumaturge:staff_rod_greatwood` — Осердя посоха з Greatwood
+- `thaumaturge:staff_rod_silverwood` — Осердя посоха з Silverwood
+- `thaumaturge:stairs_eldritch` — Кам'яні сходи Eldritch
+- `thaumaturge:stairs_eldritch_rock` — Сходи з породи Eldritch
+- `thaumaturge:stairs_eldritch_tile` — Сходи з кам'яної плитки Eldritch
+- `thaumaturge:stairs_greatwood` — Сходи Greatwood
+- `thaumaturge:stairs_silverwood` — Сходи Silverwood
+- `thaumaturge:stone_eldritch_pillar` — Кам'яна колона Eldritch
+- `thaumaturge:stone_eldritch_tile` — Кам'яна плитка Eldritch
+- `thaumaturge:stripped_greatwood` — Обтесана деревина Greatwood
+- `thaumaturge:stripped_log_greatwood` — Обтесана колода Greatwood
+- `thaumaturge:stripped_log_silverwood` — Обтесана колода Silverwood
+- `thaumaturge:stripped_silverwood` — Обтесана деревина Silverwood
+- `thaumaturge:taint_crawler_spawn_egg` — Яйце виклику повзуна Taint
+- `thaumaturge:taint_crust` — Кірка Taint
+- `thaumaturge:taint_feature` — Прояв Taint
+- `thaumaturge:taint_fibre` — Волокно Taint
+- `thaumaturge:taint_geyser` — Гейзер Taint
+- `thaumaturge:taint_log` — Колода, уражена Taint
+- `thaumaturge:taint_rock` — Порода, уражена Taint
+- `thaumaturge:taint_seed_prime_spawn_egg` — Яйце виклику великої насінини Taint
+- `thaumaturge:taint_seed_spawn_egg` — Яйце виклику насінини Taint
+- `thaumaturge:taint_soil` — Ґрунт, уражений Taint
+- `thaumaturge:taint_spore_stalk` — Спорове стебло Taint
+- `thaumaturge:taint_swarm_spawn_egg` — Яйце виклику рою Taint
+- `thaumaturge:taint_tendril` — Щупальце Taint
+- `thaumaturge:taintacle_giant_spawn_egg` — Яйце виклику гігантського Taint-щупальця
+- `thaumaturge:taintacle_spawn_egg` — Яйце виклику Taint-щупальця
+- `thaumaturge:tainted_goo` — Слиз Taint
+- `thaumaturge:thaumium_axe` — Сокира з Thaumium
+- `thaumaturge:thaumium_boots` — Черевики з Thaumium
+- `thaumaturge:thaumium_chest` — Нагрудник з Thaumium
+- `thaumaturge:thaumium_helm` — Шолом з Thaumium
+- `thaumaturge:thaumium_hoe` — Мотика з Thaumium
+- `thaumaturge:thaumium_legs` — Наголінники з Thaumium
+- `thaumaturge:thaumium_pickaxe` — Кайло з Thaumium
+- `thaumaturge:thaumium_shovel` — Лопата з Thaumium
+- `thaumaturge:thaumium_spear` — Спис з Thaumium
+- `thaumaturge:thaumium_sword` — Меч з Thaumium
+- `thaumaturge:thaumonomicon_cheat` — Thaumonomicon шахрая
+- `thaumaturge:thaumonomicon_linking` — Thaumonomicon зв'язування
+- `thaumaturge:thaumonomicon_sharing` — Thaumonomicon обміну
+- `thaumaturge:trapdoor_greatwood` — Люк Greatwood
+- `thaumaturge:trapdoor_silverwood` — Люк Silverwood
+- `thaumaturge:tube` — Трубка Essentia
+- `thaumaturge:tube_buffer` — Буфер Essentia
+- `thaumaturge:tube_filter` — Трубка-фільтр Essentia
+- `thaumaturge:tube_oneway` — Одностороння трубка Essentia
+- `thaumaturge:tube_restrict` — Обмежена трубка Essentia
+- `thaumaturge:tube_valve` — Клапан Essentia
+- `thaumaturge:void_robe_chest` — Роба Thaumaturge з металу порожнечі
+- `thaumaturge:void_robe_helm` — Каптур Thaumaturge з металу порожнечі
+- `thaumaturge:void_robe_legs` — Штани Thaumaturge з металу порожнечі
+- `thaumaturge:wall_eldritch_rock` — Стіна з породи Eldritch
+- `thaumaturge:wall_eldritch_stone` — Стіна з каменю Eldritch
+- `thaumaturge:wall_eldritch_tile` — Стіна з кам'яної плитки Eldritch
+- `thaumaturge:wand_cap_thaumium` — Заряджений ковпачок з Thaumium
+- `thaumaturge:wand_cap_thaumium_inert` — Інертний ковпачок з Thaumium
+- `thaumaturge:wand_rod_greatwood` — Стрижень з Greatwood
+- `thaumaturge:wand_rod_silverwood` — Стрижень з Silverwood
+- `witchery:witchery_potion` — Зілля Witchery
+
+## Гра показує ключем перекладу
+
+- `aether_ii:music_block`
+- `apotheosis:gem`
+- `croptopia:cinnamon_leaves`
+- `evilcraft:invisible_redstone`
+- `forbidden_arcanus:aurealic_obsidian_skull`
+- `forbidden_arcanus:cracked_obsidian_skull`
+- `forbidden_arcanus:desk`
+- `forbidden_arcanus:eternal_obsidian_skull`
+- `forbidden_arcanus:fading_obsidian_skull`
+- `forbidden_arcanus:forbiddenomicon`
+- `forbidden_arcanus:fragmented_obsidian_skull`
+- `forbidden_arcanus:obsidian_skull`
+- `forbidden_arcanus:omega_arcoin`
+- `forbidden_arcanus:research_desk`
+- `forbidden_arcanus:wand_desk`
+- `integratedtunnels:dummy_pickaxe`
+- `mffs:redstone_torch_off`
+- `mininggadgets:minerslight`
+- `modonomicon:leaflet`
+- `modonomicon:modonomicon_blue`
+- `modonomicon:modonomicon_green`
+- `modonomicon:modonomicon_purple`
+- `modonomicon:modonomicon_red`
+- `occultism:advancement_icon`
+- `occultism:dictionary_of_spirits_icon`
+- `occultism:entity_wormhole_portal`
+- `potionsmaster:tile_mortar`
+- `power_armor:creative_battery`
+- `productivebees:adv_breed_all_bees`
+- `productivebees:adv_breed_bee`
+- `silentgear:custom_gem`
+- `sophisticatedstorage:inaccessible_slot`
+- `theurgy:salt_icon`
+- `tinymultiblocklib:diamond_structure`
+- `tinymultiblocklib:ghost_block_item`
+- `tinymultiblocklib:simple_multiblock`
+- `tinymultiblocklib:test_block`
+- `utilitarian:no_soliciting_banner`

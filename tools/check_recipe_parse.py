@@ -50,6 +50,16 @@ CASES += [
      ([('x:ingot', 0, 1.0, 'input', 0)], [('x:ingot', 1.0, 1.0, 1)], [('x:water', 250, 'input'), ('#c:acid', 0, 'input'), ('x:water', 0, 'output')], {'in': ['x:bee']}),
      'рідини й не-предмети не лишаються серед предметів: рідина — до рідин (0 мВ = кількість невідома; відома не дублюється), інше — окремо; головним стає перший вихід-предмет'),
 ]
+# K6: рецепт у формі datapack розбирається однаково, звідки б не прийшов (jar чи KubeJS) — з кількостями й сіткою
+def PR(t, d): r = B.parse_raw(t, d, I); return [(x[0], x[2]) for x in r[0]], [(x[0], x[1]) for x in r[1]]
+K2 = B.Kinds({'x:plank', 'x:table', 'x:block', 'x:essence'}, {'c:planks'}, set(), set(), True)
+CASES += [
+    (PR('minecraft:crafting_shaped', {'pattern': ['XX', 'XX'], 'key': {'X': '#c:planks'}, 'result': 'x:table'}), ([('#c:planks', 1.0)] * 4, [('x:table', 1.0)]), 'сітка 2×2: чотири слоти, а не один вид'),
+    (PR('minecraft:crafting_shapeless', {'ingredients': ['9x x:essence'], 'result': '2x x:block'}), ([('x:essence', 9.0)], [('x:block', 2.0)]), 'без форми: кількість у рядку «9x …», вихід «2x …»'),
+    (B.complete({'pattern': ['XX', 'XX'], 'key': {'X': '#c:planks'}, 'result': 'x:table'}, [('#c:planks', 1, 1.0, 'input', s) for s in (0, 1, 3, 4)], [('x:table', 1.0, 1.0, 1)], ['#c:planks'], ['x:table'], K2)[0],
+     [('#c:planks', 1, 1.0, 'input', s) for s in (0, 1, 3, 4)], 'розібраний рецепт не замінюється переліком id з індексу'),
+    (B.complete(None, [], [], ['x:plank', '#c:planks'], ['x:table'], K2)[:2], ([('x:plank', 0, 1.0, 'input', 0), ('#c:planks', 1, 1.0, 'input', 1)], [('x:table', 1.0, 1.0, 1)]), 'запису рецепта немає — входи й виходи з індексу сита (кількість невідома → 1)'),
+]
 # K6: умови й реєстр — предмет є в грі чи ні, вирішує реєстр гри (знімок), а не файли моделей у jar
 import extract_recipes as E
 JAR = {'x:planks', 'x:door'}                      # моделі в jar є для обох

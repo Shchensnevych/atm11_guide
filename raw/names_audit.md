@@ -1,15 +1,15 @@
 # Назви предметів: гра проти бази путівника (tools/audit_names.py, K5)
 
-Знімок: мова uk_ua, предметів у реєстрі гри 36692, з назвою 36632, гра показує ключем перекладу 58, помилок читання 1.
+Знімок: мова uk_ua, предметів у реєстрі гри 36692, з назвою 36653, гра показує ключем перекладу 38, помилок читання 0.
 
 | Що | Скільки |
 |---|---|
-| назва з гри = назва з перекладу | 33522 |
-| назви в перекладі немає → узято з гри | 2565 |
+| назва з гри = назва з перекладу | 33523 |
+| назви в перекладі немає → узято з гри | 2585 |
 | назва-шаблон у перекладі → узято з гри (шаблон спільний для кількох предметів) | 325 |
 | назва-шаблон лише в одного предмета → назва без підстановки | 56 |
 | гра й переклад розходяться | 164: лишено назву предмета 107, узято з гри 57 |
-| предметів реєстру гри без назви в базі | 46 |
+| предметів реєстру гри без назви в базі | 26 |
 | назв-шаблонів лишилось | 1 |
 | предметів з бази рецептів без назви | 0 з 23766 |
 
@@ -195,8 +195,8 @@
 | `occultism:otherworld_sapling_natural` | Нестабільний потойбічний паросток | Паросток дуба |  | `` |
 | `oritech:copper_reinforced_plating` | Машинне покриття | Посилене міддю покриття |  | `` |
 
-## Без назви в базі (реєстр гри) — 46
-За модами: potionsmaster 20, forbidden_arcanus 5, modonomicon 5, tinymultiblocklib 4, occultism 3, productivebees 2, aether_ii 1, evilcraft 1, integratedtunnels 1, mffs 1, power_armor 1, sophisticatedstorage 1
+## Без назви в базі (реєстр гри) — 26
+За модами: forbidden_arcanus 5, modonomicon 5, tinymultiblocklib 4, occultism 3, productivebees 2, aether_ii 1, evilcraft 1, integratedtunnels 1, mffs 1, power_armor 1, sophisticatedstorage 1, theurgy 1
 
 - `aether_ii:music_block`
 - `evilcraft:invisible_redstone`
@@ -215,26 +215,6 @@
 - `occultism:advancement_icon`
 - `occultism:dictionary_of_spirits_icon`
 - `occultism:entity_wormhole_portal`
-- `potionsmaster:calcinated_coal_oresight_powder`
-- `potionsmaster:calcinated_copper_oresight_powder`
-- `potionsmaster:calcinated_diamond_oresight_powder`
-- `potionsmaster:calcinated_emerald_oresight_powder`
-- `potionsmaster:calcinated_gold_oresight_powder`
-- `potionsmaster:calcinated_iron_oresight_powder`
-- `potionsmaster:calcinated_lapis_oresight_powder`
-- `potionsmaster:calcinated_netherite_oresight_powder`
-- `potionsmaster:calcinated_quartz_oresight_powder`
-- `potionsmaster:calcinated_redstone_oresight_powder`
-- `potionsmaster:coal_oresight_powder`
-- `potionsmaster:copper_oresight_powder`
-- `potionsmaster:diamond_oresight_powder`
-- `potionsmaster:emerald_oresight_powder`
-- `potionsmaster:gold_oresight_powder`
-- `potionsmaster:iron_oresight_powder`
-- `potionsmaster:lapis_oresight_powder`
-- `potionsmaster:netherite_oresight_powder`
-- `potionsmaster:quartz_oresight_powder`
-- `potionsmaster:redstone_oresight_powder`
 - `power_armor:creative_battery`
 - `productivebees:adv_breed_all_bees`
 - `productivebees:adv_breed_bee`

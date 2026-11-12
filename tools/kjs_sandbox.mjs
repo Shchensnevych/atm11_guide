@@ -124,6 +124,16 @@ function match(rid, f) {
 const filt = (f) => RIDS0.filter((rid) => live(rid) && match(rid, f))
 const fdesc = (f) => JSON.stringify(f, (k, v) => (isRe(v) ? String(v) : v instanceof Stack ? v.id : v))
 // ---- подія рецептів
+/** Аргументи виклику рецепта → запис у формі datapack (K6): стек → «Nx id» (рідина → { id, amount }), вирази й функції — null.
+ *  Його розбирає той самий код, що й JSON рецептів із jar (build_recipes_db.parse_raw) — з кількостями й сіткою. */
+function plain(o, depth = 0) {
+  if (o == null || depth > 12) return null
+  if (o instanceof Stack) return o.kind === 'fluid' ? { id: o.id, amount: o.count } : (o.count > 1 ? `${o.count}x ${o.id}` : o.id)
+  if (Array.isArray(o)) return o.map((x) => plain(x, depth + 1))
+  if (isRe(o) || typeof o === 'function') return null
+  if (typeof o === 'object') return Object.fromEntries(Object.entries(o).map(([k, v]) => [k, plain(v, depth + 1)]))
+  return typeof o === 'string' || typeof o === 'number' || typeof o === 'boolean' ? o : null
+}
 let RN = 0
 function addRecipe(type, args, extra = {}) {
   const at = where(); const acc = { in: new Set(), out: new Set() }
@@ -131,7 +141,9 @@ function addRecipe(type, args, extra = {}) {
   if (extra.outArg !== undefined) ids(extra.outArg, true, acc)
   for (const a of extra.inArgs || []) ids(a, false, acc)
   if (extra.json) ids(extra.json, false, acc)
-  delete r.outArg; delete r.inArgs; delete r.json
+  delete r.outArg; delete r.inArgs; delete r.json; delete r.form
+  const form = extra.form || extra.json
+  if (form && typeof form === 'object') { try { r.json = plain({ ...form, type }) } catch (e) {} }
   const sync = () => { r.in = [...acc.in]; r.out = [...acc.out] }
   sync(); r.n = ++RN; O.recipes.push(r)
   const h = new Proxy({}, {
@@ -149,14 +161,14 @@ function addRecipe(type, args, extra = {}) {
 }
 const POOL = { item: ITEMS, block: BLOCKS, fluid: FLUIDS }
 function recipesEvent() {
-  const cook = (t) => (out, inp, xp, time) => addRecipe(t, null, { outArg: out, inArgs: [inp] })
+  const cook = (t) => (out, inp, xp, time) => addRecipe(t, null, { outArg: out, inArgs: [inp], form: { ingredient: inp, result: out } })
   /** @type {Record<string, any>} */
   const b = {
-    shaped: (out, pat, keys) => addRecipe('minecraft:crafting_shaped', null, { outArg: out, inArgs: [keys] }),
-    shapeless: (out, ins) => addRecipe('minecraft:crafting_shapeless', null, { outArg: out, inArgs: [ins] }),
+    shaped: (out, pat, keys) => addRecipe('minecraft:crafting_shaped', null, { outArg: out, inArgs: [keys], form: { pattern: pat, key: keys, result: out } }),
+    shapeless: (out, ins) => addRecipe('minecraft:crafting_shapeless', null, { outArg: out, inArgs: [ins], form: { ingredients: Array.isArray(ins) ? ins : [ins], result: out } }),
     smelting: cook('minecraft:smelting'), blasting: cook('minecraft:blasting'), smoking: cook('minecraft:smoking'),
     campfireCooking: cook('minecraft:campfire_cooking'), stonecutting: cook('minecraft:stonecutting'),
-    smithing: (out, t, base, add) => addRecipe('minecraft:smithing_transform', null, { outArg: out, inArgs: [t, base, add] }),
+    smithing: (out, t, base, add) => addRecipe('minecraft:smithing_transform', null, { outArg: out, inArgs: [t, base, add], form: { template: t, base, addition: add, result: out } }),
     custom: (json) => { const t = String(json && json.type || ''); return addRecipe(t.includes(':') ? t : 'minecraft:' + t, null, { json }) },
     remove: (f) => { O.removes.push({ f: fdesc(f), at: where(), ids: filt(f) }) },
     replaceInput: (f, from, to) => { O.replaces.push({ kind: 'input', f: fdesc(f), from: fdesc(from), to: fdesc(to), at: where(), ids: filt(f).filter((r) => hasIng(REC[r].in, from)) }) },
@@ -200,7 +212,7 @@ function registryEvent(regName) {
     { get: (t, k) => (k in t ? t[k] : typeof k === 'symbol' ? undefined : (note(`registry.${String(k)}`), U(`registry.${String(k)}`))) })
 }
 function dataEvent() {
-  return new Proxy({ json: (id, obj) => { O.data.push({ id: String(id), type: obj && obj.type, at: where(), io: obj && typeof obj === 'object' ? (() => { const a = ids(obj); return { in: [...a.in], out: [...a.out] } })() : null }) } },
+  return new Proxy({ json: (id, obj) => { O.data.push({ id: String(id), type: obj && obj.type, at: where(), json: obj && typeof obj === 'object' ? plain(obj) : null, io: obj && typeof obj === 'object' ? (() => { const a = ids(obj); return { in: [...a.in], out: [...a.out] } })() : null }) } },
     { get: (t, k) => (k in t ? t[k] : typeof k === 'symbol' ? undefined : (note(`data.${String(k)}`), U(`data.${String(k)}`))) })
 }
 // ---- глобальні об'єкти KubeJS

@@ -231,6 +231,149 @@ def split_kinds(ings, outs, fls, kinds):
     if outs and not any(x[3] for x in outs): outs[0] = outs[0][:3] + (1,)
     return ings, outs, fls, other
 
+def parse_raw(rtype, raw_d, ingr=parse_ingredient_entry):
+    """Запис рецепта у формі datapack (JSON з jar, kubejs/data або відтворений з виклику KubeJS) → (входи, виходи, такти, FE,
+    структура, жертва, додаткове). ingr — розбір інгредієнта (з тегами — parse_ingredient_entry(x, tags))."""
+    dur_ticks = 0; energy_fe = 0; structure_id = None; sacrifice_entity = None; extra_data = {}
+    parsed_ings = []; parsed_outs = []
+    if raw_d and isinstance(raw_d, dict):
+        # 1. Minecraft Shaped
+        if rtype == 'minecraft:crafting_shaped':
+            pat = raw_d.get('pattern', [])
+            key_map = raw_d.get('key', {})
+            if isinstance(pat, list) and isinstance(key_map, dict):
+                # Рахуємо кожен слот
+                for r_idx, row in enumerate(pat):
+                    for c_idx, ch in enumerate(row):
+                        slot = r_idx * 3 + c_idx
+                        if ch != ' ' and ch in key_map:
+                            parsed = ingr(key_map[ch])
+                            if parsed:
+                                item_tag, is_tag, _ = parsed[0]
+                                parsed_ings.append((item_tag, is_tag, 1.0, 'input', slot))
+            parsed_outs = parse_output_entry(raw_d.get('result'))
+
+        # 2. Minecraft Shapeless
+        elif rtype == 'minecraft:crafting_shapeless':
+            ings = raw_d.get('ingredients', [])
+            for slot, ing in enumerate(ings):
+                parsed = ingr(ing)
+                if parsed:
+                    item_tag, is_tag, cnt = parsed[0]
+                    parsed_ings.append((item_tag, is_tag, cnt, 'input', slot))
+            parsed_outs = parse_output_entry(raw_d.get('result'))
+
+        # 3. Occultism Ritual
+        elif rtype == 'occultism:ritual':
+            structure_id = raw_d.get('pentacle_id')
+            dur_ticks = int(raw_d.get('duration', 120)) * 20
+            sac = raw_d.get('entity_to_sacrifice')
+            if isinstance(sac, dict):
+                sacrifice_entity = sac.get('tag') or sac.get('entity')
+            elif isinstance(sac, str):
+                sacrifice_entity = sac
+
+            act_item = raw_d.get('activation_item')
+            if act_item:
+                for it, ist, c in ingr(act_item):
+                    parsed_ings.append((it, ist, c, 'catalyst', None))
+
+            for ing in raw_d.get('ingredients', []):
+                for it, ist, c in ingr(ing):
+                    parsed_ings.append((it, ist, c, 'pedestal', None))
+
+            parsed_outs = parse_output_entry(raw_d.get('result'))
+            if 'entity_to_summon' in raw_d:
+                extra_data['entity_to_summon'] = raw_d['entity_to_summon']
+
+        # 4. Powah Energizing
+        elif rtype == 'powah:energizing':
+            energy_fe = int(raw_d.get('energy', 0))
+            for slot, ing in enumerate(raw_d.get('ingredients', [])):
+                for it, ist, c in ingr(ing):
+                    parsed_ings.append((it, ist, c, 'input', slot))
+            parsed_outs = parse_output_entry(raw_d.get('result'))
+
+        # 5. AE2 Inscriber
+        elif rtype == 'ae2:inscriber':
+            ings = raw_d.get('ingredients', {})
+            if isinstance(ings, dict):
+                for pos in ('top', 'middle', 'bottom'):
+                    if pos in ings:
+                        for it, ist, c in ingr(ings[pos]):
+                            parsed_ings.append((it, ist, c, pos, None))
+            parsed_outs = parse_output_entry(raw_d.get('result'))
+            extra_data['mode'] = raw_d.get('mode', 'press')
+
+        # 6. Mystical Agriculture Awakening / Infusion
+        elif 'awakening' in rtype or 'infusion' in rtype:
+            if 'input' in raw_d:
+                for it, ist, c in ingr(raw_d['input']):
+                    parsed_ings.append((it, ist, c, 'center_altar', None))
+            for ing in raw_d.get('ingredients', []):
+                for it, ist, c in ingr(ing):
+                    parsed_ings.append((it, ist, c, 'pedestal', None))
+            for ess in raw_d.get('essences', []):
+                for it, ist, c in ingr(ess):
+                    parsed_ings.append((it, ist, c, 'essence_vessel', None))
+            parsed_outs = parse_output_entry(raw_d.get('result'))
+
+        # 7. Oritech Machines
+        elif rtype.startswith('oritech:'):
+            dur_ticks = int(raw_d.get('time', 100))
+            for slot, ing in enumerate(raw_d.get('itemInputs', [])):
+                for it, ist, c in ingr(ing):
+                    parsed_ings.append((it, ist, c, 'input', slot))
+            for res in raw_d.get('itemResults', []):
+                parsed_outs.extend(parse_output_entry(res))
+
+        # 8. Ender IO SAG Milling / Alloy Smelting
+        elif rtype.startswith('enderio:'):
+            energy_fe = int(raw_d.get('energy', 0))
+            dur_ticks = int(raw_d.get('time', 0))
+            inp = raw_d.get('input') or raw_d.get('inputs')
+            if inp:
+                for it, ist, c in ingr(inp):
+                    parsed_ings.append((it, ist, c, 'input', None))
+            for out in raw_d.get('outputs', []):
+                parsed_outs.extend(parse_output_entry(out))
+
+        # 9. Generic Fallback
+        else:
+            dur_ticks = int(raw_d.get('cookingtime') or raw_d.get('time') or raw_d.get('duration') or 0)
+            energy_fe = int(raw_d.get('energy') or raw_d.get('energy_fe') or 0)
+            for k in ('ingredient', 'ingredients', 'input', 'inputs', 'itemInputs'):
+                if k in raw_d:
+                    val = raw_d[k]
+                    vals = val if isinstance(val, list) else [val]
+                    for slot, ing in enumerate(vals):
+                        for it, ist, c in ingr(ing):
+                            parsed_ings.append((it, ist, c, 'input', slot))
+                    break
+            for k in ('result', 'results', 'output', 'outputs', 'itemResults'):
+                if k in raw_d:
+                    parsed_outs.extend(parse_output_entry(raw_d[k]))
+                    break
+
+    return parsed_ings, parsed_outs, dur_ticks, energy_fe, structure_id, sacrifice_entity, extra_data
+
+def complete(raw_d, ings, outs, known_in, known_out, kinds):
+    """Доповнити розібране тим, що знає індекс сита (known_in / known_out — id входів і виходів), і розкласти за видами.
+    Вхід окремим полем рецепта (рядок верхнього рівня, який сито знає як вхід) — теж інгредієнт; запису немає або розбір
+    порожній — входи / виходи з індексу (кількість невідома → 1). -> (ings, outs, fluids, other) — див. split_kinds."""
+    ings, outs = list(ings), list(outs)
+    is_d = isinstance(raw_d, dict)
+    if ings and is_d and known_in:
+        known = {i for i, _, _, _, _ in ings}
+        for v in raw_d.values():
+            if isinstance(v, str) and v in known_in and v not in known:
+                ings.append((v, 1 if v.startswith('#') else 0, 1.0, 'input', None)); known.add(v)
+    if not ings and known_in:
+        ings = [(ing, 1 if ing.startswith('#') else 0, 1.0, 'input', slot) for slot, ing in enumerate(known_in)]
+    if not outs and known_out:
+        outs = [(out_id, 1.0, 1.0, 1 if i == 0 else 0) for i, out_id in enumerate(known_out)]
+    return split_kinds(ings, outs, parse_fluids(raw_d, kinds) if is_d else [], kinds)
+
 def init_schema(db):
     """Створює схему бази даних SQLite."""
     cur = db.cursor()
@@ -385,6 +528,8 @@ def main():
     for rid, r in recs_idx.items():
         by_src[r.get('src')].append((rid, r))
 
+    kjs_json = {kr.get('key') or kr.get('id'): kr['json'] for kr in kjs_idx.get('recipes', []) if isinstance(kr.get('json'), dict)}
+
     rec_rows = []
     ing_rows = []
     out_rows = []
@@ -409,7 +554,7 @@ def main():
 
         for rid, meta in items:
             p = meta.get('p')
-            raw_d = None
+            raw_d = kjs_json.get(rid) if src == 'kubejs' else None   # рецепт KubeJS — запис із пісочниці (форма datapack)
             if z and p and p in namelist:
                 try:
                     raw_d = json.loads(z.read(p).decode('utf-8-sig'))
@@ -430,155 +575,8 @@ def main():
             active = 1 if meta.get('a') is True else 0
             why_inactive = meta.get('why') or ''
 
-            dur_ticks = 0
-            energy_fe = 0
-            structure_id = None
-            sacrifice_entity = None
-            extra_data = {}
-
-            parsed_ings = []
-            parsed_outs = []
-            parsed_fls = []
-
-            if raw_d and isinstance(raw_d, dict):
-                # 1. Minecraft Shaped
-                if rtype == 'minecraft:crafting_shaped':
-                    pat = raw_d.get('pattern', [])
-                    key_map = raw_d.get('key', {})
-                    if isinstance(pat, list) and isinstance(key_map, dict):
-                        # Рахуємо кожен слот
-                        for r_idx, row in enumerate(pat):
-                            for c_idx, ch in enumerate(row):
-                                slot = r_idx * 3 + c_idx
-                                if ch != ' ' and ch in key_map:
-                                    parsed = ingr(key_map[ch])
-                                    if parsed:
-                                        item_tag, is_tag, _ = parsed[0]
-                                        parsed_ings.append((item_tag, is_tag, 1.0, 'input', slot))
-                    parsed_outs = parse_output_entry(raw_d.get('result'))
-
-                # 2. Minecraft Shapeless
-                elif rtype == 'minecraft:crafting_shapeless':
-                    ings = raw_d.get('ingredients', [])
-                    for slot, ing in enumerate(ings):
-                        parsed = ingr(ing)
-                        if parsed:
-                            item_tag, is_tag, cnt = parsed[0]
-                            parsed_ings.append((item_tag, is_tag, cnt, 'input', slot))
-                    parsed_outs = parse_output_entry(raw_d.get('result'))
-
-                # 3. Occultism Ritual
-                elif rtype == 'occultism:ritual':
-                    structure_id = raw_d.get('pentacle_id')
-                    dur_ticks = int(raw_d.get('duration', 120)) * 20
-                    sac = raw_d.get('entity_to_sacrifice')
-                    if isinstance(sac, dict):
-                        sacrifice_entity = sac.get('tag') or sac.get('entity')
-                    elif isinstance(sac, str):
-                        sacrifice_entity = sac
-
-                    act_item = raw_d.get('activation_item')
-                    if act_item:
-                        for it, ist, c in ingr(act_item):
-                            parsed_ings.append((it, ist, c, 'catalyst', None))
-
-                    for ing in raw_d.get('ingredients', []):
-                        for it, ist, c in ingr(ing):
-                            parsed_ings.append((it, ist, c, 'pedestal', None))
-
-                    parsed_outs = parse_output_entry(raw_d.get('result'))
-                    if 'entity_to_summon' in raw_d:
-                        extra_data['entity_to_summon'] = raw_d['entity_to_summon']
-
-                # 4. Powah Energizing
-                elif rtype == 'powah:energizing':
-                    energy_fe = int(raw_d.get('energy', 0))
-                    for slot, ing in enumerate(raw_d.get('ingredients', [])):
-                        for it, ist, c in ingr(ing):
-                            parsed_ings.append((it, ist, c, 'input', slot))
-                    parsed_outs = parse_output_entry(raw_d.get('result'))
-
-                # 5. AE2 Inscriber
-                elif rtype == 'ae2:inscriber':
-                    ings = raw_d.get('ingredients', {})
-                    if isinstance(ings, dict):
-                        for pos in ('top', 'middle', 'bottom'):
-                            if pos in ings:
-                                for it, ist, c in ingr(ings[pos]):
-                                    parsed_ings.append((it, ist, c, pos, None))
-                    parsed_outs = parse_output_entry(raw_d.get('result'))
-                    extra_data['mode'] = raw_d.get('mode', 'press')
-
-                # 6. Mystical Agriculture Awakening / Infusion
-                elif 'awakening' in rtype or 'infusion' in rtype:
-                    if 'input' in raw_d:
-                        for it, ist, c in ingr(raw_d['input']):
-                            parsed_ings.append((it, ist, c, 'center_altar', None))
-                    for ing in raw_d.get('ingredients', []):
-                        for it, ist, c in ingr(ing):
-                            parsed_ings.append((it, ist, c, 'pedestal', None))
-                    for ess in raw_d.get('essences', []):
-                        for it, ist, c in ingr(ess):
-                            parsed_ings.append((it, ist, c, 'essence_vessel', None))
-                    parsed_outs = parse_output_entry(raw_d.get('result'))
-
-                # 7. Oritech Machines
-                elif rtype.startswith('oritech:'):
-                    dur_ticks = int(raw_d.get('time', 100))
-                    for slot, ing in enumerate(raw_d.get('itemInputs', [])):
-                        for it, ist, c in ingr(ing):
-                            parsed_ings.append((it, ist, c, 'input', slot))
-                    for res in raw_d.get('itemResults', []):
-                        parsed_outs.extend(parse_output_entry(res))
-
-                # 8. Ender IO SAG Milling / Alloy Smelting
-                elif rtype.startswith('enderio:'):
-                    energy_fe = int(raw_d.get('energy', 0))
-                    dur_ticks = int(raw_d.get('time', 0))
-                    inp = raw_d.get('input') or raw_d.get('inputs')
-                    if inp:
-                        for it, ist, c in ingr(inp):
-                            parsed_ings.append((it, ist, c, 'input', None))
-                    for out in raw_d.get('outputs', []):
-                        parsed_outs.extend(parse_output_entry(out))
-
-                # 9. Generic Fallback
-                else:
-                    dur_ticks = int(raw_d.get('cookingtime') or raw_d.get('time') or raw_d.get('duration') or 0)
-                    energy_fe = int(raw_d.get('energy') or raw_d.get('energy_fe') or 0)
-                    for k in ('ingredient', 'ingredients', 'input', 'inputs', 'itemInputs'):
-                        if k in raw_d:
-                            val = raw_d[k]
-                            vals = val if isinstance(val, list) else [val]
-                            for slot, ing in enumerate(vals):
-                                for it, ist, c in ingr(ing):
-                                    parsed_ings.append((it, ist, c, 'input', slot))
-                            break
-                    for k in ('result', 'results', 'output', 'outputs', 'itemResults'):
-                        if k in raw_d:
-                            parsed_outs.extend(parse_output_entry(raw_d[k]))
-                            break
-
-            # Вхід, записаний окремим полем рецепта (не в ingredients / input): рядок верхнього рівня, який індекс сита
-            # знає як вхід цього рецепта, — теж інгредієнт (за структурою запису, без переліку полів під моди)
-            if parsed_ings and raw_d and isinstance(raw_d, dict) and meta.get('in'):
-                known = {i for i, _, _, _, _ in parsed_ings}
-                for v in raw_d.values():
-                    if isinstance(v, str) and v in meta['in'] and v not in known:
-                        parsed_ings.append((v, 1 if v.startswith('#') else 0, 1.0, 'input', None)); known.add(v)
-
-            # Якщо raw_d не було або парсинг порожній — беремо з індексу сита
-            if not parsed_ings and meta.get('in'):
-                for slot, ing in enumerate(meta['in']):
-                    is_t = 1 if ing.startswith('#') else 0
-                    parsed_ings.append((ing, is_t, 1.0, 'input', slot))
-
-            if not parsed_outs and meta.get('out'):
-                for i, out_id in enumerate(meta['out']):
-                    parsed_outs.append((out_id, 1.0, 1.0, 1 if i == 0 else 0))
-
-            if raw_d and isinstance(raw_d, dict): parsed_fls = parse_fluids(raw_d, kinds)
-            parsed_ings, parsed_outs, parsed_fls, other = split_kinds(parsed_ings, parsed_outs, parsed_fls, kinds)
+            parsed_ings, parsed_outs, dur_ticks, energy_fe, structure_id, sacrifice_entity, extra_data = parse_raw(rtype, raw_d, ingr)
+            parsed_ings, parsed_outs, parsed_fls, other = complete(raw_d, parsed_ings, parsed_outs, meta.get('in'), meta.get('out'), kinds)
             if other: extra_data['other'] = other
 
             extra_json_str = json.dumps(extra_data) if extra_data else None
@@ -614,10 +612,11 @@ def main():
         cat, in_world = categorize(rtype)
         act = 1 if kr.get('active') else 0
         why = kr.get('why') or ''
-        k_ings = [(ing, 1 if ing.startswith('#') else 0, 1.0, 'input', slot) for slot, ing in enumerate(kr.get('in', []))]
-        k_outs = [(out_id, 1.0, 1.0, 1 if i == 0 else 0) for i, out_id in enumerate(kr.get('out', []))]
-        k_ings, k_outs, k_fls, other = split_kinds(k_ings, k_outs, [], kinds)
-        rec_rows.append((rid, rtype, cat, mod_id, 0, 0, in_world, None, None, act, why, kr.get('at', 'kubejs'), json.dumps({'other': other}) if other else None))
+        raw_k = kr.get('json') if isinstance(kr.get('json'), dict) else None   # виклик KubeJS у формі datapack (пісочниця) — з кількостями й сіткою
+        k_ings, k_outs, dur_ticks, energy_fe, structure_id, sacrifice_entity, extra_data = parse_raw(rtype, raw_k, ingr)
+        k_ings, k_outs, k_fls, other = complete(raw_k, k_ings, k_outs, kr.get('in'), kr.get('out'), kinds)
+        if other: extra_data['other'] = other
+        rec_rows.append((rid, rtype, cat, mod_id, dur_ticks, energy_fe, in_world, structure_id, sacrifice_entity, act, why, kr.get('at', 'kubejs'), json.dumps(extra_data) if extra_data else None))
         for it_tag, is_tag, cnt, role, slot in k_ings: ing_rows.append((rid, it_tag, is_tag, cnt, role, slot))
         for out_id, cnt, chance, is_prim in k_outs: out_rows.append((rid, out_id, cnt, chance, is_prim))
         for fid, amt, io_type in k_fls: fluid_rows.append((rid, fid, amt, io_type))

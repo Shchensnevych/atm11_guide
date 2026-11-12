@@ -35,6 +35,7 @@ def main():
         mods = sorted({x.lstrip('#').split(':')[0] for x in r['in'] + r['out'] if not x.startswith('#')} - NOT_MODS | ({tns} - NOT_MODS))
         e = {'key': key, 'id': r.get('id'), 'type': r['type'], 'at': r['at'], 'in': r['in'], 'out': r['out'], 'mods': mods, 'active': active}
         if why: e['why'] = why
+        if isinstance(r.get('json'), dict): e['json'] = r['json']       # K6: запис рецепта у формі datapack — база рецептів бере з нього кількості
         if r.get('unsplit'): e['unsplit'] = True                  # схема мода без розділення входів/виходів (усі ID — у in)
         if key in out: e['overrides_kjs'] = out[key]['at']
         if key in recs and recs[key].get('src') != 'kubejs': e['overrides'] = recs[key]['src']
@@ -49,6 +50,7 @@ def main():
         e = {'key': key, 'id': key, 'type': t, 'at': x['at'], 'in': ins, 'out': outs, 'active': active, 'data': True,
              'mods': sorted({i.lstrip('#').split(':')[0] for i in ins + outs if not i.startswith('#')} - NOT_MODS | ({tns} - NOT_MODS))}
         if why: e['why'] = why
+        if isinstance(x.get('json'), dict): e['json'] = x['json']
         out[key] = e
     removed, modified = {}, {}
     for r in d['removes']:
