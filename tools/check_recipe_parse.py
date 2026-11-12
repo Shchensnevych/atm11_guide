@@ -66,10 +66,14 @@ JAR = {'x:planks', 'x:door'}                      # моделі в jar є дл�
 ctx = lambda items: E.Ctx({'x'}, items, set(), set(), {'item': {}})
 REG = {'neoforge:conditions': [{'type': 'neoforge:registered', 'value': 'x:door'}]}
 CASES += [
-    (E.pick_items(JAR, {'x:planks', 'x:coded'}), ({'x:planks', 'x:coded'}, 'game'), 'реєстр предметів: є знімок гри — він і є реєстром (предмет лише з jar зникає, зареєстрований кодом з\'являється)'),
-    (E.pick_items(JAR, None), (JAR, 'jar'), 'реєстр предметів: знімка немає — за файлами jar, як раніше'),
-    (E.conds(REG, ctx(E.pick_items(JAR, {'x:planks'})[0]))[0], False, 'умова registered: предмета немає в реєстрі гри — рецепт неактивний'),
-    (E.conds(REG, ctx(E.pick_items(JAR, None)[0]))[0], True, 'умова registered без знімка — за jar'),
+    (E.pick_registry(JAR, {'x:planks', 'x:coded'}), ({'x:planks', 'x:coded'}, 'game'), 'реєстр предметів: є знімок гри — він і є реєстром (предмет лише з jar зникає, зареєстрований кодом з\'являється)'),
+    (E.pick_registry(JAR, None), (JAR, 'jar'), 'реєстр предметів: знімка немає — за файлами jar, як раніше'),
+    (E.conds(REG, ctx(E.pick_registry(JAR, {'x:planks'})[0]))[0], False, 'умова registered: предмета немає в реєстрі гри — рецепт неактивний'),
+    (E.conds(REG, ctx(E.pick_registry(JAR, None)[0]))[0], True, 'умова registered без знімка — за jar'),
+    # K7: реєстр рідин — так само зі знімка гри: рідина, якої немає серед ключів перекладу в jar, — рідина; ключ перекладу без рідини в грі — ні
+    (E.pick_registry({'x:water', 'x:type_only'}, {'x:water', 'x:molten'}), ({'x:water', 'x:molten'}, 'game'), 'реєстр рідин: є знімок гри — він і є реєстром'),
+    ([B.Kinds({'x:ingot'}, set(), E.pick_registry({'x:water', 'x:type_only'}, {'x:water', 'x:molten'})[0], set(), True).of(x) for x in ('x:molten', 'x:type_only')], ['fluid', 'other'], 'вид запису за реєстром рідин гри'),
+    (B.parse_fluids({'result': {'id': 'x:molten', 'amount': 90}}, B.Kinds(set(), set(), {'x:molten'}, set(), True)), [('x:molten', 90, 'output')], 'рідина-вихід з реєстру гри — з кількістю'),
 ]
 bad = [(why, got, want) for got, want, why in CASES if got != want]
 for why, got, want in bad: print(f'❌ {why}: {got} ≠ {want}')

@@ -72,6 +72,25 @@ case(E.registry_ids(n), {'a:amulet', 'a:red_cable', 'a:stick', 'minecraft:potion
 case(E.registry_ids(None), None, 'знімка немає — реєстру гри немає (а не порожній реєстр)')
 case(E.registry_ids({'names': {}}), None, 'знімок без назв — не реєстр')
 
+# K7: реєстр і назви рідин — той самий формат файла гри й ті самі правила, що для предметів
+FGOOD = {'v': 1, 'ts': 1, 'lang': 'uk_ua', 'total': 7, 'count': 4, 'untranslated': 1, 'errors': 1, 'alt': 1,
+         'names': {'minecraft:water': 'Вода', 'minecraft:flowing_water': 'Вода', 'x:molten': ' Розплав ', 'x:xp': '§aДосвід'}, 'base': {}, 'no_name': ['x:raw'], 'failed': ['x:boom']}
+f, why = E.normalize(FGOOD, 'рідин')
+case(why, None, 'добрий файл рідин приймається')
+case(f and f['names'], {'minecraft:flowing_water': 'Вода', 'minecraft:water': 'Вода', 'x:molten': 'Розплав', 'x:xp': 'Досвід'}, 'назви рідин: та сама чистка, що й для предметів')
+case(E.registry_ids(f, E.EMPTY_FLUID), {'minecraft:water', 'minecraft:flowing_water', 'x:molten', 'x:xp', 'x:raw', 'x:boom', 'minecraft:empty'}, 'реєстр рідин гри: з назвою, без назви, не прочитані й порожня рідина (не порожній предмет)')
+case('рідин' in (E.normalize({**FGOOD, 'total': 100000}, 'рідин')[1] or ''), True, 'неповний обхід рідин — відмова з поясненням про рідини')
+tsv = {'x:molten': ['Розплавлене', 'Molten'], 'x:xp': ['Досвід', 'Experience'], 'x:raw': ['Сирець', 'Raw'], 'x:type_only': ['Тип', 'Type']}
+case(B.fluid_names(tsv, f), {'minecraft:water': ['Вода'], 'minecraft:flowing_water': ['Вода'], 'x:molten': ['Розплав'], 'x:xp': ['Досвід', 'Experience'], 'x:raw': ['Сирець', 'Raw']},
+     'назви рідин: реєстр — знімок гри; назви немає → з гри, розбіжність → з гри, збіг → як є; гра показує ключем, а переклад є → з перекладу; ключ перекладу без рідини в грі — не рідина')
+case(B.fluid_names(tsv, None), tsv, 'знімка рідин немає — назви з ключів перекладу, як є')
+fl = {'minecraft:water': ['Вода'], 'minecraft:flowing_water': ['Вода'], 'x:oxygen': ['Кисень'], 'a:acid': ['Кислота', 'Acid'], 'x:molten': ['Розплав']}
+case(B.fluid_tag_names({'c:molten': ['x:molten'], 'c:water': ['minecraft:flowing_water', 'minecraft:water'], 'minecraft:water': ['x:oxygen', 'a:acid', 'minecraft:water', 'minecraft:flowing_water'],
+                        'c:empty': [], 'c:half': ['x:molten', 'x:nameless']}, fl),
+     {'c:molten': ['Розплав'], 'c:water': ['Вода'], 'minecraft:water': ['Вода', 'Кисень', 'Кислота']},
+     'назви груп рідин: одна назва на всі рідини групи (джерело й течія — одна); різні — ванільна першою, далі за абеткою; порожню групу й групу з рідиною без назви не називаємо')
+case(B.fluid_tag_names(None, fl), {}, 'індексу тегів немає — груп рідин не називаємо')
+
 bad = [(why, got, want) for got, want, why in CASES if got != want]
 for why, got, want in bad: print(f'❌ {why}: {got!r} ≠ {want!r}')
 print(f'Знімок назв з гри: {len(CASES) - len(bad)} з {len(CASES)}')

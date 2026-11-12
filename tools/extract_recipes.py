@@ -10,7 +10,7 @@
 import os, sys, re, json, glob, zipfile, io, collections
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import MC, MODS, RAW, ROOT, tomli, json5, jload, jsave, CLIENT_JARS
-from extract_game_names import registry_ids
+from extract_game_names import registry_ids, EMPTY_FLUID
 
 def pack_ver(uid):
     d = jload(os.path.join(ROOT, 'mmc-pack.json'), {}) or {}
@@ -98,11 +98,12 @@ def registry(srcs, rep, en):
     fluids |= {'minecraft:water', 'minecraft:lava', 'minecraft:empty'}
     return items, blocks, fluids
 
-def pick_items(jar_items, game):
-    """Реєстр предметів для сита (K6): знімок реєстру гри, якщо він є, інакше — моделі предметів у jar. Замір K6: за файлами jar
-    «існували» 2 070 предметів, яких гра не реєструє (мод вимикає їх конфігом), і бракувало 317 зареєстрованих кодом — умова
-    neoforge:registered і вміст тегів виходили не такими, як у грі (1 799 рецептів). → (предмети, 'game' | 'jar')"""
-    return (set(game), 'game') if game else (set(jar_items), 'jar')
+def pick_registry(jar_ids, game):
+    """Реєстр для сита (K6 — предмети, K7 — рідини): знімок реєстру гри, якщо він є, інакше — за файлами jar (моделі предметів;
+    ключі перекладу рідин). Замір K6: за файлами jar «існували» 2 070 предметів, яких гра не реєструє (мод вимикає їх конфігом), і
+    бракувало 317 зареєстрованих кодом — умова neoforge:registered і вміст тегів виходили не такими, як у грі (1 799 рецептів).
+    → (id, 'game' | 'jar')"""
+    return (set(game), 'game') if game else (set(jar_ids), 'jar')
 
 def tag_values(d):
     for v in d.get('values', []):
@@ -337,15 +338,18 @@ def main():
     dd, off = dynamic_data(loaded, rep)
     if dd: srcs.append(dd)
     if off: rep.append(f'kubejs/dynamic_data: не підключено (мода немає) {len(off)} файлів — напр. {", ".join(off[:4])}')
-    en = {}; jar_items, blocks, fluids = registry(srcs, rep, en)
-    items, items_src = pick_items(jar_items, registry_ids(jload(os.path.join(RAW, 'game_item_names.json'), None)))
+    en = {}; jar_items, blocks, jar_fluids = registry(srcs, rep, en)
+    items, items_src = pick_registry(jar_items, registry_ids(jload(os.path.join(RAW, 'game_item_names.json'), None)))
+    fluids, fluids_src = pick_registry(jar_fluids, registry_ids(jload(os.path.join(RAW, 'game_fluid_names.json'), None), EMPTY_FLUID))
     if items_src == 'game': rep.append(f'реєстр предметів — знімок гри raw/game_item_names.json: {len(items)}; за моделями в jar було б {len(jar_items)} (лише в jar, гра не реєструє: {len(jar_items - items)}; лише в грі, зареєстровано кодом: {len(items - jar_items)})')
     else: rep.append('⚠ знімка реєстру гри (raw/game_item_names.json) немає — предмети за моделями в jar: умова neoforge:registered і теги можуть відрізнятись від гри (tools/extract_game_names.py після запуску гри з компаньйоном)')
+    if fluids_src == 'game': rep.append(f'реєстр рідин — знімок гри raw/game_fluid_names.json: {len(fluids)}; за ключами перекладу в jar було б {len(jar_fluids)} (лише в jar, у грі такої рідини немає: {len(jar_fluids - fluids)}; лише в грі: {len(fluids - jar_fluids)})')
+    else: rep.append('⚠ знімка реєстру рідин гри (raw/game_fluid_names.json) немає — рідини за ключами перекладу в jar: рідини без такого ключа потрапляють в «інше» (tools/extract_game_names.py після запуску гри з компаньйоном)')
     tagsr, tsrc = tags(srcs, {'item': items, 'block': blocks, 'fluid': fluids}, rep)
     ctx = Ctx(loaded, items, blocks, fluids, tagsr)
     idx = recipes(srcs, ctx, rep)
     apply_kjs(idx, rep)
-    jsave(os.path.join(RAW, 'registry_index.json'), {'mods': sorted(loaded), 'items': sorted(items), 'items_src': items_src, 'blocks': sorted(blocks), 'fluids': sorted(fluids),
+    jsave(os.path.join(RAW, 'registry_index.json'), {'mods': sorted(loaded), 'items': sorted(items), 'items_src': items_src, 'blocks': sorted(blocks), 'fluids': sorted(fluids), 'fluids_src': fluids_src,
           'sources': [s.label for s in srcs]}, compact=True)
     jsave(os.path.join(RAW, 'tags_index.json'), {'item': tagsr['item'], 'block': tagsr['block'], 'fluid': tagsr['fluid'], 'src': tsrc}, compact=True)
     jsave(os.path.join(RAW, 'recipes_index.json'), idx, compact=True)

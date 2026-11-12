@@ -5,6 +5,8 @@
 # кладе build_names.py. Файла немає / інша мова гри / обхід неповний — знімок у raw/ не змінюється.
 # Так само — companion_quest_names.json (заголовки завдань і нагород квестів FTB та рядків таблиць нагород, як їх показує книга
 # квестів) → raw/game_quest_names.json; у базу їх кладе extract_quests.py.
+# K7: companion_fluid_names.json (реєстр рідин гри з назвами, той самий формат, що й у предметів) → raw/game_fluid_names.json:
+# реєстр рідин для сита (extract_recipes.py) і назви рідин (build_names.py).
 import os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import MC, RAW, jload, jsave
@@ -17,6 +19,9 @@ QSRC = os.path.join(MC, 'kubejs', 'config', 'companion_quest_names.json')
 QOUT = os.path.join(RAW, 'game_quest_names.json')
 EMPTY_ITEM = 'minecraft:air'                     # «порожній» предмет: у реєстрі гри він є (total його рахує), але обхід назв його пропускає — екземпляра з назвою немає
 RX_CODE = re.compile(r'^[0-9A-F]{16}$')
+FSRC = os.path.join(MC, 'kubejs', 'config', 'companion_fluid_names.json')
+FOUT = os.path.join(RAW, 'game_fluid_names.json')
+EMPTY_FLUID = 'minecraft:empty'                  # порожня рідина — так само: у реєстрі є, назви не має
 
 def clean(s):
     """Назва з гри: без кодів кольору «§x» і зайвих пробілів («&» у грі — звичайний знак, не код)."""
@@ -25,26 +30,27 @@ def clean(s):
 def _ids(v):
     return sorted(x for x in (v or []) if isinstance(x, str) and RX_ID.match(x)) if isinstance(v, list) else []
 
-def normalize(d):
-    """Файл гри → (знімок, None) або (None, причина відмови)."""
+def normalize(d, what='предметів'):
+    """Файл гри (обхід реєстру: предмети або рідини — what для пояснення) → (знімок, None) або (None, причина відмови)."""
     if not isinstance(d, dict) or not isinstance(d.get('names'), dict): return None, 'не схоже на файл назв (немає names)'
     if d.get('lang') != LANG: return None, f'мова гри «{d.get("lang") or "?"}» — потрібна {LANG} (увімкніть українську й зайдіть у світ)'
     names = {k: clean(v) for k, v in d['names'].items() if isinstance(k, str) and RX_ID.match(k) and isinstance(v, str) and clean(v)}
     if not names: return None, 'назв немає'
     num = lambda k: d[k] if isinstance(d.get(k), (int, float)) else 0
     total = int(num('total'))
-    if total and num('count') + num('untranslated') + num('errors') < total - 1: return None, f'обхід неповний: назв {int(num("count"))} з {total} предметів'
+    if total and num('count') + num('untranslated') + num('errors') < total - 1: return None, f'обхід неповний: назв {int(num("count"))} з {total} {what}'
     base = {k: [clean(v[0]), v[1]] for k, v in (d.get('base') or {}).items()
             if k in names and isinstance(v, list) and len(v) == 2 and all(isinstance(x, str) for x in v) and clean(v[0])} if isinstance(d.get('base'), dict) else {}
     return {'lang': LANG, 'total': total or len(names), 'count': len(names), 'untranslated': int(num('untranslated')), 'errors': int(num('errors')),
             'no_name': _ids(d.get('no_name')), 'failed': _ids(d.get('failed')),
             'names': dict(sorted(names.items())), 'base': dict(sorted(base.items()))}, None
 
-def registry_ids(snap):
-    """Реєстр предметів гри зі знімка (K6): усі предмети обходу — з назвою, без назви (гра показує ключем) і ті, що не прочитались.
-    Знімка немає або він без назв — None (не порожній реєстр): тоді ніхто не вважає, що в грі предметів немає."""
+def registry_ids(snap, empty=EMPTY_ITEM):
+    """Реєстр гри зі знімка (K6 — предмети, K7 — рідини з empty=EMPTY_FLUID): усі записи обходу — з назвою, без назви (гра показує
+    ключем) і ті, що не прочитались, плюс порожній запис реєстру. Знімка немає або він без назв — None (не порожній реєстр): тоді
+    ніхто не вважає, що в грі цього немає."""
     if not isinstance(snap, dict) or not snap.get('names'): return None
-    return set(snap['names']) | set(snap.get('no_name') or []) | set(snap.get('failed') or []) | {EMPTY_ITEM}
+    return set(snap['names']) | set(snap.get('no_name') or []) | set(snap.get('failed') or []) | {empty}
 
 def keep_lost(snap, old):
     """Предмет, який гра цього разу показала ключем, а в попередньому знімку мав назву, — назва лишається (замір K5: після F3+T
@@ -85,14 +91,17 @@ def snapshot(src, out, norm, label, summary, merge=None):
     print(f'{label}: {summary(snap, old or {})} → raw/{os.path.basename(out)}')
 
 def main():
-    def names_sum(snap, old):
-        base = f'{snap["count"]} назв з {snap["total"]} предметів'
-        if old is None: return base
-        oldn = old.get('names') or {}
-        return f'{base} (нових і змінених {sum(1 for k, v in snap["names"].items() if oldn.get(k) != v)}; гра показує ключем {snap["untranslated"]}, помилок читання {snap["errors"]})'
+    def names_sum(what):
+        def summary(snap, old):
+            base = f'{snap["count"]} назв з {snap["total"]} {what}'
+            if old is None: return base
+            oldn = old.get('names') or {}
+            return f'{base} (нових і змінених {sum(1 for k, v in snap["names"].items() if oldn.get(k) != v)}; гра показує ключем {snap["untranslated"]}, помилок читання {snap["errors"]})'
+        return summary
     def quests_sum(snap, old):
         return f'завдань {len(snap["tasks"])}, нагород {len(snap["rewards"])}, таблиць {len(snap["tables"])} (квестів {snap["quests_total"]}, помилок читання {snap["errors"]})'
-    snapshot(SRC, OUT, normalize, 'Назви предметів з гри', names_sum, keep_lost)
+    snapshot(SRC, OUT, normalize, 'Назви предметів з гри', names_sum('предметів'), keep_lost)
+    snapshot(FSRC, FOUT, lambda d: normalize(d, 'рідин'), 'Реєстр і назви рідин з гри', names_sum('рідин'), keep_lost)
     snapshot(QSRC, QOUT, normalize_quests, 'Заголовки квестів з гри', quests_sum)
     return 0
 

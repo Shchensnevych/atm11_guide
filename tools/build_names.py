@@ -1,9 +1,10 @@
 # Назви з перекладу для моста ATM11-Companion (C2): ua_work/review/effective.tsv → docs/data/names.json.
 # Міст бере назви предметів, блоків, істот, клавіш і книг ЛИШЕ звідси (GUIDE_HANDOFF §2а: знання — з docs/data).
-# Формат: {"items": {"ns:id": [uk, en?, "b"?]}, "entities": {...: [uk, en?]}, "keys": {"key.x": [uk, en?]}, "books": {"ns:book": [uk, en?]}, "dims": {"ns:вимір": [uk, en?]}, "biomes": {"ns:біом": [uk, en?]}, "tags": {"ns:шлях/тегу": [uk, en?]}}
+# Формат: {"items": {"ns:id": [uk, en?, "b"?]}, "entities": {...: [uk, en?]}, "keys": {"key.x": [uk, en?]}, "books": {"ns:book": [uk, en?]}, "dims": {"ns:вимір": [uk, en?]}, "biomes": {"ns:біом": [uk, en?]}, "tags": {"ns:шлях/тегу": [uk, en?]}, "fluids": {"ns:рідина": [uk, en?]}, "fluid_tags": {"ns:шлях/тегу рідин": [назва, інші назви рідин групи…]}}
 #   en пропущено, якщо збігається з uk; "b" — є лише ключ block.* (без item.*).
 import os, re
 from common import UA, DATA, RAW, jload, jsave, strip_fmt
+from extract_game_names import registry_ids, EMPTY_FLUID
 
 RX_ITEM = re.compile(r'^(item|block)\.([a-z0-9_.-]+?)\.([a-z0-9_/-]+)$')
 RX_ITEM_NS = re.compile(r'^([a-z0-9_-]+)\.(item|block)\.([a-z0-9_/-]+)$')
@@ -12,6 +13,7 @@ RX_ENT = re.compile(r'^entity\.([a-z0-9_-]+)\.([a-z0-9_/-]+)$')
 RX_DIM = re.compile(r'^dimension\.([a-z0-9_-]+)\.([a-z0-9_/-]+)$')
 RX_BIOME = re.compile(r'^biome\.([a-z0-9_-]+)\.([a-z0-9_/-]+)$')
 RX_TAG = re.compile(r'^tag\.item\.([a-z0-9_-]+)\.([a-z0-9_.-]+)$')   # tag.item.c.rods.wooden → c:rods/wooden (назва групи предметів)
+RX_FLUID = re.compile(r'^(fluid_type|fluid)\.([a-z0-9_-]+)\.([a-z0-9_/-]+)$')   # ключ назви рідини: тип рідини (його показує гра) або сама рідина
 RX_BOOK = re.compile(r'^book\.([a-z0-9_-]+)\.([a-z0-9_-]+)\.name$')
 
 # K5: назви, які гра складає кодом (у файлах перекладу їх немає), — зі знімка гри raw/game_item_names.json
@@ -64,6 +66,29 @@ def apply_game(items, game):
             items[iid] = [name, en, 'b'] if len(cur) > 1 and cur[-1] == 'b' else ([name, en] if en else [name])
     return st
 
+def fluid_names(tsv, game):
+    """Назви рідин (K7). tsv — назви з ключів перекладу fluid_type.* / fluid.*, game — знімок рідин з гри (raw/game_fluid_names.json).
+    Є знімок — рідини лише з реєстру гри (ключ перекладу без рідини в грі — не рідина), назва — за тим самим правилом, що й
+    предмети (apply_game → pick). Знімка немає — назви з ключів перекладу, як є."""
+    reg = registry_ids(game, EMPTY_FLUID)
+    if reg is None: return dict(tsv)
+    out = {k: v for k, v in tsv.items() if k in reg}
+    apply_game(out, game)
+    return out
+
+def fluid_tag_names(tags, fluids):
+    """Назви груп рідин (K7): тег рідин (raw/tags_index.json → fluid, лише рідини реєстру) → різні назви його рідин — ванільна першою,
+    далі за абеткою; одна назва — усі рідини групи звуться однаково (джерело й течія). Порожню групу й групу, де якась рідина без
+    назви, не називаємо. Замір K7: з 78 тегів рідин у активних рецептах 73 мають одну назву, 2 — кілька."""
+    out = {}
+    for t, ids in (tags or {}).items():
+        if not ids or any(i not in fluids for i in ids): continue
+        seen = []
+        for i in sorted(ids, key=lambda i: (not i.startswith('minecraft:'), fluids[i][0], i)):
+            if fluids[i][0] not in seen: seen.append(fluids[i][0])
+        out[t] = seen
+    return out
+
 def _pair(uk, en):
     uk, en = strip_fmt(uk), strip_fmt(en)
     uk = uk or en
@@ -74,8 +99,8 @@ def build(warn, write=True, game=None, stats=None, out=None):
     p = os.path.join(UA, 'review', 'effective.tsv')
     if not os.path.exists(p):
         warn('names: немає ua_work/review/effective.tsv — docs/data/names.json не оновлено')
-        return {'items': 0, 'entities': 0, 'keys': 0, 'books': 0, 'dims': 0, 'biomes': 0, 'tags': 0}
-    items, ents, keys, books, dims, biomes, tags = {}, {}, {}, {}, {}, {}, {}
+        return {'items': 0, 'entities': 0, 'keys': 0, 'books': 0, 'dims': 0, 'biomes': 0, 'tags': 0, 'fluids': 0, 'fluid_tags': 0}
+    items, ents, keys, books, dims, biomes, tags, fl_tsv = {}, {}, {}, {}, {}, {}, {}, {}
     # Назви книг-посібників: raw/books_auto.json (tools/extract_books.py — book.json → name: ключ мови або текст)
     bauto = jload(os.path.join(RAW, 'books_auto.json'), {}) or {}
     bkeys = {v['name']: bid for bid, v in bauto.items() if isinstance(v, dict) and v.get('name')}
@@ -124,6 +149,11 @@ def build(warn, write=True, game=None, stats=None, out=None):
             if m: biomes[f'{m.group(1)}:{m.group(2)}'] = _pair(c[4], c[3]); continue
             m = RX_TAG.match(k)
             if m: tags[f'{m.group(1)}:{m.group(2).replace(".", "/")}'] = _pair(c[4], c[3]); continue
+            m = RX_FLUID.match(k)
+            if m:
+                fid = f'{m.group(2)}:{m.group(3)}'
+                if m.group(1) == 'fluid_type' or fid not in fl_tsv: fl_tsv[fid] = _pair(c[4], c[3])
+                continue
             m = RX_BOOK.match(k)
             if m: books[f'{m.group(1)}:{m.group(2)}'] = _pair(c[4], c[3]); continue
             if k.startswith('key.') and not k.startswith('key.categories.'): keys[k] = _pair(c[4], c[3])
@@ -135,7 +165,9 @@ def build(warn, write=True, game=None, stats=None, out=None):
         if not nm: continue
         if nm in bfound: books[bid] = bfound[nm]
         elif not re.fullmatch(r'[a-z0-9_.]+', nm): books[bid] = [strip_fmt(nm)]   # ключ без перекладу — пропускаємо (міст напише «Посібник <мод>»)
-    res = {'items': dict(sorted(items.items())), 'entities': dict(sorted(ents.items())), 'keys': dict(sorted(keys.items())), 'books': dict(sorted(books.items())), 'dims': dict(sorted(dims.items())), 'biomes': dict(sorted(biomes.items())), 'tags': dict(sorted(tags.items()))}
+    fluids = fluid_names(fl_tsv, jload(os.path.join(RAW, 'game_fluid_names.json'), None))
+    res = {'items': dict(sorted(items.items())), 'entities': dict(sorted(ents.items())), 'keys': dict(sorted(keys.items())), 'books': dict(sorted(books.items())), 'dims': dict(sorted(dims.items())), 'biomes': dict(sorted(biomes.items())), 'tags': dict(sorted(tags.items())),
+           'fluids': dict(sorted(fluids.items())), 'fluid_tags': dict(sorted(fluid_tag_names((jload(os.path.join(RAW, 'tags_index.json'), None) or {}).get('fluid'), fluids).items()))}
     if out is not None: out.update(res)
     if write: jsave(os.path.join(DATA, 'names.json'), res, compact=True)
     return {k: len(v) for k, v in res.items()}

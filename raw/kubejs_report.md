@@ -45,13 +45,11 @@
 - `mysticalagriculture:essence/appliedenergistics2/engineering_press` server_scripts/tweaks/recipes_fix.js:29 — тип crafting_shaped — мода crafting_shaped немає
 - `mysticalagriculture:essence/appliedenergistics2/logic_press` server_scripts/tweaks/recipes_fix.js:58 — тип crafting_shaped — мода crafting_shaped немає
 
-## ID поза реєстром предметів (assets) в активних рецептах — 63 (інформативно: ритуали / пентаклі Occultism, предмети, які мод реєструє кодом — есенції MA тощо; гра пише «0 failed», тобто рецепти завантажились)
+## ID поза реєстром предметів (assets) в активних рецептах — 61 (інформативно: ритуали / пентаклі Occultism, предмети, які мод реєструє кодом — есенції MA тощо; гра пише «0 failed», тобто рецепти завантажились)
 
 - `kjs:mods/bbl_strainers/meshes.js#L8` server_scripts/mods/bbl_strainers/meshes.js:8 — ID поза реєстром assets: minecraft:enchantments
 - `allthemods:crystalline_infusion/crystalline_wand` server_scripts/mods/geore/crystalline_wand.js:139 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
 - `allthemods:crystalline_infusion/perfect_crystalline_wand` server_scripts/mods/geore/crystalline_wand.js:166 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
-- `kjs:mods/mysticalagriculture/experience_droplet.js#L8` server_scripts/mods/mysticalagriculture/experience_droplet.js:8 — ID поза реєстром assets: justdirethings:xp_fluid_source
-- `kjs:mods/mysticalagriculture/experience_droplet.js#L16` server_scripts/mods/mysticalagriculture/experience_droplet.js:16 — ID поза реєстром assets: justdirethings:xp_fluid_source
 - `allthemods:essence/regions_unexplored/mauve_log` server_scripts/mods/mysticalagriculture/recipes.js:198 — ID поза реєстром assets: regions_unexplored:mauve_log
 - `occultism:copper_catalyst` server_scripts/mods/neovitae/meteor.js:183 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
 - `occultism:iron_catalyst` server_scripts/mods/neovitae/meteor.js:183 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
@@ -107,6 +105,8 @@
 - `occultism:ritual/craft_infused_axe` server_scripts/unification/tools.js:69 — ID поза реєстром assets: occultism:craft_djinni, occultism:upgrade
 - `occultism:ritual/craft_infused_hoe` server_scripts/unification/tools.js:69 — ID поза реєстром assets: occultism:craft_djinni, occultism:upgrade
 - `occultism:ritual/craft_infused_helmet` server_scripts/unification/tools.js:98 — ID поза реєстром assets: occultism:craft_djinni, occultism:upgrade
+- `occultism:ritual/craft_infused_chestplate` server_scripts/unification/tools.js:98 — ID поза реєстром assets: occultism:craft_djinni, occultism:upgrade
+- `occultism:ritual/craft_infused_leggings` server_scripts/unification/tools.js:98 — ID поза реєстром assets: occultism:craft_djinni, occultism:upgrade
 
 ## remove без збігів — 99 (рецепта немає в індексі: мод генерує його кодом, мода немає, або рецепт уже неактивний)
 

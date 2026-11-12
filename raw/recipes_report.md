@@ -1,6 +1,6 @@
 # Індекс рецептів збірки (tools/extract_recipes.py)
 
-Джерел: 373 (vanilla, NeoForge, jar модів і вкладені jarjar, kubejs/data, kubejs/dynamic_data); модів завантажено: 317; предметів: 36692, блоків: 31921, рідин: 192; тегів предметів: 4576
+Джерел: 373 (vanilla, NeoForge, jar модів і вкладені jarjar, kubejs/data, kubejs/dynamic_data); модів завантажено: 317; предметів: 36692, блоків: 31921, рідин: 326; тегів предметів: 4576
 Рецептів: 40246 — активні 33891, неактивні 5148, невідомо (умова мода) 1207
 
 ## Звірка з грою (logs/kubejs/server.log)
@@ -42,7 +42,8 @@
 - інфо: kubejs/dynamic_data/index.json називає файли, яких немає (скрипт їх пропускає): 11 — minecraft/tags/block/needs_stone_tool.json, minecraft/tags/block/mineable/pickaxe.json, theurgy/recipe/incubation/arcane_crystal.json, theurgy/recipe/incubation/bort.json, theurgy/recipe/incubation/iesnium_ingot.json, theurgy/recipe/incubation/mithril_ingot.json
 - kubejs/dynamic_data: не підключено (мода немає) 134 файлів — напр. bigreactors/neoforge/biome_modifier/yellorite.json, bigreactors/neoforge/biome_modifier/yellorite_deepslate.json, botanytrees/loot_table/tree_drops/allthemodium/ancient.json, botanytrees/loot_table/tree_drops/allthemodium/demonic.json
 - реєстр предметів — знімок гри raw/game_item_names.json: 36692; за моделями в jar було б 38443 (лише в jar, гра не реєструє: 2068; лише в грі, зареєстровано кодом: 317)
-- інфо: у тегах обов'язкові записи неіснуючих предметів/блоків/рідин: {'block': 59, 'fluid': 35, 'item': 32} (гра пише попередження)
+- реєстр рідин — знімок гри raw/game_fluid_names.json: 326; за ключами перекладу в jar було б 192 (лише в jar, у грі такої рідини немає: 62; лише в грі: 196)
+- інфо: у тегах обов'язкові записи неіснуючих предметів/блоків/рідин: {'block': 59, 'item': 32} (гра пише попередження)
 - інфо: файлів у застарілій теці recipes/ (1.20; гра 1.21+ їх не читає, в індекс не взято): 4 у 2 jar
 - інфо: ID рецепта в кількох джерелах (діє останнє за порядком): 554 — напр. minecraft:acacia_chest_boat, minecraft:acacia_fence, minecraft:acacia_fence_gate, minecraft:acacia_sign, minecraft:activator_rail
 - KubeJS: вимкнено рецептів 137, змінено 253, додано 637
