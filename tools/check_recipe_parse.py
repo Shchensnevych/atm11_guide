@@ -26,6 +26,41 @@ CASES = [
     (I(['a:b', {'id': 'c:d'}]), [('a:b', 0, 1.0), ('c:d', 0, 1.0)], 'список інгредієнтів'),
     (I("{'id': 'x:y'}"), [], 'рядок з об\'єкта — не id'),
 ]
+# K6: складені інгредієнти NeoForge (difference / intersection / compound) — раніше слот зникав з рецепта (скриня в лійці)
+TAGS = {'c:wool': ['x:white_wool', 'x:black_wool'], 'c:dyed/black': ['x:black_wool', 'x:black_bed'], 'c:a': ['x:1', 'x:2', 'minecraft:z'], 'c:b': ['x:1', 'minecraft:z', 'x:3'], 'c:c': ['x:7']}
+CASES += [
+    (I({'neoforge:ingredient_type': 'neoforge:difference', 'base': '#c:chests/wooden', 'subtracted': '#c:chests/trapped'}), [('#c:chests/wooden', 1, 1.0)], 'інгредієнт-різниця: основа (base)'),
+    (I({'neoforge:ingredient_type': 'neoforge:intersection', 'children': ['#c:wool', '#c:dyed/black']}, TAGS), [('x:black_wool', 0, 1.0)], 'інгредієнт-перетин: спільний предмет груп'),
+    (I({'neoforge:ingredient_type': 'neoforge:intersection', 'children': ['#c:a', '#c:b']}, TAGS), [('minecraft:z', 0, 1.0)], 'інгредієнт-перетин із кількома спільними предметами — один з них (ванільний першим), а не вся перша група'),
+    (I({'neoforge:ingredient_type': 'neoforge:intersection', 'children': ['#c:a', '#c:c']}, TAGS), [('#c:a', 1, 1.0)], 'інгредієнт-перетин без спільних предметів у відомих тегах — перша група'),
+    (I({'neoforge:ingredient_type': 'neoforge:intersection', 'children': ['#c:wool', '#c:dyed/black']}), [('#c:wool', 1, 1.0)], 'інгредієнт-перетин без відомих тегів — перша група'),
+    (I({'neoforge:ingredient_type': 'neoforge:compound', 'children': ['#c:a', 'x:9'], 'count': 2}), [('#c:a', 1, 2.0)], 'складений інгредієнт (будь-що з переліку) — перший, кількість зовні'),
+]
+# K6: що таке запис за реєстрами (предмет гри / рідина / інше) і рідини за структурою запису {…, amount}
+K = B.Kinds({'x:ingot', 'x:both'}, {'c:ingots'}, {'x:water', 'x:both'}, {'c:acid'}, True)
+F = lambda d: B.parse_fluids(d, K)
+CASES += [
+    ([K.of(x) for x in ('x:ingot', '#c:ingots', 'x:water', '#c:acid', 'x:bee', '#c:unknown', 'x:both')], ['item', 'item', 'fluid', 'fluid', 'other', 'item', 'item'], 'вид запису: предмет / рідина / інше; невідомий тег лишається тегом предметів'),
+    (B.Kinds({'x:ingot'}, set(), {'x:water'}, set(), False).of('x:coded'), 'item', 'без знімка реєстру гри невідомий id лишається предметом (предмети, зареєстровані кодом)'),
+    (F({'fluid': {'amount': 1000, 'ingredient': 'x:water'}, 'input': 'x:ingot'}), [('x:water', 1000, 'input')], 'рідина-вхід: {amount, ingredient}'),
+    (F({'solvent': {'amount': 10, 'ingredient': {'tag': 'c:acid'}}}), [('#c:acid', 10, 'input')], 'рідина-вхід: тег рідин усередині'),
+    (F({'fluidOutputs': [{'amount': 100, 'id': 'x:water'}], 'result': {'id': 'x:both', 'amount': 5}}), [('x:water', 100, 'output'), ('x:both', 5, 'output')], 'рідини-виходи; запис із кількістю в мВ — рідина, навіть якщо є й такий предмет'),
+    (F({'ingredient': {'id': 'x:ingot', 'amount': 3}}), [], 'предмет із полем amount — не рідина'),
+    (B.split_kinds([('x:ingot', 0, 1.0, 'input', 0), ('x:water', 0, 1.0, 'input', 1), ('x:bee', 0, 1.0, 'input', 2), ('#c:acid', 1, 2.0, 'input', 3)], [('x:water', 1.0, 1.0, 1), ('x:ingot', 1.0, 1.0, 0)], [('x:water', 250, 'input')], K),
+     ([('x:ingot', 0, 1.0, 'input', 0)], [('x:ingot', 1.0, 1.0, 1)], [('x:water', 250, 'input'), ('#c:acid', 0, 'input'), ('x:water', 0, 'output')], {'in': ['x:bee']}),
+     'рідини й не-предмети не лишаються серед предметів: рідина — до рідин (0 мВ = кількість невідома; відома не дублюється), інше — окремо; головним стає перший вихід-предмет'),
+]
+# K6: умови й реєстр — предмет є в грі чи ні, вирішує реєстр гри (знімок), а не файли моделей у jar
+import extract_recipes as E
+JAR = {'x:planks', 'x:door'}                      # моделі в jar є для обох
+ctx = lambda items: E.Ctx({'x'}, items, set(), set(), {'item': {}})
+REG = {'neoforge:conditions': [{'type': 'neoforge:registered', 'value': 'x:door'}]}
+CASES += [
+    (E.pick_items(JAR, {'x:planks', 'x:coded'}), ({'x:planks', 'x:coded'}, 'game'), 'реєстр предметів: є знімок гри — він і є реєстром (предмет лише з jar зникає, зареєстрований кодом з\'являється)'),
+    (E.pick_items(JAR, None), (JAR, 'jar'), 'реєстр предметів: знімка немає — за файлами jar, як раніше'),
+    (E.conds(REG, ctx(E.pick_items(JAR, {'x:planks'})[0]))[0], False, 'умова registered: предмета немає в реєстрі гри — рецепт неактивний'),
+    (E.conds(REG, ctx(E.pick_items(JAR, None)[0]))[0], True, 'умова registered без знімка — за jar'),
+]
 bad = [(why, got, want) for got, want, why in CASES if got != want]
 for why, got, want in bad: print(f'❌ {why}: {got} ≠ {want}')
 print(f'Розбір записів рецептів: {len(CASES) - len(bad)} з {len(CASES)}')

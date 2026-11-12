@@ -12,7 +12,7 @@ if hasattr(sys.stdout, 'reconfigure'):
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import MC, MODS, RAW, UA, CLIENT_JARS, jload
-from extract_recipes import neoforge_jar
+from extract_recipes import neoforge_jar, SKIPK, OUTK
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 GUIDE_ROOT = os.path.dirname(HERE)
@@ -90,10 +90,24 @@ def _num(v, default=1.0):
     try: return float(v)
     except (TypeError, ValueError): return default
 
-def parse_ingredient_entry(ing):
+def _common_item(kids, tags):
+    """Предмет, спільний для всіх частин перетину (тег → його предмети з tags, предмет → він сам): спільних кілька — один із них
+    (ванільний першим, далі за id — стало), бо назви для «перетину груп» немає; спільних немає / тег невідомий — None."""
+    sets = []
+    for kid in kids:
+        if not kid: return None
+        ref, is_tag, _ = kid[0]
+        if is_tag and (not tags or ref[1:] not in tags): return None
+        sets.append(set(tags[ref[1:]]) if is_tag else {ref})
+    common = set.intersection(*sets) if sets else set()
+    return min(common, key=lambda i: (not i.startswith('minecraft:'), i)) if common else None
+
+def parse_ingredient_entry(ing, tags=None):
     """Розбирає запис інгредієнта -> list of (item_or_tag, is_tag, count).
     Запис — рядок, список записів або об'єкт будь-якої вкладеності: поле item / id / items (рядок, об'єкт або список
-    варіантів — тоді перший), tag, або обгортка (WRAPPERS). Кількість обгортки множиться на внутрішню."""
+    варіантів — тоді перший), tag, або обгортка (WRAPPERS). Кількість обгортки множиться на внутрішню.
+    Складені інгредієнти NeoForge (K6): різниця — основа (base); перетин (children) — спільний предмет груп, якщо
+    tags (тег → предмети) його показує, інакше перша частина; «будь-що з переліку» (children) — перша частина."""
     if not ing:
         return []
     if isinstance(ing, str):
@@ -102,7 +116,7 @@ def parse_ingredient_entry(ing):
     if isinstance(ing, list):
         res = []
         for x in ing:
-            res.extend(parse_ingredient_entry(x))
+            res.extend(parse_ingredient_entry(x, tags))
         return res
     if isinstance(ing, dict):
         count = _num(ing.get('count', 1.0))
@@ -111,14 +125,23 @@ def parse_ingredient_entry(ing):
             if key in ing:
                 v = ing[key]
                 if key in ('items', 'value') and isinstance(v, list): v = v[:1]   # варіанти на вибір — беремо перший (у схемі бази варіантів немає)
-                sub = parse_ingredient_entry(v)
+                sub = parse_ingredient_entry(v, tags)
                 if sub: return scaled(sub)
+        if 'base' in ing:
+            sub = parse_ingredient_entry(ing['base'], tags)
+            if sub: return scaled(sub[:1])
+        if isinstance(ing.get('children'), list):
+            kids = [parse_ingredient_entry(x, tags) for x in ing['children']]
+            one = _common_item(kids, tags) if str(ing.get('neoforge:ingredient_type', '')).endswith(':intersection') else None
+            if one: return scaled([(one, 0, 1.0)])
+            sub = next((k for k in kids if k), [])
+            if sub: return scaled(sub[:1])
         if 'tag' in ing and isinstance(ing['tag'], str):
             t = ing['tag'] if ing['tag'].startswith('#') else '#' + ing['tag']
             return [(t, 1, count)] if RX_REF.match(t) else []
         for key in WRAPPERS:
             if key in ing:
-                sub = parse_ingredient_entry(ing[key])
+                sub = parse_ingredient_entry(ing[key], tags)
                 if sub: return scaled(sub)
     return []
 
@@ -146,33 +169,67 @@ def parse_output_entry(out):
                 if sub: return [(item_id, c * count, ch * chance if chance != 1.0 else ch, prim) for item_id, c, ch, prim in sub]
     return []
 
-def parse_fluids(d):
-    """Розбирає рідини рецепта -> list of (fluid_id, amount_mb, io_type)."""
-    fluids = []
-    for k in ('fluidInput', 'fluid_input', 'fluid'):
-        if k in d:
-            val = d[k]
-            if isinstance(val, dict):
-                fid = val.get('id') or val.get('fluid')
-                amt = val.get('amount') or 1000
-                if fid:
-                    fluids.append((str(fid), int(amt), 'input'))
-            elif isinstance(val, str):
-                fluids.append((val, 1000, 'input'))
-    for k in ('fluidOutputs', 'fluid_outputs', 'fluidResults', 'fluid_results'):
-        if k in d and isinstance(d[k], list):
-            for val in d[k]:
-                if isinstance(val, dict):
-                    fid = val.get('id') or val.get('fluid')
-                    amt = val.get('amount') or 1000
-                    if fid:
-                        fluids.append((str(fid), int(amt), 'output'))
-    if 'result' in d and isinstance(d['result'], dict):
-        r = d['result']
-        if 'amount' in r and ('id' in r or 'fluid' in r):
-            fid = r.get('id') or r.get('fluid')
-            fluids.append((str(fid), int(r['amount']), 'output'))
-    return fluids
+class Kinds:
+    """Що таке запис рецепта за реєстрами (K6): предмет гри, рідина чи інше (істота, блок без предмета, службовий id).
+    strict — реєстр предметів узято з гри (знімок): тоді id поза ним — не предмет. Без знімка невідомий id лишається предметом
+    (за файлами jar не видно предметів, які мод реєструє кодом). Тег, якого немає серед тегів рідин, — тег предметів."""
+    def __init__(self, items, item_tags, fluids, fluid_tags, strict):
+        self.items, self.item_tags, self.fluids, self.fluid_tags, self.strict = items, item_tags, fluids, fluid_tags, strict
+    def is_fluid(self, ref):
+        return (ref[1:] in self.fluid_tags) if ref.startswith('#') else (ref in self.fluids)
+    def of(self, ref):
+        if ref.startswith('#'): return 'fluid' if ref[1:] not in self.item_tags and ref[1:] in self.fluid_tags else 'item'
+        if ref in self.items: return 'item'
+        if ref in self.fluids: return 'fluid'
+        return 'other' if self.strict else 'item'
+
+FLUID_REF_KEYS = ('ingredient', 'id', 'fluid', 'tag')
+
+def _fluid_ref(o, kinds):
+    """Рідина запису з кількістю: рядок, тег або вкладений об'єкт / список (перший) → id або #тег рідини, інакше None."""
+    if isinstance(o, str):
+        ref, _ = _clean_ref(o)
+        return ref if RX_REF.match(ref) and kinds.is_fluid(ref) else None
+    if isinstance(o, list): return next((r for r in (_fluid_ref(x, kinds) for x in o) if r), None)
+    if isinstance(o, dict):
+        for k in FLUID_REF_KEYS:
+            if k in o:
+                r = _fluid_ref(('#' + o[k].lstrip('#')) if k == 'tag' and isinstance(o[k], str) else o[k], kinds)
+                if r: return r
+    return None
+
+def parse_fluids(d, kinds):
+    """Рідини рецепта за структурою запису -> list of (fluid_id або #тег, amount_mb, io_type): будь-де в рецепті об'єкт з полем
+    amount, чий id / ingredient / fluid / tag — рідина за реєстром. Вихід — якщо запис лежить під ключем виходу (OUTK сита)."""
+    res = []
+    def walk(o, isout):
+        if isinstance(o, dict):
+            if 'amount' in o:
+                ref = _fluid_ref({k: o[k] for k in FLUID_REF_KEYS if k in o}, kinds)
+                if ref: res.append((ref, int(_num(o['amount'], 0)), 'output' if isout else 'input')); return
+            for k, v in o.items():
+                if k not in SKIPK: walk(v, isout or bool(OUTK.search(k)))
+        elif isinstance(o, list):
+            for x in o: walk(x, isout)
+    walk(d, False)
+    return res
+
+def split_kinds(ings, outs, fls, kinds):
+    """Серед предметів рецепта лишаються лише предмети: рідина йде до рідин (0 мВ — кількість у записі не вказано; уже відома
+    рідина того ж напрямку не дублюється), інше (істоти, блоки без предмета) — окремим переліком. Головним виходом стає перший
+    вихід-предмет. -> (ings, outs, fls, other: {'in': […], 'out': […]})"""
+    fls = list(fls); have = {(f, io) for f, _, io in fls}; other = {}
+    def route(ref, io):
+        kind = kinds.of(ref)
+        if kind == 'item': return True
+        if kind == 'fluid':
+            if (ref, io) not in have: fls.append((ref, 0, io)); have.add((ref, io))
+        else: other.setdefault('in' if io == 'input' else 'out', []).append(ref)
+        return False
+    ings = [x for x in ings if route(x[0], 'input')]
+    outs = [x for x in outs if route(x[0], 'output')]
+    if outs and not any(x[3] for x in outs): outs[0] = outs[0][:3] + (1,)
+    return ings, outs, fls, other
 
 def init_schema(db):
     """Створює схему бази даних SQLite."""
@@ -308,6 +365,10 @@ def main():
     kjs_idx = jload(os.path.join(RAW, 'kubejs_index.json'), {}) or {}
     tags_idx = jload(os.path.join(RAW, 'tags_index.json'), {}) or {}
     reg_idx = jload(os.path.join(RAW, 'registry_index.json'), {}) or {}
+    item_tags = tags_idx.get('item', {})
+    kinds = Kinds(set(reg_idx.get('items', [])), set(item_tags), set(reg_idx.get('fluids', [])), set(tags_idx.get('fluid', {})), reg_idx.get('items_src') == 'game')
+    if not kinds.strict: print("⚠ реєстр предметів — не з гри (немає знімка raw/game_item_names.json): записи поза реєстром лишаються предметами")
+    ingr = lambda x: parse_ingredient_entry(x, item_tags)
 
     os.makedirs(os.path.dirname(DB_OUT_RAW), exist_ok=True)
     if os.path.exists(DB_OUT_RAW):
@@ -390,7 +451,7 @@ def main():
                             for c_idx, ch in enumerate(row):
                                 slot = r_idx * 3 + c_idx
                                 if ch != ' ' and ch in key_map:
-                                    parsed = parse_ingredient_entry(key_map[ch])
+                                    parsed = ingr(key_map[ch])
                                     if parsed:
                                         item_tag, is_tag, _ = parsed[0]
                                         parsed_ings.append((item_tag, is_tag, 1.0, 'input', slot))
@@ -400,7 +461,7 @@ def main():
                 elif rtype == 'minecraft:crafting_shapeless':
                     ings = raw_d.get('ingredients', [])
                     for slot, ing in enumerate(ings):
-                        parsed = parse_ingredient_entry(ing)
+                        parsed = ingr(ing)
                         if parsed:
                             item_tag, is_tag, cnt = parsed[0]
                             parsed_ings.append((item_tag, is_tag, cnt, 'input', slot))
@@ -418,11 +479,11 @@ def main():
 
                     act_item = raw_d.get('activation_item')
                     if act_item:
-                        for it, ist, c in parse_ingredient_entry(act_item):
+                        for it, ist, c in ingr(act_item):
                             parsed_ings.append((it, ist, c, 'catalyst', None))
 
                     for ing in raw_d.get('ingredients', []):
-                        for it, ist, c in parse_ingredient_entry(ing):
+                        for it, ist, c in ingr(ing):
                             parsed_ings.append((it, ist, c, 'pedestal', None))
 
                     parsed_outs = parse_output_entry(raw_d.get('result'))
@@ -433,7 +494,7 @@ def main():
                 elif rtype == 'powah:energizing':
                     energy_fe = int(raw_d.get('energy', 0))
                     for slot, ing in enumerate(raw_d.get('ingredients', [])):
-                        for it, ist, c in parse_ingredient_entry(ing):
+                        for it, ist, c in ingr(ing):
                             parsed_ings.append((it, ist, c, 'input', slot))
                     parsed_outs = parse_output_entry(raw_d.get('result'))
 
@@ -443,7 +504,7 @@ def main():
                     if isinstance(ings, dict):
                         for pos in ('top', 'middle', 'bottom'):
                             if pos in ings:
-                                for it, ist, c in parse_ingredient_entry(ings[pos]):
+                                for it, ist, c in ingr(ings[pos]):
                                     parsed_ings.append((it, ist, c, pos, None))
                     parsed_outs = parse_output_entry(raw_d.get('result'))
                     extra_data['mode'] = raw_d.get('mode', 'press')
@@ -451,13 +512,13 @@ def main():
                 # 6. Mystical Agriculture Awakening / Infusion
                 elif 'awakening' in rtype or 'infusion' in rtype:
                     if 'input' in raw_d:
-                        for it, ist, c in parse_ingredient_entry(raw_d['input']):
+                        for it, ist, c in ingr(raw_d['input']):
                             parsed_ings.append((it, ist, c, 'center_altar', None))
                     for ing in raw_d.get('ingredients', []):
-                        for it, ist, c in parse_ingredient_entry(ing):
+                        for it, ist, c in ingr(ing):
                             parsed_ings.append((it, ist, c, 'pedestal', None))
                     for ess in raw_d.get('essences', []):
-                        for it, ist, c in parse_ingredient_entry(ess):
+                        for it, ist, c in ingr(ess):
                             parsed_ings.append((it, ist, c, 'essence_vessel', None))
                     parsed_outs = parse_output_entry(raw_d.get('result'))
 
@@ -465,11 +526,10 @@ def main():
                 elif rtype.startswith('oritech:'):
                     dur_ticks = int(raw_d.get('time', 100))
                     for slot, ing in enumerate(raw_d.get('itemInputs', [])):
-                        for it, ist, c in parse_ingredient_entry(ing):
+                        for it, ist, c in ingr(ing):
                             parsed_ings.append((it, ist, c, 'input', slot))
                     for res in raw_d.get('itemResults', []):
                         parsed_outs.extend(parse_output_entry(res))
-                    parsed_fls = parse_fluids(raw_d)
 
                 # 8. Ender IO SAG Milling / Alloy Smelting
                 elif rtype.startswith('enderio:'):
@@ -477,7 +537,7 @@ def main():
                     dur_ticks = int(raw_d.get('time', 0))
                     inp = raw_d.get('input') or raw_d.get('inputs')
                     if inp:
-                        for it, ist, c in parse_ingredient_entry(inp):
+                        for it, ist, c in ingr(inp):
                             parsed_ings.append((it, ist, c, 'input', None))
                     for out in raw_d.get('outputs', []):
                         parsed_outs.extend(parse_output_entry(out))
@@ -491,14 +551,13 @@ def main():
                             val = raw_d[k]
                             vals = val if isinstance(val, list) else [val]
                             for slot, ing in enumerate(vals):
-                                for it, ist, c in parse_ingredient_entry(ing):
+                                for it, ist, c in ingr(ing):
                                     parsed_ings.append((it, ist, c, 'input', slot))
                             break
                     for k in ('result', 'results', 'output', 'outputs', 'itemResults'):
                         if k in raw_d:
                             parsed_outs.extend(parse_output_entry(raw_d[k]))
                             break
-                    parsed_fls = parse_fluids(raw_d)
 
             # Вхід, записаний окремим полем рецепта (не в ingredients / input): рядок верхнього рівня, який індекс сита
             # знає як вхід цього рецепта, — теж інгредієнт (за структурою запису, без переліку полів під моди)
@@ -517,6 +576,10 @@ def main():
             if not parsed_outs and meta.get('out'):
                 for i, out_id in enumerate(meta['out']):
                     parsed_outs.append((out_id, 1.0, 1.0, 1 if i == 0 else 0))
+
+            if raw_d and isinstance(raw_d, dict): parsed_fls = parse_fluids(raw_d, kinds)
+            parsed_ings, parsed_outs, parsed_fls, other = split_kinds(parsed_ings, parsed_outs, parsed_fls, kinds)
+            if other: extra_data['other'] = other
 
             extra_json_str = json.dumps(extra_data) if extra_data else None
 
@@ -551,14 +614,13 @@ def main():
         cat, in_world = categorize(rtype)
         act = 1 if kr.get('active') else 0
         why = kr.get('why') or ''
-        rec_rows.append((rid, rtype, cat, mod_id, 0, 0, in_world, None, None, act, why, kr.get('at', 'kubejs'), None))
-
-        for slot, ing in enumerate(kr.get('in', [])):
-            is_t = 1 if ing.startswith('#') else 0
-            ing_rows.append((rid, ing, is_t, 1.0, 'input', slot))
-
-        for i, out_id in enumerate(kr.get('out', [])):
-            out_rows.append((rid, out_id, 1.0, 1.0, 1 if i == 0 else 0))
+        k_ings = [(ing, 1 if ing.startswith('#') else 0, 1.0, 'input', slot) for slot, ing in enumerate(kr.get('in', []))]
+        k_outs = [(out_id, 1.0, 1.0, 1 if i == 0 else 0) for i, out_id in enumerate(kr.get('out', []))]
+        k_ings, k_outs, k_fls, other = split_kinds(k_ings, k_outs, [], kinds)
+        rec_rows.append((rid, rtype, cat, mod_id, 0, 0, in_world, None, None, act, why, kr.get('at', 'kubejs'), json.dumps({'other': other}) if other else None))
+        for it_tag, is_tag, cnt, role, slot in k_ings: ing_rows.append((rid, it_tag, is_tag, cnt, role, slot))
+        for out_id, cnt, chance, is_prim in k_outs: out_rows.append((rid, out_id, cnt, chance, is_prim))
+        for fid, amt, io_type in k_fls: fluid_rows.append((rid, fid, amt, io_type))
 
     print(f"💾 [3/5] Запис у базу: {len(rec_rows)} рецептів, {len(ing_rows)} інгредієнтів, {len(out_rows)} виходів, {len(fluid_rows)} рідин...")
     cur = db.cursor()

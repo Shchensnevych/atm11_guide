@@ -4,13 +4,13 @@
 
 | | гра | індекс |
 |---|---|---|
-| додано рецептів | 652 | 626 (активних 597) |
+| додано рецептів | 652 | 637 (активних 608) |
 | вимкнено (remove) | 137 | 137 |
 | змінено (replaceInput/Output) | 7 | 7 (+ forEachRecipe) |
 
 Розбіжність «додано» — це рецепти, які скрипти будують з JSON рецептів гри або з Java-реєстрів (розділ «Нерозв'язане»): пісочниця їх не відтворює; вони не вигадуються — їх просто немає в індексі.
 
-## Скрипти: startup 17, server 153; не виконано 0
+## Скрипти: startup 17, server 155; не виконано 0
 
 
 ## Неактивні рецепти KubeJS (мода / типу немає) — 29
@@ -45,44 +45,14 @@
 - `mysticalagriculture:essence/appliedenergistics2/engineering_press` server_scripts/tweaks/recipes_fix.js:29 — тип crafting_shaped — мода crafting_shaped немає
 - `mysticalagriculture:essence/appliedenergistics2/logic_press` server_scripts/tweaks/recipes_fix.js:58 — тип crafting_shaped — мода crafting_shaped немає
 
-## ID поза реєстром предметів (assets) в активних рецептах — 93 (інформативно: ритуали / пентаклі Occultism, предмети, які мод реєструє кодом — есенції MA тощо; гра пише «0 failed», тобто рецепти завантажились)
+## ID поза реєстром предметів (assets) в активних рецептах — 63 (інформативно: ритуали / пентаклі Occultism, предмети, які мод реєструє кодом — есенції MA тощо; гра пише «0 failed», тобто рецепти завантажились)
 
 - `kjs:mods/bbl_strainers/meshes.js#L8` server_scripts/mods/bbl_strainers/meshes.js:8 — ID поза реєстром assets: minecraft:enchantments
 - `allthemods:crystalline_infusion/crystalline_wand` server_scripts/mods/geore/crystalline_wand.js:139 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
 - `allthemods:crystalline_infusion/perfect_crystalline_wand` server_scripts/mods/geore/crystalline_wand.js:166 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
 - `kjs:mods/mysticalagriculture/experience_droplet.js#L8` server_scripts/mods/mysticalagriculture/experience_droplet.js:8 — ID поза реєстром assets: justdirethings:xp_fluid_source
 - `kjs:mods/mysticalagriculture/experience_droplet.js#L16` server_scripts/mods/mysticalagriculture/experience_droplet.js:16 — ID поза реєстром assets: justdirethings:xp_fluid_source
-- `kubejs:mysticalagriculture/allthemodium_essence_crafting` server_scripts/mods/mysticalagriculture/fusion_crafting.js:8 — ID поза реєстром assets: mysticalagriculture:allthemodium_essence
-- `kubejs:mysticalagriculture/vibranium_essence_crafting` server_scripts/mods/mysticalagriculture/fusion_crafting.js:8 — ID поза реєстром assets: mysticalagriculture:vibranium_essence
-- `kubejs:mysticalagriculture/unobtainium_essence_crafting` server_scripts/mods/mysticalagriculture/fusion_crafting.js:8 — ID поза реєстром assets: mysticalagriculture:unobtainium_essence
-- `kubejs:mysticalagriculture/darkstone_essence_crafting` server_scripts/mods/mysticalagriculture/fusion_crafting.js:8 — ID поза реєстром assets: mysticalagriculture:darkstone_essence
-- `kubejs:mysticalagriculture/azure_silver_essence_crafting` server_scripts/mods/mysticalagriculture/fusion_crafting.js:8 — ID поза реєстром assets: mysticalagriculture:azure_silver_essence
-- `kubejs:mysticalagriculture/crimson_iron_essence_crafting` server_scripts/mods/mysticalagriculture/fusion_crafting.js:8 — ID поза реєстром assets: mysticalagriculture:crimson_iron_essence
-- `kubejs:mysticalagriculture/entro_essence_crafting` server_scripts/mods/mysticalagriculture/fusion_crafting.js:8 — ID поза реєстром assets: mysticalagriculture:entro_essence
-- `allthemods:essence/regions_unexplored/alpha_log` server_scripts/mods/mysticalagriculture/recipes.js:113 — ID поза реєстром assets: mysticalagriculture:unexplored_wood_essence
-- `allthemods:essence/regions_unexplored/ashen_log` server_scripts/mods/mysticalagriculture/recipes.js:118 — ID поза реєстром assets: mysticalagriculture:unexplored_wood_essence
-- `allthemods:essence/regions_unexplored/bamboo_log` server_scripts/mods/mysticalagriculture/recipes.js:123 — ID поза реєстром assets: mysticalagriculture:unexplored_wood_essence
-- `allthemods:essence/regions_unexplored/silver_birch_log` server_scripts/mods/mysticalagriculture/recipes.js:128 — ID поза реєстром assets: mysticalagriculture:unexplored_wood_essence
-- `allthemods:essence/regions_unexplored/small_oak_log` server_scripts/mods/mysticalagriculture/recipes.js:133 — ID поза реєстром assets: mysticalagriculture:unexplored_wood_essence
-- `allthemods:essence/regions_unexplored/baobab_log` server_scripts/mods/mysticalagriculture/recipes.js:138 — ID поза реєстром assets: mysticalagriculture:unexplored_wood_essence
-- `allthemods:essence/regions_unexplored/blackwood_log` server_scripts/mods/mysticalagriculture/recipes.js:143 — ID поза реєстром assets: mysticalagriculture:unexplored_wood_essence
-- `allthemods:essence/regions_unexplored/brimwood_log` server_scripts/mods/mysticalagriculture/recipes.js:148 — ID поза реєстром assets: mysticalagriculture:unexplored_wood_essence
-- `allthemods:essence/regions_unexplored/cobalt_log` server_scripts/mods/mysticalagriculture/recipes.js:153 — ID поза реєстром assets: mysticalagriculture:unexplored_wood_essence
-- `allthemods:essence/regions_unexplored/cypress_log` server_scripts/mods/mysticalagriculture/recipes.js:158 — ID поза реєстром assets: mysticalagriculture:unexplored_wood_essence
-- `allthemods:essence/regions_unexplored/dead_log` server_scripts/mods/mysticalagriculture/recipes.js:163 — ID поза реєстром assets: mysticalagriculture:unexplored_wood_essence
-- `allthemods:essence/regions_unexplored/eucalyptus_log` server_scripts/mods/mysticalagriculture/recipes.js:168 — ID поза реєстром assets: mysticalagriculture:unexplored_wood_essence
-- `allthemods:essence/regions_unexplored/joshua_log` server_scripts/mods/mysticalagriculture/recipes.js:173 — ID поза реєстром assets: mysticalagriculture:unexplored_wood_essence
-- `allthemods:essence/regions_unexplored/kapok_log` server_scripts/mods/mysticalagriculture/recipes.js:178 — ID поза реєстром assets: mysticalagriculture:unexplored_wood_essence
-- `allthemods:essence/regions_unexplored/larch_log` server_scripts/mods/mysticalagriculture/recipes.js:183 — ID поза реєстром assets: mysticalagriculture:unexplored_wood_essence
-- `allthemods:essence/regions_unexplored/magnolia_log` server_scripts/mods/mysticalagriculture/recipes.js:188 — ID поза реєстром assets: mysticalagriculture:unexplored_wood_essence
-- `allthemods:essence/regions_unexplored/maple_log` server_scripts/mods/mysticalagriculture/recipes.js:193 — ID поза реєстром assets: mysticalagriculture:unexplored_wood_essence
-- `allthemods:essence/regions_unexplored/mauve_log` server_scripts/mods/mysticalagriculture/recipes.js:198 — ID поза реєстром assets: mysticalagriculture:unexplored_wood_essence, regions_unexplored:mauve_log
-- `allthemods:essence/regions_unexplored/palm_log` server_scripts/mods/mysticalagriculture/recipes.js:203 — ID поза реєстром assets: mysticalagriculture:unexplored_wood_essence
-- `allthemods:essence/regions_unexplored/pine_log` server_scripts/mods/mysticalagriculture/recipes.js:208 — ID поза реєстром assets: mysticalagriculture:unexplored_wood_essence
-- `allthemods:essence/regions_unexplored/redwood_log` server_scripts/mods/mysticalagriculture/recipes.js:213 — ID поза реєстром assets: mysticalagriculture:unexplored_wood_essence
-- `allthemods:essence/regions_unexplored/socotra_log` server_scripts/mods/mysticalagriculture/recipes.js:218 — ID поза реєстром assets: mysticalagriculture:unexplored_wood_essence
-- `allthemods:essence/regions_unexplored/willow_log` server_scripts/mods/mysticalagriculture/recipes.js:223 — ID поза реєстром assets: mysticalagriculture:unexplored_wood_essence
-- `mysticalagriculture:infusion/entro_seeds` server_scripts/mods/mysticalagriculture/recipes.js:265 — ID поза реєстром assets: mysticalagriculture:entro_seeds
+- `allthemods:essence/regions_unexplored/mauve_log` server_scripts/mods/mysticalagriculture/recipes.js:198 — ID поза реєстром assets: regions_unexplored:mauve_log
 - `occultism:copper_catalyst` server_scripts/mods/neovitae/meteor.js:183 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
 - `occultism:iron_catalyst` server_scripts/mods/neovitae/meteor.js:183 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
 - `occultism:tin_catalyst` server_scripts/mods/neovitae/meteor.js:183 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
@@ -107,6 +77,36 @@
 - `occultism:unobtainium_catalyst` server_scripts/mods/neovitae/meteor.js:183 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
 - `occultism:copper_transumtation` server_scripts/mods/neovitae/meteor.js:304 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
 - `occultism:iron_transumtation` server_scripts/mods/neovitae/meteor.js:304 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
+- `occultism:tin_transumtation` server_scripts/mods/neovitae/meteor.js:304 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
+- `occultism:gold_transumtation` server_scripts/mods/neovitae/meteor.js:304 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
+- `occultism:nickel_transumtation` server_scripts/mods/neovitae/meteor.js:304 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
+- `occultism:coal_transumtation` server_scripts/mods/neovitae/meteor.js:304 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
+- `occultism:zinc_transumtation` server_scripts/mods/neovitae/meteor.js:304 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
+- `occultism:lead_transumtation` server_scripts/mods/neovitae/meteor.js:304 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
+- `occultism:silver_transumtation` server_scripts/mods/neovitae/meteor.js:304 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
+- `occultism:redstone_transumtation` server_scripts/mods/neovitae/meteor.js:304 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
+- `occultism:lapis_transumtation` server_scripts/mods/neovitae/meteor.js:304 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
+- `occultism:osmium_transumtation` server_scripts/mods/neovitae/meteor.js:304 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
+- `occultism:quartz_transumtation` server_scripts/mods/neovitae/meteor.js:304 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
+- `occultism:aluminum_transumtation` server_scripts/mods/neovitae/meteor.js:304 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
+- `occultism:uraninite_transumtation` server_scripts/mods/neovitae/meteor.js:304 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
+- `occultism:platinum_transumtation` server_scripts/mods/neovitae/meteor.js:304 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
+- `occultism:diamond_transumtation` server_scripts/mods/neovitae/meteor.js:304 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
+- `occultism:emerald_transumtation` server_scripts/mods/neovitae/meteor.js:304 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
+- `occultism:ancient_debris_transumtation` server_scripts/mods/neovitae/meteor.js:304 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
+- `occultism:allthemodium_transumtation` server_scripts/mods/neovitae/meteor.js:304 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
+- `occultism:vibranium_transumtation` server_scripts/mods/neovitae/meteor.js:304 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
+- `occultism:unobtainium_transumtation` server_scripts/mods/neovitae/meteor.js:304 — ID поза реєстром assets: occultism:craft, occultism:crystalline_infusion
+- `allthemods:meteoric_infusion/inf_part` server_scripts/mods/refined_storage/refined_types.js:161 — ID поза реєстром assets: occultism:craft, occultism:meteoric_infusion
+- `allthemods:meteoric_infusion/inf_disk` server_scripts/mods/refined_storage/refined_types.js:161 — ID поза реєстром assets: occultism:craft, occultism:meteoric_infusion
+- `allthemods:meteoric_infusion/inf_block` server_scripts/mods/refined_storage/refined_types.js:161 — ID поза реєстром assets: occultism:craft, occultism:meteoric_infusion
+- `kjs:mods/regions_unexplored/recipes.js#L4` server_scripts/mods/regions_unexplored/recipes.js:4 — ID поза реєстром assets: regions_unexplored:pointed_redstone
+- `occultism:ritual/craft_infused_sword` server_scripts/unification/tools.js:69 — ID поза реєстром assets: occultism:craft_djinni, occultism:upgrade
+- `occultism:ritual/craft_infused_shovel` server_scripts/unification/tools.js:69 — ID поза реєстром assets: occultism:craft_djinni, occultism:upgrade
+- `occultism:ritual/craft_infused_pickaxe` server_scripts/unification/tools.js:69 — ID поза реєстром assets: occultism:craft_djinni, occultism:upgrade
+- `occultism:ritual/craft_infused_axe` server_scripts/unification/tools.js:69 — ID поза реєстром assets: occultism:craft_djinni, occultism:upgrade
+- `occultism:ritual/craft_infused_hoe` server_scripts/unification/tools.js:69 — ID поза реєстром assets: occultism:craft_djinni, occultism:upgrade
+- `occultism:ritual/craft_infused_helmet` server_scripts/unification/tools.js:98 — ID поза реєстром assets: occultism:craft_djinni, occultism:upgrade
 
 ## remove без збігів — 99 (рецепта немає в індексі: мод генерує його кодом, мода немає, або рецепт уже неактивний)
 
@@ -309,7 +309,7 @@
 - startup_scripts/modern_industrialization/multiblocks/runic_star_altar.js: 1:modern_industrialization
 - startup_scripts/theurgy/sulfur_additions.js: 59:irons_spellbooks
 
-## Події гри (поведінка під час гри; не рецепти — лише перелік) — 16
+## Події гри (поведінка під час гри; не рецепти — лише перелік) — 22
 
 - NativeEvents.onEvent startup_scripts/aliases.js:4 net.neoforged.neoforge.registries.RegisterEvent
 - ItemEvents.modification startup_scripts/farmersdelight/compatibility.js:15 
@@ -318,12 +318,18 @@
 - ServerEvents.loaded server_scripts/announcements/announcements.js:17 
 - PlayerEvents.loggedIn server_scripts/announcements/announcements.js:35 
 - ServerEvents.basicPublicCommand server_scripts/announcements/announcements.js:71 dismiss_announcements
-- PlayerEvents.chat server_scripts/atm11_companion.js:210 
-- ServerEvents.basicPublicCommand server_scripts/atm11_companion.js:226 ai
-- EntityEvents.death server_scripts/atm11_companion.js:236 
-- EntityEvents.afterHurt server_scripts/atm11_companion.js:270 
-- PlayerEvents.advancement server_scripts/atm11_companion.js:301 
-- PlayerEvents.tick server_scripts/atm11_companion.js:317 
+- PlayerEvents.chat server_scripts/atm11_companion.js:281 
+- ServerEvents.basicPublicCommand server_scripts/atm11_companion.js:297 ai
+- EntityEvents.death server_scripts/atm11_companion.js:307 
+- EntityEvents.afterHurt server_scripts/atm11_companion.js:353 
+- PlayerEvents.advancement server_scripts/atm11_companion.js:384 
+- PlayerEvents.tick server_scripts/atm11_companion.js:400 
+- FTBQuestsEvents.completed server_scripts/atm11_companion_quests.js:196 
+- FTBQuestsEvents.started server_scripts/atm11_companion_quests.js:197 
+- ServerEvents.tick server_scripts/atm11_companion_quests.js:235 
+- BlockEvents.placed server_scripts/atm11_companion_world.js:329 
+- BlockEvents.broken server_scripts/atm11_companion_world.js:340 
+- ServerEvents.tick server_scripts/atm11_companion_world.js:516 
 - ServerEvents.registry server_scripts/custom_additions.js:1 forbidden_arcanus:molten_material_type
 - PlayerEvents.tick server_scripts/fluid_bug.js:3 
 - PlayerEvents.loggedIn server_scripts/tweaks/fix_death_bug.js:1 

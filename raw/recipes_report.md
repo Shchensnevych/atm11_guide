@@ -1,7 +1,7 @@
 # Індекс рецептів збірки (tools/extract_recipes.py)
 
-Джерел: 373 (vanilla, NeoForge, jar модів і вкладені jarjar, kubejs/data, kubejs/dynamic_data); модів завантажено: 317; предметів: 38443, блоків: 31921, рідин: 192; тегів предметів: 4576
-Рецептів: 40235 — активні 35679, неактивні 3349, невідомо (умова мода) 1207
+Джерел: 373 (vanilla, NeoForge, jar модів і вкладені jarjar, kubejs/data, kubejs/dynamic_data); модів завантажено: 317; предметів: 36692, блоків: 31921, рідин: 192; тегів предметів: 4576
+Рецептів: 40246 — активні 33891, неактивні 5148, невідомо (умова мода) 1207
 
 ## Звірка з грою (logs/kubejs/server.log)
 
@@ -41,8 +41,9 @@
 - звірка з logs/modlist.txt (останній запуск гри): там 312 модів; лише там: []; лише в jar: ['evilcraftcompat', 'integrateddynamicscompat', 'integratedterminalscompat', 'integratedtunnelscompat', 'minecraft']
 - інфо: kubejs/dynamic_data/index.json називає файли, яких немає (скрипт їх пропускає): 11 — minecraft/tags/block/needs_stone_tool.json, minecraft/tags/block/mineable/pickaxe.json, theurgy/recipe/incubation/arcane_crystal.json, theurgy/recipe/incubation/bort.json, theurgy/recipe/incubation/iesnium_ingot.json, theurgy/recipe/incubation/mithril_ingot.json
 - kubejs/dynamic_data: не підключено (мода немає) 134 файлів — напр. bigreactors/neoforge/biome_modifier/yellorite.json, bigreactors/neoforge/biome_modifier/yellorite_deepslate.json, botanytrees/loot_table/tree_drops/allthemodium/ancient.json, botanytrees/loot_table/tree_drops/allthemodium/demonic.json
+- реєстр предметів — знімок гри raw/game_item_names.json: 36692; за моделями в jar було б 38443 (лише в jar, гра не реєструє: 2068; лише в грі, зареєстровано кодом: 317)
 - інфо: у тегах обов'язкові записи неіснуючих предметів/блоків/рідин: {'block': 59, 'fluid': 35, 'item': 32} (гра пише попередження)
 - інфо: файлів у застарілій теці recipes/ (1.20; гра 1.21+ їх не читає, в індекс не взято): 4 у 2 jar
 - інфо: ID рецепта в кількох джерелах (діє останнє за порядком): 554 — напр. minecraft:acacia_chest_boat, minecraft:acacia_fence, minecraft:acacia_fence_gate, minecraft:acacia_sign, minecraft:activator_rail
-- KubeJS: вимкнено рецептів 137, змінено 253, додано 626
-- конфігів розібрано: 562; інші формати (не ключ=значення, в індекс не взято): {'bak': 12, 'properties': 6, 'cfg': 12, 'md': 2, 'txt': 11, 'conf': 3, 'db': 1, 'png': 25, 'lewidget': 1, 'lock': 1, 'ini': 13, '1': 2, 'дані, не конфіг': 1}
+- KubeJS: вимкнено рецептів 137, змінено 253, додано 637
+- конфігів розібрано: 563; інші формати (не ключ=значення, в індекс не взято): {'bak': 12, 'properties': 6, 'cfg': 12, 'md': 2, 'txt': 11, 'conf': 3, 'db': 1, 'png': 25, 'lewidget': 1, 'lock': 1, 'ini': 13, '1': 2, 'дані, не конфіг': 1}

@@ -437,7 +437,7 @@
     ],
     "role": "content",
     "features": [],
-    "uk": "Macaw's Doors: 279 дверей — сараю, японські, скляні, котеджні, модерн, лікарняні тощо — з різних порід дерева, плюс опускні решітки.",
+    "uk": "Macaw's Doors: 278 дверей — сараю, японські, скляні, котеджні, модерн, лікарняні тощо — з різних порід дерева, плюс опускні решітки.",
     "what": [
       "Більшість стилів дверей — для порід дерева (`mcwdoors:oak_barn_door`, `oak_japanese_door`, `oak_modern_door`)",
       "Опускні решітки — залізна (`mcwdoors:iron_portcullis`) і дерев'яна — для брами замку",
@@ -454,7 +454,7 @@
       "mcwdoors:iron_portcullis"
     ],
     "ref": [
-      "count:items:mcwdoors=279",
+      "count:items:mcwdoors=278",
       "item:mcwdoors:oak_barn_door",
       "item:mcwdoors:oak_japanese_door",
       "item:mcwdoors:oak_modern_door",
@@ -711,7 +711,7 @@
     ],
     "role": "content",
     "features": [],
-    "uk": "Macaw's Windows: 334 предмети — вікна, віконниці, жалюзі, завіси 16 кольорів, карнизи, парапети й мозаїчне скло.",
+    "uk": "Macaw's Windows: 333 предмети — вікна, віконниці, жалюзі, завіси 16 кольорів, карнизи, парапети й мозаїчне скло.",
     "what": [
       "Вікна з дерева й каменю (`mcwwindows:andesite_window`)",
       "Віконниці (`oak_shutter`, жалюзійні), жалюзі (`oak_blinds`), завіси (`black_curtain`) на карнизах (`oak_curtain_rod`)",
@@ -729,7 +729,7 @@
       "mcwwindows:black_curtain"
     ],
     "ref": [
-      "count:items:mcwwindows=334",
+      "count:items:mcwwindows=333",
       "count:items:mcwwindows|_curtain$=16",
       "item:mcwwindows:andesite_window",
       "item:mcwwindows:oak_shutter",

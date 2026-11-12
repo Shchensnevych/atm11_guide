@@ -29,7 +29,7 @@ def main():
     warns, st, res = [], {}, {}
     build_names.build(warns.append, write=False, game=snap, stats=st, out=res)
     items, tsv, game, base = res['items'], st['tsv'], snap['names'], snap.get('base') or {}
-    registry = set(game) | set(snap['no_name']) | set(snap['failed'])
+    registry = extract_game_names.registry_ids(snap)
     left = sorted(i for i in registry if i not in items)
     rec = recipe_items()
     rec_left = sorted(i for i in rec if i not in items) if rec is not None else None

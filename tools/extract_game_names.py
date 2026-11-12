@@ -15,6 +15,7 @@ LANG = 'uk_ua'                                   # база путівника �
 RX_ID = re.compile(r'^[a-z0-9_.-]+:[a-z0-9_./-]+$')
 QSRC = os.path.join(MC, 'kubejs', 'config', 'companion_quest_names.json')
 QOUT = os.path.join(RAW, 'game_quest_names.json')
+EMPTY_ITEM = 'minecraft:air'                     # «порожній» предмет: у реєстрі гри він є (total його рахує), але обхід назв його пропускає — екземпляра з назвою немає
 RX_CODE = re.compile(r'^[0-9A-F]{16}$')
 
 def clean(s):
@@ -38,6 +39,12 @@ def normalize(d):
     return {'lang': LANG, 'total': total or len(names), 'count': len(names), 'untranslated': int(num('untranslated')), 'errors': int(num('errors')),
             'no_name': _ids(d.get('no_name')), 'failed': _ids(d.get('failed')),
             'names': dict(sorted(names.items())), 'base': dict(sorted(base.items()))}, None
+
+def registry_ids(snap):
+    """Реєстр предметів гри зі знімка (K6): усі предмети обходу — з назвою, без назви (гра показує ключем) і ті, що не прочитались.
+    Знімка немає або він без назв — None (не порожній реєстр): тоді ніхто не вважає, що в грі предметів немає."""
+    if not isinstance(snap, dict) or not snap.get('names'): return None
+    return set(snap['names']) | set(snap.get('no_name') or []) | set(snap.get('failed') or []) | {EMPTY_ITEM}
 
 def keep_lost(snap, old):
     """Предмет, який гра цього разу показала ключем, а в попередньому знімку мав назву, — назва лишається (замір K5: після F3+T

@@ -68,6 +68,10 @@ case(E.normalize_quests({**QGOOD, 'lang': 'en_us'})[0], None, 'заголовк�
 case(E.normalize_quests({**QGOOD, 'tasks': {}})[0], None, 'заголовків завдань немає — не беремо')
 case(E.normalize_quests({'names': {}})[0], None, 'чужий файл — не беремо')
 
+case(E.registry_ids(n), {'a:amulet', 'a:red_cable', 'a:stick', 'minecraft:potion', 'a:raw', 'a:boom', 'minecraft:air'}, 'реєстр гри: предмети з назвою, без назви, ті, що не прочитались, і порожній предмет, який обхід пропускає')
+case(E.registry_ids(None), None, 'знімка немає — реєстру гри немає (а не порожній реєстр)')
+case(E.registry_ids({'names': {}}), None, 'знімок без назв — не реєстр')
+
 bad = [(why, got, want) for got, want, why in CASES if got != want]
 for why, got, want in bad: print(f'❌ {why}: {got!r} ≠ {want!r}')
 print(f'Знімок назв з гри: {len(CASES) - len(bad)} з {len(CASES)}')

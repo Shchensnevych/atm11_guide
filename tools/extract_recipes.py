@@ -10,6 +10,7 @@
 import os, sys, re, json, glob, zipfile, io, collections
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import MC, MODS, RAW, ROOT, tomli, json5, jload, jsave, CLIENT_JARS
+from extract_game_names import registry_ids
 
 def pack_ver(uid):
     d = jload(os.path.join(ROOT, 'mmc-pack.json'), {}) or {}
@@ -96,6 +97,12 @@ def registry(srcs, rep, en):
                     if mm: fluids.add(f'{mm[1]}:{mm[2]}')
     fluids |= {'minecraft:water', 'minecraft:lava', 'minecraft:empty'}
     return items, blocks, fluids
+
+def pick_items(jar_items, game):
+    """Реєстр предметів для сита (K6): знімок реєстру гри, якщо він є, інакше — моделі предметів у jar. Замір K6: за файлами jar
+    «існували» 2 070 предметів, яких гра не реєструє (мод вимикає їх конфігом), і бракувало 317 зареєстрованих кодом — умова
+    neoforge:registered і вміст тегів виходили не такими, як у грі (1 799 рецептів). → (предмети, 'game' | 'jar')"""
+    return (set(game), 'game') if game else (set(jar_items), 'jar')
 
 def tag_values(d):
     for v in d.get('values', []):
@@ -330,12 +337,15 @@ def main():
     dd, off = dynamic_data(loaded, rep)
     if dd: srcs.append(dd)
     if off: rep.append(f'kubejs/dynamic_data: не підключено (мода немає) {len(off)} файлів — напр. {", ".join(off[:4])}')
-    en = {}; items, blocks, fluids = registry(srcs, rep, en)
+    en = {}; jar_items, blocks, fluids = registry(srcs, rep, en)
+    items, items_src = pick_items(jar_items, registry_ids(jload(os.path.join(RAW, 'game_item_names.json'), None)))
+    if items_src == 'game': rep.append(f'реєстр предметів — знімок гри raw/game_item_names.json: {len(items)}; за моделями в jar було б {len(jar_items)} (лише в jar, гра не реєструє: {len(jar_items - items)}; лише в грі, зареєстровано кодом: {len(items - jar_items)})')
+    else: rep.append('⚠ знімка реєстру гри (raw/game_item_names.json) немає — предмети за моделями в jar: умова neoforge:registered і теги можуть відрізнятись від гри (tools/extract_game_names.py після запуску гри з компаньйоном)')
     tagsr, tsrc = tags(srcs, {'item': items, 'block': blocks, 'fluid': fluids}, rep)
     ctx = Ctx(loaded, items, blocks, fluids, tagsr)
     idx = recipes(srcs, ctx, rep)
     apply_kjs(idx, rep)
-    jsave(os.path.join(RAW, 'registry_index.json'), {'mods': sorted(loaded), 'items': sorted(items), 'blocks': sorted(blocks), 'fluids': sorted(fluids),
+    jsave(os.path.join(RAW, 'registry_index.json'), {'mods': sorted(loaded), 'items': sorted(items), 'items_src': items_src, 'blocks': sorted(blocks), 'fluids': sorted(fluids),
           'sources': [s.label for s in srcs]}, compact=True)
     jsave(os.path.join(RAW, 'tags_index.json'), {'item': tagsr['item'], 'block': tagsr['block'], 'fluid': tagsr['fluid'], 'src': tsrc}, compact=True)
     jsave(os.path.join(RAW, 'recipes_index.json'), idx, compact=True)

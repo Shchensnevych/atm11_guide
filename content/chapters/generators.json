@@ -53,10 +53,10 @@
    "abs_ok": "«лише рецепти доменної печі / коптильні» — підказка мода (lang augment_blasting / augment_smoking: Only allows for…)"
   },
   {
-   "t": "8 однакових генераторів + уламок відлуння = генератор 8x; 8 генераторів 8x + провідник = 64x",
+   "t": "8 однакових генераторів + уламок відлуння = генератор 8x; 8 генераторів 8x + провідник = 64x (версії 64x у грі немає в мідного, залізного, золотого, діамантового, смарагдового й обсидіанового генераторів)",
    "ref": [
     "recipe:generatorgalore:8x/copper_generator_8x",
-    "recipe:generatorgalore:64x/copper_generator_64x"
+    "recipe:generatorgalore:64x/magmatic_generator_64x"
    ]
   }
  ],

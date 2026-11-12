@@ -3,7 +3,7 @@
 Активні рецепти збірки (jar + дані + KubeJS, після вимкненого KubeJS), у яких беруть участь предмети або машина ≥2 модів. Спільні теги (c:…, minecraft:…) не рахуються — лише предмети й теги конкретних модів.
 Як користуватися: для мода знайти партнера → відкрити рецепт (`jarq.py recipes <ns> <шлях>` або raw/recipes_index.json) → якщо поєднання справді корисне гравцю — synergy з `ref: ["recipe:<id>"]`. Уніфікація руд / пилу (переробка «чужої» руди в машині) — зазвичай не синергія.
 
-Пар модів: 222, модів: 95.
+Пар модів: 221, модів: 94.
 
 ## advanced_ae — Advanced AE (3 партнерів)
 
@@ -64,7 +64,7 @@
 
 - **productivetrees** (163): `recipe:productivetrees:agritech_evolved/alder` [tree] #agritechevolved:tree_soils, productivetrees:alder_sapling → minecraft:stick, productivetrees:alder_log · `recipe:productivetrees:agritech_evolved/allspice` [tree] #agritechevolved:tree_soils, productivetrees:allspice_sapling → minecraft:stick, productivetrees:allspice
 - **productivefarming** (159): `recipe:productivefarming:agritech_evolved/agave` [crop] #agritechevolved:farmland_soils, productivefarming:agave → productivefarming:agave · `recipe:productivefarming:agritech_evolved/akebia` [crop] #agritechevolved:farmland_soils, productivefarming:akebia → productivefarming:akebia
-- **mysticalagriculture** (142): `recipe:agritechevolved:planter/crop/mysticalagriculture/air_seeds` [crop] #agritechevolved:ma_tier1_soils, mysticalagriculture:air_seeds → mysticalagriculture:air_essence, mysticalagriculture:air_seeds · `recipe:agritechevolved:planter/crop/mysticalagriculture/aluminum_seeds` [crop] #agritechevolved:ma_tier2_soils, mysticalagriculture:aluminum_seeds → mysticalagriculture:aluminum_essence, mysticalagriculture:aluminum_seeds
+- **mysticalagriculture** (153): `recipe:agritechevolved:planter/crop/mysticalagriculture/air_seeds` [crop] #agritechevolved:ma_tier1_soils, mysticalagriculture:air_seeds → mysticalagriculture:air_essence, mysticalagriculture:air_seeds · `recipe:agritechevolved:planter/crop/mysticalagriculture/aluminum_seeds` [crop] #agritechevolved:ma_tier2_soils, mysticalagriculture:aluminum_seeds → mysticalagriculture:aluminum_essence, mysticalagriculture:aluminum_seeds
 - **croptopia** (85): `recipe:agritechevolved:planter/crop/croptopia/artichoke_seed` [crop] #agritechevolved:farmland_soils, croptopia:artichoke_seed → croptopia:artichoke, croptopia:artichoke_seed · `recipe:agritechevolved:planter/crop/croptopia/asparagus_seed` [crop] #agritechevolved:farmland_soils, croptopia:asparagus_seed → croptopia:asparagus, croptopia:asparagus_seed
 - **regions_unexplored** (78): `recipe:agritechevolved:planter/crop/regions_unexplored/alpha_dandelion` [crop] #agritechevolved:tree_soils, regions_unexplored:alpha_dandelion → regions_unexplored:alpha_dandelion · `recipe:agritechevolved:planter/crop/regions_unexplored/alpha_rose` [crop] #agritechevolved:tree_soils, regions_unexplored:alpha_rose → regions_unexplored:alpha_rose
 - **aether_ii** (31): `recipe:agritechevolved:planter/crop/aether_ii/aechor_cutting` [crop] #agritechevolved:dirt_soils, #agritechevolved:farmland_soils, aether_ii:aechor_cutting → aether_ii:aechor_cutting · `recipe:agritechevolved:planter/crop/aether_ii/aether_fern` [crop] #agritechevolved:farmland_soils, aether_ii:aether_fern → aether_ii:aether_fern
@@ -404,10 +404,6 @@
 - **ae2** (4): `recipe:merequester:requester` [crafting_shaped] #ae2:interface, #c:ingots/copper, #c:ingots/iron … → merequester:requester · `recipe:merequester:requester_terminal` [crafting_shapeless] #ae2:illuminated_panel, ae2:logic_processor, merequester:requester → merequester:requester_terminal
 - **ae2wtlib** (4): `recipe:merequester:wireless/combine_access` [combine] ae2wtlib:wireless_pattern_access_terminal, merequester:wireless_requester_terminal →  · `recipe:merequester:wireless/combine_crafting` [combine] ae2:wireless_crafting_terminal, merequester:wireless_requester_terminal → 
 
-## mffs — Modular Force Field System (1 партнерів)
-
-- **patchouli** (1): `recipe:patchouli:guide_book` [crafting_shapeless] minecraft:book, minecraft:iron_ingot → mffs:handbook, patchouli:guide_book
-
 ## modularrouters — Modular Routers (1 партнерів)
 
 - **patchouli** (1): `recipe:modularrouters:guide_book` [crafting_shapeless] modularrouters:blank_module, minecraft:book → patchouli:guide_book, modularrouters:book
@@ -430,7 +426,7 @@
 
 ## mysticalagriculture — Mystical Agriculture (24 партнерів)
 
-- **agritechevolved** (142): `recipe:agritechevolved:planter/crop/mysticalagriculture/air_seeds` [crop] #agritechevolved:ma_tier1_soils, mysticalagriculture:air_seeds → mysticalagriculture:air_essence, mysticalagriculture:air_seeds · `recipe:agritechevolved:planter/crop/mysticalagriculture/aluminum_seeds` [crop] #agritechevolved:ma_tier2_soils, mysticalagriculture:aluminum_seeds → mysticalagriculture:aluminum_essence, mysticalagriculture:aluminum_seeds
+- **agritechevolved** (153): `recipe:agritechevolved:planter/crop/mysticalagriculture/air_seeds` [crop] #agritechevolved:ma_tier1_soils, mysticalagriculture:air_seeds → mysticalagriculture:air_essence, mysticalagriculture:air_seeds · `recipe:agritechevolved:planter/crop/mysticalagriculture/aluminum_seeds` [crop] #agritechevolved:ma_tier2_soils, mysticalagriculture:aluminum_seeds → mysticalagriculture:aluminum_essence, mysticalagriculture:aluminum_seeds
 - **cucumber** (108): `recipe:mysticalagriculture:soulium_dagger` [shaped_transfer_damage] minecraft:golden_sword, mysticalagriculture:soulium_dust, mysticalagriculture:soulium_ingot → mysticalagriculture:soulium_dagger · `recipe:mysticalagriculture:essence/common/aluminum_ingot` [shaped_tag] mysticalagriculture:aluminum_essence → #c:ingots/aluminum
 - **mysticalagradditions** (36): `recipe:mysticalagradditions:awakened_supremium_paxel` [awakening] mysticalagradditions:supremium_paxel, mysticalagriculture:air_essence, mysticalagriculture:awakened_supremium_gemstone … → mysticalagradditions:awakened_supremium_paxel · `recipe:mysticalagradditions:imperium_apple` [crafting_shaped] minecraft:golden_apple, mysticalagriculture:imperium_essence → mysticalagradditions:imperium_apple
 - **regions_unexplored** (23): `recipe:allthemods:essence/regions_unexplored/alpha_log` [crafting_shaped] mysticalagriculture:unexplored_wood_essence → regions_unexplored:alpha_log · `recipe:allthemods:essence/regions_unexplored/ashen_log` [crafting_shaped] mysticalagriculture:unexplored_wood_essence → regions_unexplored:ashen_log
@@ -499,13 +495,12 @@
 - **powah** (3): `recipe:oritech:compat/powah/energizing/energite` [energizing] #c:ingots/nickel, oritech:fluxite → oritech:energite_ingot · `recipe:oritech:compat/powah/energizing/fluxite` [energizing] #c:gems/amethyst → oritech:fluxite
 - **extendedae** (2): `recipe:oritech:compat/extendedae/fragment_forge/entro_dust` [fragment_forge] #c:gems/entro → extendedae:entro_dust · `recipe:oritech:compat/extendedae/pulverizer/entro_dust` [pulverizer] #c:gems/entro → extendedae:entro_dust
 
-## patchouli — Patchouli (6 партнерів)
+## patchouli — Patchouli (5 партнерів)
 
 - **productivebees** (2): `recipe:productivebees:guide_book` [crafting_shapeless] minecraft:book, productivebees:bee_cage → patchouli:guide_book · `recipe:productivebees:guide_book_sturdy` [crafting_shapeless] minecraft:book, productivebees:sturdy_bee_cage → patchouli:guide_book
 - **mysticalagriculture** (1): `recipe:mysticalagriculture:guide_book` [crafting_shapeless] minecraft:book, mysticalagriculture:inferium_essence → patchouli:guide_book
 - **justdirethings** (1): `recipe:justdirethings:my_book_recipe_shapeless` [crafting_shapeless] justdirethings:gooblock_tier1, minecraft:book → patchouli:guide_book
 - **laserio** (1): `recipe:laserio:my_book_recipe_shapeless` [crafting_shapeless] laserio:logic_chip, minecraft:book → patchouli:guide_book, laserio:laseriobook
-- **mffs** (1): `recipe:patchouli:guide_book` [crafting_shapeless] minecraft:book, minecraft:iron_ingot → mffs:handbook, patchouli:guide_book
 - **modularrouters** (1): `recipe:modularrouters:guide_book` [crafting_shapeless] modularrouters:blank_module, minecraft:book → patchouli:guide_book, modularrouters:book
 
 ## powah — Powah (12 партнерів)
