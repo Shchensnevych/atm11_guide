@@ -716,3 +716,5 @@
 
 ## K12б — 2026-11-13 · Брами між вимірами й маршрут TomTom / EVE (сесія компаньйона; хід — `ATM11-Companion/CHANGELOG.md`)
 - Путівник (код і `docs/data`) не змінювався. У `raw/tmp/k12b/` — стани рядка маршруту справжнім кодом моста (`route_states.js`), знімки HUD (`snap_route.py` → `k12b_route_sheet1.png`, `k12b_route_sheet2.png`) і архіви для знімка (`ui.tgz`, `api.tgz`).
+- Після гри 11-13: `raw/tmp/k12b/snap_extra.py` і `k12b_route_crowded.png` — рядок маршруту в переповненій верхній зоні тултипа (видно, оновлюється на місці).
+- Меню рядка «⋯» компаньйона: `raw/tmp/k12b/snap_menu.py`, `k12b_menu_sheet.png` (⚙️ HUD — «Мої сховища» й нотатки).
