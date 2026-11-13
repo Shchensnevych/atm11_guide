@@ -5,20 +5,20 @@
  "mode": "creative",
  "mode_uk": "Творчість",
  "game_type": 1,
- "last_played": "2026-11-05 19:02",
- "last_played_ts": 1793898121,
- "updated": "2026-11-12 04:13",
- "play_hours": 17.35,
+ "last_played": "2026-11-12 15:32",
+ "last_played_ts": 1794490360,
+ "updated": "2026-11-13 10:11",
+ "play_hours": 17.73,
  "player": {
   "uuid": "832ceed6-e820-31f9-aa40-6acd5077a2ac",
   "xp_level": 1,
-  "selected_slot": 3,
+  "selected_slot": 4,
   "health": 20.0,
   "food_level": 20,
   "pos": [
-   -606,
+   -609,
    68,
-   44
+   35
   ],
   "dimension": "minecraft:overworld",
   "dimension_uk": "Верхній світ",
@@ -34,6 +34,7 @@
    "196312DF0D2E2CB6",
    "2893F483C10293E6",
    "28E60192912BEBAD",
+   "2E9C035EEE7E5C34",
    "3BC0A50886A3222B",
    "3DBDF0350DC69A70",
    "5577F49A93ADB19C",
@@ -51,6 +52,7 @@
    "196312DF0D2E2CB6",
    "2893F483C10293E6",
    "28E60192912BEBAD",
+   "2E9C035EEE7E5C34",
    "3BC0A50886A3222B",
    "3DBDF0350DC69A70",
    "5577F49A93ADB19C",
@@ -63,6 +65,7 @@
   ],
   "started": [
    "05437E6D19E6DD11",
+   "0BD6365534BF04D5",
    "1326E3016B881BFD",
    "18AA64DF63F68762",
    "1F748ACA3976A92F",
@@ -86,6 +89,7 @@
    "073D1C45B3018BBA",
    "0A3853BD4F62B78E",
    "0A4AA41F06C7DE11",
+   "0A765E7423C34F67",
    "0F19D50BFD611C81",
    "13F86953093670F6",
    "157C28027F8EEFFE",
@@ -104,6 +108,7 @@
    "52A3EC00B0885573",
    "586916ED82D2DD2C",
    "6038387EA35404CD",
+   "63282E8604721F13",
    "65DB2C06F991BC0D",
    "6609E5E7EDE6F92B",
    "687604B3D5E1E78C",
@@ -142,6 +147,12 @@
    "applied_energistics_2": {
     "done": [
      "2893F483C10293E6"
+    ],
+    "started": []
+   },
+   "food_and_farming": {
+    "done": [
+     "2E9C035EEE7E5C34"
     ],
     "started": []
    },
@@ -200,6 +211,14 @@
     ],
     "started": []
    },
+   "occultism": {
+    "done": [],
+    "started": [
+     "0BD6365534BF04D5",
+     "2AD68066C1948C90",
+     "6C1BBA559963B3DF"
+    ]
+   },
    "apothic_enchanting": {
     "done": [],
     "started": [
@@ -213,13 +232,6 @@
     "started": [
      "233C7CAA573D6045",
      "553C44F85E508DE3"
-    ]
-   },
-   "occultism": {
-    "done": [],
-    "started": [
-     "2AD68066C1948C90",
-     "6C1BBA559963B3DF"
     ]
    },
    "justdirethings": {
@@ -286,12 +298,12 @@
    "minecraft:chest",
    "minecraft:crafting_table",
    "minecraft:creeper_spawn_egg",
-   "minecraft:diamond_block",
    "minecraft:diamond_pickaxe",
    "minecraft:diamond_sword",
    "minecraft:flower_pot",
    "minecraft:grass_block",
    "minecraft:iron_sword",
+   "minecraft:lead",
    "minecraft:loom",
    "minecraft:oak_log",
    "minecraft:oak_planks",
@@ -336,11 +348,10 @@
    "guideme:guide": 1,
    "integrateddynamics:on_the_dynamics_of_integration": 1,
    "mahoutsukai:guidebook": 1,
-   "minecraft:birch_sapling": 1,
    "minecraft:book": 1,
    "minecraft:chest": 1,
    "minecraft:crafting_table": 1,
-   "minecraft:diamond_block": 1,
+   "minecraft:lead": 1,
    "minecraft:oak_log": 32,
    "neovitae:experience_tome": 1,
    "neovitae:guide_book": 1,
@@ -350,7 +361,6 @@
    "occultism:taboo_book": 1,
    "patchouli:guide_book": 10,
    "powah:book": 1,
-   "rootsclassic:whitecurrant": 1,
    "silentgear:material_book": 1,
    "starcatcher:starcatcher_guide": 1,
    "thaumaturge:thaumonomicon": 1,
@@ -382,12 +392,12 @@
    "minecraft:chest": "Скриня",
    "minecraft:crafting_table": "Верстак",
    "minecraft:creeper_spawn_egg": "Яйце виклику кріпера",
-   "minecraft:diamond_block": "Блок діаманта",
    "minecraft:diamond_pickaxe": "Діамантове кайло",
    "minecraft:diamond_sword": "Діамантовий меч",
    "minecraft:flower_pot": "Квітковий горщик",
    "minecraft:grass_block": "Трав'яний блок",
    "minecraft:iron_sword": "Залізний меч",
+   "minecraft:lead": "Повідець",
    "minecraft:loom": "Ткацький верстат",
    "minecraft:oak_log": "Дубова колода",
    "minecraft:oak_planks": "Дубові дошки",
@@ -446,31 +456,11 @@
     "modName": "AllTheModium"
    },
    {
-    "id": "rootsclassic:whitecurrant",
-    "uk": "Біла смородина",
+    "id": "minecraft:lead",
+    "uk": "Повідець",
     "count": 1,
     "slot": 1,
     "slotLabel": "Гаряча панель (слот 2)",
-    "slotKind": "hotbar",
-    "ns": "rootsclassic",
-    "modName": "Roots Classic"
-   },
-   {
-    "id": "minecraft:birch_sapling",
-    "uk": "Паросток берези",
-    "count": 1,
-    "slot": 2,
-    "slotLabel": "Гаряча панель (слот 3)",
-    "slotKind": "hotbar",
-    "ns": "minecraft",
-    "modName": "Minecraft"
-   },
-   {
-    "id": "minecraft:diamond_block",
-    "uk": "Блок діаманта",
-    "count": 1,
-    "slot": 4,
-    "slotLabel": "Гаряча панель (слот 5)",
     "slotKind": "hotbar",
     "ns": "minecraft",
     "modName": "Minecraft"
@@ -484,16 +474,6 @@
     "slotKind": "hotbar",
     "ns": "minecraft",
     "modName": "Minecraft"
-   },
-   {
-    "id": "patchouli:guide_book",
-    "uk": "Mystical Agriculture",
-    "count": 1,
-    "slot": 6,
-    "slotLabel": "Гаряча панель (слот 7)",
-    "slotKind": "hotbar",
-    "ns": "patchouli",
-    "modName": "Patchouli"
    },
    {
     "id": "minecraft:crafting_table",
@@ -676,6 +656,16 @@
     "slotKind": "inventory",
     "ns": "mahoutsukai",
     "modName": "Mahou Tsukai"
+   },
+   {
+    "id": "patchouli:guide_book",
+    "uk": "Mystical Agriculture",
+    "count": 1,
+    "slot": 25,
+    "slotLabel": "Інвентар (слот 25)",
+    "slotKind": "inventory",
+    "ns": "patchouli",
+    "modName": "Patchouli"
    },
    {
     "id": "patchouli:guide_book",

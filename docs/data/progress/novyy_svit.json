@@ -5,14 +5,14 @@
  "mode": "survival",
  "mode_uk": "Виживання",
  "game_type": 0,
- "last_played": "2026-11-01 12:25",
- "last_played_ts": 1793528714,
- "updated": "2026-11-12 04:13",
- "play_hours": 1.39,
+ "last_played": "2026-11-12 05:11",
+ "last_played_ts": 1794453071,
+ "updated": "2026-11-13 10:11",
+ "play_hours": 2.16,
  "player": {
   "uuid": "832ceed6-e820-31f9-aa40-6acd5077a2ac",
   "xp_level": 8,
-  "selected_slot": 2,
+  "selected_slot": 1,
   "health": 16.0,
   "food_level": 17,
   "pos": [
@@ -179,11 +179,11 @@
  },
  "slots": {
   "mainHand": {
-   "id": "minecraft:bone_meal",
-   "uk": "Кісткове борошно",
+   "id": "minecraft:dirt",
+   "uk": "Ґрунт",
    "count": 3,
-   "slot": 2,
-   "slotLabel": "Головна рука (слот 3)",
+   "slot": 1,
+   "slotLabel": "Головна рука (слот 2)",
    "slotKind": "mainHand",
    "ns": "minecraft",
    "modName": "Minecraft"
@@ -205,8 +205,8 @@
     "uk": "Ґрунт",
     "count": 3,
     "slot": 1,
-    "slotLabel": "Гаряча панель (слот 2)",
-    "slotKind": "hotbar",
+    "slotLabel": "Головна рука (слот 2)",
+    "slotKind": "mainHand",
     "ns": "minecraft",
     "modName": "Minecraft"
    },
@@ -215,8 +215,8 @@
     "uk": "Кісткове борошно",
     "count": 3,
     "slot": 2,
-    "slotLabel": "Головна рука (слот 3)",
-    "slotKind": "mainHand",
+    "slotLabel": "Гаряча панель (слот 3)",
+    "slotKind": "hotbar",
     "ns": "minecraft",
     "modName": "Minecraft"
    },
