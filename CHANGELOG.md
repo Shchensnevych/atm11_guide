@@ -713,3 +713,6 @@
 
 ## K12 — 2026-11-13 · Макет маршруту TomTom / EVE (сесія компаньйона; хід — `ATM11-Companion/CHANGELOG.md`)
 - Путівник не змінювався. У `raw/tmp/k12/` — макет віджета маршруту в тултипі HUD (`mock_route.py` — справжні hud.html / css / js у headless Chrome; знімки `route_A/B/C.png`, вибрано A) і архіви для знімків (`ui.tgz`, `snapkit.tgz`). Рішення про цілі маршруту й брами — HANDOFF компаньйона §4 Б18.
+
+## K12б — 2026-11-13 · Брами між вимірами й маршрут TomTom / EVE (сесія компаньйона; хід — `ATM11-Companion/CHANGELOG.md`)
+- Путівник (код і `docs/data`) не змінювався. У `raw/tmp/k12b/` — стани рядка маршруту справжнім кодом моста (`route_states.js`), знімки HUD (`snap_route.py` → `k12b_route_sheet1.png`, `k12b_route_sheet2.png`) і архіви для знімка (`ui.tgz`, `api.tgz`).
