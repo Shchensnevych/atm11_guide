@@ -3,7 +3,10 @@
 // компаньйона — лише показ; налаштування змінюються в одному місці, у вікні ATM11-Companion → «Конструктор»),
 // зони й пошук у сховищах, пам'ять, діагностика.
 // Дані — лише з живого моста (:8812): поле `components` повного стану; DOM — виключно через h() / textContent (SECURITY §4).
+// K14: «Мої сховища» — нарівні з ⚙️ HUD компаньйона (components/own-storages.js: список B, колір зони, меню «⋯»).
 import { h, mount } from '../core/dom.js';
+import { renderOwnStorages } from './own-storages.js';
+import { isEditing } from './row-menu.js';
 
 const SEC_LS_KEY = 'atm11.site.jarvis.sec';
 const NAV_ITEMS = [
@@ -32,6 +35,7 @@ const cache = {
   /** @type {any} */ stats: null,
   /** @type {any} */ ownData: null,
   ownLoadedAt: 0,
+  /** @type {HTMLElement | null} */ ownEl: null,   // K14: живе між перемальовуваннями (меню й перейменування не зникають)
   /** @type {any} */ memData: null,
   memLoadedAt: 0,
   noteDraft: '',
@@ -80,6 +84,17 @@ async function ensureOwnLoaded(force = false) {
     const { r, d } = await apiCall('/api/storage/own');
     if (r.ok && d.ok) { cache.ownData = d; draw(); }
   } catch { /* ignore */ }
+}
+
+/** K14: дія меню «Моїх сховищ» (перейменувати / зняти позначку / не моє / видалити зону) — POST моста, у відповіді — новий стан. @param {Record<string, string>} body */
+async function ownAct(body) {
+  try {
+    const { r, d } = await apiCall('/api/storage/own', body);
+    if (r.ok && d.ok) { cache.ownData = d; cache.ownLoadedAt = Date.now(); }
+    if (d.error) setToast(`⚠️ ${d.error}`); else draw();
+  } catch (e) {
+    setToast(`Міст недоступний: ${e instanceof Error ? e.message : String(e)}`);
+  }
 }
 
 async function ensureMemLoaded(force = false) {
@@ -135,6 +150,13 @@ async function searchStorage(text) {
   }
 }
 
+/** K14: «Мої сховища» — один вузол на всю сесію сторінки, оновлюється лише при зміні даних. @param {any} own */
+function ownList(own) {
+  if (!cache.ownEl) cache.ownEl = h('div.jv-own-box');
+  renderOwnStorages(cache.ownEl, own, { act: ownAct });
+  return cache.ownEl;
+}
+
 /** Рендерить активну категорію налаштувань Ядра праворуч. @param {any} j */
 function renderActivePane(c) {
   const sec = cache.sec;
@@ -179,15 +201,8 @@ function renderActivePane(c) {
     return h('div.jv-sec', null,
       h('h4.jv-sec-title', null, '📦 Мої сховища та Навігатор (!де)'),
       zone ? h('p.small.muted', null, `Радіус зони «тут моя база / шахта / ферма»: ${settingText(zone)} — змінюється в «Конструкторі» компаньйона.`) : null,
-      h('div.jv-group-title', null, 'Активні зони гравця'),
-      own ? h('div.jv-own-box', null,
-        (own.zones || []).length
-          ? h('div.chips', null, own.zones.map((/** @type {any} */ z) => h('span.chip.on', { style: { '--c': 'var(--accent)' } }, `📍 ${z.name}`)))
-          : h('div.small.muted', null, 'Зон ще немає — станьте на базі в грі й скажіть або напишіть у чат «тут моя база».'),
-        h('div.small.muted.jv-note', null,
-          `Поставлено вами: ${own.placed ?? 0} · позначено: ${own.pinned ?? 0} · «не моє»: ${own.unpinned ?? 0}` +
-          (own.snapshot?.lastAt ? ` · знімок гри: ${own.snapshot.lastContainers} сховищ за ${own.snapshot.lastWorkMs} мс` : '')))
-        : h('div.small.muted', null, 'Зчитую статистику зон…'),
+      h('div.jv-group-title', null, 'Мої сховища'),
+      own ? ownList(own) : h('div.small.muted', null, 'Зчитую «Мої сховища»…'),
       h('div.jv-group-row', null,
         h('span.jv-group-title', null, '📦 Навігатор сховищ (!де)'),
         stStats ? h('span.badge.ghost', null, `проіндексовано: ${stStats.containersCount ?? 0} · ${Math.round((Number(stStats.bytes || 0)) / 1024)} КБ`) : null),
@@ -302,6 +317,9 @@ function renderActivePane(c) {
 
 function draw() {
   if (!cache.root) return;
+  // K14: іде перейменування в «Моїх сховищах» — не перемальовувати (перенесення вузла знімає фокус, і поле зберегло б
+  // недописане); після збереження дія сама перемалює картку
+  if (isEditing(cache.ownEl)) return;
   const c = cache.comp;
   if (!cache.connected || !c || !Array.isArray(c.components)) {
     mount(cache.root, h('div.card.jv-offline', null,

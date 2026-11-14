@@ -352,7 +352,42 @@ a.ai-kpi:hover { border-color: var(--accent); text-decoration: none; }
 /* Повзунок радіуса зони бази (16..128 бл.) */
 
 /* Сховища, пам'ять і діагностика */
-.jv-own-box { display: flex; flex-direction: column; gap: 6px; padding: 8px 10px; border-radius: 8px; background: var(--panel); border: 1px solid var(--line); }
+.jv-own-box { display: flex; flex-direction: column; gap: 6px; }
+
+/* K14: «Мої сховища» (components/own-storages.js) — той самий склад рядка, що в ⚙️ HUD компаньйона: значок причини, назва,
+   місце, меню «⋯»; колір зони — смужка фіксованої ширини ліворуч (рядок не змінюється) і крапка легенди */
+.so-list { display: flex; flex-direction: column; gap: 5px; }
+.so-row { position: relative; display: grid; grid-template-columns: 22px minmax(0, 1fr) auto 26px; align-items: center; gap: 8px; min-height: 32px; padding: 0 8px 0 10px;
+  border-radius: 8px; background: var(--panel); border: 1px solid var(--line); font-size: .84rem; }
+.so-row.zone .so-name { font-weight: 700; }
+.so-ic { position: relative; width: 22px; height: 22px; display: grid; place-items: center; }
+.so-corner { position: absolute; right: -6px; bottom: -4px; width: 14px; height: 14px; border-radius: 50%; display: grid; place-items: center; font-size: 9px; background: var(--panel-2); border: 1px solid var(--line-2); }
+.so-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text); }
+.so-meta { color: var(--muted); font-size: .78rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.so-menu { width: 26px; height: 24px; padding: 0; border: none; border-radius: 6px; background: transparent; color: var(--muted); font-size: 1rem; line-height: 1; cursor: pointer; }
+.so-menu:hover, .so-menu.open { color: var(--text); background: var(--panel-2); }
+.so-legend { font-size: .74rem; color: var(--muted); }
+.so-row[class*="so-zc"]::before { content: ''; position: absolute; left: -1px; top: 5px; bottom: 5px; width: 3px; border-radius: 2px; background: var(--so-zone); }
+.so-zc0 { --so-zone: var(--zone-0); }
+.so-zc1 { --so-zone: var(--zone-1); }
+.so-zc2 { --so-zone: var(--zone-2); }
+.so-zc3 { --so-zone: var(--zone-3); }
+.so-zc4 { --so-zone: var(--zone-4); }
+.so-zc5 { --so-zone: var(--zone-5); }
+.so-zlegend { display: flex; flex-wrap: wrap; gap: 2px 12px; font-size: .74rem; color: var(--muted); }
+.so-zlegend > span { display: inline-flex; align-items: center; gap: 6px; }
+.so-zdot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; background: var(--so-zone); }
+.so-zdot.so-zout { background: none; border: 1px dashed var(--line-2); }
+.so-input { width: 100%; min-width: 0; height: 24px; padding: 0 6px; border: 1px solid var(--link); border-radius: 6px; background: var(--bg-2); color: var(--text); font: inherit; outline: none; }
+/* меню рядка «⋯» (components/row-menu.js) */
+.so-pop { position: fixed; z-index: 1000; min-width: 200px; padding: 4px; display: flex; flex-direction: column; gap: 1px;
+  border-radius: 10px; background: var(--panel); border: 1px solid var(--line-2); box-shadow: var(--shadow); }
+.so-pop-item { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border: none; border-radius: 7px; background: transparent; color: var(--text); font: inherit; font-size: .82rem; text-align: left; cursor: pointer; }
+.so-pop-item:hover { background: var(--panel-2); }
+.so-pop-item.danger { color: var(--bad); }
+.so-pop-ic { width: 16px; text-align: center; flex-shrink: 0; }
+.so-pop-hint { margin-left: auto; padding-left: 10px; font-size: .72rem; color: var(--muted); }
+.so-pop-sep { height: 1px; background: var(--line); margin: 3px 4px; }
 .jv-search-row { display: flex; flex-wrap: wrap; gap: 8px; }
 .jv-st-list, .jv-mem-list, .jv-diag-list { display: flex; flex-direction: column; gap: 7px; }
 .jv-st { padding: 8px 10px; border-radius: 8px; background: var(--panel); border: 1px solid var(--line); display: flex; flex-direction: column; gap: 4px; }

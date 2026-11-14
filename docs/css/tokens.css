@@ -39,6 +39,9 @@
   --x-game: #4ade80; --x-held: #c084fc; --x-vehicle: #fb923c; --x-gui: #7cc4ff; --x-debug: #94a3b8;
   --cat-move: #4ade80; --cat-combat: #f87171; --cat-inv: #fbbf24; --cat-storage: #60a5fa; --cat-tools: #fb923c; --cat-gear: #a3a3ff;
   --cat-vehicle: #f472b6; --cat-magic: #c084fc; --cat-map: #34d399; --cat-quests: #facc15; --cat-ui: #7dd3fc; --cat-screen: #94a3b8;
+
+  /* K14: кольори зон бази («Мої сховища» на #/assistant, смужка зони) — різні між собою, порядок відтінків як у HUD компаньйона */
+  --zone-0: var(--accent); --zone-1: var(--link); --zone-2: var(--ok); --zone-3: var(--x-held); --zone-4: var(--bad); --zone-5: var(--x-vehicle);
 }
 
 [data-theme="light"] {
@@ -80,4 +83,7 @@
 
   /* Клавіатура (#/keys): контрастні відтінки станів на світлому тлі */
   --k-one: #0369a1; --k-multi: #0f766e; --k-maybe: #9a3412; --k-conflict: #b91c1c;
+
+  /* K14: кольори зон бази — контрастні на світлому тлі */
+  --zone-3: #7c3aed; --zone-5: #0f766e;
 }
