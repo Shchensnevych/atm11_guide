@@ -718,3 +718,8 @@
 - Путівник (код і `docs/data`) не змінювався. У `raw/tmp/k12b/` — стани рядка маршруту справжнім кодом моста (`route_states.js`), знімки HUD (`snap_route.py` → `k12b_route_sheet1.png`, `k12b_route_sheet2.png`) і архіви для знімка (`ui.tgz`, `api.tgz`).
 - Після гри 11-13: `raw/tmp/k12b/snap_extra.py` і `k12b_route_crowded.png` — рядок маршруту в переповненій верхній зоні тултипа (видно, оновлюється на місці).
 - Меню рядка «⋯» компаньйона: `raw/tmp/k12b/snap_menu.py`, `k12b_menu_sheet.png` (⚙️ HUD — «Мої сховища» й нотатки).
+
+## K13 — 2026-11-13 · Закриття маршруту, R2 «що можу скрафтити», «Мої сховища» (сесія компаньйона; хід — `ATM11-Companion/CHANGELOG.md`)
+- Путівник (код і `docs/data`) не змінювався. `raw/tmp/k13/`: замір R2 на `ATM11-Companion/data/recipes.db` (33 891 активний рецепт; входів 126 831; зворотний індекс 450 мс) і запасах світів — `measure_r2.py`, `stock_probe.js`, `craftable_probe.js`, `wcic_probe.js`.
+- Макети «Мої сховища» (значки причини A / B / C, меню рядка) — `mock_own.html`, `snap_own.py`, `k13_own_badges.png`; вибрано B; знімок справжнього ⚙️ HUD — `snap_own_real.py`, `k13_own_b_list.png`, `k13_own_b_menu.png`.
+- ATM11-UA: у `kubejs/` — 4 скрипти компаньйона (md5 = компаньйон), `update_from_game.bat` / `install.bat` копіюють усі 4, README; бекап попередніх батників і README — `raw/tmp/k13/ua_bak/`.
