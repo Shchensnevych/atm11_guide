@@ -366,7 +366,6 @@ a.ai-kpi:hover { border-color: var(--accent); text-decoration: none; }
 .so-meta { color: var(--muted); font-size: .78rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .so-menu { width: 26px; height: 24px; padding: 0; border: none; border-radius: 6px; background: transparent; color: var(--muted); font-size: 1rem; line-height: 1; cursor: pointer; }
 .so-menu:hover, .so-menu.open { color: var(--text); background: var(--panel-2); }
-.so-legend { font-size: .74rem; color: var(--muted); }
 .so-row[class*="so-zc"]::before { content: ''; position: absolute; left: -1px; top: 5px; bottom: 5px; width: 3px; border-radius: 2px; background: var(--so-zone); }
 .so-zc0 { --so-zone: var(--zone-0); }
 .so-zc1 { --so-zone: var(--zone-1); }
@@ -374,10 +373,37 @@ a.ai-kpi:hover { border-color: var(--accent); text-decoration: none; }
 .so-zc3 { --so-zone: var(--zone-3); }
 .so-zc4 { --so-zone: var(--zone-4); }
 .so-zc5 { --so-zone: var(--zone-5); }
-.so-zlegend { display: flex; flex-wrap: wrap; gap: 2px 12px; font-size: .74rem; color: var(--muted); }
-.so-zlegend > span { display: inline-flex; align-items: center; gap: 6px; }
 .so-zdot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; background: var(--so-zone); }
 .so-zdot.so-zout { background: none; border: 1px dashed var(--line-2); }
+/* K15 (компаньйон §4 Б23): ланцюжок ⛓ — окрема вузька колонка перед «⋯» (варіант 2); рядок без меню тримає ту саму сітку */
+.so-row { grid-template-columns: 22px minmax(0, 1fr) auto 32px 26px; }
+.so-chain { width: 24px; box-sizing: border-box; text-align: center; border-radius: 6px; font-size: .82rem; font-weight: 800; line-height: 1.55; color: var(--chain-ink); background: var(--chain-0); justify-self: center; }
+.so-chain.ch0 { background: var(--chain-0); }
+.so-chain.ch1 { background: var(--chain-1); }
+.so-chain.ch2 { background: var(--chain-2); }
+.so-chain.ch3 { background: var(--chain-3); }
+.so-chain.ch4 { background: var(--chain-4); }
+.so-chain.ch5 { background: var(--chain-5); }
+.so-chain.ch6 { background: var(--chain-6); }
+.so-chain.ch7 { background: var(--chain-7); }
+.so-chain.none { visibility: hidden; }
+.so-nomenu { width: 26px; }
+.so-blk { width: 20px; height: 20px; image-rendering: pixelated; display: block; }
+.so-blk.sm { width: 15px; height: 15px; }
+/* легенда й «При собі» — таблицею «що → пояснення» */
+.so-keys.legend { gap: 0; }
+.so-keys.legend .so-key { padding: 6px 0; }
+.so-keys.legend .so-key + .so-key { border-top: 1px solid var(--line); }
+.so-keys.legend .so-key-what { color: var(--muted); }
+.so-keys.legend .so-key-text { gap: 2px 16px; }
+.so-kv { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.so-keys { display: grid; gap: 4px; font-size: .76rem; color: var(--muted); }
+.so-keys.legend { padding-top: 6px; border-top: 1px solid var(--line); }
+.so-key { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 10px; align-items: baseline; }
+.so-key-what { white-space: nowrap; }
+.so-key-text { display: flex; flex-wrap: wrap; gap: 2px 12px; min-width: 0; color: var(--text); }
+.so-key.hold .so-key-text { gap: 4px; }
+.so-chip { display: inline-flex; align-items: center; gap: 6px; max-width: 100%; padding: 1px 9px 1px 6px; border-radius: 999px; background: var(--panel-2); border: 1px solid var(--line); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .so-input { width: 100%; min-width: 0; height: 24px; padding: 0 6px; border: 1px solid var(--link); border-radius: 6px; background: var(--bg-2); color: var(--text); font: inherit; outline: none; }
 /* меню рядка «⋯» (components/row-menu.js) */
 .so-pop { position: fixed; z-index: 1000; min-width: 200px; padding: 4px; display: flex; flex-direction: column; gap: 1px;

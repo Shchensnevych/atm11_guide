@@ -42,6 +42,17 @@
 
   /* K14: кольори зон бази («Мої сховища» на #/assistant, смужка зони) — різні між собою, порядок відтінків як у HUD компаньйона */
   --zone-0: var(--accent); --zone-1: var(--link); --zone-2: var(--ok); --zone-3: var(--x-held); --zone-4: var(--bad); --zone-5: var(--x-vehicle);
+
+  /* K15: плашки груп спільного вмісту («Мої сховища», літера групи) — сталі в усіх темах, різні між собою й без жовтого (він — у зони «Home»); текст темний */
+  --chain-0: #4cc9f0;
+  --chain-1: #b388ff;
+  --chain-2: #5fd38d;
+  --chain-3: #ff7eb6;
+  --chain-4: #ff9f5a;
+  --chain-5: #7b8cff;
+  --chain-6: #2dd4bf;
+  --chain-7: #ff6b6b;
+  --chain-ink: #10131a;
 }
 
 [data-theme="light"] {
