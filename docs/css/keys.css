@@ -637,7 +637,8 @@ svg.co-lines { position: absolute; left: 0; top: 0; z-index: 1; pointer-events: 
   background: none;
   border: 0;
   border-bottom: 2px solid transparent;
-  padding: 12px 14px;
+  padding: 12px 6px;
+  white-space: nowrap;
   color: var(--muted);
   cursor: pointer;
   font-weight: 600;
@@ -749,6 +750,46 @@ svg.co-lines { position: absolute; left: 0; top: 0; z-index: 1; pointer-events: 
 .pc-body { padding: 6px 10px 8px; font-size: .88rem; }
 .plan h3 { margin: 16px 0 8px; font-size: .95rem; }
 .kbd.to { color: var(--accent); cursor: default; }
+.kbd.none { color: var(--muted); border-style: dashed; border-bottom-width: 1px; cursor: default; }
+
+/* Майстер конфліктів (GK2): вкладка «🧭 Майстер» правої панелі */
+.wizard > p.small { margin: 0 0 6px; line-height: 1.4; }
+.wz-rules { margin: 0 0 10px; }
+.wz-rules summary { cursor: pointer; color: var(--accent); }
+.wz-rules p { margin: 6px 0 0; line-height: 1.4; }
+.wz-bar {
+  position: sticky; top: -12px; z-index: 2; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px;
+  margin: 0 0 10px; padding: 8px 10px; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 8px; font-size: .86rem;
+}
+.wz-bar .wz-copy { margin-left: auto; }
+.wz-bar .btn:disabled, .wz-line .btn:disabled { opacity: .5; cursor: default; }
+.kcard.wz-c { cursor: default; }
+.wz-act { padding: 8px 10px; border-top: 1px solid var(--line); font-size: .88rem; }
+.wz-act:first-of-type { border-top: 0; }
+.wz-act.bad { background: color-mix(in srgb, var(--bad) 10%, transparent); }
+.wz-name { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 4px; line-height: 1.35; }
+.wz-rec { margin-left: auto; font-size: .74rem; color: var(--accent); border: 1px solid var(--accent); border-radius: 999px; padding: 0 7px; }
+.wz-opts { display: flex; flex-direction: column; gap: 4px; margin: 6px 0 4px; }
+.wz-opt {
+  display: grid; grid-template-columns: auto auto auto 1fr; align-items: center; gap: 2px 8px;
+  padding: 5px 8px; border: 1px solid var(--line); border-radius: 6px; cursor: pointer;
+}
+.wz-opt:hover, .wz-opt.on { border-color: var(--accent); }
+.wz-opt.on { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+.wz-opt input { margin: 0; accent-color: var(--accent); }
+.wz-opt .kbd { justify-self: start; }
+.wz-best { font-size: .72rem; color: var(--ok); }
+.wz-why { grid-column: 2 / -1; font-size: .78rem; color: var(--muted); line-height: 1.35; }
+.wz-opt:not(.on):not(:hover) .wz-why { display: none; }   /* вигляд B (вибір користувача GK2): пояснення — у вибраному й при наведенні */
+.wz-opt.keep { grid-template-columns: auto 1fr; }
+.wz-line { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+.wz-line .btn { white-space: nowrap; }
+.wz-line code {
+  flex: 1; min-width: 0; overflow-wrap: anywhere; font: .76rem/1.4 var(--mono);
+  background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: 3px 6px; color: var(--text);
+}
+.wz-fallback { width: 100%; margin-top: 6px; font: .76rem/1.4 var(--mono); background: var(--bg); color: var(--text); border: 1px solid var(--line-2); border-radius: 4px; }
+.wz-howto { margin-top: 12px; line-height: 1.45; }
 
 .cdot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; background: var(--x-game); flex: none; }
 .cdot.held { background: var(--x-held); } .cdot.vehicle { background: var(--x-vehicle); } .cdot.gui { background: var(--x-gui); } .cdot.debug { background: var(--x-debug); }

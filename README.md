@@ -3,7 +3,6 @@
 [![Minecraft](https://img.shields.io/badge/Minecraft-26.1.2-green.svg?style=for-the-badge&logo=minecraft)](https://minecraft.net)
 [![Modpack](https://img.shields.io/badge/Modpack-All_the_Mods_11-yellow.svg?style=for-the-badge)](https://www.curseforge.com/minecraft/modpacks/all-the-mods-11)
 [![Language](https://img.shields.io/badge/Мова-Українська_🇺🇦-blue.svg?style=for-the-badge)](https://github.com/Shchensnevych/atm11_guide)
-[![Localization Pack](https://img.shields.io/badge/Українізатор-ATM11--UA-emerald.svg?style=for-the-badge)](https://github.com/Shchensnevych/ATM11-UA)
 [![Companion Server](https://img.shields.io/badge/Companion_App-ATM11--Companion-orange.svg?style=for-the-badge)](https://github.com/Shchensnevych/ATM11-Companion)
 [![License](https://img.shields.io/badge/Ліцензія-MIT-purple.svg?style=for-the-badge)](LICENSE)
 
@@ -17,7 +16,7 @@
 
 ```mermaid
 flowchart TD
-    Pack["📦 ATM11-UA<br/>(переклади модів і квестів)"] -->|Пайплайн зведення tools/| Guide["🌐 ATM11 Веб-путівник"]
+    Pack["📦 Переклад у грі<br/>(ua_work і ресурспак збірки)"] -->|Пайплайн зведення tools/| Guide["🌐 ATM11 Веб-путівник"]
     Save["💾 Сейв гри (saves/...)"] -->|File System Access API / Python| Guide
 
     Guide --> RM["🌳 Дорожня карта v2<br/>(ELK.js + Стовбур + Сузір'я)"]
@@ -147,7 +146,6 @@ atm11_guide/
 
 | Проєкт | Опис | Посилання |
 | :--- | :--- | :--- |
-| **📦 ATM11-UA** | Повний українізатор гри (255 модів, 4 800+ квестів, книжки, меню, інсталятор `install.bat`) | [GitHub](https://github.com/Shchensnevych/ATM11-UA) |
 | **🌐 atm11_guide** | Цей інтерактивний веб-путівник (дорожня карта v2, довідник 293 модів, квести, клавіші) | [GitHub](https://github.com/Shchensnevych/atm11_guide) |
 | **🤖 ATM11-Companion** | Плаваючий ігровий HUD-оверлей (`Alt+Q`), міст :8812, чат-команди KubeJS, Vision AI по `F2` | [GitHub](https://github.com/Shchensnevych/ATM11-Companion) |
 

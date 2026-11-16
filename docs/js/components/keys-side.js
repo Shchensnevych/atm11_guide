@@ -1,8 +1,9 @@
 // @ts-check
 // Права панель вкладки «Клавіші»: картки «за клавішами» (поточний шар, у порядку клавіатури) і вкладка «План перепризначень».
 import { h } from '../core/dom.js';
-import { pretty, comboText, MOD_TITLE, UNBOUND, parseSuggest } from '../core/keys-model.js';
-import { ORDER, mainAct } from './keyboard.js';
+import { pretty, comboText, MOD_TITLE, parseSuggest, optionsLine } from '../core/keys-model.js';
+import { ORDER } from '../core/kb-layout.js';
+import { mainAct } from './keyboard.js';
 import { modName, planText } from './keys-list.js';
 
 /** 2–4 дії, 5+ дій, 21 дія. @param {number} n */
@@ -45,8 +46,7 @@ export function keyCards(s, kd, by, layer, o) {
 export function planSection(s, kd, keys, onPick) {
   const plan = keys.filter((k) => k.plan);
   if (!plan.length) return h('p.empty', null, 'План порожній.');
-  const MODK = { S: 'SHIFT', C: 'CONTROL', A: 'ALT' };
-  const lines = plan.map((k) => { const to = parseSuggest(k.plan || 'none'); return `key_${k.id}:${to.bind}${to.l ? ':' + MODK[to.l] : ''}`; });
+  const lines = plan.map((k) => { const to = parseSuggest(k.plan || 'none'); return optionsLine(k.id, to.bind, to.l); });
   const download = () => {
     const blob = new Blob(['# План перепризначень ATM11 (путівник, вкладка «Клавіші»).\n# Закрийте гру, відкрийте minecraft/options.txt і замініть рядки з тими самими key_… на ці:\n' + lines.join('\n') + '\n'], { type: 'text/plain' });
     const a = h('a', { href: URL.createObjectURL(blob), download: 'keys_plan.txt' }); document.body.append(a); a.click(); a.remove();

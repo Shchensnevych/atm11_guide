@@ -23,21 +23,25 @@ const chainHue = (n) => (Number.isInteger(n) && n >= 0 ? n : 0) % CHAIN_COLORS;
 /** @param {any} i */
 const zoneCls = (i) => (Number.isInteger(i) && i >= 0 ? `.so-zc${i % ZONE_COLORS}` : '');
 
-/** Причина «мого» значком: 📌 позначив, 🔨 поставив, обидві — 📌 з кутовим 🔨 (розмір значка той самий). @param {any} m */
-function whyIcon(m) {
-  if (m.pinned && m.placed) return h('span.so-ic', { title: 'позначив «це моє» і поставив ти' }, '📌', h('span.so-corner', null, '🔨'));
-  if (m.placed) return h('span.so-ic', { title: 'поставив ти' }, '🔨');
-  return h('span.so-ic', { title: 'позначив «це моє»' }, '📌');
-}
-
-/** K15: картинка блока / предмета з бази сайту (rel — «простір/шлях» від моста; лише такий вигляд) або загальний значок. @param {any} rel @param {string} fallback @param {string} title */
-function blockIcon(rel, fallback, title) {
-  const ok = typeof rel === 'string' && /^[a-z0-9_.-]+\/[a-z0-9_.-]+$/.test(rel);
-  return h('span.so-ic', { title }, ok ? h('img.so-blk', { src: `img/items/${rel}.png`, alt: '', loading: 'lazy' }) : fallback);
-}
+const PIN_TEXT = 'позначив «це моє»';
+const PLACED_TEXT = 'поставив ти';
+const MARK_FALLBACK = '📦';
 const ACCESS_FALLBACK = '🚪';
 const NET_FALLBACK = '🗄️';
-const AUTO_FALLBACK = '📦';
+
+/** K16: картинка блока / предмета з бази сайту (rel — «простір/шлях» від моста) або запасний значок; причини 📌 / 🔨 — у кутах.
+ * @param {any} m @param {string} fallback @param {string} [what] */
+function rowIcon(m, fallback, what = '') {
+  const rel = m && m.icon;
+  const ok = typeof rel === 'string' && /^[a-z0-9_.-]+\/[a-z0-9_.-]+$/.test(rel);
+  const pinned = Boolean(m && m.pinned);
+  const placed = Boolean(m && m.placed);
+  const title = [what, pinned ? PIN_TEXT : '', placed ? PLACED_TEXT : ''].filter(Boolean).join(' · ');
+  return h('span.so-ic', { title },
+    ok ? h('img.so-blk', { src: `img/items/${rel}.png`, alt: '', loading: 'lazy' }) : fallback,
+    pinned ? h('span.so-corner.so-corner-top', null, '📌') : null,
+    placed ? h('span.so-corner', null, '🔨') : null);
+}
 
 /** @type {WeakMap<HTMLElement, string>} */
 const shown = new WeakMap();
@@ -86,8 +90,8 @@ export function renderOwnStorages(el, d, { act }) {
       else renameInPlace(nameEl, z.name, (to) => act({ action: 'rename-zone', name: z.name, to }));
     }), '.zone'));
 
-  // спільне сховище, що «моє» за зоною чи іншою ознакою (auto), — картинка блока з причиною в підказці; меню — лише «Не моє»
-  const marks = (d.marks || []).map((/** @type {any} */ m) => row(m.auto ? blockIcon(m.icon, AUTO_FALLBACK, m.why || 'ваше') : whyIcon(m), m.label || 'Сховище', m.where, m.zone,
+  // K16: картинка блока для всіх рядків; 📌 / 🔨 — у кутах значка
+  const marks = (d.marks || []).map((/** @type {any} */ m) => row(rowIcon(m, MARK_FALLBACK, m.auto ? (m.why || 'ваше') : ''), m.label || 'Сховище', m.where, m.zone,
     (btn, nameEl) => openRowMenu(btn, [
       ...(m.auto ? [] : [{ id: 'rename', icon: '✏️', label: 'Перейменувати' }, { sep: true }]),
       ...(!m.auto && m.pinned !== false ? [{ id: 'unmark', icon: '📌', label: 'Зняти позначку', hint: m.placed ? 'лишиться 🔨' : '' }] : []),
@@ -97,10 +101,10 @@ export function renderOwnStorages(el, d, { act }) {
       else act({ action: id, key: m.key });
     }), '', m));
 
-  const access = (d.access || []).map((/** @type {any} */ a) => row(blockIcon(a.icon, ACCESS_FALLBACK, 'точка доступу: з цього блока ви відкривали особисте сховище'),
+  const access = (d.access || []).map((/** @type {any} */ a) => row(rowIcon(a, ACCESS_FALLBACK, 'точка доступу: з цього блока ви відкривали особисте сховище'),
     a.label || 'Точка доступу', a.where, a.zone,
     (btn) => openRowMenu(btn, [{ id: 'forget', icon: '✕', label: 'Забути точку доступу', hint: 'відкриєте — згадає' }], () => act({ action: 'forget-access', key: a.key })), '', a));
-  const nets = (d.networks || []).map((/** @type {any} */ n) => row(blockIcon(n.icon, NET_FALLBACK, 'мережа'), n.label || 'Мережа', n.where, n.zone, null, '', n));
+  const nets = (d.networks || []).map((/** @type {any} */ n) => row(rowIcon(n, NET_FALLBACK, 'мережа'), n.label || 'Мережа', n.where, n.zone, null, '', n));
   const rows = [...(d.marks || []), ...(d.access || []), ...(d.networks || [])];
   /** Рядок легенди / «При собі»: назва групи → вміст. @param {any} what @param {any} text */
   const keyRow = (what, text, cls = '') => h(`div.so-key${cls}`, null, h('span.so-key-what', null, what), h('span.so-key-text', null, text));
@@ -121,7 +125,7 @@ export function renderOwnStorages(el, d, { act }) {
     (d.zones || []).length ? keyRow('Зони', [
       (d.zones || []).map((/** @type {any} */ z, /** @type {number} */ i) => kv(dot(zoneCls(i)), z.name)),
       outside ? kv(dot('.so-zout'), 'поза зонами') : null]) : null,
-    marks.length ? keyRow('Мітки', [kv('📌', 'позначив «це моє»'), kv('🔨', 'поставив ти')]) : null,
+    marks.length || (d.access || []).some((/** @type {any} */ a) => a.placed) ? keyRow('Мітки', [kv('📌', PIN_TEXT, 'у куті значка'), kv('🔨', PLACED_TEXT, 'у куті значка')]) : null,
     access.length || nets.length ? keyRow('Типи', [
       access.length ? kv(ACCESS_FALLBACK, 'точка доступу', 'у рядку — картинка самого блока, якщо вона є') : null,
       nets.length ? kv(NET_FALLBACK, 'мережа', 'у рядку — картинка блока мережі, якщо вона є') : null]) : null,

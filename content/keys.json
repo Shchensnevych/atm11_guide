@@ -211,6 +211,7 @@
   {"id": "key.quickActions", "to": "none", "why": "«Швидкі дії» — діалоги серверів, в одиночній грі не потрібні; G — предмети модів", "was": "G"},
   {"id": "iris.keybind.reload", "to": "F8", "why": "рідко потрібне; R — пояс Toolbelt і інструменти модів", "was": "R"},
   {"id": "iris.keybind.toggleShaders", "to": "F10", "why": "рідко; K — атаки силової броні Power Armor", "was": "K"},
+  {"id": "iris.keybind.shaderPackSelection", "to": "none", "why": "пакет шейдерів обираю в налаштуваннях, рідко (рішення користувача 2026-11-09)", "was": "O"},
   {"id": "key.curios.open.desc", "to": "Shift+Миша 4", "why": "аксесуари поруч із ранцем на кнопці миші 4; G — меню предметів модів", "was": "G"},
   {"id": "key.toolbelt.slot", "to": "Ctrl+V", "why": "вікно слота пояса — рідко; V — рушій жетпака й інші предмети", "was": "V"},
   {"id": "key.oracle_index.open", "to": "Ctrl+H", "why": "та сама літера + Ctrl; H — магніт і ширяння жетпака", "was": "H"},

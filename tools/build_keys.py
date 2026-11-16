@@ -28,6 +28,10 @@ def level(a, b):
     else: lv = 0
     return min(lv, 1) if (a.get('soft') or b.get('soft')) else lv
 
+def options_line(id_, bind, m):
+    """Рядок для options.txt: key_<id>:<прив'язка>[:SHIFT|CONTROL|ALT]. Дзеркало keys-model.js optionsLine (сайт: план і майстер GK2) — змінювати разом."""
+    return f"key_{id_}:{bind}" + (':' + MOD_KEY[m] if m else '')
+
 def combo_of(k):
     return ('F3+' if k['ctx'] == 'debug' else '') + k['bind'] + ('|' + k['m'] if k['m'] else '')
 
@@ -94,7 +98,7 @@ def build(warn, write=True, mod_ids=None):
         k['plan'] = pl['to']; k['why'] = pl.get('why', ''); k['was'] = pl.get('was', '')
         if (b, m) == (k['bind'], k['m']): k['plan_done'] = True; continue          # уже застосовано в options.txt
         planned.append(dict(k, bind=b, m=m))
-        lines.append(f"key_{k['id']}:{b}" + (':' + MOD_KEY[m] if m else ''))
+        lines.append(options_line(k['id'], b, m))
     pid = {x['id']: x for x in planned}
     after = [pid.get(k['id'], k) for k in keys]
     by2, conf2 = analyze(after)

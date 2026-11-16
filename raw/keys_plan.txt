@@ -1,4 +1,5 @@
 # План перепризначень (content/keys.json → plan). Застосувати до minecraft/options.txt при ЗАКРИТІЙ грі (замінити рядки з тими самими key_…)
+key_iris.keybind.shaderPackSelection:key.keyboard.unknown
 key_key.modernui.openCenter:key.keyboard.insert:SHIFT
 key_key.inventoryhud.openconfig:key.keyboard.home:CONTROL
 key_key.jade.toggle_liquid:key.keyboard.delete

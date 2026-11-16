@@ -44,4 +44,4 @@ interface Store { mods: ModEntry[]; classes: ClassDef[]; roles: { id: string; ti
 // Вкладка «Клавіші» (data/keys.json, tools/build_keys.py): дія = прив'язка з options.txt + ручний шар content/keys.json
 interface KeyAct { id: string; ns: string; mod?: string; name: string; en?: string; bind: string; m: '' | 'S' | 'C' | 'A';
   cat: string; ctx: 'game' | 'gui' | 'held' | 'vehicle' | 'debug' | string; scr?: string; nc?: boolean; soft?: boolean; imp?: boolean;
-  note?: string; plan?: string; why?: string; was?: string; plan_done?: boolean; extra?: boolean; }
+  note?: string; plan?: string; why?: string; was?: string; plan_done?: boolean; extra?: boolean; kuma?: boolean; }

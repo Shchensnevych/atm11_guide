@@ -8,6 +8,8 @@ import { loadKeys, syncBridgeOptions, getActiveBridgeBase, analyze, layerOf, com
 import { keyboard, mouse } from '../components/keyboard.js';
 import { keysList, keyPanel, modName } from '../components/keys-list.js';
 import { keyCards, planSection } from '../components/keys-side.js';
+import { wizardSection, wizardCount } from '../components/keys-wizard.js';
+import { companionReserved } from '../core/keys-suggest.js';
 import { drawCallouts, linkLine } from '../components/callouts.js';
 import { keysDashboard } from '../components/keys-dash.js';
 import { setupTopbarOptions, buildZoneCallouts } from '../components/keys-topbar.js';
@@ -43,6 +45,8 @@ export async function render(el, _p, s) {
   if (qs.has('q') && st.q) st.group = 'cat';
   const save = () => lsSet({ layout: st.layout, group: st.group, plan: st.plan, layer: st.layer, cat: st.cat, sel: st.sel, tab: st.tab, q: st.q, filter: st.filter });
 
+  /** Сполучення компаньйона (Alt+Q, Push-to-Talk) — майстер їх не пропонує; PTT уточнюється з моста. */
+  let reserved = companionReserved('Mouse5', 'Миша 5 (типово)');
   /** @type {KeyAct[]} */ let keys = kd.keys;
   /** @type {Map<string, any>} */ let by = analyze(keys, st.ctxOn);
   /** @type {Set<string>} */ let planned = new Set();
@@ -147,12 +151,17 @@ export async function render(el, _p, s) {
     select(layerOf(kk), kk.bind);
   };
 
-  const onSug = (/** @type {KeyAct|null} */ k) => {
-    if (!k || !k.plan || k.plan === 'none') { if (st.hl) { st.hl = ''; drawKb(); } return; }
-    const p = parseSuggest(k.plan);
-    if (p.l !== st.layer) { st.layer = p.l; drawSidebar(); }
-    st.hl = p.bind;
+  /** Підсвітити сполучення на клавіатурі (порада плану, варіант майстра); null — зняти. @param {string|null} l @param {string} [bind] */
+  const preview = (l, bind) => {
+    if (l === null || !bind) { if (st.hl) { st.hl = ''; drawKb(); } return; }
+    if (l !== st.layer) { st.layer = l; drawSidebar(); }
+    st.hl = bind;
     drawKb();
+  };
+  const onSug = (/** @type {KeyAct|null} */ k) => {
+    if (!k || !k.plan || k.plan === 'none') { preview(null); return; }
+    const p = parseSuggest(k.plan);
+    preview(p.l, p.bind);
   };
 
   function fitU() {
@@ -314,9 +323,10 @@ export async function render(el, _p, s) {
   }
 
   function drawPanel() {
-    mount(tabsBox, [['acts', 'Дії'], ['plan', `🛠 План · ${kd.keys.filter((k) => k.plan).length}`]].map(([v, t]) =>
+    mount(tabsBox, [['acts', 'Дії'], ['wiz', `🧭 Майстер · ${wizardCount(kd.keys, reserved)}`], ['plan', `🛠 План · ${kd.keys.filter((k) => k.plan).length}`]].map(([v, t]) =>
       h(`button${st.tab === v ? '.on' : ''}`, { onclick: () => { st.tab = v; save(); drawPanel(); } }, t)));
     if (st.tab === 'plan') { mount(panelTools); mount(panelBody, planSection(s, kd, kd.keys, pickAct)); return; }
+    if (st.tab === 'wiz') { mount(panelTools); mount(panelBody, wizardSection(s, kd, kd.keys, { reserved, onPreview: preview })); return; }
     const byKey = st.group === 'key' && (st.filter === 'all' || st.filter === 'conf');
     mount(panelTools,
       h('input', { type: 'search', placeholder: 'Пошук: дія, мод, клавіша…', value: st.q, oninput: debounce((/** @type {Event} */ e) => { st.q = /** @type {HTMLInputElement} */ (e.target).value; save(); drawList(); }, 120) }),
@@ -370,6 +380,11 @@ export async function render(el, _p, s) {
       }
     };
     fetch(`${bridgeBase}/api/state`).then((r) => (r.ok ? r.json() : null)).then(applyLiveBinds).catch(() => {});
+    fetch(`${bridgeBase}/api/jarvis/state`).then((r) => (r.ok ? r.json() : null)).then((/** @type {any} */ j) => {   // справжня клавіша PTT компаньйона
+      if (!el.isConnected || !j?.pttHotkey) return;
+      reserved = companionReserved(String(j.pttHotkey), String(j.pttHotkeyTitle || j.pttHotkey));
+      drawPanel();
+    }).catch(() => {});
     try {
       const es = new EventSource(`${bridgeBase}/api/events`);
       es.addEventListener('state', (e) => {

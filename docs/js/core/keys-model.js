@@ -5,6 +5,7 @@ import { getJSON } from './store.js';
 
 const LS = 'atm11.keys.options';
 const MODS = { CONTROL: 'C', CONTROL_OR_COMMAND: 'C', SHIFT: 'S', ALT: 'A' };
+const MOD_KEY = { S: 'SHIFT', C: 'CONTROL', A: 'ALT' };
 export const MOD_TITLE = { '': 'Без модифікатора', S: 'Shift', C: 'Ctrl', A: 'Alt', F3: 'F3' };
 const SPECIAL = {
   'left.shift': 'Лівий Shift', 'right.shift': 'Правий Shift', 'left.control': 'Лівий Ctrl', 'right.control': 'Правий Ctrl',
@@ -173,6 +174,12 @@ export const stateOf = (v) => (!v ? 'free' : v.lvl === 2 ? 'conflict' : v.lvl ==
 export function actLevel(k, by) {
   const v = by.get(layerOf(k) + '|' + k.bind);
   return v ? Math.max(0, ...v.acts.filter((/** @type {KeyAct} */ x) => x !== k).map((/** @type {KeyAct} */ x) => level(k, x))) : 0;
+}
+
+/** Рядок для options.txt: key_<id>:<прив'язка>[:SHIFT|CONTROL|ALT]. Дзеркало build_keys.py (options_line) — змінювати разом.
+ * @param {string} id @param {string} bind @param {string} l шар '' | S | C | A */
+export function optionsLine(id, bind, l) {
+  return `key_${id}:${bind}${l && MOD_KEY[l] ? ':' + MOD_KEY[l] : ''}`;
 }
 
 /** «Ctrl+I» → {l: 'C', bind: 'key.keyboard.i'} — для підсвітки порад. @param {string} s */
