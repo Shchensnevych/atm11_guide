@@ -132,6 +132,45 @@ case((sh.get('table'), sh.get('tradeable'), sh.get('treasure'), sh.get('code_add
 sm = next(x for x in _tmp['d']['enchantments'] if x['id'] == 'a:smite')
 case((sm.get('treasure'), sm.get('curse'), sm['supported']), (True, True, {'items': ['a:axe', 'a:sword']}), 'скарб / прокляття; перелік предметів')
 
+# K20: ознаки предметів з гри (extract_game_names.normalize_traits) і групи предметів (build_item_groups) — за формою даних
+import build_item_groups as BG
+TGOOD = {'lang': 'uk_ua', 'fingerprint': 'fp7', 'mods': 3, 'total': 12, 'block_items': 4, 'errors': 0,
+         'items': ['a:apple', 'a:potion', 'a:sword', 'a:helmet', 'a:bag', 'a:gun', 'a:ingot', 'a:egg', 'a:book', 'a:charm', 'a:apple', 'Bad id'],
+         'has': {'minecraft:food': ['a:apple'], 'minecraft:consumable': ['a:apple', 'a:potion', 'a:brush'], 'minecraft:weapon': ['a:sword'], 'minecraft:max_damage': ['a:sword', 'a:gun', 'a:helmet'],
+                 'minecraft:container': ['a:gun', 'b:chest'], 'minecraft:bundle_contents': ['a:bag'], 'minecraft:equippable': ['a:helmet', 'b:pumpkin', 'a:saddle', 'a:shield'],
+                 'minecraft:tool': ['a:pick', 'a:sword'], 'minecraft:blocks_attacks': ['a:shield']},
+         'by': {'minecraft:consumable': {'EAT': ['a:apple'], 'DRINK': ['a:potion'], 'BRUSH': ['a:brush']}, 'minecraft:equippable': {'HEAD': ['a:helmet', 'b:pumpkin'], 'SADDLE': ['a:saddle'], 'OFFHAND': ['a:shield']}},
+         'tabs': {'minecraft:food_and_drinks': ' Їжа та напої ', 'minecraft:ingredients': 'Інгредієнти', 'bad tab': 'x'}}
+tr, why = E.normalize_traits(TGOOD)
+case(tr and list(tr['items']), ['a:apple', 'a:bag', 'a:book', 'a:charm', 'a:egg', 'a:gun', 'a:helmet', 'a:ingot', 'a:potion', 'a:sword'], 'ознаки: не-блоки — лише id, без повторів, за абеткою')
+case(tr and tr['tabs'], {'minecraft:food_and_drinks': 'Їжа та напої', 'minecraft:ingredients': 'Інгредієнти'}, 'ознаки: назви вкладок без пробілів, лише за id')
+case(E.normalize_traits({**TGOOD, 'lang': 'en_us'})[0], None, 'ознаки: інша мова гри — не беремо')
+case(E.normalize_traits({**TGOOD, 'total': 30})[0], None, 'ознаки: прочитано не всі предмети — не беремо')
+case(E.normalize_traits({**TGOOD, 'fingerprint': ''})[0], None, 'ознаки: без відбитка збірки — не беремо')
+TAGS = {'item': {'minecraft:pickaxes': ['a:pick'], 'minecraft:swords': ['a:sword'], 'c:tools/fishing_rod': ['a:rod'], 'c:rods/fishing': ['a:rod'], 'c:ingots/iron': ['a:ingot'], 'c:strings': ['b:string'], 'curios:charm': ['a:charm'], 'minecraft:bookshelf_books': ['a:book'], 'c:shulker_boxes': ['b:box']}}
+_g = {}
+_orig = BG.jsave
+BG.jsave = lambda p, d, compact=False: _g.update(d=d)
+reg = set(tr['items']) | {'a:pick', 'a:shield', 'a:rod', 'b:chest', 'b:pumpkin', 'b:string', 'b:stone', 'b:box', 'a:brush', 'a:saddle'}
+tr['items'] += ['a:brush', 'a:saddle', 'a:pick', 'a:shield', 'a:rod']
+tr['has']['minecraft:max_damage'] += ['a:pick']
+rg = BG.build([].append, True, tr, TAGS, {'a:egg', 'a:ingot', 'b:stone'}, reg)
+BG.jsave = _orig
+gd = _g['d']
+grp = {i: g for g, ids in gd['items'].items() for i in ids}
+got = {i: grp.get(i, gd['default']) for i in sorted(reg)}
+case(got, {'a:apple': 'food', 'a:bag': 'container', 'a:book': 'book', 'a:brush': 'other', 'a:charm': 'wear', 'a:egg': 'material', 'a:gun': 'tool', 'a:helmet': 'wear',
+           'a:ingot': 'material', 'a:pick': 'tool', 'a:potion': 'food', 'a:rod': 'tool', 'a:saddle': 'other', 'a:shield': 'weapon', 'a:sword': 'weapon', 'b:box': 'container', 'b:chest': 'container', 'b:pumpkin': 'block',
+           'b:stone': 'block', 'b:string': 'material'},
+     'групи: контейнер (не зброя), їжа / питво, матеріал за тегом раніше за блок, блок раніше за вдягання, вдягання гравцем (не сідло, не друга рука), '
+     'інструмент і зброя за тегами (кайло — інструмент, меч — зброя, щит — зброя, вудка без зносу — інструмент, хоч має тег стрижнів), знос без тегів — інструмент, книга за тегом, вхід рецепта — матеріал')
+case('block' in gd['items'], False, 'групи: блоків переліком не пишемо (типова група)')
+case([x['tabs'] for x in gd['groups'] if x['id'] in ('food', 'material')], [['Їжа та напої'], ['Інгредієнти']], 'групи: назви ванільних вкладок мовою гри — у назвах групи')
+case(rg['groups']['block'], 2, 'групи: блоків рахує й без переліку')
+w1 = []
+BG.build(w1.append, False, {}, TAGS, set(), reg)
+case(bool(w1) and 'game_item_traits' in w1[0], True, 'групи: знімка немає — попередження, база не змінюється')
+
 bad = [(why, got, want) for got, want, why in CASES if got != want]
 for why, got, want in bad: print(f'❌ {why}: {got!r} ≠ {want!r}')
 print(f'Знімок назв з гри: {len(CASES) - len(bad)} з {len(CASES)}')

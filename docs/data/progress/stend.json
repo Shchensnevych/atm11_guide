@@ -5,20 +5,20 @@
  "mode": "creative",
  "mode_uk": "Творчість",
  "game_type": 1,
- "last_played": "2026-11-17 16:06",
- "last_played_ts": 1794924383,
- "updated": "2026-11-17 16:06",
- "play_hours": 13.95,
+ "last_played": "2026-11-17 22:54",
+ "last_played_ts": 1794948895,
+ "updated": "2026-11-17 22:55",
+ "play_hours": 15.61,
  "player": {
   "uuid": "832ceed6-e820-31f9-aa40-6acd5077a2ac",
   "xp_level": 7,
-  "selected_slot": 4,
+  "selected_slot": 1,
   "health": 20.0,
   "food_level": 19,
   "pos": [
-   553,
+   556,
    88,
-   705
+   703
   ],
   "dimension": "minecraft:overworld",
   "dimension_uk": "Верхній світ",
@@ -738,16 +738,7 @@
   }
  },
  "slots": {
-  "mainHand": {
-   "id": "dimstorage:dimensional_chest",
-   "uk": "Міжвимірна скриня",
-   "count": 1,
-   "slot": 4,
-   "slotLabel": "Головна рука (слот 5)",
-   "slotKind": "mainHand",
-   "ns": "dimstorage",
-   "modName": "DimStorage"
-  },
+  "mainHand": null,
   "offHand": null,
   "hotbar": [
    {
@@ -785,8 +776,8 @@
     "uk": "Міжвимірна скриня",
     "count": 1,
     "slot": 4,
-    "slotLabel": "Головна рука (слот 5)",
-    "slotKind": "mainHand",
+    "slotLabel": "Гаряча панель (слот 5)",
+    "slotKind": "hotbar",
     "ns": "dimstorage",
     "modName": "DimStorage"
    },

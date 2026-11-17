@@ -10,6 +10,9 @@
 # K19: companion_enchantments.json (реєстр зачарувань гри: назва, опис, на що накладається, несумісні, теги; поправки коду модів —
 # перевірка «supportsEnchantment проти тегів» по всіх предметах, лише коли змінився відбиток збірки) → raw/game_enchantments.json;
 # у базу (docs/data/enchantments.json) кладе build_enchantments.py.
+# K20: companion_item_traits.json (ознаки предметів з компонентів гри — їжа, інструмент, зброя, знос, вдягання, контейнер, блок — і
+# назви вкладок творчого інвентаря; лише коли змінився відбиток збірки або мова) → raw/game_item_traits.json; групи предметів
+# (docs/data/item_groups.json) будує build_item_groups.py.
 import os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import MC, RAW, jload, jsave
@@ -27,6 +30,8 @@ FOUT = os.path.join(RAW, 'game_fluid_names.json')
 EMPTY_FLUID = 'minecraft:empty'                  # порожня рідина — так само: у реєстрі є, назви не має
 ESRC = os.path.join(MC, 'kubejs', 'config', 'companion_enchantments.json')
 EOUT = os.path.join(RAW, 'game_enchantments.json')
+TSRC = os.path.join(MC, 'kubejs', 'config', 'companion_item_traits.json')
+TOUT = os.path.join(RAW, 'game_item_traits.json')
 
 def clean(s):
     """Назва з гри: без кодів кольору «§x» і зайвих пробілів («&» у грі — звичайний знак, не код)."""
@@ -126,6 +131,27 @@ def normalize_enchantments(d):
     return {'lang': LANG, 'fingerprint': fp, 'mods': int(d.get('mods') or 0), 'items_total': int(d.get('items_total') or 0), 'total': len(ench), 'errors': errors, 'failed': _ids(d.get('failed')),
             'enchantments': sorted(ench, key=lambda x: x['id']), 'tag_sets': tag_sets, 'code_check': code}, None
 
+def normalize_traits(d):
+    """Файл ознак предметів гри → (знімок, None) або (None, причина відмови). Знімок без часу запису й зі сталим порядком."""
+    if not isinstance(d, dict) or not isinstance(d.get('items'), list) or not isinstance(d.get('has'), dict) or not isinstance(d.get('by'), dict): return None, 'не схоже на файл ознак предметів (немає items / has / by)'
+    if d.get('lang') != LANG: return None, f'мова гри «{d.get("lang") or "?"}» — потрібна {LANG}'
+    fp = d.get('fingerprint')
+    if not isinstance(fp, str) or not fp: return None, 'немає відбитка збірки'
+    total = int(d['total']) if isinstance(d.get('total'), (int, float)) else 0
+    blocks = int(d['block_items']) if isinstance(d.get('block_items'), (int, float)) else -1
+    items = sorted(set(_ids(d['items'])))
+    errors = int(d['errors']) if isinstance(d.get('errors'), (int, float)) else 0
+    if total <= 0 or blocks < 0: return None, 'обхід порожній'
+    if len(items) + blocks + errors < total: return None, f'прочитано не всі предмети: {len(items) + blocks} з {total}'
+    has = {k: sorted(set(_ids(v))) for k, v in sorted(d['has'].items()) if isinstance(k, str) and RX_ID.match(k) and isinstance(v, list)}
+    by = {}
+    for k, v in sorted(d['by'].items()):
+        if not (isinstance(k, str) and RX_ID.match(k) and isinstance(v, dict)): continue
+        by[k] = {kk: sorted(set(_ids(vv))) for kk, vv in sorted(v.items()) if isinstance(kk, str) and re.match(r'^[A-Z_?]+$', kk) and isinstance(vv, list)}
+    tabs = {k: clean(v) for k, v in sorted((d.get('tabs') or {}).items()) if isinstance(k, str) and RX_ID.match(k) and isinstance(v, str) and clean(v)}
+    return {'lang': LANG, 'fingerprint': fp, 'mods': int(d.get('mods') or 0), 'total': total, 'block_items': blocks, 'errors': errors, 'failed': _ids(d.get('failed')),
+            'items': items, 'has': has, 'by': by, 'tabs': tabs}, None
+
 def keep_code_check(snap, old):
     """Перевірка кодом ще йде (pending), а попередній знімок того самого відбитка збірки її має — лишається попередня."""
     if snap['code_check'].get('state') != 'done' and old and old.get('fingerprint') == snap['fingerprint'] and (old.get('code_check') or {}).get('state') == 'done':
@@ -166,6 +192,9 @@ def main():
         code = f"код модів: додає {cc['adds_n']}, забороняє {cc['removes_n']} (пар {cc['checks']})" if cc.get('state') == 'done' else 'перевірка кодом ще не завершена в грі'
         return f"зачарувань {snap['total']}, тегів предметів {len(snap['tag_sets'])}, {code}"
     snapshot(ESRC, EOUT, normalize_enchantments, 'Зачарування з гри', ench_sum, keep_code_check)
+    def traits_sum(snap, old):
+        return f"предметів {snap['total']} (блоків {snap['block_items']}), компонентів {len(snap['has'])}, вкладок {len(snap['tabs'])}"
+    snapshot(TSRC, TOUT, normalize_traits, 'Ознаки предметів з гри', traits_sum)
     return 0
 
 if __name__ == '__main__': sys.exit(main())

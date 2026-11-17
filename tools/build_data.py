@@ -1,10 +1,10 @@
 # Зводить raw/ + content/ → docs/data/*.json і перевіряє посилання. Запуск з atm11_guide: python3 -I tools/build_data.py [--check]
-# Вихід: mods.json (усі моди: авто + ручне), enchantments.json (K19, build_enchantments.py), search.json (build_search.py, G7), keys.json (build_keys.py), guide.json + notes/ + qicons.json (build_chapters.py), classes.json, stages.json, roadmap.json, branches.json, facts.json, meta.json; звіт — raw/build_report.txt
+# Вихід: mods.json (усі моди: авто + ручне), enchantments.json (K19, build_enchantments.py), item_groups.json (K20, build_item_groups.py), search.json (build_search.py, G7), keys.json (build_keys.py), guide.json + notes/ + qicons.json (build_chapters.py), classes.json, stages.json, roadmap.json, branches.json, facts.json, meta.json; звіт — raw/build_report.txt
 import os, sys, glob, re, datetime, collections
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import RAW, CONTENT, DATA, UA, jload, jsave
 refs_of_ = lambda x: [x['ref']] if isinstance(x.get('ref'), str) else list(x.get('ref') or [])
-import build_keys, build_chapters, build_names, build_search, build_enchantments, hashlib
+import build_keys, build_chapters, build_names, build_search, build_enchantments, build_item_groups, hashlib
 
 PERF = re.compile(r'sodium|ferrite|modernfix|immediatelyfast|fastsuite|fastfurnace|fastbench|spark|imfast|flickerfix|maxhealthfix|attributefix|netherportalfix|crash|bcc|clumps|getittogether', re.I)
 LIB = re.compile(r'\b(lib|library|api|core|codelib|framework|config)\b|lib$|^lib|corelib|configlib', re.I)
@@ -226,6 +226,7 @@ def main():
     cs = build_chapters.build(warn, '--check' not in sys.argv)       # вкладка «Квести»: огляди глав, дописи, іконки → guide.json, notes/, qicons.json
     nm = build_names.build(warn, '--check' not in sys.argv)          # назви з перекладу для моста компаньйона → names.json (C2)
     en = build_enchantments.build(warn, '--check' not in sys.argv)   # K19: зачарування зі знімка гри → enchantments.json
+    ig = build_item_groups.build(warn, '--check' not in sys.argv)   # K20: групи предметів з ознак гри → item_groups.json
     nm_items = (jload(os.path.join(DATA, 'names.json'), {}) or {}).get('items') or {}
     for iid, rec in items.items():
         nv = nm_items.get(iid)
@@ -254,7 +255,7 @@ def main():
     open(os.path.join(RAW, 'build_report.txt'), 'w', encoding='utf-8').write('\n'.join(rep) + '\n')
     print('модів', len(mods), dict(stat), '| етапів', len(st_ids), '| вузлів карти', len(nid), '| гілок', len(branches), '| іконок', len(items), '| з можливостями', sum(1 for m in mods if m['features']),
           f"| клавіш {ks['keys']} (конфліктів {ks['conflicts']}, можливих {ks['maybe']}, важливих непризначених {ks['imp_unbound']})",
-          f"| назв {nm['items']} / істот {nm['entities']}", f"| зачарувань {en['enchantments']} (код: {en['code']})", f"| пошук {sr['rows'] if '--check' not in sys.argv else '-'}", f"| блоків генерації світу {len(wg['blocks']) if wg else 0}",
+          f"| назв {nm['items']} / істот {nm['entities']}", f"| зачарувань {en['enchantments']} (код: {en['code']})", f"| груп предметів {len(ig['groups'])} ({ig['items']} предм.)", f"| пошук {sr['rows'] if '--check' not in sys.argv else '-'}", f"| блоків генерації світу {len(wg['blocks']) if wg else 0}",
           f"| глав з оглядом {cs['guides']} (прихованих {cs['hidden']}), дописів {cs['notes']} (⚑ {cs['verify']}), німих {cs['silent']}, іконок квестів {cs['qicons']}", '| попереджень', len(rep))
     for r in rep[:15]: print('  ', r)
 if __name__ == '__main__': main()
