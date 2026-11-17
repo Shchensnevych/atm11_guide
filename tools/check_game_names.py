@@ -91,6 +91,47 @@ case(B.fluid_tag_names({'c:molten': ['x:molten'], 'c:water': ['minecraft:flowing
      'назви груп рідин: одна назва на всі рідини групи (джерело й течія — одна); різні — ванільна першою, далі за абеткою; порожню групу й групу з рідиною без назви не називаємо')
 case(B.fluid_tag_names(None, fl), {}, 'індексу тегів немає — груп рідин не називаємо')
 
+# K19: знімок зачарувань з гри — перевірка (extract_game_names.normalize_enchantments) і база (build_enchantments.build)
+import build_enchantments as BE
+EGOOD = {'v': 1, 'ts': 5, 'lang': 'uk_ua', 'fingerprint': 'fp1', 'mods': 3, 'items_total': 10, 'total': 3, 'errors': 0,
+         'enchantments': [
+             {'id': 'b:sharp', 'name': ' §bГострота ', 'desc': 'Більше  шкоди', 'max_level': 5, 'supported': {'tag': 'c:weapons'}, 'primary': {'tag': 'c:swords'}, 'exclusive': ['a:smite', 'Bad'], 'tags': ['minecraft:in_enchanting_table', 'minecraft:tradeable']},
+             {'id': 'a:smite', 'name': 'Кара', 'max_level': 5, 'supported': {'items': ['a:sword', 'a:axe', 'Bad']}, 'exclusive': ['b:sharp'], 'tags': ['minecraft:treasure', 'minecraft:curse']},
+             {'id': 'a:noname', 'name': '', 'supported': {'tag': 'c:weapons'}}, {'id': 'Bad Id', 'name': 'x', 'supported': {'tag': 'c:weapons'}}],
+         'tag_sets': {'c:weapons': ['a:sword', 'a:axe', 'a:sword'], 'c:swords': ['a:sword'], 'Bad': ['a:x']},
+         'code_check': {'state': 'done', 'fingerprint': 'fp1', 'checks': 30, 'items': 10, 'adds_n': 1, 'removes_n': 1, 'adds': [['b:sharp', 'a:book']], 'removes': [['b:sharp', 'a:axe'], ['Bad', 'a:axe']]}}
+en, why = E.normalize_enchantments({**EGOOD, 'total': 2})
+case(why, None, 'добрий файл зачарувань приймається')
+case(en and [x['id'] for x in en['enchantments']], ['a:smite', 'b:sharp'], 'зачарування — за id, без назви й не-id — відкинуто')
+case(en and en['enchantments'][1]['name'], 'Гострота', 'назва: коди кольору й пробіли прибрано')
+case(en and en['enchantments'][1]['exclusive'], ['a:smite'], 'несумісні — лише id')
+case(en and en['tag_sets'], {'c:swords': ['a:sword'], 'c:weapons': ['a:axe', 'a:sword']}, 'склад тегів — без повторів, за абеткою, без не-id')
+case(en and en['code_check']['removes'], [['b:sharp', 'a:axe']], 'поправки коду — лише пари id')
+case(en and 'ts' in en, False, 'часу запису в знімку немає')
+case(E.normalize_enchantments(EGOOD)[0], None, 'прочитано менше зачарувань, ніж у реєстрі, — не беремо')
+case(E.normalize_enchantments({**EGOOD, 'total': 4, 'errors': 2})[1], None, 'зачарування, що не прочиталось у грі (errors), не відкидає знімок')
+case(E.normalize_enchantments({**EGOOD, 'lang': 'en_us'})[0], None, 'інша мова гри — не беремо')
+case(E.normalize_enchantments({**EGOOD, 'total': 2, 'code_check': {'state': 'done', 'fingerprint': 'старий'}})[0]['code_check'], {'state': 'pending'}, 'перевірка кодом іншого відбитка збірки — не про цю збірку')
+pend, _ = E.normalize_enchantments({**EGOOD, 'total': 2, 'code_check': {'state': 'pending', 'fingerprint': 'fp1'}})
+case(E.keep_code_check(copy.deepcopy(pend), en)['code_check'], en['code_check'], 'перевірка ще йде — лишається попередня того самого відбитка')
+case(E.keep_code_check(copy.deepcopy(pend), {**en, 'fingerprint': 'інший'})['code_check'], {'state': 'pending'}, '…але не іншого відбитка')
+rep = []
+r = BE.build(rep.append, False, en, {'items': {'a:sword': 1, 'a:axe': 1}})
+case(r, {'enchantments': 2, 'code': 'done'}, 'база зачарувань будується зі знімка')
+w0 = []
+BE.build(w0.append, False, {'enchantments': []}, {})
+case(bool(w0) and 'game_enchantments' in w0[0], True, 'знімка немає — попередження, база не змінюється')
+import json as _json
+_tmp = {}
+_orig = BE.jsave
+BE.jsave = lambda p, d, compact=False: _tmp.update(d=d)
+BE.build([].append, True, en, {'items': {'a:sword': 1, 'a:axe': 1}})
+BE.jsave = _orig
+sh = next(x for x in _tmp['d']['enchantments'] if x['id'] == 'b:sharp')
+case((sh.get('table'), sh.get('tradeable'), sh.get('treasure'), sh.get('code_adds'), sh.get('code_removes')), (True, True, None, ['a:book'], ['a:axe']), 'ознаки з тегів зачарування й поправки коду — у записі зачарування')
+sm = next(x for x in _tmp['d']['enchantments'] if x['id'] == 'a:smite')
+case((sm.get('treasure'), sm.get('curse'), sm['supported']), (True, True, {'items': ['a:axe', 'a:sword']}), 'скарб / прокляття; перелік предметів')
+
 bad = [(why, got, want) for got, want, why in CASES if got != want]
 for why, got, want in bad: print(f'❌ {why}: {got!r} ≠ {want!r}')
 print(f'Знімок назв з гри: {len(CASES) - len(bad)} з {len(CASES)}')
