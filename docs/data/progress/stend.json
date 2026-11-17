@@ -5,20 +5,20 @@
  "mode": "creative",
  "mode_uk": "Творчість",
  "game_type": 1,
- "last_played": "2026-11-16 18:16",
- "last_played_ts": 1794845788,
- "updated": "2026-11-16 19:01",
- "play_hours": 11.13,
+ "last_played": "2026-11-17 16:06",
+ "last_played_ts": 1794924383,
+ "updated": "2026-11-17 16:06",
+ "play_hours": 13.95,
  "player": {
   "uuid": "832ceed6-e820-31f9-aa40-6acd5077a2ac",
   "xp_level": 7,
-  "selected_slot": 3,
+  "selected_slot": 4,
   "health": 20.0,
   "food_level": 19,
   "pos": [
-   557,
+   553,
    88,
-   702
+   705
   ],
   "dimension": "minecraft:overworld",
   "dimension_uk": "Верхній світ",
@@ -526,6 +526,7 @@
    "arsmagicalegacy:crystal_phylactery",
    "auroral:guide",
    "bhc:red_heart",
+   "deepnullreforged:deep_null_0",
    "dimstorage:dimensional_chest",
    "enderio:soul_vial",
    "enderthing:key",
@@ -567,6 +568,7 @@
    "minecraft:hopper",
    "minecraft:iron_pickaxe",
    "minecraft:item_frame",
+   "minecraft:lantern",
    "minecraft:netherite_sword",
    "minecraft:oak_planks",
    "minecraft:oak_slab",
@@ -608,7 +610,8 @@
    "sophisticatedstorage:chest",
    "sophisticatedstorage:iron_chest",
    "sophisticatedstorage:packing_tape",
-   "toolbelt:belt"
+   "toolbelt:belt",
+   "trophymanager:trophy"
   ],
   "crafted": {
    "minecraft:crafting_table": 1,
@@ -616,10 +619,12 @@
   },
   "inventory": {
    "apotheosis:potion_charm": 1,
+   "deepnullreforged:deep_null_0": 1,
    "dimstorage:dimensional_chest": 1,
    "enderthing:key_chest": 1,
    "enderthing:lock": 3,
    "interdimensionalwirelesstransmitter:red_interdimensional_wireless_transmitter": 1,
+   "minecraft:chest": 11,
    "minecraft:crafting_table": 1,
    "minecraft:diamond_pickaxe": 1,
    "minecraft:diamond_sword": 1,
@@ -627,6 +632,8 @@
    "minecraft:ender_eye": 2,
    "minecraft:feather": 10,
    "minecraft:firework_rocket": 16,
+   "minecraft:gunpowder": 2,
+   "minecraft:lantern": 3,
    "minecraft:netherite_sword": 1,
    "minecraft:shulker_box": 1,
    "sophisticatedbackpacks:backpack": 1,
@@ -642,6 +649,7 @@
    "arsmagicalegacy:crystal_phylactery": "Кришталева філактерія",
    "auroral:guide": "Посібник Auroral",
    "bhc:red_heart": "Мініатюрне червоне серце",
+   "deepnullreforged:deep_null_0": "DeepNull",
    "dimstorage:dimensional_chest": "Міжвимірна скриня",
    "enderio:soul_vial": "Флакон душ",
    "enderthing:key": "Ключ Енду",
@@ -683,6 +691,7 @@
    "minecraft:hopper": "Лійка",
    "minecraft:iron_pickaxe": "Залізне кайло",
    "minecraft:item_frame": "Рамка для предметів",
+   "minecraft:lantern": "Ліхтар",
    "minecraft:netherite_sword": "Незеритовий меч",
    "minecraft:oak_planks": "Дубові дошки",
    "minecraft:oak_slab": "Дубова плита",
@@ -724,11 +733,21 @@
    "sophisticatedstorage:chest": "Скриня",
    "sophisticatedstorage:iron_chest": "Залізна скриня",
    "sophisticatedstorage:packing_tape": "Пакувальна стрічка",
-   "toolbelt:belt": "Інструментальний пояс"
+   "toolbelt:belt": "Інструментальний пояс",
+   "trophymanager:trophy": "Трофей"
   }
  },
  "slots": {
-  "mainHand": null,
+  "mainHand": {
+   "id": "dimstorage:dimensional_chest",
+   "uk": "Міжвимірна скриня",
+   "count": 1,
+   "slot": 4,
+   "slotLabel": "Головна рука (слот 5)",
+   "slotKind": "mainHand",
+   "ns": "dimstorage",
+   "modName": "DimStorage"
+  },
   "offHand": null,
   "hotbar": [
    {
@@ -742,12 +761,32 @@
     "modName": "Minecraft"
    },
    {
+    "id": "minecraft:gunpowder",
+    "uk": "Порох",
+    "count": 2,
+    "slot": 2,
+    "slotLabel": "Гаряча панель (слот 3)",
+    "slotKind": "hotbar",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
+    "id": "sophisticatedbackpacks:backpack",
+    "uk": "Ранець",
+    "count": 1,
+    "slot": 3,
+    "slotLabel": "Гаряча панель (слот 4)",
+    "slotKind": "hotbar",
+    "ns": "sophisticatedbackpacks",
+    "modName": "Sophisticated Backpacks"
+   },
+   {
     "id": "dimstorage:dimensional_chest",
     "uk": "Міжвимірна скриня",
     "count": 1,
     "slot": 4,
-    "slotLabel": "Гаряча панель (слот 5)",
-    "slotKind": "hotbar",
+    "slotLabel": "Головна рука (слот 5)",
+    "slotKind": "mainHand",
     "ns": "dimstorage",
     "modName": "DimStorage"
    },
@@ -773,6 +812,16 @@
    }
   ],
   "inventory": [
+   {
+    "id": "minecraft:shulker_box",
+    "uk": "Шалкерова коробка",
+    "count": 1,
+    "slot": 9,
+    "slotLabel": "Інвентар (слот 9)",
+    "slotKind": "inventory",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
    {
     "id": "enderthing:key_chest",
     "uk": "Скриня Енду з ключем",
@@ -814,14 +863,14 @@
     "modName": "Enderthing"
    },
    {
-    "id": "sophisticatedbackpacks:backpack",
-    "uk": "Ранець",
+    "id": "enderthing:lock",
+    "uk": "Замок Енду",
     "count": 1,
     "slot": 14,
     "slotLabel": "Інвентар (слот 14)",
     "slotKind": "inventory",
-    "ns": "sophisticatedbackpacks",
-    "modName": "Sophisticated Backpacks"
+    "ns": "enderthing",
+    "modName": "Enderthing"
    },
    {
     "id": "minecraft:netherite_sword",
@@ -844,14 +893,14 @@
     "modName": "Interdimensional Wireless Transmitter"
    },
    {
-    "id": "enderthing:lock",
-    "uk": "Замок Енду",
-    "count": 1,
-    "slot": 33,
-    "slotLabel": "Інвентар (слот 33)",
+    "id": "minecraft:chest",
+    "uk": "Скриня",
+    "count": 11,
+    "slot": 20,
+    "slotLabel": "Інвентар (слот 20)",
     "slotKind": "inventory",
-    "ns": "enderthing",
-    "modName": "Enderthing"
+    "ns": "minecraft",
+    "modName": "Minecraft"
    }
   ],
   "armor": [
@@ -1050,23 +1099,37 @@
     "bpKind": "backpack",
     "bpCapacity": 27,
     "bpSlot": 0,
-    "bpWhere": "Інвентар (слот 14)"
+    "bpWhere": "Гаряча панель (слот 4)"
    },
    {
-    "id": "minecraft:shulker_box",
-    "uk": "Шалкерова коробка",
-    "count": 1,
+    "id": "minecraft:lantern",
+    "uk": "Ліхтар",
+    "count": 3,
     "slot": null,
-    "slotLabel": "Рюкзак «Ранець»",
+    "slotLabel": "Усередині «Шалкерова коробка»",
     "slotKind": "backpack",
     "ns": "minecraft",
     "modName": "Minecraft",
-    "bpTitle": "Ранець",
-    "bpKey": "1ea3c1d1-ff82-4288-8748-dfaf7ea26e46",
-    "bpKind": "backpack",
-    "bpCapacity": 27,
-    "bpSlot": 2,
-    "bpWhere": "Інвентар (слот 14)"
+    "bpTitle": "Шалкерова коробка",
+    "bpKey": "Інвентар (слот 9)|Шалкерова коробка",
+    "bpKind": "shulker",
+    "bpSlot": 0,
+    "bpWhere": "Інвентар (слот 9)"
+   },
+   {
+    "id": "deepnullreforged:deep_null_0",
+    "uk": "DeepNull",
+    "count": 1,
+    "slot": null,
+    "slotLabel": "Усередині «Шалкерова коробка»",
+    "slotKind": "backpack",
+    "ns": "deepnullreforged",
+    "modName": "DeepNull Reforged",
+    "bpTitle": "Шалкерова коробка",
+    "bpKey": "Інвентар (слот 9)|Шалкерова коробка",
+    "bpKind": "shulker",
+    "bpSlot": 1,
+    "bpWhere": "Інвентар (слот 9)"
    },
    {
     "id": "minecraft:firework_rocket",
