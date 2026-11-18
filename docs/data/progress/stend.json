@@ -5,10 +5,10 @@
  "mode": "creative",
  "mode_uk": "Творчість",
  "game_type": 1,
- "last_played": "2026-11-18 12:50",
- "last_played_ts": 1794999037,
- "updated": "2026-11-18 12:50",
- "play_hours": 15.71,
+ "last_played": "2026-11-18 17:28",
+ "last_played_ts": 1795015723,
+ "updated": "2026-11-18 17:29",
+ "play_hours": 16.1,
  "player": {
   "uuid": "832ceed6-e820-31f9-aa40-6acd5077a2ac",
   "xp_level": 7,
@@ -16,9 +16,9 @@
   "health": 20.0,
   "food_level": 19,
   "pos": [
-   372,
-   226,
-   -224
+   584,
+   86,
+   662
   ],
   "dimension": "minecraft:overworld",
   "dimension_uk": "Верхній світ",
@@ -639,8 +639,7 @@
    "minecraft:netherite_sword": 1,
    "minecraft:shulker_box": 1,
    "sophisticatedbackpacks:backpack": 1,
-   "toolbelt:belt": 1,
-   "trophymanager:trophy": 1
+   "toolbelt:belt": 1
   },
   "names": {
    "ae2:creative_energy_cell": "Творча комірка енергії",
@@ -795,16 +794,6 @@
     "slotKind": "hotbar",
     "ns": "minecraft",
     "modName": "Minecraft"
-   },
-   {
-    "id": "trophymanager:trophy",
-    "uk": "Трофей",
-    "count": 1,
-    "slot": 7,
-    "slotLabel": "Гаряча панель (слот 8)",
-    "slotKind": "hotbar",
-    "ns": "trophymanager",
-    "modName": "Jonn's Trophies"
    }
   ],
   "inventory": [
