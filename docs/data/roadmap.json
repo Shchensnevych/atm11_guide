@@ -2620,7 +2620,7 @@
    "to": "x_atmdims",
    "kind": "req",
    "label": "самородки",
-   "src": "квести «Розділ 2»: «Телепорт-плита» ← «Усемодієвий злиток»; рецепт allthemodium:teleport_pad — самородки усемодію, перлина Енду"
+   "src": "квести «Розділ 2»: «Телепорт-плита» ← «Усемодієвий злиток»; рецепт «Телепортаційна платформа» — самородки усемодію, перлина Енду"
   },
   {
    "from": "x_atmdims",
@@ -2633,7 +2633,7 @@
    "to": "r_atm",
    "kind": "req",
    "label": "Енд",
-   "src": "руда унобтанію — лише в біомі Височини Енду (allthemodium: neoforge/biome_modifier/unobtainium.json → minecraft:end_highlands)",
+   "src": "руда унобтанію — лише в біомі Височини Енду (дані AllTheModium → «Височини Енду»)",
    "ref": [
     "jarfile:data/allthemodium/neoforge/biome_modifier/unobtainium.json~minecraft:end_highlands"
    ]
@@ -2661,7 +2661,7 @@
    "to": "r_gadgets",
    "kind": "req",
    "label": "самородки усемодію",
-   "src": "KubeJS mods/mininggadgets/recipes.js: mininggadgets:upgrade_empty — #c:nuggets/allthemodium (входить і в рецепт гаджета)",
+   "src": "скрипт збірки (KubeJS): «Порожній модуль покращення» — спільна група предметів (входить і в рецепт гаджета)",
    "ref": [
     "kjs:server_scripts/mods/mininggadgets/recipes.js#L6",
     "tag:c:nuggets/allthemodium"
@@ -2678,7 +2678,7 @@
    "to": "r_quarry",
    "kind": "req",
    "label": "унобтанієве кайло",
-   "src": "KubeJS mods/quarryplus/recipes.js: quarryplus:quarry — унобтанієве кайло, злитки усемодію",
+   "src": "скрипт збірки (KubeJS): «Кар'єр+» — унобтанієве кайло, злитки усемодію",
    "ref": [
     "recipe:kjs:mods/quarryplus/recipes.js#L10"
    ]
@@ -2687,7 +2687,7 @@
    "from": "t_jdt",
    "to": "r_quarry",
    "kind": "req",
-   "src": "KubeJS mods/quarryplus/recipes.js: кайло зі сплаву затемнення, покращений руйнівник блоків JDT",
+   "src": "скрипт збірки (KubeJS): кайло зі сплаву затемнення, покращений руйнівник блоків JDT",
    "ref": [
     "recipe:kjs:mods/quarryplus/recipes.js#L10"
    ]
@@ -2697,7 +2697,7 @@
    "to": "r_quarry",
    "kind": "req",
    "label": "покращення омега",
-   "src": "KubeJS mods/quarryplus/recipes.js: 2× productivelib:upgrade_productivity_4; KubeJS mods/productivebees/recipes.js: омега — з покращень продуктивності 3 і самородків унобтанію",
+   "src": "скрипт збірки (KubeJS): 2× «Покращення: продуктивність омега»; скрипт збірки (KubeJS): омега — з покращень продуктивності 3 і самородків унобтанію",
    "ref": [
     "recipe:kjs:mods/quarryplus/recipes.js#L10",
     "recipe:kjs:mods/productivebees/recipes.js#L6"
@@ -2720,7 +2720,7 @@
    "to": "st_rs",
    "kind": "req",
    "label": "кремній",
-   "src": "квести «Розділ 1»: «Найвища форма сховища» (кремній RS / AE2) ← «Покращені скрині/діжки»; рецепт refinedstorage:controller — #c:silicon",
+   "src": "квести «Розділ 1»: «Найвища форма сховища» (кремній RS / AE2) ← «Покращені скрині/діжки»; рецепт «Контролер» — «Кремній»",
    "ref": [
     "recipe:refinedstorage:controller",
     "quest:1B3BBE40ABE68E69"
@@ -2785,7 +2785,7 @@
    "to": "r_mystic",
    "kind": "syn",
    "label": "бджоли есенцій",
-   "src": "рецепти productivebees:centrifuge/mysticalagriculture/* — центрифуга перетворює стільники бджіл есенцій на есенції від інферію до пробудженого супремію",
+   "src": "рецепти Productive Bees — центрифуга перетворює стільники бджіл есенцій на есенції від інферію до пробудженого супремію",
    "ref": [
     "recipe:productivebees:centrifuge/mysticalagriculture/honeycomb_inferium",
     "recipe:productivebees:centrifuge/mysticalagriculture/honeycomb_awakened_supremium"
@@ -2802,7 +2802,7 @@
    "to": "r_ores",
    "kind": "syn",
    "label": "Ultimine",
-   "src": "FTB Ultimine (у віхі Silent Gear) копає до 64 з'єднаних блоків руди, руди за тегом c:ores/* — разом: config/ftbultimine-server.json5 max_blocks = 64, merge_tags",
+   "src": "FTB Ultimine (у віхі Silent Gear) копає до 64 з'єднаних блоків руди, руди за тегом «Руди» — разом: налаштування FTB Ultimine max_blocks = 64, merge_tags",
    "ref": [
     "config:config/ftbultimine-server.json5#costs_limits.max_blocks=64",
     "config:config/ftbultimine-server.json5#misc.merge_tags"
@@ -2818,7 +2818,7 @@
    "to": "r_foundry",
    "kind": "syn",
    "label": "руди ×2",
-   "src": "productivemetalworks: melting/raw_materials/* — необроблена руда дає 180 mB розплаву, злиток відливається з 90 mB (напр. олово AllTheOres)",
+   "src": "дані Productive Metalworks — необроблена руда дає 180 mB розплаву, злиток відливається з 90 mB (напр. олово AllTheOres)",
    "ref": [
     "recipe:productivemetalworks:melting/raw_materials/tin",
     "jarfile:data/productivemetalworks/recipe/melting/raw_materials/tin.json~180",
@@ -2853,7 +2853,7 @@
    "to": "x_stellaris",
    "kind": "opt",
    "label": "титан",
-   "src": "рецепт stellaris:rocket (станція ракет) — злитки титану #c:ingots/titanium"
+   "src": "рецепт «Ракета» (станція ракет) — злитки титану «Титанові злитки»"
   },
   {
    "from": "tr_stone",
@@ -2865,7 +2865,7 @@
    "to": "r_hnn",
    "kind": "req",
    "label": "незерит",
-   "src": "рецепт hostilenetworks:loot_fabricator — #c:ingots/netherite",
+   "src": "рецепт «Фабрикатор здобичі» — спільна група предметів",
    "ref": [
     "recipe:hostilenetworks:loot_fabricator",
     "tag:c:ingots/netherite"
@@ -2876,7 +2876,7 @@
    "to": "r_hnn",
    "kind": "syn",
    "label": "FE",
-   "src": "config/hostilenetworks.cfg: камера симуляцій (запас до 2 000 000 FE) і фабрикатор луту (256 FE/такт) працюють на FE",
+   "src": "налаштування Hostile Neural Networks: камера симуляцій (запас до 2 000 000 FE) і фабрикатор луту (256 FE/такт) працюють на FE",
    "ref": [
     "file:config/hostilenetworks.cfg~\"Sim Chamber Power Cap\"=2000000",
     "file:config/hostilenetworks.cfg~\"Loot Fab Power Cost\"=256",
@@ -2936,21 +2936,21 @@
    "to": "t_mffs",
    "kind": "opt",
    "label": "сталь",
-   "src": "KubeJS mods/mffs/recipes.js прибирає сталь MFFS; рецепт mffs:projector — #c:ingots/steel; сталь — піч для сплавів EP, плавильник EIO, домна Railcraft, ливарня (факт «Сталь»)"
+   "src": "скрипт збірки (KubeJS) прибирає сталь MFFS; рецепт «Проєктор силового поля» — «Сталевий злиток»; сталь — піч для сплавів EP, плавильник EIO, домна Railcraft, ливарня (факт «Сталь»)"
   },
   {
    "from": "e_eio",
    "to": "t_mffs",
    "kind": "opt",
    "label": "сталь",
-   "src": "див. t_ep → t_mffs: сталь з плавильника сплавів EIO (enderio:alloy_smelting)"
+   "src": "див. t_ep → t_mffs: сталь з плавильника сплавів EIO (Ender IO)"
   },
   {
    "from": "tr_nether",
    "to": "t_rail",
    "kind": "req",
    "label": "цегла домни",
-   "src": "рецепт railcraft:blast_furnace_bricks — незерська цегла, пісок душ, магмовий крем",
+   "src": "рецепт «Цегла домни» — незерська цегла, пісок душ, магмовий крем",
    "ref": [
     "recipe:railcraft:blast_furnace_bricks",
     "quest:0A43FD0B5C76C1C5"
@@ -3063,7 +3063,7 @@
    "to": "g_apoth",
    "kind": "syn",
    "label": "лут",
-   "src": "apotheosis: loot_modifiers/affix_loot_injection.json — афіксні предмети у 30–35 % скринь будь-яких структур (chests.*)",
+   "src": "дані Apotheosis — афіксні предмети у 30–35 % скринь будь-яких структур (chests.*)",
    "ref": [
     "jarfile:data/apotheosis/loot_modifiers/affix_loot_injection.json~\"chance\": 0.35"
    ]
@@ -3073,7 +3073,7 @@
    "to": "c_gates",
    "kind": "syn",
    "label": "світові рівні",
-   "src": "Apotheosis: рівневі брами світових рівнів (Кордон, Сходження, Вершина, Пік) — рецепти apotheosis:gateways/tiered/*, квест «Апофеотичні брами»",
+   "src": "Apotheosis: рівневі брами світових рівнів (Кордон, Сходження, Вершина, Пік) — рецепти Apotheosis, квест «Апофеотичні брами»",
    "ref": [
     "recipe:apotheosis:gateways/tiered/frontier",
     "recipe:apotheosis:gateways/tiered/summit",
@@ -3108,7 +3108,7 @@
    "to": "x_under",
    "kind": "opt",
    "label": "каталізатор",
-   "src": "рецепт undergarden:catalyst — мідні злитки, камінь, перлина Енду"
+   "src": "рецепт «Каталізатор» — мідні злитки, камінь, перлина Енду"
   },
   {
    "from": "x_map",
@@ -3120,7 +3120,7 @@
    "to": "l_pipes",
    "kind": "req",
    "label": "залізо",
-   "src": "рецепт pipez:item_pipe — залізо, викидач, редстоун",
+   "src": "рецепт «Труба для предметів» — залізо, викидач, редстоун",
    "ref": [
     "recipe:pipez:item_pipe"
    ]

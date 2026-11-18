@@ -55,6 +55,9 @@ WEAPON_TAGS = ('minecraft:enchantable/weapon', 'minecraft:enchantable/sharp_weap
 WEAPON_HAS = ('minecraft:weapon', 'minecraft:blocks_attacks', 'minecraft:kinetic_weapon', 'minecraft:piercing_weapon')
 TOOL_HAS = ('minecraft:tool', 'minecraft:weapon', 'minecraft:blocks_attacks', 'minecraft:kinetic_weapon', 'minecraft:piercing_weapon', 'minecraft:max_damage')
 CONTAINER_TAGS = ('c:shulker_boxes',)
+# ВИНЯТОК із закону універсальності (рішення користувача 2026-11-17, K20): `curios:` / `accessories:` — простори імен API слотів
+# аксесуарів (угода двох бібліотек, якою користуються всі моди з аксесуарами). Ванільного компонента вдягання в аксесуарів немає,
+# спільного тегу `c:` теж — без цих префіксів амулети, каблучки й пояси стали б «іншим». Нових назв модів сюди не додавати.
 WEAR_TAG_PREFIX = ('curios:', 'accessories:', 'c:armors')
 WEAR_TAGS = ('minecraft:head_armor', 'minecraft:chest_armor', 'minecraft:leg_armor', 'minecraft:foot_armor', 'minecraft:enchantable/armor')
 BOOK_TAGS = ('minecraft:bookshelf_books', 'minecraft:lectern_books', 'c:books')

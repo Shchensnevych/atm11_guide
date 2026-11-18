@@ -5,6 +5,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import RAW, CONTENT, DATA, UA, jload, jsave
 refs_of_ = lambda x: [x['ref']] if isinstance(x.get('ref'), str) else list(x.get('ref') or [])
 import build_keys, build_chapters, build_names, build_search, build_enchantments, build_item_groups, hashlib
+from human_src import Humanizer
 
 PERF = re.compile(r'sodium|ferrite|modernfix|immediatelyfast|fastsuite|fastfurnace|fastbench|spark|imfast|flickerfix|maxhealthfix|attributefix|netherportalfix|crash|bcc|clumps|getittogether', re.I)
 LIB = re.compile(r'\b(lib|library|api|core|codelib|framework|config)\b|lib$|^lib|corelib|configlib', re.I)
@@ -234,6 +235,18 @@ def main():
             rec['uk'] = nv[0]
             if len(nv) > 1 and nv[1] and (not rec.get('en') or rec.get('en') == '%s'):
                 rec['en'] = nv[1]
+    # K21 (§4 Б12): «Джерело» (src) — людською мовою для сайту й моста: id → назви з гри, шляхи → «налаштування / скрипт /
+    # дані / код мода <Мод>» (tools/human_src.py); content/ і ref (для сита) не змінюються
+    hs = Humanizer(jload(os.path.join(DATA, 'names.json'), {}) or {}, mods, os.path.join(RAW, 'recipes.db'))
+    srcs = [x for m in mods for k in ('synergy', 'synergy_in') for x in m.get(k, []) if isinstance(x, dict)] \
+        + list(road.get('edges', [])) + [st for b in branches for st in b.get('steps', [])]
+    hs_changed = 0
+    for x in srcs:
+        if isinstance(x.get('src'), str) and x['src']:
+            h = hs.text(x['src'])
+            if h != x['src']: x['src'] = h; hs_changed += 1
+    rep.append(f'джерело (src) людською мовою: змінено {hs_changed} з {sum(1 for x in srcs if x.get("src"))}; лишилось id / шляхів {len(hs.residual)}'
+               + (f' ({", ".join(sorted(set(hs.residual))[:8])}…)' if hs.residual else ''))
     wg = jload(os.path.join(RAW, 'worldgen_blocks_auto.json'), None)   # C6b: блоки генерації світу (tools/extract_worldgen.py) → для «моє» в компаньйоні
     if wg and not wg.get('vanilla'): warn('worldgen_blocks_auto.json без ванільних структур — не беру (extract_worldgen.py з клієнтським jar)'); wg = None
     stat = collections.Counter('curated' if not m['auto'] else ('auto:' + m['role']) for m in mods)

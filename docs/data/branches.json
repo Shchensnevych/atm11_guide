@@ -33,7 +33,7 @@
      "73A5FBE84B28CDC8"
     ],
     "text": "Рамка з 10 блоків світлокаменю (як для Незеру) і відро води всередину. Аерохмари гасять шкоду від падіння, планери розкриваються ПКМ. Назад портал веде у Верхній світ.",
-    "src": "квести «Портал Етеру», «Aether 2», «Аерохмари», «Планери», «Немає місця кращого за дім»; config/aether_ii-server.toml",
+    "src": "квести «Портал Етеру», «Aether 2», «Аерохмари», «Планери», «Немає місця кращого за дім»; налаштування The Aether II",
     "ref": [
      "jarfile:data/aether_ii/dimension/aether_holy_isles.json",
      "config:config/aether_ii-server.toml#Sets portal return dimension=minecraft:overworld"
@@ -685,7 +685,7 @@
     ],
     "spoiler": true,
     "text": "Під руїнами вартових — лабіринт із пастками, вартовими й міміками. Ковзун — єдиний бос (тег c:bosses), шкодить йому лише кайло (за квестом — 350 сердець). Скарби: кінетичні прискорювачі, молот руйнування, нептунові обладунки, чоботи вартового.",
-    "src": "квести «Руїни вартових», «Ковзун», «Мімік», «Кінетичні прискорювачі», «Молот руйнування» та ін.; jar aether_ii data/c/tags/entity_type/bosses.json",
+    "src": "квести «Руїни вартових», «Ковзун», «Мімік», «Кінетичні прискорювачі», «Молот руйнування» та ін.; jar дані The Aether II",
     "ref": [
      "jarfile:data/c/tags/entity_type/bosses.json~aether_ii:slider",
      "jarfile:data/aether_ii/worldgen/structure/sentry_ruins.json",
@@ -814,7 +814,7 @@
      "71E4FD61787DE299"
     ],
     "text": "Руда усемодію — у біомі Темні глибини (навколо Стародавніх міст), кайло — щонайменше незеритове. Ковальський шаблон усемодію — з підозрілої глини в підлозі Стародавніх міст.",
-    "src": "квести «Усемодій», «Стародавнє місто», «Усемодієвий злиток», «Усемодієвий Ковальський шаблон»; biome_modifier allthemodium.json; loot_table/arch.json",
+    "src": "квести «Усемодій», «Стародавнє місто», «Усемодієвий злиток», «Усемодієвий Ковальський шаблон»; biome_modifier дані AllTheModium; дані збірки",
     "ref": [
      "jarfile:data/allthemodium/neoforge/biome_modifier/allthemodium.json~minecraft:deep_dark",
      "jarfile:data/allthemodium/loot_table/arch.json~allthemodium:allthemodium_upgrade_smithing_template"
@@ -887,7 +887,7 @@
      "11E957CDEFA0CAAB"
     ],
     "text": "Плита — 4 самородки усемодію + перлина Енду; телепорт — Shift + ПКМ порожніми руками. З Верхнього світу — у Вимір видобутку (плаский, під поверхнею — руди багатьох модів), з Незеру — в Інший світ, з Енду — в Позамежжя.",
-    "src": "квести «Телепорт-плита», «Вимір видобутку», «Інший світ», «Позамежжя»; рецепт allthemodium:teleport_pad",
+    "src": "квести «Телепорт-плита», «Вимір видобутку», «Інший світ», «Позамежжя»; рецепт «Телепортаційна платформа»",
     "ref": [
      "recipe:allthemodium:teleport_pad",
      "jarfile:data/allthemodium/dimension/mining.json",
@@ -945,7 +945,7 @@
      "7DE2154159D273C3"
     ],
     "text": "Вібраній — рідко в Незері, багато в Іншому світі; потрібне усемодієве кайло. Шаблон вібранію — з підозрілого піску душ у бастіонах.",
-    "src": "квести «Вібранієвий злиток», «Вібранієвий Ковальський шаблон», «Вібранієві інструменти / обладунки»; biome_modifier vibranium.json; loot_table/arch2.json",
+    "src": "квести «Вібранієвий злиток», «Вібранієвий Ковальський шаблон», «Вібранієві інструменти / обладунки»; biome_modifier дані збірки; дані збірки",
     "ref": [
      "jarfile:data/allthemodium/neoforge/biome_modifier/vibranium.json~c:is_nether",
      "jarfile:data/allthemodium/worldgen/placed_feature/vibranium_other.json",
@@ -992,7 +992,7 @@
      "4E737C490DCC5D6C"
     ],
     "text": "Унобтаній — вкрай рідко у Височинах Енду, потрібне вібранієве кайло. Шаблон унобтанію — з породжувачів випробувань у бібліотечних кімнатах Підземелля в Іншому світі (за квестом).",
-    "src": "квести «Унобтанієвий злиток», «Унобтанієвий Ковальський шаблон», «Унобтанієві інструменти / обладунки»; biome_modifier unobtainium.json",
+    "src": "квести «Унобтанієвий злиток», «Унобтанієвий Ковальський шаблон», «Унобтанієві інструменти / обладунки»; biome_modifier дані збірки",
     "ref": [
      "jarfile:data/allthemodium/neoforge/biome_modifier/unobtainium.json~minecraft:end_highlands",
      "jarfile:data/allthemodium/loot_table/chest/template.json~allthemodium:unobtainium_upgrade_smithing_template"
@@ -1036,7 +1036,7 @@
     ],
     "spoiler": true,
     "text": "Стародавня піраміда в Іншому світі — дім Піґліча (за квестом — 5000 сердець, 9999 HP); з нього — серце піґліча для сплавів ATM.",
-    "src": "квести «Стародавня піраміда», «Бос Піґліч»; KubeJS modpack/atm_alloys.js",
+    "src": "квести «Стародавня піраміда», «Бос Піґліч»; скрипт збірки (KubeJS)",
     "ref": [
      "jarfile:data/allthemodium/loot_table/entities/piglich.json~allthemodium:piglich_heart",
      "kjs:server_scripts/modpack/atm_alloys.js~allthemodium:piglich_heart"
@@ -1354,7 +1354,7 @@
      "552BA5E6FA987256"
     ],
     "text": "Ендгейм-стіл доповнення перегенеровує, вибирає або покращує окремий афікс; паливо — сигіли вдосконалення з боготворених перлин. Сигіл злоби не крафтиться — його дають загарбники.",
-    "src": "квести «Стіл доповнення», «Сигіл вдосконалення», «Сигіл злоби»; рецепт apotheosis:augmenting_table",
+    "src": "квести «Стіл доповнення», «Сигіл вдосконалення», «Сигіл злоби»; рецепт «Стіл доповнення»",
     "ref": [
      "recipe:apotheosis:augmenting_table",
      "item:apotheosis:sigil_of_enhancement",
@@ -1389,7 +1389,7 @@
      "2E5E129F25707C5D"
     ],
     "text": "Для кожного світового рівня, крім Притулку, є брама з хвилями монстрів і загарбників. Пройдена брама Піку дає перлину Нескінченної брами загарбників; за 100 її хвиль — сигіл перевершення.",
-    "src": "квести «Апофеотичні брами», «Перлина брами — Нескінченна брама апофеотичних загарбників», «Сигіл перевершення»; рецепти apotheosis:gateways/tiered/*",
+    "src": "квести «Апофеотичні брами», «Перлина брами — Нескінченна брама апофеотичних загарбників», «Сигіл перевершення»; рецепти Apotheosis",
     "ref": [
      "recipe:apotheosis:gateways/tiered/frontier",
      "recipe:apotheosis:gateways/tiered/pinnacle",
@@ -1861,7 +1861,7 @@
      "321C15EBBE2D3D30"
     ],
     "text": "Породжувач копається кайлом із Шовковим дотиком I, кайло втрачає 100 міцності (конфіг). Підірваний породжувач випускає багато мобів і лишає ланцюги породжувача.",
-    "src": "квести «Апотичні спавнери», «Підриваємо породжувачі»; config/apotheosis/apothic_spawners.cfg",
+    "src": "квести «Апотичні спавнери», «Підриваємо породжувачі»; налаштування Apotheosis",
     "ref": [
      "file:config/apotheosis/apothic_spawners.cfg~I:\"Spawner Silk Level\"=1",
      "file:config/apotheosis/apothic_spawners.cfg~I:\"Spawner Silk Damage\"=100",
@@ -2153,7 +2153,7 @@
      "5CE44C58A470E48E"
     ],
     "text": "Артефакти знаходять під час досліджень, археологією або вбиваючи міміків — вони маскуються під скрині в підземних таборах і нападають зблизька. Мімік у збірці в тегу allthemods:jank_blacklist (не для породжувачів).",
-    "src": "квест «Artifacts»; jar Artifacts: loot_table/entities/mimic.json; KubeJS tweaks/tags.js",
+    "src": "квест «Artifacts»; jar Artifacts: дані збірки; скрипт збірки (KubeJS)",
     "ref": [
      "jarfile:artifacts!data/artifacts/loot_table/entities/mimic.json",
      "kjs:server_scripts/tweaks/tags.js~\"artifacts:mimic\""
@@ -2183,7 +2183,7 @@
      "4D3379D38237F830"
     ],
     "text": "Слот ніг: черевики Блукача, укорінені чоботи, ласти, непохитні шипи, снігоступи, кросівки, котячі капці, стрибунці, буйки.",
-    "src": "квести глави «Артефакти» (взуття); тег curios:feet",
+    "src": "квести глави «Артефакти» (взуття); тег Curios API",
     "ref": [
      "tag:curios:feet"
     ],
@@ -2253,7 +2253,7 @@
      "3525D5DCC3A534D9"
     ],
     "text": "Слот рук: браслет висушування, підігрівач кайла, цибулеве кільце, золотий гак, рукавиця вампіра, кишеньковий поршень, вогнева й потужна рукавиці, звірині й рийні кігті.",
-    "src": "квести глави «Артефакти» (руки); тег curios:hands",
+    "src": "квести глави «Артефакти» (руки); тег «Руки»",
     "ref": [
      "tag:curios:hands"
     ],
@@ -2326,7 +2326,7 @@
      "436E4E3515BCCDE9"
     ],
     "text": "Слот пояса: двигун викривлення, тотем хоруса, гелієвий фламінго, кришталеве серце, посудина протиотрути, магніт, обсидіановий череп, хмара в банці.",
-    "src": "квести глави «Артефакти» (пояс); тег curios:belt",
+    "src": "квести глави «Артефакти» (пояс); тег «Ремені»",
     "ref": [
      "tag:curios:belt"
     ],
@@ -2390,7 +2390,7 @@
      "145E7D1A88B83DDD"
     ],
     "text": "Слот намиста: амулети зменшення й занурення, шипастий, полум'яний, шоковий і панічний кулони, хрестик, щасливий шарф, шарф-невидимка.",
-    "src": "квести глави «Артефакти» (намиста); тег curios:necklace",
+    "src": "квести глави «Артефакти» (намиста); тег Curios API",
     "ref": [
      "tag:curios:necklace"
     ],
@@ -2458,7 +2458,7 @@
      "2607F3DC07049785"
     ],
     "text": "Слот голови: капелюх рибалки, ковбойський, забобонний і сільський капелюхи, окуляри нічного бачення, дихальна трубка, пивні капелюхи.",
-    "src": "квести глави «Артефакти» (голова); тег curios:head",
+    "src": "квести глави «Артефакти» (голова); тег «Голови»",
     "ref": [
      "tag:curios:head"
     ],
@@ -2517,7 +2517,7 @@
      "3E1A3BC8642390B3"
     ],
     "text": "Вічна яловичина й вічний стейк (яловичину смажать у печі, коптильні чи на багатті); подушка-пердушка; парасолька.",
-    "src": "квести «Вічний стейк», «Вічна яловичина», «Подушка-пердушка», «Парасолька»; рецепти artifacts:eternal_steak_from_*",
+    "src": "квести «Вічний стейк», «Вічна яловичина», «Подушка-пердушка», «Парасолька»; рецепти Artifacts",
     "ref": [
      "recipe:artifacts:eternal_steak_from_smelting",
      "recipe:artifacts:eternal_steak_from_smoking",
@@ -2606,7 +2606,7 @@
      "0BBDB63F944F61A7"
     ],
     "text": "Уночі в засніжених біомах Верхнього світу з шансом 0,33 починається аврора: ростуть квітки аврори, з них — замерзлі пелюстки. Перлина Енду перетворює квітку на ендер-квітку.",
-    "src": "квести «Auroral», «Квітки аврори», «Замерзлі пелюстки», «Ендер-квітки»; config/auroral-server.toml",
+    "src": "квести «Auroral», «Квітки аврори», «Замерзлі пелюстки», «Ендер-квітки»; налаштування Auroral",
     "ref": [
      "config:config/auroral-server.toml#aurora_chance=0.33",
      "config:config/auroral-server.toml#aurora_dimensions",
@@ -2697,7 +2697,7 @@
      "11AD7F883D777339"
     ],
     "text": "Холодна варильна стійка варить зілля без Незеру; світлопорей росте на мерехтливому льоду; ліхтар аврори захищає від Темряви. Колода домовогнища горить 168000 тактів і дає селянам знижку 0,2 (конфіг). Авроральні навтилуси й сніговички — істоти аврори.",
-    "src": "квести «Холодна варильна стійка», «Світлопорей», «Ліхтарі аврори», «Колоди домовогнища», «Авроральний навтилус», «Авроральні сніговички»; config/auroral-server.toml",
+    "src": "квести «Холодна варильна стійка», «Світлопорей», «Ліхтарі аврори», «Колоди домовогнища», «Авроральний навтилус», «Авроральні сніговички»; налаштування Auroral",
     "ref": [
      "recipe:auroral:cold_brewing_stand",
      "config:config/auroral-server.toml#hearthwood_log_burn_time=168000",
@@ -2749,7 +2749,7 @@
      "7BECDD4208BB1B24"
     ],
     "text": "Мерехтливі ковальські шаблони (з уламків аврори) роблять спорядження з мерехтливої сталі й обладунки з мерехтливої тканини. Меч добиває моба з менш ніж 0,15 здоров'я; лопати й мотики мають Шовковий дотик, мотика робить зі снігу мерехтливий ґрунт.",
-    "src": "квести «Мерехтливі ковальські шаблони», «Зброя з мерехтливої сталі», «Обладунки з мерехтливої тканини», «Інструменти з мерехтливої сталі», «Мерехтливий ґрунт»; config/auroral-server.toml",
+    "src": "квести «Мерехтливі ковальські шаблони», «Зброя з мерехтливої сталі», «Обладунки з мерехтливої тканини», «Інструменти з мерехтливої сталі», «Мерехтливий ґрунт»; налаштування Auroral",
     "ref": [
      "config:config/auroral-server.toml#execute_threshold=0.15",
      "item:auroral:shimmersteel_upgrade_smithing_template"
@@ -2894,7 +2894,7 @@
      "79590DE87595F3C6"
     ],
     "text": "Плавильник — серце раннього Ender IO: енергійний, вібрівний і провідний сплави, темна сталь (залізо, вугілля, обсидіан), соуларій. У ATM11 він ще й плавить сталь AllTheOres — одне з джерел сталі для Oritech і MFFS.",
-    "src": "квести «Плавильник», злитків сплавів і «Самородок соуларію»; рецепт alltheores:alloy_smelting/steel_ingot (тип enderio:alloy_smelting)",
+    "src": "квести «Плавильник», злитків сплавів і «Самородок соуларію»; рецепт «Сталевий злиток» (тип Ender IO)",
     "ref": [
      "recipe:alltheores:alloy_smelting/steel_ingot"
     ],
@@ -2946,7 +2946,7 @@
      "262B331BB96336F5"
     ],
     "text": "Провідники несуть предмети, рідини, енергію й редстоун в одному блоці; у збірці є й провідник Refined Storage, а Endergy додає енергетичні провідники вищої пропускної здатності. Yeta-ключ обертає машини, Shift+ПКМ підбирає їх із вмістом і покращеннями, ним же налаштовують провідники. Фасад маскує пучок під інший блок.",
-    "src": "квести «Yeta-ключ & провідники», «Фасад для провідників»; рецепти enderio:rs_conduit, enderio_endergy:crude_energy_conduit",
+    "src": "квести «Yeta-ключ & провідники», «Фасад для провідників»; рецепти «<ВІДСУТНІЙ> Провідник», «<ВІДСУТНІЙ> Провідник»",
     "ref": [
      "recipe:enderio:rs_conduit",
      "recipe:enderio_endergy:crude_energy_conduit"
@@ -3023,7 +3023,7 @@
      "3DBAC2CDD75763F3"
     ],
     "text": "Бездротовий зарядник заряджає спорядження на FE, яке ви тримаєте чи носите, поки стоїте поруч (базовий радіус 16 блоків, конфіг); дротовий — покладений у нього предмет. Електромагніт притягує предмети в радіусі 5 блоків (конфіг).",
-    "src": "квести «Бездротовий зарядник», «Дротовий зарядник», «Електромагніт»; config/enderio/machines-common.toml, base-common.toml",
+    "src": "квести «Бездротовий зарядник», «Дротовий зарядник», «Електромагніт»; налаштування Ender IO, налаштування збірки",
     "ref": [
      "config:config/enderio/machines-common.toml#wirelessCharger.baseRange=16",
      "config:config/enderio/base-common.toml#items.electromagnet.range=5"
@@ -3129,7 +3129,7 @@
      "726857C4BE6ADCDE"
     ],
     "text": "Посох мандрування телепортує між мандрівними якорями (до 192 блоків від посоха, конфіг) і робить короткий стрибок до 24 блоків; посох левітації пом'якшує падіння й підкидає вище.",
-    "src": "квести «Ендер-кристал», «Посох мандрування», «Посох левітації»; config/enderio/base-common.toml: items.travelling",
+    "src": "квести «Ендер-кристал», «Посох мандрування», «Посох левітації»; налаштування Ender IO",
     "ref": [
      "config:config/enderio/base-common.toml#items.travelling.blinkRange=24",
      "config:config/enderio/base-common.toml#items.travelling.itemToBlockRange=192"
@@ -3696,7 +3696,7 @@
      "47764EFC822E462A"
     ],
     "text": "Раковина дає нескінченну воду — і кухні, і трубам (sinkRequiresWater = false). «Корова в банці» виробляє 1 mB молока за такт (конфіг).",
-    "src": "квести «Раковина = нескінченна вода», «Корова в банці»; config/cookingforblockheads-common.toml",
+    "src": "квести «Раковина = нескінченна вода», «Корова в банці»; налаштування Cooking for Blockheads",
     "ref": [
      "config:config/cookingforblockheads-common.toml#sinkRequiresWater=false",
      "config:config/cookingforblockheads-common.toml#cowJarMilkPerTick=1"
@@ -3753,7 +3753,7 @@
      "1F114EB0AAB86DB4"
     ],
     "text": "Ринок Farming for Blockheads: селянин продає насіння, паростки, квіти — за квестом зазвичай 1 смарагд за предмет. Годівниця розмножує тварин у радіусі 8 блоків (конфіг).",
-    "src": "квест «Купуємо фермерське приладдя»; config/farmingforblockheads-common.toml",
+    "src": "квест «Купуємо фермерське приладдя»; налаштування Farming for Blockheads",
     "ref": [
      "config:config/farmingforblockheads-common.toml#feedingTroughRange=8"
     ],
@@ -3778,7 +3778,7 @@
      "5A1DCD6C7F712A78"
     ],
     "text": "Вудки Aquaculture: залізна → золота → діамантова → нептунієва. Нептуній — зі скрині «Подарунок Нептуна» в улові (конфіг).",
-    "src": "квести «Початок рибалки», «Залізна / Золота / Діамантова / Нептунієва вудка»; config/aquaculture-common.toml",
+    "src": "квести «Початок рибалки», «Залізна / Золота / Діамантова / Нептунієва вудка»; налаштування Aquaculture 2",
     "ref": [
      "config:config/aquaculture-common.toml#neptunium_options.Add Neptune's Bounty as loot?=true"
     ],
@@ -4150,7 +4150,7 @@
      "15849165CA8C00F9"
     ],
     "text": "Рівні Кузні піднімають ритуали на самій кузні: 3 — деорум і містичні кристали, 4 — руни й стеларит, 5 — темні зірки Незеру, драконячі луски, каталізатори скалку. Вічна Стелла (ритуал Кузні 3 рівня): у ATM11 у центрі усемодієвий злиток замість діаманта, + 3 згущені досвіди й шматок стелариту; незламність у ATM11 накладає ритуал Occultism, а KubeJS додає подвоєння реліквій (Кузня 3 рівня). Ритуали ATM11 задають есенцію ключем souls (у моді — ectoplasm) — чи працюють, перевірити в JEI.",
-    "src": "квести «Кузня 3 / 4 / 5 рівня», «Вічна Стелла»; KubeJS data/occultism/recipe/ritual/misc_unbreakable.json, server_scripts/mods/forbidden_arcanus/hephaestus_forge.js",
+    "src": "квести «Кузня 3 / 4 / 5 рівня», «Вічна Стелла»; скрипт збірки (KubeJS)",
     "ref": [
      "kjs:dynamic_data/forbidden_arcanus/forbidden_arcanus/hephaestus_forge/ritual/eternal_stella.json~allthemodium:allthemodium_ingot",
      "kjs:server_scripts/mods/forbidden_arcanus/hephaestus_forge.js",
@@ -4288,7 +4288,7 @@
      "2748ACEAB96A5F60"
     ],
     "text": "Звичайна піч плавить предмет за 200 тактів, мідна — за 180, залізна — за 160 (конфіг). Вищі печі крафтять із попередніх або покращують на місці предметами «Покращення печі».",
-    "src": "квести «Піч», «Мідна піч», «Залізна піч»; config/ironfurnaces-common.toml: furnaces.*.speed",
+    "src": "квести «Піч», «Мідна піч», «Залізна піч»; налаштування Iron Furnaces: furnaces.*.speed",
     "ref": [
      "config:config/ironfurnaces-common.toml#furnaces.copper_furnace.speed=180",
      "config:config/ironfurnaces-common.toml#furnaces.iron_furnace.speed=160"
@@ -4321,7 +4321,7 @@
      "61F265D9A5713A4D"
     ],
     "text": "Генератор працює як піч із доповненням «Генератор»: паливо → FE. Мідний дає 8 FE/такт, залізний — 16 (конфіг); покращення підвищує вироблення, запас і передачу.",
-    "src": "квести «Мідний генератор», «Залізний генератор»; config/generatorgalore/generator/copper.json, iron.json",
+    "src": "квести «Мідний генератор», «Залізний генератор»; налаштування Generator Galore, дані збірки",
     "ref": [
      "config:config/generatorgalore/generator/copper.json#generationRate=8",
      "config:config/generatorgalore/generator/iron.json#generationRate=16"
@@ -4436,7 +4436,7 @@
      "79C4CF8D7312FC28"
     ],
     "text": "Час плавки (конфіг): срібна — 140 тактів, золота — 120, діамантова — 80, смарагдова й кришталева — 40, обсидіанова — 20, незеритова — 5.",
-    "src": "квести «Срібна / Золота / Діамантова / Смарагдова / Кришталева / Обсидіанова / Незеритова піч»; config/ironfurnaces-common.toml",
+    "src": "квести «Срібна / Золота / Діамантова / Смарагдова / Кришталева / Обсидіанова / Незеритова піч»; налаштування Iron Furnaces",
     "ref": [
      "config:config/ironfurnaces-common.toml#furnaces.silver_furnace.speed=140",
      "config:config/ironfurnaces-common.toml#furnaces.gold_furnace.speed=120",
@@ -4496,7 +4496,7 @@
      "07BEB974DF1E5AD3"
     ],
     "text": "Тверде паливо, FE/такт за конфігом: золотий — 32, діамантовий — 64, обсидіановий — 128, смарагдовий і незеритовий — 256.",
-    "src": "квести «Золотий / Діамантовий / Обсидіановий / Смарагдовий / Незеритовий генератор»; config/generatorgalore/generator/*.json",
+    "src": "квести «Золотий / Діамантовий / Обсидіановий / Смарагдовий / Незеритовий генератор»; налаштування Generator Galore",
     "ref": [
      "config:config/generatorgalore/generator/gold.json#generationRate=32",
      "config:config/generatorgalore/generator/diamond.json#generationRate=64",
@@ -4548,7 +4548,7 @@
      "1843C79133DFB024"
     ],
     "text": "Вони спалюють своє: кулінарний — їжу (8 FE/такт), медовий — рідкий мед Productive Bees (64), зілля — зілля (8), Енду — перлини Енду (96), чар — зачаровані книги (40), магматичний — лаву (40), галітозний — дихання дракона (128), зірки Незеру — зірки Незеру (4092, найпотужніший).",
-    "src": "квести особливих генераторів; config/generatorgalore/generator/*.json (fuelType, fuelTag, generationRate)",
+    "src": "квести особливих генераторів; налаштування Generator Galore (fuelType, fuelTag, generationRate)",
     "ref": [
      "config:config/generatorgalore/generator/culinary.json#generationRate=8",
      "config:config/generatorgalore/generator/honey.json#generationRate=64",
@@ -4683,7 +4683,7 @@
      "25080E3295B1DF01"
     ],
     "text": "Усемодієва → вібранієва → унобтанієва печі (необов'язкові квести) крафтяться з ATM-злитків і попередньої печі: 5, 3 і 1 такт на предмет (конфіг).",
-    "src": "квести «Усемодієва / Вібранієва / Унобтанієва піч»; рецепти ironfurnaces:furnaces/*; config/ironfurnaces-common.toml: modded_furnaces",
+    "src": "квести «Усемодієва / Вібранієва / Унобтанієва піч»; рецепти Iron Furnaces; налаштування Iron Furnaces",
     "ref": [
      "recipe:ironfurnaces:furnaces/allthemodium_furnace",
      "recipe:ironfurnaces:furnaces/unobtainium_furnace",
@@ -4788,7 +4788,7 @@
      "703790CCCE440946"
     ],
     "text": "Мешканці мода в ATM11 живуть в Іншому світі: вогняні дракони й піксі — у Стародавньому багряному лісі, крижані дракони й гідри — у Стародавньому химерному лісі, громові дракони й циклопи — у Пустелі, горгони, сирени й мавзолеї — у Долині піску душ, цвинтарі — в Інших землях.",
-    "src": "квести «Ice and Fire», «Стародавній химерний ліс», «Стародавній багряний ліс», «Пустеля Іншого світу», «Долина піску душ Іншого світу», «Інші землі»; KubeJS dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/*",
+    "src": "квести «Ice and Fire», «Стародавній химерний ліс», «Стародавній багряний ліс», «Пустеля Іншого світу», «Долина піску душ Іншого світу», «Інші землі»; скрипт збірки (KubeJS)",
     "ref": [
      "kjs:dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/fire.json~allthemodium:crimson_forest",
      "kjs:dynamic_data/iceandfire/tags/worldgen/biome/structure_gen/ice.json~allthemodium:warped_forest",
@@ -4873,7 +4873,7 @@
      "43922DB543DC05C0"
     ],
     "text": "Дракони стадій 1–3 — у гніздах на поверхні. З них — луска, кров і серце. Скелети драконів (скрипт збірки) дають кістки або 4 стихійні перлини; перлина + кістка = 8 очей, що ведуть до неприрученого дракона (32 чанки) або гнізда (16 чанків).",
-    "src": "квести «Дракони та їхні стадії», «Гніздо вогняного / громового / крижаного дракона», «Стадії 1–3 …»; KubeJS dynamic_data/iceandfire/loot_table/entities/dragon/*, startup_scripts/custom_additions.js",
+    "src": "квести «Дракони та їхні стадії», «Гніздо вогняного / громового / крижаного дракона», «Стадії 1–3 …»; скрипт збірки (KubeJS)",
     "ref": [
      "kjs:dynamic_data/iceandfire/loot_table/entities/dragon/fire_dragon_skeleton.json~kubejs:fire_pearl",
      "recipe:kjs:mods/iceandfire/recipes.js#L5",
@@ -4932,7 +4932,7 @@
     ],
     "spoiler": true,
     "text": "Яйце вилуплюється: вогняне — у вогні на незераку, крижане — у воді, громове — під дощем. Скіпетр — накази, ріг — перенесення, флейта; дракона треба годувати. Клавіші польоту: R — дихання, G — удар, X — зниження, F7 — камера.",
-    "src": "квести «Готуємо ваше яйце», «Крижаний виклик!», «Залиште яйце під дощем», «Керування драконом», «Годування дракона»; options.txt",
+    "src": "квести «Готуємо ваше яйце», «Крижаний виклик!», «Залиште яйце під дощем», «Керування драконом», «Годування дракона»; налаштування гри",
     "ref": [
      "file:options.txt~key_key.dragon_fireAttack:key.keyboard.r",
      "file:options.txt~key_key.dragon_strike:key.keyboard.g",
@@ -4981,7 +4981,7 @@
      "72FB345F3A7E7288"
     ],
     "text": "Кузня 3×3×3: цегла кузні, блоки кісток дракона, отвір і ядро із серцем дракона. Кров дракона + залізний злиток → драконесталь своєї стихії. Ті самі кузні сплавляють відра розплавлених металів ATM у блоки сплавів.",
-    "src": "квести «Вогняна / Крижана / Громова драконяча кузня», «… драконесталь»; рецепти iceandfire:dragonforge/*",
+    "src": "квести «Вогняна / Крижана / Громова драконяча кузня», «… драконесталь»; рецепти Ice And Fire Community Edition",
     "ref": [
      "recipe:iceandfire:dragonforge/dragonsteel_fire_ingot",
      "recipe:iceandfire:dragonforge_fire_core_disabled",
@@ -5035,7 +5035,7 @@
     ],
     "spoiler": true,
     "text": "Дракони стадій 4–5 — найсильніші боси мода — сплять у великих підземних печерах зі скарбами; звідти — яйця драконів. Максимальне здоров'я дракона в конфігу — 500.",
-    "src": "квести «Печера вогняного / громового / крижаного дракона», «Стадії 4–5 …»; config/iceandfire/iaf-common.json",
+    "src": "квести «Печера вогняного / громового / крижаного дракона», «Стадії 4–5 …»; налаштування Ice And Fire Community Edition",
     "ref": [
      "config:config/iceandfire/iaf-common.json#dragon.maxHealth=500"
     ],
@@ -5099,7 +5099,7 @@
      "4AFDC9ACAC926654"
     ],
     "text": "Гідри й печери гідр, горгони й храми, циклопи, сирени й острови, цвинтарі з примарами, тролі, хробаки смерті, стімфалійські птахи, кокатріси, амфіптери, піксі та їхні селища, гіпогрифи. Проти горгони — пов'язка на очі, проти сирен — беруші. Здоров'я в конфігу: гідра 250, циклоп 150, горгона 100.",
-    "src": "квести «Гідра», «Горгона», «Циклоп», «Сирени», «Цвинтар», «Тролі» та ін.; config/iceandfire/iaf-common.json",
+    "src": "квести «Гідра», «Горгона», «Циклоп», «Сирени», «Цвинтар», «Тролі» та ін.; налаштування Ice And Fire Community Edition",
     "ref": [
      "item:iceandfire:blindfold",
      "item:iceandfire:earplugs",
@@ -5399,7 +5399,7 @@
      "2B84A4377688B189"
     ],
     "text": "Гіпокампи й левіафани не переїхали в Інший світ — шукайте їх в океанах Верхнього світу. Гіпокампа приручають ламінарією й осідлують.",
-    "src": "квести «Ми ще не переїхали!», «Гіпокамп», «Приручення ламантина гіпокампа», «Левіафани»; jar Ice and Fire neoforge/biome_modifier/spawn_sea_serpent.json",
+    "src": "квести «Ми ще не переїхали!», «Гіпокамп», «Приручення ламантина гіпокампа», «Левіафани»; jar Ice and Fire дані збірки",
     "ref": [
      "jarfile:data/iceandfire/neoforge/biome_modifier/spawn_sea_serpent.json~#iceandfire:entity_gen/sea_serpent"
     ],
@@ -5509,7 +5509,7 @@
      "4B3F20E5C7E3BCFB"
     ],
     "text": "Маса першого рівня — з матеріалів Верхнього світу. Поставлена біля блока заліза, вона перетворює його на необроблений феррікор, блок вугілля — на прадавнє вугілля. Після перетворення маса може «відмерти» з шансом 0,1 (10 %, конфіг) — тримайте запас.",
-    "src": "квести «Just Dire Things», «Примогелева маса», «Феррікор», «Прадавнє вугілля»; config/justdirethings-server.toml: goo.goo_death_chance",
+    "src": "квести «Just Dire Things», «Примогелева маса», «Феррікор», «Прадавнє вугілля»; налаштування Just Dire Things",
     "ref": [
      "config:config/justdirethings-server.toml#goo.goo_death_chance=0.1"
     ],
@@ -5641,7 +5641,7 @@
      "67B87570C340C243"
     ],
     "text": "Інструменти, лук і броня з феррікору приймають покращення-здібності (вставляються з порожнього покращення). Здібності на кшталт молота чи лісоруба ламають за раз до 64 блоків феррікоровим інструментом, 128 — пломенезолотим, 192 — целестигемовим, 256 — зі сплаву затемнення (конфіг).",
-    "src": "квести феррікорового спорядження, «Покращення: порожнє», «Покращення інструментів», «Покращення обладунків»; config/justdirethings-server.toml: abilities.tool_max_break_*",
+    "src": "квести феррікорового спорядження, «Покращення: порожнє», «Покращення інструментів», «Покращення обладунків»; налаштування Just Dire Things: abilities.tool_max_break_*",
     "ref": [
      "config:config/justdirethings-server.toml#abilities.tool_max_break_ferricore=64",
      "config:config/justdirethings-server.toml#abilities.tool_max_break_blazegold=128",
@@ -5892,7 +5892,7 @@
      "4C40699E0A9A5BE6"
     ],
     "text": "Покращені машини вміють те саме, що прості, плюс налаштовувана робоча зона й більше слотів фільтра, але працюють на енергії. Покращений руйнівник блоків у збірці — ще й інгредієнт кар'єра QuarryPlus.",
-    "src": "квести «Покращені машини» і покращених машин; KubeJS server_scripts/mods/quarryplus/recipes.js",
+    "src": "квести «Покращені машини» і покращених машин; скрипт збірки (KubeJS)",
     "ref": [
      "recipe:kjs:mods/quarryplus/recipes.js#L10"
     ],
@@ -6054,7 +6054,7 @@
      "73552A4BA0687962"
     ],
     "text": "Найкорисніші покращення: X-Ray руди й сканер руди, лісоруб, молот, автоплавка, політ, елітри, фаза (прохід крізь блоки), гібридні покращення. Покращення «X-Ray руди» збірка крафтить з унобтанієвих злитків.",
-    "src": "квести покращень; KubeJS server_scripts/mods/justdirethings/recipes.js (upgrade_orexray)",
+    "src": "квести покращень; скрипт збірки (KubeJS) (upgrade_orexray)",
     "ref": [
      "recipe:kjs:mods/justdirethings/recipes.js#L11",
      "!recipe:justdirethings:upgrade_orexray"
@@ -6120,7 +6120,7 @@
      "49EF8A4346AEF582"
     ],
     "text": "Остання маса — з матеріалів стародавніх міст і Боронителя: блок незериту → сплав затемнення, порожньополум'яне вугілля → затемнена іскра. Кайло зі сплаву затемнення — інгредієнт кар'єра QuarryPlus.",
-    "src": "квести «Тіньопульсова маса», «Затемнена іскра», «Сплав затемнення», «Ковальський шаблон сплаву затемнення», «Відро затемненого іскорного пального»; KubeJS quarryplus/recipes.js",
+    "src": "квести «Тіньопульсова маса», «Затемнена іскра», «Сплав затемнення», «Ковальський шаблон сплаву затемнення», «Відро затемненого іскорного пального»; скрипт збірки (KubeJS)",
     "ref": [
      "recipe:kjs:mods/quarryplus/recipes.js#L10"
     ],
@@ -6164,7 +6164,7 @@
      "4987759CF379C1EB"
     ],
     "text": "Жезл часу прискорює блоки за енергію й часову рідину — до ×256 за конфігом збірки (квест пише 128). Парадокс-машина ціною великої кількості енергії й часової рідини знімає «знімок» блоків і істот у зоні, щоб потім продублювати (багато блоків і істот заборонено).",
-    "src": "квести «Жезл часу», «Відро часової рідини», «Парадокс-машина», «Покращення: захист від часу»; config/justdirethings-server.toml: time_wand",
+    "src": "квести «Жезл часу», «Відро часової рідини», «Парадокс-машина», «Покращення: захист від часу»; налаштування Just Dire Things",
     "ref": [
      "config:config/justdirethings-server.toml#time_wand.time_wand_max_multiplier=256"
     ],
@@ -6269,7 +6269,7 @@
      "54E6C0D1BB442184"
     ],
     "text": "Mahou — мана мода; її нарощують і накопичують (максимум у збірці — 20 000). Налаштовувач і ступка з товкачем: закляттям потрібні подрібнені предмети (порошки).",
-    "src": "квести «Mahou Tsukai», «Як наростити Mahou», «Ступка з товкачем»; config/mahoutsukai-server.toml MAX_MANA_CAP = 20000",
+    "src": "квести «Mahou Tsukai», «Як наростити Mahou», «Ступка з товкачем»; налаштування Mahou Tsukai MAX_MANA_CAP = 20000",
     "ref": [
      "config:config/mahoutsukai-server.toml#mana.MAX_MANA_CAP=20000"
     ],
@@ -6457,7 +6457,7 @@
      "012912FDAFCD1C66"
     ],
     "text": "5 000 Mahou і озеро; зачарований меч (найкраще — з «Небесною карою») (що вищий рівень, то краще) кинути в озеро. Межу шкоди піднімають зорі Незеру (6 — максимум, лише один раз), саму шкоду — знову «Небесна кара» й озеро. У збірці атака Калібурна обмежена 60.",
-    "src": "квести «Калібурн», «Покращуємо Калібурн»; config/mahoutsukai-server.toml POWER_CONSOLIDATION_ATTACK_CAP = 60",
+    "src": "квести «Калібурн», «Покращуємо Калібурн»; налаштування Mahou Tsukai POWER_CONSOLIDATION_ATTACK_CAP = 60",
     "ref": [
      "quest:012912FDAFCD1C66~Once upgraded it can't be upgraded anymore so make sure you toss in all 6 at once!",
      "config:config/mahoutsukai-server.toml#projection.power consolidation.POWER_CONSOLIDATION_SWORD_MANA_COST=5000"
@@ -6649,7 +6649,7 @@
      "1CC4F8570A7A99EB"
     ],
     "text": "Руди інферію й процвітання генеруються у світі (конфіг); з інферієвої руди падає інферієва есенція, з руди процвітання — уламки процвітання, головний інгредієнт мода.",
-    "src": "квести «Містичне землеробство!», «Уламки процвітання», «Інферій»; config/mysticalagriculture-common.toml",
+    "src": "квести «Містичне землеробство!», «Уламки процвітання», «Інферій»; налаштування Mystical Agriculture",
     "ref": [
      "config:config/mysticalagriculture-common.toml#World.generateInferiumOre=true",
      "config:config/mysticalagriculture-common.toml#World.generateProsperityOre=true"
@@ -6729,7 +6729,7 @@
      "62D572BAB055F56F"
     ],
     "text": "Насіннєва основа процвітання + есенції на 8 п'єдесталах вівтаря наповнення → насіння. Перше — стихії (вогонь, земля, вода, повітря). Кристал наповнення підвищує есенцію й витримує 1000 використань (конфіг).",
-    "src": "квести «Насіннєва основа процвітання», «Наповнюючий кристал», «Вівтар наповнення», насіння стихій; config/mysticalagriculture-common.toml",
+    "src": "квести «Насіннєва основа процвітання», «Наповнюючий кристал», «Вівтар наповнення», насіння стихій; налаштування Mystical Agriculture",
     "ref": [
      "config:config/mysticalagriculture-common.toml#General.infusionCrystalUses=1000"
     ],
@@ -6784,7 +6784,7 @@
      "219A5BDA5A01A420"
     ],
     "text": "4 есенції рівня + кристал наповнення → 1 есенція наступного: прудентій, тертій, імперій, супремій. Майстерський кристал наповнення не ламається; рівневі кристали MATC (256–4096 використань) — проміжний варіант.",
-    "src": "квести «Прудентій», «Тертій», «Імперій», «Супремій», «Наповнюючий кристал Майстера»; config/matc-server.toml",
+    "src": "квести «Прудентій», «Тертій», «Імперій», «Супремій», «Наповнюючий кристал Майстера»; налаштування Mystical Agriculture Tiered Crystals",
     "ref": [
      "config:config/matc-server.toml#durability.inferiumDurability=256",
      "config:config/matc-server.toml#durability.supremiumDurability=4096"
@@ -6868,7 +6868,7 @@
      "6A2AD67569F91F1F"
     ],
     "text": "Метали, самоцвіти, сплави й кристали інших модів. Насіння сталі, бронзи, латуні, кристалів Powah, флюїксу й сплавів Ender IO збірка робить з блоків (стиснених блоків 1x) замість злитків. Друге насіння з грядки — лише 1 % і лише до рівня 4.",
-    "src": "квести насіння (заліза, золота, електросталі, діаманта); KubeJS mods/mysticalagriculture/compatibility.js, crops.js",
+    "src": "квести насіння (заліза, золота, електросталі, діаманта); скрипт збірки (KubeJS)",
     "ref": [
      "recipe:kjs:mods/mysticalagriculture/compatibility.js#L128",
      "file:kubejs/server_scripts/mods/mysticalagriculture/crops.js~let SecondarySeed = 0.01",
@@ -6982,7 +6982,7 @@
      "6D0A876D4E4D35AB"
     ],
     "text": "Інсанієва есенція (Mystical Agradditions) → насіння нітро-кристала, зірки Незеру й яйця дракона. Вони ростуть з основою (crux) під ріллею, добрива на них не діють. Творча есенція — верстатний рецепт збірки.",
-    "src": "квести «Інсаній», «Інсанієва рілля», насіння рівня 6, «Творча есенція»; config/mysticalagradditions-common.toml; KubeJS modpack/att_items.js",
+    "src": "квести «Інсаній», «Інсанієва рілля», насіння рівня 6, «Творча есенція»; налаштування Mystical Agradditions; скрипт збірки (KubeJS)",
     "ref": [
      "config:config/mysticalagradditions-common.toml#General.fertilizableTier6Crops=false",
      "item:mysticalagradditions:nether_star_crux",
@@ -7032,7 +7032,7 @@
      "404AA0F5557D7E35"
     ],
     "text": "Насіння усемодію, вібранію й унобтанію: інсанієва рілля, а під нею — «Чарівний ґрунт» (верстат або вівтар наповнення). Есенції крафтяться в самородки металів.",
-    "src": "квести насіння усемодію / вібранію / унобтанію; config/mysticalcustomization; KubeJS mods/mysticalagriculture/recipes.js, fusion_crafting.js",
+    "src": "квести насіння усемодію / вібранію / унобтанію; налаштування Mystical Customization; скрипт збірки (KubeJS)",
     "ref": [
      "config:config/mysticalcustomization/crops/allthemodium.json#crux=kubejs:magical_soil",
      "recipe:allthemods:kjs/magical_soil",
@@ -7465,7 +7465,7 @@
     "title": "Метеорити ATM11",
     "spoiler": true,
     "text": "Ритуал Meteo (рецепти KubeJS): за кристал істинного кварцу — метеорит AE2 (флюїкс і кварц у небесному камені, бездоганний родючий істинний кварц; 500 000 EV). За каталізатор GeOre — метеорит з блоків і родючих жеод однієї з 22 руд (0,5–5 млн EV). Каталізатори роблять на Кристалічному вівтарі насичення Occultism, складеному з ритуальних каменів Neo Vitae.",
-    "src": "KubeJS server_scripts/mods/neovitae/meteor.js (neovitae:meteor/ae2, georeMeteor, occultism:<руда>_catalyst); data/occultism/modonomicon/multiblocks/crystalline_infusion.json",
+    "src": "скрипт збірки (KubeJS) (Neo Vitae, georeMeteor, occultism:<руда>_catalyst); дані Occultism",
     "ref": [
      "kjs:server_scripts/mods/neovitae/meteor.js",
      "recipe:neovitae:meteor/ae2",
@@ -7630,7 +7630,7 @@
      "0F412542271B6254"
     ],
     "text": "Перший ритуал виклику — фоліот-дробильник (жертва — залізний, срібний, золотий і мідний злитки). Дробильник кидає з сирої руди 2 пилу, помножені на силу духа: фоліот ×1 (повільно), джинні ×1,5, афріт ×2, марід ×3.",
-    "src": "квест «Наш перший ритуал»; рецепт occultism:crushing/iron_dust_from_raw (2 пилу); config/occultism-server.toml spirit_job.crusher_tier1–4.outputMultiplier = 1 / 1.5 / 2 / 3",
+    "src": "квест «Наш перший ритуал»; рецепт Occultism (2 пилу); налаштування Occultism spirit_job.crusher_tier1–4.outputMultiplier = 1 / 1.5 / 2 / 3",
     "ref": [
      "recipe:occultism:crushing/iron_dust_from_raw",
      "config:config/occultism-server.toml#spirit_job.crusher_tier1.outputMultiplier=1.0",
@@ -7720,7 +7720,7 @@
      "7F59941D62E672B0"
     ],
     "text": "Ритуали виклику 16 фамільярів (коваль, бобер, дракон, ктулху, фея, хоронитель…) — компаньйони з пасивними бонусами. Перстень фамільяра (ритуал джинні з самоцвітом душ) носить фамільяра з собою.",
-    "src": "квест «Фамільяри» (необов'язковий); рецепти occultism ritual/familiar_* (16), ritual/craft_familiar_ring",
+    "src": "квест «Фамільяри» (необов'язковий); рецепти Occultism (16), ritual/craft_familiar_ring",
     "ref": [
      "count:recipes:^occultism:ritual/familiar_=16"
     ],
@@ -7743,7 +7743,7 @@
      "5831B3192C0E8C56"
     ],
     "text": "Вимірний актуатор сховища: 128 типів предметів, 256 000 предметів разом; зламаний — не губить уміст. Стабілізатори Tier 1–5 (ритуали) додають по 64 / 128 / 256 / 512 / 1024 типи: дивляться прямо на вимірну матрицю актуатора, до 5 блоків. Віддалений доступ — стабільна червоточина або медіум сховища (слот рук Curios).",
-    "src": "квести «Демонічне магічне сховище!», «Покращення магічного сховища», «Віддалений доступ»; config/occultism-server.toml [storage] controllerMaxItemTypes = 128, stabilizerTier1…5AdditionalMaxItemTypes; curios/tags/item/hands.json (occultism:storage_remote)",
+    "src": "квести «Демонічне магічне сховище!», «Покращення магічного сховища», «Віддалений доступ»; налаштування Occultism [storage] controllerMaxItemTypes = 128, stabilizerTier1…5AdditionalMaxItemTypes; дані Curios API («Медіум сховища»)",
     "ref": [
      "config:config/occultism-server.toml#storage.controllerMaxItemTypes=128",
      "config:config/occultism-server.toml#storage.controllerMaxTotalItemCount=256000",
@@ -7844,7 +7844,7 @@
      "172D2A634E849562"
     ],
     "text": "Вимірна шахта (ритуал джинні) + демон-шахтар у лампі пасивно добуває руди. Що вищий дух, то рідкісніше: фоліот — базові руди, джинні — ще й «залізний» рівень, афріт глибин — «діамантовий» (ієсній, незеритовий брухт), марід-майстер — «незеритовий» (руда усемодію, ядро вимірної шахти). Шахта не вивантажує сама: лійка, дух-перевізник або труба; надлишок знищується.",
-    "src": "квест «Демонічний видобуток»; рецепти occultism ritual/craft_dimensional_mineshaft, ritual/craft_miner_*, miners/basic|iron|diamond|netherite/*; теги occultism:miners/*",
+    "src": "квест «Демонічний видобуток»; рецепти Occultism|iron|diamond|netherite/*; теги «Вимірні шахтарі»",
     "q": [
      {
       "id": "172D2A634E849562",
@@ -8013,7 +8013,7 @@
     "title": "Пентаклі ATM11",
     "spoiler": true,
     "text": "Незламність: «Контакт Ронази» з Вічною Стеллою (Forbidden Arcanus), скупченням самоцвітів корінної породи, ієснієвим і незеритовим злитками, жертва — заклинач; предмет з тегу atm:unbreakable (інструменти й броня модів, а також форми пресу Energized Power; більшу частину спорядження ATM з тегу вилучено) стає незламним. Стародавній незбагненний шахтар: серце піґліча, унобтанієве й ієснієве кайла, 5 марідів-майстрів — копає руди вібранію й унобтанію. Кристалічний вівтар насичення (з ритуальних каменів Neo Vitae): каталізатори метеоритів GeOre, трансмутація злитків в уламки GeOre, кристалічні резонансні жезли. Метеоритне насичення: нескінченна частина, диск і блок енергосховища Refined Types.",
-    "src": "KubeJS: data/occultism/recipe/ritual/misc_unbreakable.json + server_scripts/tweaks/tags.js (atm:unbreakable); dynamic_data/occultism/recipe/ritual/misc_miner_ancient_eldritch.json; data/occultism/modonomicon/multiblocks/crystalline_infusion.json; server_scripts/mods/neovitae/meteor.js, mods/geore/crystalline_wand.js, mods/refined_storage/refined_types.js",
+    "src": "скрипт збірки (KubeJS) (atm:unbreakable); дані Occultism; дані Occultism; скрипт збірки (KubeJS)",
     "ref": [
      "kjs:data/occultism/recipe/ritual/misc_unbreakable.json~forbidden_arcanus:eternal_stella",
      "tag:atm:unbreakable",
@@ -8111,7 +8111,7 @@
      "46EFCAE81C09368A"
     ],
     "text": "Почніть із нікелевого злитка (у збірці — нікель AllTheOres). Машинні ядра — основа мода: ПКМ ядром по машині збирає її. Ядра не прискорюють машину, а визначають, скільки доповнювачів у неї влізе.",
-    "src": "квести «Початок Oritech» (завдання — alltheores:nickel_ingot), «Базові будівельні компоненти», «Машинні ядра»",
+    "src": "квести «Початок Oritech» (завдання — «Нікелевий злиток»), «Базові будівельні компоненти», «Машинні ядра»",
     "ref": [
      "item:alltheores:nickel_ingot"
     ],
@@ -8199,7 +8199,7 @@
      "418E0A23EC74F320"
     ],
     "text": "Подрібнювач, збирач (крафтить складні компоненти й для деяких предметів дає більший вихід), ливарня для сплавів (адамантовий злиток) і центрифуга — база для всього подальшого. Мотори потребують сталі, а сталевий злиток Oritech збірка крафтом не робить — беріть піч для сплавів Energized Power чи інші джерела сталі.",
-    "src": "квести «Подрібнювач», «Збираємо разом», «Ливарня», «Центрифуга»; рецепт oritech:motor; KubeJS mods/oritech/recipes.js (remove oritech:steel_ingot)",
+    "src": "квести «Подрібнювач», «Збираємо разом», «Ливарня», «Центрифуга»; рецепт «Мотор»; скрипт збірки (KubeJS) (remove «Сталевий злиток»)",
     "ref": [
      "recipe:oritech:motor",
      "!recipe:oritech:steel_ingot",
@@ -8240,7 +8240,7 @@
      "208F759905CF7744"
     ],
     "text": "Труби для предметів і рідин (підсилювач труб прискорює видобуток за енергію). Депо дронів передають вантаж між двома портами, якщо між ними щонайменше 50 блоків: Shift+ПКМ цілевказівником по одному порту, потім указівник — у другий. Опори ЛЕП тягнуть енергію на 50–1000 блоків (конфіг).",
-    "src": "квести «Транспортування рідин / предметів», «Підсилювач труб», «Депо дронів»; config/oritech-common.toml: logistics.poleConfig",
+    "src": "квести «Транспортування рідин / предметів», «Підсилювач труб», «Депо дронів»; налаштування Oritech",
     "ref": [
      "config:config/oritech-common.toml#logistics.poleConfig.minRange=50",
      "config:config/oritech-common.toml#logistics.poleConfig.maxRange=1000"
@@ -8290,7 +8290,7 @@
      "114EACA9B32B32FB"
     ],
     "text": "Доповнювачі ставлять у гнізда навколо машини: швидкість, ефективність, рідина, конденсатор (більший запас FE), приймання (швидший прихід енергії), допоміжна обробна камера (кілька рецептів одночасно). Більше гнізд — машинні ядра вищих рівнів і розширювач доповнювачів. У збірці машинне ядро 3 крафтять з вуглецевих волокон і блока флюксита, розширювач — з вуглецевих пластин.",
-    "src": "квести «Додатки», доповнювачів і машинних ядер; KubeJS mods/oritech/recipes.js (core3, extender)",
+    "src": "квести «Додатки», доповнювачів і машинних ядер; скрипт збірки (KubeJS) (core3, extender)",
     "ref": [
      "recipe:kjs:mods/oritech/recipes.js#L10",
      "recipe:kjs:mods/oritech/recipes.js#L16"
@@ -8440,7 +8440,7 @@
      "01C0DC225CB25A0C"
     ],
     "text": "Ендеровий лазер передає енергію на відстань (до 128 блоків, конфіг), перетворює матеріали й прискорює ріст: Shift+ПКМ цілевказівником по родючому аметисту, потім по лазеру — і він вирощує флюксит. Атомна кузня працює лише від ендерового лазера. Доповнювач Hunter націлює лазер на мобів.",
-    "src": "квести «Ендеровий лазер», «Флюксит», «Атомна кузня», «Ураження мобів»; config/oritech-common.toml: endericLaserConfig.range",
+    "src": "квести «Ендеровий лазер», «Флюксит», «Атомна кузня», «Ураження мобів»; налаштування Oritech",
     "ref": [
      "config:config/oritech-common.toml#machineSettings.endericLaserConfig.range=128",
      "recipe:oritech:compat/powah/energizing/fluxite",
@@ -8484,7 +8484,7 @@
      "4F89C04CEBF812F9"
     ],
     "text": "Нафтопереробна станція робить з лави пару, сірчану кислоту й пекельний вогонь. Необроблена руда + пекельний вогонь → згустки; центрифуга з доповнювачем рідини й сірчаною кислотою → самоцвіти; самоцвіти + флюксит в атомній кузні → пил, що плавиться в злитки. Фрагментаційна кузня — кращий подрібнювач. У збірці станція приймає ще й нафту інших модів (тег c:crude_oil).",
-    "src": "квести «Рафінування руд», «Нафтопереробна станція», «Переробка у згустки», «Обертання у самоцвіти», «Обробка руди», «Фрагментаційна кузня», «Використання атомної ковки»; KubeJS mods/oritech/recipes.js (refinery #c:crude_oil)",
+    "src": "квести «Рафінування руд», «Нафтопереробна станція», «Переробка у згустки», «Обертання у самоцвіти», «Обробка руди», «Фрагментаційна кузня», «Використання атомної ковки»; скрипт збірки (KubeJS) (refinery «Нафта»)",
     "ref": [
      "recipe:kjs:mods/oritech/recipes.js#L24"
     ],
@@ -8538,7 +8538,7 @@
      "53880926982968FD"
     ],
     "text": "Плутонієвий пил — заряджені уранітові кристали (вони трапляються у світі; зарядити можна й у сфері заряджання Powah); із нього збирач робить плутонієві таблетки — паливо ядерного реактора. Компенсатор Гейзенберга потрібен для пізніх предметів (поглинач тахіонів, прометій в атомній кузні).",
-    "src": "квести «Контролер ядерного реактора», «Плутонієвий пил», «Плутонієва таблетка», «Компенсатор Гейзенберга»; рецепт oritech:compat/powah/energizing/uranite",
+    "src": "квести «Контролер ядерного реактора», «Плутонієвий пил», «Плутонієва таблетка», «Компенсатор Гейзенберга»; рецепт «Плутонієвий пил»",
     "ref": [
      "recipe:oritech:compat/powah/energizing/uranite",
      "recipe:oritech:assembler/plutoniumpelletbasic",
@@ -8673,7 +8673,7 @@
      "7678B5DD1339833E"
     ],
     "text": "Генерапіч палить тверде паливо (вугілля, дерево), магматор — лаву, термогенератор стоїть над джерелом тепла (блок магми, лава, блок палаючого кристала) і потребує води, сонячна панель — прямого неба (Лінза Енду дозволяє «бачити» крізь блоки). Генерапіч Початкова дає 20 FE/такт, Нітро — 40 000 (конфіг).",
-    "src": "квести «Генерапіч / Магматор / Термогенератор / Сонячна панель (Початкові)»; config/powah.json5: generators.furnators.generation_rates",
+    "src": "квести «Генерапіч / Магматор / Термогенератор / Сонячна панель (Початкові)»; налаштування Powah",
     "ref": [
      "config:config/powah.json5#generators.furnators.generation_rates.starter=20",
      "config:config/powah.json5#generators.furnators.generation_rates.nitro=40000",
@@ -8713,7 +8713,7 @@
      "7D52DD751DDADA1B"
     ],
     "text": "Сфера заряджання бере FE зі стрижнів заряджання поруч (до 4 блоків від сфери, конфіг), а стрижні живляться кабелями. Покладені в сферу предмети заряджаються в матеріали для вищих рівнів.",
-    "src": "квести «Сфера заряджання», «Стрижень заряджання (Початковий)», «Енергетичний кабель (Початковий)»; config/powah.json5: general.energizing_range",
+    "src": "квести «Сфера заряджання», «Стрижень заряджання (Початковий)», «Енергетичний кабель (Початковий)»; налаштування Powah",
     "ref": [
      "config:config/powah.json5#general.energizing_range=4"
     ],
@@ -8747,7 +8747,7 @@
      "33816AF0E699F19F"
     ],
     "text": "Енергетична батарея зберігає FE, батарейка заряджає предмети в інвентарі; обидві розширюють ємність каналу Мережі Енду. Енерголійка заряджає предмети в контейнері, на який дивиться, енергорозрядник витягує FE із заряджених предметів. Кабель Початковий пропускає 500 FE/такт, Нітро — 1 000 000 (конфіг).",
-    "src": "квести «Енергетична батарея», «Батарейка», «Енерголійка», «Енергорозрядник» (Початкові); config/powah.json5: devices.cables.transfer_rates",
+    "src": "квести «Енергетична батарея», «Батарейка», «Енерголійка», «Енергорозрядник» (Початкові); налаштування Powah",
     "ref": [
      "config:config/powah.json5#devices.cables.transfer_rates.starter=500",
      "config:config/powah.json5#devices.cables.transfer_rates.nitro=1000000"
@@ -8790,7 +8790,7 @@
      "4F1FFC02F4EAA2E6"
     ],
     "text": "Машини Початкового й Базового рівнів робляться із заліза й конденсаторів, далі — з матеріалів сфери: заряджена сталь (Загартований), палаючий кристал (Палаючий), ніотичний — діамант за 300 000 FE, надзаряджений — смарагд за 1 000 000 FE, нітро-кристал (Нітро) — із зірки Незеру, блоків редстоуну й блока палаючого кристала.",
-    "src": "квести «Рівень: …»; рецепти powah:energizing/niotic_crystal, spirited_crystal, nitro_crystal (jar)",
+    "src": "квести «Рівень: …»; рецепти «Ніотичний кристал» та ін. (jar)",
     "ref": [
      "jarfile:data/powah/recipe/energizing/niotic_crystal.json~300000",
      "jarfile:data/powah/recipe/energizing/spirited_crystal.json~1000000",
@@ -8844,7 +8844,7 @@
      "3CB6DC5B09C62CFE"
     ],
     "text": "Батарея Енду зберігає енергію каналу бездротової Мережі Енду (ємність додають батарейки й енергетичні батареї в її інтерфейсі), ворота Енду — точки входу й виходу до сусідніх блоків. Каналів: 1 на Початковому рівні, 12 — на Нітро (конфіг).",
-    "src": "квести «Батарея Енду (Початкова)», «Ворота Енду (Початкові)»; config/powah.json5: devices.ender_cells.channels",
+    "src": "квести «Батарея Енду (Початкова)», «Ворота Енду (Початкові)»; налаштування Powah",
     "ref": [
      "config:config/powah.json5#devices.ender_cells.channels.starter=1",
      "config:config/powah.json5#devices.ender_cells.channels.nitro=12"
@@ -8877,7 +8877,7 @@
      "61DCECE1FC38E151"
     ],
     "text": "Реактор 3x4x3 — 36 блоків: тримаючи їх у руці, поставте один, і структура збудується сама. Палить уранініт; тверді й рідкі охолоджувачі підвищують вихід. За конфігом збірки Початковий дає 250 FE/такт, Нітро — 500 000 (квест обіцяє 250 тис. — це застаріла цифра).",
-    "src": "квести «Реактор (…)» усіх рівнів; config/powah.json5: generators.reactors.generation_rates",
+    "src": "квести «Реактор (…)» усіх рівнів; налаштування Powah",
     "ref": [
      "config:config/powah.json5#generators.reactors.generation_rates.starter=250",
      "config:config/powah.json5#generators.reactors.generation_rates.nitro=500000"
@@ -8930,7 +8930,7 @@
      "740F314EE6242C13"
     ],
     "text": "Зарядний маяк бездротово заряджає FE-предмети гравця (реактивні ранці, гаджети). Прив'яжіть його карткою прив'язки — вона діє в тому самому вимірі, міжвимірна — і в інших вимірах. Початковий маяк — 500 FE/такт, Нітро — 1 000 000 (конфіг).",
-    "src": "квести «Зарядний маяк (Початковий / Базовий)»; config/powah.json5: devices.player_transmitters.charging_rates",
+    "src": "квести «Зарядний маяк (Початковий / Базовий)»; налаштування Powah",
     "ref": [
      "config:config/powah.json5#devices.player_transmitters.charging_rates.starter=500",
      "config:config/powah.json5#devices.player_transmitters.charging_rates.nitro=1000000",
@@ -8956,7 +8956,7 @@
     "title": "Сплав ATM у сфері",
     "spoiler": true,
     "text": "У ATM11 вібранієво-усемодієвий сплав робиться у сфері заряджання (а його блок — ще й у вогняній драконячій кузні Ice and Fire): злитки усемодію й вібранію, серце піґліча й блок нітро-кристала 1x (AllTheCompressed). Там само — стиснені блоки сплаву. Без реакторів високих рівнів не обійтися.",
-    "src": "KubeJS server_scripts/mods/powah/energizing.js (vibranium_allthemodium_*)",
+    "src": "скрипт збірки (KubeJS) (vibranium_allthemodium_*)",
     "ref": [
      "recipe:kubejs:energizing/vibranium_allthemodium_alloy_ingot",
      "recipe:kubejs:energizing/vibranium_allthemodium_block",
@@ -9035,7 +9035,7 @@
      "109AD73F016D576B"
     ],
     "text": "Клітка для бджіл, перший вулик. Шукач гнізд показує гнізда в радіусі 100 блоків (конфіг).",
-    "src": "квести «Productive Bees!», «Ловимо бджіл!», «Пошук гнізд», «Ваш перший вулик»; config/productivebees-server.toml",
+    "src": "квести «Productive Bees!», «Ловимо бджіл!», «Пошук гнізд», «Ваш перший вулик»; налаштування Productive Bees",
     "ref": [
      "config:config/productivebees-server.toml#General.nestLocatorDistance=100"
     ],
@@ -9143,7 +9143,7 @@
      "33A0E06FE5CFD8F3"
     ],
     "text": "Звичайна центрифуга — 300 тактів на стільник, електрична — 100 тактів і 10 FE/такт (конфіг); нагрівна потребує неактивного яйця дракона.",
-    "src": "квест «Центрифуги»; config/productivebees-server.toml; рецепт productivebees:heated_centrifuge",
+    "src": "квест «Центрифуги»; налаштування Productive Bees; рецепт «Нагрівна центрифуга»",
     "ref": [
      "config:config/productivebees-server.toml#General.centrifugeProcessingTime=300",
      "config:config/productivebees-server.toml#General.centrifugePoweredProcessingTime=100",
@@ -9170,7 +9170,7 @@
      "6F978C4D561F35EC"
     ],
     "text": "Більшість бджіл — схрещуванням двох видів або перетворенням (згодувати бджолі блок). Камера схрещування — 50 FE/такт, інкубатор витрачає 20 медових частунків (конфіг); розливач.",
-    "src": "квести «Камера схрещування», «Інкубатор для бджіл», «Схрещування й перетворення бджіл», «Розливач»; config/productivebees-server.toml",
+    "src": "квести «Камера схрещування», «Інкубатор для бджіл», «Схрещування й перетворення бджіл», «Розливач»; налаштування Productive Bees",
     "ref": [
      "config:config/productivebees-server.toml#General.breedingChamberPowerUse=50",
      "config:config/productivebees-server.toml#General.incubatorTreatUse=20"
@@ -9213,7 +9213,7 @@
      "65A7307F9858ECB5"
     ],
     "text": "Продуктивність, стійкість до погоди, поведінка (денна / нічна / цілодобова), витривалість і норов. Зразки генів збирає індексатор генів; бджола може й сама набути стійкості й поведінки — спроба раз на 1337 тактів (конфіг), квест радить прив'язати її до паркана під час грози.",
-    "src": "квести «Зразки генів», «Індексатор генів», «Продуктивність», «Стійкість до погоди», «Поведінка», «Витривалість», «Норов»; config/productivebees-server.toml",
+    "src": "квести «Зразки генів», «Індексатор генів», «Продуктивність», «Стійкість до погоди», «Поведінка», «Витривалість», «Норов»; налаштування Productive Bees",
     "ref": [
      "config:config/productivebees-server.toml#Bee attributes.ticks=1337"
     ],
@@ -9268,7 +9268,7 @@
      "4DDF647FE6494DE1"
     ],
     "text": "Симулятор — бджоли не вилітають, політ до квітки симулюється (квіти все одно потрібні перед вуликом). Продуктивність альфа / бета / гамма / омега — ×1.2 / ×1.5 / ×2 / ×2.6 (конфіг); омега в збірці — з самородками унобтанію.",
-    "src": "квести «Основа покращення», «Покращення: симулятор», покращення продуктивності й швидкості; config/productivebees-server.toml; KubeJS mods/productivebees/recipes.js",
+    "src": "квести «Основа покращення», «Покращення: симулятор», покращення продуктивності й швидкості; налаштування Productive Bees; скрипт збірки (KubeJS)",
     "ref": [
      "config:config/productivebees-server.toml#Hive Upgrades.productivityMultiplier=1.2",
      "config:config/productivebees-server.toml#Hive Upgrades.productivityMultiplier4=2.6",
@@ -9315,7 +9315,7 @@
      "28AE3B536D23E138"
     ],
     "text": "Залізна, золота, діамантова, флюїксова, інферієва та десятки інших: центрифуга дає ресурс виду. Бджоли модів, яких у збірці немає, не з'являться — квести з ними не виконати.",
-    "src": "квести «Залізна / Золота / Діамантова / Флюїксова / Інферієва бджола»; рецепти productivebees:centrifuge/*",
+    "src": "квести «Залізна / Золота / Діамантова / Флюїксова / Інферієва бджола»; рецепти «Центрифуга»",
     "ref": [
      "recipe:productivebees:centrifuge/ae2/honeycomb_fluix",
      "recipe:productivebees:centrifuge/mysticalagriculture/honeycomb_inferium",
@@ -9362,7 +9362,7 @@
      "2BE538246C672689"
     ],
     "text": "Стародавня бджола (діамантовій бджолі згодувати блок незериту) → в ливарні Productive Metalworks розплавлений усемодій на її яйце виклику → усемодієва бджола; так само вібраній і унобтаній. Центрифуга дає самородки металів.",
-    "src": "квести «Шлях до Усемодію», «Стародавня бджола», «Усемодієва / Вібранієва / Унобтанієва бджола»; рецепти productivebees:centrifuge/atm/*, productivemetalworks:casting/pbees/*",
+    "src": "квести «Шлях до Усемодію», «Стародавня бджола», «Усемодієва / Вібранієва / Унобтанієва бджола»; рецепти Productive Bees, Productive Metalworks",
     "ref": [
      "jarfile:data/productivemetalworks/recipe/casting/pbees/allthemodium_bee.json",
      "recipe:productivebees:centrifuge/atm/honeycomb_allthemodium",
@@ -9488,7 +9488,7 @@
      "2CFD0DF119CC5E85"
     ],
     "text": "Контролер ферми — серце мультиблока, далі — блоки ферми (квест «Будуємо» перелічує, якими можна будувати). Об'єм — до 1024 блоків, висота — до 20 (конфіг).",
-    "src": "квести «Автоферма», «Будуємо»; config/productivefarming-server.toml",
+    "src": "квести «Автоферма», «Будуємо»; налаштування Productive Farming",
     "ref": [
      "config:config/productivefarming-server.toml#General.farmMaxVolume=1024",
      "config:config/productivefarming-server.toml#General.farmMaxHeight=20"
@@ -9516,7 +9516,7 @@
      "46932B57EF21D346"
     ],
     "text": "9 комірок корму, подача трубами; спрацьовують раз на 1200 тактів (конфіг).",
-    "src": "квести «Годівниця», «Напувалка»; config/productivefarming-server.toml",
+    "src": "квести «Годівниця», «Напувалка»; налаштування Productive Farming",
     "ref": [
      "config:config/productivefarming-server.toml#General.feedingTroughTickRate=1200",
      "config:config/productivefarming-server.toml#General.wateringTroughTickRate=1200"
@@ -9546,7 +9546,7 @@
      "4FB3047EBF555455"
     ],
     "text": "Насіння й культури продають селяни-фермери (villagersTradeSeeds = true). У главі — окремі квести культур (помідор черрі, зелений виноград, малина…).",
-    "src": "квести «Культури», «Помідор черрі», «Зелений виноград», «Малина»; config/productivefarming-startup.toml",
+    "src": "квести «Культури», «Помідор черрі», «Зелений виноград», «Малина»; налаштування Productive Farming",
     "ref": [
      "config:config/productivefarming-startup.toml#General.villagersTradeSeeds=true"
     ],
@@ -9695,7 +9695,7 @@
      "5577F49A93ADB19C"
     ],
     "text": "Для нового дерева потрібне запилене листя, для нього — пилок. Його дає сито для пилку (машина) або покращення «Сито для пилку» у вулику Productive Bees — шанс 2 % (конфіг); квест дає це покращення.",
-    "src": "квест «Productive Trees»; config/productivetrees-server.toml; рецепт productivetrees:pollen_sieve",
+    "src": "квест «Productive Trees»; налаштування Productive Trees; рецепт «Покращення: сито для пилку»",
     "ref": [
      "config:config/productivetrees-server.toml#General.pollenChanceFromSieve=2",
      "recipe:productivetrees:pollen_sieve",
@@ -9853,7 +9853,7 @@
      "5FD88ED4937971D7"
     ],
     "text": "Пурпурова → червона → «Таскарора» → «Місячна магія». Паросток «Місячної магії» — інгредієнт «Чарівного ґрунту» для насіння металів ATM у Mystical Agriculture.",
-    "src": "квести паростків лагерстремії; KubeJS mods/mysticalagriculture/recipes.js (allthemods:kjs/magical_soil)",
+    "src": "квести паростків лагерстремії; скрипт збірки (KubeJS) («Чарівний ґрунт»)",
     "ref": [
      "recipe:allthemods:kjs/magical_soil"
     ],
@@ -9967,7 +9967,7 @@
      "7D40B80DBBC4E160"
     ],
     "text": "Усі машини Railcraft починаються із залізних злитків. Ручний прокатний верстат робить деталі (рейки, пластини), лом налаштовує рейки й зчіплює вагонетки. Шестерні Railcraft збірка з верстата прибрала: прокатні верстати й електротяг беруть шестерні AllTheOres (тег c:gears/*).",
-    "src": "квести «RailCraft», «Машини», «Ломи», «Рейки!», «Рейкові набори!», «Ручний прокатний верстат»; KubeJS unification (remove railcraft:*_gear); рецепт railcraft:manual_rolling_machine",
+    "src": "квести «RailCraft», «Машини», «Ломи», «Рейки!», «Рейкові набори!», «Ручний прокатний верстат»; KubeJS unification (remove Railcraft Reborn); рецепт «Ручний прокатний верстат»",
     "ref": [
      "!recipe:railcraft:iron_gear",
      "recipe:railcraft:manual_rolling_machine",
@@ -10018,7 +10018,7 @@
      "020E6AF37A0421C8"
     ],
     "text": "Коксова піч (26 блоків цегли коксової печі) дає кокс і креозот; домна (34 блоки цегли домни) перетворює залізо на сталь; дробарка (12 блоків) подрібнює блоки й злитки; водонапірна башта збирає воду для паротягів. Цегла домни — з незерської цегли, піску душ і магмового крему, тож домна стане доступною після Незеру.",
-    "src": "квести «Коксова піч», «Домна (для сталі)», «Дробарка», «Водонапірна башта»; рецепти railcraft:blast_furnace_bricks, railcraft:blast_furnace/blasting_iron_ingot",
+    "src": "квести «Коксова піч», «Домна (для сталі)», «Дробарка», «Водонапірна башта»; рецепти «Цегла домни», «Сталевий злиток»",
     "ref": [
      "recipe:railcraft:blast_furnace_bricks",
      "recipe:railcraft:blast_furnace/blasting_iron_ingot"
@@ -10609,7 +10609,7 @@
      "61DA3D61D7103647"
     ],
     "text": "Казан розрідження + рідкий нашатир + нагрів розкладає предмет на алхімічну сірку. Блок руди → 5 сірок, сира руда → 3, злиток → 1.",
-    "src": "квести «Виготовлення алхімічної сірки», «Алхімічні сірки»; рецепти theurgy:liquefaction/alchemical_sulfur_iron_from_ores_iron (5), …_from_raw_materials_iron (3), …_from_ingots_iron (1)",
+    "src": "квести «Виготовлення алхімічної сірки», «Алхімічні сірки»; рецепти «Алхімічна сірка [Залізо]» та ін.",
     "q": [
      {
       "id": "6CAD27627A3F8FD7",
@@ -10635,7 +10635,7 @@
      "2B29E9AB9447E1C6"
     ],
     "text": "Інкубатор із трьома посудинами впритул — ртуть, сіль, сірка — повертає предмет із сірки: 1 сірка → 1 злиток. У ATM11 KubeJS додає сірки й інкубацію ієснію, містичного кристала, руни, шматка стелариту, борту й уламка процвітання.",
-    "src": "квести «Ртутна посудина», «Посудина солі», «Посудина сірки», «Інкубатор»; рецепт theurgy:incubation/ingots_iron_from_alchemical_sulfur_iron; KubeJS mods/theurgy/incubation.js",
+    "src": "квести «Ртутна посудина», «Посудина солі», «Посудина сірки», «Інкубатор»; рецепт Theurgy; скрипт збірки (KubeJS)",
     "q": [
      {
       "id": "06AD25DB96F3A1CC",
@@ -10840,7 +10840,7 @@
      "76CDC18D7A208512"
     ],
     "text": "Рамка як у Незер, але з кам'яної цегли (звичайної, моховитої або глибосланцевої); запалюється каталізатором — мідь, камінь, перлина Енду.",
-    "src": "квести «The Undergarden», «Ласкаво просимо до Підземного виміру!»; рецепт undergarden:catalyst",
+    "src": "квести «The Undergarden», «Ласкаво просимо до Підземного виміру!»; рецепт «Каталізатор»",
     "ref": [
      "recipe:undergarden:catalyst"
     ],
@@ -11202,7 +11202,7 @@
      "30D6924003C6E273"
     ],
     "text": "Клоґрум — «залізо» виміру, морозосталь — у замерзлих біомах. Інструменти, зброя й обладунки з них; рогатка й вибухівка. Клоґрумовий щит у збірці — ванільний щит, обкладений клоґрумом.",
-    "src": "квести «Клоґрум», «Морозосталь», «Клоґрумові інструменти / обладунки», «Рогатка», «Вибухівка!!!»; KubeJS unification/tools.js",
+    "src": "квести «Клоґрум», «Морозосталь», «Клоґрумові інструменти / обладунки», «Рогатка», «Вибухівка!!!»; скрипт збірки (KubeJS)",
     "ref": [
      "recipe:allthemods:undergarden/cloggrum_shield",
      "!recipe:undergarden:cloggrum_shield"

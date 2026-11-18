@@ -5,20 +5,20 @@
  "mode": "creative",
  "mode_uk": "Творчість",
  "game_type": 1,
- "last_played": "2026-11-17 22:54",
- "last_played_ts": 1794948895,
- "updated": "2026-11-17 22:55",
- "play_hours": 15.61,
+ "last_played": "2026-11-18 12:50",
+ "last_played_ts": 1794999037,
+ "updated": "2026-11-18 12:50",
+ "play_hours": 15.71,
  "player": {
   "uuid": "832ceed6-e820-31f9-aa40-6acd5077a2ac",
   "xp_level": 7,
-  "selected_slot": 1,
+  "selected_slot": 2,
   "health": 20.0,
   "food_level": 19,
   "pos": [
-   556,
-   88,
-   703
+   372,
+   226,
+   -224
   ],
   "dimension": "minecraft:overworld",
   "dimension_uk": "Верхній світ",
@@ -522,6 +522,7 @@
    "ae2:fluix_glass_cable",
    "ae2:storage_bus",
    "ae2:terminal",
+   "apotheosis:gem",
    "apotheosis:potion_charm",
    "arsmagicalegacy:crystal_phylactery",
    "auroral:guide",
@@ -603,6 +604,7 @@
    "refinedstorage:creative_controller",
    "refinedstorage:disk_drive",
    "refinedstorage:grid",
+   "reliquary:rib_bone",
    "silentgear:helmet_plates",
    "silentgear:pickaxe",
    "silentgems:carnelian_glowrose",
@@ -618,6 +620,7 @@
    "minecraft:spruce_planks": 12
   },
   "inventory": {
+   "apotheosis:gem": 1,
    "apotheosis:potion_charm": 1,
    "deepnullreforged:deep_null_0": 1,
    "dimstorage:dimensional_chest": 1,
@@ -632,12 +635,12 @@
    "minecraft:ender_eye": 2,
    "minecraft:feather": 10,
    "minecraft:firework_rocket": 16,
-   "minecraft:gunpowder": 2,
    "minecraft:lantern": 3,
    "minecraft:netherite_sword": 1,
    "minecraft:shulker_box": 1,
    "sophisticatedbackpacks:backpack": 1,
-   "toolbelt:belt": 1
+   "toolbelt:belt": 1,
+   "trophymanager:trophy": 1
   },
   "names": {
    "ae2:creative_energy_cell": "Творча комірка енергії",
@@ -645,6 +648,7 @@
    "ae2:fluix_glass_cable": "Флюїксовий ME скляний кабель",
    "ae2:storage_bus": "ME шина зберігання",
    "ae2:terminal": "ME термінал",
+   "apotheosis:gem": "Апофеотичний самоцвіт",
    "apotheosis:potion_charm": "Амулет",
    "arsmagicalegacy:crystal_phylactery": "Кришталева філактерія",
    "auroral:guide": "Посібник Auroral",
@@ -726,6 +730,7 @@
    "refinedstorage:creative_controller": "Творчий контролер",
    "refinedstorage:disk_drive": "Дисковод",
    "refinedstorage:grid": "Сітка",
+   "reliquary:rib_bone": "Реберна кістка",
    "silentgear:helmet_plates": "Пластини шолома",
    "silentgear:pickaxe": "Кайло",
    "silentgems:carnelian_glowrose": "Сяйлива троянда: Сердолік",
@@ -747,16 +752,6 @@
     "count": 1,
     "slot": 0,
     "slotLabel": "Гаряча панель (слот 1)",
-    "slotKind": "hotbar",
-    "ns": "minecraft",
-    "modName": "Minecraft"
-   },
-   {
-    "id": "minecraft:gunpowder",
-    "uk": "Порох",
-    "count": 2,
-    "slot": 2,
-    "slotLabel": "Гаряча панель (слот 3)",
     "slotKind": "hotbar",
     "ns": "minecraft",
     "modName": "Minecraft"
@@ -800,6 +795,16 @@
     "slotKind": "hotbar",
     "ns": "minecraft",
     "modName": "Minecraft"
+   },
+   {
+    "id": "trophymanager:trophy",
+    "uk": "Трофей",
+    "count": 1,
+    "slot": 7,
+    "slotLabel": "Гаряча панель (слот 8)",
+    "slotKind": "hotbar",
+    "ns": "trophymanager",
+    "modName": "Jonn's Trophies"
    }
   ],
   "inventory": [
@@ -864,14 +869,14 @@
     "modName": "Enderthing"
    },
    {
-    "id": "minecraft:netherite_sword",
-    "uk": "Незеритовий меч",
+    "id": "apotheosis:gem",
+    "uk": "Апофеотичний самоцвіт",
     "count": 1,
     "slot": 15,
     "slotLabel": "Інвентар (слот 15)",
     "slotKind": "inventory",
-    "ns": "minecraft",
-    "modName": "Minecraft"
+    "ns": "apotheosis",
+    "modName": "Apotheosis"
    },
    {
     "id": "interdimensionalwirelesstransmitter:red_interdimensional_wireless_transmitter",
@@ -882,6 +887,16 @@
     "slotKind": "inventory",
     "ns": "interdimensionalwirelesstransmitter",
     "modName": "Interdimensional Wireless Transmitter"
+   },
+   {
+    "id": "minecraft:netherite_sword",
+    "uk": "Незеритовий меч",
+    "count": 1,
+    "slot": 18,
+    "slotLabel": "Інвентар (слот 18)",
+    "slotKind": "inventory",
+    "ns": "minecraft",
+    "modName": "Minecraft"
    },
    {
     "id": "minecraft:chest",
