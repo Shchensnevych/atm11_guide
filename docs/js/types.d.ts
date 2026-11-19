@@ -20,10 +20,11 @@ interface WorldSummary { slug: string; world: string; folder: string; mode: stri
   updated: string; play_hours: number; quests_done: number; quests_visible_done: number; quests_started: number; advancements_done: number; items_obtained: number; }
 interface SlotItemEntry { id: string; uk: string; count: number; slot?: number | null; slotLabel: string; slotKind: string; ns: string; modName: string;
   customName?: string; durabilityPct?: number; armorSlot?: string; curiosSlot?: string; curiosSlotUk?: string; curiosIndex?: number;
-  beltSlot?: number; bpTitle?: string; bpKey?: string; bpKind?: string; bpSlot?: number; bpWhere?: string; bpCapacity?: number; live?: boolean; }
+  beltSlot?: number; bpTitle?: string; bpKey?: string; bpKind?: string; bpSlot?: number; bpWhere?: string; bpCapacity?: number; live?: boolean;
+  detail?: string; more?: boolean; slotKey?: string; }
 interface PlayerSlotsData { mainHand?: SlotItemEntry | null; offHand?: SlotItemEntry | null; hotbar: SlotItemEntry[]; inventory: SlotItemEntry[];
   armor: SlotItemEntry[]; curios: SlotItemEntry[]; curiosTypes?: { id: string; uk: string; size: number }[];
-  toolbelt: SlotItemEntry[]; toolbeltTools?: SlotItemEntry[]; backpacks: SlotItemEntry[]; enderChest: SlotItemEntry[]; }
+  toolbelt: SlotItemEntry[]; toolbeltTools?: SlotItemEntry[]; modSlots?: SlotItemEntry[]; backpacks: SlotItemEntry[]; enderChest: SlotItemEntry[]; }
 interface ProgressData { slug: string; world: string; folder: string; default?: string; game_type: number; mode: string; mode_uk: string; last_played: string;
   last_played_ts: number; updated: string; play_hours: number; from_browser?: boolean;
   player: { uuid: string; name?: string; xp_level?: number; selected_slot?: number; health?: number; food_level?: number; pos?: number[]; dimension?: string; dimension_uk?: string; world_tier?: string; unique_foods?: number };

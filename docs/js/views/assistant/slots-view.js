@@ -1,6 +1,6 @@
 // @ts-check
 // views/assistant/slots-view.js — об'єднана вкладка «🎒 Слоти й клавіші» (#/assistant):
-// візуальна розкладка реальних слотів ATM11 (броня, руки, пояс Tool Belt Ctrl+V, слоти Curios, інвентар 3×9,
+// візуальна розкладка реальних слотів ATM11 (броня, руки, додаткові слоти модів (K23), слоти Curios, інвентар 3×9,
 // гаряча панель 1×9, вкладені рюкзаки/контейнери/Ендер-скриня) + спливаючі підказки й майстер-деталь інспектор.
 import { h, mount } from '../../core/dom.js';
 import { itemIconUrl, itemNameUk } from '../../core/store.js';
@@ -35,11 +35,15 @@ export function renderSlotsAndKeysTab(s, an, st, keysList, redrawLeft, askInChat
 
   /** @type {Map<string, any>} */
   const selectable = new Map();
-  const registerItem = (/** @type {string} */ selKey, /** @type {any} */ item, /** @type {string} */ fallbackWhere = '') => {
+  // K23: parentKey — контейнер, у якому лежить річ; її власний вміст — контейнер «<ланцюжок> → <назва>» (міст K17), а не будь-який
+  // однойменний верхнього рівня (друга «Шалкерова коробка» в ранці — не та, що в інвентарі)
+  const registerItem = (/** @type {string} */ selKey, /** @type {any} */ item, /** @type {string} */ fallbackWhere = '', /** @type {string} */ parentKey = '') => {
     if (!item || !item.id) return null;
     const uk = itemNameUk(s, item.id, item.customName || item.uk);
     const kInfo = kl.forItem(item);
-    const ownCont = containers.find((c) => c.title === (item.customName || item.uk || uk) || (c.where && c.where === item.slotLabel));
+    const ownCont = parentKey
+      ? containersMap.get(`${parentKey} → ${item.uk}`) || null
+      : containers.find((c) => c.title === (item.customName || item.uk || uk) || (c.where && c.where === item.slotLabel));
     const enriched = {
       ...item, selKey, uk, slotLabel: item.slotLabel || fallbackWhere,
       keys: kInfo.keys, warnings: kInfo.warnings, worst: kInfo.worst, howToUse: kInfo.howToUse,
@@ -68,14 +72,8 @@ export function renderSlotsAndKeysTab(s, an, st, keysList, redrawLeft, askInChat
     if (idx >= 9 && idx <= 35) invBySlot[idx] = registerItem(`inv:${idx}`, invItem, `Інвентар (слот ${idx})`);
   }
 
-  const beltEquipped = (slots.toolbelt || [])[0] ? registerItem('belt:main', slots.toolbelt[0], 'Пояс (Tool Belt)') : null;
-  const beltToolsBySlot = /** @type {Record<number, any>} */ ({});
-  let maxBeltIdx = 1;
-  for (const bt of slots.toolbeltTools || []) {
-    const bIdx = Number(bt.beltSlot ?? 0);
-    if (bIdx > maxBeltIdx) maxBeltIdx = bIdx;
-    beltToolsBySlot[bIdx] = registerItem(`belt:tool:${bIdx}`, bt, `У поясі (слот ${bIdx + 1})`);
-  }
+  // K23: додаткові слоти модів (міст K16 — будь-який мод, без коду під мод); уміст предмета в слоті — вкладений контейнер
+  const modSlotItems = (slots.modSlots || []).map((ms, i) => registerItem(`mod:${ms.slotKey || ms.slot || i}`, ms, ms.slotLabel || 'Додатковий слот')).filter(Boolean);
 
   const curioTypesRaw = (slots.curiosTypes && slots.curiosTypes.length) ? slots.curiosTypes : DEFAULT_CURIOS_TYPES;
   /** @type {Map<string, any[]>} */
@@ -89,7 +87,7 @@ export function renderSlotsAndKeysTab(s, an, st, keysList, redrawLeft, askInChat
   });
 
   for (const cont of containers) {
-    cont.items.forEach((ci, idx) => registerItem(`cont:${cont.key}:${ci.bpSlot ?? idx}`, ci, cont.title));
+    cont.items.forEach((ci, idx) => registerItem(`cont:${cont.key}:${ci.bpSlot ?? idx}`, ci, cont.title, cont.key));
   }
   for (const g of kl.globals) selectable.set(g.selKey, g);
 
@@ -135,7 +133,9 @@ export function renderSlotsAndKeysTab(s, an, st, keysList, redrawLeft, askInChat
         dur !== null ? h('div.mc-tip-dur', null,
           h('span', null, `Міцність: ${dur}%`),
           h('span.mc-tip-dur-bar', null, h('i', { style: { width: `${dur}%`, background: durColor } }))) : null,
+        enriched.detail ? h('div.mc-tip-detail', null, enriched.detail) : null,
         enriched.containerKey ? h('div.mc-tip-bag', null, '📦 Має вкладені предмети — натисніть для перегляду вмісту') : null,
+        enriched.more ? h('div.mc-tip-bag', null, '📦 Є ще вміст глибше — знімок гри його не розгортає') : null,
         enriched.keys?.length ? h('div.mc-tip-keys', null,
           enriched.keys.slice(0, 5).map((/** @type {any} */ k) => h('div.mc-tip-krow', null,
             h(`span.mc-slot-dot.${k.state}`),
@@ -297,25 +297,13 @@ export function renderSlotsAndKeysTab(s, an, st, keysList, redrawLeft, askInChat
               renderSlotCell(offHandItem, { emptyIcon: '🛡', emptyHint: `Друга рука (Offhand, клавіша ${kl.offhandSwapCombo || 'F'})` }),
               h('span.mc-curio-lbl', null, 'Друга рука'))),
 
-          h('div.mc-belt-box', null,
+          modSlotItems.length ? h('div.mc-belt-box', null,
             h('div.mc-sub-head', null,
-              h('span', null, '🎗 Пояс Tool Belt'),
-              h('span.mc-mini-kbs', null,
-                kl.beltSlotCombo ? h('kbd.ai-kbd', { title: 'Відкрити інвентар слотів пояса' }, kl.beltSlotCombo) : null,
-                kl.beltSwapCombo ? h('kbd.ai-kbd', { title: 'Кругове меню заміни інструмента' }, kl.beltSwapCombo) : null)),
+              h('span', null, `🧩 Додаткові слоти модів (${modSlotItems.length})`)),
             h('div.mc-belt-slots', null,
-              h('div.mc-labeled-slot', null,
-                renderSlotCell(beltEquipped, { emptyIcon: '🎗', emptyHint: 'Слот пояса Tool Belt (порожньо)' }),
-                h('span.mc-curio-lbl', null, 'Пояс')),
-              h('span.mc-belt-arrow', null, '▸'),
-              Array.from({ length: Math.max(2, maxBeltIdx + 1) }, (_, bi) =>
-                h('div.mc-labeled-slot', null,
-                  renderSlotCell(beltToolsBySlot[bi] || null, {
-                    emptyIcon: '⛏',
-                    emptyHint: beltEquipped ? `Чохол пояса #${bi + 1} (порожньо)` : `Слот інструмента пояса #${bi + 1}`,
-                    cornerTag: String(bi + 1),
-                  }),
-                  h('span.mc-curio-lbl', null, `Чохол ${bi + 1}`)))))),
+              modSlotItems.map((ms) => h('div.mc-labeled-slot', null,
+                renderSlotCell(ms, { emptyIcon: '🧩', emptyHint: ms.slotLabel }),
+                h('span.mc-curio-lbl', { title: `${ms.modName || ms.ns} · ${ms.slotLabel}` }, ms.modName || ms.ns))))) : null),
 
         h('div.mc-curios-panel', null,
           h('div.mc-sub-head', null,
@@ -442,6 +430,8 @@ function renderInspectorCard(s, st, inspected, quickList, lv, redrawLeft, askInC
               modMeta ? h('a', { href: `#/mod/${inspected.ns}` }, modMeta.name) : h('span', null, inspected.modName || inspected.ns),
               inspected.slotKind !== 'global' ? h('code.small', null, inspected.id) : null,
               typeof inspected.durabilityPct === 'number' ? h('span.muted', null, `міцність ${inspected.durabilityPct}%`) : null))),
+        inspected.detail ? h('div.mc-id-tooltip.small', null, String(inspected.detail).split(' · ').map((/** @type {string} */ ln) => h('div', null, ln))) : null,
+        inspected.more ? h('p.small.muted', null, '📦 Є ще вміст глибше — знімок гри його не розгортає.') : null,
         inspected.howToUse ? h('p.small.mc-id-desc', null, inspected.howToUse) : null,
         Array.isArray(liveDetails?.lines) && liveDetails.lines.length
           ? h('div.mc-id-tooltip.small', null, liveDetails.lines.slice(0, 5).map((/** @type {string} */ ln) => h('div', null, ln)))

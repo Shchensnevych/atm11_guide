@@ -5,10 +5,10 @@
  "mode": "creative",
  "mode_uk": "Творчість",
  "game_type": 1,
- "last_played": "2026-11-18 17:28",
- "last_played_ts": 1795015723,
- "updated": "2026-11-18 17:29",
- "play_hours": 16.1,
+ "last_played": "2026-11-19 11:27",
+ "last_played_ts": 1795080426,
+ "updated": "2026-11-19 11:27",
+ "play_hours": 19.88,
  "player": {
   "uuid": "832ceed6-e820-31f9-aa40-6acd5077a2ac",
   "xp_level": 7,
@@ -16,9 +16,9 @@
   "health": 20.0,
   "food_level": 19,
   "pos": [
-   584,
-   86,
-   662
+   563,
+   88,
+   713
   ],
   "dimension": "minecraft:overworld",
   "dimension_uk": "Верхній світ",
@@ -147,6 +147,7 @@
    "5A997A497AF5736A",
    "5C47B3C08530DDB1",
    "612FE1CBA627D9AB",
+   "61DA3D61D7103647",
    "6220EDE42C813C1B",
    "635620A03E3505BF",
    "67B87570C340C243",
@@ -242,6 +243,7 @@
    "7330FAC338D718B8",
    "7570E5AAAC5CCA39",
    "76F3B5C3CB49DDBD",
+   "76F6BC2EC054BD3C",
    "77CD677B96B1D46F",
    "78D8C3B1803409CD",
    "7AD8269107F61422",
@@ -269,7 +271,9 @@
      "0460DDEEFDEB0AAF",
      "0542FE108089A0A2"
     ],
-    "started": []
+    "started": [
+     "61DA3D61D7103647"
+    ]
    },
    "chapter_1_the_beginning": {
     "done": [
@@ -612,6 +616,7 @@
    "sophisticatedstorage:chest",
    "sophisticatedstorage:iron_chest",
    "sophisticatedstorage:packing_tape",
+   "theurgy:alchemical_sulfur_greenonion",
    "toolbelt:belt",
    "trophymanager:trophy"
   ],
@@ -639,6 +644,7 @@
    "minecraft:netherite_sword": 1,
    "minecraft:shulker_box": 1,
    "sophisticatedbackpacks:backpack": 1,
+   "theurgy:alchemical_sulfur_greenonion": 1,
    "toolbelt:belt": 1
   },
   "names": {
@@ -737,6 +743,7 @@
    "sophisticatedstorage:chest": "Скриня",
    "sophisticatedstorage:iron_chest": "Залізна скриня",
    "sophisticatedstorage:packing_tape": "Пакувальна стрічка",
+   "theurgy:alchemical_sulfur_greenonion": "Алхімічна сірка [Зелена цибуля]",
    "toolbelt:belt": "Інструментальний пояс",
    "trophymanager:trophy": "Трофей"
   }
@@ -794,6 +801,16 @@
     "slotKind": "hotbar",
     "ns": "minecraft",
     "modName": "Minecraft"
+   },
+   {
+    "id": "theurgy:alchemical_sulfur_greenonion",
+    "uk": "Алхімічна сірка [Зелена цибуля]",
+    "count": 1,
+    "slot": 7,
+    "slotLabel": "Гаряча панель (слот 8)",
+    "slotKind": "hotbar",
+    "ns": "theurgy",
+    "modName": "Theurgy"
    }
   ],
   "inventory": [

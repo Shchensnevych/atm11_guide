@@ -1,6 +1,6 @@
 {
  "default": "novyy_svit",
- "updated": "2026-11-18 17:29",
+ "updated": "2026-11-19 11:27",
  "worlds": [
   {
    "slug": "novyy_svit",
@@ -10,7 +10,7 @@
    "mode_uk": "Виживання",
    "last_played": "2026-11-12 05:11",
    "last_played_ts": 1794453071,
-   "updated": "2026-11-18 17:29",
+   "updated": "2026-11-19 11:27",
    "play_hours": 2.16,
    "quests_done": 7,
    "quests_visible_done": 7,
@@ -24,15 +24,15 @@
    "folder": "Стенд",
    "mode": "creative",
    "mode_uk": "Творчість",
-   "last_played": "2026-11-18 17:28",
-   "last_played_ts": 1795015723,
-   "updated": "2026-11-18 17:29",
-   "play_hours": 16.1,
+   "last_played": "2026-11-19 11:27",
+   "last_played_ts": 1795080426,
+   "updated": "2026-11-19 11:27",
+   "play_hours": 19.88,
    "quests_done": 41,
    "quests_visible_done": 41,
-   "quests_started": 44,
+   "quests_started": 45,
    "advancements_done": 53,
-   "items_obtained": 97
+   "items_obtained": 98
   },
   {
    "slug": "tvorchist",
@@ -42,7 +42,7 @@
    "mode_uk": "Творчість",
    "last_played": "2026-11-12 15:32",
    "last_played_ts": 1794490360,
-   "updated": "2026-11-18 17:29",
+   "updated": "2026-11-19 11:27",
    "play_hours": 17.73,
    "quests_done": 16,
    "quests_visible_done": 16,

@@ -178,6 +178,7 @@ a.ai-kpi:hover { border-color: var(--accent); text-decoration: none; }
 .mc-tip-dur-bar { flex: 1; max-width: 110px; height: 4px; border-radius: 999px; background: var(--bg); overflow: hidden; }
 .mc-tip-dur-bar i { display: block; height: 100%; }
 .mc-tip-bag { font-size: .73rem; color: var(--link); }
+.mc-tip-detail { font-size: .73rem; color: var(--muted); white-space: normal; }  /* K23: властивості стоса (чари, ефект, знос) */
 .mc-tip-keys { display: flex; flex-direction: column; gap: 4px; padding-top: 5px; border-top: 1px solid var(--line); }
 .mc-tip-krow { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .mc-tip-krow .mc-slot-dot { position: static; flex-shrink: 0; }
@@ -753,3 +754,11 @@ a.ai-kpi:hover { border-color: var(--accent); text-decoration: none; }
   .ai-model-lbl { max-width: 108px; }
   .ai-hotkey-hint { display: none; }
 }
+
+/* K23 (М1, варіант B): лічильник підключених до мережі сховищ у комірці назви; розгорнуті — дочірні рядки з відступом */
+.so-namebox { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.so-namebox .so-name { min-width: 0; }
+.so-mounts { flex: none; display: inline-flex; align-items: center; gap: 3px; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel-2);
+  color: var(--link); font: inherit; font-size: .72rem; line-height: 1.5; cursor: pointer; white-space: nowrap; }
+.so-mounts:hover, .so-mounts.on { border-color: var(--link); }
+.so-row.sub { margin-left: 20px; }

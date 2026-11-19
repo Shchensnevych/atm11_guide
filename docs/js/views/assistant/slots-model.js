@@ -185,8 +185,6 @@ export function buildKeyLookup(s, keysList, liveRadar) {
     globals,
     stats: { conflicts: Math.round(conflicts / 2), maybe: Math.round(maybe / 2), unboundImp },
     curiosOpenCombo: findCombo(/curios\.open/),
-    beltSlotCombo: findCombo(/toolbelt\.slot/),
-    beltSwapCombo: findCombo(/toolbelt\.open/),
     offhandSwapCombo: findCombo(/swapOffhand/i) || 'F',
   };
 }
@@ -197,14 +195,12 @@ export function resolveActiveSlots(s, an, liveState) {
   if (liveState?.world?.slots) {
     const ls = liveState.world.slots;
     const fallbackTypes = s.progress?.slots?.curiosTypes || [];
-    const fallbackBeltTools = s.progress?.slots?.toolbeltTools || [];
-    return {
+    return normalizeModSlots({
       ...ls,
       curiosTypes: ls.curiosTypes?.length ? ls.curiosTypes : fallbackTypes,
-      toolbeltTools: ls.toolbeltTools?.length ? ls.toolbeltTools : fallbackBeltTools,
-    };
+    });
   }
-  if (s.progress?.slots) return s.progress.slots;
+  if (s.progress?.slots) return normalizeModSlots(s.progress.slots);
   const hotbar = [];
   const inventory = [];
   an.invEntries.slice(0, 36).forEach((/** @type {any} */ e, /** @type {number} */ idx) => {
@@ -223,10 +219,24 @@ export function resolveActiveSlots(s, an, liveState) {
   };
 }
 
+/** K23: додаткові слоти модів — одне місце для всіх (міст K16: `modSlots`, вміст — серед вкладених контейнерів). Старі джерела
+ * (знімок сейву путівника, старий міст) дають пояс окремими полями `toolbelt` / `toolbeltTools` — зводимо до тієї самої форми:
+ * сам предмет — додатковий слот, його вміст — вкладений контейнер з назвою предмета. Окремого коду під моди у вигляді немає.
+ * @param {PlayerSlotsData} sl @returns {PlayerSlotsData} */
+export function normalizeModSlots(sl) {
+  if (!sl || sl.modSlots?.length || !(sl.toolbelt || []).length) return sl;
+  const carriers = sl.toolbelt.map((t, i) => ({ ...t, slotKind: 'mod_slot', slotKey: t.slotKey || `${t.id}#${i}` }));
+  const head = carriers[0];
+  const title = head.customName || head.uk;
+  const where = head.slotLabel || '';
+  const inside = (sl.toolbeltTools || []).map((t, i) => ({ ...t, bpTitle: title, bpKey: `legacy|${head.slotKey}`, bpKind: 'carried', bpWhere: where, bpSlot: t.beltSlot ?? i }));
+  return { ...sl, modSlots: carriers, toolbelt: [], toolbeltTools: [], backpacks: [...(sl.backpacks || []), ...inside] };
+}
+
 /** Групує вкладені контейнери (рюкзаки, шалкери, мішечки, DeepNull, Ендер-скриню) та знаходить іконку носія.
  * @param {PlayerSlotsData} slots */
 export function collectNestedContainers(slots) {
-  const carriers = [...(slots.hotbar || []), ...(slots.inventory || []), ...(slots.curios || [])];
+  const carriers = [...(slots.hotbar || []), ...(slots.inventory || []), ...(slots.curios || []), ...(slots.modSlots || [])];
   const defaultIdByKind = /** @type {Record<string, string>} */ ({
     bundle: 'minecraft:bundle',
     shulker: 'minecraft:shulker_box',
@@ -243,7 +253,10 @@ export function collectNestedContainers(slots) {
       const kind = b.bpKind || 'backpack';
       const where = b.bpWhere || '';
       const title = b.bpTitle || 'Контейнер';
-      const carrier = carriers.find((c) => (where && c.slotLabel === where) || (c.customName || c.uk) === title);
+      // K23: вкладене (ланцюжок «A → B», міст K17) — іконка самого B з уміщу A, а не носія верхнього рівня
+      const cut = key.lastIndexOf(' → ');
+      const holder = cut > 0 ? (slots.backpacks || []).find((x) => x.bpKey === key.slice(0, cut) && x.uk === key.slice(cut + 3)) : null;
+      const carrier = holder || carriers.find((c) => (where && c.slotLabel === where) || (c.customName || c.uk) === title);
       const itemId = carrier?.id || defaultIdByKind[kind] || 'sophisticatedbackpacks:backpack';
       g = { key, title, where, kind, itemId, cap: b.bpCapacity || 27, items: [] };
       map.set(key, g);
