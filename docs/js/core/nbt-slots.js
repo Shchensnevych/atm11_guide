@@ -1,6 +1,6 @@
 // @ts-check
 // core/nbt-slots.js — розбір структурованих слотів гравця (гаряча панель, інвентар 3×9, броня, друга рука, Curios,
-// пояс Tool Belt, рюкзаки Sophisticated Backpacks, шалкери/мішечки/DeepNull, Ендер-скриня) прямо в браузері (дзеркало extract_structured_slots).
+// додаткові слоти модів, рюкзаки Sophisticated Backpacks, уміст предметів углиб за формою даних (K23), Ендер-скриня) прямо в браузері (дзеркало extract_structured_slots).
 import { readNbt } from './nbt.js';
 import { itemNameUk } from './store.js';
 
@@ -82,12 +82,81 @@ function resolveStackUk(store, id, comp) {
  * @param {Record<string, number>} invCounts
  * @returns {Promise<PlayerSlotsData>}
  */
+// K23 (з гри 11-19; те саме правило, що в мосту — ATM11-Companion services/watcher/saves.js): що лежить усередині предмета —
+// за формою даних, будь-який компонент, углиб до NEST_MAX_DEPTH рівнів. Перелік-уміст: обгортки зі слотом { slot / Slot,
+// item / Stack } — будь-де (кількість — з обгортки, якщо вона там є); голі предмети — лише в полі-вмісті (container / contents /
+// inventory / items / stacks); фільтри й службові копії — ні. Додаткові слоти модів — з будь-якого вкладення гравця (міст K16).
+const SKIP_NESTED_KEY = /filter|ghost|preview|display|template|cache|backup|cosmetic|^(last|old|prev|render|sync)/i;
+const CONTENTS_KEY = /container|contents|inventory|items|stacks/i;
+const NEST_MAX_DEPTH = 4;
+const NEST_BUDGET = 400;
+/** @param {any} o @param {{ allowNoCount?: boolean }} [opt] */
+function isNbtItemStack(o, { allowNoCount = false } = {}) {
+  if (!o || typeof o !== 'object' || Array.isArray(o)) return false;
+  if (typeof o.id !== 'string' || !o.id.includes(':') || o.id === 'minecraft:air') return false;
+  const c = o.count ?? o.Count;
+  return c === undefined ? Boolean(allowNoCount) : Number(c) >= 1;
+}
+/** Що лежить усередині предмета: [{ stack, slot, count, comp }]. @param {any} stack */
+export function nestedStacks(stack) {
+  const comp = stack && typeof stack === 'object' ? stack.components : null;
+  /** @type {{ stack: any, slot: number, count: number, comp: string }[]} */
+  const out = [];
+  if (!comp || typeof comp !== 'object') return out;
+  /** @param {any} v @param {string} compKey @param {string} key @param {number} d */
+  const visit = (v, compKey, key, d) => {
+    if (!v || typeof v !== 'object' || d > 4) return;
+    if (Array.isArray(v)) {
+      let found = 0;
+      v.forEach((/** @type {any} */ e, /** @type {number} */ idx) => {
+        if (!e || typeof e !== 'object' || Array.isArray(e)) return;
+        const wrapped = e.slot !== undefined || e.Slot !== undefined;
+        for (const fld of ['item', 'Item', 'stack', 'Stack']) {
+          const st = e[fld];
+          if (isNbtItemStack(st, { allowNoCount: wrapped })) {
+            out.push({ stack: st, slot: Number(e.slot ?? e.Slot ?? idx), count: Number(e.count ?? e.Count ?? st.count ?? st.Count ?? 1), comp: compKey });
+            found++;
+            return;
+          }
+        }
+        if (CONTENTS_KEY.test(key) && isNbtItemStack(e)) { out.push({ stack: e, slot: idx, count: Number(e.count ?? e.Count), comp: compKey }); found++; }
+      });
+      if (!found) v.forEach((/** @type {any} */ e) => visit(e, compKey, key, d + 1));
+      return;
+    }
+    if (isNbtItemStack(v)) return;
+    for (const [k, x] of Object.entries(v)) if (!SKIP_NESTED_KEY.test(k)) visit(x, compKey, k, d + 1);
+  };
+  for (const [k, v] of Object.entries(comp)) if (!SKIP_NESTED_KEY.test(k)) visit(v, k, k, 0);
+  return out;
+}
+/** Предмети у вкладенні гравця (міст K16 extractAttachmentStacks): [{ stack, slotKey }]. @param {any} val @param {string} baseKey */
+function attachmentStacks(val, baseKey) {
+  /** @type {{ stack: any, slotKey: string }[]} */
+  const out = [];
+  if (!val || typeof val !== 'object') return out;
+  if (isNbtItemStack(val)) return [{ stack: val, slotKey: baseKey }];
+  /** @param {any[]} arr */
+  const pushArr = (arr) => arr.forEach((e, idx) => {
+    const w = Boolean(e && typeof e === 'object' && (e.slot !== undefined || e.Slot !== undefined));
+    const st = isNbtItemStack(e) ? e : (isNbtItemStack(e?.item, { allowNoCount: w }) ? e.item : (isNbtItemStack(e?.Stack, { allowNoCount: w }) ? e.Stack : null));
+    if (st) out.push({ stack: st, slotKey: `${baseKey}#${idx}` });
+  });
+  if (Array.isArray(val)) { pushArr(val); return out; }
+  for (const [k, x] of Object.entries(val)) {
+    if (!x || typeof x !== 'object' || /^(last|old|prev|cosmetic|backup|cache|ghost|render|sync)/i.test(k)) continue;
+    if (isNbtItemStack(x)) { out.push({ stack: x, slotKey: `${baseKey}:${k}` }); continue; }
+    if (Array.isArray(x)) pushArr(x);
+  }
+  return out;
+}
+
 export async function extractSlotsInBrowser(pnbt, wdir, store, invCounts) {
   /** @type {PlayerSlotsData} */
   const slots = {
     mainHand: null, offHand: null, hotbar: [], inventory: [],
     armor: [], curios: [], curiosTypes: [],
-    toolbelt: [], toolbeltTools: [], backpacks: [], enderChest: [],
+    toolbelt: [], toolbeltTools: [], modSlots: [], backpacks: [], enderChest: [],
   };
 
   /** @type {Map<string, any>} */
@@ -135,15 +204,18 @@ export async function extractSlotsInBrowser(pnbt, wdir, store, invCounts) {
     return out;
   };
 
-  /** @param {any} rawItem @param {string} title @param {SlotItemEntry[]} outArr @param {string} where */
-  const extractNested = (rawItem, title, outArr, where = '') => {
+  /** K23: углиб, ланцюжком «A → B»; ключ вкладеного — ключ батька + « → назва» (як міст і живий знімок).
+   * @param {any} rawItem @param {string} title @param {SlotItemEntry[]} outArr @param {string} where
+   * @param {string} [keyWhere] @param {number} [depth] @param {{ n: number }} [budget] @param {string} [parentKey] */
+  const extractNested = (rawItem, title, outArr, where = '', keyWhere = '', depth = 1, budget = { n: NEST_BUDGET }, parentKey = '') => {
     const comp = rawItem?.components;
     if (!comp || typeof comp !== 'object') return;
     const sUuid = uuidKey(comp['sophisticatedcore:storage_uuid'] || comp['storage_uuid']);
     const bpCap = Number(comp['sophisticatedcore:number_of_inventory_slots']) || 0;
+    const key = sUuid || parentKey || `${keyWhere || where}|${title}`;
     const tag = (/** @type {SlotItemEntry} */ f, /** @type {number | null} */ bpSlot, /** @type {string} */ bpKind) => {
       f.bpTitle = title;
-      f.bpKey = sUuid || `${where}|${title}`;
+      f.bpKey = key;
       f.bpKind = bpKind;
       if (bpCap) f.bpCapacity = bpCap;
       if (bpSlot !== null) f.bpSlot = bpSlot;
@@ -151,37 +223,24 @@ export async function extractSlotsInBrowser(pnbt, wdir, store, invCounts) {
       invCounts[f.id] = (invCounts[f.id] || 0) + f.count;
       return f;
     };
-    if (Array.isArray(comp['minecraft:container'])) {
-      comp['minecraft:container'].forEach((/** @type {any} */ entry, /** @type {number} */ idx) => {
-        const f = fmtStack(entry?.item || entry, `Усередині «${title}»`, 'backpack');
-        if (f) outArr.push(tag(f, Number(entry?.slot ?? idx), 'shulker'));
-      });
-    }
-    if (Array.isArray(comp['minecraft:bundle_contents'])) {
-      comp['minecraft:bundle_contents'].forEach((/** @type {any} */ inner, /** @type {number} */ idx) => {
-        const f = fmtStack(inner, `Усередині «${title}»`, 'backpack');
-        if (f) outArr.push(tag(f, idx, 'bundle'));
-      });
-    }
-    const dnInv = comp['minecraft:custom_data']?.DeepNull?.Inventory;
-    if (Array.isArray(dnInv)) {
-      dnInv.forEach((/** @type {any} */ entry, /** @type {number} */ idx) => {
-        const f = fmtStack(entry?.Stack || entry?.item || entry, `Усередині «${title}»`, 'backpack');
-        if (f) {
-          const bigCnt = Number(entry?.Count ?? entry?.count ?? f.count);
-          if (bigCnt > 0) f.count = bigCnt;
-          outArr.push(tag(f, Number(entry?.Slot ?? idx), 'deepnull'));
-        }
-      });
-    }
+    /** @param {any} st @param {number} slot @param {number} count @param {string} kind @param {string} label */
+    const take = (st, slot, count, kind, label) => {
+      if (budget.n <= 0) return;
+      const f = fmtStack(st, label, 'backpack');
+      if (!f) return;
+      if (Number(count) > 0) f.count = Number(count);
+      budget.n--;
+      outArr.push(tag(f, Number.isFinite(slot) ? slot : null, kind));
+      const own = nestedStacks(st).length > 0 || Boolean(uuidKey(st?.components?.['sophisticatedcore:storage_uuid'] || st?.components?.storage_uuid));
+      if (!own) return;
+      if (depth >= NEST_MAX_DEPTH || budget.n <= 0) { f.more = true; return; }
+      const name = customNameOf(st) || f.uk;
+      extractNested(st, `${title} → ${name}`, outArr, where, keyWhere, depth + 1, budget, `${key} → ${name}`);
+    };
+    for (const it of nestedStacks(rawItem)) take(it.stack, it.slot, it.count, it.comp === 'minecraft:bundle_contents' ? 'bundle' : 'container', `Усередині «${title}»`);
     if (sUuid && bpMap.has(sUuid)) {
       const stks = bpMap.get(sUuid)?.inventory?.stacks || bpMap.get(sUuid)?.Items || [];
-      if (Array.isArray(stks)) {
-        stks.forEach((/** @type {any} */ st, /** @type {number} */ idx) => {
-          const f = fmtStack(st, `Рюкзак «${title}»`, 'backpack');
-          if (f) outArr.push(tag(f, Number(st?.Slot ?? idx), 'backpack'));
-        });
-      }
+      if (Array.isArray(stks)) stks.forEach((/** @type {any} */ st, /** @type {number} */ idx) => take(st, Number(st?.Slot ?? idx), Number(st?.count ?? st?.Count ?? 1), 'backpack', `Рюкзак «${title}»`));
     }
   };
 
@@ -249,21 +308,15 @@ export async function extractSlotsInBrowser(pnbt, wdir, store, invCounts) {
     }
   }
 
-  const beltItems = att['toolbelt:belt']?.Items || att['toolbelt:belt']?.stacks || [];
-  if (Array.isArray(beltItems)) {
-    for (const bItem of beltItems) {
-      const f = fmtStack(bItem, 'Пояс (Tool Belt)', 'toolbelt');
-      if (f) {
-        slots.toolbelt.push(f);
-        const inner = bItem?.components?.['minecraft:container'];
-        if (Array.isArray(inner)) {
-          for (const entry of inner) {
-            const bSlot = Number(entry?.slot ?? 0);
-            const tf = fmtStack(entry?.item || entry, `У поясі (слот ${bSlot + 1})`, 'toolbelt');
-            if (tf) { tf.beltSlot = bSlot; slots.toolbeltTools?.push(tf); }
-          }
-        }
-      }
+  // K23: додаткові слоти модів — з будь-якого вкладення гравця (міст K16), не за назвою мода; уміст — тим самим обходом
+  for (const [attKey, attVal] of Object.entries(att)) {
+    if (attKey === 'curios:inventory') continue;
+    for (const { stack, slotKey } of attachmentStacks(attVal, attKey)) {
+      const f = fmtStack(stack, 'Додатковий слот', 'mod_slot');
+      if (!f) continue;
+      f.slotKey = slotKey;
+      slots.modSlots?.push(f);
+      extractNested(stack, customNameOf(stack) || f.uk, slots.backpacks, 'Додатковий слот', slotKey);
     }
   }
 

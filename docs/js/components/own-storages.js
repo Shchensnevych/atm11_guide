@@ -53,6 +53,11 @@ const state = new WeakMap();
 /** «1 підключене / 2 підключені / 5 підключених». @param {number} n */
 const mountWord = (n) => (n % 10 === 1 && n % 100 !== 11 ? 'підключене' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 'підключені' : 'підключених');
 const MOUNT = '🔌';
+/** K23 (з гри 11-19): розгорнуті мережі — у сховищі браузера (переживають перезавантаження сторінки). */
+const OPEN_KEY = 'atm11.own.mountsOpen';
+const readOpen = () => { try { return JSON.parse(localStorage.getItem(OPEN_KEY) || '[]'); } catch (_) { return []; } };
+/** @param {Set<string>} open */
+const saveOpen = (open) => { try { localStorage.setItem(OPEN_KEY, JSON.stringify([...open])); } catch (_) { /* сховище недоступне — лише на сторінці */ } };
 
 /**
  * Намалювати список у контейнері, що живе між перемальовуваннями картки. Без змін даних — не перемальовує
@@ -63,7 +68,7 @@ const MOUNT = '🔌';
  */
 export function renderOwnStorages(el, d, { act }) {
   if (isEditing(el)) return;
-  const stt = state.get(el) || { open: new Set(), d, act };
+  const stt = state.get(el) || { open: new Set(readOpen()), d, act };
   stt.d = d; stt.act = act;
   state.set(el, stt);
   const open = stt.open;
@@ -130,6 +135,7 @@ export function renderOwnStorages(el, d, { act }) {
       onclick: (/** @type {Event} */ e) => {
         e.stopPropagation();
         if (open.has(n.key)) open.delete(n.key); else open.add(n.key);
+        saveOpen(open);
         renderOwnStorages(el, stt.d, { act: stt.act });
       },
     }, `${MOUNT} ${sub.length} ${mountWord(sub.length)} ${on ? '▴' : '▾'}`) : null;
@@ -164,6 +170,9 @@ export function renderOwnStorages(el, d, { act }) {
     rows.some((/** @type {any} */ m) => m.chain) ? keyRow('Зв\'язок', kv([h('span.so-chain.ch0', null, 'А'), h('span.so-chain.ch1', null, 'Б')], 'однакова літера й колір — спільний вміст')) : null,
   ].filter(Boolean);
 
+  // K23 (з гри 11-19): прокрутка списку — та сама після перемальовування (розгортання й оновлення даних скидали її на початок)
+  const prevList = el.querySelector('.so-list');
+  const top = prevList ? prevList.scrollTop : 0;
   mount(el,
     h('div.so-list', null,
       zones.length ? zones : h('div.small.muted', null, 'Зон ще немає — станьте на базі в грі й скажіть або напишіть у чат «тут моя база».'),
@@ -173,4 +182,6 @@ export function renderOwnStorages(el, d, { act }) {
     h('div.small.muted', null, 'Дані — з компаньйона (ті самі, що в HUD). ' +
       `Поставлено вами: ${d.placed ?? 0} · позначено: ${d.pinned ?? 0} · «не моє»: ${d.unpinned ?? 0}` +
       (d.snapshot?.lastAt ? ` · знімок гри: ${d.snapshot.lastContainers} сховищ за ${d.snapshot.lastWorkMs} мс` : '')));
+  const nowList = /** @type {HTMLElement | null} */ (el.querySelector('.so-list'));
+  if (nowList && top) nowList.scrollTop = top;
 }

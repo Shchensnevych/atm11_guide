@@ -226,11 +226,78 @@ def resolve_item_uk(iid, names_items, mod_names, components=None, books=None):
         return f"{p.replace('_', ' ')} ({mod_names.get(ns, ns)})"
     return iid
 
+# K23 (з гри 11-19; те саме правило, що в мосту — ATM11-Companion services/watcher/saves.js і сайт core/nbt-slots.js): що
+# лежить усередині предмета — за формою даних, будь-який компонент, углиб до NEST_MAX_DEPTH. Перелік-уміст: обгортки зі слотом
+# {slot/Slot, item/Stack} — будь-де (кількість — з обгортки, якщо вона там є); голі предмети — лише в полі-вмісті (container /
+# contents / inventory / items / stacks); фільтри й службові копії — ні. Додаткові слоти модів — з будь-якого вкладення гравця.
+SKIP_NESTED_KEY = re.compile(r'filter|ghost|preview|display|template|cache|backup|cosmetic|^(last|old|prev|render|sync)', re.I)
+SKIP_ATTACHMENT_KEY = re.compile(r'^(last|old|prev|cosmetic|backup|cache|ghost|render|sync)', re.I)
+CONTENTS_KEY = re.compile(r'container|contents|inventory|items|stacks', re.I)
+NEST_MAX_DEPTH = 4
+NEST_BUDGET = 400
+
+def is_nbt_stack(o, allow_no_count=False):
+    if not isinstance(o, dict): return False
+    iid = o.get('id')
+    if not isinstance(iid, str) or ':' not in iid or iid == 'minecraft:air': return False
+    c = o.get('count', o.get('Count'))
+    if c is None: return bool(allow_no_count)
+    try: return float(c) >= 1
+    except (TypeError, ValueError): return False
+
+def nested_stacks(stack):
+    """Що лежить усередині предмета: [(stack, slot, count, comp)]."""
+    comp = stack.get('components') if isinstance(stack, dict) else None
+    out = []
+    if not isinstance(comp, dict): return out
+    def visit(v, comp_key, key, d):
+        if not isinstance(v, (dict, list)) or d > 4: return
+        if isinstance(v, list):
+            found = 0
+            for idx, e in enumerate(v):
+                if not isinstance(e, dict): continue
+                wrapped = 'slot' in e or 'Slot' in e
+                hit = None
+                for fld in ('item', 'Item', 'stack', 'Stack'):
+                    st = e.get(fld)
+                    if is_nbt_stack(st, wrapped):
+                        hit = (st, int(e.get('slot', e.get('Slot', idx)) or 0), int(e.get('count', e.get('Count', st.get('count', st.get('Count', 1)))) or 1), comp_key)
+                        break
+                if hit is None and CONTENTS_KEY.search(key) and is_nbt_stack(e):
+                    hit = (e, idx, int(e.get('count', e.get('Count', 1)) or 1), comp_key)
+                if hit: out.append(hit); found += 1
+            if not found:
+                for e in v: visit(e, comp_key, key, d + 1)
+            return
+        if is_nbt_stack(v): return
+        for k, x in v.items():
+            if not SKIP_NESTED_KEY.search(k): visit(x, comp_key, k, d + 1)
+    for k, v in comp.items():
+        if not SKIP_NESTED_KEY.search(k): visit(v, k, k, 0)
+    return out
+
+def attachment_stacks(val, base_key):
+    """Предмети у вкладенні гравця (міст K16 extractAttachmentStacks): [(stack, slot_key)]."""
+    out = []
+    if not isinstance(val, (dict, list)): return out
+    if is_nbt_stack(val): return [(val, base_key)]
+    def push_arr(arr):
+        for idx, e in enumerate(arr):
+            w = isinstance(e, dict) and ('slot' in e or 'Slot' in e)
+            st = e if is_nbt_stack(e) else (e.get('item') if isinstance(e, dict) and is_nbt_stack(e.get('item'), w) else (e.get('Stack') if isinstance(e, dict) and is_nbt_stack(e.get('Stack'), w) else None))
+            if st: out.append((st, f'{base_key}#{idx}'))
+    if isinstance(val, list): push_arr(val); return out
+    for k, x in val.items():
+        if not isinstance(x, (dict, list)) or SKIP_ATTACHMENT_KEY.search(k): continue
+        if is_nbt_stack(x): out.append((x, f'{base_key}:{k}')); continue
+        if isinstance(x, list): push_arr(x)
+    return out
+
 def extract_structured_slots(pnbt, wdir, names_items, mod_names, books, inv_counts):
     slots = {
         'mainHand': None, 'offHand': None, 'hotbar': [], 'inventory': [],
         'armor': [], 'curios': [], 'curiosTypes': [],
-        'toolbelt': [], 'toolbeltTools': [], 'backpacks': [], 'enderChest': [],
+        'toolbelt': [], 'toolbeltTools': [], 'modSlots': [], 'backpacks': [], 'enderChest': [],
     }
     bp_map = {}
     for bp_rel in BACKPACK_STORAGE_FILES:
@@ -277,53 +344,48 @@ def extract_structured_slots(pnbt, wdir, names_items, mod_names, books, inv_coun
                 out['durabilityPct'] = max(0, min(100, round(((max_dmg - dmg) / max_dmg) * 100)))
         return out
 
-    def extract_nested(raw_item, title, out_arr, where=''):
+    def extract_nested(raw_item, title, out_arr, where='', key_where='', depth=1, budget=None, parent_key=''):
+        """K23: углиб, ланцюжком «A → B»; ключ вкладеного — ключ батька + « → назва» (як міст і живий знімок)."""
+        if budget is None: budget = [NEST_BUDGET]
         if not isinstance(raw_item, dict): return
         comp = raw_item.get('components')
         if not isinstance(comp, dict): return
         s_uuid = uuid_key(comp.get('sophisticatedcore:storage_uuid') or comp.get('storage_uuid'))
         bp_cap = int(comp.get('sophisticatedcore:number_of_inventory_slots') or 0)
+        key = s_uuid or parent_key or f'{key_where or where}|{title}'
         def tag(f_item, bp_slot=None, bp_kind='container'):
             f_item['bpTitle'] = title
-            f_item['bpKey'] = s_uuid or f'{where}|{title}'
+            f_item['bpKey'] = key
             f_item['bpKind'] = bp_kind
             if bp_cap: f_item['bpCapacity'] = bp_cap
             if bp_slot is not None: f_item['bpSlot'] = bp_slot
             if where: f_item['bpWhere'] = where
             inv_counts[f_item['id']] += f_item['count']
             return f_item
-
-        mc_cont = comp.get('minecraft:container')
-        if isinstance(mc_cont, list):
-            for idx, entry in enumerate(mc_cont):
-                inner = entry.get('item') if isinstance(entry, dict) and 'item' in entry else entry
-                f = fmt_stack(inner, f'Усередині «{title}»', 'backpack')
-                if f: out_arr.append(tag(f, int(entry.get('slot', idx)) if isinstance(entry, dict) else idx, 'shulker'))
-
-        bundle = comp.get('minecraft:bundle_contents')
-        if isinstance(bundle, list):
-            for idx, inner in enumerate(bundle):
-                f = fmt_stack(inner, f'Усередині «{title}»', 'backpack')
-                if f: out_arr.append(tag(f, idx, 'bundle'))
-
-        dn_inv = ((comp.get('minecraft:custom_data') or {}).get('DeepNull') or {}).get('Inventory') if isinstance(comp.get('minecraft:custom_data'), dict) else None
-        if isinstance(dn_inv, list):
-            for idx, entry in enumerate(dn_inv):
-                if not isinstance(entry, dict): continue
-                inner = entry.get('Stack') or entry.get('item') or entry
-                f = fmt_stack(inner, f'Усередині «{title}»', 'backpack')
-                if f:
-                    big_cnt = int(entry.get('Count', entry.get('count', f['count'])) or f['count'])
-                    if big_cnt > 0: f['count'] = big_cnt
-                    out_arr.append(tag(f, int(entry.get('Slot', idx)), 'deepnull'))
-
+        def take(st, slot, count, kind, label):
+            if budget[0] <= 0: return
+            f = fmt_stack(st, label, 'backpack')
+            if not f: return
+            if count and int(count) > 0: f['count'] = int(count)
+            budget[0] -= 1
+            out_arr.append(tag(f, slot, kind))
+            st_comp = st.get('components') if isinstance(st.get('components'), dict) else {}
+            own = bool(nested_stacks(st)) or bool(uuid_key(st_comp.get('sophisticatedcore:storage_uuid') or st_comp.get('storage_uuid')))
+            if not own: return
+            if depth >= NEST_MAX_DEPTH or budget[0] <= 0:
+                f['more'] = True
+                return
+            name = custom_name_of(st) or f['uk']
+            extract_nested(st, f'{title} → {name}', out_arr, where, key_where, depth + 1, budget, f'{key} → {name}')
+        for st, slot, count, comp_key in nested_stacks(raw_item):
+            take(st, slot, count, 'bundle' if comp_key == 'minecraft:bundle_contents' else 'container', f'Усередині «{title}»')
         if s_uuid and s_uuid in bp_map:
             bp_c = bp_map[s_uuid]
             stks = (bp_c.get('inventory') or {}).get('stacks') or bp_c.get('Items') or []
             if isinstance(stks, list):
                 for idx, st in enumerate(stks):
-                    f = fmt_stack(st, f'Рюкзак «{title}»', 'backpack')
-                    if f: out_arr.append(tag(f, int(st.get('Slot', idx)) if isinstance(st, dict) and st.get('Slot') is not None else idx, 'backpack'))
+                    if isinstance(st, dict):
+                        take(st, int(st.get('Slot', idx)) if st.get('Slot') is not None else idx, int(st.get('count', st.get('Count', 1)) or 1), 'backpack', f'Рюкзак «{title}»')
 
     sel = int(pnbt.get('SelectedItemSlot', 0) or 0)
     armor_names = {100: ('feet', 'Черевики'), 101: ('legs', 'Наголінники'), 102: ('chest', 'Нагрудник'), 103: ('head', 'Шолом')}
@@ -392,23 +454,15 @@ def extract_structured_slots(pnbt, wdir, names_items, mod_names, books, inv_coun
                             slots['curios'].append(f)
                             extract_nested(c_item, custom_name_of(c_item) or f['uk'], slots['backpacks'], f'Curios: {slot_uk}')
 
-    belt_data = att.get('toolbelt:belt')
-    if isinstance(belt_data, dict):
-        belt_items = belt_data.get('Items') or belt_data.get('stacks') or []
-        if isinstance(belt_items, list):
-            for b_item in belt_items:
-                f = fmt_stack(b_item, 'Пояс (Tool Belt)', 'toolbelt')
-                if f:
-                    slots['toolbelt'].append(f)
-                    inner = (b_item.get('components') or {}).get('minecraft:container') if isinstance(b_item, dict) and isinstance(b_item.get('components'), dict) else None
-                    if isinstance(inner, list):
-                        for entry in inner:
-                            t_stack = entry.get('item') if isinstance(entry, dict) and 'item' in entry else entry
-                            b_slot = int(entry.get('slot', 0)) if isinstance(entry, dict) else 0
-                            tf = fmt_stack(t_stack, f'У поясі (слот {b_slot + 1})', 'toolbelt')
-                            if tf:
-                                tf['beltSlot'] = b_slot
-                                slots['toolbeltTools'].append(tf)
+    # K23: додаткові слоти модів — з будь-якого вкладення гравця (міст K16), не за назвою мода; уміст — тим самим обходом
+    for att_key, att_val in att.items():
+        if att_key == 'curios:inventory': continue
+        for st, slot_key in attachment_stacks(att_val, att_key):
+            f = fmt_stack(st, 'Додатковий слот', 'mod_slot')
+            if not f: continue
+            f['slotKey'] = slot_key
+            slots['modSlots'].append(f)
+            extract_nested(st, custom_name_of(st) or f['uk'], slots['backpacks'], 'Додатковий слот', slot_key)
 
     for e_item in (pnbt.get('EnderItems') or []):
         f = fmt_stack(e_item, 'Ендер-скриня', 'enderChest')
