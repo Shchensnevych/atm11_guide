@@ -84,18 +84,19 @@ export function renderOwnStorages(el, d, { act }) {
    */
   const row = (icon, name, where, zone, onMenu, extra = '', m = null, after = null) => {
     const nameEl = h('span.so-name', { title: name }, name);
-    const nameCell = after ? h('span.so-namebox', null, nameEl, after) : nameEl;
+    const nameCell = nameEl;
+    const metaEl = after ? h('span.so-meta.so-metabox', null, where || '', after) : h('span.so-meta', null, where || '');   // K24: «🔌1▾» — після місця, перед «⋯»
     const chain = m && m.chain
       ? h(`span.so-chain.ch${chainHue(m.chainN)}`, { title: `спільний вміст — група ${m.chain}: у всіх місцях із цією літерою й кольором лежить те саме` }, m.chain)
       : h('span.so-chain.none');
-    if (!onMenu) return h(`div.so-row${extra}${zoneCls(zone)}`, m && m.hint ? { title: m.hint } : null, icon, nameCell, h('span.so-meta', null, where || ''), chain, h('span.so-nomenu'));
+    if (!onMenu) return h(`div.so-row${extra}${zoneCls(zone)}`, m && m.hint ? { title: m.hint } : null, icon, nameCell, metaEl, chain, h('span.so-nomenu'));
     const btn = h('button.so-menu', {
       type: 'button',
       title: 'Дії',
       'aria-haspopup': 'menu',
       onclick: (/** @type {Event} */ e) => { e.stopPropagation(); onMenu(btn, nameEl); },
     }, '⋯');
-    return h(`div.so-row${extra}${zoneCls(zone)}`, null, icon, nameCell, h('span.so-meta', null, where || ''), chain, btn);
+    return h(`div.so-row${extra}${zoneCls(zone)}`, null, icon, nameCell, metaEl, chain, btn);
   };
 
   const zones = (d.zones || []).map((/** @type {any} */ z, /** @type {number} */ i) => row(h('span.so-ic', { title: 'зона бази' }, '📍'), z.name, z.where, i,
@@ -130,7 +131,8 @@ export function renderOwnStorages(el, d, { act }) {
     const on = sub.length > 0 && open.has(n.key);
     const chip = sub.length ? h(`button.so-mounts${on ? '.on' : ''}`, {
       type: 'button',
-      title: on ? 'згорнути' : 'показати сховища, підключені до мережі',
+      title: `${sub.length} ${mountWord(sub.length)} — ${on ? 'згорнути' : 'показати'}`,
+      'aria-label': `${sub.length} ${mountWord(sub.length)}`,
       'aria-expanded': String(on),
       onclick: (/** @type {Event} */ e) => {
         e.stopPropagation();
@@ -138,7 +140,7 @@ export function renderOwnStorages(el, d, { act }) {
         saveOpen(open);
         renderOwnStorages(el, stt.d, { act: stt.act });
       },
-    }, `${MOUNT} ${sub.length} ${mountWord(sub.length)} ${on ? '▴' : '▾'}`) : null;
+    }, `${MOUNT}${sub.length}${on ? '▴' : '▾'}`) : null;
     return [row(rowIcon(n, NET_FALLBACK, 'мережа'), n.label || 'Мережа', n.where, n.zone, null, '', n, chip), ...(on ? sub.map((/** @type {any} */ m) => markRow(m, '.sub')) : [])];
   });
   const mounted = (d.networks || []).flatMap((/** @type {any} */ n) => n.mounts || []);

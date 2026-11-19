@@ -92,6 +92,9 @@ a.ai-kpi:hover { border-color: var(--accent); text-decoration: none; }
 .mc-curio-lbl { font-size: .71rem; font-weight: 500; color: #b8c7dc; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: center; line-height: 1.15; }
 
 .mc-inv-grid { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 5px; }
+.mc-slot.locked, .mc-slot.locked:hover { background: var(--line-2); border-color: transparent; box-shadow: none; transform: none; cursor: default; }  /* K24: місця, яких у контейнера немає (варіант B) */
+.mc-cont-scroll { max-height: calc(4 * 52px + 3 * 5px); overflow-y: auto; padding-right: 4px; }  /* K24: понад 4 рядки — прокрутка */
+.mc-cont-note { margin-top: 6px; font-size: .74rem; color: var(--muted); }
 .mc-hotbar-sep { height: 1px; background: var(--line-2); margin: 8px 0; opacity: .75; }
 .mc-hotbar-grid .mc-slot { border-color: color-mix(in srgb, #4f6b96 72%, var(--accent)); }
 .mc-hotbar-grid .mc-slot.filled { border-color: color-mix(in srgb, var(--accent) 55%, #5b7bab); }
@@ -755,10 +758,9 @@ a.ai-kpi:hover { border-color: var(--accent); text-decoration: none; }
   .ai-hotkey-hint { display: none; }
 }
 
-/* K23 (М1, варіант B): лічильник підключених до мережі сховищ у комірці назви; розгорнуті — дочірні рядки з відступом */
-.so-namebox { display: flex; align-items: center; gap: 6px; min-width: 0; }
-.so-namebox .so-name { min-width: 0; }
-.so-mounts { flex: none; display: inline-flex; align-items: center; gap: 3px; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel-2);
+/* K23 (М1, варіант B): лічильник підключених до мережі сховищ; K24 (з гри 11-19) — компактний «🔌1▾» після місця, перед «⋯»; розгорнуті — дочірні рядки з відступом */
+.so-metabox { display: inline-flex; align-items: center; gap: 4px; }
+.so-mounts { flex: none; display: inline-flex; align-items: center; gap: 1px; padding: 0 4px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel-2);
   color: var(--link); font: inherit; font-size: .72rem; line-height: 1.5; cursor: pointer; white-space: nowrap; }
 .so-mounts:hover, .so-mounts.on { border-color: var(--link); }
 .so-row.sub { margin-left: 20px; }

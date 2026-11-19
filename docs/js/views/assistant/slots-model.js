@@ -240,7 +240,6 @@ export function collectNestedContainers(slots) {
   const defaultIdByKind = /** @type {Record<string, string>} */ ({
     bundle: 'minecraft:bundle',
     shulker: 'minecraft:shulker_box',
-    deepnull: 'deepnullreforged:deep_null_0',
     backpack: 'sophisticatedbackpacks:backpack',
     ender: 'minecraft:ender_chest',
   });
@@ -258,7 +257,7 @@ export function collectNestedContainers(slots) {
       const holder = cut > 0 ? (slots.backpacks || []).find((x) => x.bpKey === key.slice(0, cut) && x.uk === key.slice(cut + 3)) : null;
       const carrier = holder || carriers.find((c) => (where && c.slotLabel === where) || (c.customName || c.uk) === title);
       const itemId = carrier?.id || defaultIdByKind[kind] || 'sophisticatedbackpacks:backpack';
-      g = { key, title, where, kind, itemId, cap: b.bpCapacity || 27, items: [] };
+      g = { key, title, where, kind, itemId, cap: b.bpCapacity || 0, items: [] };   // K24: місткість — з гри; 0 — невідома (без вигаданих 27)
       map.set(key, g);
     }
     g.items.push(b);
@@ -277,3 +276,19 @@ export function collectNestedContainers(slots) {
   return { map, list: [...map.values()] };
 }
 
+/** K24 (§4 п. 33): скільки рядків показати після прокрутки не потрібно. */
+export const CONT_SCROLL_ROWS = 4;
+/**
+ * K24 (§4 п. 33): сітка предмета-контейнера. Місткість (cap) — з гри: скільки місць має саме цей екземпляр (серверний знімок;
+ * покращений пояс — більше); клітинки поза нею — недоступні (зафарбовані, не прибрані), рядки по 9, як у вікні гри. Невідома
+ * (0: старий знімок, сейв без знімка) — лише рядки до останнього зайнятого місця, без фарбування. Більше CONT_SCROLL_ROWS
+ * рядків — прокрутка. Без правил під моди чи типи предметів.
+ * @param {number} cap @param {number} maxSlot найбільший номер зайнятого місця (-1 — немає)
+ * @returns {{ known: boolean, total: number, open: number, scroll: boolean }}
+ */
+export function containerLayout(cap, maxSlot) {
+  const known = Number(cap) > 0;
+  const need = Math.max(0, (Number(maxSlot) || 0) + 1);
+  const total = Math.max(9, Math.ceil(Math.max(known ? Number(cap) : 0, need) / 9) * 9);
+  return { known, total, open: known ? Math.max(Number(cap), need) : total, scroll: total / 9 > CONT_SCROLL_ROWS };
+}

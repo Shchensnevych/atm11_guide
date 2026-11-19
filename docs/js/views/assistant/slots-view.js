@@ -7,7 +7,7 @@ import { itemIconUrl, itemNameUk } from '../../core/store.js';
 import { CURIOS_SLOT_UK } from '../../core/nbt-slots.js';
 import {
   DEFAULT_CURIOS_TYPES, CORE_CURIO_IDS, CURIO_GLYPH, KEY_STATE_LABEL,
-  fmtCount, buildKeyLookup, resolveActiveSlots, collectNestedContainers,
+  fmtCount, buildKeyLookup, resolveActiveSlots, collectNestedContainers, containerLayout,
 } from './slots-model.js';
 
 /**
@@ -337,7 +337,7 @@ export function renderSlotsAndKeysTab(s, an, st, keysList, redrawLeft, askInChat
         h('span.small.muted', null, `Контейнерів із речами: ${containers.length}`)),
       h('div.mc-cont-tabs', null, containers.map((c) => {
         const cImg = itemIconUrl(s, c.itemId);
-        const fallbackGlyph = c.kind === 'backpack' ? '🎒' : c.kind === 'ender' ? '👁' : c.kind === 'bundle' ? '👝' : c.kind === 'deepnull' ? '🔮' : '📦';
+        const fallbackGlyph = c.kind === 'backpack' ? '🎒' : c.kind === 'ender' ? '👁' : c.kind === 'bundle' ? '👝' : '📦';
         return h(`button.mc-cont-tab${c.key === activeCont?.key ? '.on' : ''}`, {
           type: 'button',
           onclick: () => { st.activeContainerKey = c.key; redrawLeft(); },
@@ -371,12 +371,14 @@ function renderContainerGrid(cont, selectable, renderSlotCell) {
     if (sl > maxSl) maxSl = sl;
     bySlot[sl] = selectable.get(`cont:${cont.key}:${ci.bpSlot ?? idx}`) || null;
   });
-  const totalSlots = cont.kind === 'bundle' || cont.kind === 'deepnull'
-    ? Math.max(9, Math.ceil((maxSl + 1) / 9) * 9)
-    : Math.min(54, Math.max(cont.cap || 27, Math.ceil((maxSl + 1) / 9) * 9));
+  // K24 (§4 п. 33): місткість з гри — недоступні місця зафарбовані (варіант B), невідома — лише зайняте з підписом
+  const lay = containerLayout(cont.cap, maxSl);
+  const cells = Array.from({ length: lay.total }, (_, sl) => (sl >= lay.open
+    ? h('div.mc-slot.locked', { title: `${cont.title}: місць ${lay.open}`, 'aria-hidden': 'true' })
+    : renderSlotCell(bySlot[sl] || null, { emptyHint: `${cont.title}: слот ${sl + 1}` })));
   return h('div.mc-cont-body', null,
-    h('div.mc-inv-grid', null,
-      ...Array.from({ length: totalSlots }, (_, sl) => renderSlotCell(bySlot[sl] || null, { emptyHint: `${cont.title}: слот ${sl + 1}` }))));
+    h(`div.mc-inv-grid${lay.scroll ? '.mc-cont-scroll' : ''}`, null, ...cells),
+    lay.known ? null : h('div.mc-cont-note', null, 'Місткість невідома — оновиться з наступним знімком гри'));
 }
 
 /** @param {Store} s @param {any} st @param {any} inspected @param {any[]} quickList @param {any} lv
