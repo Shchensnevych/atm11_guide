@@ -47,7 +47,7 @@ export function getCyThemeStyles() {
 /**
  * @param {HTMLElement} container @param {import('../core/quests-model.js').ChapterCtx} ctx
  * @param {{ showSvc?: boolean, names?: boolean, onSelect: (id: string) => void, initialViewport?: { zoom: number, pan: { x: number, y: number } } | null,
- *   onViewport?: (vp: { zoom: number, pan: { x: number, y: number } }) => void }} o
+ *   onViewport?: (vp: { zoom: number, pan: { x: number, y: number } }) => void, onDeselect?: () => void }} o
  */
 export function createQuestGraph(container, ctx, o) {
   const cytoscape = /** @type {any} */ (window).cytoscape;
@@ -95,6 +95,17 @@ export function createQuestGraph(container, ctx, o) {
     if (href) { location.hash = href; return; }
     o.onSelect(ev.target.id());
   });
+  // K25: зняти виділення — клік по порожньому місцю схеми або Esc (раніше лише «← Огляд глави»; клік по тлу знімав вибір
+  // у Cytoscape, а приглушення й підсвічені стрілки лишались)
+  cy.on('tap', (/** @type {any} */ ev) => { if (ev.target === cy && cy.$('node.faded, edge.hl-in, edge.hl-out, :selected').length) o.onDeselect?.(); });
+  const onKey = (/** @type {KeyboardEvent} */ e) => {
+    if (cy.destroyed() || !container.isConnected) { window.removeEventListener('keydown', onKey); return; }
+    const t = /** @type {HTMLElement | null} */ (e.target);
+    if (e.key !== 'Escape' || (t && /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)) || !cy.$('node.faded, :selected').length) return;
+    o.onDeselect?.();
+  };
+  window.addEventListener('keydown', onKey);
+  cy.on('destroy', () => window.removeEventListener('keydown', onKey));
   if (o.initialViewport && Number.isFinite(o.initialViewport.zoom) && o.initialViewport.pan) cy.viewport({ zoom: o.initialViewport.zoom, pan: o.initialViewport.pan });
   else cy.fit(undefined, 30);
   if (o.onViewport) cy.on('viewport', () => { const p = cy.pan(); o.onViewport?.({ zoom: cy.zoom(), pan: { x: p.x, y: p.y } }); });

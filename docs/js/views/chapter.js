@@ -43,7 +43,7 @@ export async function render(el, [file, qid], s) {
   const side = h('aside.split-side'); const canvas = h('div.cy');
   mount(el, h('div.chapter-page', null, toolbar,
     h('div.split', null, h('div.split-main', null, canvas,
-      h('div.graph-hint', null, 'Розташування — як у книзі квестів · колесо — масштаб · ',
+      h('div.graph-hint', null, 'Розташування — як у книзі квестів · колесо — масштаб · клік на порожньому або Esc — уся глава · ',
         h('span', { style: { color: 'var(--q-hl-in)' } }, '━ потрібно'), ' / ', h('span', { style: { color: 'var(--q-hl-out)' } }, '━ відкриває'),
         ctx.hasProg ? ' · зелений ✔ — виконано, жовта рамка — доступний' : '')), side)));
   /** @param {string} id */
@@ -66,7 +66,7 @@ export async function render(el, [file, qid], s) {
       questDetail(s, ctx, q, { pick }));
     side.scrollTop = 0;
   };
-  const cy = createQuestGraph(canvas, ctx, { showSvc: vs.svc, names: vs.names !== false, onSelect: (id) => pick(id), initialViewport: vs.viewport,
+  const cy = createQuestGraph(canvas, ctx, { showSvc: vs.svc, names: vs.names !== false, onSelect: (id) => pick(id), onDeselect: () => { clearSelection(cy); show(''); }, initialViewport: vs.viewport,
     onViewport: (viewport) => setViewState(key, { viewport }) });
   const start = (qid && ctx.byId.has(qid)) ? qid : (vs.qid && ctx.byId.has(vs.qid) ? vs.qid : '');
   if (start) {
