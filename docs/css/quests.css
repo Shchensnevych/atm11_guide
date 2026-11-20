@@ -4,7 +4,8 @@
 .chk { display: inline-flex; align-items: center; gap: 4px; cursor: pointer; user-select: none; }
 
 /* Картинки книги на полотні глави — під вузлами (graph/quests-cy.js, шар рухається разом із полотном) */
-.chapter-page .split-main { background: radial-gradient(circle, rgb(255 255 255 / 4%) 1px, transparent 1px) 0 0 / 22px 22px, var(--bg); }
+/* K25: полотно — як тло книги квестів у грі (сітка клітинок), кольори — токени --q-canvas / --q-grid обох тем */
+.chapter-page .split-main { background: linear-gradient(var(--q-grid) 1px, transparent 1px) 0 0 / 16px 16px, linear-gradient(90deg, var(--q-grid) 1px, transparent 1px) 0 0 / 16px 16px, var(--q-canvas); }
 .chapter-page .cy { background: none; }
 .qimg-layer { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
 .qimg-world { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
@@ -13,10 +14,10 @@
 
 /* HTML-шар над схемою: назви, галочки, піктограми (graph/quest-labels.js) */
 .ql-layer { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
-/* назва — без плашки, з темним контуром (читається і на темному тлі, і на картинках книги: хмари Aether, банери); плашка — лише у вибраного / наведеного */
-.ql { position: absolute; left: 0; top: 0; max-width: 132px; padding: 1px 5px; border-radius: 4px; font-size: 11px; font-weight: 600; line-height: 1.25; text-align: center;
-  color: #d5dee8; text-shadow: 0 0 2px #05080c, 0 0 3px #05080c, 0 1px 2px #05080c, 0 0 5px rgb(5 8 12 / 70%); white-space: normal; overflow-wrap: anywhere; will-change: transform; }
-.ql.sel, .ql.hov { background: rgb(11 15 20 / 88%); }
+/* K25: назва — на щільній плашці, без розмитих тіней і без will-change (текст як шар-картинка розмивався); читається на будь-якому тлі
+   й на картинках книги (хмари, банери). Типово назви видно лише при наведенні / виборі (як у грі); галочка «назви» — усі */
+.ql { position: absolute; left: 0; top: 0; max-width: 140px; padding: 2px 7px; border-radius: 4px; font-size: 12px; font-weight: 500; line-height: 1.25; text-align: center;
+  color: #d5dee8; background: rgb(11 15 20 / 88%); white-space: normal; overflow-wrap: anywhere; }
 .ql.done { color: #bbf7d0; } .ql.started { color: #bae6fd; } .ql.locked { color: #8b98a9; } .ql.link { color: #7cc4ff; }
 .ql.near { color: var(--text); }
 .ql.faded { opacity: .38; }
@@ -27,6 +28,7 @@
   font-weight: 700; line-height: 1; border: 2px solid #0b0f14; box-sizing: border-box; }
 .ql-gl { position: absolute; transform: translate(-50%, -50%); line-height: 1; color: #9fb0c4; }
 .ql-gl.miss { color: #a86b6b; }
+.ql-chk.ql-lock { background: var(--q-node); border-color: var(--q-node-line); font-weight: 400; }   /* K25: замочок закритого квесту */
 
 /* Іконки предметів у квестах */
 .q-ic { flex: none; width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; border-radius: 6px;

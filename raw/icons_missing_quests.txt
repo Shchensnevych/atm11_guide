@@ -110,6 +110,8 @@ draconicevolution:disenchanter	немає моделі
 draconicevolution:draconic_guardian_spawn_egg	немає моделі
 draconicevolution:draconic_io_crystal	немає моделі
 draconicevolution:wyvern_io_crystal	немає моделі
+dyenamics:amber_glazed_terracotta	не вдалося намалювати (block/template_glazed_terracotta)
+easy_villagers:trader	не вдалося намалювати (builtin/entity)
 easy_villagers:villager	не вдалося намалювати (builtin/entity)
 eternal_starlight:aethersent_block	немає моделі
 eternal_starlight:aurora_deer_spawn_egg	немає моделі
@@ -163,9 +165,12 @@ evilcraft:broom	немає моделі
 evilcraft:broom_part	немає моделі
 ftbtex:relics/textures/item/kinetic_belt_flawless	немає текстури
 iceandfire:cyclops_spawn_egg	немає моделі
+iceandfire:ghost_chest	не вдалося намалювати (item/template_chest)
 iceandfire:gorgon_spawn_egg	немає моделі
 iceandfire:hippocampus_spawn_egg	немає моделі
 iceandfire:hippogryph_spawn_egg	немає моделі
+iceandfire:podium_acacia	не вдалося намалювати (iceandfire:block/podium_acacia)
+iceandfire:podium_spruce	не вдалося намалювати (iceandfire:block/podium_spruce)
 iceandfire:siren_spawn_egg	немає моделі
 iceandfire:troll_spawn_egg	немає моделі
 immersiveengineering:bullet_armor_piercing	немає моделі
@@ -355,6 +360,58 @@ mekanismtools:refined_glowstone_sword	немає моделі
 mekanismtools:steel_pickaxe	немає моделі
 minecolonies:supplycampdeployer	немає моделі
 minecolonies:supplychestdeployer	немає моделі
+minecraft:bamboo_raft	немає моделі
+minecraft:beef	немає моделі
+minecraft:black_dye	немає моделі
+minecraft:brewing_stand	немає моделі
+minecraft:brown_dye	немає моделі
+minecraft:carrot	немає моделі
+minecraft:chorus_fruit	немає моделі
+minecraft:clock	немає моделі
+minecraft:coal_block	немає моделі
+minecraft:coal_ore	немає моделі
+minecraft:cobblestone_wall	немає моделі
+minecraft:copper_ore	немає моделі
+minecraft:cow_spawn_egg	немає моделі
+minecraft:cyan_wool	немає моделі
+minecraft:dandelion	немає моделі
+minecraft:diamond_horse_armor	немає моделі
+minecraft:diamond_shovel	немає моделі
+minecraft:enchanted_golden_apple	немає моделі
+minecraft:end_stone_bricks	немає моделі
+minecraft:farmland	немає моделі
+minecraft:fermented_spider_eye	немає моделі
+minecraft:glass_bottle	немає моделі
+minecraft:glow_ink_sac	немає моделі
+minecraft:golden_axe	немає моделі
+minecraft:hay_block	немає моделі
+minecraft:heart_of_the_sea	немає моделі
+minecraft:hopper_minecart	немає моделі
+minecraft:ink_sac	немає моделі
+minecraft:iron_horse_armor	немає моделі
+minecraft:iron_nautilus_armor	немає моделі
+minecraft:lever	немає моделі
+minecraft:melon_slice	немає моделі
+minecraft:nether_wart	немає моделі
+minecraft:oak_door	немає моделі
+minecraft:potato	немає моделі
+minecraft:pumpkin_pie	немає моделі
+minecraft:raw_iron_block	немає моделі
+minecraft:redstone_ore	немає моделі
+minecraft:sheep_spawn_egg	немає моделі
+minecraft:sniffer_egg	немає моделі
+minecraft:soul_campfire	немає моделі
+minecraft:stripped_oak_log	немає моделі
+minecraft:sweet_berries	немає моделі
+minecraft:terracotta	немає моделі
+minecraft:tropical_fish	немає моделі
+minecraft:white_dye	немає моделі
+minecraft:white_harness	немає моделі
+minecraft:wind_charge	немає моделі
+minecraft:wolf_armor	немає моделі
+minecraft:wooden_axe	немає моделі
+minecraft:wooden_shovel	немає моделі
+minecraft:writable_book	немає моделі
 modern_industrialization:advanced_fluid_input_hatch	немає моделі
 modern_industrialization:advanced_fluid_output_hatch	немає моделі
 modern_industrialization:advanced_item_input_hatch	немає моделі
@@ -443,6 +500,7 @@ productivelib:upgrade_block	немає моделі
 productivelib:upgrade_child	немає моделі
 productivelib:upgrade_entity_filter	немає моделі
 productivelib:upgrade_gene_sampler	немає моделі
+productivelib:upgrade_pollen_sieve	немає моделі
 productivelib:upgrade_productivity	немає моделі
 productivelib:upgrade_productivity_2	немає моделі
 productivelib:upgrade_productivity_3	немає моделі
@@ -455,6 +513,7 @@ refinedstorage:creative_portable_grid	немає моделі
 refinedstorage:disk_interface	немає моделі
 refinedstorage:portable_grid	немає моделі
 refinedtypes:1k_soul_storage_part	немає моделі
+reliquary:xp_bucket	немає моделі
 rftoolspower:cell1	немає моделі
 rftoolspower:cell2	немає моделі
 rftoolspower:cell3	немає моделі
@@ -470,6 +529,7 @@ the_bumblezone:honey_slime_spawn_egg	немає моделі
 the_bumblezone:rootmin_spawn_egg	немає моделі
 the_bumblezone:variant_bee_spawn_egg	немає моделі
 tombstone:book_of_disenchantment	немає моделі
+undergarden:rogdoric_gronglet	не вдалося намалювати (undergarden:item/gronglet)
 xycraft_world:lamp_cube_white	немає моделі
 xycraft_world:lamp_flush_white	немає моделі
 xycraft_world:lamp_lantern_white	немає моделі

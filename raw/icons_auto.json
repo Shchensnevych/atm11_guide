@@ -191,6 +191,12 @@
   "uk": "256M сховище квантового комп'ютера",
   "en": "256M Quantum Computer Storage"
  },
+ "advanced_ae:quantum_storage_component": {
+  "img": "img/items/advanced_ae/quantum_storage_component.png",
+  "kind": "item",
+  "uk": "Квантовий компонент зберігання",
+  "en": "Quantum Storage Component"
+ },
  "advanced_ae:quantum_structure": {
   "img": "img/items/advanced_ae/quantum_structure.png",
   "kind": "block",
@@ -443,6 +449,12 @@
   "uk": "Зарядник",
   "en": "Charger"
  },
+ "ae2:chipped_budding_quartz": {
+  "img": "img/items/ae2/chipped_budding_quartz.png",
+  "kind": "approx",
+  "uk": "Надщерблений родючий істинний кварц",
+  "en": "Chipped Budding Certus Quartz"
+ },
  "ae2:color_applicator": {
   "img": "img/items/ae2/color_applicator.png",
   "kind": "block",
@@ -677,6 +689,12 @@
   "uk": "ME порт вводу/виводу",
   "en": "ME IO Port"
  },
+ "ae2:item_cell_housing": {
+  "img": "img/items/ae2/item_cell_housing.png",
+  "kind": "item",
+  "uk": "Основа для предметної ME комірки",
+  "en": "ME Item Cell Housing"
+ },
  "ae2:item_storage_cell_1k": {
   "img": "img/items/ae2/item_storage_cell_1k.png",
   "kind": "item",
@@ -881,6 +899,12 @@
   "uk": "Сингулярність",
   "en": "Singularity"
  },
+ "ae2:sky_stone_block": {
+  "img": "img/items/ae2/sky_stone_block.png",
+  "kind": "approx",
+  "uk": "Небесний камінь",
+  "en": "Sky Stone"
+ },
  "ae2:spatial_anchor": {
   "img": "img/items/ae2/spatial_anchor.png",
   "kind": "block",
@@ -1067,6 +1091,12 @@
   "uk": "Підсилювач нескінченної дальності",
   "en": "Infinity Range Booster"
  },
+ "aether_ii:aechor_petal": {
+  "img": "img/items/aether_ii/aechor_petal.png",
+  "kind": "item",
+  "uk": "Пелюстка ехорової рослини",
+  "en": "Aechor Petal"
+ },
  "aether_ii:aechor_plant_spawn_egg": {
   "img": "img/items/aether_ii/aechor_plant_spawn_egg.png",
   "kind": "item",
@@ -1133,6 +1163,12 @@
   "uk": "Бурштинокоренева колода",
   "en": "Amberoot Log"
  },
+ "aether_ii:amberoot_sapling": {
+  "img": "img/items/aether_ii/amberoot_sapling.png",
+  "kind": "item",
+  "uk": "Паросток бурштинокореня",
+  "en": "Amberoot Sapling"
+ },
  "aether_ii:ambrelinn_moss_block": {
   "img": "img/items/aether_ii/ambrelinn_moss_block.png",
   "kind": "block",
@@ -1156,6 +1192,12 @@
   "kind": "block",
   "uk": "Блок арктичного снігу",
   "en": "Arctic Snow Block"
+ },
+ "aether_ii:arkenium_alkahest_canister": {
+  "img": "img/items/aether_ii/arkenium_alkahest_canister.png",
+  "kind": "item",
+  "uk": "Аркенієвий балон з алкагестом",
+  "en": "Arkenium Alkahest Canister"
  },
  "aether_ii:arkenium_axe": {
   "img": "img/items/aether_ii/arkenium_axe.png",
@@ -1355,6 +1397,12 @@
   "uk": "Пластинчасті штани буррукая",
   "en": "Burrukai Plate Pants"
  },
+ "aether_ii:burrukai_rib_cut": {
+  "img": "img/items/aether_ii/burrukai_rib_cut.png",
+  "kind": "item",
+  "uk": "Відбивна з ребер буррукая",
+  "en": "Burrukai Rib Cut"
+ },
  "aether_ii:carrion_sprout_spawn_egg": {
   "img": "img/items/aether_ii/carrion_sprout_spawn_egg.png",
   "kind": "item",
@@ -1367,11 +1415,23 @@
   "uk": "Хмарний човен",
   "en": "Cloud Skiff"
  },
+ "aether_ii:cloudtwine": {
+  "img": "img/items/aether_ii/cloudtwine.png",
+  "kind": "item",
+  "uk": "Хмарна нитка",
+  "en": "Cloudtwine"
+ },
  "aether_ii:cloudwool": {
   "img": "img/items/aether_ii/cloudwool.png",
   "kind": "block",
   "uk": "Хмарна вовна",
   "en": "Cloudwool"
+ },
+ "aether_ii:cockatrice_feather": {
+  "img": "img/items/aether_ii/cockatrice_feather.png",
+  "kind": "item",
+  "uk": "Перо кокатріса",
+  "en": "Cockatrice Feather"
  },
  "aether_ii:cockatrice_spawn_egg": {
   "img": "img/items/aether_ii/cockatrice_spawn_egg.png",
@@ -1391,6 +1451,12 @@
   "uk": "Планер із холодної аерохмари",
   "en": "Cold Aercloud Glider"
  },
+ "aether_ii:corrobonite_crystal": {
+  "img": "img/items/aether_ii/corrobonite_crystal.png",
+  "kind": "item",
+  "uk": "Корробонітовий кристал",
+  "en": "Corrobonite Crystal"
+ },
  "aether_ii:detonation_sentry_spawn_egg": {
   "img": "img/items/aether_ii/detonation_sentry_spawn_egg.png",
   "kind": "item",
@@ -1402,6 +1468,12 @@
   "kind": "block",
   "uk": "Блок зачарованої етерної трави",
   "en": "Enchanted Aether Grass Block"
+ },
+ "aether_ii:engraved_disc_ascending_dawn": {
+  "img": "img/items/aether_ii/engraved_disc_ascending_dawn.png",
+  "kind": "item",
+  "uk": "Гравірований диск",
+  "en": "Engraved Disc"
  },
  "aether_ii:faded_holystone_bricks": {
   "img": "img/items/aether_ii/faded_holystone_bricks.png",
@@ -1559,6 +1631,12 @@
   "uk": "Гравітитовий совок",
   "en": "Gravitite Trowel"
  },
+ "aether_ii:greatboa_sapling": {
+  "img": "img/items/aether_ii/greatboa_sapling.png",
+  "kind": "item",
+  "uk": "Паросток великобоа",
+  "en": "Greatboa Sapling"
+ },
  "aether_ii:greatoak_sapling": {
   "img": "img/items/aether_ii/greatoak_sapling.png",
   "kind": "item",
@@ -1571,11 +1649,23 @@
   "uk": "Великокоренева колода",
   "en": "Greatroot Log"
  },
+ "aether_ii:greatroot_sapling": {
+  "img": "img/items/aether_ii/greatroot_sapling.png",
+  "kind": "item",
+  "uk": "Паросток великокореня",
+  "en": "Greatroot Sapling"
+ },
  "aether_ii:green_aercloud": {
   "img": "img/items/aether_ii/green_aercloud.png",
   "kind": "block",
   "uk": "Зелена аерохмара",
   "en": "Green Aercloud"
+ },
+ "aether_ii:guidebook_page": {
+  "img": "img/items/aether_ii/guidebook_page.png",
+  "kind": "item",
+  "uk": "Сторінка довідника",
+  "en": "Guidebook Page"
  },
  "aether_ii:hammer_of_demolition": {
   "img": "img/items/aether_ii/hammer_of_demolition.png",
@@ -1673,6 +1763,30 @@
   "uk": "Кінетичні прискорювачі",
   "en": "Kinetic Thrusters"
  },
+ "aether_ii:kirrid_loin": {
+  "img": "img/items/aether_ii/kirrid_loin.png",
+  "kind": "item",
+  "uk": "Філе кіррида",
+  "en": "Kirrid Loin"
+ },
+ "aether_ii:moa_feather": {
+  "img": "img/items/aether_ii/moa_feather.png",
+  "kind": "item",
+  "uk": "Перо моа",
+  "en": "Moa Feather"
+ },
+ "aether_ii:moa_saddle": {
+  "img": "img/items/aether_ii/moa_saddle.png",
+  "kind": "item",
+  "uk": "Сідло для моа",
+  "en": "Moa Saddle"
+ },
+ "aether_ii:moa_saddlebag": {
+  "img": "img/items/aether_ii/moa_saddlebag.png",
+  "kind": "item",
+  "uk": "Сідельна сумка для моа",
+  "en": "Moa Saddlebag"
+ },
  "aether_ii:moa_spawn_egg": {
   "img": "img/items/aether_ii/moa_spawn_egg.png",
   "kind": "item",
@@ -1715,6 +1829,12 @@
   "uk": "Нептунові наголінники",
   "en": "Neptune Leggings"
  },
+ "aether_ii:neptune_scale": {
+  "img": "img/items/aether_ii/neptune_scale.png",
+  "kind": "item",
+  "uk": "Нептунова луска",
+  "en": "Neptune Scale"
+ },
  "aether_ii:outpost_campfire": {
   "img": "img/items/aether_ii/outpost_campfire.png",
   "kind": "item",
@@ -1726,6 +1846,12 @@
   "kind": "item",
   "uk": "Яйце виклику фіґа",
   "en": "Phyg Spawn Egg"
+ },
+ "aether_ii:prismallard_feather": {
+  "img": "img/items/aether_ii/prismallard_feather.png",
+  "kind": "item",
+  "uk": "Перо призмакачки",
+  "en": "Prismallard Feather"
  },
  "aether_ii:prismallard_spawn_egg": {
   "img": "img/items/aether_ii/prismallard_spawn_egg.png",
@@ -1745,6 +1871,12 @@
   "uk": "Планер із фіолетової аерохмари",
   "en": "Purple Aercloud Glider"
  },
+ "aether_ii:raw_taegore_meat": {
+  "img": "img/items/aether_ii/raw_taegore_meat.png",
+  "kind": "item",
+  "uk": "Сире м'ясо тегора",
+  "en": "Raw Taegore Meat"
+ },
  "aether_ii:sentry_boots": {
   "img": "img/items/aether_ii/sentry_boots.png",
   "kind": "item",
@@ -1762,6 +1894,12 @@
   "kind": "item",
   "uk": "Яйце виклику голема-вартового",
   "en": "Sentry Golem Spawn Egg"
+ },
+ "aether_ii:sentry_servo": {
+  "img": "img/items/aether_ii/sentry_servo.png",
+  "kind": "item",
+  "uk": "Сервопривід вартового",
+  "en": "Sentry Servo"
  },
  "aether_ii:sheepuff_spawn_egg": {
   "img": "img/items/aether_ii/sheepuff_spawn_egg.png",
@@ -1792,6 +1930,12 @@
   "kind": "item",
   "uk": "Паросток небососни",
   "en": "Skypine Sapling"
+ },
+ "aether_ii:skyplane_sapling": {
+  "img": "img/items/aether_ii/skyplane_sapling.png",
+  "kind": "item",
+  "uk": "Паросток небоплатана",
+  "en": "Skyplane Sapling"
  },
  "aether_ii:skyroot_axe": {
   "img": "img/items/aether_ii/skyroot_axe.png",
@@ -1835,6 +1979,12 @@
   "uk": "Небокореневий молот",
   "en": "Skyroot Hammer"
  },
+ "aether_ii:skyroot_lizard_on_a_stick": {
+  "img": "img/items/aether_ii/skyroot_lizard_on_a_stick.png",
+  "kind": "item",
+  "uk": "Небокореневий ящір на паличці",
+  "en": "Skyroot Lizard on a Stick"
+ },
  "aether_ii:skyroot_lizard_spawn_egg": {
   "img": "img/items/aether_ii/skyroot_lizard_spawn_egg.png",
   "kind": "item",
@@ -1877,6 +2027,12 @@
   "uk": "Небокоренева лопата",
   "en": "Skyroot Shovel"
  },
+ "aether_ii:skyroot_stick": {
+  "img": "img/items/aether_ii/skyroot_stick.png",
+  "kind": "item",
+  "uk": "Небокоренева палиця",
+  "en": "Skyroot Stick"
+ },
  "aether_ii:skyroot_trowel": {
   "img": "img/items/aether_ii/skyroot_trowel.png",
   "kind": "item",
@@ -1900,6 +2056,18 @@
   "kind": "block",
   "uk": "Грозова аерохмара",
   "en": "Storm Aercloud"
+ },
+ "aether_ii:swet_gel": {
+  "img": "img/items/aether_ii/swet_gel.png",
+  "kind": "item",
+  "uk": "Гель света",
+  "en": "Swet Gel"
+ },
+ "aether_ii:swet_sugar": {
+  "img": "img/items/aether_ii/swet_sugar.png",
+  "kind": "item",
+  "uk": "Цукор света",
+  "en": "Swet Sugar"
  },
  "aether_ii:tempest_spawn_egg": {
   "img": "img/items/aether_ii/tempest_spawn_egg.png",
@@ -1925,6 +2093,12 @@
   "uk": "Мерехкоренева колода",
   "en": "Wisproot Log"
  },
+ "aether_ii:wisproot_sapling": {
+  "img": "img/items/aether_ii/wisproot_sapling.png",
+  "kind": "item",
+  "uk": "Паросток мерехкореня",
+  "en": "Wisproot Sapling"
+ },
  "aether_ii:wisptop_sapling": {
   "img": "img/items/aether_ii/wisptop_sapling.png",
   "kind": "item",
@@ -1936,6 +2110,12 @@
   "kind": "block",
   "uk": "Плетені небокореневі палиці",
   "en": "Woven Skyroot Sticks"
+ },
+ "aether_ii:wyndberry": {
+  "img": "img/items/aether_ii/wyndberry.png",
+  "kind": "item",
+  "uk": "Вітроягода",
+  "en": "Wyndberry"
  },
  "aether_ii:zanite_axe": {
   "img": "img/items/aether_ii/zanite_axe.png",
@@ -2057,6 +2237,12 @@
   "uk": "Покращення врожайності MK3",
   "en": "Yield Upgrade MK3"
  },
+ "allthecompressed:allthemodium_block_1x": {
+  "img": "img/items/allthecompressed/allthemodium_block_1x.png",
+  "kind": "block",
+  "uk": "Блок усемодію 1x",
+  "en": "Block of Allthemodium 1x"
+ },
  "allthecompressed:cobblestone_1x": {
   "img": "img/items/allthecompressed/cobblestone_1x.png",
   "kind": "block",
@@ -2069,11 +2255,23 @@
   "uk": "Кругляк 4x",
   "en": "Cobblestone 4x"
  },
+ "allthecompressed:diamond_block_3x": {
+  "img": "img/items/allthecompressed/diamond_block_3x.png",
+  "kind": "block",
+  "uk": "Блок діаманта 3x",
+  "en": "Block of Diamond 3x"
+ },
  "allthecompressed:diamond_block_4x": {
   "img": "img/items/allthecompressed/diamond_block_4x.png",
   "kind": "block",
   "uk": "Блок діаманта 4x",
   "en": "Block of Diamond 4x"
+ },
+ "allthecompressed:dirt_5x": {
+  "img": "img/items/allthecompressed/dirt_5x.png",
+  "kind": "block",
+  "uk": "Ґрунт 5x",
+  "en": "Dirt 5x"
  },
  "allthecompressed:dirt_6x": {
   "img": "img/items/allthecompressed/dirt_6x.png",
@@ -2081,11 +2279,23 @@
   "uk": "Ґрунт 6x",
   "en": "Dirt 6x"
  },
+ "allthecompressed:emerald_block_3x": {
+  "img": "img/items/allthecompressed/emerald_block_3x.png",
+  "kind": "block",
+  "uk": "Блок смарагда 3x",
+  "en": "Block of Emerald 3x"
+ },
  "allthecompressed:emerald_block_4x": {
   "img": "img/items/allthecompressed/emerald_block_4x.png",
   "kind": "block",
   "uk": "Блок смарагда 4x",
   "en": "Block of Emerald 4x"
+ },
+ "allthecompressed:end_stone_4x": {
+  "img": "img/items/allthecompressed/end_stone_4x.png",
+  "kind": "block",
+  "uk": "Камінь Енду 4x",
+  "en": "End Stone 4x"
  },
  "allthecompressed:end_stone_5x": {
   "img": "img/items/allthecompressed/end_stone_5x.png",
@@ -2099,6 +2309,12 @@
   "uk": "Блок зірок Незеру 3x",
   "en": "Nether Star Block 3x"
  },
+ "allthecompressed:netherrack_5x": {
+  "img": "img/items/allthecompressed/netherrack_5x.png",
+  "kind": "block",
+  "uk": "Незерак 5x",
+  "en": "Netherrack 5x"
+ },
  "allthecompressed:netherrack_6x": {
   "img": "img/items/allthecompressed/netherrack_6x.png",
   "kind": "block",
@@ -2111,11 +2327,29 @@
   "uk": "Блок нітро-кристала 1x",
   "en": "Block Of Nitro Crystal 1x"
  },
+ "allthecompressed:obsidian_4x": {
+  "img": "img/items/allthecompressed/obsidian_4x.png",
+  "kind": "block",
+  "uk": "Обсидіан 4x",
+  "en": "Obsidian 4x"
+ },
  "allthecompressed:obsidian_5x": {
   "img": "img/items/allthecompressed/obsidian_5x.png",
   "kind": "block",
   "uk": "Обсидіан 5x",
   "en": "Obsidian 5x"
+ },
+ "allthecompressed:unobtainium_block_1x": {
+  "img": "img/items/allthecompressed/unobtainium_block_1x.png",
+  "kind": "block",
+  "uk": "Блок унобтанію 1x",
+  "en": "Block of Unobtainium 1x"
+ },
+ "allthecompressed:vibranium_block_1x": {
+  "img": "img/items/allthecompressed/vibranium_block_1x.png",
+  "kind": "block",
+  "uk": "Блок вібранію 1x",
+  "en": "Block of Vibranium 1x"
  },
  "allthemodium:alloy_sword": {
   "img": "img/items/allthemodium/alloy_sword.png",
@@ -2140,6 +2374,12 @@
   "kind": "item",
   "uk": "Усемодієві чоботи",
   "en": "Allthemodium Boots"
+ },
+ "allthemodium:allthemodium_carrot": {
+  "img": "img/items/allthemodium/allthemodium_carrot.png",
+  "kind": "item",
+  "uk": "Усемодієва морква",
+  "en": "Allthemodium Carrot"
  },
  "allthemodium:allthemodium_chestplate": {
   "img": "img/items/allthemodium/allthemodium_chestplate.png",
@@ -2176,6 +2416,12 @@
   "kind": "item",
   "uk": "Усемодієва булава",
   "en": "Allthemodium Mace"
+ },
+ "allthemodium:allthemodium_nugget": {
+  "img": "img/items/allthemodium/allthemodium_nugget.png",
+  "kind": "item",
+  "uk": "Усемодієвий самородок",
+  "en": "Allthemodium Nugget"
  },
  "allthemodium:allthemodium_ore": {
   "img": "img/items/allthemodium/allthemodium_ore.png",
@@ -2441,6 +2687,12 @@
   "uk": "Вібранієвий ковальський шаблон",
   "en": "Vibranium Smithing Template"
  },
+ "alltheores:aluminum_block": {
+  "img": "img/items/alltheores/aluminum_block.png",
+  "kind": "approx",
+  "uk": "Блок алюмінію",
+  "en": "Aluminum Block"
+ },
  "alltheores:aluminum_ingot": {
   "img": "img/items/alltheores/aluminum_ingot.png",
   "kind": "item",
@@ -2470,6 +2722,12 @@
   "kind": "item",
   "uk": "Латунний злиток",
   "en": "Brass Ingot"
+ },
+ "alltheores:bronze_block": {
+  "img": "img/items/alltheores/bronze_block.png",
+  "kind": "approx",
+  "uk": "Блок бронзи",
+  "en": "Bronze Block"
  },
  "alltheores:bronze_dust": {
   "img": "img/items/alltheores/bronze_dust.png",
@@ -2506,6 +2764,12 @@
   "kind": "block",
   "uk": "Глибосланцева кіноварна руда",
   "en": "Deepslate Cinnabar Ore"
+ },
+ "alltheores:electrum_block": {
+  "img": "img/items/alltheores/electrum_block.png",
+  "kind": "approx",
+  "uk": "Блок електруму",
+  "en": "Electrum Block"
  },
  "alltheores:electrum_ingot": {
   "img": "img/items/alltheores/electrum_ingot.png",
@@ -2591,11 +2855,23 @@
   "uk": "Нікелевий злиток",
   "en": "Nickel Ingot"
  },
+ "alltheores:osmium_block": {
+  "img": "img/items/alltheores/osmium_block.png",
+  "kind": "approx",
+  "uk": "Блок осмію",
+  "en": "Osmium Block"
+ },
  "alltheores:osmium_ingot": {
   "img": "img/items/alltheores/osmium_ingot.png",
   "kind": "item",
   "uk": "Осмієвий злиток",
   "en": "Osmium Ingot"
+ },
+ "alltheores:osmium_ore": {
+  "img": "img/items/alltheores/osmium_ore.png",
+  "kind": "approx",
+  "uk": "Осмієва руда",
+  "en": "Osmium Ore"
  },
  "alltheores:peridot": {
   "img": "img/items/alltheores/peridot.png",
@@ -2626,6 +2902,12 @@
   "kind": "item",
   "uk": "Необроблене олово",
   "en": "Raw Tin"
+ },
+ "alltheores:raw_uranium": {
+  "img": "img/items/alltheores/raw_uranium.png",
+  "kind": "item",
+  "uk": "Необроблений уран",
+  "en": "Raw Uranium"
  },
  "alltheores:ruby": {
   "img": "img/items/alltheores/ruby.png",
@@ -2662,6 +2944,12 @@
   "kind": "block",
   "uk": "Блок сталі",
   "en": "Steel Block"
+ },
+ "alltheores:steel_dust": {
+  "img": "img/items/alltheores/steel_dust.png",
+  "kind": "item",
+  "uk": "Сталевий пил",
+  "en": "Steel Dust"
  },
  "alltheores:steel_ingot": {
   "img": "img/items/alltheores/steel_ingot.png",
@@ -2716,6 +3004,12 @@
   "kind": "block",
   "uk": "Блок урану",
   "en": "Uranium Block"
+ },
+ "alltheores:uranium_dust": {
+  "img": "img/items/alltheores/uranium_dust.png",
+  "kind": "item",
+  "uk": "Урановий пил",
+  "en": "Uranium Dust"
  },
  "alltheores:uranium_ingot": {
   "img": "img/items/alltheores/uranium_ingot.png",
@@ -2927,6 +3221,24 @@
   "uk": "Блискучий кришталевий уламок",
   "en": "Luminous Crystal Shard"
  },
+ "apotheosis:music_disc_flash": {
+  "img": "img/items/apotheosis/music_disc_flash.png",
+  "kind": "item",
+  "uk": "Платівка",
+  "en": "Music Disc"
+ },
+ "apotheosis:music_disc_glimmer": {
+  "img": "img/items/apotheosis/music_disc_glimmer.png",
+  "kind": "item",
+  "uk": "Платівка",
+  "en": "Music Disc"
+ },
+ "apotheosis:music_disc_shimmer": {
+  "img": "img/items/apotheosis/music_disc_shimmer.png",
+  "kind": "item",
+  "uk": "Платівка",
+  "en": "Music Disc"
+ },
  "apotheosis:mysterious_scrap_metal": {
   "img": "img/items/apotheosis/mysterious_scrap_metal.png",
   "kind": "item",
@@ -3112,6 +3424,12 @@
   "kind": "block",
   "uk": "Глибополиця",
   "en": "Deepshelf"
+ },
+ "apothic_enchanting:dormant_deepshelf": {
+  "img": "img/items/apothic_enchanting/dormant_deepshelf.png",
+  "kind": "approx",
+  "uk": "Дрімотна глибополиця",
+  "en": "Dormant Deepshelf"
  },
  "apothic_enchanting:draconic_endshelf": {
   "img": "img/items/apothic_enchanting/draconic_endshelf.png",
@@ -3329,6 +3647,12 @@
   "uk": "Глибополиця таємничих скарбів",
   "en": "Deepshelf of Arcane Treasures"
  },
+ "apothic_enchanting:warden_tendril": {
+  "img": "img/items/apothic_enchanting/warden_tendril.png",
+  "kind": "item",
+  "uk": "Вусик боронителя",
+  "en": "Warden Tendril"
+ },
  "apothic_enchanting:weapon_tome": {
   "img": "img/items/apothic_enchanting/weapon_tome.png",
   "kind": "item",
@@ -3376,6 +3700,12 @@
   "kind": "item",
   "uk": "Залізна вудка",
   "en": "Iron Fishing Rod"
+ },
+ "aquaculture:jellyfish": {
+  "img": "img/items/aquaculture/jellyfish.png",
+  "kind": "item",
+  "uk": "Медуза",
+  "en": "Jellyfish"
  },
  "aquaculture:neptunes_bounty": {
   "img": "img/items/aquaculture/neptunes_bounty.png",
@@ -3785,6 +4115,12 @@
   "uk": "Яйце виклику: Авроральний навтилус",
   "en": "Auroral Nautilus Spawn Egg"
  },
+ "auroral:candied_glow_leek": {
+  "img": "img/items/auroral/candied_glow_leek.png",
+  "kind": "item",
+  "uk": "Зацукрований світлопорей",
+  "en": "Candied Glow-Leek"
+ },
  "auroral:cold_brewing_stand": {
   "img": "img/items/auroral/cold_brewing_stand.png",
   "kind": "item",
@@ -3826,6 +4162,12 @@
   "kind": "item",
   "uk": "Колода домовогнища",
   "en": "Hearthwood Log"
+ },
+ "auroral:roasted_snowball": {
+  "img": "img/items/auroral/roasted_snowball.png",
+  "kind": "item",
+  "uk": "Смажена сніжка",
+  "en": "Roasted Snowball"
  },
  "auroral:shimmer_soil": {
   "img": "img/items/auroral/shimmer_soil.png",
@@ -3922,6 +4264,18 @@
   "kind": "item",
   "uk": "Туніка з мерехтливої тканини",
   "en": "Shimmerweave Tunic"
+ },
+ "auroral:snore": {
+  "img": "img/items/auroral/snore.png",
+  "kind": "item",
+  "uk": "Сніжмор",
+  "en": "S'nore"
+ },
+ "auroral:sugared_roasted_snowball": {
+  "img": "img/items/auroral/sugared_roasted_snowball.png",
+  "kind": "item",
+  "uk": "Зацукрована смажена сніжка",
+  "en": "Sugared Roasted Snowball"
  },
  "auroral:unrefined_shimmersteel": {
   "img": "img/items/auroral/unrefined_shimmersteel.png",
@@ -4229,6 +4583,12 @@
   "uk": "Незеритова будівельна паличка",
   "en": "Netherite Stick"
  },
+ "constructionstick:template_angel": {
+  "img": "img/items/constructionstick/template_angel.png",
+  "kind": "item",
+  "uk": "Шаблон палички «Ангел»",
+  "en": "Angel Stick Template"
+ },
  "constructionstick:wooden_stick": {
   "img": "img/items/constructionstick/wooden_stick.png",
   "kind": "item",
@@ -4295,6 +4655,12 @@
   "uk": "Холодильник",
   "en": "Fridge"
  },
+ "cookingforblockheads:white_kitchen_floor": {
+  "img": "img/items/cookingforblockheads/white_kitchen_floor.png",
+  "kind": "block",
+  "uk": "Кухонна підлога",
+  "en": "Kitchen Floor"
+ },
  "cookingforblockheads:white_oven": {
   "img": "img/items/cookingforblockheads/white_oven.png",
   "kind": "block",
@@ -4336,6 +4702,12 @@
   "kind": "item",
   "uk": "Універсальний харчовий прес",
   "en": "All Purpose Food Press"
+ },
+ "croptopia:fried_chicken": {
+  "img": "img/items/croptopia/fried_chicken.png",
+  "kind": "item",
+  "uk": "Курка в паніровці",
+  "en": "Fried Chicken"
  },
  "croptopia:guide": {
   "img": "img/items/croptopia/guide.png",
@@ -4402,6 +4774,12 @@
   "kind": "block",
   "uk": "Док-станція DeepNull",
   "en": "DeepNull Docking Station"
+ },
+ "dimstorage:dim_wall": {
+  "img": "img/items/dimstorage/dim_wall.png",
+  "kind": "item",
+  "uk": "Міжвимірна стінка",
+  "en": "Dimensional Wall"
  },
  "dimstorage:dimensional_chest": {
   "img": "img/items/dimstorage/dimensional_chest.png",
@@ -4535,6 +4913,12 @@
   "uk": "Набір провідників",
   "en": "Conduit Bundle"
  },
+ "enderio:conduit_binder": {
+  "img": "img/items/enderio/conduit_binder.png",
+  "kind": "item",
+  "uk": "Зв'язувальний елемент провідників",
+  "en": "Conduit Binder"
+ },
  "enderio:conduit_facade": {
   "img": "img/items/enderio/conduit_facade.png",
   "kind": "block",
@@ -4625,6 +5009,12 @@
   "uk": "Одержимий корпус",
   "en": "Ensouled Chassis"
  },
+ "enderio:fluid_tank": {
+  "img": "img/items/enderio/fluid_tank.png",
+  "kind": "block",
+  "uk": "Рідинний резервуар",
+  "en": "Fluid Tank"
+ },
  "enderio:grains_of_infinity": {
   "img": "img/items/enderio/grains_of_infinity.png",
   "kind": "item",
@@ -4684,6 +5074,12 @@
   "kind": "block",
   "uk": "Млин НСП",
   "en": "SAG Mill"
+ },
+ "enderio:sentient_ender": {
+  "img": "img/items/enderio/sentient_ender.png",
+  "kind": "item",
+  "uk": "Розумний Ендер",
+  "en": "Sentient Ender"
  },
  "enderio:silicon": {
   "img": "img/items/enderio/silicon.png",
@@ -4949,6 +5345,12 @@
   "uk": "Ядро кривавого насичення",
   "en": "Blood Infusion Core"
  },
+ "evilcraft:blood_orb_filled": {
+  "img": "img/items/evilcraft/blood_orb_filled.png",
+  "kind": "item",
+  "uk": "Кривава сфера",
+  "en": "Blood Orb"
+ },
  "evilcraft:blood_pearl_of_teleportation": {
   "img": "img/items/evilcraft/blood_pearl_of_teleportation.png",
   "kind": "item",
@@ -5134,6 +5536,12 @@
   "kind": "item",
   "uk": "Посох некроманта",
   "en": "Necromancer Staff"
+ },
+ "evilcraft:origins_of_darkness": {
+  "img": "img/items/evilcraft/origins_of_darkness.png",
+  "kind": "item",
+  "uk": "Витоки темряви",
+  "en": "Origins of Darkness"
  },
  "evilcraft:piercing_vengeance_focus": {
   "img": "img/items/evilcraft/piercing_vengeance_focus.png",
@@ -5380,6 +5788,12 @@
   "kind": "block",
   "uk": "Родючий флюїкс, повністю насичений ентро",
   "en": "Budding Fully Entroized Fluix"
+ },
+ "extendedae:entro_budding_half": {
+  "img": "img/items/extendedae/entro_budding_half.png",
+  "kind": "approx",
+  "uk": "Родючий флюїкс, наполовину насичений ентро",
+  "en": "Budding Half Entroized Fluix"
  },
  "extendedae:entro_crystal": {
   "img": "img/items/extendedae/entro_crystal.png",
@@ -5663,6 +6077,12 @@
   "uk": "Пляшка ауреалу",
   "en": "Aureal Bottle"
  },
+ "forbidden_arcanus:blood_test_tube": {
+  "img": "img/items/forbidden_arcanus/blood_test_tube.png",
+  "kind": "item",
+  "uk": "",
+  "en": "blood test tube"
+ },
  "forbidden_arcanus:boss_catcher": {
   "img": "img/items/forbidden_arcanus/boss_catcher.png",
   "kind": "block",
@@ -5770,6 +6190,12 @@
   "kind": "item",
   "uk": "Елементаріум",
   "en": "Elementarium"
+ },
+ "forbidden_arcanus:enchanted_soul": {
+  "img": "img/items/forbidden_arcanus/enchanted_soul.png",
+  "kind": "item",
+  "uk": "Зачарована душа",
+  "en": "Enchanted Soul"
  },
  "forbidden_arcanus:eternal_stella": {
   "img": "img/items/forbidden_arcanus/eternal_stella.png",
@@ -6923,17 +7349,35 @@
   "uk": "Макуахутл амфіптера",
   "en": "Amphithere Macuahuitl"
  },
+ "iceandfire:amphithere_skull": {
+  "img": "img/items/iceandfire/amphithere_skull.png",
+  "kind": "item",
+  "uk": "Череп амфіптера",
+  "en": "Amphithere Skull"
+ },
  "iceandfire:bestiary": {
   "img": "img/items/iceandfire/bestiary.png",
   "kind": "item",
   "uk": "Бестіарій",
   "en": "Bestiary"
  },
+ "iceandfire:blindfold": {
+  "img": "img/items/iceandfire/blindfold.png",
+  "kind": "item",
+  "uk": "Пов'язка на очі",
+  "en": "Blindfold"
+ },
  "iceandfire:chain": {
   "img": "img/items/iceandfire/chain.png",
   "kind": "item",
   "uk": "Ланцюг",
   "en": "Chain Line"
+ },
+ "iceandfire:chain_sticky": {
+  "img": "img/items/iceandfire/chain_sticky.png",
+  "kind": "item",
+  "uk": "Липкий ланцюг",
+  "en": "Sticky Chain Line"
  },
  "iceandfire:chared_grass": {
   "img": "img/items/iceandfire/chared_grass.png",
@@ -6947,6 +7391,12 @@
   "uk": "Скіпетр кокатріса",
   "en": "Cockatrice Scepter"
  },
+ "iceandfire:cockatrice_skull": {
+  "img": "img/items/iceandfire/cockatrice_skull.png",
+  "kind": "item",
+  "uk": "Череп кокатріса",
+  "en": "Cockatrice Skull"
+ },
  "iceandfire:crackled_grass": {
   "img": "img/items/iceandfire/crackled_grass.png",
   "kind": "block",
@@ -6958,6 +7408,12 @@
   "kind": "item",
   "uk": "Око циклопа",
   "en": "Eye of Cyclops"
+ },
+ "iceandfire:cyclops_skull": {
+  "img": "img/items/iceandfire/cyclops_skull.png",
+  "kind": "item",
+  "uk": "Череп циклопа",
+  "en": "Cyclops Skull"
  },
  "iceandfire:deathworm_chitin_red": {
   "img": "img/items/iceandfire/deathworm_chitin_red.png",
@@ -6977,6 +7433,18 @@
   "uk": "Пісочний хітин хробака смерті",
   "en": "Tan Death Worm Chitin"
  },
+ "iceandfire:deathworm_egg": {
+  "img": "img/items/iceandfire/deathworm_egg.png",
+  "kind": "item",
+  "uk": "Яйце хробака смерті",
+  "en": "Death Worm Egg"
+ },
+ "iceandfire:deathworm_egg_giant": {
+  "img": "img/items/iceandfire/deathworm_egg_giant.png",
+  "kind": "item",
+  "uk": "Яйце гігантського хробака смерті",
+  "en": "Giant Death Worm Egg"
+ },
  "iceandfire:deathworm_gauntlet_red": {
   "img": "img/items/iceandfire/deathworm_gauntlet_red.png",
   "kind": "approx",
@@ -6994,6 +7462,12 @@
   "kind": "approx",
   "uk": "Рукавиця хробака смерті",
   "en": "Death Worm Gauntlet"
+ },
+ "iceandfire:diamond_hippogryph_armor": {
+  "img": "img/items/iceandfire/diamond_hippogryph_armor.png",
+  "kind": "item",
+  "uk": "Діамантові обладунки для гіпогрифа",
+  "en": "Diamond Hippogryph Armor"
  },
  "iceandfire:dragon_bone_block": {
   "img": "img/items/iceandfire/dragon_bone_block.png",
@@ -7163,6 +7637,78 @@
   "uk": "Отвір громової драконячої кузні",
   "en": "Dragonforge Lightning Aperture"
  },
+ "iceandfire:dragonscale_amethyst": {
+  "img": "img/items/iceandfire/dragonscale_amethyst.png",
+  "kind": "approx",
+  "uk": "Блок луски дракона",
+  "en": "Block of Dragon Scales"
+ },
+ "iceandfire:dragonscale_black": {
+  "img": "img/items/iceandfire/dragonscale_black.png",
+  "kind": "approx",
+  "uk": "Блок луски дракона",
+  "en": "Block of Dragon Scales"
+ },
+ "iceandfire:dragonscale_blue": {
+  "img": "img/items/iceandfire/dragonscale_blue.png",
+  "kind": "approx",
+  "uk": "Блок луски дракона",
+  "en": "Block of Dragon Scales"
+ },
+ "iceandfire:dragonscale_bronze": {
+  "img": "img/items/iceandfire/dragonscale_bronze.png",
+  "kind": "approx",
+  "uk": "Блок луски дракона",
+  "en": "Block of Dragon Scales"
+ },
+ "iceandfire:dragonscale_copper": {
+  "img": "img/items/iceandfire/dragonscale_copper.png",
+  "kind": "approx",
+  "uk": "Блок луски дракона",
+  "en": "Block of Dragon Scales"
+ },
+ "iceandfire:dragonscale_electric": {
+  "img": "img/items/iceandfire/dragonscale_electric.png",
+  "kind": "approx",
+  "uk": "Блок луски дракона",
+  "en": "Block of Dragon Scales"
+ },
+ "iceandfire:dragonscale_gray": {
+  "img": "img/items/iceandfire/dragonscale_gray.png",
+  "kind": "approx",
+  "uk": "Блок луски дракона",
+  "en": "Block of Dragon Scales"
+ },
+ "iceandfire:dragonscale_green": {
+  "img": "img/items/iceandfire/dragonscale_green.png",
+  "kind": "approx",
+  "uk": "Блок луски дракона",
+  "en": "Block of Dragon Scales"
+ },
+ "iceandfire:dragonscale_red": {
+  "img": "img/items/iceandfire/dragonscale_red.png",
+  "kind": "approx",
+  "uk": "Блок луски дракона",
+  "en": "Block of Dragon Scales"
+ },
+ "iceandfire:dragonscale_sapphire": {
+  "img": "img/items/iceandfire/dragonscale_sapphire.png",
+  "kind": "approx",
+  "uk": "Блок луски дракона",
+  "en": "Block of Dragon Scales"
+ },
+ "iceandfire:dragonscale_silver": {
+  "img": "img/items/iceandfire/dragonscale_silver.png",
+  "kind": "approx",
+  "uk": "Блок луски дракона",
+  "en": "Block of Dragon Scales"
+ },
+ "iceandfire:dragonscale_white": {
+  "img": "img/items/iceandfire/dragonscale_white.png",
+  "kind": "approx",
+  "uk": "Блок луски дракона",
+  "en": "Block of Dragon Scales"
+ },
  "iceandfire:dragonscales_blue": {
   "img": "img/items/iceandfire/dragonscales_blue.png",
   "kind": "item",
@@ -7198,6 +7744,18 @@
   "kind": "item",
   "uk": "Злиток громової драконесталі",
   "en": "Lightning Dragonsteel Ingot"
+ },
+ "iceandfire:earplugs": {
+  "img": "img/items/iceandfire/earplugs.png",
+  "kind": "item",
+  "uk": "Беруші",
+  "en": "Earplugs"
+ },
+ "iceandfire:ectoplasm": {
+  "img": "img/items/iceandfire/ectoplasm.png",
+  "kind": "item",
+  "uk": "Ектоплазма",
+  "en": "Ectoplasm"
  },
  "iceandfire:fire_dragon_blood": {
   "img": "img/items/iceandfire/fire_dragon_blood.png",
@@ -7289,6 +7847,12 @@
   "uk": "Ляпас гіпокампа",
   "en": "Hippocampus Slapper"
  },
+ "iceandfire:hippogryph_skull": {
+  "img": "img/items/iceandfire/hippogryph_skull.png",
+  "kind": "item",
+  "uk": "Череп гіпогрифа",
+  "en": "Hippogryph Skull"
+ },
  "iceandfire:hippogryph_sword": {
   "img": "img/items/iceandfire/hippogryph_sword.png",
   "kind": "item",
@@ -7307,11 +7871,23 @@
   "uk": "Серце гідри",
   "en": "Hydra Heart"
  },
+ "iceandfire:hydra_skull": {
+  "img": "img/items/iceandfire/hydra_skull.png",
+  "kind": "item",
+  "uk": "Череп гідри",
+  "en": "Hydra Skull"
+ },
  "iceandfire:ice_dragon_blood": {
   "img": "img/items/iceandfire/ice_dragon_blood.png",
   "kind": "item",
   "uk": "Кров крижаного дракона",
   "en": "Ice Dragon Blood"
+ },
+ "iceandfire:ice_dragon_heart": {
+  "img": "img/items/iceandfire/ice_dragon_heart.png",
+  "kind": "item",
+  "uk": "Серце крижаного дракона",
+  "en": "Ice Dragon Heart"
  },
  "iceandfire:lectern": {
   "img": "img/items/iceandfire/lectern.png",
@@ -7324,6 +7900,18 @@
   "kind": "item",
   "uk": "Кров громового дракона",
   "en": "Lightning Dragon Blood"
+ },
+ "iceandfire:lightning_dragon_heart": {
+  "img": "img/items/iceandfire/lightning_dragon_heart.png",
+  "kind": "item",
+  "uk": "Серце громового дракона",
+  "en": "Lightning Dragon Heart"
+ },
+ "iceandfire:manuscript": {
+  "img": "img/items/iceandfire/manuscript.png",
+  "kind": "item",
+  "uk": "Рукопис",
+  "en": "Manuscript"
  },
  "iceandfire:mountain_troll_leather_boots": {
   "img": "img/items/iceandfire/mountain_troll_leather_boots.png",
@@ -7397,11 +7985,23 @@
   "uk": "Луска левіафана",
   "en": "Sea Serpent Scales"
  },
+ "iceandfire:seaserpent_skull": {
+  "img": "img/items/iceandfire/seaserpent_skull.png",
+  "kind": "item",
+  "uk": "Череп левіафана",
+  "en": "Sea Serpent Skull"
+ },
  "iceandfire:shiny_scales": {
   "img": "img/items/iceandfire/shiny_scales.png",
   "kind": "item",
   "uk": "Сяюча луска",
   "en": "Shiny Scales"
+ },
+ "iceandfire:sickly_dragon_meal": {
+  "img": "img/items/iceandfire/sickly_dragon_meal.png",
+  "kind": "item",
+  "uk": "Зіпсована драконяча їжа",
+  "en": "Sickly Dragon Meal"
  },
  "iceandfire:siren_flute": {
   "img": "img/items/iceandfire/siren_flute.png",
@@ -7420,6 +8020,36 @@
   "kind": "item",
   "uk": "Кинджал стімфалійського птаха",
   "en": "Stymphalian Bird Dagger"
+ },
+ "iceandfire:stymphalian_bird_feather": {
+  "img": "img/items/iceandfire/stymphalian_bird_feather.png",
+  "kind": "item",
+  "uk": "Перо стімфалійського птаха",
+  "en": "Stymphalian Bird Feather"
+ },
+ "iceandfire:stymphalian_skull": {
+  "img": "img/items/iceandfire/stymphalian_skull.png",
+  "kind": "item",
+  "uk": "Череп стімфалійського птаха",
+  "en": "Stymphalian Bird Skull"
+ },
+ "iceandfire:summoning_crystal_fire": {
+  "img": "img/items/iceandfire/summoning_crystal_fire.png",
+  "kind": "item",
+  "uk": "Кристал виклику вогняного дракона",
+  "en": "Fire Dragon Summoning Crystal"
+ },
+ "iceandfire:summoning_crystal_ice": {
+  "img": "img/items/iceandfire/summoning_crystal_ice.png",
+  "kind": "item",
+  "uk": "Кристал виклику крижаного дракона",
+  "en": "Ice Dragon Summoning Crystal"
+ },
+ "iceandfire:summoning_crystal_lightning": {
+  "img": "img/items/iceandfire/summoning_crystal_lightning.png",
+  "kind": "item",
+  "uk": "Кристал виклику громового дракона",
+  "en": "Lightning Dragon Summoning Crystal"
  },
  "iceandfire:tide_blue_boots": {
   "img": "img/items/iceandfire/tide_blue_boots.png",
@@ -7595,6 +8225,12 @@
   "uk": "Стовбур крижаного дерева троля",
   "en": "Troll's Frosted Tree Trunk"
  },
+ "iceandfire:wither_shard": {
+  "img": "img/items/iceandfire/wither_shard.png",
+  "kind": "item",
+  "uk": "Уламок кістки візера",
+  "en": "Witherbone Shard"
+ },
  "iceandfire:witherbone": {
   "img": "img/items/iceandfire/witherbone.png",
   "kind": "item",
@@ -7612,6 +8248,12 @@
   "kind": "block",
   "uk": "",
   "en": "part interface crafting"
+ },
+ "integrateddynamics:bucket_menril_resin": {
+  "img": "img/items/integrateddynamics/bucket_menril_resin.png",
+  "kind": "item",
+  "uk": "Відро менрілової смоли",
+  "en": "Menril Resin Bucket"
  },
  "integrateddynamics:cable": {
   "img": "img/items/integrateddynamics/cable.png",
@@ -7678,6 +8320,12 @@
   "kind": "block",
   "uk": "Менрілова колода",
   "en": "Menril Log"
+ },
+ "integrateddynamics:menril_planks": {
+  "img": "img/items/integrateddynamics/menril_planks.png",
+  "kind": "approx",
+  "uk": "Менрілові дошки",
+  "en": "Menril Planks"
  },
  "integrateddynamics:on_the_dynamics_of_integration": {
   "img": "img/items/integrateddynamics/on_the_dynamics_of_integration.png",
@@ -8009,11 +8657,89 @@
   "uk": "Унобтанієва піч",
   "en": "Unobtainium Furnace"
  },
+ "ironfurnaces:upgrade_allthemodium": {
+  "img": "img/items/ironfurnaces/upgrade_allthemodium.png",
+  "kind": "item",
+  "uk": "Покращення печі: незеритова → усемодієва",
+  "en": "Netherite to Allthemodium Furnace Upgrade"
+ },
  "ironfurnaces:upgrade_copper": {
   "img": "img/items/ironfurnaces/upgrade_copper.png",
   "kind": "item",
   "uk": "Покращення печі: кам'яна → мідна",
   "en": "Stone to Copper Furnace Upgrade"
+ },
+ "ironfurnaces:upgrade_crystal": {
+  "img": "img/items/ironfurnaces/upgrade_crystal.png",
+  "kind": "item",
+  "uk": "Покращення печі: діамантова → кришталева",
+  "en": "Diamond to Crystal Furnace Upgrade"
+ },
+ "ironfurnaces:upgrade_diamond": {
+  "img": "img/items/ironfurnaces/upgrade_diamond.png",
+  "kind": "item",
+  "uk": "Покращення печі: золота → діамантова",
+  "en": "Gold to Diamond Furnace Upgrade"
+ },
+ "ironfurnaces:upgrade_emerald": {
+  "img": "img/items/ironfurnaces/upgrade_emerald.png",
+  "kind": "item",
+  "uk": "Покращення печі: діамантова → смарагдова",
+  "en": "Diamond to Emerald Furnace Upgrade"
+ },
+ "ironfurnaces:upgrade_gold": {
+  "img": "img/items/ironfurnaces/upgrade_gold.png",
+  "kind": "item",
+  "uk": "Покращення печі: залізна → золота",
+  "en": "Iron to Gold Furnace Upgrade"
+ },
+ "ironfurnaces:upgrade_gold2": {
+  "img": "img/items/ironfurnaces/upgrade_gold2.png",
+  "kind": "item",
+  "uk": "Покращення печі: срібна → золота",
+  "en": "Silver to Gold Furnace Upgrade"
+ },
+ "ironfurnaces:upgrade_iron": {
+  "img": "img/items/ironfurnaces/upgrade_iron.png",
+  "kind": "item",
+  "uk": "Покращення печі: кам'яна → залізна",
+  "en": "Stone to Iron Furnace Upgrade"
+ },
+ "ironfurnaces:upgrade_iron2": {
+  "img": "img/items/ironfurnaces/upgrade_iron2.png",
+  "kind": "item",
+  "uk": "Покращення печі: мідна → залізна",
+  "en": "Copper to Iron Furnace Upgrade"
+ },
+ "ironfurnaces:upgrade_netherite": {
+  "img": "img/items/ironfurnaces/upgrade_netherite.png",
+  "kind": "item",
+  "uk": "Покращення печі: обсидіанова → незеритова",
+  "en": "Obsidian to Netherite Furnace Upgrade"
+ },
+ "ironfurnaces:upgrade_obsidian2": {
+  "img": "img/items/ironfurnaces/upgrade_obsidian2.png",
+  "kind": "item",
+  "uk": "Покращення печі: кришталева → обсидіанова",
+  "en": "Crystal to Obsidian Furnace Upgrade"
+ },
+ "ironfurnaces:upgrade_silver": {
+  "img": "img/items/ironfurnaces/upgrade_silver.png",
+  "kind": "item",
+  "uk": "Покращення печі: мідна → срібна",
+  "en": "Copper to Silver Furnace Upgrade"
+ },
+ "ironfurnaces:upgrade_unobtainium": {
+  "img": "img/items/ironfurnaces/upgrade_unobtainium.png",
+  "kind": "item",
+  "uk": "Покращення печі: вібранієва → унобтанієва",
+  "en": "Vibranium to Unobtainium Furnace Upgrade"
+ },
+ "ironfurnaces:upgrade_vibranium": {
+  "img": "img/items/ironfurnaces/upgrade_vibranium.png",
+  "kind": "item",
+  "uk": "Покращення печі: усемодієва → вібранієва",
+  "en": "Allthemodium to Vibranium Furnace Upgrade"
  },
  "ironfurnaces:vibranium_furnace": {
   "img": "img/items/ironfurnaces/vibranium_furnace.png",
@@ -8603,6 +9329,12 @@
   "uk": "Кишеньковий генератор",
   "en": "Pocket Generator"
  },
+ "justdirethings:polymorphic_catalyst": {
+  "img": "img/items/justdirethings/polymorphic_catalyst.png",
+  "kind": "item",
+  "uk": "Поліморфний каталізатор",
+  "en": "Polymorphic Catalyst"
+ },
  "justdirethings:polymorphic_fluid_bucket": {
   "img": "img/items/justdirethings/polymorphic_fluid_bucket.png",
   "kind": "item",
@@ -8614,6 +9346,12 @@
   "kind": "item",
   "uk": "Відро портальної рідини",
   "en": "Portal Fluid Bucket"
+ },
+ "justdirethings:portal_fluid_catalyst": {
+  "img": "img/items/justdirethings/portal_fluid_catalyst.png",
+  "kind": "item",
+  "uk": "Каталізатор портальної рідини",
+  "en": "Portal Fluid Catalyst"
  },
  "justdirethings:portalgun": {
   "img": "img/items/justdirethings/portalgun.png",
@@ -12641,6 +13379,12 @@
   "uk": "Інсанієвий блок",
   "en": "Insanium Block"
  },
+ "mysticalagradditions:insanium_coal": {
+  "img": "img/items/mysticalagradditions/insanium_coal.png",
+  "kind": "item",
+  "uk": "Інсанієве вугілля",
+  "en": "Insanium Coal"
+ },
  "mysticalagradditions:insanium_coal_block": {
   "img": "img/items/mysticalagradditions/insanium_coal_block.png",
   "kind": "block",
@@ -13073,6 +13817,12 @@
   "uk": "",
   "en": "dragon egg seeds"
  },
+ "mysticalagriculture:dye_essence": {
+  "img": "img/items/mysticalagriculture/dye_essence.png",
+  "kind": "item",
+  "uk": "",
+  "en": "dye essence"
+ },
  "mysticalagriculture:dye_seeds": {
   "img": "img/items/mysticalagriculture/dye_seeds.png",
   "kind": "item",
@@ -13156,6 +13906,12 @@
   "kind": "item",
   "uk": "Капсула для досвіду",
   "en": "Experience Capsule"
+ },
+ "mysticalagriculture:experience_essence": {
+  "img": "img/items/mysticalagriculture/experience_essence.png",
+  "kind": "item",
+  "uk": "",
+  "en": "experience essence"
  },
  "mysticalagriculture:experience_seeds": {
   "img": "img/items/mysticalagriculture/experience_seeds.png",
@@ -13997,11 +14753,23 @@
   "uk": "Соулієвий кинджал",
   "en": "Soulium Dagger"
  },
+ "mysticalagriculture:soulium_dust": {
+  "img": "img/items/mysticalagriculture/soulium_dust.png",
+  "kind": "item",
+  "uk": "Соулієвий пил",
+  "en": "Soulium Dust"
+ },
  "mysticalagriculture:soulium_ingot": {
   "img": "img/items/mysticalagriculture/soulium_ingot.png",
   "kind": "item",
   "uk": "Соулієвий злиток",
   "en": "Soulium Ingot"
+ },
+ "mysticalagriculture:soulium_ore": {
+  "img": "img/items/mysticalagriculture/soulium_ore.png",
+  "kind": "block",
+  "uk": "Соулієва руда",
+  "en": "Soulium Ore"
  },
  "mysticalagriculture:soulium_seeds": {
   "img": "img/items/mysticalagriculture/soulium_seeds.png",
@@ -14585,6 +15353,18 @@
   "uk": "Crystallarium Maleficum",
   "en": "Crystallarium Maleficum"
  },
+ "neovitae:cycling_catalyst": {
+  "img": "img/items/neovitae/cycling_catalyst.png",
+  "kind": "item",
+  "uk": "Циклічний каталізатор",
+  "en": "Cycling Catalyst"
+ },
+ "neovitae:dungeon_stone": {
+  "img": "img/items/neovitae/dungeon_stone.png",
+  "kind": "approx",
+  "uk": "Камінь підземелля",
+  "en": "Dungeon Stone"
+ },
  "neovitae:essentia_vitae_bucket": {
   "img": "img/items/neovitae/essentia_vitae_bucket.png",
   "kind": "item",
@@ -14657,6 +15437,12 @@
   "uk": "Головний ритуальний камінь",
   "en": "Master Ritual Stone"
  },
+ "neovitae:master_routing_node": {
+  "img": "img/items/neovitae/master_routing_node.png",
+  "kind": "approx",
+  "uk": "Головний вузол маршрутизації",
+  "en": "Master Routing Node"
+ },
  "neovitae:mine_entrance_key": {
   "img": "img/items/neovitae/mine_entrance_key.png",
   "kind": "item",
@@ -14680,6 +15466,12 @@
   "kind": "approx",
   "uk": "Вихідний вузол маршрутизації",
   "en": "Output Routing Node"
+ },
+ "neovitae:raw_crystal_shard": {
+  "img": "img/items/neovitae/raw_crystal_shard.png",
+  "kind": "item",
+  "uk": "Кристал Spiritus",
+  "en": "Spiritus Crystal"
  },
  "neovitae:raw_demonite": {
   "img": "img/items/neovitae/raw_demonite.png",
@@ -14717,11 +15509,23 @@
   "uk": "Реєстр ритуалів",
   "en": "Ritual Ledger"
  },
+ "neovitae:ritual_reader": {
+  "img": "img/items/neovitae/ritual_reader.png",
+  "kind": "item",
+  "uk": "Конфігуратор ритуалів",
+  "en": "Ritual Configurator"
+ },
  "neovitae:routing_conduit": {
   "img": "img/items/neovitae/routing_conduit.png",
   "kind": "approx",
   "uk": "Маршрутизаційний канал",
   "en": "Routing Conduit"
+ },
+ "neovitae:rune_2_efficiency": {
+  "img": "img/items/neovitae/rune_2_efficiency.png",
+  "kind": "block",
+  "uk": "Зміцнена руна ефективності",
+  "en": "Reinforced Rune of Efficiency"
  },
  "neovitae:rune_blank": {
   "img": "img/items/neovitae/rune_blank.png",
@@ -14734,6 +15538,24 @@
   "kind": "block",
   "uk": "Руна сфери",
   "en": "Rune of the Orb"
+ },
+ "neovitae:rune_sacrifice": {
+  "img": "img/items/neovitae/rune_sacrifice.png",
+  "kind": "block",
+  "uk": "Руна жертви",
+  "en": "Rune of Sacrifice"
+ },
+ "neovitae:rune_speed": {
+  "img": "img/items/neovitae/rune_speed.png",
+  "kind": "block",
+  "uk": "Руна швидкості",
+  "en": "Speed Rune"
+ },
+ "neovitae:sands_of_vitae": {
+  "img": "img/items/neovitae/sands_of_vitae.png",
+  "kind": "approx",
+  "uk": "Піски Vitae",
+  "en": "Sands of Vitae"
  },
  "neovitae:sanguine_reverter": {
   "img": "img/items/neovitae/sanguine_reverter.png",
@@ -14789,6 +15611,12 @@
   "uk": "Сигіл зеленого гаю",
   "en": "Sigil of the Green Grove"
  },
+ "neovitae:sigil_holding": {
+  "img": "img/items/neovitae/sigil_holding.png",
+  "kind": "item",
+  "uk": "Сигіл утримання",
+  "en": "Sigil of Holding"
+ },
  "neovitae:sigil_lava": {
   "img": "img/items/neovitae/sigil_lava.png",
   "kind": "item",
@@ -14819,6 +15647,12 @@
   "uk": "Сигіл води",
   "en": "Water Sigil"
  },
+ "neovitae:simple_catalyst": {
+  "img": "img/items/neovitae/simple_catalyst.png",
+  "kind": "item",
+  "uk": "Простий каталізатор",
+  "en": "Simple Catalyst"
+ },
  "neovitae:simple_key": {
   "img": "img/items/neovitae/simple_key.png",
   "kind": "item",
@@ -14830,6 +15664,12 @@
   "kind": "block",
   "uk": "Пастка з шипами",
   "en": "Spike Trap"
+ },
+ "neovitae:spiritus_drain_anointment": {
+  "img": "img/items/neovitae/spiritus_drain_anointment.png",
+  "kind": "item",
+  "uk": "Помазання висмоктування Spiritus",
+  "en": "Spiritus Drain Anointment"
  },
  "neovitae:spiritus_gauge": {
   "img": "img/items/neovitae/spiritus_gauge.png",
@@ -14908,6 +15748,12 @@
   "kind": "item",
   "uk": "Метальний кинджал із зіллям",
   "en": "Tipped Throwing Dagger"
+ },
+ "neovitae:training_bracelet": {
+  "img": "img/items/neovitae/training_bracelet.png",
+  "kind": "item",
+  "uk": "Чуттєвий тренувальний браслет",
+  "en": "Sentient Training Bracelet"
  },
  "neovitae:upgrade_tome": {
   "img": "img/items/neovitae/upgrade_tome.png",
@@ -15569,6 +16415,12 @@
   "uk": "Біогенератор",
   "en": "Bio Generator"
  },
+ "oritech:biomass": {
+  "img": "img/items/oritech/biomass.png",
+  "kind": "item",
+  "uk": "Біомаса",
+  "en": "Biomass"
+ },
  "oritech:biosteel_ingot": {
   "img": "img/items/oritech/biosteel_ingot.png",
   "kind": "item",
@@ -15929,6 +16781,12 @@
   "uk": "Подрібнювач",
   "en": "Pulverizer"
  },
+ "oritech:reactor_wall": {
+  "img": "img/items/oritech/reactor_wall.png",
+  "kind": "approx",
+  "uk": "Стінка реактора",
+  "en": "Reactor Wall"
+ },
  "oritech:refinery": {
   "img": "img/items/oritech/refinery.png",
   "kind": "block",
@@ -15946,6 +16804,12 @@
   "kind": "item",
   "uk": "Кремнієва пластина",
   "en": "Silicon Wafer"
+ },
+ "oritech:still_heavy_oil_bucket": {
+  "img": "img/items/oritech/still_heavy_oil_bucket.png",
+  "kind": "item",
+  "uk": "Відро важкої нафти",
+  "en": "Heavy Oil Bucket"
  },
  "oritech:still_oil_bucket": {
   "img": "img/items/oritech/still_oil_bucket.png",
@@ -16258,6 +17122,12 @@
   "kind": "item",
   "uk": "Діелектричний стрижень (Горизонтальний)",
   "en": "Dielectric Rod (Horizontal)"
+ },
+ "powah:dry_ice": {
+  "img": "img/items/powah/dry_ice.png",
+  "kind": "approx",
+  "uk": "Сухий лід",
+  "en": "Dry Ice"
  },
  "powah:ender_cell_basic": {
   "img": "img/items/powah/ender_cell_basic.png",
@@ -16858,6 +17728,12 @@
   "kind": "item",
   "uk": "Необроблений уранініт",
   "en": "Raw Uraninite"
+ },
+ "powah:wrench": {
+  "img": "img/items/powah/wrench.png",
+  "kind": "item",
+  "uk": "Ключ",
+  "en": "Wrench"
  },
  "power_armor:armor_modification_table": {
   "img": "img/items/power_armor/armor_modification_table.png",
@@ -18317,6 +19193,12 @@
   "uk": "Ливарний стіл",
   "en": "Casting Table"
  },
+ "productivemetalworks:fire_brick": {
+  "img": "img/items/productivemetalworks/fire_brick.png",
+  "kind": "item",
+  "uk": "Вогнетривка цегла",
+  "en": "Fire Brick"
+ },
  "productivemetalworks:fire_clay": {
   "img": "img/items/productivemetalworks/fire_clay.png",
   "kind": "block",
@@ -18395,11 +19277,29 @@
   "uk": "Білий резервуар ливарні",
   "en": "White Foundry Tank"
  },
+ "productivetrees:alder_log": {
+  "img": "img/items/productivetrees/alder_log.png",
+  "kind": "approx",
+  "uk": "Колода вільхи",
+  "en": "Alder Log"
+ },
  "productivetrees:alder_sapling": {
   "img": "img/items/productivetrees/alder_sapling.png",
   "kind": "item",
   "uk": "Паросток вільхи",
   "en": "Alder Sapling"
+ },
+ "productivetrees:allspice": {
+  "img": "img/items/productivetrees/allspice.png",
+  "kind": "item",
+  "uk": "Ямайський перець",
+  "en": "Allspice"
+ },
+ "productivetrees:allspice_log": {
+  "img": "img/items/productivetrees/allspice_log.png",
+  "kind": "approx",
+  "uk": "Колода ямайського перцю",
+  "en": "Allspice Log"
  },
  "productivetrees:allspice_sapling": {
   "img": "img/items/productivetrees/allspice_sapling.png",
@@ -18407,11 +19307,35 @@
   "uk": "Паросток ямайського перцю",
   "en": "Allspice Sapling"
  },
+ "productivetrees:almond": {
+  "img": "img/items/productivetrees/almond.png",
+  "kind": "item",
+  "uk": "Мигдаль",
+  "en": "Almond"
+ },
+ "productivetrees:almond_log": {
+  "img": "img/items/productivetrees/almond_log.png",
+  "kind": "approx",
+  "uk": "Колода мигдалю",
+  "en": "Almond Log"
+ },
  "productivetrees:almond_sapling": {
   "img": "img/items/productivetrees/almond_sapling.png",
   "kind": "item",
   "uk": "Паросток мигдалю",
   "en": "Almond Sapling"
+ },
+ "productivetrees:apricot": {
+  "img": "img/items/productivetrees/apricot.png",
+  "kind": "item",
+  "uk": "Абрикос",
+  "en": "Apricot"
+ },
+ "productivetrees:apricot_log": {
+  "img": "img/items/productivetrees/apricot_log.png",
+  "kind": "approx",
+  "uk": "Колода абрикоса",
+  "en": "Apricot Log"
  },
  "productivetrees:apricot_sapling": {
   "img": "img/items/productivetrees/apricot_sapling.png",
@@ -18419,11 +19343,29 @@
   "uk": "Паросток абрикоса",
   "en": "Apricot Sapling"
  },
+ "productivetrees:aquilaria_log": {
+  "img": "img/items/productivetrees/aquilaria_log.png",
+  "kind": "approx",
+  "uk": "Колода аквіларії",
+  "en": "Aquilaria Log"
+ },
  "productivetrees:aquilaria_sapling": {
   "img": "img/items/productivetrees/aquilaria_sapling.png",
   "kind": "item",
   "uk": "Паросток аквіларії",
   "en": "Aquilaria Sapling"
+ },
+ "productivetrees:asai_berry": {
+  "img": "img/items/productivetrees/asai_berry.png",
+  "kind": "item",
+  "uk": "Ягода асаї",
+  "en": "Asai Berry"
+ },
+ "productivetrees:asai_palm_log": {
+  "img": "img/items/productivetrees/asai_palm_log.png",
+  "kind": "approx",
+  "uk": "Колода пальми асаї",
+  "en": "Asai Palm Log"
  },
  "productivetrees:asai_palm_sapling": {
   "img": "img/items/productivetrees/asai_palm_sapling.png",
@@ -18431,11 +19373,23 @@
   "uk": "Паросток пальми асаї",
   "en": "Asai Palm Sapling"
  },
+ "productivetrees:ash_log": {
+  "img": "img/items/productivetrees/ash_log.png",
+  "kind": "approx",
+  "uk": "Колода ясена",
+  "en": "Ash Log"
+ },
  "productivetrees:ash_sapling": {
   "img": "img/items/productivetrees/ash_sapling.png",
   "kind": "item",
   "uk": "Паросток ясена",
   "en": "Ash Sapling"
+ },
+ "productivetrees:aspen_log": {
+  "img": "img/items/productivetrees/aspen_log.png",
+  "kind": "approx",
+  "uk": "Колода осики",
+  "en": "Aspen Log"
  },
  "productivetrees:aspen_sapling": {
   "img": "img/items/productivetrees/aspen_sapling.png",
@@ -18443,11 +19397,29 @@
   "uk": "Паросток осики",
   "en": "Aspen Sapling"
  },
+ "productivetrees:avocado": {
+  "img": "img/items/productivetrees/avocado.png",
+  "kind": "item",
+  "uk": "Авокадо",
+  "en": "Avocado"
+ },
+ "productivetrees:avocado_log": {
+  "img": "img/items/productivetrees/avocado_log.png",
+  "kind": "approx",
+  "uk": "Колода авокадо",
+  "en": "Avocado Log"
+ },
  "productivetrees:avocado_sapling": {
   "img": "img/items/productivetrees/avocado_sapling.png",
   "kind": "item",
   "uk": "Паросток авокадо",
   "en": "Avocado Sapling"
+ },
+ "productivetrees:balsa_log": {
+  "img": "img/items/productivetrees/balsa_log.png",
+  "kind": "approx",
+  "uk": "Колода бальзи",
+  "en": "Balsa Log"
  },
  "productivetrees:balsa_sapling": {
   "img": "img/items/productivetrees/balsa_sapling.png",
@@ -18455,11 +19427,29 @@
   "uk": "Паросток бальзи",
   "en": "Balsa Sapling"
  },
+ "productivetrees:balsam_fir_log": {
+  "img": "img/items/productivetrees/balsam_fir_log.png",
+  "kind": "approx",
+  "uk": "Колода ялиці бальзамічної",
+  "en": "Balsam Fir Log"
+ },
  "productivetrees:balsam_fir_sapling": {
   "img": "img/items/productivetrees/balsam_fir_sapling.png",
   "kind": "item",
   "uk": "Паросток ялиці бальзамічної",
   "en": "Balsam Fir Sapling"
+ },
+ "productivetrees:banana": {
+  "img": "img/items/productivetrees/banana.png",
+  "kind": "item",
+  "uk": "Банан",
+  "en": "Banana"
+ },
+ "productivetrees:banana_log": {
+  "img": "img/items/productivetrees/banana_log.png",
+  "kind": "approx",
+  "uk": "Колода банана",
+  "en": "Banana Log"
  },
  "productivetrees:banana_sapling": {
   "img": "img/items/productivetrees/banana_sapling.png",
@@ -18467,17 +19457,59 @@
   "uk": "Паросток банана",
   "en": "Banana Sapling"
  },
+ "productivetrees:baobab_fruit": {
+  "img": "img/items/productivetrees/baobab_fruit.png",
+  "kind": "item",
+  "uk": "Плід баобаба",
+  "en": "Baobab Fruit"
+ },
+ "productivetrees:beech_log": {
+  "img": "img/items/productivetrees/beech_log.png",
+  "kind": "approx",
+  "uk": "Колода бука",
+  "en": "Beech Log"
+ },
  "productivetrees:beech_sapling": {
   "img": "img/items/productivetrees/beech_sapling.png",
   "kind": "item",
   "uk": "Паросток бука",
   "en": "Beech Sapling"
  },
+ "productivetrees:beechnut": {
+  "img": "img/items/productivetrees/beechnut.png",
+  "kind": "item",
+  "uk": "Буковий горіх",
+  "en": "Beechnut"
+ },
+ "productivetrees:beliy_naliv_apple": {
+  "img": "img/items/productivetrees/beliy_naliv_apple.png",
+  "kind": "item",
+  "uk": "Яблуко «Білий налив»",
+  "en": "Beliy Naliv Apple"
+ },
+ "productivetrees:beliy_naliv_apple_log": {
+  "img": "img/items/productivetrees/beliy_naliv_apple_log.png",
+  "kind": "approx",
+  "uk": "Колода яблуні «Білий налив»",
+  "en": "Beliy Naliv Apple Log"
+ },
  "productivetrees:beliy_naliv_apple_sapling": {
   "img": "img/items/productivetrees/beliy_naliv_apple_sapling.png",
   "kind": "item",
   "uk": "Паросток яблуні «Білий налив»",
   "en": "Beliy Naliv Apple Sapling"
+ },
+ "productivetrees:black_cherry": {
+  "img": "img/items/productivetrees/black_cherry.png",
+  "kind": "item",
+  "uk": "Черемха пізня",
+  "en": "Black Cherry"
+ },
+ "productivetrees:black_cherry_log": {
+  "img": "img/items/productivetrees/black_cherry_log.png",
+  "kind": "approx",
+  "uk": "Колода черемхи пізньої",
+  "en": "Black Cherry Log"
  },
  "productivetrees:black_cherry_sapling": {
   "img": "img/items/productivetrees/black_cherry_sapling.png",
@@ -18491,11 +19523,29 @@
   "uk": "Паросток чорної жарини",
   "en": "Black Ember Sapling"
  },
+ "productivetrees:black_ember_stripped_log": {
+  "img": "img/items/productivetrees/black_ember_stripped_log.png",
+  "kind": "block",
+  "uk": "Обтесана колода чорної жарини",
+  "en": "Black Ember Stripped Log"
+ },
+ "productivetrees:black_locust_log": {
+  "img": "img/items/productivetrees/black_locust_log.png",
+  "kind": "approx",
+  "uk": "Колода робінії",
+  "en": "Black Locust Log"
+ },
  "productivetrees:black_locust_sapling": {
   "img": "img/items/productivetrees/black_locust_sapling.png",
   "kind": "item",
   "uk": "Паросток робінії",
   "en": "Black Locust Sapling"
+ },
+ "productivetrees:blackthorn_log": {
+  "img": "img/items/productivetrees/blackthorn_log.png",
+  "kind": "approx",
+  "uk": "Колода терену",
+  "en": "Blackthorn Log"
  },
  "productivetrees:blackthorn_sapling": {
   "img": "img/items/productivetrees/blackthorn_sapling.png",
@@ -18503,11 +19553,23 @@
   "uk": "Паросток терену",
   "en": "Blackthorn Sapling"
  },
+ "productivetrees:blue_mahoe_log": {
+  "img": "img/items/productivetrees/blue_mahoe_log.png",
+  "kind": "approx",
+  "uk": "Колода блакитного махо",
+  "en": "Blue Mahoe Log"
+ },
  "productivetrees:blue_mahoe_sapling": {
   "img": "img/items/productivetrees/blue_mahoe_sapling.png",
   "kind": "item",
   "uk": "Паросток блакитного махо",
   "en": "Blue Mahoe Sapling"
+ },
+ "productivetrees:blue_yonder_log": {
+  "img": "img/items/productivetrees/blue_yonder_log.png",
+  "kind": "approx",
+  "uk": "Колода блакитної далечіні",
+  "en": "Blue Yonder Log"
  },
  "productivetrees:blue_yonder_sapling": {
   "img": "img/items/productivetrees/blue_yonder_sapling.png",
@@ -18515,11 +19577,29 @@
   "uk": "Паросток блакитної далечіні",
   "en": "Blue Yonder Sapling"
  },
+ "productivetrees:boxwood_log": {
+  "img": "img/items/productivetrees/boxwood_log.png",
+  "kind": "approx",
+  "uk": "Колода самшиту",
+  "en": "Boxwood Log"
+ },
  "productivetrees:boxwood_sapling": {
   "img": "img/items/productivetrees/boxwood_sapling.png",
   "kind": "item",
   "uk": "Паросток самшиту",
   "en": "Boxwood Sapling"
+ },
+ "productivetrees:brazil_nut": {
+  "img": "img/items/productivetrees/brazil_nut.png",
+  "kind": "item",
+  "uk": "Бразильський горіх",
+  "en": "Brazil Nut"
+ },
+ "productivetrees:brazil_nut_log": {
+  "img": "img/items/productivetrees/brazil_nut_log.png",
+  "kind": "approx",
+  "uk": "Колода бразильського горіха",
+  "en": "Brazil Nut Log"
  },
  "productivetrees:brazil_nut_sapling": {
   "img": "img/items/productivetrees/brazil_nut_sapling.png",
@@ -18527,11 +19607,29 @@
   "uk": "Паросток бразильського горіха",
   "en": "Brazil Nut Sapling"
  },
+ "productivetrees:brazilwood_log": {
+  "img": "img/items/productivetrees/brazilwood_log.png",
+  "kind": "approx",
+  "uk": "Колода бразильського дерева",
+  "en": "Brazilwood Log"
+ },
  "productivetrees:brazilwood_sapling": {
   "img": "img/items/productivetrees/brazilwood_sapling.png",
   "kind": "item",
   "uk": "Паросток бразильського дерева",
   "en": "Brazilwood Sapling"
+ },
+ "productivetrees:breadfruit": {
+  "img": "img/items/productivetrees/breadfruit.png",
+  "kind": "item",
+  "uk": "Хлібний плід",
+  "en": "Breadfruit"
+ },
+ "productivetrees:breadfruit_log": {
+  "img": "img/items/productivetrees/breadfruit_log.png",
+  "kind": "approx",
+  "uk": "Колода хлібного дерева",
+  "en": "Breadfruit Log"
  },
  "productivetrees:breadfruit_sapling": {
   "img": "img/items/productivetrees/breadfruit_sapling.png",
@@ -18539,11 +19637,29 @@
   "uk": "Паросток хлібного дерева",
   "en": "Breadfruit Sapling"
  },
+ "productivetrees:brown_amber_log": {
+  "img": "img/items/productivetrees/brown_amber_log.png",
+  "kind": "approx",
+  "uk": "Колода бурого бурштину",
+  "en": "Brown Amber Log"
+ },
  "productivetrees:brown_amber_sapling": {
   "img": "img/items/productivetrees/brown_amber_sapling.png",
   "kind": "item",
   "uk": "Паросток бурого бурштину",
   "en": "Brown Amber Sapling"
+ },
+ "productivetrees:buddhas_hand": {
+  "img": "img/items/productivetrees/buddhas_hand.png",
+  "kind": "item",
+  "uk": "Рука Будди",
+  "en": "Buddhas Hand"
+ },
+ "productivetrees:buddhas_hand_log": {
+  "img": "img/items/productivetrees/buddhas_hand_log.png",
+  "kind": "approx",
+  "uk": "Колода руки Будди",
+  "en": "Buddhas Hand Log"
  },
  "productivetrees:buddhas_hand_sapling": {
   "img": "img/items/productivetrees/buddhas_hand_sapling.png",
@@ -18551,11 +19667,29 @@
   "uk": "Паросток руки Будди",
   "en": "Buddhas Hand Sapling"
  },
+ "productivetrees:bull_pine_log": {
+  "img": "img/items/productivetrees/bull_pine_log.png",
+  "kind": "approx",
+  "uk": "Колода сосни жовтої",
+  "en": "Bull Pine Log"
+ },
  "productivetrees:bull_pine_sapling": {
   "img": "img/items/productivetrees/bull_pine_sapling.png",
   "kind": "item",
   "uk": "Паросток сосни жовтої",
   "en": "Bull Pine Sapling"
+ },
+ "productivetrees:butternut": {
+  "img": "img/items/productivetrees/butternut.png",
+  "kind": "item",
+  "uk": "Сірий горіх",
+  "en": "Butternut"
+ },
+ "productivetrees:butternut_log": {
+  "img": "img/items/productivetrees/butternut_log.png",
+  "kind": "approx",
+  "uk": "Колода горіха сірого",
+  "en": "Butternut Log"
  },
  "productivetrees:butternut_sapling": {
   "img": "img/items/productivetrees/butternut_sapling.png",
@@ -18563,11 +19697,29 @@
   "uk": "Паросток горіха сірого",
   "en": "Butternut Sapling"
  },
+ "productivetrees:cacao_log": {
+  "img": "img/items/productivetrees/cacao_log.png",
+  "kind": "approx",
+  "uk": "Колода какао-дерева",
+  "en": "Cacao Log"
+ },
  "productivetrees:cacao_sapling": {
   "img": "img/items/productivetrees/cacao_sapling.png",
   "kind": "item",
   "uk": "Паросток какао-дерева",
   "en": "Cacao Sapling"
+ },
+ "productivetrees:candlenut": {
+  "img": "img/items/productivetrees/candlenut.png",
+  "kind": "item",
+  "uk": "Свічковий горіх",
+  "en": "Candlenut"
+ },
+ "productivetrees:candlenut_log": {
+  "img": "img/items/productivetrees/candlenut_log.png",
+  "kind": "approx",
+  "uk": "Колода свічкового горіха",
+  "en": "Candlenut Log"
  },
  "productivetrees:candlenut_sapling": {
   "img": "img/items/productivetrees/candlenut_sapling.png",
@@ -18575,11 +19727,35 @@
   "uk": "Паросток свічкового горіха",
   "en": "Candlenut Sapling"
  },
+ "productivetrees:carob": {
+  "img": "img/items/productivetrees/carob.png",
+  "kind": "item",
+  "uk": "Ріжок",
+  "en": "Carob"
+ },
+ "productivetrees:carob_log": {
+  "img": "img/items/productivetrees/carob_log.png",
+  "kind": "approx",
+  "uk": "Колода ріжкового дерева",
+  "en": "Carob Log"
+ },
  "productivetrees:carob_sapling": {
   "img": "img/items/productivetrees/carob_sapling.png",
   "kind": "item",
   "uk": "Паросток ріжкового дерева",
   "en": "Carob Sapling"
+ },
+ "productivetrees:cashew": {
+  "img": "img/items/productivetrees/cashew.png",
+  "kind": "item",
+  "uk": "Кеш'ю",
+  "en": "Cashew"
+ },
+ "productivetrees:cashew_log": {
+  "img": "img/items/productivetrees/cashew_log.png",
+  "kind": "approx",
+  "uk": "Колода кеш'ю",
+  "en": "Cashew Log"
  },
  "productivetrees:cashew_sapling": {
   "img": "img/items/productivetrees/cashew_sapling.png",
@@ -18587,11 +19763,23 @@
   "uk": "Паросток кеш'ю",
   "en": "Cashew Sapling"
  },
+ "productivetrees:cave_dweller_log": {
+  "img": "img/items/productivetrees/cave_dweller_log.png",
+  "kind": "approx",
+  "uk": "Колода печерного мешканця",
+  "en": "Cave Dweller Log"
+ },
  "productivetrees:cave_dweller_sapling": {
   "img": "img/items/productivetrees/cave_dweller_sapling.png",
   "kind": "item",
   "uk": "Паросток печерного мешканця",
   "en": "Cave Dweller Sapling"
+ },
+ "productivetrees:cedar_log": {
+  "img": "img/items/productivetrees/cedar_log.png",
+  "kind": "approx",
+  "uk": "Колода кедра",
+  "en": "Cedar Log"
  },
  "productivetrees:cedar_sapling": {
   "img": "img/items/productivetrees/cedar_sapling.png",
@@ -18599,11 +19787,23 @@
   "uk": "Паросток кедра",
   "en": "Cedar Sapling"
  },
+ "productivetrees:cempedak_log": {
+  "img": "img/items/productivetrees/cempedak_log.png",
+  "kind": "approx",
+  "uk": "Колода чемпедака",
+  "en": "Cempedak Log"
+ },
  "productivetrees:cempedak_sapling": {
   "img": "img/items/productivetrees/cempedak_sapling.png",
   "kind": "item",
   "uk": "Паросток чемпедака",
   "en": "Cempedak Sapling"
+ },
+ "productivetrees:ceylon_ebony_log": {
+  "img": "img/items/productivetrees/ceylon_ebony_log.png",
+  "kind": "approx",
+  "uk": "Колода цейлонського ебену",
+  "en": "Ceylon Ebony Log"
  },
  "productivetrees:ceylon_ebony_sapling": {
   "img": "img/items/productivetrees/ceylon_ebony_sapling.png",
@@ -18611,11 +19811,35 @@
   "uk": "Паросток цейлонського ебену",
   "en": "Ceylon Ebony Sapling"
  },
+ "productivetrees:cherry_plum": {
+  "img": "img/items/productivetrees/cherry_plum.png",
+  "kind": "item",
+  "uk": "Алича",
+  "en": "Cherry Plum"
+ },
+ "productivetrees:cherry_plum_log": {
+  "img": "img/items/productivetrees/cherry_plum_log.png",
+  "kind": "approx",
+  "uk": "Колода аличі",
+  "en": "Cherry Plum Log"
+ },
  "productivetrees:cherry_plum_sapling": {
   "img": "img/items/productivetrees/cherry_plum_sapling.png",
   "kind": "item",
   "uk": "Паросток аличі",
   "en": "Cherry Plum Sapling"
+ },
+ "productivetrees:chestnut": {
+  "img": "img/items/productivetrees/chestnut.png",
+  "kind": "item",
+  "uk": "Каштан",
+  "en": "Chestnut"
+ },
+ "productivetrees:cinnamon_log": {
+  "img": "img/items/productivetrees/cinnamon_log.png",
+  "kind": "approx",
+  "uk": "Колода кориці",
+  "en": "Cinnamon Log"
  },
  "productivetrees:cinnamon_sapling": {
   "img": "img/items/productivetrees/cinnamon_sapling.png",
@@ -18623,11 +19847,29 @@
   "uk": "Паросток кориці",
   "en": "Cinnamon Sapling"
  },
+ "productivetrees:citron_log": {
+  "img": "img/items/productivetrees/citron_log.png",
+  "kind": "approx",
+  "uk": "Колода цитрона",
+  "en": "Citron Log"
+ },
  "productivetrees:citron_sapling": {
   "img": "img/items/productivetrees/citron_sapling.png",
   "kind": "item",
   "uk": "Паросток цитрона",
   "en": "Citron Sapling"
+ },
+ "productivetrees:clove": {
+  "img": "img/items/productivetrees/clove.png",
+  "kind": "item",
+  "uk": "Гвоздика",
+  "en": "Clove"
+ },
+ "productivetrees:clove_log": {
+  "img": "img/items/productivetrees/clove_log.png",
+  "kind": "approx",
+  "uk": "Колода гвоздикового дерева",
+  "en": "Clove Log"
  },
  "productivetrees:clove_sapling": {
   "img": "img/items/productivetrees/clove_sapling.png",
@@ -18635,11 +19877,23 @@
   "uk": "Паросток гвоздикового дерева",
   "en": "Clove Sapling"
  },
+ "productivetrees:cocobolo_log": {
+  "img": "img/items/productivetrees/cocobolo_log.png",
+  "kind": "approx",
+  "uk": "Колода кокоболо",
+  "en": "Cocobolo Log"
+ },
  "productivetrees:cocobolo_sapling": {
   "img": "img/items/productivetrees/cocobolo_sapling.png",
   "kind": "item",
   "uk": "Паросток кокоболо",
   "en": "Cocobolo Sapling"
+ },
+ "productivetrees:coconut_log": {
+  "img": "img/items/productivetrees/coconut_log.png",
+  "kind": "approx",
+  "uk": "Колода кокосової пальми",
+  "en": "Coconut Log"
  },
  "productivetrees:coconut_sapling": {
   "img": "img/items/productivetrees/coconut_sapling.png",
@@ -18647,11 +19901,35 @@
   "uk": "Паросток кокосової пальми",
   "en": "Coconut Sapling"
  },
+ "productivetrees:coffea_log": {
+  "img": "img/items/productivetrees/coffea_log.png",
+  "kind": "approx",
+  "uk": "Колода кавового дерева",
+  "en": "Coffea Log"
+ },
  "productivetrees:coffea_sapling": {
   "img": "img/items/productivetrees/coffea_sapling.png",
   "kind": "item",
   "uk": "Паросток кавового дерева",
   "en": "Coffea Sapling"
+ },
+ "productivetrees:coffee_bean": {
+  "img": "img/items/productivetrees/coffee_bean.png",
+  "kind": "item",
+  "uk": "Кавові зерна",
+  "en": "Coffee Beans"
+ },
+ "productivetrees:copoazu": {
+  "img": "img/items/productivetrees/copoazu.png",
+  "kind": "item",
+  "uk": "Купуасу",
+  "en": "Copoazu"
+ },
+ "productivetrees:copoazu_log": {
+  "img": "img/items/productivetrees/copoazu_log.png",
+  "kind": "approx",
+  "uk": "Колода купуасу",
+  "en": "Copoazu Log"
  },
  "productivetrees:copoazu_sapling": {
   "img": "img/items/productivetrees/copoazu_sapling.png",
@@ -18659,11 +19937,23 @@
   "uk": "Паросток купуасу",
   "en": "Copoazu Sapling"
  },
+ "productivetrees:copper_beech_log": {
+  "img": "img/items/productivetrees/copper_beech_log.png",
+  "kind": "approx",
+  "uk": "Колода бука пурпурового",
+  "en": "Copper Beech Log"
+ },
  "productivetrees:copper_beech_sapling": {
   "img": "img/items/productivetrees/copper_beech_sapling.png",
   "kind": "item",
   "uk": "Паросток бука пурпурового",
   "en": "Copper Beech Sapling"
+ },
+ "productivetrees:cork_oak_log": {
+  "img": "img/items/productivetrees/cork_oak_log.png",
+  "kind": "approx",
+  "uk": "Колода коркового дуба",
+  "en": "Cork Oak Log"
  },
  "productivetrees:cork_oak_sapling": {
   "img": "img/items/productivetrees/cork_oak_sapling.png",
@@ -18671,11 +19961,29 @@
   "uk": "Паросток коркового дуба",
   "en": "Cork Oak Sapling"
  },
+ "productivetrees:cultivated_pear_log": {
+  "img": "img/items/productivetrees/cultivated_pear_log.png",
+  "kind": "approx",
+  "uk": "Колода груші садової",
+  "en": "Cultivated Pear Log"
+ },
  "productivetrees:cultivated_pear_sapling": {
   "img": "img/items/productivetrees/cultivated_pear_sapling.png",
   "kind": "item",
   "uk": "Паросток груші садової",
   "en": "Cultivated Pear Sapling"
+ },
+ "productivetrees:date": {
+  "img": "img/items/productivetrees/date.png",
+  "kind": "item",
+  "uk": "Фінік",
+  "en": "Date"
+ },
+ "productivetrees:date_palm_log": {
+  "img": "img/items/productivetrees/date_palm_log.png",
+  "kind": "approx",
+  "uk": "Колода фінікової пальми",
+  "en": "Date Palm Log"
  },
  "productivetrees:date_palm_sapling": {
   "img": "img/items/productivetrees/date_palm_sapling.png",
@@ -18683,11 +19991,23 @@
   "uk": "Паросток фінікової пальми",
   "en": "Date Palm Sapling"
  },
+ "productivetrees:dogwood_log": {
+  "img": "img/items/productivetrees/dogwood_log.png",
+  "kind": "approx",
+  "uk": "Колода дерену",
+  "en": "Dogwood Log"
+ },
  "productivetrees:dogwood_sapling": {
   "img": "img/items/productivetrees/dogwood_sapling.png",
   "kind": "item",
   "uk": "Паросток дерену",
   "en": "Dogwood Sapling"
+ },
+ "productivetrees:douglas_fir_log": {
+  "img": "img/items/productivetrees/douglas_fir_log.png",
+  "kind": "approx",
+  "uk": "Колода псевдотсуги",
+  "en": "Douglas Fir Log"
  },
  "productivetrees:douglas_fir_sapling": {
   "img": "img/items/productivetrees/douglas_fir_sapling.png",
@@ -18695,11 +20015,29 @@
   "uk": "Паросток псевдотсуги",
   "en": "Douglas Fir Sapling"
  },
+ "productivetrees:elderberry": {
+  "img": "img/items/productivetrees/elderberry.png",
+  "kind": "item",
+  "uk": "Бузина",
+  "en": "Elderberry"
+ },
+ "productivetrees:elderberry_log": {
+  "img": "img/items/productivetrees/elderberry_log.png",
+  "kind": "approx",
+  "uk": "Колода бузини",
+  "en": "Elderberry Log"
+ },
  "productivetrees:elderberry_sapling": {
   "img": "img/items/productivetrees/elderberry_sapling.png",
   "kind": "item",
   "uk": "Паросток бузини",
   "en": "Elderberry Sapling"
+ },
+ "productivetrees:elm_log": {
+  "img": "img/items/productivetrees/elm_log.png",
+  "kind": "approx",
+  "uk": "Колода в'яза",
+  "en": "Elm Log"
  },
  "productivetrees:elm_sapling": {
   "img": "img/items/productivetrees/elm_sapling.png",
@@ -18707,11 +20045,35 @@
   "uk": "Паросток в'яза",
   "en": "Elm Sapling"
  },
+ "productivetrees:european_larch_log": {
+  "img": "img/items/productivetrees/european_larch_log.png",
+  "kind": "approx",
+  "uk": "Колода модрини європейської",
+  "en": "European Larch Log"
+ },
  "productivetrees:european_larch_sapling": {
   "img": "img/items/productivetrees/european_larch_sapling.png",
   "kind": "item",
   "uk": "Паросток модрини європейської",
   "en": "European Larch Sapling"
+ },
+ "productivetrees:fig": {
+  "img": "img/items/productivetrees/fig.png",
+  "kind": "item",
+  "uk": "Інжир",
+  "en": "Fig"
+ },
+ "productivetrees:finger_lime": {
+  "img": "img/items/productivetrees/finger_lime.png",
+  "kind": "item",
+  "uk": "Пальчастий лайм",
+  "en": "Finger Lime"
+ },
+ "productivetrees:finger_lime_log": {
+  "img": "img/items/productivetrees/finger_lime_log.png",
+  "kind": "approx",
+  "uk": "Колода пальчастого лайма",
+  "en": "Finger Lime Log"
  },
  "productivetrees:finger_lime_sapling": {
   "img": "img/items/productivetrees/finger_lime_sapling.png",
@@ -18725,11 +20087,35 @@
   "uk": "Паросток петарди",
   "en": "Firecracker Sapling"
  },
+ "productivetrees:firecracker_stripped_log": {
+  "img": "img/items/productivetrees/firecracker_stripped_log.png",
+  "kind": "block",
+  "uk": "Обтесана колода петарди",
+  "en": "Firecracker Stripped Log"
+ },
  "productivetrees:flickering_sun_sapling": {
   "img": "img/items/productivetrees/flickering_sun_sapling.png",
   "kind": "item",
   "uk": "Паросток мерехтливого сонця",
   "en": "Flickering Sun Sapling"
+ },
+ "productivetrees:flickering_sun_stripped_log": {
+  "img": "img/items/productivetrees/flickering_sun_stripped_log.png",
+  "kind": "block",
+  "uk": "Обтесана колода мерехтливого сонця",
+  "en": "Flickering Sun Stripped Log"
+ },
+ "productivetrees:flowering_crabapple": {
+  "img": "img/items/productivetrees/flowering_crabapple.png",
+  "kind": "item",
+  "uk": "Квітуча райська яблучка",
+  "en": "Flowering Crabapple"
+ },
+ "productivetrees:flowering_crabapple_log": {
+  "img": "img/items/productivetrees/flowering_crabapple_log.png",
+  "kind": "approx",
+  "uk": "Колода квітучої дикої яблуні",
+  "en": "Flowering Crabapple Log"
  },
  "productivetrees:flowering_crabapple_sapling": {
   "img": "img/items/productivetrees/flowering_crabapple_sapling.png",
@@ -18737,11 +20123,29 @@
   "uk": "Паросток квітучої дикої яблуні",
   "en": "Flowering Crabapple Sapling"
  },
+ "productivetrees:foggy_blast_log": {
+  "img": "img/items/productivetrees/foggy_blast_log.png",
+  "kind": "approx",
+  "uk": "Колода туманного вибуху",
+  "en": "Foggy Blast Log"
+ },
  "productivetrees:foggy_blast_sapling": {
   "img": "img/items/productivetrees/foggy_blast_sapling.png",
   "kind": "item",
   "uk": "Паросток туманного вибуху",
   "en": "Foggy Blast Sapling"
+ },
+ "productivetrees:ginkgo_log": {
+  "img": "img/items/productivetrees/ginkgo_log.png",
+  "kind": "approx",
+  "uk": "Колода гінкго",
+  "en": "Ginkgo Log"
+ },
+ "productivetrees:ginkgo_nut": {
+  "img": "img/items/productivetrees/ginkgo_nut.png",
+  "kind": "item",
+  "uk": "Горіх гінкго",
+  "en": "Ginkgo Nut"
  },
  "productivetrees:ginkgo_sapling": {
   "img": "img/items/productivetrees/ginkgo_sapling.png",
@@ -18749,11 +20153,29 @@
   "uk": "Паросток гінкго",
   "en": "Ginkgo Sapling"
  },
+ "productivetrees:golden_delicious_apple": {
+  "img": "img/items/productivetrees/golden_delicious_apple.png",
+  "kind": "item",
+  "uk": "Яблуко «Голден делішес»",
+  "en": "Golden Delicious Apple"
+ },
+ "productivetrees:golden_delicious_apple_log": {
+  "img": "img/items/productivetrees/golden_delicious_apple_log.png",
+  "kind": "approx",
+  "uk": "Колода яблуні «Голден Делішес»",
+  "en": "Golden Delicious Apple Log"
+ },
  "productivetrees:golden_delicious_apple_sapling": {
   "img": "img/items/productivetrees/golden_delicious_apple_sapling.png",
   "kind": "item",
   "uk": "Паросток яблуні «Голден Делішес»",
   "en": "Golden Delicious Apple Sapling"
+ },
+ "productivetrees:grandidiers_baobab_log": {
+  "img": "img/items/productivetrees/grandidiers_baobab_log.png",
+  "kind": "approx",
+  "uk": "Колода баобаба Грандід'є",
+  "en": "Grandidiers Baobab Log"
  },
  "productivetrees:grandidiers_baobab_sapling": {
   "img": "img/items/productivetrees/grandidiers_baobab_sapling.png",
@@ -18761,11 +20183,35 @@
   "uk": "Паросток баобаба Грандід'є",
   "en": "Grandidiers Baobab Sapling"
  },
+ "productivetrees:granny_smith_apple": {
+  "img": "img/items/productivetrees/granny_smith_apple.png",
+  "kind": "item",
+  "uk": "Яблуко «Гренні Сміт»",
+  "en": "Granny Smith Apple"
+ },
+ "productivetrees:granny_smith_apple_log": {
+  "img": "img/items/productivetrees/granny_smith_apple_log.png",
+  "kind": "approx",
+  "uk": "Колода яблуні «Гренні Сміт»",
+  "en": "Granny Smith Apple Log"
+ },
  "productivetrees:granny_smith_apple_sapling": {
   "img": "img/items/productivetrees/granny_smith_apple_sapling.png",
   "kind": "item",
   "uk": "Паросток яблуні «Гренні Сміт»",
   "en": "Granny Smith Apple Sapling"
+ },
+ "productivetrees:grapefruit": {
+  "img": "img/items/productivetrees/grapefruit.png",
+  "kind": "item",
+  "uk": "Грейпфрут",
+  "en": "Grapefruit"
+ },
+ "productivetrees:grapefruit_log": {
+  "img": "img/items/productivetrees/grapefruit_log.png",
+  "kind": "approx",
+  "uk": "Колода грейпфрута",
+  "en": "Grapefruit Log"
  },
  "productivetrees:grapefruit_sapling": {
   "img": "img/items/productivetrees/grapefruit_sapling.png",
@@ -18773,11 +20219,23 @@
   "uk": "Паросток грейпфрута",
   "en": "Grapefruit Sapling"
  },
+ "productivetrees:great_sallow_log": {
+  "img": "img/items/productivetrees/great_sallow_log.png",
+  "kind": "approx",
+  "uk": "Колода верби козячої",
+  "en": "Great Sallow Log"
+ },
  "productivetrees:great_sallow_sapling": {
   "img": "img/items/productivetrees/great_sallow_sapling.png",
   "kind": "item",
   "uk": "Паросток верби козячої",
   "en": "Great Sallow Sapling"
+ },
+ "productivetrees:greenheart_log": {
+  "img": "img/items/productivetrees/greenheart_log.png",
+  "kind": "approx",
+  "uk": "Колода гринхарта",
+  "en": "Greenheart Log"
  },
  "productivetrees:greenheart_sapling": {
   "img": "img/items/productivetrees/greenheart_sapling.png",
@@ -18785,11 +20243,29 @@
   "uk": "Паросток гринхарта",
   "en": "Greenheart Sapling"
  },
+ "productivetrees:haw": {
+  "img": "img/items/productivetrees/haw.png",
+  "kind": "item",
+  "uk": "Глід",
+  "en": "Haw"
+ },
+ "productivetrees:hawthorn_log": {
+  "img": "img/items/productivetrees/hawthorn_log.png",
+  "kind": "approx",
+  "uk": "Колода глоду",
+  "en": "Hawthorn Log"
+ },
  "productivetrees:hawthorn_sapling": {
   "img": "img/items/productivetrees/hawthorn_sapling.png",
   "kind": "item",
   "uk": "Паросток глоду",
   "en": "Hawthorn Sapling"
+ },
+ "productivetrees:hazel_log": {
+  "img": "img/items/productivetrees/hazel_log.png",
+  "kind": "approx",
+  "uk": "Колода ліщини",
+  "en": "Hazel Log"
  },
  "productivetrees:hazel_sapling": {
   "img": "img/items/productivetrees/hazel_sapling.png",
@@ -18797,11 +20273,23 @@
   "uk": "Паросток ліщини",
   "en": "Hazel Sapling"
  },
+ "productivetrees:holly_log": {
+  "img": "img/items/productivetrees/holly_log.png",
+  "kind": "approx",
+  "uk": "Колода падуба",
+  "en": "Holly Log"
+ },
  "productivetrees:holly_sapling": {
   "img": "img/items/productivetrees/holly_sapling.png",
   "kind": "item",
   "uk": "Паросток падуба",
   "en": "Holly Sapling"
+ },
+ "productivetrees:hornbeam_log": {
+  "img": "img/items/productivetrees/hornbeam_log.png",
+  "kind": "approx",
+  "uk": "Колода граба",
+  "en": "Hornbeam Log"
  },
  "productivetrees:hornbeam_sapling": {
   "img": "img/items/productivetrees/hornbeam_sapling.png",
@@ -18809,11 +20297,23 @@
   "uk": "Паросток граба",
   "en": "Hornbeam Sapling"
  },
+ "productivetrees:ipe_log": {
+  "img": "img/items/productivetrees/ipe_log.png",
+  "kind": "approx",
+  "uk": "Колода іпе",
+  "en": "Ipe Log"
+ },
  "productivetrees:ipe_sapling": {
   "img": "img/items/productivetrees/ipe_sapling.png",
   "kind": "item",
   "uk": "Паросток іпе",
   "en": "Ipe Sapling"
+ },
+ "productivetrees:iroko_log": {
+  "img": "img/items/productivetrees/iroko_log.png",
+  "kind": "approx",
+  "uk": "Колода іроко",
+  "en": "Iroko Log"
  },
  "productivetrees:iroko_sapling": {
   "img": "img/items/productivetrees/iroko_sapling.png",
@@ -18821,11 +20321,35 @@
   "uk": "Паросток іроко",
   "en": "Iroko Sapling"
  },
+ "productivetrees:jackfruit": {
+  "img": "img/items/productivetrees/jackfruit.png",
+  "kind": "item",
+  "uk": "Джекфрут",
+  "en": "Jackfruit"
+ },
+ "productivetrees:jackfruit_log": {
+  "img": "img/items/productivetrees/jackfruit_log.png",
+  "kind": "approx",
+  "uk": "Колода джекфрута",
+  "en": "Jackfruit Log"
+ },
  "productivetrees:jackfruit_sapling": {
   "img": "img/items/productivetrees/jackfruit_sapling.png",
   "kind": "item",
   "uk": "Паросток джекфрута",
   "en": "Jackfruit Sapling"
+ },
+ "productivetrees:juniper_berry": {
+  "img": "img/items/productivetrees/juniper_berry.png",
+  "kind": "item",
+  "uk": "Ягода ялівцю",
+  "en": "Juniper Berry"
+ },
+ "productivetrees:juniper_log": {
+  "img": "img/items/productivetrees/juniper_log.png",
+  "kind": "approx",
+  "uk": "Колода ялівцю",
+  "en": "Juniper Log"
  },
  "productivetrees:juniper_sapling": {
   "img": "img/items/productivetrees/juniper_sapling.png",
@@ -18833,11 +20357,23 @@
   "uk": "Паросток ялівцю",
   "en": "Juniper Sapling"
  },
+ "productivetrees:kapok_log": {
+  "img": "img/items/productivetrees/kapok_log.png",
+  "kind": "approx",
+  "uk": "Колода капоку",
+  "en": "Kapok Log"
+ },
  "productivetrees:kapok_sapling": {
   "img": "img/items/productivetrees/kapok_sapling.png",
   "kind": "item",
   "uk": "Паросток капоку",
   "en": "Kapok Sapling"
+ },
+ "productivetrees:key_lime_log": {
+  "img": "img/items/productivetrees/key_lime_log.png",
+  "kind": "approx",
+  "uk": "Колода лайма мексиканського",
+  "en": "Key Lime Log"
  },
  "productivetrees:key_lime_sapling": {
   "img": "img/items/productivetrees/key_lime_sapling.png",
@@ -18845,11 +20381,29 @@
   "uk": "Паросток лайма мексиканського",
   "en": "Key Lime Sapling"
  },
+ "productivetrees:kumquat": {
+  "img": "img/items/productivetrees/kumquat.png",
+  "kind": "item",
+  "uk": "Кумкват",
+  "en": "Kumquat"
+ },
+ "productivetrees:kumquat_log": {
+  "img": "img/items/productivetrees/kumquat_log.png",
+  "kind": "approx",
+  "uk": "Колода кумквата",
+  "en": "Kumquat Log"
+ },
  "productivetrees:kumquat_sapling": {
   "img": "img/items/productivetrees/kumquat_sapling.png",
   "kind": "item",
   "uk": "Паросток кумквата",
   "en": "Kumquat Sapling"
+ },
+ "productivetrees:lawson_cypress_log": {
+  "img": "img/items/productivetrees/lawson_cypress_log.png",
+  "kind": "approx",
+  "uk": "Колода кипарисовика Лавсона",
+  "en": "Lawson Cypress Log"
  },
  "productivetrees:lawson_cypress_sapling": {
   "img": "img/items/productivetrees/lawson_cypress_sapling.png",
@@ -18857,11 +20411,35 @@
   "uk": "Паросток кипарисовика Лавсона",
   "en": "Lawson Cypress Sapling"
  },
+ "productivetrees:lemon": {
+  "img": "img/items/productivetrees/lemon.png",
+  "kind": "item",
+  "uk": "Лимон",
+  "en": "Lemon"
+ },
+ "productivetrees:lemon_log": {
+  "img": "img/items/productivetrees/lemon_log.png",
+  "kind": "approx",
+  "uk": "Колода лимона",
+  "en": "Lemon Log"
+ },
  "productivetrees:lemon_sapling": {
   "img": "img/items/productivetrees/lemon_sapling.png",
   "kind": "item",
   "uk": "Паросток лимона",
   "en": "Lemon Sapling"
+ },
+ "productivetrees:lime": {
+  "img": "img/items/productivetrees/lime.png",
+  "kind": "item",
+  "uk": "Лайм",
+  "en": "Lime"
+ },
+ "productivetrees:lime_log": {
+  "img": "img/items/productivetrees/lime_log.png",
+  "kind": "approx",
+  "uk": "Колода лайма",
+  "en": "Lime Log"
  },
  "productivetrees:lime_sapling": {
   "img": "img/items/productivetrees/lime_sapling.png",
@@ -18869,11 +20447,23 @@
   "uk": "Паросток лайма",
   "en": "Lime Sapling"
  },
+ "productivetrees:loblolly_pine_log": {
+  "img": "img/items/productivetrees/loblolly_pine_log.png",
+  "kind": "approx",
+  "uk": "Колода сосни ладанної",
+  "en": "Loblolly Pine Log"
+ },
  "productivetrees:loblolly_pine_sapling": {
   "img": "img/items/productivetrees/loblolly_pine_sapling.png",
   "kind": "item",
   "uk": "Паросток сосни ладанної",
   "en": "Loblolly Pine Sapling"
+ },
+ "productivetrees:logwood_log": {
+  "img": "img/items/productivetrees/logwood_log.png",
+  "kind": "approx",
+  "uk": "Колода кампешевого дерева",
+  "en": "Logwood Log"
  },
  "productivetrees:logwood_sapling": {
   "img": "img/items/productivetrees/logwood_sapling.png",
@@ -18881,17 +20471,47 @@
   "uk": "Паросток кампешевого дерева",
   "en": "Logwood Sapling"
  },
+ "productivetrees:mahogany_log": {
+  "img": "img/items/productivetrees/mahogany_log.png",
+  "kind": "approx",
+  "uk": "Колода червоного дерева",
+  "en": "Mahogany Log"
+ },
  "productivetrees:mahogany_sapling": {
   "img": "img/items/productivetrees/mahogany_sapling.png",
   "kind": "item",
   "uk": "Паросток червоного дерева",
   "en": "Mahogany Sapling"
  },
+ "productivetrees:mandarin": {
+  "img": "img/items/productivetrees/mandarin.png",
+  "kind": "item",
+  "uk": "Мандарин",
+  "en": "Mandarin"
+ },
+ "productivetrees:mandarin_log": {
+  "img": "img/items/productivetrees/mandarin_log.png",
+  "kind": "approx",
+  "uk": "Колода мандарина",
+  "en": "Mandarin Log"
+ },
  "productivetrees:mandarin_sapling": {
   "img": "img/items/productivetrees/mandarin_sapling.png",
   "kind": "item",
   "uk": "Паросток мандарина",
   "en": "Mandarin Sapling"
+ },
+ "productivetrees:mango": {
+  "img": "img/items/productivetrees/mango.png",
+  "kind": "item",
+  "uk": "Манго",
+  "en": "Mango"
+ },
+ "productivetrees:mango_log": {
+  "img": "img/items/productivetrees/mango_log.png",
+  "kind": "approx",
+  "uk": "Колода манго",
+  "en": "Mango Log"
  },
  "productivetrees:mango_sapling": {
   "img": "img/items/productivetrees/mango_sapling.png",
@@ -18905,11 +20525,23 @@
   "uk": "Кленовий сироп",
   "en": "Maple Syrup"
  },
+ "productivetrees:monkey_puzzle_log": {
+  "img": "img/items/productivetrees/monkey_puzzle_log.png",
+  "kind": "approx",
+  "uk": "Колода араукарії",
+  "en": "Monkey Puzzle Log"
+ },
  "productivetrees:monkey_puzzle_sapling": {
   "img": "img/items/productivetrees/monkey_puzzle_sapling.png",
   "kind": "item",
   "uk": "Паросток араукарії",
   "en": "Monkey Puzzle Sapling"
+ },
+ "productivetrees:moonlight_magic_crepe_myrtle_log": {
+  "img": "img/items/productivetrees/moonlight_magic_crepe_myrtle_log.png",
+  "kind": "approx",
+  "uk": "Колода лагерстремії «Місячна магія»",
+  "en": "Moonlight Magic Crepe Myrtle Log"
  },
  "productivetrees:moonlight_magic_crepe_myrtle_sapling": {
   "img": "img/items/productivetrees/moonlight_magic_crepe_myrtle_sapling.png",
@@ -18917,11 +20549,29 @@
   "uk": "Паросток лагерстремії «Місячна магія»",
   "en": "Moonlight Magic Crepe Myrtle Sapling"
  },
+ "productivetrees:myrtle_ebony_log": {
+  "img": "img/items/productivetrees/myrtle_ebony_log.png",
+  "kind": "approx",
+  "uk": "Колода миртового ебену",
+  "en": "Myrtle Ebony Log"
+ },
  "productivetrees:myrtle_ebony_sapling": {
   "img": "img/items/productivetrees/myrtle_ebony_sapling.png",
   "kind": "item",
   "uk": "Паросток миртового ебену",
   "en": "Myrtle Ebony Sapling"
+ },
+ "productivetrees:nectarine": {
+  "img": "img/items/productivetrees/nectarine.png",
+  "kind": "item",
+  "uk": "Нектарин",
+  "en": "Nectarine"
+ },
+ "productivetrees:nectarine_log": {
+  "img": "img/items/productivetrees/nectarine_log.png",
+  "kind": "approx",
+  "uk": "Колода нектарина",
+  "en": "Nectarine Log"
  },
  "productivetrees:nectarine_sapling": {
   "img": "img/items/productivetrees/nectarine_sapling.png",
@@ -18929,11 +20579,29 @@
   "uk": "Паросток нектарина",
   "en": "Nectarine Sapling"
  },
+ "productivetrees:night_fuchsia_log": {
+  "img": "img/items/productivetrees/night_fuchsia_log.png",
+  "kind": "approx",
+  "uk": "Колода нічної фуксії",
+  "en": "Night Fuchsia Log"
+ },
  "productivetrees:night_fuchsia_sapling": {
   "img": "img/items/productivetrees/night_fuchsia_sapling.png",
   "kind": "item",
   "uk": "Паросток нічної фуксії",
   "en": "Night Fuchsia Sapling"
+ },
+ "productivetrees:nutmeg": {
+  "img": "img/items/productivetrees/nutmeg.png",
+  "kind": "item",
+  "uk": "Мускатний горіх",
+  "en": "Nutmeg"
+ },
+ "productivetrees:nutmeg_log": {
+  "img": "img/items/productivetrees/nutmeg_log.png",
+  "kind": "approx",
+  "uk": "Колода мускатного горіха",
+  "en": "Nutmeg Log"
  },
  "productivetrees:nutmeg_sapling": {
   "img": "img/items/productivetrees/nutmeg_sapling.png",
@@ -18941,11 +20609,29 @@
   "uk": "Паросток мускатного горіха",
   "en": "Nutmeg Sapling"
  },
+ "productivetrees:old_fustic_log": {
+  "img": "img/items/productivetrees/old_fustic_log.png",
+  "kind": "approx",
+  "uk": "Колода старого фустика",
+  "en": "Old Fustic Log"
+ },
  "productivetrees:old_fustic_sapling": {
   "img": "img/items/productivetrees/old_fustic_sapling.png",
   "kind": "item",
   "uk": "Паросток старого фустика",
   "en": "Old Fustic Sapling"
+ },
+ "productivetrees:olive": {
+  "img": "img/items/productivetrees/olive.png",
+  "kind": "item",
+  "uk": "Оливка",
+  "en": "Olive"
+ },
+ "productivetrees:olive_log": {
+  "img": "img/items/productivetrees/olive_log.png",
+  "kind": "approx",
+  "uk": "Колода оливкового дерева",
+  "en": "Olive Log"
  },
  "productivetrees:olive_sapling": {
   "img": "img/items/productivetrees/olive_sapling.png",
@@ -18953,11 +20639,35 @@
   "uk": "Паросток оливкового дерева",
   "en": "Olive Sapling"
  },
+ "productivetrees:orange": {
+  "img": "img/items/productivetrees/orange.png",
+  "kind": "item",
+  "uk": "Апельсин",
+  "en": "Orange"
+ },
+ "productivetrees:orange_log": {
+  "img": "img/items/productivetrees/orange_log.png",
+  "kind": "approx",
+  "uk": "Колода апельсина",
+  "en": "Orange Log"
+ },
  "productivetrees:orange_sapling": {
   "img": "img/items/productivetrees/orange_sapling.png",
   "kind": "item",
   "uk": "Паросток апельсина",
   "en": "Orange Sapling"
+ },
+ "productivetrees:osage_orange": {
+  "img": "img/items/productivetrees/osage_orange.png",
+  "kind": "item",
+  "uk": "Маклюра",
+  "en": "Osage Orange"
+ },
+ "productivetrees:osage_orange_log": {
+  "img": "img/items/productivetrees/osage_orange_log.png",
+  "kind": "approx",
+  "uk": "Колода маклюри",
+  "en": "Osage Orange Log"
  },
  "productivetrees:osage_orange_sapling": {
   "img": "img/items/productivetrees/osage_orange_sapling.png",
@@ -18965,11 +20675,23 @@
   "uk": "Паросток маклюри",
   "en": "Osage Orange Sapling"
  },
+ "productivetrees:padauk_log": {
+  "img": "img/items/productivetrees/padauk_log.png",
+  "kind": "approx",
+  "uk": "Колода падука",
+  "en": "Padauk Log"
+ },
  "productivetrees:padauk_sapling": {
   "img": "img/items/productivetrees/padauk_sapling.png",
   "kind": "item",
   "uk": "Паросток падука",
   "en": "Padauk Sapling"
+ },
+ "productivetrees:pandanus_log": {
+  "img": "img/items/productivetrees/pandanus_log.png",
+  "kind": "approx",
+  "uk": "Колода пандана",
+  "en": "Pandanus Log"
  },
  "productivetrees:pandanus_sapling": {
   "img": "img/items/productivetrees/pandanus_sapling.png",
@@ -18977,11 +20699,35 @@
   "uk": "Паросток пандана",
   "en": "Pandanus Sapling"
  },
+ "productivetrees:papaya": {
+  "img": "img/items/productivetrees/papaya.png",
+  "kind": "item",
+  "uk": "Папая",
+  "en": "Papaya"
+ },
+ "productivetrees:papaya_log": {
+  "img": "img/items/productivetrees/papaya_log.png",
+  "kind": "approx",
+  "uk": "Колода папаї",
+  "en": "Papaya Log"
+ },
  "productivetrees:papaya_sapling": {
   "img": "img/items/productivetrees/papaya_sapling.png",
   "kind": "item",
   "uk": "Паросток папаї",
   "en": "Papaya Sapling"
+ },
+ "productivetrees:peach": {
+  "img": "img/items/productivetrees/peach.png",
+  "kind": "item",
+  "uk": "Персик",
+  "en": "Peach"
+ },
+ "productivetrees:peach_log": {
+  "img": "img/items/productivetrees/peach_log.png",
+  "kind": "approx",
+  "uk": "Колода персика",
+  "en": "Peach Log"
  },
  "productivetrees:peach_sapling": {
   "img": "img/items/productivetrees/peach_sapling.png",
@@ -18989,11 +20735,41 @@
   "uk": "Паросток персика",
   "en": "Peach Sapling"
  },
+ "productivetrees:pear": {
+  "img": "img/items/productivetrees/pear.png",
+  "kind": "item",
+  "uk": "Груша",
+  "en": "Pear"
+ },
+ "productivetrees:pecan": {
+  "img": "img/items/productivetrees/pecan.png",
+  "kind": "item",
+  "uk": "Пекан",
+  "en": "Pecan"
+ },
+ "productivetrees:pecan_log": {
+  "img": "img/items/productivetrees/pecan_log.png",
+  "kind": "approx",
+  "uk": "Колода пекана",
+  "en": "Pecan Log"
+ },
  "productivetrees:pecan_sapling": {
   "img": "img/items/productivetrees/pecan_sapling.png",
   "kind": "item",
   "uk": "Паросток пекана",
   "en": "Pecan Sapling"
+ },
+ "productivetrees:persimmon": {
+  "img": "img/items/productivetrees/persimmon.png",
+  "kind": "item",
+  "uk": "Хурма",
+  "en": "Persimmon"
+ },
+ "productivetrees:persimmon_log": {
+  "img": "img/items/productivetrees/persimmon_log.png",
+  "kind": "approx",
+  "uk": "Колода хурми",
+  "en": "Persimmon Log"
  },
  "productivetrees:persimmon_sapling": {
   "img": "img/items/productivetrees/persimmon_sapling.png",
@@ -19001,11 +20777,23 @@
   "uk": "Паросток хурми",
   "en": "Persimmon Sapling"
  },
+ "productivetrees:pink_ipe_log": {
+  "img": "img/items/productivetrees/pink_ipe_log.png",
+  "kind": "approx",
+  "uk": "Колода рожевого іпе",
+  "en": "Pink Ipe Log"
+ },
  "productivetrees:pink_ipe_sapling": {
   "img": "img/items/productivetrees/pink_ipe_sapling.png",
   "kind": "item",
   "uk": "Паросток рожевого іпе",
   "en": "Pink Ipe Sapling"
+ },
+ "productivetrees:pink_ivory_log": {
+  "img": "img/items/productivetrees/pink_ivory_log.png",
+  "kind": "approx",
+  "uk": "Колода рожевої слонової кістки",
+  "en": "Pink Ivory Log"
  },
  "productivetrees:pink_ivory_sapling": {
   "img": "img/items/productivetrees/pink_ivory_sapling.png",
@@ -19013,17 +20801,53 @@
   "uk": "Паросток рожевої слонової кістки",
   "en": "Pink Ivory Sapling"
  },
+ "productivetrees:pistachio": {
+  "img": "img/items/productivetrees/pistachio.png",
+  "kind": "item",
+  "uk": "Фісташка",
+  "en": "Pistachio"
+ },
+ "productivetrees:pistachio_log": {
+  "img": "img/items/productivetrees/pistachio_log.png",
+  "kind": "approx",
+  "uk": "Колода фісташки",
+  "en": "Pistachio Log"
+ },
  "productivetrees:pistachio_sapling": {
   "img": "img/items/productivetrees/pistachio_sapling.png",
   "kind": "item",
   "uk": "Паросток фісташки",
   "en": "Pistachio Sapling"
  },
+ "productivetrees:plantain": {
+  "img": "img/items/productivetrees/plantain.png",
+  "kind": "item",
+  "uk": "Плантан",
+  "en": "Plantain"
+ },
+ "productivetrees:plantain_log": {
+  "img": "img/items/productivetrees/plantain_log.png",
+  "kind": "approx",
+  "uk": "Колода овочевого банана",
+  "en": "Plantain Log"
+ },
  "productivetrees:plantain_sapling": {
   "img": "img/items/productivetrees/plantain_sapling.png",
   "kind": "item",
   "uk": "Паросток овочевого банана",
   "en": "Plantain Sapling"
+ },
+ "productivetrees:plum": {
+  "img": "img/items/productivetrees/plum.png",
+  "kind": "item",
+  "uk": "Слива",
+  "en": "Plum"
+ },
+ "productivetrees:plum_log": {
+  "img": "img/items/productivetrees/plum_log.png",
+  "kind": "approx",
+  "uk": "Колода сливи",
+  "en": "Plum Log"
  },
  "productivetrees:plum_sapling": {
   "img": "img/items/productivetrees/plum_sapling.png",
@@ -19043,11 +20867,35 @@
   "uk": "Сито для пилку",
   "en": "Pollen Sifter"
  },
+ "productivetrees:pomegranate": {
+  "img": "img/items/productivetrees/pomegranate.png",
+  "kind": "item",
+  "uk": "Плід граната",
+  "en": "Pomegranate"
+ },
+ "productivetrees:pomegranate_log": {
+  "img": "img/items/productivetrees/pomegranate_log.png",
+  "kind": "approx",
+  "uk": "Колода граната",
+  "en": "Pomegranate Log"
+ },
  "productivetrees:pomegranate_sapling": {
   "img": "img/items/productivetrees/pomegranate_sapling.png",
   "kind": "item",
   "uk": "Паросток граната",
   "en": "Pomegranate Sapling"
+ },
+ "productivetrees:pomelo": {
+  "img": "img/items/productivetrees/pomelo.png",
+  "kind": "item",
+  "uk": "Помело",
+  "en": "Pomelo"
+ },
+ "productivetrees:pomelo_log": {
+  "img": "img/items/productivetrees/pomelo_log.png",
+  "kind": "approx",
+  "uk": "Колода помело",
+  "en": "Pomelo Log"
  },
  "productivetrees:pomelo_sapling": {
   "img": "img/items/productivetrees/pomelo_sapling.png",
@@ -19055,11 +20903,29 @@
   "uk": "Паросток помело",
   "en": "Pomelo Sapling"
  },
+ "productivetrees:prairie_crabapple": {
+  "img": "img/items/productivetrees/prairie_crabapple.png",
+  "kind": "item",
+  "uk": "Преріальна райська яблучка",
+  "en": "Prairie Crabapple"
+ },
+ "productivetrees:prairie_crabapple_log": {
+  "img": "img/items/productivetrees/prairie_crabapple_log.png",
+  "kind": "approx",
+  "uk": "Колода степової дикої яблуні",
+  "en": "Prairie Crabapple Log"
+ },
  "productivetrees:prairie_crabapple_sapling": {
   "img": "img/items/productivetrees/prairie_crabapple_sapling.png",
   "kind": "item",
   "uk": "Паросток степової дикої яблуні",
   "en": "Prairie Crabapple Sapling"
+ },
+ "productivetrees:purple_blackthorn_log": {
+  "img": "img/items/productivetrees/purple_blackthorn_log.png",
+  "kind": "approx",
+  "uk": "Колода пурпурового терену",
+  "en": "Purple Blackthorn Log"
  },
  "productivetrees:purple_blackthorn_sapling": {
   "img": "img/items/productivetrees/purple_blackthorn_sapling.png",
@@ -19067,11 +20933,23 @@
   "uk": "Паросток пурпурового терену",
   "en": "Purple Blackthorn Sapling"
  },
+ "productivetrees:purple_crepe_myrtle_log": {
+  "img": "img/items/productivetrees/purple_crepe_myrtle_log.png",
+  "kind": "approx",
+  "uk": "Колода пурпурової лагерстремії",
+  "en": "Purple Crepe Myrtle Log"
+ },
  "productivetrees:purple_crepe_myrtle_sapling": {
   "img": "img/items/productivetrees/purple_crepe_myrtle_sapling.png",
   "kind": "item",
   "uk": "Паросток пурпурової лагерстремії",
   "en": "Purple Crepe Myrtle Sapling"
+ },
+ "productivetrees:purple_ipe_log": {
+  "img": "img/items/productivetrees/purple_ipe_log.png",
+  "kind": "approx",
+  "uk": "Колода пурпурового іпе",
+  "en": "Purple Ipe Log"
  },
  "productivetrees:purple_ipe_sapling": {
   "img": "img/items/productivetrees/purple_ipe_sapling.png",
@@ -19079,11 +20957,23 @@
   "uk": "Паросток пурпурового іпе",
   "en": "Purple Ipe Sapling"
  },
+ "productivetrees:purple_spiral_log": {
+  "img": "img/items/productivetrees/purple_spiral_log.png",
+  "kind": "approx",
+  "uk": "Колода пурпурової спіралі",
+  "en": "Purple Spiral Log"
+ },
  "productivetrees:purple_spiral_sapling": {
   "img": "img/items/productivetrees/purple_spiral_sapling.png",
   "kind": "item",
   "uk": "Паросток пурпурової спіралі",
   "en": "Purple Spiral Sapling"
+ },
+ "productivetrees:purpleheart_log": {
+  "img": "img/items/productivetrees/purpleheart_log.png",
+  "kind": "approx",
+  "uk": "Колода пурпурового серця",
+  "en": "Purpleheart Log"
  },
  "productivetrees:purpleheart_sapling": {
   "img": "img/items/productivetrees/purpleheart_sapling.png",
@@ -19091,11 +20981,29 @@
   "uk": "Паросток пурпурового серця",
   "en": "Purpleheart Sapling"
  },
+ "productivetrees:rainbow_gum_log": {
+  "img": "img/items/productivetrees/rainbow_gum_log.png",
+  "kind": "approx",
+  "uk": "Колода райдужного евкаліпта",
+  "en": "Rainbow Gum Log"
+ },
  "productivetrees:rainbow_gum_sapling": {
   "img": "img/items/productivetrees/rainbow_gum_sapling.png",
   "kind": "item",
   "uk": "Паросток райдужного евкаліпта",
   "en": "Rainbow Gum Sapling"
+ },
+ "productivetrees:red_banana": {
+  "img": "img/items/productivetrees/red_banana.png",
+  "kind": "item",
+  "uk": "Червоний банан",
+  "en": "Red Banana"
+ },
+ "productivetrees:red_banana_log": {
+  "img": "img/items/productivetrees/red_banana_log.png",
+  "kind": "approx",
+  "uk": "Колода червоного банана",
+  "en": "Red Banana Log"
  },
  "productivetrees:red_banana_sapling": {
   "img": "img/items/productivetrees/red_banana_sapling.png",
@@ -19103,11 +21011,23 @@
   "uk": "Паросток червоного банана",
   "en": "Red Banana Sapling"
  },
+ "productivetrees:red_crepe_myrtle_log": {
+  "img": "img/items/productivetrees/red_crepe_myrtle_log.png",
+  "kind": "approx",
+  "uk": "Колода червоної лагерстремії",
+  "en": "Red Crepe Myrtle Log"
+ },
  "productivetrees:red_crepe_myrtle_sapling": {
   "img": "img/items/productivetrees/red_crepe_myrtle_sapling.png",
   "kind": "item",
   "uk": "Паросток червоної лагерстремії",
   "en": "Red Crepe Myrtle Sapling"
+ },
+ "productivetrees:red_delicious_apple_log": {
+  "img": "img/items/productivetrees/red_delicious_apple_log.png",
+  "kind": "approx",
+  "uk": "Колода яблуні «Ред Делішес»",
+  "en": "Red Delicious Apple Log"
  },
  "productivetrees:red_delicious_apple_sapling": {
   "img": "img/items/productivetrees/red_delicious_apple_sapling.png",
@@ -19115,11 +21035,23 @@
   "uk": "Паросток яблуні «Ред Делішес»",
   "en": "Red Delicious Apple Sapling"
  },
+ "productivetrees:red_maple_log": {
+  "img": "img/items/productivetrees/red_maple_log.png",
+  "kind": "approx",
+  "uk": "Колода клена червоного",
+  "en": "Red Maple Log"
+ },
  "productivetrees:red_maple_sapling": {
   "img": "img/items/productivetrees/red_maple_sapling.png",
   "kind": "item",
   "uk": "Паросток клена червоного",
   "en": "Red Maple Sapling"
+ },
+ "productivetrees:rippling_willow_log": {
+  "img": "img/items/productivetrees/rippling_willow_log.png",
+  "kind": "approx",
+  "uk": "Колода хвилястої верби",
+  "en": "Rippling Willow Log"
  },
  "productivetrees:rippling_willow_sapling": {
   "img": "img/items/productivetrees/rippling_willow_sapling.png",
@@ -19127,11 +21059,23 @@
   "uk": "Паросток хвилястої верби",
   "en": "Rippling Willow Sapling"
  },
+ "productivetrees:rose_gum_log": {
+  "img": "img/items/productivetrees/rose_gum_log.png",
+  "kind": "approx",
+  "uk": "Колода евкаліпта трояндового",
+  "en": "Rose Gum Log"
+ },
  "productivetrees:rose_gum_sapling": {
   "img": "img/items/productivetrees/rose_gum_sapling.png",
   "kind": "item",
   "uk": "Паросток евкаліпта трояндового",
   "en": "Rose Gum Sapling"
+ },
+ "productivetrees:rosewood_log": {
+  "img": "img/items/productivetrees/rosewood_log.png",
+  "kind": "approx",
+  "uk": "Колода палісандра",
+  "en": "Rosewood Log"
  },
  "productivetrees:rosewood_sapling": {
   "img": "img/items/productivetrees/rosewood_sapling.png",
@@ -19139,11 +21083,29 @@
   "uk": "Паросток палісандра",
   "en": "Rosewood Sapling"
  },
+ "productivetrees:rowan": {
+  "img": "img/items/productivetrees/rowan.png",
+  "kind": "item",
+  "uk": "Горобина",
+  "en": "Rowan"
+ },
+ "productivetrees:rowan_log": {
+  "img": "img/items/productivetrees/rowan_log.png",
+  "kind": "approx",
+  "uk": "Колода горобини",
+  "en": "Rowan Log"
+ },
  "productivetrees:rowan_sapling": {
   "img": "img/items/productivetrees/rowan_sapling.png",
   "kind": "item",
   "uk": "Паросток горобини",
   "en": "Rowan Sapling"
+ },
+ "productivetrees:rubber_tree_log": {
+  "img": "img/items/productivetrees/rubber_tree_log.png",
+  "kind": "approx",
+  "uk": "Колода гевеї",
+  "en": "Rubber Tree Log"
  },
  "productivetrees:rubber_tree_sapling": {
   "img": "img/items/productivetrees/rubber_tree_sapling.png",
@@ -19151,11 +21113,29 @@
   "uk": "Паросток гевеї",
   "en": "Rubber Tree Sapling"
  },
+ "productivetrees:salak_log": {
+  "img": "img/items/productivetrees/salak_log.png",
+  "kind": "approx",
+  "uk": "Колода салака",
+  "en": "Salak Log"
+ },
  "productivetrees:salak_sapling": {
   "img": "img/items/productivetrees/salak_sapling.png",
   "kind": "item",
   "uk": "Паросток салака",
   "en": "Salak Sapling"
+ },
+ "productivetrees:sand_pear": {
+  "img": "img/items/productivetrees/sand_pear.png",
+  "kind": "item",
+  "uk": "Піщана груша",
+  "en": "Sand Pear"
+ },
+ "productivetrees:sand_pear_log": {
+  "img": "img/items/productivetrees/sand_pear_log.png",
+  "kind": "approx",
+  "uk": "Колода груші піщаної",
+  "en": "Sand Pear Log"
  },
  "productivetrees:sand_pear_sapling": {
   "img": "img/items/productivetrees/sand_pear_sapling.png",
@@ -19163,11 +21143,29 @@
   "uk": "Паросток груші піщаної",
   "en": "Sand Pear Sapling"
  },
+ "productivetrees:sandalwood_log": {
+  "img": "img/items/productivetrees/sandalwood_log.png",
+  "kind": "approx",
+  "uk": "Колода сандалу",
+  "en": "Sandalwood Log"
+ },
  "productivetrees:sandalwood_sapling": {
   "img": "img/items/productivetrees/sandalwood_sapling.png",
   "kind": "item",
   "uk": "Паросток сандалу",
   "en": "Sandalwood Sapling"
+ },
+ "productivetrees:satsuma": {
+  "img": "img/items/productivetrees/satsuma.png",
+  "kind": "item",
+  "uk": "Сацума",
+  "en": "Satsuma"
+ },
+ "productivetrees:satsuma_log": {
+  "img": "img/items/productivetrees/satsuma_log.png",
+  "kind": "approx",
+  "uk": "Колода сацуми",
+  "en": "Satsuma Log"
  },
  "productivetrees:satsuma_sapling": {
   "img": "img/items/productivetrees/satsuma_sapling.png",
@@ -19175,11 +21173,23 @@
   "uk": "Паросток сацуми",
   "en": "Satsuma Sapling"
  },
+ "productivetrees:sawdust": {
+  "img": "img/items/productivetrees/sawdust.png",
+  "kind": "item",
+  "uk": "Тирса",
+  "en": "Sawdust"
+ },
  "productivetrees:sawmill": {
   "img": "img/items/productivetrees/sawmill.png",
   "kind": "block",
   "uk": "Лісопилка",
   "en": "Sawmill"
+ },
+ "productivetrees:sequoia_log": {
+  "img": "img/items/productivetrees/sequoia_log.png",
+  "kind": "approx",
+  "uk": "Колода секвої",
+  "en": "Sequoia Log"
  },
  "productivetrees:sequoia_sapling": {
   "img": "img/items/productivetrees/sequoia_sapling.png",
@@ -19187,11 +21197,23 @@
   "uk": "Паросток секвої",
   "en": "Sequoia Sapling"
  },
+ "productivetrees:silver_fir_log": {
+  "img": "img/items/productivetrees/silver_fir_log.png",
+  "kind": "approx",
+  "uk": "Колода ялиці білої",
+  "en": "Silver Fir Log"
+ },
  "productivetrees:silver_fir_sapling": {
   "img": "img/items/productivetrees/silver_fir_sapling.png",
   "kind": "item",
   "uk": "Паросток ялиці білої",
   "en": "Silver Fir Sapling"
+ },
+ "productivetrees:silver_lime_log": {
+  "img": "img/items/productivetrees/silver_lime_log.png",
+  "kind": "approx",
+  "uk": "Колода липи сріблястої",
+  "en": "Silver Lime Log"
  },
  "productivetrees:silver_lime_sapling": {
   "img": "img/items/productivetrees/silver_lime_sapling.png",
@@ -19199,11 +21221,29 @@
   "uk": "Паросток липи сріблястої",
   "en": "Silver Lime Sapling"
  },
+ "productivetrees:slimy_delight_log": {
+  "img": "img/items/productivetrees/slimy_delight_log.png",
+  "kind": "approx",
+  "uk": "Колода слизової насолоди",
+  "en": "Slimy Delight Log"
+ },
  "productivetrees:slimy_delight_sapling": {
   "img": "img/items/productivetrees/slimy_delight_sapling.png",
   "kind": "item",
   "uk": "Паросток слизової насолоди",
   "en": "Slimy Delight Sapling"
+ },
+ "productivetrees:sloe": {
+  "img": "img/items/productivetrees/sloe.png",
+  "kind": "item",
+  "uk": "Терен",
+  "en": "Sloe"
+ },
+ "productivetrees:socotra_dragon_log": {
+  "img": "img/items/productivetrees/socotra_dragon_log.png",
+  "kind": "approx",
+  "uk": "Колода драконового дерева Сокотри",
+  "en": "Socotra Dragon Log"
  },
  "productivetrees:socotra_dragon_sapling": {
   "img": "img/items/productivetrees/socotra_dragon_sapling.png",
@@ -19211,11 +21251,29 @@
   "uk": "Паросток драконового дерева Сокотри",
   "en": "Socotra Dragon Sapling"
  },
+ "productivetrees:soul_tree_log": {
+  "img": "img/items/productivetrees/soul_tree_log.png",
+  "kind": "approx",
+  "uk": "Колода дерева душ",
+  "en": "Soul Tree Log"
+ },
  "productivetrees:soul_tree_sapling": {
   "img": "img/items/productivetrees/soul_tree_sapling.png",
   "kind": "item",
   "uk": "Паросток дерева душ",
   "en": "Soul Tree Sapling"
+ },
+ "productivetrees:sour_cherry": {
+  "img": "img/items/productivetrees/sour_cherry.png",
+  "kind": "item",
+  "uk": "Вишня",
+  "en": "Sour Cherry"
+ },
+ "productivetrees:sour_cherry_log": {
+  "img": "img/items/productivetrees/sour_cherry_log.png",
+  "kind": "approx",
+  "uk": "Колода кислої вишні",
+  "en": "Sour Cherry Log"
  },
  "productivetrees:sour_cherry_sapling": {
   "img": "img/items/productivetrees/sour_cherry_sapling.png",
@@ -19223,11 +21281,29 @@
   "uk": "Паросток кислої вишні",
   "en": "Sour Cherry Sapling"
  },
+ "productivetrees:soursop": {
+  "img": "img/items/productivetrees/soursop.png",
+  "kind": "item",
+  "uk": "Гуанабана",
+  "en": "Soursop"
+ },
+ "productivetrees:soursop_log": {
+  "img": "img/items/productivetrees/soursop_log.png",
+  "kind": "approx",
+  "uk": "Колода гуанабани",
+  "en": "Soursop Log"
+ },
  "productivetrees:soursop_sapling": {
   "img": "img/items/productivetrees/soursop_sapling.png",
   "kind": "item",
   "uk": "Паросток гуанабани",
   "en": "Soursop Sapling"
+ },
+ "productivetrees:sparkle_cherry_log": {
+  "img": "img/items/productivetrees/sparkle_cherry_log.png",
+  "kind": "approx",
+  "uk": "Колода іскристої вишні",
+  "en": "Sparkle Cherry Log"
  },
  "productivetrees:sparkle_cherry_sapling": {
   "img": "img/items/productivetrees/sparkle_cherry_sapling.png",
@@ -19235,11 +21311,35 @@
   "uk": "Паросток іскристої вишні",
   "en": "Sparkle Cherry Sapling"
  },
+ "productivetrees:star_anise": {
+  "img": "img/items/productivetrees/star_anise.png",
+  "kind": "item",
+  "uk": "Бадьян",
+  "en": "Star Anise"
+ },
+ "productivetrees:star_anise_log": {
+  "img": "img/items/productivetrees/star_anise_log.png",
+  "kind": "approx",
+  "uk": "Колода бадьяну",
+  "en": "Star Anise Log"
+ },
  "productivetrees:star_anise_sapling": {
   "img": "img/items/productivetrees/star_anise_sapling.png",
   "kind": "item",
   "uk": "Паросток бадьяну",
   "en": "Star Anise Sapling"
+ },
+ "productivetrees:star_fruit": {
+  "img": "img/items/productivetrees/star_fruit.png",
+  "kind": "item",
+  "uk": "Карамбола",
+  "en": "Star Fruit"
+ },
+ "productivetrees:star_fruit_log": {
+  "img": "img/items/productivetrees/star_fruit_log.png",
+  "kind": "approx",
+  "uk": "Колода карамболи",
+  "en": "Star Fruit Log"
  },
  "productivetrees:star_fruit_sapling": {
   "img": "img/items/productivetrees/star_fruit_sapling.png",
@@ -19253,11 +21353,23 @@
   "uk": "Окорювач",
   "en": "Stripper"
  },
+ "productivetrees:sugar_apple_log": {
+  "img": "img/items/productivetrees/sugar_apple_log.png",
+  "kind": "approx",
+  "uk": "Колода цукрового яблука",
+  "en": "Sugar Apple Log"
+ },
  "productivetrees:sugar_apple_sapling": {
   "img": "img/items/productivetrees/sugar_apple_sapling.png",
   "kind": "item",
   "uk": "Паросток цукрового яблука",
   "en": "Sugar Apple Sapling"
+ },
+ "productivetrees:sugar_maple_log": {
+  "img": "img/items/productivetrees/sugar_maple_log.png",
+  "kind": "approx",
+  "uk": "Колода клена цукрового",
+  "en": "Sugar Maple Log"
  },
  "productivetrees:sugar_maple_sapling": {
   "img": "img/items/productivetrees/sugar_maple_sapling.png",
@@ -19265,11 +21377,23 @@
   "uk": "Паросток клена цукрового",
   "en": "Sugar Maple Sapling"
  },
+ "productivetrees:swamp_gum_log": {
+  "img": "img/items/productivetrees/swamp_gum_log.png",
+  "kind": "approx",
+  "uk": "Колода болотного евкаліпта",
+  "en": "Swamp Gum Log"
+ },
  "productivetrees:swamp_gum_sapling": {
   "img": "img/items/productivetrees/swamp_gum_sapling.png",
   "kind": "item",
   "uk": "Паросток болотного евкаліпта",
   "en": "Swamp Gum Sapling"
+ },
+ "productivetrees:sweet_chestnut_log": {
+  "img": "img/items/productivetrees/sweet_chestnut_log.png",
+  "kind": "approx",
+  "uk": "Колода каштана їстівного",
+  "en": "Sweet Chestnut Log"
  },
  "productivetrees:sweet_chestnut_sapling": {
   "img": "img/items/productivetrees/sweet_chestnut_sapling.png",
@@ -19277,11 +21401,29 @@
   "uk": "Паросток каштана їстівного",
   "en": "Sweet Chestnut Sapling"
  },
+ "productivetrees:sweet_crabapple": {
+  "img": "img/items/productivetrees/sweet_crabapple.png",
+  "kind": "item",
+  "uk": "Солодка райська яблучка",
+  "en": "Sweet Crabapple"
+ },
+ "productivetrees:sweet_crabapple_log": {
+  "img": "img/items/productivetrees/sweet_crabapple_log.png",
+  "kind": "approx",
+  "uk": "Колода солодкої дикої яблуні",
+  "en": "Sweet Crabapple Log"
+ },
  "productivetrees:sweet_crabapple_sapling": {
   "img": "img/items/productivetrees/sweet_crabapple_sapling.png",
   "kind": "item",
   "uk": "Паросток солодкої дикої яблуні",
   "en": "Sweet Crabapple Sapling"
+ },
+ "productivetrees:sweetgum_log": {
+  "img": "img/items/productivetrees/sweetgum_log.png",
+  "kind": "approx",
+  "uk": "Колода ліквідамбара",
+  "en": "Sweetgum Log"
  },
  "productivetrees:sweetgum_sapling": {
   "img": "img/items/productivetrees/sweetgum_sapling.png",
@@ -19289,11 +21431,35 @@
   "uk": "Паросток ліквідамбара",
   "en": "Sweetgum Sapling"
  },
+ "productivetrees:sweetsop": {
+  "img": "img/items/productivetrees/sweetsop.png",
+  "kind": "item",
+  "uk": "Цукрове яблуко",
+  "en": "Sweetsop"
+ },
+ "productivetrees:sycamore_fig_log": {
+  "img": "img/items/productivetrees/sycamore_fig_log.png",
+  "kind": "approx",
+  "uk": "Колода фікуса сикомори",
+  "en": "Sycamore Fig Log"
+ },
  "productivetrees:sycamore_fig_sapling": {
   "img": "img/items/productivetrees/sycamore_fig_sapling.png",
   "kind": "item",
   "uk": "Паросток фікуса сикомори",
   "en": "Sycamore Fig Sapling"
+ },
+ "productivetrees:tangerine": {
+  "img": "img/items/productivetrees/tangerine.png",
+  "kind": "item",
+  "uk": "Танжерин",
+  "en": "Tangerine"
+ },
+ "productivetrees:tangerine_log": {
+  "img": "img/items/productivetrees/tangerine_log.png",
+  "kind": "approx",
+  "uk": "Колода танжерина",
+  "en": "Tangerine Log"
  },
  "productivetrees:tangerine_sapling": {
   "img": "img/items/productivetrees/tangerine_sapling.png",
@@ -19301,11 +21467,23 @@
   "uk": "Паросток танжерина",
   "en": "Tangerine Sapling"
  },
+ "productivetrees:teak_log": {
+  "img": "img/items/productivetrees/teak_log.png",
+  "kind": "approx",
+  "uk": "Колода тика",
+  "en": "Teak Log"
+ },
  "productivetrees:teak_sapling": {
   "img": "img/items/productivetrees/teak_sapling.png",
   "kind": "item",
   "uk": "Паросток тика",
   "en": "Teak Sapling"
+ },
+ "productivetrees:thunder_bolt_log": {
+  "img": "img/items/productivetrees/thunder_bolt_log.png",
+  "kind": "approx",
+  "uk": "Колода громовиці",
+  "en": "Thunder Bolt Log"
  },
  "productivetrees:thunder_bolt_sapling": {
   "img": "img/items/productivetrees/thunder_bolt_sapling.png",
@@ -19325,11 +21503,29 @@
   "uk": "Паросток мандрівника в часі",
   "en": "Time Traveller Sapling"
  },
+ "productivetrees:tuscarora_crepe_myrtle_log": {
+  "img": "img/items/productivetrees/tuscarora_crepe_myrtle_log.png",
+  "kind": "approx",
+  "uk": "Колода лагерстремії «Таскарора»",
+  "en": "Tuscarora Crepe Myrtle Log"
+ },
  "productivetrees:tuscarora_crepe_myrtle_sapling": {
   "img": "img/items/productivetrees/tuscarora_crepe_myrtle_sapling.png",
   "kind": "item",
   "uk": "Паросток лагерстремії «Таскарора»",
   "en": "Tuscarora Crepe Myrtle Sapling"
+ },
+ "productivetrees:walnut": {
+  "img": "img/items/productivetrees/walnut.png",
+  "kind": "item",
+  "uk": "Волоський горіх",
+  "en": "Walnut"
+ },
+ "productivetrees:walnut_log": {
+  "img": "img/items/productivetrees/walnut_log.png",
+  "kind": "approx",
+  "uk": "Колода горіха волоського",
+  "en": "Walnut Log"
  },
  "productivetrees:walnut_sapling": {
   "img": "img/items/productivetrees/walnut_sapling.png",
@@ -19337,11 +21533,23 @@
   "uk": "Паросток волоського горіха",
   "en": "Walnut Sapling"
  },
+ "productivetrees:water_wonder_log": {
+  "img": "img/items/productivetrees/water_wonder_log.png",
+  "kind": "approx",
+  "uk": "Колода водяного дива",
+  "en": "Water Wonder Log"
+ },
  "productivetrees:water_wonder_sapling": {
   "img": "img/items/productivetrees/water_wonder_sapling.png",
   "kind": "item",
   "uk": "Паросток водяного дива",
   "en": "Water Wonder Sapling"
+ },
+ "productivetrees:wenge_log": {
+  "img": "img/items/productivetrees/wenge_log.png",
+  "kind": "approx",
+  "uk": "Колода венге",
+  "en": "Wenge Log"
  },
  "productivetrees:wenge_sapling": {
   "img": "img/items/productivetrees/wenge_sapling.png",
@@ -19349,11 +21557,23 @@
   "uk": "Паросток венге",
   "en": "Wenge Sapling"
  },
+ "productivetrees:western_hemlock_log": {
+  "img": "img/items/productivetrees/western_hemlock_log.png",
+  "kind": "approx",
+  "uk": "Колода тсуги західної",
+  "en": "Western Hemlock Log"
+ },
  "productivetrees:western_hemlock_sapling": {
   "img": "img/items/productivetrees/western_hemlock_sapling.png",
   "kind": "item",
   "uk": "Паросток тсуги західної",
   "en": "Western Hemlock Sapling"
+ },
+ "productivetrees:white_ipe_log": {
+  "img": "img/items/productivetrees/white_ipe_log.png",
+  "kind": "approx",
+  "uk": "Колода білого іпе",
+  "en": "White Ipe Log"
  },
  "productivetrees:white_ipe_sapling": {
   "img": "img/items/productivetrees/white_ipe_sapling.png",
@@ -19361,11 +21581,23 @@
   "uk": "Паросток білого іпе",
   "en": "White Ipe Sapling"
  },
+ "productivetrees:white_poplar_log": {
+  "img": "img/items/productivetrees/white_poplar_log.png",
+  "kind": "approx",
+  "uk": "Колода тополі білої",
+  "en": "White Poplar Log"
+ },
  "productivetrees:white_poplar_sapling": {
   "img": "img/items/productivetrees/white_poplar_sapling.png",
   "kind": "item",
   "uk": "Паросток тополі білої",
   "en": "White Poplar Sapling"
+ },
+ "productivetrees:white_willow_log": {
+  "img": "img/items/productivetrees/white_willow_log.png",
+  "kind": "approx",
+  "uk": "Колода верби білої",
+  "en": "White Willow Log"
  },
  "productivetrees:white_willow_sapling": {
   "img": "img/items/productivetrees/white_willow_sapling.png",
@@ -19373,11 +21605,29 @@
   "uk": "Паросток верби білої",
   "en": "White Willow Sapling"
  },
+ "productivetrees:whitebeam_log": {
+  "img": "img/items/productivetrees/whitebeam_log.png",
+  "kind": "approx",
+  "uk": "Колода горобини арії",
+  "en": "Whitebeam Log"
+ },
  "productivetrees:whitebeam_sapling": {
   "img": "img/items/productivetrees/whitebeam_sapling.png",
   "kind": "item",
   "uk": "Паросток горобини арії",
   "en": "Whitebeam Sapling"
+ },
+ "productivetrees:wild_cherry": {
+  "img": "img/items/productivetrees/wild_cherry.png",
+  "kind": "item",
+  "uk": "Черешня",
+  "en": "Wild Cherry"
+ },
+ "productivetrees:wild_cherry_log": {
+  "img": "img/items/productivetrees/wild_cherry_log.png",
+  "kind": "approx",
+  "uk": "Колода черешні",
+  "en": "Wild Cherry Log"
  },
  "productivetrees:wild_cherry_sapling": {
   "img": "img/items/productivetrees/wild_cherry_sapling.png",
@@ -19385,17 +21635,35 @@
   "uk": "Паросток черешні",
   "en": "Wild Cherry Sapling"
  },
+ "productivetrees:yellow_meranti_log": {
+  "img": "img/items/productivetrees/yellow_meranti_log.png",
+  "kind": "approx",
+  "uk": "Колода жовтого меранті",
+  "en": "Yellow Meranti Log"
+ },
  "productivetrees:yellow_meranti_sapling": {
   "img": "img/items/productivetrees/yellow_meranti_sapling.png",
   "kind": "item",
   "uk": "Паросток жовтого меранті",
   "en": "Yellow Meranti Sapling"
  },
+ "productivetrees:yew_log": {
+  "img": "img/items/productivetrees/yew_log.png",
+  "kind": "approx",
+  "uk": "Колода тиса",
+  "en": "Yew Log"
+ },
  "productivetrees:yew_sapling": {
   "img": "img/items/productivetrees/yew_sapling.png",
   "kind": "item",
   "uk": "Паросток тиса",
   "en": "Yew Sapling"
+ },
+ "productivetrees:zebrano_log": {
+  "img": "img/items/productivetrees/zebrano_log.png",
+  "kind": "approx",
+  "uk": "Колода зебрано",
+  "en": "Zebrano Log"
  },
  "productivetrees:zebrano_sapling": {
   "img": "img/items/productivetrees/zebrano_sapling.png",
@@ -20303,6 +22571,12 @@
   "uk": "Машинний корпус",
   "en": "Machine Casing"
  },
+ "refinedstorage:network_card": {
+  "img": "img/items/refinedstorage/network_card.png",
+  "kind": "item",
+  "uk": "Мережева карта",
+  "en": "Network Card"
+ },
  "refinedstorage:network_receiver": {
   "img": "img/items/refinedstorage/network_receiver.png",
   "kind": "block",
@@ -20374,6 +22648,12 @@
   "kind": "item",
   "uk": "Покращення: регулятор",
   "en": "Regulator Upgrade"
+ },
+ "refinedstorage:security_card": {
+  "img": "img/items/refinedstorage/security_card.png",
+  "kind": "item",
+  "uk": "Картка безпеки",
+  "en": "Security Card"
  },
  "refinedstorage:security_manager": {
   "img": "img/items/refinedstorage/security_manager.png",
@@ -20477,11 +22757,23 @@
   "uk": "Мережевий енергізатор",
   "en": "Network Energizer"
  },
+ "refurbished_furniture:door_mat": {
+  "img": "img/items/refurbished_furniture/door_mat.png",
+  "kind": "block",
+  "uk": "Килимок біля дверей",
+  "en": "Door Mat"
+ },
  "refurbished_furniture:light_electricity_generator": {
   "img": "img/items/refurbished_furniture/light_electricity_generator.png",
   "kind": "block",
   "uk": "Світлий генератор електрики",
   "en": "Light Electricity Generator"
+ },
+ "refurbished_furniture:light_lightswitch": {
+  "img": "img/items/refurbished_furniture/light_lightswitch.png",
+  "kind": "block",
+  "uk": "Світлий вимикач",
+  "en": "Light Lightswitch"
  },
  "refurbished_furniture:oak_crate": {
   "img": "img/items/refurbished_furniture/oak_crate.png",
@@ -20506,6 +22798,12 @@
   "kind": "block",
   "uk": "Дубовий унітаз",
   "en": "Oak Toilet"
+ },
+ "refurbished_furniture:spatula": {
+  "img": "img/items/refurbished_furniture/spatula.png",
+  "kind": "item",
+  "uk": "Лопатка",
+  "en": "Spatula"
  },
  "refurbished_furniture:television": {
   "img": "img/items/refurbished_furniture/television.png",
@@ -20573,6 +22871,12 @@
   "uk": "Коричневі фарбовані дошки",
   "en": "Brown Painted Planks"
  },
+ "regions_unexplored:chalk": {
+  "img": "img/items/regions_unexplored/chalk.png",
+  "kind": "approx",
+  "uk": "Крейда",
+  "en": "Chalk"
+ },
  "regions_unexplored:cobalt_earlight": {
   "img": "img/items/regions_unexplored/cobalt_earlight.png",
   "kind": "item",
@@ -20639,6 +22943,12 @@
   "uk": "Пурпурові фарбовані дошки",
   "en": "Magenta Painted Planks"
  },
+ "regions_unexplored:mossy_stone": {
+  "img": "img/items/regions_unexplored/mossy_stone.png",
+  "kind": "approx",
+  "uk": "Моховитий камінь",
+  "en": "Mossy Stone"
+ },
  "regions_unexplored:orange_painted_planks": {
   "img": "img/items/regions_unexplored/orange_painted_planks.png",
   "kind": "block",
@@ -20693,6 +23003,12 @@
   "uk": "Каталізуюча залоза",
   "en": "Catalyzing Gland"
  },
+ "reliquary:chelicerae": {
+  "img": "img/items/reliquary/chelicerae.png",
+  "kind": "item",
+  "uk": "Хеліцери",
+  "en": "Chelicerae"
+ },
  "reliquary:fertile_lily_pad": {
   "img": "img/items/reliquary/fertile_lily_pad.png",
   "kind": "item",
@@ -20711,17 +23027,65 @@
   "uk": "Шарм: %s",
   "en": "%s Charm"
  },
+ "reliquary:mob_charm_belt": {
+  "img": "img/items/reliquary/mob_charm_belt.png",
+  "kind": "item",
+  "uk": "Шарм-пояс",
+  "en": "Charm Belt"
+ },
  "reliquary:mob_charm_fragment": {
   "img": "img/items/reliquary/mob_charm_fragment.png",
   "kind": "item",
   "uk": "Фрагмент шарму: %s",
   "en": "%s Charm Fragment"
  },
+ "reliquary:molten_core": {
+  "img": "img/items/reliquary/molten_core.png",
+  "kind": "item",
+  "uk": "Розплавлене ядро",
+  "en": "Molten Core"
+ },
+ "reliquary:nebulous_heart": {
+  "img": "img/items/reliquary/nebulous_heart.png",
+  "kind": "item",
+  "uk": "Туманне серце",
+  "en": "Nebulous Heart"
+ },
+ "reliquary:pedestals/passive/red_passive_pedestal": {
+  "img": "img/items/reliquary/pedestals/passive/red_passive_pedestal.png",
+  "kind": "block",
+  "uk": "",
+  "en": "red passive pedestal"
+ },
  "reliquary:rending_gale": {
   "img": "img/items/reliquary/rending_gale.png",
   "kind": "item",
   "uk": "Розривна буря",
   "en": "Rending Gale"
+ },
+ "reliquary:rib_bone": {
+  "img": "img/items/reliquary/rib_bone.png",
+  "kind": "item",
+  "uk": "Реберна кістка",
+  "en": "Rib Bone"
+ },
+ "reliquary:slime_pearl": {
+  "img": "img/items/reliquary/slime_pearl.png",
+  "kind": "item",
+  "uk": "Слизова перлина",
+  "en": "Slime Pearl"
+ },
+ "reliquary:void_tear": {
+  "img": "img/items/reliquary/void_tear.png",
+  "kind": "item",
+  "uk": "Сльоза порожнечі",
+  "en": "Void Tear"
+ },
+ "reliquary:withered_rib": {
+  "img": "img/items/reliquary/withered_rib.png",
+  "kind": "item",
+  "uk": "Сухе ребро",
+  "en": "Withered Rib"
  },
  "reliquary:zombie_heart": {
   "img": "img/items/reliquary/zombie_heart.png",
@@ -21221,6 +23585,12 @@
   "uk": "Блок блакитного електруму",
   "en": "Block of Azure Electrum"
  },
+ "silentgear:azure_electrum_ingot": {
+  "img": "img/items/silentgear/azure_electrum_ingot.png",
+  "kind": "item",
+  "uk": "Злиток блакитного електруму",
+  "en": "Azure Electrum Ingot"
+ },
  "silentgear:azure_repair_kit": {
   "img": "img/items/silentgear/azure_repair_kit.png",
   "kind": "item",
@@ -21244,6 +23614,12 @@
   "kind": "item",
   "uk": "Пил пломеневого золота",
   "en": "Blaze Gold Dust"
+ },
+ "silentgear:blaze_gold_ingot": {
+  "img": "img/items/silentgear/blaze_gold_ingot.png",
+  "kind": "item",
+  "uk": "Злиток пломеневого золота",
+  "en": "Blaze Gold Ingot"
  },
  "silentgear:blazing_dust": {
   "img": "img/items/silentgear/blazing_dust.png",
@@ -21785,6 +24161,18 @@
   "uk": "Покращення рівня: базове",
   "en": "Basic Tier Upgrade"
  },
+ "sophisticatedstorage:basic_to_copper_tier_upgrade": {
+  "img": "img/items/sophisticatedstorage/basic_to_copper_tier_upgrade.png",
+  "kind": "item",
+  "uk": "Покращення рівня: базове → мідне",
+  "en": "Basic to Copper Tier Upgrade"
+ },
+ "sophisticatedstorage:basic_to_iron_tier_upgrade": {
+  "img": "img/items/sophisticatedstorage/basic_to_iron_tier_upgrade.png",
+  "kind": "item",
+  "uk": "Покращення рівня: базове → залізне",
+  "en": "Basic to Iron Tier Upgrade"
+ },
  "sophisticatedstorage:chest": {
   "img": "img/items/sophisticatedstorage/chest.png",
   "kind": "approx",
@@ -21809,11 +24197,23 @@
   "uk": "Діамантова скриня %s%s",
   "en": "%s%sDiamond Chest"
  },
+ "sophisticatedstorage:diamond_to_netherite_tier_upgrade": {
+  "img": "img/items/sophisticatedstorage/diamond_to_netherite_tier_upgrade.png",
+  "kind": "item",
+  "uk": "Покращення рівня: діамантове → незеритове",
+  "en": "Diamond to Netherite Tier Upgrade"
+ },
  "sophisticatedstorage:gold_chest": {
   "img": "img/items/sophisticatedstorage/gold_chest.png",
   "kind": "approx",
   "uk": "Золота скриня %s%s",
   "en": "%s%sGold Chest"
+ },
+ "sophisticatedstorage:gold_to_diamond_tier_upgrade": {
+  "img": "img/items/sophisticatedstorage/gold_to_diamond_tier_upgrade.png",
+  "kind": "item",
+  "uk": "Покращення рівня: золоте → діамантове",
+  "en": "Gold to Diamond Tier Upgrade"
  },
  "sophisticatedstorage:iron_barrel": {
   "img": "img/items/sophisticatedstorage/iron_barrel.png",
@@ -21826,6 +24226,12 @@
   "kind": "approx",
   "uk": "Залізна скриня %s%s",
   "en": "%s%sIron Chest"
+ },
+ "sophisticatedstorage:iron_to_gold_tier_upgrade": {
+  "img": "img/items/sophisticatedstorage/iron_to_gold_tier_upgrade.png",
+  "kind": "item",
+  "uk": "Покращення рівня: залізне → золоте",
+  "en": "Iron to Gold Tier Upgrade"
  },
  "sophisticatedstorage:netherite_chest": {
   "img": "img/items/sophisticatedstorage/netherite_chest.png",
@@ -22067,6 +24473,12 @@
   "uk": "Алхімічна сірка %s",
   "en": "Alchemical Sulfur %s"
  },
+ "theurgy:alchemical_sulfur_sal_ammoniac": {
+  "img": "img/items/theurgy/alchemical_sulfur_sal_ammoniac.png",
+  "kind": "approx",
+  "uk": "Алхімічна сірка %s",
+  "en": "Alchemical Sulfur %s"
+ },
  "theurgy:alchemical_sulfur_sulfur": {
   "img": "img/items/theurgy/alchemical_sulfur_sulfur.png",
   "kind": "approx",
@@ -22229,11 +24641,23 @@
   "uk": "Ртутний каталізатор",
   "en": "Mercury Catalyst"
  },
+ "theurgy:mercury_crystal": {
+  "img": "img/items/theurgy/mercury_crystal.png",
+  "kind": "item",
+  "uk": "Кристал ртуті",
+  "en": "Mercury Crystal"
+ },
  "theurgy:mercury_shard": {
   "img": "img/items/theurgy/mercury_shard.png",
   "kind": "item",
   "uk": "Уламок ртуті",
   "en": "Mercury Shard"
+ },
+ "theurgy:purified_gold": {
+  "img": "img/items/theurgy/purified_gold.png",
+  "kind": "item",
+  "uk": "Очищене золото",
+  "en": "Purified Gold"
  },
  "theurgy:pyromantic_brazier": {
   "img": "img/items/theurgy/pyromantic_brazier.png",
@@ -22421,6 +24845,12 @@
   "uk": "Кривавий гриб",
   "en": "Blood Mushroom"
  },
+ "undergarden:blue_mogmoss": {
+  "img": "img/items/undergarden/blue_mogmoss.png",
+  "kind": "item",
+  "uk": "Синій моґ-мох",
+  "en": "Blue Mogmoss"
+ },
  "undergarden:boomgourd": {
   "img": "img/items/undergarden/boomgourd.png",
   "kind": "block",
@@ -22432,6 +24862,12 @@
   "kind": "item",
   "uk": "Яйце виклику звіра",
   "en": "Brute Spawn Egg"
+ },
+ "undergarden:brute_tusk": {
+  "img": "img/items/undergarden/brute_tusk.png",
+  "kind": "item",
+  "uk": "Звіриний бивень",
+  "en": "Brute Tusk"
  },
  "undergarden:catalyst": {
   "img": "img/items/undergarden/catalyst.png",
@@ -22492,6 +24928,12 @@
   "kind": "item",
   "uk": "Клоґрумові наголінники",
   "en": "Cloggrum Leggings"
+ },
+ "undergarden:cloggrum_nugget": {
+  "img": "img/items/undergarden/cloggrum_nugget.png",
+  "kind": "item",
+  "uk": "Клоґрумовий самородок",
+  "en": "Cloggrum Nugget"
  },
  "undergarden:cloggrum_pickaxe": {
   "img": "img/items/undergarden/cloggrum_pickaxe.png",
@@ -22595,6 +25037,12 @@
   "uk": "Яйце виклику жителя",
   "en": "Dweller Spawn Egg"
  },
+ "undergarden:dweller_steak": {
+  "img": "img/items/undergarden/dweller_steak.png",
+  "kind": "item",
+  "uk": "Стейк із жителя",
+  "en": "Dweller Steak"
+ },
  "undergarden:forgotten_axe": {
   "img": "img/items/undergarden/forgotten_axe.png",
   "kind": "item",
@@ -22630,6 +25078,12 @@
   "kind": "item",
   "uk": "Забутий злиток",
   "en": "Forgotten Ingot"
+ },
+ "undergarden:forgotten_nugget": {
+  "img": "img/items/undergarden/forgotten_nugget.png",
+  "kind": "item",
+  "uk": "Забутий самородок",
+  "en": "Forgotten Nugget"
  },
  "undergarden:forgotten_pickaxe": {
   "img": "img/items/undergarden/forgotten_pickaxe.png",
@@ -22703,6 +25157,12 @@
   "uk": "Морозосталеві наголінники",
   "en": "Froststeel Leggings"
  },
+ "undergarden:froststeel_nugget": {
+  "img": "img/items/undergarden/froststeel_nugget.png",
+  "kind": "item",
+  "uk": "Морозосталевий самородок",
+  "en": "Froststeel Nugget"
+ },
  "undergarden:froststeel_pickaxe": {
   "img": "img/items/undergarden/froststeel_pickaxe.png",
   "kind": "item",
@@ -22738,6 +25198,12 @@
   "kind": "block",
   "uk": "Хмуробуз",
   "en": "Gloomgourd"
+ },
+ "undergarden:gloomgourd_seeds": {
+  "img": "img/items/undergarden/gloomgourd_seeds.png",
+  "kind": "item",
+  "uk": "Насіння хмуробуза",
+  "en": "Gloomgourd Seeds"
  },
  "undergarden:gloomper_spawn_egg": {
   "img": "img/items/undergarden/gloomper_spawn_egg.png",
@@ -22775,6 +25241,12 @@
   "uk": "Яйце виклику ґвіба",
   "en": "Gwib Spawn Egg"
  },
+ "undergarden:gwibling_bucket": {
+  "img": "img/items/undergarden/gwibling_bucket.png",
+  "kind": "item",
+  "uk": "Відро з ґвібиком",
+  "en": "Bucket of Gwibling"
+ },
  "undergarden:gwibling_spawn_egg": {
   "img": "img/items/undergarden/gwibling_spawn_egg.png",
   "kind": "item",
@@ -22811,6 +25283,12 @@
   "uk": "Яйце виклику моґа",
   "en": "Mog Spawn Egg"
  },
+ "undergarden:mogmoss": {
+  "img": "img/items/undergarden/mogmoss.png",
+  "kind": "item",
+  "uk": "Моґ-мох",
+  "en": "Mogmoss"
+ },
  "undergarden:muncher_spawn_egg": {
   "img": "img/items/undergarden/muncher_spawn_egg.png",
   "kind": "item",
@@ -22828,6 +25306,18 @@
   "kind": "item",
   "uk": "Яйце виклику нарґойла",
   "en": "Nargoyle Spawn Egg"
+ },
+ "undergarden:raw_dweller_meat": {
+  "img": "img/items/undergarden/raw_dweller_meat.png",
+  "kind": "item",
+  "uk": "Сире м'ясо жителя",
+  "en": "Raw Dweller Meat"
+ },
+ "undergarden:raw_gloomper_leg": {
+  "img": "img/items/undergarden/raw_gloomper_leg.png",
+  "kind": "item",
+  "uk": "Сира ніжка ґлумпера",
+  "en": "Raw Gloomper Leg"
  },
  "undergarden:regalium_block": {
   "img": "img/items/undergarden/regalium_block.png",
@@ -22864,6 +25354,12 @@
   "kind": "item",
   "uk": "Яйце виклику гнилика",
   "en": "Rotling Spawn Egg"
+ },
+ "undergarden:rotten_blisterberry": {
+  "img": "img/items/undergarden/rotten_blisterberry.png",
+  "kind": "item",
+  "uk": "Гнила пухирна ягода",
+  "en": "Rotten Blisterberry"
  },
  "undergarden:rotwalker_spawn_egg": {
   "img": "img/items/undergarden/rotwalker_spawn_egg.png",
@@ -22925,11 +25421,23 @@
   "uk": "Високий блимник",
   "en": "Tall Shimmerweed"
  },
+ "undergarden:underbean_on_a_stick": {
+  "img": "img/items/undergarden/underbean_on_a_stick.png",
+  "kind": "item",
+  "uk": "Низинний біб на палиці",
+  "en": "Underbean on a Stick"
+ },
  "undergarden:underbeans": {
   "img": "img/items/undergarden/underbeans.png",
   "kind": "item",
   "uk": "Низинні боби",
   "en": "Underbeans"
+ },
+ "undergarden:utheric_cluster": {
+  "img": "img/items/undergarden/utheric_cluster.png",
+  "kind": "item",
+  "uk": "Друза утеріку",
+  "en": "Utheric Cluster"
  },
  "undergarden:utheric_shard": {
   "img": "img/items/undergarden/utheric_shard.png",
@@ -23063,11 +25571,23 @@
   "uk": "Коричневий килимок для торговців",
   "en": "Brown Soliciting Carpet"
  },
+ "utilitarian:cursed_grrass": {
+  "img": "img/items/utilitarian/cursed_grrass.png",
+  "kind": "approx",
+  "uk": "Проклята тррава",
+  "en": "Cursed Grrass"
+ },
  "utilitarian:cyan_soliciting_carpet": {
   "img": "img/items/utilitarian/cyan_soliciting_carpet.png",
   "kind": "block",
   "uk": "Бірюзовий килимок для торговців",
   "en": "Cyan Soliciting Carpet"
+ },
+ "utilitarian:fluid_hopper": {
+  "img": "img/items/utilitarian/fluid_hopper.png",
+  "kind": "item",
+  "uk": "Рідинна лійка",
+  "en": "Fluid Hopper"
  },
  "utilitarian:gray_soliciting_carpet": {
   "img": "img/items/utilitarian/gray_soliciting_carpet.png",
@@ -23140,6 +25660,12 @@
   "kind": "block",
   "uk": "Редстоуновий годинник",
   "en": "Redstone Clock"
+ },
+ "utilitarian:slime_bucket": {
+  "img": "img/items/utilitarian/slime_bucket.png",
+  "kind": "item",
+  "uk": "Відро зі слизнем",
+  "en": "Slime Bucket"
  },
  "utilitarian:snad": {
   "img": "img/items/utilitarian/snad.png",

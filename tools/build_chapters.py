@@ -9,7 +9,7 @@
 #   допис — {"text", "ref", …}; abs_ok — свідомий виняток для «лише / усі / кожен». build → guide.json: рядки + ref, item_ref {поле: {індекс: ref}}, item_abs; notes/<глава>.json: + ref.
 import os, sys, glob, re
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import CONTENT, DATA, RAW, jload, jsave
+from common import CONTENT, DATA, RAW, jload, jsave, quest_item_ids
 
 KEYS = {'ov', 'steps', 'rewards', 'atm', 'why', 'verify', 'notes', 'ref', 'abs_ok'}
 LISTS = ('steps', 'rewards', 'atm')
@@ -22,13 +22,7 @@ def refcheck_fmt(warn, where, r):
         if not isinstance(x, str) or ':' not in x or x.lstrip('!').split(':', 1)[0] not in SCHEMES: warn(f'{where}: ref «{x}» — невідомий формат (схеми: {", ".join(SCHEMES)})')
 
 def quest_icon_ids():
-    ids = set()
-    for f in glob.glob(os.path.join(DATA, 'quests', '*.json')):
-        for q in (jload(f, {}) or {}).get('quests', []):
-            ids.update(x for x in [q.get('icon')] + [t.get('icon') for t in q.get('tasks', [])] + [o['id'] for t in q.get('tasks', []) for o in t.get('opts') or []] if x)
-        ids.update(v['icon'] for v in ((jload(f, {}) or {}).get('ext') or {}).values() if v.get('icon'))
-    ids.update(c['icon'] for c in (jload(os.path.join(DATA, 'chapters.json'), {}) or {}).get('chapters', []) if c.get('icon'))   # іконки глав
-    for t in (jload(os.path.join(DATA, 'reward_tables.json'), {}) or {}).values(): ids.update(x['item'] for x in t.get('items', []) if x.get('item'))
+    ids = quest_item_ids(DATA)   # K25: одне правило з extract_icons.py (з предметами нагород)
     for f in glob.glob(os.path.join(DATA, 'progress', '*.json')):
         pd = jload(f, {}) or {}; it = pd.get('items') or {}; sl = pd.get('slots') or {}
         ids.update(it.get('names') or {}); ids.update(it.get('inventory') or {}); ids.update(it.get('crafted') or {}); ids.update(it.get('obtained') or [])

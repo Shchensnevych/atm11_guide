@@ -2,6 +2,7 @@
 // Схема глави квестів (як у книзі FTB Quests): позиції x, y з книги, у вузлах — іконки предметів, стрілки — залежності, кольори — стан із сейву.
 // Службові квести (AllRightsReserved, невидимі) — лише за перемикачем; посилання на квести інших глав (quest_links) — пунктирні вузли «↗».
 // Назви, галочки й піктограми без іконки — HTML-шар graph/quest-labels.js (без накладань, як картки дорожньої карти).
+// K25 (вигляд «як у грі», рішення користувача 11-20): вузли непрозорі, іконка 80 %, закритий квест — замочок у куті (не напівпрозорість).
 import { iconUrl, isService, questState, taskGlyph, qTitle, questIconId, visibleInGame, imageOf } from '../core/quests-model.js';
 import { isQuestDone } from '../core/progress.js';
 import { attachLabels } from './quest-labels.js';
@@ -13,15 +14,14 @@ const SHAPES = { circle: 'ellipse', square: 'rectangle', rsquare: 'round-rectang
 
 /** Стилі Cytoscape з токенів теми (css/tokens.css: --q-*) — Cytoscape не розуміє var(), тому значення читаються на момент виклику. */
 export function getCyThemeStyles() {
-  const v = cssVar, locked = parseFloat(v('--q-locked-op')) || 0.62;
+  const v = cssVar;
   return [
     { selector: 'node', style: { width: 'data(size)', height: 'data(size)', shape: 'data(shape)', 'background-color': v('--q-node'), 'border-width': 2, 'border-color': v('--q-node-line'),
-      'background-image': 'data(img)', 'background-fit': 'none', 'background-width': '62%', 'background-height': '62%', 'background-image-smoothing': 'no',
+      'background-image': 'data(img)', 'background-fit': 'none', 'background-width': '80%', 'background-height': '80%', 'background-image-smoothing': 'no',
       'transition-property': 'opacity', 'transition-duration': 200 } },
     { selector: 'node.opt', style: { 'border-style': 'dashed' } },
     { selector: 'node.noshape', style: { 'background-opacity': 0, 'border-width': 0 } },
     { selector: 'node.avail', style: { 'border-color': v('--q-avail'), 'border-width': 2.5 } },
-    { selector: 'node.locked', style: { opacity: locked } },
     { selector: 'node.early', style: { 'border-color': v('--q-early') } },
     { selector: 'node.ghost', style: { 'border-style': 'dotted', opacity: 0.45 } },
     { selector: 'node.started', style: { 'background-color': v('--q-start-bg'), 'border-color': v('--q-start'), 'border-width': 3 } },

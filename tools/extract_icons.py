@@ -13,7 +13,7 @@
 # Джерела (перше знайдене перемагає): minecraft/kubejs/assets → jar модів → клієнтський jar Minecraft (common.CLIENT_JARS).
 import os, sys, glob, zipfile, json, io, re, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import MODS, MC, UA, RAW, DOCS, CONTENT, CLIENT_JARS, jload, jsave
+from common import MODS, MC, UA, RAW, DOCS, CONTENT, CLIENT_JARS, jload, jsave, quest_item_ids
 from PIL import Image, ImageDraw
 
 OUT = os.path.join(DOCS, 'img', 'items'); S = 128; FINAL = 64          # малюємо 128 px → зменшуємо до 64 (згладжені краї)
@@ -354,15 +354,8 @@ def wanted():
     return ids
 
 def quest_ids():
-    """ID іконок квестів і завдань з docs/data/quests/*.json (після extract_quests.py) + іконки глав."""
-    ids = set(); ok = lambda x: isinstance(x, str) and re.match(r'^[a-z0-9_.-]+:[a-z0-9_/.-]+$', x)
-    for f in glob.glob(os.path.join(DOCS, 'data', 'quests', '*.json')):
-        for q in (jload(f, {}) or {}).get('quests', []):
-            ids.update(x for x in [q.get('icon')] + [t.get('icon') for t in q.get('tasks', [])] + [o['id'] for t in q.get('tasks', []) for o in t.get('opts') or []] if ok(x))
-    for t in (jload(os.path.join(DOCS, 'data', 'reward_tables.json'), {}) or {}).values():          # що випадає з таблиць нагород
-        ids.update(x['item'] for x in t.get('items', []) if ok(x.get('item')) and not x.get('miss'))
-    ids.update(c['icon'] for c in (jload(os.path.join(DOCS, 'data', 'chapters.json'), {}) or {}).get('chapters', []) if ok(c.get('icon')))
-    return ids
+    """ID іконок вкладки «Квести» (після extract_quests.py) — одне правило з build_chapters.py: common.quest_item_ids (K25: з предметами нагород)."""
+    return quest_item_ids(os.path.join(DOCS, 'data'))
 
 def sources():
     src = Src(); src.add_dir(os.path.join(MC, 'kubejs'))

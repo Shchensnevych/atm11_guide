@@ -1,5 +1,5 @@
 # Спільне для інструментів atm11_guide. Запуск з atm11_guide: python3 -I tools/<скрипт>.py
-import os, sys, json, re
+import os, sys, json, re, glob
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, '_vendor'))          # tomli, json5 — чистий Python, без pip
 import tomli, json5  # noqa: E402
@@ -56,3 +56,22 @@ def CLIENT_JARS():
     return [p for p in (os.environ.get('ATM11_CLIENT_JAR'),
             os.path.join(os.environ.get('APPDATA', ''), 'PrismLauncher', 'libraries', 'com', 'mojang', 'minecraft', v, name) if os.environ.get('APPDATA') else None,
             os.path.join(os.path.expanduser('~'), 'mnt', v, name)) if p]
+
+RX_ITEM_ID = re.compile(r'^[a-z0-9_.-]+:[a-z0-9_/.-]+$')
+def quest_item_ids(data_dir=None):
+    """K25: ID предметів, які показує вкладка «Квести» з іконкою — ОДНЕ правило для extract_icons.py (що малювати) і build_chapters.py
+    (qicons.json): іконка квесту, іконки завдань, варіанти фільтрів, предмети нагород, рядки таблиць нагород (без відсутніх модів),
+    іконки глав і квестів інших глав (ext). Раніше предмети нагород сюди не входили — 501 нагорода без іконки."""
+    data_dir = data_dir or DATA
+    ids = set(); ok = lambda x: isinstance(x, str) and RX_ITEM_ID.match(x)
+    for f in glob.glob(os.path.join(data_dir, 'quests', '*.json')):
+        d = jload(f, {}) or {}
+        for q in d.get('quests', []):
+            tasks = q.get('tasks', [])
+            ids.update(x for x in [q.get('icon')] + [t.get('icon') for t in tasks] + [o.get('id') for t in tasks for o in t.get('opts') or []]
+                       + [r.get('item') for r in q.get('rw', []) if r.get('t') == 'item'] + [r.get('icon') for r in q.get('rw', [])] if ok(x))
+        ids.update(v['icon'] for v in (d.get('ext') or {}).values() if ok(v.get('icon')))
+    for t in (jload(os.path.join(data_dir, 'reward_tables.json'), {}) or {}).values():
+        ids.update(x['item'] for x in t.get('items', []) if ok(x.get('item')) and not x.get('miss'))
+    ids.update(c['icon'] for c in (jload(os.path.join(data_dir, 'chapters.json'), {}) or {}).get('chapters', []) if ok(c.get('icon')))
+    return ids

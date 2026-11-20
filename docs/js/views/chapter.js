@@ -16,7 +16,7 @@ export async function render(el, [file, qid], s) {
   if (!ch) { mount(el, h('div.empty', null, 'Главу не знайдено. ', h('a', { href: '#/chapters' }, 'До списку'))); return; }
   const ctx = await loadChapter(file, s);
   const key = `chapter:${file}`;
-  const vs = getViewState(key, { qid: '', viewport: null, view: getViewState('chapters', { view: 'graph' }).view, svc: false, hideDone: false, names: true });
+  const vs = getViewState(key, { qid: '', viewport: null, view: getViewState('chapters', { view: 'graph' }).view, svc: false, hideDone: false, names: false });   // K25: як у грі — назва лише при наведенні / виборі
   const svcN = ctx.quests.filter(isService).length;
   const visible = () => ctx.quests.filter((q) => vs.svc || !isService(q));
   const qs = visible();

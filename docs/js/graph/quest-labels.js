@@ -18,7 +18,8 @@ export function attachLabels(cy, host, meta, o = {}) {
   const items = new Map();
   for (const [id, m] of meta) {
     const el = h('div.ql' + (m.cls ? '.' + m.cls : ''), null, m.label);
-    const chk = m.done ? h('div.ql-chk', null, '✔') : null;
+    // K25: виконано — галочка вгорі праворуч; закрито (залежності не виконано) — замочок унизу праворуч, як у книзі квестів у грі
+    const chk = m.done ? h('div.ql-chk', null, '✔') : /(^|\.)locked(\.|$)/.test(m.cls || '') ? h('div.ql-chk.ql-lock', { title: 'Закрито: спершу попередні квести' }, '🔒') : null;
     const gl = m.glyph ? h('div.ql-gl' + (m.glyph === '∅' ? '.miss' : ''), { title: m.glyph === '∅' ? 'Предмет мода, якого немає в збірці' : null }, m.glyph) : null;
     layer.append(el, ...(chk ? [chk] : []), ...(gl ? [gl] : []));
     items.set(id, { el, chk, gl, w: 0, h: 0 });
@@ -42,7 +43,7 @@ export function attachLabels(cy, host, meta, o = {}) {
         it.chk.style.opacity = fade;
         const s = Math.max(12, Math.min(20, r * 0.6));
         it.chk.style.display = on && r >= 7 ? '' : 'none';
-        Object.assign(it.chk.style, { left: `${p.x + r * 0.68 - s / 2}px`, top: `${p.y - r * 0.68 - s / 2}px`, width: `${s}px`, height: `${s}px`, fontSize: `${s * 0.62}px` });
+        Object.assign(it.chk.style, { left: `${p.x + r * 0.68 - s / 2}px`, top: `${p.y + (it.chk.classList.contains('ql-lock') ? 1 : -1) * r * 0.68 - s / 2}px`, width: `${s}px`, height: `${s}px`, fontSize: `${s * 0.62}px` });
       }
       if (it.gl) {
         it.gl.style.opacity = fade;

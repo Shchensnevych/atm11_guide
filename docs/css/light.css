@@ -303,15 +303,8 @@
 }
 
 /* --- Глави квестів --- */
-[data-theme="light"] .chapter-page .split-main {
-  background: radial-gradient(circle, rgb(15 23 42 / 7.5%) 1.2px, transparent 1.2px) 0 0 / 22px 22px, var(--bg);
-}
 [data-theme="light"] .ql {
   color: #0f172a;
-  text-shadow: 0 0 2px #ffffff, 0 0 3px #ffffff, 0 1px 2px #ffffff, 0 0 5px rgb(255 255 255 / 90%);
-}
-[data-theme="light"] .ql.sel,
-[data-theme="light"] .ql.hov {
   background: rgb(255 255 255 / 94%);
   box-shadow: 0 1px 4px rgba(15, 23, 42, 0.12);
 }
@@ -320,6 +313,8 @@
 [data-theme="light"] .ql.locked { color: var(--muted); }
 [data-theme="light"] .ql.link { color: var(--link); }
 [data-theme="light"] .ql-chk { border-color: #ffffff; }
+[data-theme="light"] .chapter-page .cy { background: none; }   /* K25: полотно глави — тло з токенів (--q-canvas) під схемою */
+[data-theme="light"] .ql-chk.ql-lock { border-color: var(--q-node-line); }
 [data-theme="light"] .chapter-page .graph-hint {
   background: rgb(255 255 255 / 92%);
   border: 1px solid var(--line);
