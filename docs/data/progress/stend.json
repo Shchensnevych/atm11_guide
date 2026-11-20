@@ -5,10 +5,10 @@
  "mode": "creative",
  "mode_uk": "Творчість",
  "game_type": 1,
- "last_played": "2026-11-20 20:43",
- "last_played_ts": 1795200204,
- "updated": "2026-11-20 20:46",
- "play_hours": 22.23,
+ "last_played": "2026-11-20 21:53",
+ "last_played_ts": 1795204425,
+ "updated": "2026-11-20 21:54",
+ "play_hours": 23.27,
  "player": {
   "uuid": "832ceed6-e820-31f9-aa40-6acd5077a2ac",
   "xp_level": 7,
@@ -16,9 +16,9 @@
   "health": 20.0,
   "food_level": 19,
   "pos": [
-   556,
+   552,
    88,
-   715
+   704
   ],
   "dimension": "minecraft:overworld",
   "dimension_uk": "Верхній світ",
