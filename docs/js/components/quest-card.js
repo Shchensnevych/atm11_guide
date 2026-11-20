@@ -4,7 +4,7 @@ import { h } from '../core/dom.js';
 import { ftb } from '../core/fmt.js';
 import { isQuestDone } from '../core/progress.js';
 import { iconUrl, questState, taskDone, taskLabel, taskGlyph, rewardLabel, qTitle, questIconId, depsRule, visibleInGame } from '../core/quests-model.js';
-import { tableView } from '../core/rewards.js';
+import { tableView, propsText } from '../core/rewards.js';
 
 const STATE = { done: ['✔ Виконано', 'var(--ok)'], started: ['⏳ У процесі', 'var(--link)'], avail: ['● Доступний', 'var(--accent)'], locked: ['🔒 Спершу попередні', 'var(--muted)'],
   early: ['◐ Можна заздалегідь', 'var(--link)'] };
@@ -54,16 +54,18 @@ export function questDetail(s, ctx, q, o) {
     !q.desc && !note?.text ? h('p.small.muted', null, 'У книзі квестів опису немає.') : null,
     q.tasks?.length ? [h('h4.q-sec', null, 'Завдання'), h('ul.q-tasks', null, q.tasks.map((t) => {
       const d = taskDone(t, qDone);
-      return h('li' + (d ? '.ok' : ''), null, qIcon(t.icon, ctx, taskGlyph(t), '.sm'), h('span', null, d ? '✔ ' : '', taskLabel(t, ctx),
+      return h('li' + (d ? '.ok' : ''), null, qIcon(t.icon, ctx, taskGlyph(t), '.sm'), h('span.q-tl', null, d ? '✔ ' : '', taskLabel(t, ctx),
         t.comp ? h('span.muted.small', null, ` (${t.comp})`) : null,
         t.opt ? h('span.muted.small', null, ' (необов\'язкове)') : null,
-        t.consume ? h('span.muted.small', { title: 'Предмети забираються з інвентаря під час здачі' }, ' — забирається') : null),
+        t.consume ? h('span.muted.small', { title: 'Предмети забираються з інвентаря під час здачі' }, ' — забирається') : null,
+        propsText(t) ? h('span.q-props', null, propsText(t)) : null),
         t.opts?.length || t.tags?.length ? h('div.q-opts', null, 'будь-що з: ', (t.opts || []).map((x) => h('span.q-opt', { title: x.id }, qIcon(x.id, ctx, '•', '.sm'), x.name || x.id.split(':')[1])),
           (t.tags || []).map((x) => h('span.q-opt', { title: x.slice(1) }, x.startsWith('@') ? `увесь мод ${x.slice(1)}` : (t.tagn?.[x] ? `«${t.tagn[x]}»` : `група ${x.slice(1)}`)))) : null);
     }))] : null,
     q.rw?.length ? [h('h4.q-sec', null, 'Нагороди'), h('div.q-rw', null, q.rw.map((r) => {
       const L = rewardLabel(r);
-      return h('span.q-chip', null, L.icon ? qIcon(L.icon, ctx, '🎁', '.sm') : h('span.q-gl', null, L.glyph), L.text);
+      return h('span.q-chip' + (L.props ? '.has-props' : ''), null, L.icon ? qIcon(L.icon, ctx, '🎁', '.sm') : h('span.q-gl', null, L.glyph),
+        L.props ? h('span', null, L.text, h('span.q-props', null, L.props)) : L.text);
     })), q.rw.filter((r) => r.tid && ctx.tables[r.tid]).map((r) => tableBox(r, ctx))] : null,
     q.flex && q.deps?.length ? h('p.small.muted', null, 'Гнучкий режим глави: завдання можна виконувати до попередніх квестів, квест зарахується, коли їх буде виконано.') : null,
     q.deps?.length ? [h('h4.q-sec', null, depsRule(q)),
@@ -79,7 +81,8 @@ function tableBox(r, ctx) {
   return h('details.q-table', null, h('summary.small', null, v.head),
     h('ul.q-tasks.small', null, v.items.map((x) => h('li' + (x.miss ? '.muted' : ''), null,
       x.xp ? h('span.q-gl', null, '✨') : qIcon(x.item, ctx, x.miss ? '∅' : '🎁', '.sm'),
-      x.label,
-      x.chance !== null ? h('span.muted', null, ` — ${x.chance}%`) : null,
-      x.miss ? h('span.muted', null, ' (мода немає в збірці)') : null))));
+      h('span.q-tl', null, x.label,
+        x.chance !== null ? h('span.muted', null, ` — ${x.chance}%`) : null,
+        x.miss ? h('span.muted', null, ' (мода немає в збірці)') : null,
+        x.props ? h('span.q-props', null, x.props) : null)))));
 }

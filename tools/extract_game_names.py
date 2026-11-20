@@ -81,8 +81,30 @@ def normalize_quests(d):
     tasks, rewards = titles(d['tasks']), titles(d['rewards'])
     if not tasks: return None, 'заголовків завдань немає'
     tables = dict(sorted((k, [clean(x) if isinstance(x, str) else '' for x in v]) for k, v in d['tables'].items() if isinstance(k, str) and RX_CODE.match(k) and isinstance(v, list)))
-    return {'lang': LANG, 'quests_total': int(d['quests_total']) if isinstance(d.get('quests_total'), (int, float)) else 0,
-            'errors': int(d['errors']) if isinstance(d.get('errors'), (int, float)) else 0, 'tasks': tasks, 'rewards': rewards, 'tables': tables}, None
+    out = {'lang': LANG, 'quests_total': int(d['quests_total']) if isinstance(d.get('quests_total'), (int, float)) else 0,
+           'errors': int(d['errors']) if isinstance(d.get('errors'), (int, float)) else 0, 'tasks': tasks, 'rewards': rewards, 'tables': tables}
+    # K25: властивості стосів (рядки підказки, яких немає в типовому екземплярі); старий скрипт їх не пише — ключів немає
+    for k in ('task_props', 'reward_props'):
+        if isinstance(d.get(k), dict):
+            out[k] = dict(sorted((c, p) for c, p in ((c, _tips(v)) for c, v in d[k].items() if isinstance(c, str) and RX_CODE.match(c)) if p))
+    if isinstance(d.get('table_props'), dict):
+        tp = {}
+        for c, rows in d['table_props'].items():
+            if not (isinstance(c, str) and RX_CODE.match(c) and isinstance(rows, list) and c in tables and len(rows) == len(tables[c])): continue
+            rows = [_tips(r) for r in rows]
+            if any(rows): tp[c] = rows
+        out['table_props'] = dict(sorted(tp.items()))
+    return out, None
+
+RX_TIP_SPRITE = re.compile(r'\[[a-z0-9_.-]+:[a-z0-9_./-]+@[a-z0-9_.:/-]+\]')
+def clean_tip(s):
+    """K25: рядок підказки гри — без кодів «§x» і підстановок картинок «[простір:шлях@атлас]» (те саме правило, що tipText у
+    клієнтському скрипті; тут — для знімків, записаних старим скриптом)."""
+    return re.sub(r'\s+', ' ', RX_TIP_SPRITE.sub('', re.sub(r'§.', '', s))).strip()
+
+def _tips(v):
+    """Властивості стоса (K25): список рядків підказки → очищені, без порожніх; ≤ 4."""
+    return [t for t in (clean_tip(x) for x in v if isinstance(x, str)) if t][:4] if isinstance(v, list) else []
 
 def _pairs(v):
     return sorted({(a, b) for a, b in (x for x in (v or []) if isinstance(x, list) and len(x) == 2) if isinstance(a, str) and isinstance(b, str) and RX_ID.match(a) and RX_ID.match(b)})
@@ -183,7 +205,9 @@ def main():
             return f'{base} (нових і змінених {sum(1 for k, v in snap["names"].items() if oldn.get(k) != v)}; гра показує ключем {snap["untranslated"]}, помилок читання {snap["errors"]})'
         return summary
     def quests_sum(snap, old):
-        return f'завдань {len(snap["tasks"])}, нагород {len(snap["rewards"])}, таблиць {len(snap["tables"])} (квестів {snap["quests_total"]}, помилок читання {snap["errors"]})'
+        props = (f'; властивості стосів: завдань {len(snap["task_props"])}, нагород {len(snap["reward_props"])}, рядків таблиць '
+                 f'{sum(1 for r in snap["table_props"].values() for x in r if x)}') if 'task_props' in snap else '; властивостей стосів немає (старий скрипт гри)'
+        return f'завдань {len(snap["tasks"])}, нагород {len(snap["rewards"])}, таблиць {len(snap["tables"])} (квестів {snap["quests_total"]}, помилок читання {snap["errors"]}){props}'
     snapshot(SRC, OUT, normalize, 'Назви предметів з гри', names_sum('предметів'), keep_lost)
     snapshot(FSRC, FOUT, lambda d: normalize(d, 'рідин'), 'Реєстр і назви рідин з гри', names_sum('рідин'), keep_lost)
     snapshot(QSRC, QOUT, normalize_quests, 'Заголовки квестів з гри', quests_sum)

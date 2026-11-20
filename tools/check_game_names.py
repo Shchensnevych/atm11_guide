@@ -68,6 +68,28 @@ case(E.normalize_quests({**QGOOD, 'lang': 'en_us'})[0], None, 'заголовк�
 case(E.normalize_quests({**QGOOD, 'tasks': {}})[0], None, 'заголовків завдань немає — не беремо')
 case(E.normalize_quests({'names': {}})[0], None, 'чужий файл — не беремо')
 
+# K25 (§4 Б14): властивості стосів квестів — рядки підказки гри без бруду, ≤ 4; таблиці — за порядком рядків; старий файл — без ключів
+QP = {**QGOOD, 'task_props': {'00000000000000A1': ['§6Сила §lII§r', '[mod:icon/blood@gui] 3000 / 3000', '  Рядок   3 ', '', 'Четвертий', "П'ятий"], 'bad': ['x'], '00000000000000B2': ['§7', '']},
+      'reward_props': {'00000000000000D4': ['Удача III']},
+      'table_props': {'00000000000000E5': [[], ['Тип: бджола (25%)'], []], 'zz': [['x']], '00000000000000F6': [['y']]}}
+qp, why = E.normalize_quests(QP)
+case(why, None, 'властивості: файл приймається')
+case(qp and qp['task_props'], {'00000000000000A1': ['Сила II', '3000 / 3000', 'Рядок 3', 'Четвертий']}, 'властивості: коди кольору й підстановки картинок прибрано, порожні відкинуто, ≤ 4; стос без властивостей і не-код — без запису')
+case(qp and qp['reward_props'], {'00000000000000D4': ['Удача III']}, 'властивості нагород')
+case(qp and qp['table_props'], {'00000000000000E5': [[], ['Тип: бджола (25%)'], []]}, 'властивості рядків таблиць — за порядком; таблиці без заголовків або з іншою кількістю рядків — ні')
+QPB = {**QP, 'table_props': {'00000000000000E5': [['a'], ['b']]}}
+case(E.normalize_quests(QPB)[0]['table_props'], {}, 'властивості таблиці з іншою кількістю рядків — не беремо (порядок зсунувся б)')
+case(q and 'task_props' in q, False, 'старий скрипт гри (без властивостей) — ключів немає: путівник бере запасне правило')
+case(E.clean_tip('§eУтримуйте §e§oSHIFT §r§7 для [a:b/c@gui]інформації [ціна: 5]'), 'Утримуйте SHIFT для інформації [ціна: 5]', 'clean_tip: звичайні дужки лишаються')
+import extract_quests as EQ
+_gq = EQ.GAME_Q
+EQ.GAME_Q = {'task_props': {'T1': ['Удача III']}, 'reward_props': {'R1': ['Лава: 16,000 / 16,000 mB']}, 'table_props': {'TB': [[], ['Ген']]}}
+case([EQ.game_props('task_props', 'T1', {'id': 'minecraft:enchanted_book'}), EQ.game_props('reward_props', 'R1', 'a:tank'), EQ.game_props('task_props', 'T9', 'a:x')],
+     [['Удача III'], ['Лава: 16,000 / 16,000 mB'], None], 'extract_quests: властивості з гри за кодом завдання / нагороди; немає — None')
+case(EQ.game_props('task_props', 'T1', {'id': 'ftbquests:missing_item'}), None, 'extract_quests: заглушка відсутнього предмета — без властивостей («Відсутній предмет» — не властивість предмета)')
+case([EQ.row_props('TB', 0, 'a:g'), EQ.row_props('TB', 1, 'a:g'), EQ.row_props('TB', 5, 'a:g'), EQ.row_props('ZZ', 0, 'a:g')], [None, ['Ген'], None, None], 'extract_quests: властивості рядка таблиці за порядком')
+EQ.GAME_Q = _gq
+
 case(E.registry_ids(n), {'a:amulet', 'a:red_cable', 'a:stick', 'minecraft:potion', 'a:raw', 'a:boom', 'minecraft:air'}, 'реєстр гри: предмети з назвою, без назви, ті, що не прочитались, і порожній предмет, який обхід пропускає')
 case(E.registry_ids(None), None, 'знімка немає — реєстру гри немає (а не порожній реєстр)')
 case(E.registry_ids({'names': {}}), None, 'знімок без назв — не реєстр')

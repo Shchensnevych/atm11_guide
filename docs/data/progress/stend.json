@@ -5,10 +5,10 @@
  "mode": "creative",
  "mode_uk": "Творчість",
  "game_type": 1,
- "last_played": "2026-11-19 18:54",
- "last_played_ts": 1795107257,
- "updated": "2026-11-19 18:56",
- "play_hours": 20.14,
+ "last_played": "2026-11-20 10:13",
+ "last_played_ts": 1795162402,
+ "updated": "2026-11-20 10:14",
+ "play_hours": 21.05,
  "player": {
   "uuid": "832ceed6-e820-31f9-aa40-6acd5077a2ac",
   "xp_level": 7,
@@ -16,9 +16,9 @@
   "health": 20.0,
   "food_level": 19,
   "pos": [
-   554,
+   553,
    88,
-   706
+   705
   ],
   "dimension": "minecraft:overworld",
   "dimension_uk": "Верхній світ",
@@ -506,6 +506,7 @@
    "occultism:occultism/root",
    "railcraft:tracks/regular_track",
    "refinedstorage:drives",
+   "refinedstorage:storing_externally",
    "refinedstorage:storing_items",
    "refinedstorage:viewing_your_storage",
    "regions_unexplored:parent",
@@ -608,6 +609,7 @@
    "productivebees:gene",
    "refinedstorage:creative_controller",
    "refinedstorage:disk_drive",
+   "refinedstorage:external_storage",
    "refinedstorage:grid",
    "reliquary:rib_bone",
    "silentgear:helmet_plates",
@@ -646,6 +648,7 @@
    "minecraft:lantern": 3,
    "minecraft:netherite_sword": 1,
    "minecraft:shulker_box": 1,
+   "refinedstorage:external_storage": 1,
    "sophisticatedbackpacks:backpack": 1,
    "theurgy:alchemical_sulfur_greenonion": 1,
    "toolbelt:belt": 1
@@ -738,6 +741,7 @@
    "productivebees:gene": "Зразок гена",
    "refinedstorage:creative_controller": "Творчий контролер",
    "refinedstorage:disk_drive": "Дисковод",
+   "refinedstorage:external_storage": "Зовнішнє сховище",
    "refinedstorage:grid": "Сітка",
    "reliquary:rib_bone": "Реберна кістка",
    "silentgear:helmet_plates": "Пластини шолома",
@@ -889,6 +893,16 @@
     "modName": "Apotheosis"
    },
    {
+    "id": "minecraft:chest",
+    "uk": "Скриня",
+    "count": 11,
+    "slot": 16,
+    "slotLabel": "Інвентар (слот 16)",
+    "slotKind": "inventory",
+    "ns": "minecraft",
+    "modName": "Minecraft"
+   },
+   {
     "id": "interdimensionalwirelesstransmitter:red_interdimensional_wireless_transmitter",
     "uk": "Червоний Міжвимірний бездротовий передавач",
     "count": 1,
@@ -909,14 +923,14 @@
     "modName": "Minecraft"
    },
    {
-    "id": "minecraft:chest",
-    "uk": "Скриня",
-    "count": 11,
-    "slot": 20,
-    "slotLabel": "Інвентар (слот 20)",
+    "id": "refinedstorage:external_storage",
+    "uk": "Зовнішнє сховище",
+    "count": 1,
+    "slot": 19,
+    "slotLabel": "Інвентар (слот 19)",
     "slotKind": "inventory",
-    "ns": "minecraft",
-    "modName": "Minecraft"
+    "ns": "refinedstorage",
+    "modName": "Refined Storage"
    }
   ],
   "armor": [

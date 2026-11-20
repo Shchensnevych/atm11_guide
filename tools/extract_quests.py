@@ -65,6 +65,23 @@ def stack_title(t, item, plain):
     t = re.sub(r'^[\\"]+|[\\"]+$', '', RX_COUNT.sub('', t)).strip()   # власна назва у файлах квестів записана з \"…\"
     return t if t and t != plain and not RX_RAW.match(t) else None
 
+# K25 (§4 Б14): властивості стоса предмета завдання / нагороди / рядка таблиці — як їх показує гра: рядки підказки, яких немає
+# в підказці типового екземпляра того самого предмета (знімок клієнтського скрипта; те саме правило, що для стосів у скринях).
+# Без коду під компоненти й моди. Знімок старого скрипта властивостей не має — тоді лишається запасне comp_note (зілля, чари).
+GAME_PROPS = 'task_props' in GAME_Q
+
+def game_props(kind, code, item):
+    """Властивості стоса з гри (kind — task_props / reward_props) або None. Заглушка відсутнього предмета властивостей не має."""
+    if oid(item) == 'ftbquests:missing_item': return None
+    p = (GAME_Q.get(kind) or {}).get(code) if isinstance(code, str) else None
+    return list(p) if p else None
+
+def row_props(tid, ri, item):
+    """Властивості рядка таблиці нагород (за порядком рядків) або None."""
+    if oid(item) == 'ftbquests:missing_item': return None
+    rows = (GAME_Q.get('table_props') or {}).get(tid) or []
+    return list(rows[ri]) if ri < len(rows) and rows[ri] else None
+
 def part_after_colon(t):
     """«Досягнення: Кам'яна доба» → «Кам'яна доба» (заголовок завдання без предмета: тип і об'єкт)."""
     t = t.split(': ', 1)[1].strip() if isinstance(t, str) and ': ' in t else ''
@@ -188,7 +205,9 @@ def reward(r, M, RT):
         plain = item_name(it, M) or ''
         gt = game_title('rewards', r.get('id'), r.get('item'), plain)
         out = {'t': 'item', 'item': it, 'n': r.get('count') or (r.get('item') or {}).get('count') or 1, 'name': gt or plain}
-        comp = comp_note(r.get('item'), M, bool(gt))   # що саме за зілля / чари — як у завданнях
+        props = game_props('reward_props', r.get('id'), r.get('item'))
+        if props: out['props'] = props
+        comp = None if GAME_PROPS else comp_note(r.get('item'), M, bool(gt))   # запасне (старий знімок): що за зілля / чари
         if comp: out['comp'] = comp
         return out
     if t in ('xp', 'xp_levels'): return {'t': t, 'n': r.get(t) or 0}
@@ -244,7 +263,8 @@ def main():
                               'entity': ent, 'dim': dim, 'adv': t.get('advancement'), 'structure': t.get('structure'), 'biome': t.get('biome'),
                               'observe': obs_id or None, 'otype': t.get('observation_type') if obs else None,
                               'opt': t.get('optional_task'), 'opts': opts, 'tags': tags, 'tagn': tag_names(tags, M),
-                              'comp': comp_note(t.get('item'), M, bool(gt)) or (obs_state.rstrip(']').replace('=', ': ') or None),
+                              'props': game_props('task_props', t['id'], t.get('item')),
+                              'comp': (None if GAME_PROPS else comp_note(t.get('item'), M, bool(gt))) or (obs_state.rstrip(']').replace('=', ': ') or None),
                               'consume': t.get('consume_items'),
                               'name': ttl or gt or plain or other}.items() if v not in (None, '', 1, False)})
             title = strip_fmt(text(Lu, Le, f'quest.{qid}.title') or '') or (tasks[0].get('name') if tasks else '') or ''
@@ -308,7 +328,8 @@ def main():
             gt = stack_title(rows[ri], it, plain) if rows and not mid else None
             x = {'item': mid or i, 'name': gt or plain, 'n': r.get('count') or it.get('count') or 1, 'w': r.get('weight', 1.0)}
             if mid and mid.split(':')[0] not in have: x['miss'] = 1
-            if comp_note(it, M, bool(gt)): x['comp'] = comp_note(it, M, bool(gt))
+            if (pr := row_props(t['id'], ri, it)) and rows: x['props'] = pr
+            if not GAME_PROPS and comp_note(it, M, bool(gt)): x['comp'] = comp_note(it, M, bool(gt))
             if r.get('type') in ('xp', 'xp_levels'): x = {'t': r['type'], 'n': r.get(r['type']) or 0, 'w': r.get('weight', 1.0)}
             if x.get('item') or x.get('t'): its.append(x)
         tables[t['id']] = {'title': strip_fmt(RT.get(f"reward_table.{t['id']}.title") or ''), 'n': t.get('loot_size', 1), 'items': its}
