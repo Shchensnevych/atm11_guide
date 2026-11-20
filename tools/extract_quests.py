@@ -27,7 +27,7 @@ def names_map():
     p = os.path.join(UA, 'review', 'effective.tsv'); M = {}
     if not os.path.exists(p): return M
     for r in csv.reader(open(p, encoding='utf-8'), delimiter='\t'):
-        if len(r) > 4 and r[0].split('.')[0] in ('item', 'block', 'entity', 'fluid', 'parttype', 'tag', 'enchantment', 'structure'): M[r[0]] = (r[3], r[4] or r[3])
+        if len(r) > 4 and r[0].split('.')[0] in ('item', 'block', 'entity', 'fluid', 'parttype', 'tag', 'enchantment', 'structure', 'biome', 'dimension'): M[r[0]] = (r[3], r[4] or r[3])
     return M
 
 def item_name(iid, M):
@@ -199,12 +199,12 @@ def comp_note(item, M, titled=False):
             out.append('чари ' + ', '.join(f"{ench(x)} {v}" for x, v in (e.get('levels') or e).items() if isinstance(v, int)))
     return '; '.join(out) or None
 
-def reward(r, M, RT):
+def reward(r, M, RT, ttl=''):   # ttl — заголовок нагороди з мовного файлу квестів (K26: гра показує його замість назви предмета)
     t = r.get('type'); it = oid(r.get('item'))
     if t == 'item' and it:
         plain = item_name(it, M) or ''
         gt = game_title('rewards', r.get('id'), r.get('item'), plain)
-        out = {'t': 'item', 'item': it, 'n': r.get('count') or (r.get('item') or {}).get('count') or 1, 'name': gt or plain}
+        out = {'t': 'item', 'item': it, 'n': r.get('count') or (r.get('item') or {}).get('count') or 1, 'name': ttl or gt or plain}
         props = game_props('reward_props', r.get('id'), r.get('item'))
         if props: out['props'] = props
         comp = None if GAME_PROPS else comp_note(r.get('item'), M, bool(gt))   # запасне (старий знімок): що за зілля / чари
@@ -259,6 +259,11 @@ def main():
                 other = (part_after_colon((GAME_Q.get('tasks') or {}).get(t['id'])) if t.get('type') == 'advancement' else
                          (M.get('structure.' + t['structure'].replace(':', '.').replace('/', '.')) or ('', ''))[1] if isinstance(t.get('structure'), str) and not t['structure'].startswith('#') else
                          item_name(obs_id, M) if obs_id else None)
+                # K26: біом / вимір / споруда — назва самого об'єкта з перекладу гри (заголовок у грі — «Відвідати біом: …»,
+                # префікс дописує сайт); немає перекладу — частина заголовка після двокрапки
+                po = t.get('biome') or t.get('dimension') or t.get('structure') if t.get('type') in ('biome', 'dimension', 'structure') else None
+                place = ((M.get(t['type'] + '.' + po.replace(':', '.').replace('/', '.')) or ('', ''))[1] or part_after_colon(ttl)
+                         if isinstance(po, str) and not po.startswith('#') else None)
                 tasks.append({k: v for k, v in {'id': t['id'], 'type': t.get('type'), 'item': iid, 'icon': task_icon(t, have), 'count': cnt,
                               'entity': ent, 'dim': dim, 'adv': t.get('advancement'), 'structure': t.get('structure'), 'biome': t.get('biome'),
                               'observe': obs_id or None, 'otype': t.get('observation_type') if obs else None,
@@ -266,14 +271,14 @@ def main():
                               'props': game_props('task_props', t['id'], t.get('item')),
                               'comp': (None if GAME_PROPS else comp_note(t.get('item'), M, bool(gt))) or (obs_state.rstrip(']').replace('=', ': ') or None),
                               'consume': t.get('consume_items'),
-                              'name': ttl or gt or plain or other}.items() if v not in (None, '', 1, False)})
+                              'name': place or ttl or gt or plain or other}.items() if v not in (None, '', 1, False)})
             title = strip_fmt(text(Lu, Le, f'quest.{qid}.title') or '') or (tasks[0].get('name') if tasks else '') or ''
             deps = q.get('dependencies', [])
             for d in deps:
                 if qowner.get(d) and qowner[d] != fn: cross[(qowner[d], fn)] += 1
             qi = custom_icon(q.get('icon')) or oid(q.get('icon'))
             icon = qi if usable(qi) else next((t['icon'] for t in tasks if t.get('icon')), None)
-            rw = [x for x in (reward(r, M, RT) for r in q.get('rewards', [])) if x]
+            rw = [x for x in (reward(r, M, RT, strip_fmt(text(Lu, Le, f"reward.{r.get('id')}.title") or '')) for r in q.get('rewards', [])) if x]
             inv = bool(q.get('invisible')) and not arr
             stat['arr'] += arr; stat['inv'] += inv; stat['icon'] += bool(icon)
             quests.append({k: v for k, v in {

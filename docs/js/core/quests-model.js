@@ -114,7 +114,7 @@ export function taskLabel(t, ctx) {
     case 'checkmark': return t.name ? `${t.name} (позначити галочкою)` : 'Позначити галочкою в книзі квестів';
     case 'kill': return `Перемогти: ${t.name || nice(t.entity)}${n}`;
     case 'dimension': return `Потрапити у вимір: ${t.name || ctx.dims.get(t.dim) || nice(t.dim)}`;
-    case 'structure': return `Знайти структуру: ${t.name || nice(t.structure)}`;
+    case 'structure': return `Знайти споруду: ${t.name || nice(t.structure)}`;
     case 'biome': return `Відвідати біом: ${t.name || nice(t.biome)}`;
     case 'advancement': return `Досягнення: ${t.name || nice(t.adv)}`;
     case 'observation': return `Оглянути: ${t.name || 'об\'єкт'}`;
