@@ -5,10 +5,10 @@
  "mode": "creative",
  "mode_uk": "Творчість",
  "game_type": 1,
- "last_played": "2026-11-20 10:13",
- "last_played_ts": 1795162402,
- "updated": "2026-11-20 10:14",
- "play_hours": 21.05,
+ "last_played": "2026-11-20 20:43",
+ "last_played_ts": 1795200204,
+ "updated": "2026-11-20 20:46",
+ "play_hours": 22.23,
  "player": {
   "uuid": "832ceed6-e820-31f9-aa40-6acd5077a2ac",
   "xp_level": 7,
@@ -16,9 +16,9 @@
   "health": 20.0,
   "food_level": 19,
   "pos": [
-   553,
+   556,
    88,
-   705
+   715
   ],
   "dimension": "minecraft:overworld",
   "dimension_uk": "Верхній світ",
@@ -542,7 +542,6 @@
    "evilcraft:flesh_humanoid",
    "functionalstorage:oak_1",
    "functionalstorage:oak_4",
-   "interdimensionalwirelesstransmitter:red_interdimensional_wireless_transmitter",
    "mcwfurnitures:oak_wardrobe",
    "minecraft:anvil",
    "minecraft:arrow",
@@ -633,8 +632,6 @@
    "deepnullreforged:deep_null_0": 1,
    "dimstorage:dimensional_chest": 1,
    "enderthing:key_chest": 1,
-   "enderthing:lock": 3,
-   "interdimensionalwirelesstransmitter:red_interdimensional_wireless_transmitter": 1,
    "minecraft:chest": 11,
    "minecraft:cobblestone": 64,
    "minecraft:crafting_table": 1,
@@ -648,7 +645,6 @@
    "minecraft:lantern": 3,
    "minecraft:netherite_sword": 1,
    "minecraft:shulker_box": 1,
-   "refinedstorage:external_storage": 1,
    "sophisticatedbackpacks:backpack": 1,
    "theurgy:alchemical_sulfur_greenonion": 1,
    "toolbelt:belt": 1
@@ -674,7 +670,6 @@
    "evilcraft:flesh_humanoid": "Людська плоть",
    "functionalstorage:oak_1": "Дубова шухляда (1x1)",
    "functionalstorage:oak_4": "Дубова шухляда (2x2)",
-   "interdimensionalwirelesstransmitter:red_interdimensional_wireless_transmitter": "Червоний Міжвимірний бездротовий передавач",
    "mcwfurnitures:oak_wardrobe": "Дубова шафа",
    "minecraft:anvil": "Ковадло",
    "minecraft:arrow": "Стріла",
@@ -863,26 +858,6 @@
     "modName": "Minecraft"
    },
    {
-    "id": "enderthing:lock",
-    "uk": "Замок Енду",
-    "count": 2,
-    "slot": 13,
-    "slotLabel": "Інвентар (слот 13)",
-    "slotKind": "inventory",
-    "ns": "enderthing",
-    "modName": "Enderthing"
-   },
-   {
-    "id": "enderthing:lock",
-    "uk": "Замок Енду",
-    "count": 1,
-    "slot": 14,
-    "slotLabel": "Інвентар (слот 14)",
-    "slotKind": "inventory",
-    "ns": "enderthing",
-    "modName": "Enderthing"
-   },
-   {
     "id": "apotheosis:gem",
     "uk": "Апофеотичний самоцвіт",
     "count": 1,
@@ -903,16 +878,6 @@
     "modName": "Minecraft"
    },
    {
-    "id": "interdimensionalwirelesstransmitter:red_interdimensional_wireless_transmitter",
-    "uk": "Червоний Міжвимірний бездротовий передавач",
-    "count": 1,
-    "slot": 17,
-    "slotLabel": "Інвентар (слот 17)",
-    "slotKind": "inventory",
-    "ns": "interdimensionalwirelesstransmitter",
-    "modName": "Interdimensional Wireless Transmitter"
-   },
-   {
     "id": "minecraft:netherite_sword",
     "uk": "Незеритовий меч",
     "count": 1,
@@ -921,16 +886,6 @@
     "slotKind": "inventory",
     "ns": "minecraft",
     "modName": "Minecraft"
-   },
-   {
-    "id": "refinedstorage:external_storage",
-    "uk": "Зовнішнє сховище",
-    "count": 1,
-    "slot": 19,
-    "slotLabel": "Інвентар (слот 19)",
-    "slotKind": "inventory",
-    "ns": "refinedstorage",
-    "modName": "Refined Storage"
    }
   ],
   "armor": [
