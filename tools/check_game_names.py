@@ -193,6 +193,23 @@ w1 = []
 BG.build(w1.append, False, {}, TAGS, set(), reg)
 case(bool(w1) and 'game_item_traits' in w1[0], True, 'групи: знімка немає — попередження, база не змінюється')
 
+# K29 (Д6): знімок нестандартних інгредієнтів рецептів (extract_game_names.normalize_recipe_ingredients)
+RGOOD = {'v': 1, 'ts': 99, 'fingerprint': 'fp29', 'mods': 317, 'items_total': 36000, 'total_recipes': 100, 'errors': 0,
+         'sets': [['b:orb2', 'a:orb1', 'minecraft:air', 'Bad Id'], ['c:plank_z', 'c:plank_a', 'c:plank_a'], ['minecraft:air']],
+         'recipes': {'z:rec': [[4, 1], [1, 1]], 'a:rec': [[0, 0], [2, 2], [3, 99]], 'Bad Rec': [[0, 0]]}}
+ri1, why = E.normalize_recipe_ingredients(RGOOD)
+case(why, None, 'інгредієнти рецептів: добрий файл приймається')
+case(ri1 and 'ts' in ri1, False, 'інгредієнти рецептів: часу запису немає')
+case(ri1 and ri1['sets'], [['a:orb1', 'b:orb2'], ['c:plank_a', 'c:plank_z']], 'інгредієнти рецептів: множини без air/сміття/повторів у канонічному порядку')
+case(ri1 and list(ri1['recipes']), ['a:rec', 'z:rec'], 'інгредієнти рецептів: рецепти за абеткою, не-id відкинуто')
+case(ri1 and ri1['recipes'], {'a:rec': [[0, 0]], 'z:rec': [[1, 1], [4, 1]]}, 'інгредієнти рецептів: слоти за індексом, порожні/биті множини відкинуто')
+# інший порядок sets і recipes у файлі гри → ідентичний нормалізований знімок
+RSHUF = {**RGOOD, 'sets': [RGOOD['sets'][1], RGOOD['sets'][0]], 'recipes': {'a:rec': [[0, 1]], 'z:rec': [[4, 0], [1, 0]]}}
+ri2, _ = E.normalize_recipe_ingredients(RSHUF)
+case(ri1, ri2, 'інгредієнти рецептів: сталий вивід незалежно від порядку sets і recipes')
+case(E.normalize_recipe_ingredients({**RGOOD, 'fingerprint': ''})[0], None, 'інгредієнти рецептів: без відбитка не беремо')
+case(E.normalize_recipe_ingredients({**RGOOD, 'total_recipes': 0})[0], None, 'інгредієнти рецептів: без total_recipes не беремо')
+
 bad = [(why, got, want) for got, want, why in CASES if got != want]
 for why, got, want in bad: print(f'❌ {why}: {got!r} ≠ {want!r}')
 print(f'Знімок назв з гри: {len(CASES) - len(bad)} з {len(CASES)}')

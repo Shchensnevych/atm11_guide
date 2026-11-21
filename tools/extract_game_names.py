@@ -14,6 +14,7 @@
 # назви вкладок творчого інвентаря; лише коли змінився відбиток збірки або мова) → raw/game_item_traits.json; групи предметів
 # (docs/data/item_groups.json) будує build_item_groups.py.
 import os, re, sys
+if hasattr(sys.stdout, 'reconfigure'): sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import MC, RAW, jload, jsave
 
@@ -32,6 +33,8 @@ ESRC = os.path.join(MC, 'kubejs', 'config', 'companion_enchantments.json')
 EOUT = os.path.join(RAW, 'game_enchantments.json')
 TSRC = os.path.join(MC, 'kubejs', 'config', 'companion_item_traits.json')
 TOUT = os.path.join(RAW, 'game_item_traits.json')
+RSRC = os.path.join(MC, 'kubejs', 'config', 'companion_recipe_ingredients.json')
+ROUT = os.path.join(RAW, 'game_recipe_ingredients.json')
 
 def clean(s):
     """Назва з гри: без кодів кольору «§x» і зайвих пробілів («&» у грі — звичайний знак, не код)."""
@@ -174,6 +177,42 @@ def normalize_traits(d):
     return {'lang': LANG, 'fingerprint': fp, 'mods': int(d.get('mods') or 0), 'total': total, 'block_items': blocks, 'errors': errors, 'failed': _ids(d.get('failed')),
             'items': items, 'has': has, 'by': by, 'tabs': tabs}, None
 
+def normalize_recipe_ingredients(d):
+    """K29 (Д6): файл нестандартних інгредієнтів рецептів із сервера → (знімок, None) або (None, причина).
+    Без часу запису й із канонічним порядком sets / recipes (не залежить від порядку обходу в Java)."""
+    if not isinstance(d, dict) or not isinstance(d.get('sets'), list) or not isinstance(d.get('recipes'), dict):
+        return None, 'не схоже на файл інгредієнтів рецептів (немає sets / recipes)'
+    fp = d.get('fingerprint')
+    if not isinstance(fp, str) or not fp: return None, 'немає відбитка збірки'
+    total = int(d['total_recipes']) if isinstance(d.get('total_recipes'), (int, float)) else 0
+    if total <= 0: return None, 'обхід рецептів порожній'
+    raw_sets = []
+    for s in d['sets']:
+        clean_s = sorted({x for x in _ids(s) if x != EMPTY_ITEM})
+        raw_sets.append(tuple(clean_s))
+    # Канонічне переіндексування непорожніх множин за абеткою вмісту → сталий diff
+    used_tuples = set()
+    parsed_recs = {}
+    for rid, pairs in d['recipes'].items():
+        if not (isinstance(rid, str) and RX_ID.match(rid) and isinstance(pairs, list)): continue
+        slots = []
+        for p in pairs:
+            if not (isinstance(p, list) and len(p) == 2 and isinstance(p[0], (int, float)) and isinstance(p[1], (int, float))): continue
+            sl, si = int(p[0]), int(p[1])
+            if sl < 0 or si < 0 or si >= len(raw_sets) or not raw_sets[si]: continue
+            slots.append((sl, raw_sets[si]))
+            used_tuples.add(raw_sets[si])
+        if slots:
+            slots.sort(key=lambda x: x[0])
+            parsed_recs[rid] = slots
+    canon_sets = sorted(used_tuples)
+    t2i = {t: idx for idx, t in enumerate(canon_sets)}
+    recipes = {rid: [[sl, t2i[t]] for sl, t in parsed_recs[rid]] for rid in sorted(parsed_recs)}
+    custom_slots = sum(len(v) for v in recipes.values())
+    return {'fingerprint': fp, 'mods': int(d.get('mods') or 0), 'items_total': int(d.get('items_total') or 0),
+            'total_recipes': total, 'custom_recipes': len(recipes), 'custom_slots': custom_slots,
+            'errors': int(d.get('errors') or 0), 'sets': [list(t) for t in canon_sets], 'recipes': recipes}, None
+
 def keep_code_check(snap, old):
     """Перевірка кодом ще йде (pending), а попередній знімок того самого відбитка збірки її має — лишається попередня."""
     if snap['code_check'].get('state') != 'done' and old and old.get('fingerprint') == snap['fingerprint'] and (old.get('code_check') or {}).get('state') == 'done':
@@ -219,6 +258,9 @@ def main():
     def traits_sum(snap, old):
         return f"предметів {snap['total']} (блоків {snap['block_items']}), компонентів {len(snap['has'])}, вкладок {len(snap['tabs'])}"
     snapshot(TSRC, TOUT, normalize_traits, 'Ознаки предметів з гри', traits_sum)
+    def rec_ing_sum(snap, old):
+        return f"рецептів {snap['custom_recipes']} із {snap['total_recipes']}, слотів {snap['custom_slots']}, множин {len(snap['sets'])}"
+    snapshot(RSRC, ROUT, normalize_recipe_ingredients, 'Нестандартні інгредієнти рецептів з гри', rec_ing_sum)
     return 0
 
 if __name__ == '__main__': sys.exit(main())

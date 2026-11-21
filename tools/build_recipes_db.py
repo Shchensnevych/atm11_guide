@@ -75,7 +75,7 @@ def categorize(t):
     return 'machine_processing', 0
 
 RX_REF = re.compile(r'^#?[a-z0-9_.-]+:[a-z0-9_./-]+$')   # ns:шлях або #ns:шлях — усе інше в базу не йде
-WRAPPERS = ('ingredient', 'content', 'result', 'stack', 'output')   # обгортка: сам запис — усередині (кількість / шанс — зовні)
+WRAPPERS = ('ingredient', 'content', 'result', 'stack', 'itemStack', 'output')   # обгортка: сам запис — усередині (кількість / шанс — зовні)
 
 def _clean_ref(s):
     """Рядок запису → (id або #тег, кількість): «3x ns:id», «ns:id[компоненти]»."""
@@ -139,37 +139,39 @@ def _one_of(variants, choices):
     if len(seen) < 2: return seen
     return [choices.one(seen)] if choices else seen[:1]
 
-def parse_ingredient_entry(ing, tags=None, choices=None):
+def parse_ingredient_entry(ing, tags=None, choices=None, kinds=None):
     """Розбирає запис інгредієнта (слота) -> list of (item_or_tag, is_tag, count).
-    Запис — рядок, об'єкт будь-якої вкладеності (поле item / id / items / value, tag або обгортка WRAPPERS; кількість обгортки
-    множиться на внутрішню) або список — це варіанти «на вибір» (як у грі: список у місці інгредієнта — будь-який із них),
-    так само список у полі items / value і «будь-що з переліку» (children). Варіанти → один вхід-група (choices, K8), без
-    обліку груп — перший варіант. Перелік різних входів рецепта розбирає той, хто його знає (parse_raw), по одному;
-    виняток — список під полем item / id (поле одного предмета): це перелік записів, кожен — окремий вхід.
+    Запис — рядок, об'єкт будь-якої вкладеності (поле item / id / items / value / block / fluid, tag або обгортка WRAPPERS;
+    кількість обгортки count або amount множиться на внутрішню) або список — це варіанти «на вибір» (як у грі: список у місці
+    інгредієнта — будь-який із них), так само список у полі items / value і «будь-що з переліку» (children). Варіанти → один
+    вхід-група (choices, K8), без обліку груп — перший варіант. Перелік різних входів рецепта розбирає той, хто його знає
+    (parse_raw), по одному; виняток — список під полем item / id (поле одного предмета): це перелік записів, кожен — окремий вхід.
     Складені інгредієнти NeoForge (K6): різниця — основа (base); перетин (children) — спільний предмет груп, якщо
-    tags (тег → предмети) його показує, інакше перша частина."""
+    tags (тег → предмети) його показує, інакше перша частина.
+    K29 (Д6): якщо запис має neoforge:ingredient_type без стандартних ключів і сам тип збігається з предметом або тегом
+    предметів у реєстрі (kinds) — береться він (напр. enderio:conduit, apotheosis:gem, base_tier_wooden_storage)."""
     if not ing:
         return []
     if isinstance(ing, str):
         ref, count = _clean_ref(ing)
         return [(ref, 1 if ref.startswith('#') else 0, count)] if RX_REF.match(ref) else []
     if isinstance(ing, list):
-        return _one_of([v for x in ing for v in parse_ingredient_entry(x, tags, choices)], choices)
+        return _one_of([v for x in ing for v in parse_ingredient_entry(x, tags, choices, kinds)], choices)
     if isinstance(ing, dict):
-        count = _num(ing.get('count', 1.0))
+        count = _num(ing['count'] if 'count' in ing else ing.get('amount', 1.0))
         scaled = lambda sub: [(ref, is_tag, c * count) for ref, is_tag, c in sub]
-        for key in ('item', 'id', 'items', 'value'):
+        for key in ('item', 'id', 'items', 'value', 'block', 'fluid'):
             if key in ing:
                 v = ing[key]
                 if key in ('item', 'id') and isinstance(v, list):   # список під полем одного предмета — перелік записів (не варіанти): кожен окремо
-                    sub = [e for x in v for e in parse_ingredient_entry(x, tags, choices)]
-                else: sub = parse_ingredient_entry(v, tags, choices)
+                    sub = [e for x in v for e in parse_ingredient_entry(x, tags, choices, kinds)]
+                else: sub = parse_ingredient_entry(v, tags, choices, kinds)
                 if sub: return scaled(sub)
         if 'base' in ing:
-            sub = parse_ingredient_entry(ing['base'], tags, choices)
+            sub = parse_ingredient_entry(ing['base'], tags, choices, kinds)
             if sub: return scaled(sub[:1])
         if isinstance(ing.get('children'), list):
-            kids = [parse_ingredient_entry(x, tags, choices) for x in ing['children']]
+            kids = [parse_ingredient_entry(x, tags, choices, kinds) for x in ing['children']]
             if str(ing.get('neoforge:ingredient_type', '')).endswith(':intersection'):   # перетин груп
                 one = _common_item(kids, tags)
                 sub = [(one, 0, 1.0)] if one else next((k for k in kids if k), [])
@@ -180,8 +182,12 @@ def parse_ingredient_entry(ing, tags=None, choices=None):
             return [(t, 1, count)] if RX_REF.match(t) else []
         for key in WRAPPERS:
             if key in ing:
-                sub = parse_ingredient_entry(ing[key], tags, choices)
+                sub = parse_ingredient_entry(ing[key], tags, choices, kinds)
                 if sub: return scaled(sub)
+        ct = ing.get('neoforge:ingredient_type')
+        if isinstance(ct, str) and kinds is not None and RX_REF.match(ct):
+            if ct in kinds.items: return [(ct, 0, count)]
+            if ct in kinds.item_tags: return [('#' + ct, 1, count)]
     return []
 
 def parse_output_entry(out):
@@ -206,6 +212,9 @@ def parse_output_entry(out):
                 if key == 'items' and isinstance(v, list): v = v[:1]
                 sub = parse_output_entry(v)
                 if sub: return [(item_id, c * count, ch * chance if chance != 1.0 else ch, prim) for item_id, c, ch, prim in sub]
+        if 'tag' in out and isinstance(out['tag'], str):
+            t = out['tag'] if out['tag'].startswith('#') else '#' + out['tag']
+            return [(t, count, chance, 1)] if RX_REF.match(t) else []
     return []
 
 class Kinds:
@@ -270,36 +279,53 @@ def split_kinds(ings, outs, fls, kinds):
     if outs and not any(x[3] for x in outs): outs[0] = outs[0][:3] + (1,)
     return ings, outs, fls, other
 
-def parse_raw(rtype, raw_d, ingr=parse_ingredient_entry):
-    """Запис рецепта у формі datapack (JSON з jar, kubejs/data або відтворений з виклику KubeJS) → (входи, виходи, такти, FE,
-    структура, жертва, додаткове). ingr — розбір інгредієнта (з тегами — parse_ingredient_entry(x, tags))."""
+def parse_raw(rtype, raw_d, ingr=parse_ingredient_entry, slot_resolver=None):
+    """Запис рецепта у формі datapack (JSON з jar, kubejs/data, kubejs/dynamic_data або відтворений з виклику KubeJS) →
+    (входи, виходи, такти, FE, структура, жертва, додаткове). ingr — розбір інгредієнта (з тегами / групами / kinds);
+    slot_resolver(slot_seq, raw_slot) — K29: розкриття нестандартного слота зі знімка гри за індексом непустого слота."""
     dur_ticks = 0; energy_fe = 0; structure_id = None; sacrifice_entity = None; extra_data = {}
     parsed_ings = []; parsed_outs = []
+    unparsed = 0
+
+    def take_slot(raw_slot, slot_seq, role='input', slot_pos=None, single=False, force_one=False):
+        nonlocal unparsed
+        parsed = ingr(raw_slot)
+        if not parsed and slot_resolver is not None and raw_slot:
+            got = slot_resolver(slot_seq, raw_slot)
+            if got: parsed = [got] if isinstance(got, tuple) else list(got)
+        if parsed:
+            seq = parsed[:1] if single else parsed
+            for it, ist, cnt in seq:
+                parsed_ings.append((it, ist, 1.0 if force_one else cnt, role, slot_pos))
+            return True
+        if raw_slot:
+            unparsed += 1
+        return False
+
+    def parse_shaped(d):
+        pat = d.get('pattern', [])
+        key_map = d.get('key', {})
+        if isinstance(pat, list) and isinstance(key_map, dict):
+            seq = 0
+            for r_idx, row in enumerate(pat):
+                if not isinstance(row, str): continue
+                for c_idx, ch in enumerate(row):
+                    slot = r_idx * 3 + c_idx
+                    if ch != ' ' and ch in key_map:
+                        take_slot(key_map[ch], seq, 'input', slot, single=True, force_one=True)
+                        seq += 1
+
     if raw_d and isinstance(raw_d, dict):
         # 1. Minecraft Shaped
         if rtype == 'minecraft:crafting_shaped':
-            pat = raw_d.get('pattern', [])
-            key_map = raw_d.get('key', {})
-            if isinstance(pat, list) and isinstance(key_map, dict):
-                # Рахуємо кожен слот
-                for r_idx, row in enumerate(pat):
-                    for c_idx, ch in enumerate(row):
-                        slot = r_idx * 3 + c_idx
-                        if ch != ' ' and ch in key_map:
-                            parsed = ingr(key_map[ch])
-                            if parsed:
-                                item_tag, is_tag, _ = parsed[0]
-                                parsed_ings.append((item_tag, is_tag, 1.0, 'input', slot))
+            parse_shaped(raw_d)
             parsed_outs = parse_output_entry(raw_d.get('result'))
 
         # 2. Minecraft Shapeless
         elif rtype == 'minecraft:crafting_shapeless':
             ings = raw_d.get('ingredients', [])
             for slot, ing in enumerate(ings):
-                parsed = ingr(ing)
-                if parsed:
-                    item_tag, is_tag, cnt = parsed[0]
-                    parsed_ings.append((item_tag, is_tag, cnt, 'input', slot))
+                take_slot(ing, slot, 'input', slot, single=True)
             parsed_outs = parse_output_entry(raw_d.get('result'))
 
         # 3. Occultism Ritual
@@ -331,8 +357,7 @@ def parse_raw(rtype, raw_d, ingr=parse_ingredient_entry):
         elif rtype == 'powah:energizing':
             energy_fe = int(raw_d.get('energy', 0))
             for slot, ing in enumerate(raw_d.get('ingredients', [])):
-                for it, ist, c in ingr(ing):
-                    parsed_ings.append((it, ist, c, 'input', slot))
+                take_slot(ing, slot, 'input', slot)
             parsed_outs = parse_output_entry(raw_d.get('result'))
 
         # 5. AE2 Inscriber
@@ -363,56 +388,73 @@ def parse_raw(rtype, raw_d, ingr=parse_ingredient_entry):
         elif rtype.startswith('oritech:'):
             dur_ticks = int(raw_d.get('time', 100))
             for slot, ing in enumerate(raw_d.get('itemInputs', [])):
-                for it, ist, c in ingr(ing):
-                    parsed_ings.append((it, ist, c, 'input', slot))
+                take_slot(ing, slot, 'input', slot)
             for res in raw_d.get('itemResults', []):
                 parsed_outs.extend(parse_output_entry(res))
 
-        # 8. Ender IO SAG Milling / Alloy Smelting
+        # 8. Ender IO SAG Milling / Alloy Smelting / Painting / Soul Binding / Slicing
         elif rtype.startswith('enderio:'):
             energy_fe = int(raw_d.get('energy', 0))
             dur_ticks = int(raw_d.get('time', 0))
             many = raw_d.get('inputs')   # input — один інгредієнт; inputs — перелік входів (кожен запис — окремий вхід)
-            for ing in ([raw_d['input']] if raw_d.get('input') else many if isinstance(many, list) else [many] if many else []):
-                for it, ist, c in ingr(ing):
-                    parsed_ings.append((it, ist, c, 'input', None))
-            for out in raw_d.get('outputs', []):
-                parsed_outs.extend(parse_output_entry(out))
+            for slot, ing in enumerate([raw_d['input']] if raw_d.get('input') else many if isinstance(many, list) else [many] if many else []):
+                take_slot(ing, slot, 'input', None)
+            if 'outputs' in raw_d:
+                for out in (raw_d['outputs'] if isinstance(raw_d['outputs'], list) else [raw_d['outputs']]):
+                    parsed_outs.extend(parse_output_entry(out))
+            elif 'output' in raw_d:
+                parsed_outs.extend(parse_output_entry(raw_d['output']))
 
         # 9. Generic Fallback
         else:
             dur_ticks = int(raw_d.get('cookingtime') or raw_d.get('time') or raw_d.get('duration') or 0)
-            energy_fe = int(raw_d.get('energy') or raw_d.get('energy_fe') or 0)
-            for k in ('ingredient', 'ingredients', 'input', 'inputs', 'itemInputs'):
-                if k in raw_d:
-                    val = raw_d[k]
-                    # список — перелік входів; виняток — поле ingredient (один інгредієнт, як у ванільних рецептах): там список —
-                    # варіанти «на вибір» (K8, замір по всіх рецептах: 168 зі 168 — варіанти)
-                    vals = val if isinstance(val, list) and k != 'ingredient' else [val]
-                    for slot, ing in enumerate(vals):
-                        for it, ist, c in ingr(ing):
-                            parsed_ings.append((it, ist, c, 'input', slot))
-                    if parsed_ings: parsed_ings += field_entries(raw_d, k, ingr)   # K9: входи окремим полем — на перевірку в complete
-                    break
-            for k in ('result', 'results', 'output', 'outputs', 'itemResults'):
+            energy_fe = int(raw_d.get('energy') or raw_d.get('energy_fe') or raw_d.get('input_energy') or 0)
+            if isinstance(raw_d.get('pattern'), list) and isinstance(raw_d.get('key'), dict):
+                # K29: будь-який сітковий рецепт мода (апгрейди рюкзаків/скринь, rolling, arcane_workbench, shaped_gear…)
+                parse_shaped(raw_d)
+                if parsed_ings: parsed_ings += field_entries(raw_d, {'pattern', 'key'}, ingr)
+            else:
+                found_in_key = False
+                for k in ('ingredient', 'ingredients', 'input', 'inputs', 'itemInputs', 'input_item', 'input_items', 'inputItems', 'materials', 'additives'):
+                    if k in raw_d:
+                        found_in_key = True
+                        val = raw_d[k]
+                        # список — перелік входів; виняток — поля одного інгредієнта (ingredient / input_item): там список — варіанти «на вибір» (K8)
+                        vals = val if isinstance(val, list) and k not in ('ingredient', 'input_item') else [val]
+                        for slot, ing in enumerate(vals):
+                            take_slot(ing, slot, 'input', slot)
+                        if parsed_ings: parsed_ings += field_entries(raw_d, k, ingr)   # K9: входи окремим полем — на перевірку в complete
+                        break
+                if not found_in_key and 'base' in raw_d and 'addition' in raw_d:
+                    # K29: ковальські рецепти за формою (smithing_transform, sized_upgrade_recipe, smithing_upgrade…)
+                    seq = 0
+                    for k in ('template', 'base', 'addition'):
+                        if k in raw_d and raw_d[k]:
+                            take_slot(raw_d[k], seq, 'input', seq)
+                            seq += 1
+                    if parsed_ings: parsed_ings += field_entries(raw_d, {'template', 'base', 'addition'}, ingr)
+            for k in ('result', 'results', 'output', 'outputs', 'itemResults', 'output_item', 'output_items', 'itemOutput', 'guaranteed_outputs', 'tag_result'):
                 if k in raw_d:
                     parsed_outs.extend(parse_output_entry(raw_d[k]))
+                    if k == 'guaranteed_outputs' and 'chance_outputs' in raw_d:
+                        for item_id, cnt, ch, _ in parse_output_entry(raw_d['chance_outputs']):
+                            parsed_outs.append((item_id, cnt, ch, 0))
                     break
 
+    if unparsed > 0:
+        extra_data['unparsed_slots'] = unparsed
     return parsed_ings, parsed_outs, dur_ticks, energy_fe, structure_id, sacrifice_entity, extra_data
 
 FIELD = 'field'   # роль запису, знайденого поза відомим полем входів (parse_raw → complete): ще не перевірений вхід
 
 def field_entries(raw_d, used, ingr):
     """Записи у формі інгредієнта з решти полів верхнього рівня рецепта (K9) — для рецептів, які розбирає загальна гілка parse_raw
-    (вона знає лише назви ingredient / ingredients / input / inputs / itemInputs; used — поле, яке вона вже розібрала): перелік
-    (кожен запис — окремий вхід), {id}, {ingredient} тощо. Рядки верхнього рівня бере complete. Типи з власною гілкою розбору
-    свої поля знають самі — туди це не заходить (ritual_dummy ритуалів — мітка, не вхід). -> записи з роллю FIELD.
-    Замір K9 по всіх 33 245 активних рецептах з JSON: у загальній гілці таких полів три — incenses (125 входів, ритуали
-    Roots Classic), extraIngredient (12), fuel (6); службових серед них немає."""
+    (used — ключ або множина ключів, які вона вже розібрала): перелік (кожен запис — окремий вхід), {id}, {ingredient} тощо.
+    Рядки верхнього рівня бере complete. Типи з власною гілкою розбору свої поля знають самі — туди це не заходить."""
+    used_s = {used} if isinstance(used, str) else set(used or ())
     res = []
     for k, v in raw_d.items():
-        if k == used or k in SKIPK or OUTK.search(k) or not isinstance(v, (list, dict)): continue
+        if k in used_s or k in SKIPK or OUTK.search(k) or not isinstance(v, (list, dict)): continue
         for entry in (v if isinstance(v, list) else [v]):
             res += [(ref, is_tag, cnt, FIELD, None) for ref, is_tag, cnt in ingr(entry)]
     return res
@@ -589,7 +631,25 @@ def main():
     kinds = Kinds(set(reg_idx.get('items', [])), set(item_tags), set(reg_idx.get('fluids', [])), set(tags_idx.get('fluid', {})), reg_idx.get('items_src') == 'game')
     if not kinds.strict: print("⚠ реєстр предметів — не з гри (немає знімка raw/game_item_names.json): записи поза реєстром лишаються предметами")
     choices = Choices(kinds.items if kinds.strict else None, item_tags)
-    ingr = lambda x: parse_ingredient_entry(x, item_tags, choices)
+    ingr = lambda x: parse_ingredient_entry(x, item_tags, choices, kinds)
+    game_ri = jload(os.path.join(RAW, 'game_recipe_ingredients.json'), None) or {}
+    game_sets = game_ri.get('sets') if isinstance(game_ri.get('sets'), list) else []
+    game_recs = game_ri.get('recipes') if isinstance(game_ri.get('recipes'), dict) else {}
+    game_stat = {'slots': 0, 'recipes': set()}
+    def make_resolver(rid):
+        pairs = game_recs.get(rid)
+        if not pairs or not game_sets: return None
+        by_slot = {int(s): game_sets[int(i)] for s, i in pairs if isinstance(s, int) and isinstance(i, int) and 0 <= i < len(game_sets) and game_sets[i]}
+        if not by_slot: return None
+        def _res(seq, raw_slot):
+            ms = by_slot.get(seq)
+            if not ms: return None
+            cnt = _num(raw_slot['count'] if 'count' in raw_slot else raw_slot.get('amount', 1.0)) if isinstance(raw_slot, dict) else 1.0
+            game_stat['slots'] += 1; game_stat['recipes'].add(rid)
+            return choices.one([(m, 0, cnt) for m in ms])
+        return _res
+    if game_recs: print(f"🧩 Знімок нестандартних інгредієнтів гри: {len(game_recs)} рецептів, {len(game_sets)} множин")
+    else: print("ℹ знімка raw/game_recipe_ingredients.json немає — нестандартні слоти лише за статичним правилом")
 
     os.makedirs(os.path.dirname(DB_OUT_RAW), exist_ok=True)
     if os.path.exists(DB_OUT_RAW):
@@ -620,8 +680,11 @@ def main():
     for src, items in by_src.items():
         z = None
         kd_dir = None
+        dyn_dir = None
         if src == 'kubejs/data':
             kd_dir = os.path.join(MC, 'kubejs')
+        elif src == 'kubejs/dynamic_data':
+            dyn_dir = os.path.join(MC, 'kubejs', 'dynamic_data')
         else:
             try:
                 z = get_zip_or_dir(src, mod_jars)
@@ -645,6 +708,14 @@ def main():
                         raw_d = json.load(open(fp, encoding='utf-8-sig'))
                     except Exception:
                         pass
+            elif dyn_dir and p:
+                rel = p[5:] if p.startswith('data/') else p
+                fp = os.path.join(dyn_dir, rel)
+                if os.path.exists(fp):
+                    try:
+                        raw_d = json.load(open(fp, encoding='utf-8-sig'))
+                    except Exception:
+                        pass
 
             # Базові поля з індексу сита
             rtype = meta.get('t') or (raw_d.get('type') if raw_d else '') or 'unknown'
@@ -653,7 +724,7 @@ def main():
             active = 1 if meta.get('a') is True else 0
             why_inactive = meta.get('why') or ''
 
-            parsed_ings, parsed_outs, dur_ticks, energy_fe, structure_id, sacrifice_entity, extra_data = parse_raw(rtype, raw_d, ingr)
+            parsed_ings, parsed_outs, dur_ticks, energy_fe, structure_id, sacrifice_entity, extra_data = parse_raw(rtype, raw_d, ingr, make_resolver(rid))
             parsed_ings, parsed_outs, parsed_fls, other = complete(raw_d, parsed_ings, parsed_outs, meta.get('in'), meta.get('out'), kinds)
             if other: extra_data['other'] = other
 
@@ -691,7 +762,7 @@ def main():
         act = 1 if kr.get('active') else 0
         why = kr.get('why') or ''
         raw_k = kr.get('json') if isinstance(kr.get('json'), dict) else None   # виклик KubeJS у формі datapack (пісочниця) — з кількостями й сіткою
-        k_ings, k_outs, dur_ticks, energy_fe, structure_id, sacrifice_entity, extra_data = parse_raw(rtype, raw_k, ingr)
+        k_ings, k_outs, dur_ticks, energy_fe, structure_id, sacrifice_entity, extra_data = parse_raw(rtype, raw_k, ingr, make_resolver(rid))
         k_ings, k_outs, k_fls, other = complete(raw_k, k_ings, k_outs, kr.get('in'), kr.get('out'), kinds)
         if other: extra_data['other'] = other
         rec_rows.append((rid, rtype, cat, mod_id, dur_ticks, energy_fe, in_world, structure_id, sacrifice_entity, act, why, kr.get('at', 'kubejs'), json.dumps(extra_data) if extra_data else None))
@@ -699,6 +770,7 @@ def main():
         for out_id, cnt, chance, is_prim in k_outs: out_rows.append((rid, out_id, cnt, chance, is_prim))
         for fid, amt, io_type in k_fls: fluid_rows.append((rid, fid, amt, io_type))
 
+    if game_stat['slots']: print(f"🧩 Знімком гри розкрито нестандартних слотів: {game_stat['slots']} у {len(game_stat['recipes'])} рецептах")
     print(f"💾 [3/5] Запис у базу: {len(rec_rows)} рецептів, {len(ing_rows)} інгредієнтів, {len(out_rows)} виходів, {len(fluid_rows)} рідин...")
     cur = db.cursor()
     cur.executemany("INSERT INTO recipes VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)", rec_rows)

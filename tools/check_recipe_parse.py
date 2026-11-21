@@ -132,6 +132,52 @@ CASES += [
     (CF({'soil': {'id': 'x:b'}}, ['x:b'], base={'seed': 'x:a'}), [('x:a', 1.0), ('x:b', 1.0)], 'відомого поля входів немає — входи з індексу сита, як і раніше'),
     (bool(E.OUTK.search('tertiary')), True, 'третій вихід (tertiary) — вихід, як і secondary'),
 ]
+# K29 (Д6): універсальні форми JSON + знімок нестандартних інгредієнтів гри + нерозібрані слоти
+K29 = B.Kinds({'x:conduit', 'x:gem', 'x:orb1', 'x:orb2', 'x:chest', 'x:barrel', 'x:plank1', 'x:plank2', 'x:stone', 'x:ingot', 'x:out', 'x:a', 'x:b', 'x:oil', 'x:boot', 'x:tpl', 'x:dust', 'minecraft:stick'},
+              {'x:wood_box', 'c:ingots', 'minecraft:saplings'}, {'minecraft:water', 'minecraft:lava'}, set(), True)
+def P29(t, d, gslots=None):
+    c = B.Choices(K29.items, {'x:wood_box': ['x:chest', 'x:barrel'], 'c:ingots': ['x:ingot'], 'minecraft:saplings': ['minecraft:stick']})
+    ing = lambda x: B.parse_ingredient_entry(x, c.tags, c, K29)
+    res = (lambda seq, _raw: c.one([(m, 0, 1.0) for m in gslots[seq]]) if gslots and seq in gslots else None) if gslots is not None else None
+    r = B.parse_raw(t, d, ing, res)
+    return [(x[0], x[2]) for x in r[0]], [(x[0], x[1], x[2], x[3]) for x in r[1]], r[6], c.groups
+CASES += [
+    # itemStack, block, fluid, amount (не-рідина)
+    (I({'color': -1, 'itemStack': {'id': 'x:oil'}, 'order': 0}), [('x:oil', 0, 1.0)], 'обгортка itemStack у слоті'),
+    (I({'block': 'x:stone'}), [('x:stone', 0, 1.0)], 'ключ block у слоті'),
+    (I({'fluid': {'id': 'minecraft:water'}}), [('minecraft:water', 0, 1.0)], 'ключ fluid без amount у слоті'),
+    (I({'amount': 3, 'ingredient': 'x:a'}), [('x:a', 0, 3.0)], 'кількість у полі amount для предметного інгредієнта'),
+    (I({'count': 2, 'amount': 9, 'ingredient': 'x:a'}), [('x:a', 0, 2.0)], 'count має пріоритет над amount'),
+    # статичний fallback neoforge:ingredient_type ∈ items / ∈ item_tags
+    (B.parse_ingredient_entry({'neoforge:ingredient_type': 'x:conduit', 'conduit_type': 'x:redstone'}, {}, None, K29), [('x:conduit', 0, 1.0)], 'custom type, що є предметом реєстру → цей предмет'),
+    (B.parse_ingredient_entry({'neoforge:ingredient_type': 'x:wood_box'}, {}, None, K29), [('#x:wood_box', 1, 1.0)], 'custom type, що є тегом предметів → цей тег'),
+    # знімок гри (slot_resolver) для нерозібраного custom-слота в сітці й без форми
+    (P29('minecraft:crafting_shaped', {'pattern': ['S S', 'SOS'], 'key': {'S': 'x:stone', 'O': {'neoforge:ingredient_type': 'x:orb_tier', 'tier': 2}}, 'result': 'x:out'}, {3: ['x:orb1', 'x:orb2']})[0],
+     [('x:stone', 1.0), ('x:stone', 1.0), ('x:stone', 1.0), ('#' + B.Choices.gid(['x:orb1', 'x:orb2']), 1.0), ('x:stone', 1.0)], 'знімок гри підставляє custom-слот за індексом непустої клітинки сітки → група #choice'),
+    (P29('minecraft:crafting_shapeless', {'ingredients': ['x:stone', {'neoforge:ingredient_type': 'x:unknown_part'}], 'result': 'x:out'}, {1: ['x:a']})[0],
+     [('x:stone', 1.0), ('x:a', 1.0)], 'знімок гри з 1 предметом → просто цей предмет'),
+    # нерозібраний слот без знімка → чесний лічильник unparsed_slots у extra_data
+    (P29('x:salvaging', {'input': {'neoforge:ingredient_type': 'x:affix', 'rarity': 'x:mythic'}, 'outputs': [{'stack': {'id': 'x:out'}}]})[2],
+     {'unparsed_slots': 1}, 'нерозібраний custom-слот без знімка → unparsed_slots в extra_data'),
+    # сітка pattern+key поза crafting_shaped (апгрейди рюкзаків/скринь, rolling, arcane_workbench)
+    (P29('mod:tier_upgrade', {'pattern': ['III', 'ICI', 'III'], 'key': {'I': 'x:ingot', 'C': 'x:chest'}, 'result': {'id': 'x:out'}})[0],
+     [('x:ingot', 1.0)] * 4 + [('x:chest', 1.0)] + [('x:ingot', 1.0)] * 4, 'сітка pattern+key будь-якого типу рецепта зберігає всі 9 клітинок'),
+    # ковальський рецепт base + addition + template із кількістю
+    (P29('mod:sized_upgrade', {'template': 'x:tpl', 'base': 'x:boot', 'addition': {'count': 4, 'ingredient': '#c:ingots'}, 'result': {'id': 'x:out'}})[0],
+     [('x:tpl', 1.0), ('x:boot', 1.0), ('#c:ingots', 4.0)], 'ковальський рецепт base+addition+template зберігає кількість addition'),
+    # загальні ключі входів (materials, input_items з amount, input_item без minecraft:, additives) і виходів
+    (P29('mod:construct', {'materials': [{'count': 3, 'ingredient': 'x:plank1'}, {'count': 2, 'ingredient': 'x:ingot'}], 'result': {'id': 'x:out'}})[0],
+     [('x:plank1', 3.0), ('x:ingot', 2.0)], 'поле materials зберігає кількості'),
+    (P29('mod:assembler', {'input_items': [{'amount': 3, 'ingredient': 'x:a'}, {'amount': 64, 'ingredient': 'x:b'}], 'itemOutput': {'id': 'x:out', 'count': 64}})[:2],
+     ([('x:a', 3.0), ('x:b', 64.0)], [('x:out', 64.0, 1.0, 1)]), 'input_items з amount і вихід itemOutput з count'),
+    (P29('mod:squeeze', {'input_item': '#saplings', 'output_items': [{'item': {'id': 'x:a', 'count': 2}}, {'item': {'id': 'x:b'}, 'chance': 0.5}]})[:2],
+     ([('#minecraft:saplings', 1.0)], [('x:a', 2.0, 1.0, 1), ('x:b', 1.0, 0.5, 0)]), 'input_item без minecraft: і output_items із count/chance'),
+    (P29('enderio:alloy_smelting', {'inputs': [{'count': 2, 'ingredient': 'x:a'}], 'output': {'id': 'x:out', 'count': 4}})[:2],
+     ([('x:a', 2.0)], [('x:out', 4.0, 1.0, 1)]), 'Ender IO з полем output в однині зберігає count'),
+    (P29('mod:athanor', {'ingredients': ['x:a'], 'guaranteed_outputs': [{'id': 'x:out', 'count': 2}], 'chance_outputs': [{'item': {'id': 'x:dust'}, 'chance': 0.5}]})[1],
+     [('x:out', 2.0, 1.0, 1), ('x:dust', 1.0, 0.5, 0)], 'guaranteed_outputs + chance_outputs разом'),
+    (O({'tag': 'c:ores/alexandrite', 'count': 2}), [('#c:ores/alexandrite', 2.0, 1.0, 1)], 'вихід-тег у словнику {tag} (tag_result)'),
+]
 bad = [(why, got, want) for got, want, why in CASES if got != want]
 for why, got, want in bad: print(f'❌ {why}: {got} ≠ {want}')
 print(f'Розбір записів рецептів: {len(CASES) - len(bad)} з {len(CASES)}')
