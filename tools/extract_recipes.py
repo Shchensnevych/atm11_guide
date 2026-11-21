@@ -135,8 +135,15 @@ def tags(srcs, exist, rep):
         memo[(reg, tid)] = out; return out
     resolved = {r: {} for r in ('item', 'block', 'fluid')}
     for (reg, tid) in list(defs): resolved[reg][tid] = sorted(res(reg, tid))
+    parents = {r: collections.defaultdict(set) for r in ('item', 'block', 'fluid')}
+    for (reg, tid), entries in defs.items():
+        for v, _ in entries:
+            if v.startswith('#'):
+                ch = v[1:]
+                if ch != tid: parents[reg][ch].add(tid)
+    parents_out = {r: {ch: sorted(ps) for ch, ps in sorted(pm.items())} for r, pm in parents.items()}
     if missing: rep.append(f'інфо: у тегах обов\'язкові записи неіснуючих предметів/блоків/рідин: {dict(missing)} (гра пише попередження)')
-    return resolved, {f'{r}:{t}': v for (r, t), v in srcmap.items()}
+    return resolved, {f'{r}:{t}': v for (r, t), v in srcmap.items()}, parents_out
 
 def ingredients(d, items, fluids):
     """Усі ID предметів / рідин / тегів рецепта: входи й виходи (виходи — під ключами result/output/…). Інші ID (сутності, ритуали) — x."""
@@ -224,6 +231,32 @@ def conds(d, ctx):
     v = False if False in vs else (None if None in vs else True)
     return v, '; '.join(r[1] for r in rs if r[1] and (r[0] is not True or v is not True))
 
+def tag_empty_refs(d):
+    """Теги, перевірені умовою neoforge:tag_empty у рецепті (K32: для перерахунку після накладання KubeJS-тегів)."""
+    out = set()
+    def walk(c):
+        if isinstance(c, list):
+            for x in c: walk(x)
+        elif isinstance(c, dict):
+            t = c.get('type', '')
+            if t == 'neoforge:tag_empty' and isinstance(c.get('tag'), str):
+                out.add(c['tag'].lstrip('#'))
+            elif t == 'neoforge:not': walk(c.get('value'))
+            elif t in ('neoforge:and', 'neoforge:or'): walk(c.get('values'))
+    walk((d or {}).get('neoforge:conditions'))
+    return out
+
+def _eval_recipe_active(d, t, ctx, unk):
+    a, why = conds(d, ctx)
+    tns = t.split(':')[0]
+    if a is not False:
+        if not t: a, why = False, 'без type'
+        elif tns not in ctx.loaded and tns != 'minecraft': a, why = False, f'тип {t} — мода {tns} немає'
+        else:
+            gone = sorted({u.split(':')[0] for u in unk} - ctx.loaded - NOT_MODS)
+            if gone: a, why = False, f'предмети модів, яких немає: {", ".join(gone)} (рецепт не завантажиться)'
+    return a, why
+
 NOT_MODS = {'minecraft', 'c', 'neoforge', 'forge', 'kubejs', 'atm'}
 
 def recipes(srcs, ctx, rep):
@@ -239,20 +272,16 @@ def recipes(srcs, ctx, rep):
             if not isinstance(d, dict): bad.append(f'{s.label}:{n}: не об\'єкт'); continue
             if rid in idx: dup[rid] += 1
             t = d.get('type') or ''; t = t if ':' in t else 'minecraft:' + t if t else ''
-            a, why = conds(d, ctx)
             ins, outs, other, unk, prim = ingredients(d, ctx.items, ctx.fluids)
+            a, why = _eval_recipe_active(d, t, ctx, unk)
             tns = t.split(':')[0]
-            if a is not False:
-                if not t: a, why = False, 'без type'
-                elif tns not in ctx.loaded and tns != 'minecraft': a, why = False, f'тип {t} — мода {tns} немає'
-                else:
-                    gone = sorted({u.split(':')[0] for u in unk} - ctx.loaded - NOT_MODS)
-                    if gone: a, why = False, f'предмети модів, яких немає: {", ".join(gone)} (рецепт не завантажиться)'
             mods = sorted({x.lstrip('#').split(':')[0] for x in ins + outs if not x.startswith('#')} - NOT_MODS | ({tns} - NOT_MODS if tns else set()))
             e = {'t': t, 'src': s.label, 'p': n, 'in': ins, 'out': outs, 'm': mods, 'a': a}
             if why: e['why'] = why
             if other: e['x'] = other[:12]
             if prim != outs: e['po'] = prim
+            te = sorted(tag_empty_refs(d))
+            if te: e['te'] = te
             idx[rid] = e
     if plural: rep.append(f'інфо: файлів у застарілій теці recipes/ (1.20; гра 1.21+ їх не читає, в індекс не взято): {sum(plural.values())} у {len(plural)} jar')
     if bad: rep += [f'⚠ рецептів, що не читаються: {len(bad)}'] + [f'  - {b}' for b in bad[:20]]
@@ -293,10 +322,192 @@ def kjs_log():
     if m: r['added'], r['removed'], r['modified'] = (int(x) for x in m[-1])
     return r
 
-def apply_kjs(idx, rep, k=None):
-    """Накласти KubeJS з raw/kubejs_index.json: remove → a: false (kjs_off, a0 — як було), replaceInput/Output → kjs_mod, додані рецепти (src: kubejs). Ідемпотентно."""
+def apply_kjs_tags(tags_doc, exist, rep, k=None):
+    """K32 (Д2): ідемпотентно накласти ServerEvents.tags (add / remove / removeAll, #тег, @мод) на tags_index.json
+    з фільтрацією за реєстром гри (exist: item / block / fluid). Початкові значення змінених тегів зберігаються в
+    tags_doc['kjs_orig'], щоб повторний запуск і пісочниця KubeJS завжди бачили чистий до-KubeJS стан.
+    Повертає множину тегів предметів, які перейшли порожній ↔ непорожній відносно до-KubeJS стану."""
+    prev_orig = tags_doc.pop('kjs_orig', None) or {}
+    srcmap = tags_doc.get('src') if isinstance(tags_doc.get('src'), dict) else {}
+    for r in ('item', 'block', 'fluid'):
+        cur = tags_doc.setdefault(r, {})
+        for t, val in (prev_orig.get(r) or {}).items():
+            if val is None: cur.pop(t, None)
+            else: cur[t] = list(val)
+            ksrc = f'{r}:{t}'
+            if ksrc in srcmap:
+                srcmap[ksrc] = [s for s in srcmap[ksrc] if s != 'kubejs']
+                if not srcmap[ksrc]: srcmap.pop(ksrc, None)
     k = k if k is not None else jload(os.path.join(RAW, 'kubejs_index.json'))
-    if not k: rep.append('інфо: raw/kubejs_index.json ще немає — KubeJS не накладено (запустіть tools/extract_kubejs.py)'); return
+    ops = (k or {}).get('tags') or []
+    if not ops:
+        return set()
+    base_item_nonempty = {t: bool(v) for t, v in tags_doc.get('item', {}).items()}
+    base_sets = {r: {t: set(v) for t, v in tags_doc.get(r, {}).items()} for r in ('item', 'block', 'fluid')}
+    sets = {r: {t: set(v) for t, v in base_sets[r].items()} for r in ('item', 'block', 'fluid')}
+    orig_vals = {r: {} for r in ('item', 'block', 'fluid')}
+    raw_parents = tags_doc.get('parents') if isinstance(tags_doc.get('parents'), dict) else {}
+    eff_parents = {r: collections.defaultdict(set, {ch: set(ps) for ch, ps in (raw_parents.get(r) or {}).items()})
+                   for r in ('item', 'block', 'fluid')}
+    removed_explicit = {r: collections.defaultdict(set) for r in ('item', 'block', 'fluid')}
+    for op in ops:
+        r = op.get('reg')
+        if r not in sets: continue
+        t = str(op.get('tag') or '').lstrip('#')
+        if not t: continue
+        kind = op.get('kind')
+        vals = op.get('vals') or []
+        pool = exist.get(r)
+        if t not in orig_vals[r]:
+            orig_vals[r][t] = sorted(sets[r][t]) if t in sets[r] else None
+        s = sets[r].setdefault(t, set())
+        if kind == 'add':
+            for x in vals:
+                if not isinstance(x, str): continue
+                if x.startswith('#'):
+                    ch = x[1:]
+                    inc = sets[r].get(ch, set())
+                    s |= inc
+                    removed_explicit[r][t] -= inc
+                    if ch != t: eff_parents[r][ch].add(t)
+                elif x.startswith('@') and pool is not None:
+                    pre = x[1:] + ':'
+                    inc = {i for i in pool if i.startswith(pre)}
+                    s |= inc
+                    removed_explicit[r][t] -= inc
+                elif pool is None or x in pool:
+                    s.add(x)
+                    removed_explicit[r][t].discard(x)
+        elif kind == 'remove':
+            for x in vals:
+                if not isinstance(x, str): continue
+                if x.startswith('#'):
+                    ch = x[1:]
+                    rem = sets[r].get(ch, set())
+                    s -= rem
+                    removed_explicit[r][t] |= rem
+                    if ch in eff_parents[r]: eff_parents[r][ch].discard(t)
+                elif x.startswith('@') and pool is not None:
+                    pre = x[1:] + ':'
+                    rem = {i for i in pool if i.startswith(pre)}
+                    s -= rem
+                    removed_explicit[r][t] |= rem
+                else:
+                    s.discard(x)
+                    removed_explicit[r][t].add(x)
+        elif kind == 'removeAll':
+            s.clear()
+            removed_explicit[r][t].clear()
+            for ps in eff_parents[r].values(): ps.discard(t)
+    # Поширити додані KubeJS елементи вгору по зв'язках батьківських jar-тегів (#дитина → батько), не чіпаючи явні remove / removeAll
+    for r in ('item', 'block', 'fluid'):
+        pmap = eff_parents[r]
+        if not pmap: continue
+        q = collections.deque(sorted(t for t, s in sets[r].items() if pmap.get(t) and (s - base_sets[r].get(t, set()))))
+        in_q = set(q)
+        while q:
+            ch = q.popleft(); in_q.discard(ch)
+            delta = sets[r][ch] - base_sets[r].get(ch, set())
+            if not delta: continue
+            for p in sorted(pmap.get(ch, ())):
+                add_p = delta - removed_explicit[r][p] - sets[r].get(p, set())
+                if not add_p: continue
+                if p not in orig_vals[r]:
+                    orig_vals[r][p] = sorted(sets[r][p]) if p in sets[r] else None
+                sets[r].setdefault(p, set()).update(add_p)
+                if pmap.get(p) and p not in in_q:
+                    q.append(p); in_q.add(p)
+    kjs_orig = {}
+    stats = []
+    for r in ('item', 'block', 'fluid'):
+        chg = add_p = rem_p = new_ne = 0
+        for t, ov in sorted(orig_vals[r].items()):
+            nv = sorted(sets[r][t])
+            if (ov is None and not nv) or (ov is not None and nv == ov):
+                if ov is None: sets[r].pop(t, None)
+                continue
+            chg += 1
+            oset = set(ov or ())
+            nset = set(nv)
+            add_p += len(nset - oset); rem_p += len(oset - nset)
+            if not oset and nset: new_ne += 1
+            tags_doc[r][t] = nv
+            kjs_orig.setdefault(r, {})[t] = ov
+            ksrc = f'{r}:{t}'
+            if isinstance(srcmap, dict):
+                lst = srcmap.setdefault(ksrc, [])
+                if 'kubejs' not in lst: lst.append('kubejs')
+        if chg:
+            stats.append(f'{r} {chg} (+{add_p}/-{rem_p}' + (f', нових непорожніх {new_ne}' if new_ne else '') + ')')
+    if kjs_orig: tags_doc['kjs_orig'] = kjs_orig
+    if stats: rep.append('KubeJS теги: змінено ' + ', '.join(stats))
+    return {t for t in set(base_item_nonempty) | set(tags_doc.get('item', {}))
+            if base_item_nonempty.get(t, False) != bool(tags_doc.get('item', {}).get(t))}
+
+def _read_recipe_json(src, p, zcache):
+    """Прочитати один JSON рецепта з jar / kubejs (для точкового перерахунку умов neoforge:tag_empty)."""
+    if not src or not p or src == 'kubejs': return None
+    if src == 'kubejs/data':
+        fp = os.path.join(MC, 'kubejs', p)
+        return json.load(open(fp, encoding='utf-8-sig')) if os.path.exists(fp) else None
+    if src == 'kubejs/dynamic_data':
+        rel = p[5:] if p.startswith('data/') else p
+        fp = os.path.join(MC, 'kubejs', 'dynamic_data', rel)
+        return json.load(open(fp, encoding='utf-8-sig')) if os.path.exists(fp) else None
+    z = zcache.get(src)
+    if src not in zcache:
+        z = None
+        if src == 'minecraft':
+            cj = next((x for x in CLIENT_JARS() if os.path.exists(x)), None)
+            if cj: z = zipfile.ZipFile(cj)
+        elif src == 'neoforge':
+            nf = neoforge_jar()
+            if nf: z = zipfile.ZipFile(nf)
+        elif '!' in src:
+            out_j, in_j = src.split('!', 1)
+            fp = os.path.join(MODS, out_j)
+            if os.path.exists(fp):
+                with zipfile.ZipFile(fp) as oz:
+                    hit = next((n for n in oz.namelist() if n.endswith(in_j)), None)
+                    if hit: z = zipfile.ZipFile(io.BytesIO(oz.read(hit)))
+        elif src.endswith('.jar'):
+            fp = os.path.join(MODS, src)
+            if os.path.exists(fp): z = zipfile.ZipFile(fp)
+        zcache[src] = z
+    if z:
+        try: return json.loads(z.read(p).decode('utf-8-sig'))
+        except Exception: return None
+    return None
+
+def recheck_tag_empty(idx, ctx, flipped, rep):
+    """K32 (Д2): переобчислити умови neoforge:tag_empty для рецептів, чиї теги KubeJS перемкнув порожній ↔ непорожній
+    (у грі KubeJS TagEmptyConditionMixin дивиться на теги вже після ServerEvents.tags). Викликати до apply_kjs."""
+    if not flipped: return 0
+    cand = [(rid, e) for rid, e in idx.items() if e.get('src') != 'kubejs' and e.get('te') and (set(e['te']) & flipped)]
+    if not cand: return 0
+    zcache, changed = {}, 0
+    try:
+        for rid, e in cand:
+            d = _read_recipe_json(e.get('src'), e.get('p'), zcache)
+            if not isinstance(d, dict): continue
+            t = e.get('t') or ''
+            _, _, _, unk, _ = ingredients(d, ctx.items, ctx.fluids)
+            a, why = _eval_recipe_active(d, t, ctx, unk)
+            if a != e.get('a') or (why or '') != (e.get('why') or ''):
+                changed += 1
+            e['a'] = a
+            if why: e['why'] = why
+            else: e.pop('why', None)
+    finally:
+        for z in zcache.values():
+            if z:
+                try: z.close()
+                except Exception: pass
+    if changed: rep.append(f'KubeJS теги → neoforge:tag_empty: оновлено статус {changed} рецептів')
+    return changed
+
+def unapply_kjs(idx):
+    """Зняти накладені раніше правки KubeJS із recipes_index (ідемпотентно, перед перерахунком умов або новим apply_kjs)."""
     for rid in [r for r, e in idx.items() if e.get('src') == 'kubejs']:
         if idx[rid].get('orig'): idx[rid] = idx[rid]['orig']             # рецепт jar, який перекрив KubeJS з тим самим id
         else: del idx[rid]
@@ -305,6 +516,12 @@ def apply_kjs(idx, rep, k=None):
             e['a'] = e.pop('a0', e['a']); e.pop('kjs_off'); w = e.pop('why0', None); e.pop('why', None)
             if w: e['why'] = w
         e.pop('kjs_mod', None)
+
+def apply_kjs(idx, rep, k=None):
+    """Накласти KubeJS з raw/kubejs_index.json: remove → a: false (kjs_off, a0 — як було), replaceInput/Output → kjs_mod, додані рецепти (src: kubejs). Ідемпотентно."""
+    k = k if k is not None else jload(os.path.join(RAW, 'kubejs_index.json'))
+    if not k: rep.append('інфо: raw/kubejs_index.json ще немає — KubeJS не накладено (запустіть tools/extract_kubejs.py)'); return
+    unapply_kjs(idx)
     off = 0
     for rid, by in (k.get('removed_ids') or {}).items():
         e = idx.get(rid)
@@ -345,13 +562,15 @@ def main():
     else: rep.append('⚠ знімка реєстру гри (raw/game_item_names.json) немає — предмети за моделями в jar: умова neoforge:registered і теги можуть відрізнятись від гри (tools/extract_game_names.py після запуску гри з компаньйоном)')
     if fluids_src == 'game': rep.append(f'реєстр рідин — знімок гри raw/game_fluid_names.json: {len(fluids)}; за ключами перекладу в jar було б {len(jar_fluids)} (лише в jar, у грі такої рідини немає: {len(jar_fluids - fluids)}; лише в грі: {len(fluids - jar_fluids)})')
     else: rep.append('⚠ знімка реєстру рідин гри (raw/game_fluid_names.json) немає — рідини за ключами перекладу в jar: рідини без такого ключа потрапляють в «інше» (tools/extract_game_names.py після запуску гри з компаньйоном)')
-    tagsr, tsrc = tags(srcs, {'item': items, 'block': blocks, 'fluid': fluids}, rep)
-    ctx = Ctx(loaded, items, blocks, fluids, tagsr)
+    tagsr, tsrc, tparents = tags(srcs, {'item': items, 'block': blocks, 'fluid': fluids}, rep)
+    tags_doc = {'item': tagsr['item'], 'block': tagsr['block'], 'fluid': tagsr['fluid'], 'src': tsrc, 'parents': tparents}
+    apply_kjs_tags(tags_doc, {'item': items, 'block': blocks, 'fluid': fluids}, rep)
+    ctx = Ctx(loaded, items, blocks, fluids, tags_doc)
     idx = recipes(srcs, ctx, rep)
     apply_kjs(idx, rep)
     jsave(os.path.join(RAW, 'registry_index.json'), {'mods': sorted(loaded), 'items': sorted(items), 'items_src': items_src, 'blocks': sorted(blocks), 'fluids': sorted(fluids), 'fluids_src': fluids_src,
           'sources': [s.label for s in srcs]}, compact=True)
-    jsave(os.path.join(RAW, 'tags_index.json'), {'item': tagsr['item'], 'block': tagsr['block'], 'fluid': tagsr['fluid'], 'src': tsrc}, compact=True)
+    jsave(os.path.join(RAW, 'tags_index.json'), tags_doc, compact=True)
     jsave(os.path.join(RAW, 'recipes_index.json'), idx, compact=True)
     jsave(os.path.join(RAW, 'config_index.json'), configs(rep), compact=True)
     jsave(os.path.join(RAW, 'lang_index.json'), en, compact=True)

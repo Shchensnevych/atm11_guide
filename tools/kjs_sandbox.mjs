@@ -62,8 +62,41 @@ function parseItem(x, count) {
   return stackProxy(new Stack(s, n))
 }
 let TAGM = { item: {}, block: {}, fluid: {} }
-for (const r of ['item', 'block', 'fluid']) for (const [k, v] of Object.entries(TAGS[r] || {})) TAGM[r][k] = new Set(v)
+const TAGM0 = { item: {}, block: {}, fluid: {} }
+const TAGP = { item: {}, block: {}, fluid: {} }
+const TAGREM = { item: {}, block: {}, fluid: {} }
+for (const r of ['item', 'block', 'fluid']) {
+  for (const [k, v] of Object.entries(TAGS[r] || {})) TAGM[r][k] = new Set(v)
+  for (const [k, v] of Object.entries((TAGS.kjs_orig && TAGS.kjs_orig[r]) || {})) {
+    if (v == null) delete TAGM[r][k]; else TAGM[r][k] = new Set(v)   // K32: чистий до-KubeJS стан тегів
+  }
+  for (const [k, s] of Object.entries(TAGM[r])) TAGM0[r][k] = new Set(s)
+  for (const [ch, ps] of Object.entries((TAGS.parents && TAGS.parents[r]) || {})) TAGP[r][ch] = new Set(ps)
+}
 const tagItems = (t, r = 'item') => [...(TAGM[r][t.replace(/^#/, '')] || [])]
+function propagateTagParents() {
+  for (const r of ['item', 'block', 'fluid']) {
+    const M = TAGM[r], B = TAGM0[r], P = TAGP[r], R = TAGREM[r]
+    const q = [], inQ = new Set()
+    for (const [t, s] of Object.entries(M)) {
+      if (!P[t] || !P[t].size) continue
+      const b = B[t]
+      for (const x of s) if (!b || !b.has(x)) { q.push(t); inQ.add(t); break }
+    }
+    while (q.length) {
+      const ch = q.shift(); inQ.delete(ch)
+      const b = B[ch], delta = []
+      for (const x of M[ch] || []) if (!b || !b.has(x)) delta.push(x)
+      if (!delta.length) continue
+      for (const p of P[ch] || []) {
+        const rem = R[p], dst = M[p] || (M[p] = new Set())
+        let grew = false
+        for (const x of delta) if ((!rem || !rem.has(x)) && !dst.has(x)) { dst.add(x); grew = true }
+        if (grew && P[p] && P[p].size && !inQ.has(p)) { q.push(p); inQ.add(p) }
+      }
+    }
+  }
+}
 // ---- ID у довільних аргументах (як ingredients() у extract_recipes.py)
 const isRe = (x) => Object.prototype.toString.call(x) === '[object RegExp]'     // RegExp зі скриптів — з іншого realm (vm)
 const RXID = /^#?[a-z0-9_.-]+:[a-z0-9_/.-]+$/, OUTK = /result|output|product|byproduct|secondar|^outs?$|drops?$/i
@@ -186,14 +219,36 @@ function recipesEvent() {
 function tagsEvent(regName) {
   const r = String(regName).replace(/^minecraft:/, '').replace(/s$/, '')
   const M = TAGM[r] || (TAGM[r] = {})
-  const vals = (v) => (Array.isArray(v) ? v.flat(5) : [v]).flatMap((x) => isRe(x) ? [...(POOL[r] || [])].filter((i) => x.test(i)) : [String(x instanceof Stack ? x.id : x)])
+  const vals = (v) => (Array.isArray(v) ? v.flat(5) : [v]).flatMap((x) => {
+    if (isRe(x)) return [...(POOL[r] || [])].filter((i) => x.test(i))
+    const s = String(x instanceof Stack ? x.id : x)
+    if (s.startsWith('@') && POOL[r]) { const pre = s.slice(1) + ':'; return [...POOL[r]].filter((i) => i.startsWith(pre)) }
+    return [s]
+  })
   const op = (kind, tag, v) => {
     tag = String(tag).replace(/^#/, ''); const xs = v === undefined ? [] : vals(v)
     O.tags.push({ reg: r, kind, tag, vals: xs, at: where() })
     const s = M[tag] || (M[tag] = new Set())
-    if (kind === 'add') xs.forEach((x) => (x.startsWith('#') ? tagItems(x, r).forEach((y) => s.add(y)) : s.add(x)))
-    if (kind === 'remove') xs.forEach((x) => (x.startsWith('#') ? tagItems(x, r).forEach((y) => s.delete(y)) : s.delete(x)))
-    if (kind === 'removeAll') s.clear()
+    const P = TAGP[r], R = TAGREM[r]
+    if (kind === 'add') xs.forEach((x) => {
+      if (x.startsWith('#')) {
+        const ch = x.slice(1)
+        tagItems(x, r).forEach((y) => { s.add(y); if (R && R[tag]) R[tag].delete(y) })
+        if (P && ch !== tag) (P[ch] || (P[ch] = new Set())).add(tag)
+      } else { s.add(x); if (R && R[tag]) R[tag].delete(x) }
+    })
+    if (kind === 'remove') xs.forEach((x) => {
+      if (x.startsWith('#')) {
+        const ch = x.slice(1)
+        tagItems(x, r).forEach((y) => { s.delete(y); if (R) (R[tag] || (R[tag] = new Set())).add(y) })
+        if (P && P[ch]) P[ch].delete(tag)
+      } else { s.delete(x); if (R) (R[tag] || (R[tag] = new Set())).add(x) }
+    })
+    if (kind === 'removeAll') {
+      s.clear()
+      if (R) delete R[tag]
+      if (P) for (const ps of Object.values(P)) ps.delete(tag)
+    }
   }
   const tagObj = (tag) => { const o = { add: (v) => (op('add', tag, v), o), remove: (v) => (op('remove', tag, v), o), removeAll: () => (op('removeAll', tag), o), getObjectIds: () => [...(M[String(tag).replace(/^#/, '')] || [])] }; return o }
   const e = { add: (t, v) => op('add', t, v), remove: (t, v) => op('remove', t, v), removeAll: (t) => op('removeAll', t), get: tagObj,
@@ -296,10 +351,13 @@ const RUN = { 'StartupEvents.registry': (h) => registryEvent(typeof h.args[0] ==
 const ORDER = ['StartupEvents.registry', 'ServerEvents.generateData', 'ServerEvents.tags', 'ServerEvents.recipes']
 function dispatch(phase) {
   const mine = HANDLERS.filter((h) => h.phase === phase)
-  for (const ev of ORDER) for (const h of mine.filter((x) => x.ev === ev)) {
-    const cb = [...h.args].reverse().find((a) => typeof a === 'function'); if (!cb) continue
-    CUR = h.file
-    try { cb(RUN[ev](h)) } catch (e) { O.errors.push({ at: errAt(e, h.at), phase, ev: h.ev, err: String(e).slice(0, 200) }) }
+  for (const ev of ORDER) {
+    for (const h of mine.filter((x) => x.ev === ev)) {
+      const cb = [...h.args].reverse().find((a) => typeof a === 'function'); if (!cb) continue
+      CUR = h.file
+      try { cb(RUN[ev](h)) } catch (e) { O.errors.push({ at: errAt(e, h.at), phase, ev: h.ev, err: String(e).slice(0, 200) }) }
+    }
+    if (ev === 'ServerEvents.tags') propagateTagParents()
   }
   for (const h of mine) if (!ORDER.includes(h.ev)) O.events.push({ ev: h.ev, at: h.at, target: h.args.filter((a) => typeof a === 'string').join(', ') })
 }

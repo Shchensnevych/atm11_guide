@@ -7,7 +7,7 @@
 import os, sys, json, subprocess, collections, re, shutil
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import MC, RAW, jload, jsave
-from extract_recipes import apply_kjs, kjs_log, NOT_MODS
+from extract_recipes import apply_kjs, apply_kjs_tags, recheck_tag_empty, unapply_kjs, Ctx, kjs_log, NOT_MODS
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 def main():
@@ -68,8 +68,17 @@ def main():
     act = sum(1 for e in out.values() if e['active'])
     k['counts'] = {'recipes': len(out), 'active': act, 'removed': len(removed), 'modified': len(modified), 'tag_ops': len(d['tags']), 'registry': len(d['registry'])}
     jsave(os.path.join(RAW, 'kubejs_index.json'), k, compact=True)
-    rep = []; apply_kjs(recs, rep, k); jsave(os.path.join(RAW, 'recipes_index.json'), recs, compact=True)
+    rep = []
+    tags_doc = jload(os.path.join(RAW, 'tags_index.json'), {}) or {}
+    exist = {'item': set(reg['items']), 'block': set(reg['blocks']), 'fluid': set(reg['fluids'])}
+    flipped = apply_kjs_tags(tags_doc, exist, rep, k)
+    jsave(os.path.join(RAW, 'tags_index.json'), tags_doc, compact=True)
+    unapply_kjs(recs)
+    recheck_tag_empty(recs, Ctx(loaded, exist['item'], exist['block'], exist['fluid'], tags_doc), flipped, rep)
+    apply_kjs(recs, rep, k); jsave(os.path.join(RAW, 'recipes_index.json'), recs, compact=True)
     report(k, d, recs, kjs_log())
+    for line in rep:
+        if 'теги' in line: print(' ', line)
     print(f"KubeJS: рецептів {len(out)} (активних {act}), вимкнено jar {len(removed)}, змінено {len(modified)}, теги {len(d['tags'])}, реєстр {len(d['registry'])}, помилок {len(d['errors'])}")
 
 def report(k, d, recs, game):

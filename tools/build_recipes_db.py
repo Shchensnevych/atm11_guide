@@ -4,14 +4,14 @@
 # оригінальні JSON-файли з JAR-пакетів та KubeJS, звіряє ситом із логами гри, і будує:
 #   • atm11_guide/raw/recipes.db
 #   • копію в ATM11-Companion/data/recipes.db
-import os, sys, json, sqlite3, zipfile, io, re, csv, time, shutil, collections, hashlib
+import os, sys, json, sqlite3, zipfile, io, re, time, shutil, collections, hashlib
 
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
     sys.stderr.reconfigure(encoding='utf-8')
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import MC, MODS, RAW, UA, CLIENT_JARS, jload
+from common import MC, MODS, RAW, CLIENT_JARS, jload
 from extract_recipes import neoforge_jar, SKIPK, OUTK
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -476,25 +476,36 @@ def check_fields(ings, outs, known_in, known_out, fls, kinds):
 def complete(raw_d, ings, outs, known_in, known_out, kinds):
     """Доповнити розібране тим, що знає індекс сита (known_in / known_out — id входів і виходів), і розкласти за видами.
     Вхід окремим полем рецепта, який сито знає як вхід, — теж інгредієнт: запис у формі інгредієнта (FIELD — check_fields, K9)
-    або рядок верхнього рівня; запису немає або розбір порожній — входи / виходи з індексу (кількість невідома → 1).
+    або рядок верхнього рівня (K32: якщо рядок — #тег, лише відомий тег предметів чи рідин, щоб теги біомів / ґрунтів не
+    потрапляли у входи-предмети); запису немає або розбір порожній — входи / виходи з індексу (кількість невідома → 1; у
+    строгому режимі невідомі #теги сирого індексу, як теги істот, ідуть у `other`, а не в інгредієнти).
     -> (ings, outs, fluids, other) — див. split_kinds."""
     ings, outs = list(ings), list(outs)
     is_d = isinstance(raw_d, dict)
     fls = parse_fluids(raw_d, kinds) if is_d else []
     ings = check_fields(ings, outs, known_in, known_out, fls, kinds)
+    known_tag = lambda v: (not v.startswith('#')) or (v[1:] in kinds.item_tags) or (v[1:] in kinds.fluid_tags)
     if ings and is_d and known_in:
         known = {i for i, _, _, _, _ in ings}
         for v in raw_d.values():
-            if isinstance(v, str) and v in known_in and v not in known:
+            if isinstance(v, str) and v in known_in and v not in known and known_tag(v):
                 ings.append((v, 1 if v.startswith('#') else 0, 1.0, 'input', None)); known.add(v)
+    fb_other = []
     if not ings and known_in:
-        ings = [(ing, 1 if ing.startswith('#') else 0, 1.0, 'input', slot) for slot, ing in enumerate(known_in)]
+        fb_in = []
+        for v in known_in:
+            if not kinds.strict or known_tag(v): fb_in.append(v)
+            else: fb_other.append(v)
+        ings = [(ing, 1 if ing.startswith('#') else 0, 1.0, 'input', slot) for slot, ing in enumerate(fb_in)]
     if not outs and known_out:
         outs = [(out_id, 1.0, 1.0, 1 if i == 0 else 0) for i, out_id in enumerate(known_out)]
-    return split_kinds(ings, outs, fls, kinds)
+    ings, outs, fls, other = split_kinds(ings, outs, fls, kinds)
+    if fb_other:
+        other.setdefault('in', []).extend(fb_other)
+    return ings, outs, fls, other
 
 def init_schema(db):
-    """Створює схему бази даних SQLite."""
+    """Створює схему бази даних SQLite (K32 Д1: без items_meta і recipes_fts — міст бере назви з names.json)."""
     cur = db.cursor()
     cur.execute("PRAGMA journal_mode = MEMORY;")
     cur.execute("PRAGMA synchronous = OFF;")
@@ -557,22 +568,6 @@ def init_schema(db):
         item_id TEXT NOT NULL,
         PRIMARY KEY (tag_id, item_id)
     );
-
-    CREATE TABLE items_meta (
-        id TEXT PRIMARY KEY,
-        mod_id TEXT NOT NULL,
-        name_en TEXT NOT NULL,
-        name_uk TEXT,
-        icon_path TEXT
-    );
-
-    CREATE VIRTUAL TABLE recipes_fts USING fts5(
-        recipe_id UNINDEXED,
-        item_name_uk,
-        item_name_en,
-        mod_id,
-        ingredients_text
-    );
     """)
     db.commit()
 
@@ -598,31 +593,9 @@ def create_indices(db):
     """)
     db.commit()
 
-def load_translations():
-    """Завантажує назви предметів з effective.tsv."""
-    tsv_path = os.path.join(UA, 'review', 'effective.tsv')
-    meta = {}
-    if not os.path.exists(tsv_path):
-        return meta
-    with open(tsv_path, encoding='utf-8') as f:
-        reader = csv.reader(f, delimiter='\t', quoting=csv.QUOTE_NONE)
-        for row in reader:
-            if len(row) >= 5:
-                k = row[0]
-                for pre in ('item.', 'block.', 'fluid.', 'entity.'):
-                    if k.startswith(pre):
-                        rest = k[len(pre):]
-                        if '.' in rest:
-                            mod, path = rest.split('.', 1)
-                            item_id = f'{mod}:{path}'
-                            if item_id not in meta:
-                                meta[item_id] = (mod, row[3], row[4])
-                        break
-    return meta
-
 def main():
     t0 = time.time()
-    print("⚡ [1/5] Ініціалізація та завантаження індексів 'Сита'...")
+    print("⚡ [1/4] Ініціалізація та завантаження індексів 'Сита'...")
     recs_idx = jload(os.path.join(RAW, 'recipes_index.json'), {}) or {}
     kjs_idx = jload(os.path.join(RAW, 'kubejs_index.json'), {}) or {}
     tags_idx = jload(os.path.join(RAW, 'tags_index.json'), {}) or {}
@@ -673,7 +646,7 @@ def main():
     out_rows = []
     fluid_rows = []
 
-    print("🔍 [2/5] Читання та парсинг рецептів (JARs + KubeJS Data)...")
+    print("🔍 [2/4] Читання та парсинг рецептів (JARs + KubeJS Data)...")
     parsed_count = 0
     mod_jars = set(os.listdir(MODS)) if os.path.isdir(MODS) else set()
 
@@ -771,7 +744,7 @@ def main():
         for fid, amt, io_type in k_fls: fluid_rows.append((rid, fid, amt, io_type))
 
     if game_stat['slots']: print(f"🧩 Знімком гри розкрито нестандартних слотів: {game_stat['slots']} у {len(game_stat['recipes'])} рецептах")
-    print(f"💾 [3/5] Запис у базу: {len(rec_rows)} рецептів, {len(ing_rows)} інгредієнтів, {len(out_rows)} виходів, {len(fluid_rows)} рідин...")
+    print(f"💾 [3/4] Запис у базу: {len(rec_rows)} рецептів, {len(ing_rows)} інгредієнтів, {len(out_rows)} виходів, {len(fluid_rows)} рідин...")
     cur = db.cursor()
     cur.executemany("INSERT INTO recipes VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)", rec_rows)
     cur.executemany("INSERT INTO recipe_ingredients (recipe_id, item_or_tag, is_tag, count, role, slot_idx) VALUES (?,?,?,?,?,?)", ing_rows)
@@ -780,7 +753,7 @@ def main():
     db.commit()
 
     # Запис тегів (item_tags)
-    print("🏷️  [4/5] Запис тегів предметів...")
+    print("🏷️  [4/4] Запис тегів предметів та індексів...")
     item_tags_data = tags_idx.get('item', {})
     tag_rows = []
     for tag_name, items in item_tags_data.items():
@@ -791,40 +764,6 @@ def main():
         tag_rows.extend((gid, item_id) for item_id in members)
     print(f"   груп «на вибір»: {len(choices.groups)}")
     cur.executemany("INSERT OR IGNORE INTO item_tags VALUES (?,?)", tag_rows)
-    db.commit()
-
-    # Запис метаданих предметів (items_meta) та повнотекстовий пошук (recipes_fts)
-    print("🇺🇦 [5/5] Запис метаданих та індексація FTS5...")
-    tr_meta = load_translations()
-    reg_items = set(reg_idx.get('items', []))
-    all_item_ids = reg_items | set(tr_meta.keys())
-    item_rows = []
-    for iid in sorted(all_item_ids):
-        mod = iid.split(':')[0] if ':' in iid else 'minecraft'
-        name_en, name_uk = tr_meta.get(iid, (mod, iid.split(':')[-1].replace('_', ' ').title(), None))[1:]
-        item_rows.append((iid, mod, name_en, name_uk, None))
-
-    cur.executemany("INSERT OR IGNORE INTO items_meta VALUES (?,?,?,?,?)", item_rows)
-    db.commit()
-
-    # Заповнення FTS5 таблиці
-    print("🔍 Створення FTS5 індексу...")
-    cur.execute("""
-    INSERT INTO recipes_fts (recipe_id, item_name_uk, item_name_en, mod_id, ingredients_text)
-    SELECT 
-        r.id,
-        COALESCE(m.name_uk, ''),
-        COALESCE(m.name_en, ''),
-        r.mod_id,
-        GROUP_CONCAT(COALESCE(mi.name_uk, ri.item_or_tag), ' ')
-    FROM recipes r
-    JOIN recipe_outputs ro ON ro.recipe_id = r.id AND ro.is_primary = 1
-    LEFT JOIN items_meta m ON m.id = ro.item_id
-    LEFT JOIN recipe_ingredients ri ON ri.recipe_id = r.id
-    LEFT JOIN items_meta mi ON mi.id = ri.item_or_tag
-    WHERE r.active = 1
-    GROUP BY r.id, m.name_uk, m.name_en, r.mod_id;
-    """)
     db.commit()
 
     print("⚡ Створення індексів швидкодії...")

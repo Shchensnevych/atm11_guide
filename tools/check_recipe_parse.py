@@ -178,6 +178,97 @@ CASES += [
      [('x:out', 2.0, 1.0, 1), ('x:dust', 1.0, 0.5, 0)], 'guaranteed_outputs + chance_outputs разом'),
     (O({'tag': 'c:ores/alexandrite', 'count': 2}), [('#c:ores/alexandrite', 2.0, 1.0, 1)], 'вихід-тег у словнику {tag} (tag_result)'),
 ]
+# K32 (Д1, Д2): чиста схема без items_meta / recipes_fts, накладання KubeJS-тегів і відсіювання не-предметних тегів у complete()
+import sqlite3
+_memdb = sqlite3.connect(':memory:')
+B.init_schema(_memdb)
+_tables = sorted(r[0] for r in _memdb.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'"))
+_memdb.close()
+
+K32 = B.Kinds({'x:seed', 'x:dust', 'x:chalk'}, {'c:tools/hammer'}, {'minecraft:water'}, {'c:molten'}, True)
+_c32_top = B.complete(
+    {'type': 'x:grow', 'ingredient': 'x:seed', 'soilType': '#x:flowers', 'biomes': '#c:is_overworld', 'tool': '#c:tools/hammer', 'result': 'x:seed'},
+    [('x:seed', 0, 1.0, 'input', 0)], [('x:seed', 1.0, 1.0, 1)],
+    ['x:seed', '#x:flowers', '#c:is_overworld', '#c:tools/hammer'], ['x:seed'], K32,
+)
+_c32_fb = B.complete(
+    {'type': 'x:ritual', 'ritual_events': [{'items': ['x:chalk']}, {'entities': ['#minecraft:villager']}]},
+    [], [], ['x:chalk', '#c:molten', '#minecraft:villager'], [], K32,
+)
+_c32_direct = B.complete(
+    {'type': 'x:alch', 'input': ['x:seed', '#c:dusts/hellforged'], 'output': 'x:dust'},
+    [('x:seed', 0, 1.0, 'input', 0), ('#c:dusts/hellforged', 1, 1.0, 'input', 1)], [('x:dust', 1.0, 1.0, 1)],
+    ['x:seed', '#c:dusts/hellforged'], ['x:dust'], K32,
+)
+CASES += [
+    (_tables, ['item_tags', 'recipe_fluids', 'recipe_ingredients', 'recipe_outputs', 'recipes'], 'Д1: схема recipes.db містить лише 5 робочих таблиць (без items_meta і recipes_fts)'),
+    ([x[0] for x in _c32_top[0]], ['x:seed', '#c:tools/hammer'], 'Д2: complete() не підхоплює не-предметні теги з рядків верхнього рівня (ґрунт / біом), але лишає відомий item-тег'),
+    (([x[0] for x in _c32_fb[0]], [f[0] for f in _c32_fb[2]], _c32_fb[3]),
+     (['x:chalk'], ['#c:molten'], {'in': ['#minecraft:villager']}), 'Д2: fallback complete() лишає предмет і тег рідини, а не-предметний тег істоти переносить в other'),
+    ([x[0] for x in _c32_direct[0]], ['x:seed', '#c:dusts/hellforged'], 'Д2: прямий вхід із parse_raw з порожнім item-тегом мода чесно лишається в інгредієнтах'),
+]
+if hasattr(E, 'apply_kjs_tags') and hasattr(E, 'tag_empty_refs'):
+    _td = {'item': {'c:salt': ['x:s1'], 'c:unb': ['x:a', 'x:b', 'x:c'], 'c:mod': []}, 'block': {'b:t': ['x:b1']}, 'fluid': {'c:f': []}, 'src': {'item:c:salt': ['m.jar']}}
+    _ex = {'item': {'x:s1', 'x:a', 'x:b', 'x:c', 'x:d', 'm:i1', 'm:i2'}, 'block': {'x:b1', 'm:b1'}, 'fluid': {'x:fl1'}}
+    _kjs1 = {'tags': [
+        {'reg': 'item', 'kind': 'add', 'tag': 'c:niter', 'vals': ['#c:salt', 'x:ghost']},
+        {'reg': 'item', 'kind': 'add', 'tag': 'c:unb', 'vals': ['x:d']},
+        {'reg': 'item', 'kind': 'remove', 'tag': 'c:unb', 'vals': ['x:b']},
+        {'reg': 'item', 'kind': 'add', 'tag': 'c:by_mod', 'vals': ['@m']},
+        {'reg': 'item', 'kind': 'removeAll', 'tag': 'c:salt', 'vals': []},
+        {'reg': 'fluid', 'kind': 'add', 'tag': 'c:f', 'vals': ['x:fl1', 'x:no_fl']},
+        {'reg': 'block', 'kind': 'add', 'tag': 'b:t', 'vals': ['@m']},
+    ]}
+    _fl1 = E.apply_kjs_tags(_td, _ex, [], _kjs1)
+    _snap1 = (dict(_td['item']), dict(_td['block']), dict(_td['fluid']), dict(_td.get('kjs_orig', {})))
+    _fl2 = E.apply_kjs_tags(_td, _ex, [], _kjs1)   # повторний виклик — 100% ідемпотентний
+    _snap2 = (dict(_td['item']), dict(_td['block']), dict(_td['fluid']), dict(_td.get('kjs_orig', {})))
+    _kjs2 = {'tags': [{'reg': 'item', 'kind': 'add', 'tag': 'c:only2', 'vals': ['x:d']}]}
+    _fl3 = E.apply_kjs_tags(_td, _ex, [], _kjs2)   # новий набір операцій — старі правки відкотились із kjs_orig
+    CASES += [
+        (_snap1[0].get('c:niter'), ['x:s1'], 'Д2: KubeJS add з #вкладеним тегом і фільтром реєстру (x:ghost відкинуто)'),
+        (_snap1[0].get('c:unb'), ['x:a', 'x:c', 'x:d'], 'Д2: KubeJS add + remove на існуючому тезі'),
+        (_snap1[0].get('c:by_mod'), ['m:i1', 'm:i2'], 'Д2: KubeJS @мод розкривається за реєстром'),
+        (_snap1[0].get('c:salt'), [], 'Д2: KubeJS removeAll очищує тег'),
+        (_snap1[2].get('c:f'), ['x:fl1'], 'Д2: KubeJS тег рідин фільтрується за реєстром рідин'),
+        (_snap1[1].get('b:t'), ['m:b1', 'x:b1'], 'Д2: KubeJS тег блоків з @мод'),
+        (sorted(_fl1), ['c:by_mod', 'c:niter', 'c:salt'], 'Д2: flipped повертає теги, що перейшли порожній ↔ непорожній'),
+        (_snap2, _snap1, 'Д2: apply_kjs_tags ідемпотентний при повторному виклику'),
+        ((_td['item'].get('c:niter'), _td['item'].get('c:salt'), _td['item'].get('c:unb'), _td['item'].get('c:only2')),
+         (None, ['x:s1'], ['x:a', 'x:b', 'x:c'], ['x:d']), 'Д2: apply_kjs_tags відкочує попередній KubeJS із kjs_orig перед новим накладанням'),
+        (sorted(E.tag_empty_refs({'neoforge:conditions': [{'type': 'neoforge:and', 'values': [{'type': 'neoforge:not', 'value': {'type': 'neoforge:tag_empty', 'tag': 'c:dusts/niter'}}, {'type': 'neoforge:tag_empty', 'tag': '#c:other'}]}]})),
+         ['c:dusts/niter', 'c:other'], 'Д2: tag_empty_refs знаходить усі теги вкладених умов neoforge:tag_empty'),
+    ]
+    # K32 (додаток): поширення KubeJS-додавань угору в батьківські jar-теги (транзитивно, без циклів, із повагою до remove/removeAll)
+    _tdp = {
+        'item': {'c:ch': ['x:a'], 'c:par': ['x:a'], 'c:grand': [], 'c:excl': ['x:a'], 'c:clr': ['x:a'], 'c:cyc1': [], 'c:cyc2': []},
+        'block': {}, 'fluid': {}, 'src': {},
+        'parents': {'item': {'c:ch': ['c:par', 'c:excl', 'c:clr'], 'c:par': ['c:grand'], 'c:cyc1': ['c:cyc2'], 'c:cyc2': ['c:cyc1']}, 'block': {}, 'fluid': {}},
+    }
+    _exp = {'item': {'x:a', 'x:b', 'x:c'}, 'block': set(), 'fluid': set()}
+    _kjsp = {'tags': [
+        {'reg': 'item', 'kind': 'add', 'tag': 'c:ch', 'vals': ['x:b', 'x:c']},
+        {'reg': 'item', 'kind': 'remove', 'tag': 'c:excl', 'vals': ['x:b']},
+        {'reg': 'item', 'kind': 'removeAll', 'tag': 'c:clr', 'vals': []},
+        {'reg': 'item', 'kind': 'add', 'tag': 'c:cyc1', 'vals': ['x:b']},
+    ]}
+    _flp = E.apply_kjs_tags(_tdp, _exp, [], _kjsp)
+    _snapp1 = dict(_tdp['item'])
+    E.apply_kjs_tags(_tdp, _exp, [], _kjsp)   # ідемпотентність з parents
+    _snapp2 = dict(_tdp['item'])
+    E.apply_kjs_tags(_tdp, _exp, [], {'tags': []})   # відкат усіх батьків із kjs_orig
+    CASES += [
+        (_snapp1.get('c:par'), ['x:a', 'x:b', 'x:c'], 'Д2: батьківський jar-тег отримує предмети, додані KubeJS у дочірній тег'),
+        (_snapp1.get('c:grand'), ['x:b', 'x:c'], 'Д2: транзитивне поширення KubeJS-додавань на 2 рівні вгору (grand ← par ← ch)'),
+        (_snapp1.get('c:excl'), ['x:a', 'x:c'], 'Д2: явний remove на батьківському тезі захищає предмет від повторного додавання з дитини'),
+        (_snapp1.get('c:clr'), [], 'Д2: removeAll на батьківському тезі не відновлює старі jar-зв\'язки з дітьми'),
+        ((_snapp1.get('c:cyc1'), _snapp1.get('c:cyc2')), (['x:b'], ['x:b']), 'Д2: цикл батьківських тегів не зациклює поширення'),
+        ('c:grand' in _flp, True, 'Д2: flipped фіксує батьківський тег, що перестав бути порожнім через дочірній'),
+        (_snapp2, _snapp1, 'Д2: поширення на батьківські теги ідемпотентне'),
+        ((_tdp['item'].get('c:par'), _tdp['item'].get('c:grand'), _tdp['item'].get('c:excl')), (['x:a'], [], ['x:a']), 'Д2: відкат із kjs_orig чисто повертає і батьківські теги'),
+    ]
+else:
+    CASES += [(False, True, 'Д2: extract_recipes.apply_kjs_tags і tag_empty_refs ще не реалізовано')]
 bad = [(why, got, want) for got, want, why in CASES if got != want]
 for why, got, want in bad: print(f'❌ {why}: {got} ≠ {want}')
 print(f'Розбір записів рецептів: {len(CASES) - len(bad)} з {len(CASES)}')

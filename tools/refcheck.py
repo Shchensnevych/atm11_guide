@@ -127,8 +127,9 @@ class Refs:
         for c in self.K.get('conds_true', []): self.ktrue.setdefault(c['at'].rsplit(':', 1)[0], set()).add(c['mod'])
         self.longmods = sorted((m for m in self.mods if len(m) >= 5 and m not in NOT_MODS), key=len, reverse=True)
         kt = {}
-        for op in self.K.get('tags', []):
-            if op['kind'] == 'add': kt.setdefault(f"{op['reg']}:{op['tag']}", set()).update(op['vals'])
+        if 'kjs_orig' not in self.T:   # K32: якщо tags_index.json уже містить KubeJS-теги (add + remove), не перекривати з kubejs_index
+            for op in self.K.get('tags', []):
+                if op['kind'] == 'add': kt.setdefault(f"{op['reg']}:{op['tag']}", set()).update(op['vals'])
         self.ktags = kt
 
     def lang(self):

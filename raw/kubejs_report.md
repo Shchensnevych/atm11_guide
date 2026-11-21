@@ -5,7 +5,7 @@
 | | гра | індекс |
 |---|---|---|
 | додано рецептів | 652 | 637 (активних 608) |
-| вимкнено (remove) | 137 | 137 |
+| вимкнено (remove) | 137 | 138 |
 | змінено (replaceInput/Output) | 7 | 7 (+ forEachRecipe) |
 
 Розбіжність «додано» — це рецепти, які скрипти будують з JSON рецептів гри або з Java-реєстрів (розділ «Нерозв'язане»): пісочниця їх не відтворює; вони не вигадуються — їх просто немає в індексі.
@@ -108,7 +108,7 @@
 - `occultism:ritual/craft_infused_chestplate` server_scripts/unification/tools.js:98 — ID поза реєстром assets: occultism:craft_djinni, occultism:upgrade
 - `occultism:ritual/craft_infused_leggings` server_scripts/unification/tools.js:98 — ID поза реєстром assets: occultism:craft_djinni, occultism:upgrade
 
-## remove без збігів — 99 (рецепта немає в індексі: мод генерує його кодом, мода немає, або рецепт уже неактивний)
+## remove без збігів — 98 (рецепта немає в індексі: мод генерує його кодом, мода немає, або рецепт уже неактивний)
 
 - server_scripts/mods/alltheores/recipes.js:16: `{"id":"alltheores:processing/fluorite/dust/from_ore"}`
 - server_scripts/mods/integrateddynamics/squeezer.js:84: `{"output":"minecraft:lapis_lazuli","type":"integrateddynamics:mechanical_squeezer"}`
@@ -160,7 +160,6 @@
 - server_scripts/mods/mysticalagriculture/compatibility.js:100: `{"output":"mysticalagriculture:compressed_iron_seeds"}`
 - server_scripts/mods/mysticalagriculture/compatibility.js:100: `{"output":"mysticalagriculture:electrum_seeds"}`
 - server_scripts/mods/mysticalagriculture/compatibility.js:100: `{"output":"mysticalagriculture:invar_seeds"}`
-- server_scripts/mods/mysticalagriculture/recipes.js:5: `{"id":"mysticalagriculture:essence/common/niter"}` — в індексі: культура mysticalagriculture:saltpeter увімкнена (cropInfo.json); не (тег c:dusts/niter порожній)
 - server_scripts/mods/oritech/recipes.js:8: `{"id":"minecraft:crafting/core3alt"}`
 - server_scripts/mods/oritech/recipes.js:9: `{"id":"minecraft:crafting/core3"}`
 - server_scripts/mods/oritech/recipes.js:14: `{"id":"oritech:crafting/extender"}`
@@ -327,9 +326,9 @@
 - FTBQuestsEvents.completed server_scripts/atm11_companion_quests.js:196 
 - FTBQuestsEvents.started server_scripts/atm11_companion_quests.js:197 
 - ServerEvents.tick server_scripts/atm11_companion_quests.js:235 
-- BlockEvents.placed server_scripts/atm11_companion_world.js:350 
-- BlockEvents.broken server_scripts/atm11_companion_world.js:361 
-- ServerEvents.tick server_scripts/atm11_companion_world.js:537 
+- BlockEvents.placed server_scripts/atm11_companion_world.js:924 
+- BlockEvents.broken server_scripts/atm11_companion_world.js:934 
+- ServerEvents.tick server_scripts/atm11_companion_world.js:1392 
 - ServerEvents.registry server_scripts/custom_additions.js:1 forbidden_arcanus:molten_material_type
 - PlayerEvents.tick server_scripts/fluid_bug.js:3 
 - PlayerEvents.loggedIn server_scripts/tweaks/fix_death_bug.js:1 
