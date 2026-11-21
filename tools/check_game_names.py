@@ -210,6 +210,33 @@ case(ri1, ri2, 'інгредієнти рецептів: сталий вивід
 case(E.normalize_recipe_ingredients({**RGOOD, 'fingerprint': ''})[0], None, 'інгредієнти рецептів: без відбитка не беремо')
 case(E.normalize_recipe_ingredients({**RGOOD, 'total_recipes': 0})[0], None, 'інгредієнти рецептів: без total_recipes не беремо')
 
+# K31 (§4 Б14): буквальні назви книг Patchouli (i18n=false, шар *_lit.json у effective.tsv) підхоплюються build_names.build
+import tempfile, json as _json
+with tempfile.TemporaryDirectory() as _td:
+    os.makedirs(os.path.join(_td, 'ua', 'review'))
+    os.makedirs(os.path.join(_td, 'raw'))
+    open(os.path.join(_td, 'ua', 'review', 'effective.tsv'), 'w', encoding='utf-8').write(
+        'key\tns\tsrc\ten\tuk\tjar\n'
+        'Gadgets for Derps\tpatchouli\tpack:patchouli_books_lit.json\tGadgets for Derps\tГаджети для чайників\t\n'
+        'book.apotheosis.name\tapotheosis\tmod\tChronicle of Shadows\tХроніки тіней\tA.jar\n'
+    )
+    open(os.path.join(_td, 'raw', 'books_auto.json'), 'w', encoding='utf-8').write(_json.dumps({
+        'buildinggadgets2:buildinggadgets2book': {'name': 'Gadgets for Derps', 'jar': 'bg2.jar'},
+        'apotheosis:apoth_chronicle': {'name': 'book.apotheosis.name', 'jar': 'A.jar'},
+        'croptopia:guide': {'name': 'Croptopia', 'jar': 'c.jar'},
+        'enderio:guide': {'name': 'guidebook.enderio.book_title', 'jar': 'e.jar'},
+    }, ensure_ascii=False))
+    _ua0, _raw0 = B.UA, B.RAW
+    B.UA, B.RAW = os.path.join(_td, 'ua'), os.path.join(_td, 'raw')
+    _bout = {}
+    try: B.build([].append, write=False, game={}, out=_bout)
+    finally: B.UA, B.RAW = _ua0, _raw0
+    case(_bout.get('books'), {
+        'apotheosis:apoth_chronicle': ['Хроніки тіней', 'Chronicle of Shadows'],
+        'buildinggadgets2:buildinggadgets2book': ['Гаджети для чайників', 'Gadgets for Derps'],
+        'croptopia:guide': ['Croptopia'],
+    }, 'книги Patchouli: буквальна назва з *_lit.json перекладається в [uk, en], ключ без перекладу пропускається')
+
 bad = [(why, got, want) for got, want, why in CASES if got != want]
 for why, got, want in bad: print(f'❌ {why}: {got!r} ≠ {want!r}')
 print(f'Знімок назв з гри: {len(CASES) - len(bad)} з {len(CASES)}')
