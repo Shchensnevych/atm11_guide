@@ -287,8 +287,12 @@ export const CONT_SCROLL_ROWS = 4;
  * @returns {{ known: boolean, total: number, open: number, scroll: boolean }}
  */
 export function containerLayout(cap, maxSlot) {
-  const known = Number(cap) > 0;
-  const need = Math.max(0, (Number(maxSlot) || 0) + 1);
-  const total = Math.max(9, Math.ceil(Math.max(known ? Number(cap) : 0, need) / 9) * 9);
-  return { known, total, open: known ? Math.max(Number(cap), need) : total, scroll: total / 9 > CONT_SCROLL_ROWS };
+  const rawCap = Number(cap);
+  const safeCap = Number.isFinite(rawCap) && rawCap > 0 ? Math.min(Math.floor(rawCap), 900) : 0;
+  const known = safeCap > 0;
+  const rawMax = Number(maxSlot);
+  const safeMax = Number.isFinite(rawMax) && rawMax >= 0 ? Math.min(Math.floor(rawMax), 899) : -1;
+  const need = Math.max(0, safeMax + 1);
+  const total = Math.max(9, Math.ceil(Math.max(safeCap, need) / 9) * 9);
+  return { known, total, open: known ? Math.max(safeCap, need) : total, scroll: total / 9 > CONT_SCROLL_ROWS };
 }

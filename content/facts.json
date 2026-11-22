@@ -6,7 +6,7 @@
    "title": "Як зробити сталь (сталь MFFS і Oritech крафтом не робиться)",
    "stage": "s2",
    "href": "#/roadmap?node=t_ep",
-   "text": "Ручні рецепти сталі MFFS і Oritech (залізо + вугілля на верстаті) прибрано KubeJS. Сталь виплавляють: 1) у Печі для сплавів Energized Power (сталь EP), 2) у Плавильнику сплавів Ender IO (сталь AllTheOres), 3) у Домні Railcraft Reborn (сталь Railcraft), 4) у ливарні Productive Metalworks: рідке залізо 9 + рідкий вуглець 10 → рідка сталь 9, злиток відливають у формі для злитка (90 mB, сталь AllTheOres). Усі вони в тезі c:ingots/steel — у рецептах взаємозамінні. Шестерні Railcraft (залізна, сталева) з верстата прибрано — шестерні беруть з AllTheOres.",
+   "text": "Ручні рецепти сталі MFFS і Oritech (залізо + вугілля на верстаті) прибрано KubeJS. Сталь виплавляють: 1) у Печі для сплавів Energized Power (сталь EP), 2) у Плавильнику сплавів Ender IO (сталь AllTheOres), 3) у Домні Railcraft Reborn (сталь Railcraft), 4) у ливарні Productive Metalworks: рідке залізо 9 + рідкий вуглець 10 → рідка сталь 9, злиток відливають у формі для злитка (90 мВ, сталь AllTheOres). Усі вони в тезі c:ingots/steel — у рецептах взаємозамінні. Шестерні Railcraft (залізна, сталева) з верстата прибрано — шестерні беруть з AllTheOres.",
    "keywords": "сталь сталевий steel ingot злиток сплав піч домна плавильник mffs oritech energizedpower enderio railcraft ливарня productivemetalworks foundry рідка",
    "ref": [
     "recipe:energizedpower:alloy_furnace/steel_ingot",
@@ -292,11 +292,12 @@
    "title": "Боси збірки",
    "stage": "s4",
    "href": "#/mods?feat=boss",
-   "text": "Тегом c:bosses позначено Ковзуна (Aether II, лабіринт руїн вартових — шкодить лише кайло) і Забутого вартового (Undergarden, катакомби). Путівник також вважає босами драконів Ice and Fire (стадії 4–5 — у печерах в Іншому світі; рішення користувача, тегу немає). Інші великі вороги без тегу: Піґліч (Стародавня піраміда в Іншому світі, серце піґліча для сплавів), Матка зоряних повзунів (місячні підземелля Stellaris), ванільні Візер і Дракон Енду.",
-   "keywords": "бос boss ковзун slider забутий вартовий forgotten guardian піґліч piglich дракон візер матка зоряних повзунів",
+   "text": "Тегом c:bosses позначено ванільних Візера й Дракона Енду (тег NeoForge), Ковзуна (Aether II, лабіринт руїн вартових — шкодить лише кайло), Забутого вартового (Undergarden, катакомби) та 10 вартових Ars Magica Legacy. Путівник також вважає босами драконів Ice and Fire (стадії 4–5 — у печерах в Іншому світі; рішення користувача, тегу немає). Інші великі вороги без тегу: Піґліч (Стародавня піраміда в Іншому світі, серце піґліча для сплавів), Матка зоряних повзунів (місячні підземелля Stellaris).",
+   "keywords": "бос boss ковзун slider забутий вартовий forgotten guardian піґліч piglich дракон візер матка зоряних повзунів ars magica",
    "ref": [
     "jarfile:aether_ii!data/c/tags/entity_type/bosses.json~aether_ii:slider",
     "jarfile:The_Undergarden!data/c/tags/entity_type/bosses.json~undergarden:forgotten_guardian",
+    "jarfile:arsmagicalegacy!data/c/tags/entity_type/bosses.json~arsmagicalegacy:water_guardian",
     "quest:5BA986D7928BF09F",
     "lang:entity.stellaris.star_crawler_boss",
     "quest:765CD913CC3896B2",

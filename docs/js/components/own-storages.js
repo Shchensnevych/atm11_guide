@@ -33,11 +33,14 @@ const MARK_FALLBACK = '📦';
 const ACCESS_FALLBACK = '🚪';
 const NET_FALLBACK = '🗄️';
 
+/** K35 (Е.22): безпечний шлях іконки «простір/шлях» без «..» і прихованих сегментів. @param {any} rel */
+const safeIconRel = (rel) => typeof rel === 'string' && /^[a-z0-9_.-]+\/[a-z0-9_.-]+$/.test(rel) && !rel.includes('..') && !rel.startsWith('.') && !rel.includes('/.');
+
 /** K16: картинка блока / предмета з бази сайту (rel — «простір/шлях» від моста) або запасний значок; причини 📌 / 🔨 — у кутах.
  * @param {any} m @param {string} fallback @param {string} [what] */
 function rowIcon(m, fallback, what = '') {
   const rel = m && m.icon;
-  const ok = typeof rel === 'string' && /^[a-z0-9_.-]+\/[a-z0-9_.-]+$/.test(rel);
+  const ok = safeIconRel(rel);
   const pinned = Boolean(m && m.pinned);
   const placed = Boolean(m && m.placed);
   const title = [what, pinned ? PIN_TEXT : '', placed ? PLACED_TEXT : ''].filter(Boolean).join(' · ');
@@ -55,7 +58,7 @@ const state = new WeakMap();
 const mountWord = (n) => (n % 10 === 1 && n % 100 !== 11 ? 'підключене' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 'підключені' : 'підключених');
 /** K23 (з гри 11-19): розгорнуті мережі — у сховищі браузера (переживають перезавантаження сторінки). */
 const OPEN_KEY = 'atm11.own.mountsOpen';
-const readOpen = () => { try { return JSON.parse(localStorage.getItem(OPEN_KEY) || '[]'); } catch (_) { return []; } };
+const readOpen = () => { try { const v = JSON.parse(localStorage.getItem(OPEN_KEY) || '[]'); return Array.isArray(v) ? v : []; } catch (_) { return []; } };
 /** @param {Set<string>} open */
 const saveOpen = (open) => { try { localStorage.setItem(OPEN_KEY, JSON.stringify([...open])); } catch (_) { /* сховище недоступне — лише на сторінці */ } };
 
@@ -97,7 +100,7 @@ export function renderOwnStorages(el, d, { act }) {
       'aria-haspopup': 'menu',
       onclick: (/** @type {Event} */ e) => { e.stopPropagation(); onMenu(btn, nameEl); },
     }, '⋯');
-    return h(`div.so-row${extra}${zoneCls(zone)}`, null, icon, nameCell, metaEl, chain, btn);
+    return h(`div.so-row${extra}${zoneCls(zone)}`, m && m.hint ? { title: m.hint } : null, icon, nameCell, metaEl, chain, btn);
   };
 
   const zones = (d.zones || []).map((/** @type {any} */ z, /** @type {number} */ i) => row(h('span.so-ic', { title: 'зона бази' }, '📍'), z.name, z.where, i,
@@ -152,7 +155,7 @@ export function renderOwnStorages(el, d, { act }) {
   const kv = (icon, text, title = '') => h('span.so-kv', title ? { title } : null, icon, h('span', null, text));
   /** @param {any} x */
   const chip = (x) => h('span.so-chip', null,
-    typeof x.icon === 'string' && /^[a-z0-9_.-]+\/[a-z0-9_.-]+$/.test(x.icon) ? h('img.so-blk.sm', { src: `img/items/${x.icon}.png`, alt: '', loading: 'lazy' }) : null,
+    safeIconRel(x.icon) ? h('img.so-blk.sm', { src: `img/items/${x.icon}.png`, alt: '', loading: 'lazy' }) : null,
     `${x.label} · ${x.note}${x.where ? ` → ${x.where}` : ''}`);
   const holders = [
     (d.carried || []).length ? keyRow('При собі', (d.carried || []).map(chip), '.hold') : null,

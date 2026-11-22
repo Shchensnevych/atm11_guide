@@ -182,7 +182,9 @@ CASES += [
 import sqlite3
 _memdb = sqlite3.connect(':memory:')
 B.init_schema(_memdb)
+B.create_indices(_memdb)
 _tables = sorted(r[0] for r in _memdb.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'"))
+_indices = {r[0] for r in _memdb.execute("SELECT name FROM sqlite_master WHERE type='index' AND name NOT LIKE 'sqlite_%'")}
 _memdb.close()
 
 K32 = B.Kinds({'x:seed', 'x:dust', 'x:chalk'}, {'c:tools/hammer'}, {'minecraft:water'}, {'c:molten'}, True)
@@ -202,6 +204,7 @@ _c32_direct = B.complete(
 )
 CASES += [
     (_tables, ['item_tags', 'recipe_fluids', 'recipe_ingredients', 'recipe_outputs', 'recipes'], 'Д1: схема recipes.db містить лише 5 робочих таблиць (без items_meta і recipes_fts)'),
+    ('idx_fluid_id' in _indices, True, 'K35 Е.26: індекс idx_fluid_id на recipe_fluids(fluid_id) створено'),
     ([x[0] for x in _c32_top[0]], ['x:seed', '#c:tools/hammer'], 'Д2: complete() не підхоплює не-предметні теги з рядків верхнього рівня (ґрунт / біом), але лишає відомий item-тег'),
     (([x[0] for x in _c32_fb[0]], [f[0] for f in _c32_fb[2]], _c32_fb[3]),
      (['x:chalk'], ['#c:molten'], {'in': ['#minecraft:villager']}), 'Д2: fallback complete() лишає предмет і тег рідини, а не-предметний тег істоти переносить в other'),

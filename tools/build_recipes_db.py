@@ -590,6 +590,7 @@ def create_indices(db):
     CREATE INDEX idx_tag_item ON item_tags(item_id);
 
     CREATE INDEX idx_fluid_rec ON recipe_fluids(recipe_id);
+    CREATE INDEX idx_fluid_id ON recipe_fluids(fluid_id);
     """)
     db.commit()
 
