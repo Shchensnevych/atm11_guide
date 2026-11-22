@@ -113,6 +113,17 @@
    "item:sophisticatedstorage:storage_io",
    "item:sophisticatedstorage:storage_tool",
    "config:config/sophisticatedstorage-server.toml#controllerRange=15"
+  ],
+  "synergy": [
+   {
+    "mod": "sophisticatedbackpacks",
+    "why": "Покращення вільно переробляються на верстаті між скринями/діжками Sophisticated Storage і ранцями Sophisticated Backpacks в обидва боки — не треба крафтити з нуля.",
+    "src": "рецепти sophisticatedstorage:backpack_*_from_storage_*, storage_*_from_backpack_*",
+    "ref": [
+     "recipe:sophisticatedstorage:backpack_advanced_filter_upgrade_from_storage_advanced_filter_upgrade",
+     "recipe:sophisticatedstorage:storage_advanced_filter_upgrade_from_backpack_advanced_filter_upgrade"
+    ]
+   }
   ]
  },
  "sophisticatedstorageinmotion": {
@@ -130,17 +141,6 @@
   ],
   "stage": [
    "s2"
-  ],
-  "synergy": [
-   {
-    "mod": "sophisticatedstorage",
-    "why": "Сховище в русі робиться з вагонетки зі скринею чи човна й скрині / діжки Sophisticated Storage (рецепти мода) — зі збереженням рівня й покращень.",
-    "src": "рецепти sophisticatedstorageinmotion:chest_minecart_to_storage_minecart, *_storage_boat_from_vanilla",
-    "ref": [
-     "recipe:sophisticatedstorageinmotion:chest_minecart_to_storage_minecart",
-     "recipe:sophisticatedstorageinmotion:birch_storage_boat_from_vanilla"
-    ]
-   }
   ],
   "icons": [
    "sophisticatedstorageinmotion:storage_minecart",
@@ -201,6 +201,19 @@
    "config:config/functionalstorage/functionalstorage-common.toml#COPPER_MULTIPLIER=8",
    "config:config/functionalstorage/functionalstorage-common.toml#NETHERITE_MULTIPLIER=32",
    "config:config/functionalstorage/functionalstorage-common.toml#DRAWER_CONTROLLER_LINKING_RANGE=8"
+  ],
+  "synergy": [
+   {
+    "mod": "utilitarian",
+    "why": "Компактувальна шухляда конвертує звичайне й деревне вугілля у 8 крихітного вугілля Utilitarian і назад (хоча зворотний крафт на верстаті KubeJS прибрав).",
+    "src": "KubeJS server_scripts/mods/functionalstorage/compacting_recipe.js, mods/utilitarian/recipes.js",
+    "ref": [
+     "recipe:kjs:mods/functionalstorage/compacting_recipe.js#L4",
+     "recipe:kjs:mods/functionalstorage/compacting_recipe.js#L4.2",
+     "!recipe:utilitarian:tiny_fuel/coal",
+     "kjs:server_scripts/mods/functionalstorage/compacting_recipe.js"
+    ]
+   }
   ]
  },
  "trashcans": {
@@ -499,7 +512,7 @@
   "synergy": [
    {
     "mod": "advanced_ae",
-    "why": "Advanced AE має рецепти з деталями ExtendedAE (розширений постачальник шаблонів і квантові блоки «eae…»), а ExtendedAE вантажить сумісність з AAE (xmod/aae).",
+    "why": "Advanced AE має рецепти з деталями ExtendedAE (розширений постачальник шаблонів і квантові прискорювачі), а ExtendedAE підвантажує модуль сумісності з Advanced AE.",
     "src": "рецепти advanced_ae:eaeadvpatpro, advanced_ae:eaequantumaccel; клас com/glodblock/github/extendedae/xmod/aae/AAELoader",
     "ref": [
      "recipe:advanced_ae:eaeadvpatpro",
@@ -513,6 +526,15 @@
     "src": "productivebees (jar): визначення бджоли entro (flowerBlock extendedae:entro_block)",
     "ref": [
      "lang:entity.productivebees.entro_bee"
+    ]
+   },
+   {
+    "mod": "mysticalagriculture",
+    "why": "У збірці додано насіння ентро (вівтар наповнення з супремієвою есенцією) — есенція ентро крафтиться в кристали ентро.",
+    "src": "KubeJS server_scripts/mods/mysticalagriculture/recipes.js",
+    "ref": [
+     "recipe:kubejs:mysticalagriculture/entro_essence_crafting",
+     "recipe:mysticalagriculture:infusion/entro_seeds"
     ]
    }
   ],
@@ -883,7 +905,7 @@
   "synergy": [
    {
     "mod": "mysticalagriculture",
-    "why": "Культура «збагачене кварцом залізо» Mystical Agriculture увімкнена в збірці (cropInfo.json): есенція крафтиться в залізо, збагачене кварцом, для процесорів і дисків RS.",
+    "why": "Культура «збагачене кварцом залізо» Mystical Agriculture увімкнена в збірці: есенція крафтиться в залізо, збагачене кварцом, для процесорів і дисків RS.",
     "src": "kubejs mods/mysticalagriculture/cropInfo.json; рецепт mysticalagriculture:essence/refinedstorage/quartz_enriched_iron_ingot",
     "ref": [
      "file:kubejs/server_scripts/mods/mysticalagriculture/cropInfo.json~\"quartz_enriched_iron\"",

@@ -40,7 +40,7 @@
       "Гарячі клавіші підказок у інвентарі: `Ctrl` — характеристики матеріалу, `Shift` — риси (traits), `Alt` — склад, `Z` / `C` — гортання варіантів.",
       "Інструменти з площею копання 3×3 — молот (`silentgear:hammer`) і екскаватор (`silentgear:excavator`), а універсальний інструмент (кайло + лопата + сокира) — пексель (`silentgear:paxel`)."
     ],
-    "spoiler": "Вершина прогресії Silent Gear у ATM11 — метал уру (`sgearmetalworks:uru_metal_ingot`): у плавильні Productive Metalworks сплавте 180 мБ розплавленого важкого ядра (`#c:molten_heavy_core` з палат випробувань), 180 мБ рідкого м'яса (`#c:meat`), 90 мБ тирійської сталі та по 90 мБ розплавленого усемодію, вібранію й унобтанію. Щоб зробити деталь з уру, покладіть на ливарний стіл готову деталь із тирійської сталі і залийте її розплавленим уру — ви отримаєте деталь із 15 000 міцності інструментів (50 000 для броні), 35 шкоди атаки, швидкістю копання 29, рівнем видобутку 7 (унобтаній) та рисами Незнищенність (`Indestructible`) і Опір жалам (`Sting resist`)!",
+    "spoiler": "Вершина прогресії Silent Gear у ATM11 — метал уру (`sgearmetalworks:uru_metal_ingot`): у плавильні Productive Metalworks сплавте 180 мВ розплавленого важкого ядра (`#c:molten_heavy_core` з палат випробувань), 180 мВ рідкого м'яса (`#c:meat`), 90 мВ тирійської сталі та по 90 мВ розплавленого усемодію, вібранію й унобтанію. Щоб зробити деталь з уру, покладіть на ливарний стіл готову деталь із тирійської сталі і залийте її розплавленим уру — ви отримаєте деталь із 15 000 міцності інструментів (50 000 для броні), 35 шкоди атаки, швидкістю копання 29, рівнем видобутку 7 (унобтаній) та рисами Незнищенність (`Indestructible`) і Опір жалам (`Sting resist`)!",
     "chapter": "silent_gear",
     "book": "Посібник Silent Gear",
     "icons": [
@@ -124,7 +124,7 @@
     "synergy": [
       {
         "mod": "alltheores",
-        "why": "Датапак збірки вимикає руди рубіну, сапфіру, перидоту й срібла Silent's Gems (remove_silentgems_ores.json) — ці ресурси дає AllTheOres; решта самоцвітних руд і руда хаосу генеруються.",
+        "why": "Датапак збірки вимикає руди рубіну, сапфіру, перидоту й срібла Silent's Gems — ці ресурси дає AllTheOres; решта самоцвітних руд і руда хаосу генеруються.",
         "src": "kubejs/dynamic_data/atm/neoforge/biome_modifier/remove_silentgems_ores.json",
         "ref": [
           "kjs:dynamic_data/atm/neoforge/biome_modifier/remove_silentgems_ores.json",
@@ -168,17 +168,6 @@
       "s0",
       "s1",
       "s2"
-    ],
-    "synergy": [
-      {
-        "mod": "curios",
-        "why": "Каблучки й намиста носяться в слотах Curios (тег curios:ring; бонуси прикрас — через API Curios).",
-        "src": "тег curios:ring; класи io/redspace/ironsjewelry/core/bonuses/AttributeBonusType",
-        "ref": [
-          "tag:curios:ring",
-          "jarfile:irons_jewelry!io/redspace/ironsjewelry/core/bonuses/AttributeBonusType.class~curios"
-        ]
-      }
     ],
     "tips": [
       "Поставте ювелірний верстат біля безробітного селянина, щоб отримати професію ювеліра (`Jeweler`) і вимінювати в нього рідкісні самоцвіти та сувої ремісника (`irons_jewelry:recipe`).",
@@ -328,7 +317,7 @@
       },
       {
         "mod": "apothic_spawners",
-        "why": "Руни модифікаторів породжувачів Apothic Spawners — рецепти Apotheosis (apotheosis:spawner_modifiers/*), є модуль сумісності.",
+        "why": "Руни модифікаторів породжувачів Apothic Spawners — рецепти Apotheosis, є модуль сумісності.",
         "src": "рецепти apotheosis:spawner_modifiers/*; клас dev/shadowsoffire/apotheosis/compat/spawners/ApothicSpawnersCompat",
         "ref": [
           "recipe:apotheosis:spawner_modifiers/burning",
@@ -507,15 +496,6 @@
     ],
     "synergy": [
       {
-        "mod": "curios",
-        "why": "Артефакти вдягаються в слоти Curios (голова, намисто, пояс, руки, ноги) — у jar є модуль сумісності з Curios.",
-        "src": "класи artifacts/neoforge/integration/curios/CuriosCompat; теги curios:*",
-        "ref": [
-          "jarfile:artifacts!artifacts/neoforge/integration/curios/CuriosCompat.class~curios",
-          "tag:curios:belt"
-        ]
-      },
-      {
         "mod": "lootr",
         "why": "Артефакти, які мод додає в лут скринь данжів, у скринях Lootr випадають окремо для гравця; Мімік підлаштовує текстуру під налаштування Lootr (клас LootrCompat).",
         "src": "клас artifacts/integration/lootr/LootrCompat",
@@ -606,17 +586,6 @@
       "s2",
       "s3"
     ],
-    "synergy": [
-      {
-        "mod": "curios",
-        "why": "Амулет сердець і амулет душі носяться в окремому слоті Curios «амулет сердець» — контейнери сердець усередині амулета не займають інвентар.",
-        "src": "теги curios (bhc)",
-        "ref": [
-          "jarfile:baubley-heart-canisters!data/curios/tags/item/heart_amulet.json~bhc:heart_amulet",
-          "jarfile:baubley-heart-canisters!data/bhc/curios/entities/add_slot_heartamulet.json~heart_amulet"
-        ]
-      }
-    ],
     "tips": [
       "Тримайте зібрані контейнери сердець усередині амулета сердець (`bhc:heart_amulet`): достатньо відкрити амулет ПКМ у руці, покласти до 10 червоних, 10 жовтих, 10 зелених і 10 синіх контейнерів та вдягти амулет у слот Curios.",
       "Серце душі за конфігом збірки після спрацювання повертає синій контейнер серця зі 100 % шансом (soulHeartReturnChance = 1.0)."
@@ -695,17 +664,6 @@
     ],
     "stage": [
       "s0"
-    ],
-    "synergy": [
-      {
-        "mod": "curios",
-        "why": "Верстат на паличці вдягається в слот Curios і відкривається клавішею V (клас CuriosIntegration).",
-        "src": "клас com/ofekn/crafting_on_a_stick/neoforge/CuriosIntegration; options.txt",
-        "ref": [
-          "jarfile:crafting_on_a_stick!com/ofekn/crafting_on_a_stick/neoforge/CuriosIntegration.class~curios",
-          "file:options.txt~key_crafting_on_a_stick.key.open_curios:key.keyboard.v"
-        ]
-      }
     ],
     "tips": [
       "Вдягніть верстат на паличці (`crafting_on_a_stick:crafting_table`) у слот Curios — клавіша `V` відкриє сітку верстата; предмети в сітці лишаються між крафтами (storeItems = true)."

@@ -2,12 +2,47 @@
 // Картка мода для довідника і списків.
 import { h } from '../core/dom.js';
 import { modBadges } from './badge.js';
-import { featRow } from './feat.js';
+import { featRow, clsIcon } from './feat.js';
 
-/** Логотип мода або літера-заглушка. @param {ModEntry} m @param {boolean} [big] */
-export function modLogo(m, big) {
-  const cls = `.mod-logo${big ? '.big' : ''}`;
-  return m.logo ? h(`img${cls}`, { src: m.logo, alt: '', loading: 'lazy' }) : h(`div${cls}`, null, (m.name || m.id)[0].toUpperCase());
+/**
+ * Значок мода (для #/mods, #/mod/<id> і #/chapters):
+ * 1) квадратний логотип з jar;
+ * 2) якщо логотипа немає або це вузький банер (≥ 1.6) — чітка 3D-іконка ключового предмета мода;
+ * 3) якщо в jar немає ані логотипа, ані предметів — акуратна векторна піктограма класу на кольоровій підкладці.
+ * @param {Store | null} s @param {ModEntry} m @param {boolean} [big]
+ */
+export function modLogo(s, m, big) {
+  const clsId = m.cls?.[0] || 'library';
+  const color = s?.classById?.get(clsId)?.color || '#8b98a9';
+  const sz = big ? '.big' : '';
+  const fallback = () => {
+    const ic = clsIcon(clsId, color);
+    return h(`div.mod-logo.mod-logo-cls${sz}`, { style: { '--c': color } }, ic || (m.name || m.id)[0].toUpperCase());
+  };
+  const item = (m.icons || []).map((x) => s?.items?.[x]?.img).find(Boolean) || '';
+  const logo = m.logo || '';
+  const src = logo || item;
+  if (!src) return fallback();
+  const img = /** @type {HTMLImageElement} */ (h(`img.mod-logo${sz}${logo ? '' : '.item'}`, { src, alt: '', loading: 'lazy', style: { '--c': color } }));
+  let swapped = !logo;
+  const swapToItem = () => {
+    if (swapped || !item) return false;
+    swapped = true;
+    img.classList.add('item');
+    img.src = item;
+    return true;
+  };
+  const checkBanner = () => {
+    if (!swapped && img.naturalHeight > 0) {
+      const ratio = img.naturalWidth / img.naturalHeight;
+      if (ratio >= 1.6 && item) swapToItem();
+      else if (ratio >= 2.2 && !item) img.replaceWith(fallback());
+    }
+  };
+  img.addEventListener('load', checkBanner);
+  img.addEventListener('error', () => { if (!swapToItem()) img.replaceWith(fallback()); });
+  if (img.complete && img.naturalWidth > 0) checkBanner();
+  return img;
 }
 
 /** @param {Store} s @param {ModEntry} m */
@@ -16,7 +51,7 @@ export function modCard(s, m) {
   const parentName = m.parent ? (s.modById.get(m.parent)?.name || m.parent) : null;
   return h('a.card.mod-card', { href: `#/mod/${m.id}` },
     h('div.mod-card-head', null,
-      modLogo(m),
+      modLogo(s, m),
       h('h3.mod-card-title', null, m.name)),
     h('div.mod-card-badges', null, modBadges(s, m)),
     parentName ? h('div.mod-card-parent', null,

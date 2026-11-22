@@ -23477,6 +23477,12 @@
   "uk": "Ливарна форма кирки-мотики",
   "en": "Mattock Cast"
  },
+ "sgearmetalworks:molten_blaze_gold_bucket": {
+  "img": "img/items/sgearmetalworks/molten_blaze_gold_bucket.png",
+  "kind": "item",
+  "uk": "Відро розплавленого пломеневого золота",
+  "en": "Bucket of Molten Blaze Gold"
+ },
  "sgearmetalworks:necklace_cast": {
   "img": "img/items/sgearmetalworks/necklace_cast.png",
   "kind": "item",

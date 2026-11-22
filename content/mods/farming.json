@@ -72,6 +72,14 @@
      "quest:6EFFF0DC80C1C8A3",
      "jarfile:data/productivemetalworks/recipe/casting/pbees/allthemodium_bee.json"
     ]
+   },
+   {
+    "mod": "refinedstorage",
+    "why": "Бджола збагаченого кварцом заліза: центрифуга дає збагачене кварцом залізо для деталей і дисків Refined Storage.",
+    "src": "рецепт productivebees:centrifuge/refinedstorage/honeycomb_quartz_enriched_iron",
+    "ref": [
+     "recipe:productivebees:centrifuge/refinedstorage/honeycomb_quartz_enriched_iron"
+    ]
    }
   ],
   "tips": [
@@ -465,7 +473,7 @@
    "кухонний стіл показує страви, які можна приготувати з продуктів в інвентарі й кухні",
    "холодильники, кухонні стільниці, шафки, стійки для інструментів; духовка з покращеннями «Нагрів» і «Лід»; тостер",
    "раковина дає воду без джерела (sinkRequiresWater = false) — і трубам, і кухні",
-   "«Корова в банці» виробляє молоко — 1 mB за такт (конфіг)"
+   "«Корова в банці» виробляє молоко — 1 мВ за такт (конфіг)"
   ],
   "stage": [
    "s0",

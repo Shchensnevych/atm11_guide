@@ -108,6 +108,14 @@
      "recipe:allthemods:meteoric_infusion/inf_block",
      "!recipe:refinedtypes:infinite_energy_storage_disk"
     ]
+   },
+   {
+    "mod": "allthemodium",
+    "why": "Ритуал «Незбагненного стародавнього шахтаря» потребує унобтанієве кайло й серце піґліча (разом із майстер-шахтарями маридів і ієснієвим кайлом).",
+    "src": "рецепт occultism:ritual/misc_miner_ancient_eldritch",
+    "ref": [
+     "recipe:occultism:ritual/misc_miner_ancient_eldritch"
+    ]
    }
   ],
   "tips": [
@@ -208,7 +216,7 @@
     ]
    },
    {
-    "t": "видобуток нашатирю: накопичувач нашатирю ставлять на резервуар нашатирю й наливають воду — з 1000 mB води виходить 100 mB нашатирю, а з кристалом нашатирю (руда — у Верхньому світі) — 1000 mB за той самий час",
+    "t": "видобуток нашатирю: накопичувач нашатирю ставлять на резервуар нашатирю й наливають воду — з 1000 мВ води виходить 100 мВ нашатирю, а з кристалом нашатирю (руда — у Верхньому світі) — 1000 мВ за той самий час",
     "ref": [
      "recipe:theurgy:accumulation/sal_ammoniac_from_water",
      "recipe:theurgy:accumulation/sal_ammoniac_from_water_and_sal_ammoniac_crystal",
@@ -251,16 +259,6 @@
    "s4"
   ],
   "synergy": [
-   {
-    "mod": "theurgy_kubejs",
-    "why": "Аддон дає ATM11 алхімічні сірки модових матеріалів (ієсній, містичний кристал, руна, стеларит, борт, уламок процвітання) — без нього їх не інкубувати.",
-    "src": "KubeJS server_scripts/mods/theurgy/incubation.js (Platform.isLoaded(\"theurgy_kubejs\")); startup_scripts/theurgy/sulfur_additions.js",
-    "ref": [
-     "kjs:server_scripts/mods/theurgy/incubation.js",
-     "kjs:startup_scripts/theurgy/sulfur_additions.js",
-     "kjs:server_scripts/mods/theurgy/liquefaction.js"
-    ]
-   },
    {
     "mod": "allthemodium",
     "why": "Попередньо налаштований жезл ворожіння «коштовні» робиться з алхімічної сірки коштовного матеріалу — серед них сірки усемодію, вібранію й унобтанію (а також ієснію, стелариту); сірку усемодію Theurgy й інкубує назад у злиток.",
@@ -344,16 +342,6 @@
   "stage": [
    "s2",
    "s3"
-  ],
-  "synergy": [
-   {
-    "mod": "forbidden_arcanus",
-    "why": "Сірки стелариту, руни й містичного кристала — розмноження матеріалів Forbidden Arcanus в інкубаторі.",
-    "src": "KubeJS server_scripts/mods/theurgy/incubation.js",
-    "ref": [
-     "kjs:server_scripts/mods/theurgy/incubation.js~forbidden_arcanus:stellarite_piece"
-    ]
-   }
   ],
   "chapter": "theurgy",
   "ref": [
@@ -945,16 +933,6 @@
     "ref": [
      "jarfile:data/hostilenetworks/hostilenetworks/data_models/enderman.json~evilcraft:ender_tear"
     ]
-   },
-   {
-    "mod": "curios",
-    "why": "Перстень помсти, підбадьорливий і заряджений кулони вдягаються в слоти Curios (перстень / оберіг).",
-    "src": "KubeJS server_scripts/mods/curios/tags.js (curios:ring, curios:charm)",
-    "ref": [
-     "kjs:server_scripts/mods/curios/tags.js~evilcraft:vengeance_ring",
-     "tag:curios:ring",
-     "tag:curios:charm"
-    ]
    }
   ],
   "tips": [
@@ -1015,26 +993,14 @@
   "role": "addon",
   "parent": "evilcraft",
   "features": [],
-  "uk": "Офіційний модуль сумісності EvilCraft із JEI та іншими модами збірки: додає показ рецептів кривавого насичувача, накопичувача довкілля й очищувача та інтегрує рідку кров із генераторами.",
+  "uk": "Офіційний модуль сумісності EvilCraft із JEI, Jade та CommonCapabilities: додає показ рецептів кривавого насичувача, накопичувача довкілля, духової печі й реаніматора духів у JEI, підказки в Jade та обробники можливостей машин.",
   "what": [
-   "відображення рецептів машин EvilCraft у JEI",
-   "сумісність рідкої крові та біомаси з іншими модами (зокрема з кривавим генератором Generator Galore)"
+   "відображення рецептів машин EvilCraft у JEI (кривавий насичувач, накопичувач довкілля, духова піч, реаніматор духів)",
+   "підказки Jade для скриньки вічного заточення й мітли та сумісність CommonCapabilities для машин EvilCraft"
   ],
   "stage": [
    "s2",
    "s3"
-  ],
-  "synergy": [
-   {
-    "mod": "evilcraft",
-    "why": "Модуль сумісності EvilCraft: рецепти машин у JEI, підказки Jade, сумісність можливостей (рідини, предмети) з іншими модами.",
-    "src": "jar evilcraft: org/cyclops/evilcraftcompat/modcompat/{jei,jade,capabilities}",
-    "ref": [
-     "jarfile:evilcraft!org/cyclops/evilcraftcompat/modcompat/jei/JEIEvilCraftConfig.class",
-     "jarfile:evilcraft!org/cyclops/evilcraftcompat/modcompat/jade/BoxOfEternalClosureDataProvider.class",
-     "jarfile:evilcraft!org/cyclops/evilcraftcompat/modcompat/capabilities/CommonCapabilitiesCompat.class"
-    ]
-   }
   ],
   "chapter": "evilcraft",
   "ref": [
@@ -1315,18 +1281,6 @@
    "s4",
    "s5"
   ],
-  "synergy": [
-   {
-    "mod": "curios",
-    "why": "Пояси, амулети, ляльки-обереги, перстень і сагайдак Witchery вдягаються в слоти Curios.",
-    "src": "witchery (jar): data/curios/tags/item/{belt,necklace,poppet,ring,charm,back}.json",
-    "ref": [
-     "jarfile:witchery!data/curios/tags/item/belt.json",
-     "jarfile:witchery!data/curios/tags/item/necklace.json",
-     "jarfile:witchery!data/curios/tags/item/ring.json"
-    ]
-   }
-  ],
   "tips": [
    {
     "t": "Що більше природи довкола відьомського вівтаря (дерева, квіти, гриби, лоза…), то більша його сила — саджайте різне поруч і тримайте апарати близько до вівтаря.",
@@ -1361,6 +1315,25 @@
    "lang:book.witchery.guidebook.vampirism.vampire_children.vampire_children.text",
    "lang:book.witchery.guidebook.vampirism.blood_crucible.blood_crucible.text",
    "jarfile:witchery!dev/sterner/witchery/feature/affliction/vampire/VampireLeveling.class~MAX_LEVEL"
+  ],
+  "synergy": [
+   {
+    "mod": "neovitae",
+    "why": "Ритуал зв'язування крові Witchery використовує криваву перлину й слабкий кривавий уламок Neo Vitae.",
+    "src": "рецепт witchery:ritual/rite_of_bloodbinding",
+    "ref": [
+     "recipe:witchery:ritual/rite_of_bloodbinding"
+    ]
+   },
+   {
+    "mod": "thaumaturge",
+    "why": "Ритуали Witchery піднімають поклади бурштинової й кіноварної руди Thaumaturge прямо під ритуальним колом.",
+    "src": "рецепти witchery:ritual/blocks_below_amber, blocks_below_cinnabar",
+    "ref": [
+     "recipe:witchery:ritual/blocks_below_amber",
+     "recipe:witchery:ritual/blocks_below_cinnabar"
+    ]
+   }
   ]
  },
  "mahoutsukai": {
@@ -1832,15 +1805,6 @@
      "recipe:allthemods:allthetweaks/mini_end",
      "recipe:allthemods:allthetweaks/mini_exit"
     ]
-   },
-   {
-    "mod": "enchdesc",
-    "why": "Описи зачарувань (і нових з Apothic) у підказці предмета — легше обирати на столі й у бібліотеці.",
-    "src": "lang: описи чар Apothic (enchantment.apothic_enchanting.*.desc) показує Enchantment Descriptions (enchdesc.activate.message)",
-    "ref": [
-     "lang:enchdesc.activate.message",
-     "lang:enchantment.apothic_enchanting.infusion.desc"
-    ]
    }
   ],
   "tips": [
@@ -1914,11 +1878,10 @@
     ]
    },
    {
-    "t": "зілля бачення руд: вугілля, мідь, залізо, золото, лазурит, редстоун, діамант, смарагд, кварц, незерит, алюміній, свинець, нікель, осмій, платина, срібло, олово, уран, цинк, вісмут, багряне залізо, а також усемодій, вібраній та унобтаній (моделі порошків — у jar; самі зілля мод реєструє кодом)",
+    "t": "базовий перелік ванільних руд: вугілля, мідь, залізо, золото, лазурит, редстоун, діамант, смарагд, кварц і незерит (налаштування модових і ATM-руд у цій версії збірки не задано)",
     "ref": [
-     "jarfile:potionsmaster!assets/potionsmaster/models/item/calcinatedallthemodium_powder.json",
-     "jarfile:potionsmaster!assets/potionsmaster/models/item/calcinatedbismuth_powder.json",
-     "jarfile:potionsmaster!assets/potionsmaster/models/item/calcinatedcrimsoniron_powder.json"
+     "jarfile:potionsmaster!assets/potionsmaster/lang/en_us.json~Potions Master",
+     "recipe:potionsmaster:tile_mortar"
     ]
    },
    "зілля бачення можна перетворити на вибухові та туманні"
@@ -1927,23 +1890,11 @@
    "s1",
    "s2",
    "s3",
-   "s6"
-  ],
-  "synergy": [
-   {
-    "mod": "allthemodium",
-    "why": "У PotionsMaster є порошки (і кальциновані порошки) усемодію й вібранію — інгредієнти зілля бачення цих руд.",
-    "src": "potionsmaster (jar): предмети allthemodium_powder, calcinatedallthemodium_powder, vibranium_powder, calcinatedvibranium_powder",
-    "ref": [
-     "jarfile:assets/potionsmaster/models/item/allthemodium_powder.json",
-     "jarfile:assets/potionsmaster/models/item/calcinatedvibranium_powder.json"
-    ],
-    "ingame": "чи справді є порошки усемодію / вібранію й зілля бачення цих руд: моделі предметів у jar є, але предмети й рецепти мод створює кодом (в індексі їх немає; рішення користувача — перевірить у грі)"
-   }
+   "s4"
   ],
   "tips": [
    "Увага: основа для варіння кальцинованого порошку в зельєварці — НЕ «Незграбне зілля» (з незерського наросту), а «Звичайне зілля» (`Mundane Potion`, вариться з пляшок води та звичайного пилу редстоуну)!",
-   "З першого ж знайденого самородка чи сирої руди усемодію не поспішайте одразу плавити злиток — зробіть одне зілля бачення усемодію, і воно окупиться десятками руд у печерах Глибокого темного біому чи Виміру видобутку.",
+   "Зілля бачення незериту допомагає швидко знаходити стародавні уламки в Незері; зілля для руд AllTheModium у версії збірки 0.12.0 не активні (тека налаштувань PotionsMaster порожня — у Темних глибинах працюють інші способи пошуку).",
    "Пілон настоювання (Pylons) у ATM11 приймає лише ванільні ефекти (`config/pylons-server.toml`: `infusionAllowedEffects = [\"minecraft\"]`) — ефекти зіль бачення PotionsMaster туди не залити."
   ],
   "icons": [
@@ -1953,8 +1904,8 @@
    "potionsmaster:bezoar"
   ],
   "ref": [
-   "jarfile:assets/potionsmaster/models/item/allthemodium_powder.json",
-   "jarfile:assets/potionsmaster/models/item/calcinatedvibranium_powder.json",
+   "recipe:potionsmaster:tile_mortar",
+   "recipe:potionsmaster:pestle",
    "config:config/pylons-server.toml#infusionAllowedEffects"
   ],
   "abs_ok": "«лише ванільні ефекти» — config/pylons-server.toml infusionAllowedEffects = [\"minecraft\"]"

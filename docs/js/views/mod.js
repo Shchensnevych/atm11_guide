@@ -41,7 +41,7 @@ export function render(el, [id], s) {
     h('div', { style: { marginBottom: '12px' } },
       h('a.btn.small', { href: back.href, style: { display: 'inline-flex', alignItems: 'center', gap: '6px', textDecoration: 'none' } }, back.label)),
     h('div', { style: { display: 'flex', gap: '18px', alignItems: 'center', marginBottom: '16px' } },
-      modLogo(m, true),
+      modLogo(s, m, true),
       h('div', null, h('h1', null, m.name), modBadges(s, m),
         parent ? h('div.mod-parent', null, '↳ доповнення до ', h('a', { href: `#/mod/${parent.id}` }, parent.name)) : null,
         m.features?.length ? h('div', { style: { marginTop: '8px' } }, featRow(m.features, (m.dims || []).map((d) => d.name), true)) : null,

@@ -215,6 +215,12 @@
   "uk": "Серце піґліча",
   "en": "Piglich Heart"
  },
+ "allthemodium:raw_allthemodium": {
+  "img": "img/items/allthemodium/raw_allthemodium.png",
+  "kind": "item",
+  "uk": "Необроблений усемодій",
+  "en": "Raw Allthemodium Ore"
+ },
  "allthemodium:teleport_pad": {
   "img": "img/items/allthemodium/teleport_pad.png",
   "kind": "block",
@@ -2849,6 +2855,12 @@
   "uk": "Кар'єр+",
   "en": "Quarry Plus"
  },
+ "railcraft:blast_furnace_bricks": {
+  "img": "img/items/railcraft/blast_furnace_bricks.png",
+  "kind": "block",
+  "uk": "Цегла домни",
+  "en": "Blast Furnace Bricks"
+ },
  "railcraft:coke_oven_bricks": {
   "img": "img/items/railcraft/coke_oven_bricks.png",
   "kind": "block",
@@ -3118,6 +3130,12 @@
   "kind": "block",
   "uk": "Фабричний менеджер",
   "en": "Factory Manager"
+ },
+ "sgearmetalworks:molten_blaze_gold_bucket": {
+  "img": "img/items/sgearmetalworks/molten_blaze_gold_bucket.png",
+  "kind": "item",
+  "uk": "Відро розплавленого пломеневого золота",
+  "en": "Bucket of Molten Blaze Gold"
  },
  "sgearmetalworks:pickaxe_cast": {
   "img": "img/items/sgearmetalworks/pickaxe_cast.png",

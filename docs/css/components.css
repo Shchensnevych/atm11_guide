@@ -365,9 +365,15 @@ a.card:hover * {
   filter: drop-shadow(0 0 4px color-mix(in srgb, var(--fc) 80%, transparent));
 }
 
-.mod-logo { width: 48px; height: 48px; flex: none; border-radius: 8px; background: var(--bg-2); object-fit: contain; image-rendering: pixelated;
-  display: grid; place-items: center; font-weight: 700; color: var(--muted); border: 1px solid var(--line); }
-.mod-logo.big { width: 96px; height: 96px; font-size: 1.6rem; }
+.mod-logo { box-sizing: border-box; width: 48px; height: 48px; padding: 4px; flex: none; border-radius: 9px; background: color-mix(in srgb, var(--c, var(--line-2)) 11%, #263044); object-fit: contain;
+  display: grid; place-items: center; font-weight: 700; color: var(--muted); border: 1px solid color-mix(in srgb, var(--c, var(--line-2)) 28%, var(--line-2)); }
+.mod-logo.item { image-rendering: pixelated; }
+.mod-logo.mod-logo-cls { background: color-mix(in srgb, var(--c, var(--line-2)) 16%, #182032); border-color: color-mix(in srgb, var(--c, var(--line-2)) 45%, var(--line-2)); }
+.mod-logo.mod-logo-cls .feat { width: 24px; height: 24px; color: color-mix(in srgb, var(--c, var(--muted)) 84%, #ffffff); }
+.mod-logo.mod-logo-cls .feat svg { width: 24px; height: 24px; }
+.mod-logo.big { width: 96px; height: 96px; padding: 8px; font-size: 1.6rem; border-radius: 14px; }
+.mod-logo.big.mod-logo-cls .feat { width: 44px; height: 44px; }
+.mod-logo.big.mod-logo-cls .feat svg { width: 44px; height: 44px; }
 .badges { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
 .badge { --c: var(--muted); display: inline-flex; align-items: center; gap: 4px; padding: 1px 8px; border-radius: 999px; font-size: .75rem; font-weight: 600;
   color: var(--c); background: color-mix(in srgb, var(--c) 14%, transparent); border: 1px solid color-mix(in srgb, var(--c) 45%, transparent); white-space: nowrap; }

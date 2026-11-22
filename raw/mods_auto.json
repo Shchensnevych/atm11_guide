@@ -881,7 +881,7 @@
   "deps": [],
   "deps_opt": [],
   "counts": {},
-  "uk_keys": 6,
+  "uk_keys": 7,
   "books": [],
   "guideme": false,
   "logo": "img/mods/balm.png",
@@ -990,7 +990,7 @@
   "uk_keys": 1,
   "books": [],
   "guideme": false,
-  "logo": null,
+  "logo": "img/mods/betteradvancements.png",
   "world": {
    "dims": [],
    "structures": 0,
@@ -1226,7 +1226,7 @@
   "uk_keys": 0,
   "books": [],
   "guideme": false,
-  "logo": null,
+  "logo": "img/mods/cleanswing.png",
   "world": {
    "dims": [],
    "structures": 0,
@@ -1704,7 +1704,7 @@
   "uk_keys": 90,
   "books": [],
   "guideme": false,
-  "logo": null,
+  "logo": "img/mods/crystalix.png",
   "world": {
    "dims": [],
    "structures": 0,
@@ -3191,7 +3191,7 @@
    "block": 7,
    "item": 11
   },
-  "uk_keys": 265,
+  "uk_keys": 273,
   "books": [],
   "guideme": false,
   "logo": null,
@@ -4052,7 +4052,7 @@
   "uk_keys": 14,
   "books": [],
   "guideme": false,
-  "logo": null,
+  "logo": "img/mods/iris.png",
   "world": {
    "dims": [],
    "structures": 0,
@@ -4136,7 +4136,7 @@
   "counts": {
    "item": 9
   },
-  "uk_keys": 6,
+  "uk_keys": 7,
   "books": [],
   "guideme": false,
   "logo": null,
@@ -4682,7 +4682,7 @@
    "roughlyenoughitems"
   ],
   "counts": {},
-  "uk_keys": 354,
+  "uk_keys": 373,
   "books": [],
   "guideme": false,
   "logo": "img/mods/kubejs.png",
@@ -4801,7 +4801,7 @@
   "uk_keys": 0,
   "books": [],
   "guideme": false,
-  "logo": null,
+  "logo": "img/mods/lithostitched.png",
   "world": {
    "dims": [],
    "structures": 0,
@@ -4869,7 +4869,7 @@
   "uk_keys": 230,
   "books": [],
   "guideme": false,
-  "logo": null,
+  "logo": "img/mods/lootr.png",
   "world": {
    "dims": [],
    "structures": 0,
@@ -6032,7 +6032,7 @@
   "uk_keys": 45,
   "books": [],
   "guideme": false,
-  "logo": null,
+  "logo": "img/mods/oracle_index.png",
   "world": {
    "dims": [],
    "structures": 0,
@@ -6090,7 +6090,7 @@
   "counts": {
    "item": 12
   },
-  "uk_keys": 13,
+  "uk_keys": 28,
   "books": [],
   "guideme": false,
   "logo": "img/mods/patchouli.png",
@@ -6261,10 +6261,10 @@
    "item": 7,
    "block": 2
   },
-  "uk_keys": 15,
+  "uk_keys": 85,
   "books": [],
   "guideme": false,
-  "logo": null,
+  "logo": "img/mods/potionsmaster.png",
   "world": {
    "dims": [],
    "structures": 0,
@@ -6729,7 +6729,7 @@
    "item": 51,
    "advancements": 26
   },
-  "uk_keys": 499,
+  "uk_keys": 500,
   "books": [],
   "guideme": false,
   "logo": "img/mods/refinedstorage.png",
@@ -7130,7 +7130,7 @@
   "uk_keys": 14,
   "books": [],
   "guideme": false,
-  "logo": null,
+  "logo": "img/mods/sfm.png",
   "world": {
    "dims": [],
    "structures": 0,
@@ -8030,7 +8030,7 @@
   "uk_keys": 0,
   "books": [],
   "guideme": false,
-  "logo": null,
+  "logo": "img/mods/theurgy_kubejs.png",
   "world": {
    "dims": [],
    "structures": 0,
@@ -8291,7 +8291,7 @@
    "entity": 37,
    "item": 133
   },
-  "uk_keys": 282,
+  "uk_keys": 286,
   "books": [],
   "guideme": false,
   "logo": "img/mods/undergarden.png",

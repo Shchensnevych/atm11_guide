@@ -58,16 +58,44 @@ def uk_count(ns):
     try: return len(json.load(open(p, encoding='utf-8')))
     except Exception: return 0
 
-LOGO_FALLBACK = (r'^logo\.png$', r'^[\w.-]*logo[\w.-]*\.png$', r'^[\w.-]*icon\.png$', r'^assets/{ns}/(icon|logo)\.png$')   # G7: без logoFile у mods.toml
+LOGO_FALLBACK = (
+    r'^logo\.png$',
+    r'^[\w.-]*logo[\w.-]*\.png$',
+    r'^[\w.-]*icon\.png$',
+    r'^META-INF/(?:icon|logo|{ns})\.png$',
+    r'^{ns}\.png$',
+    r'^assets/{ns}/(?:icon|logo)\.png$',
+    r'^assets/{ns}/textures/[\w.-]*(?:logo|icon)[\w.-]*\.png$',
+)
+
+def _is_square_png(z, name):
+    if not Image: return True
+    try:
+        w, h = Image.open(io.BytesIO(z.read(name))).size
+        return h > 0 and 0.75 <= (w / h) <= 1.35 and min(w, h) >= 32
+    except Exception:
+        return False
 
 def logo_path(z, path, mid):
-    """logoFile з mods.toml; G7: інакше — логотип у корені jar (logo.png, *_logo.png, jei-icon.png) або assets/<мод>/icon.png."""
+    """logoFile з mods.toml (вкл. пошук за ім'ям у META-INF / assets/<мод>); інакше — універсальні логотипи в jar."""
     names = z.namelist()
-    if path and path in names: return path
+    if path:
+        clean = path.lstrip('/')
+        if clean in names: return clean
+        base = os.path.basename(clean).lower()
+        if base and base != 'examplemod.png':
+            hit = sorted(n for n in names if os.path.basename(n).lower() == base
+                         and (n.startswith('META-INF/') or n.startswith(f'assets/{mid}/'))
+                         and _is_square_png(z, n))
+            if hit: return hit[0]
     for rx in LOGO_FALLBACK:
         r = re.compile(rx.replace('{ns}', re.escape(mid)), re.I)
         hit = sorted(n for n in names if r.match(n))
         if hit: return hit[0]
+    root_pngs = sorted(n for n in names if '/' not in n and n.lower().endswith('.png') and _is_square_png(z, n))
+    if len(root_pngs) == 1: return root_pngs[0]
+    dp_packs = sorted(n for n in names if re.match(r'^datapacks/[^/]+/pack\.png$', n, re.I) and _is_square_png(z, n))
+    if dp_packs: return dp_packs[0]
     return None
 
 def logo(z, path, mid):
@@ -77,6 +105,13 @@ def logo(z, path, mid):
         im = Image.open(io.BytesIO(z.read(path))).convert('RGBA')
         im.thumbnail((64, 64), Image.NEAREST if max(im.size) <= 64 else Image.LANCZOS)
         out = os.path.join(DOCS, 'img', 'mods', f'{mid}.png'); os.makedirs(os.path.dirname(out), exist_ok=True)
+        if os.path.exists(out):
+            try:
+                old = Image.open(out).convert('RGBA')
+                if old.size == im.size and old.tobytes() == im.tobytes():
+                    return f'img/mods/{mid}.png'
+            except Exception:
+                pass
         im.save(out, optimize=True); return f'img/mods/{mid}.png'
     except Exception:
         return None

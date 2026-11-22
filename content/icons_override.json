@@ -47,5 +47,6 @@
  "mysticalagriculture:entro_seeds": {"texture": "mysticalagriculture:item/mystical_seeds", "tints": [4294967295]},
  "mysticalagriculture:allthemodium_seeds": {"texture": "mysticalagriculture:item/mystical_seeds", "tints": [4294769725]},
  "mysticalagriculture:vibranium_seeds": {"texture": "mysticalagriculture:item/mystical_seeds", "tints": [4280736646]},
- "mysticalagriculture:unobtainium_seeds": {"texture": "mysticalagriculture:item/mystical_seeds", "tints": [4291711456]}
+ "mysticalagriculture:unobtainium_seeds": {"texture": "mysticalagriculture:item/mystical_seeds", "tints": [4291711456]},
+ "sgearmetalworks:molten_blaze_gold_bucket": {"bucket": "#dd8500"}
 }

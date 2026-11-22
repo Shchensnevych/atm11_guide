@@ -53,7 +53,7 @@ export async function render(el, _p, s) {
       { href: `#/chapter/${c.file}`, title: c.hidden ? (g?.why || hiddenWhy(c)) : null },
       h('div.chapter-main', null,
         h('div.chapter-head', null,
-          chIcon(c) || (m ? modLogo(m) : h('div.mod-logo', null, '📜')),
+          chIcon(c) || (m ? modLogo(s, m) : h('div.mod-logo', null, '📜')),
           h('div.chapter-title-wrap', null,
             h('h3.chapter-title', null, c.title),
             c.sub ? h('div.chapter-sub', null, c.sub) : null

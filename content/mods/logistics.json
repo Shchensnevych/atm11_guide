@@ -269,6 +269,17 @@
    "item:routers:mod_filter",
    "item:routers:tag_filter",
    "item:routers:stock_filter"
+  ],
+  "synergy": [
+   {
+    "mod": "thaumaturge",
+    "why": "Покращення Essentia (рівні I–V) крафтяться зі злитків і самородків Thaumium і передають есенції між банками Thaumaturge.",
+    "src": "рецепти routers:essentia_upgrade_*",
+    "ref": [
+     "recipe:routers:essentia_upgrade_1",
+     "recipe:routers:essentia_upgrade_5"
+    ]
+   }
   ]
  },
  "logisticsnetworks": {
@@ -298,6 +309,14 @@
     "ref": [
      "recipe:logisticsnetworks:network_upgrade_ae2",
      "jarfile:logisticsnetworks!me/almana/logisticsnetworks/integration/ae2/AE2CraftingFailure$Reason.class"
+    ]
+   },
+   {
+    "mod": "refinedstorage",
+    "why": "Мережеве покращення під'єднує логістичні мережі до сховища Refined Storage (рецепт з інтерфейсом, кабелями й покращеннями швидкості RS).",
+    "src": "рецепт logisticsnetworks:network_upgrade_refinedstorage",
+    "ref": [
+     "recipe:logisticsnetworks:network_upgrade_refinedstorage"
     ]
    }
   ],
@@ -396,7 +415,7 @@
   "synergy": [
    {
     "mod": "mysticalagriculture",
-    "why": "Культура менрілу Mystical Agriculture увімкнена в збірці (cropInfo.json): есенція крафтиться в ягоди, колоди й паростки менрілу.",
+    "why": "Культура менрілу Mystical Agriculture увімкнена в збірці: есенція крафтиться в ягоди, колоди й паростки менрілу.",
     "src": "kubejs mods/mysticalagriculture/cropInfo.json; рецепти mysticalagriculture:essence/integrateddynamics/menril_*",
     "ref": [
      "file:kubejs/server_scripts/mods/mysticalagriculture/cropInfo.json~\"menril\"",
@@ -409,6 +428,15 @@
     "src": "рецепт productivebees:centrifuge/integrateddynamics/honeycomb_menril",
     "ref": [
      "recipe:productivebees:centrifuge/integrateddynamics/honeycomb_menril"
+    ]
+   },
+   {
+    "mod": "evilcraft",
+    "why": "Сушильна й механічна сушильна чаші висушують рідку кров EvilCraft у застиглу кров (1000 мВ) та червоний пісок, а механічний витискач добуває кров і подрібнений темний самоцвіт.",
+    "src": "рецепти integrateddynamics:drying_basin/convenience/evilcraft_*, mechanical_squeezer/convenience/evilcraft_*",
+    "ref": [
+     "recipe:integrateddynamics:drying_basin/convenience/evilcraft_hardened_blood",
+     "recipe:integrateddynamics:mechanical_squeezer/convenience/evilcraft_dark_gem"
     ]
    }
   ],
@@ -664,7 +692,7 @@
   "uk": "Помпа, що викачує рідину з великої області під собою (озеро лави) у резервуар чи трубу. На місці рідини лишає камінь.",
   "what": [
    "радіус 64 блоки, 100 FE за висмоктане джерело (конфіг збірки)",
-   "внутрішній бак 32 000 mB; віддає рідину в сусідній резервуар або трубу",
+   "внутрішній бак 32 000 мВ; віддає рідину в сусідній резервуар або трубу",
    "на місці висмоктаних джерел ставить камінь",
    "крафт: діамантовий блок, обсидіан, залізне кайло, відра води й лави"
   ],
@@ -699,9 +727,8 @@
    "Пілон вигнання — не пускає чужих гравців (радіус до 2 чанків)"
   ],
   "stage": [
-   "s1",
-   "s2",
-   "s3"
+   "s3",
+   "s4"
   ],
   "tips": [
    "Для пілонів потрібні полірований чорнокамінь, залізні ґрати й кварцова плита.",

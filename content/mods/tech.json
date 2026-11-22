@@ -60,6 +60,16 @@
      "recipe:oritech:compat/powah/energizing/energite",
      "recipe:oritech:compat/powah/energizing/uranite"
     ]
+   },
+   {
+    "mod": "ae2",
+    "why": "Зарядник AE2 перетворює аметист на флюксит, а Фрагментаційна кузня й подрібнювач Oritech мелють істинний кварц, флюїкс і небесний камінь у пил; лазер заряджає скупчення істинного кварцу.",
+    "src": "рецепти oritech:compat/ae2/*",
+    "ref": [
+     "recipe:oritech:compat/ae2/charger/fluxite",
+     "recipe:oritech:compat/ae2/fragment_forge/certus_dust",
+     "recipe:oritech:compat/ae2/laser/charged_quartz"
+    ]
    }
   ],
   "tips": [
@@ -217,6 +227,27 @@
     "ref": [
      "recipe:enderio:rs_conduit"
     ]
+   },
+   {
+    "mod": "ae2",
+    "why": "Млин НСП подрібнює істинний кварц, флюїксові кристали, небесний камінь і перлини Енду у відповідний пил AE2.",
+    "src": "KubeJS server_scripts/mods/enderio/sag_milling.js",
+    "ref": [
+     "recipe:kjs:mods/enderio/sag_milling.js#L6",
+     "recipe:kjs:mods/enderio/sag_milling.js#L6.2",
+     "recipe:kjs:mods/enderio/sag_milling.js#L6.3",
+     "recipe:kjs:mods/enderio/sag_milling.js#L6.4"
+    ]
+   },
+   {
+    "mod": "powah",
+    "why": "Млин НСП подрібнює бідну, звичайну й багату уранінітові руди Powah одразу в необроблений уранініт.",
+    "src": "KubeJS server_scripts/mods/enderio/sag_milling.js",
+    "ref": [
+     "recipe:kjs:mods/enderio/sag_milling.js#L6.5",
+     "recipe:kjs:mods/enderio/sag_milling.js#L6.6",
+     "recipe:kjs:mods/enderio/sag_milling.js#L6.7"
+    ]
    }
   ],
   "tips": [
@@ -257,19 +288,6 @@
    "s2",
    "s3",
    "s4"
-  ],
-  "synergy": [
-   {
-    "mod": "enderio",
-    "why": "Провідники Endergy крафтяться зі зв'язувального елемента провідників Ender IO і стають звичайними провідниками Ender IO; конденсатори Endergy — для машин Ender IO.",
-    "src": "рецепти enderio_endergy:crude_energy_conduit, melodic_energy_conduit, basic_capacitor",
-    "ref": [
-     "recipe:enderio_endergy:crude_energy_conduit",
-     "recipe:enderio_endergy:melodic_energy_conduit",
-     "recipe:enderio_endergy:basic_capacitor",
-     "recipe:enderio_endergy:crystalline_capacitor"
-    ]
-   }
   ],
   "tips": [
    "Тотемний конденсатор можна зачарувати на «Ефективність» — це підвищує його модифікатор."
@@ -364,7 +382,7 @@
    "прямокутна ливарня розміром від 1x1: підлога — нагрівальні спіралі, стіни — вогнетривка цегла або вікна, плюс контролер, резервуари й зливи",
    "нагрів: рідинна спіраль (паливо — переважно лава), потужна й високопотужна спіралі — на FE; що гарячіше паливо, то більше рецептів доступно",
    "сплави утворюються самі, коли потрібні рідини є в ливарні в потрібних пропорціях",
-   "лиття через кран: ливарний стіл (злитки, самородки, пластини, стрижні, шестерні, самоцвіти) і ливарний чан (блоки); форму знімають, заливши розплавлену сталь (360 mB) навколо зразка — зразок витрачається",
+   "лиття через кран: ливарний стіл (злитки, самородки, пластини, стрижні, шестерні, самоцвіти) і ливарний чан (блоки); форму знімають, заливши розплавлену сталь (360 мВ) навколо зразка — зразок витрачається",
    "предмети, кинуті в гарячу ливарню, плавляться; деякі моби, загинувши всередині, дають рідини (рідке м'ясо)"
   ],
   "stage": [
@@ -390,6 +408,16 @@
      "recipe:productivemetalworks:alloying/molten_steel",
      "recipe:productivemetalworks:casting/ingots/alltheores/steel",
      "recipe:productivemetalworks:casting/gears/alltheores/steel"
+    ]
+   },
+   {
+    "mod": "allthemodium",
+    "why": "Ливарня плавить руди й злитки усемодію, вібранію й унобтанію та відливає у формах злитки, блоки, самородки, пластини, стрижні й шестерні.",
+    "src": "рецепти productivemetalworks:casting/atm/*, melting/*/allthemodium",
+    "ref": [
+     "recipe:productivemetalworks:casting/atm/allthemodium_ingot",
+     "recipe:productivemetalworks:casting/atm/unobtainium_block",
+     "recipe:productivemetalworks:melting/raw_materials/vibranium"
     ]
    }
   ],
@@ -459,6 +487,7 @@
   "chapter": "silent_gear",
   "book": "розділ «Лиття спорядження» у «Великій книзі металургії»",
   "icons": [
+   "sgearmetalworks:molten_blaze_gold_bucket",
    "sgearmetalworks:pickaxe_cast",
    "sgearmetalworks:sword_cast",
    "sgearmetalworks:uru_metal_ingot"
@@ -503,17 +532,6 @@
    "s6"
   ],
   "synergy": [
-   {
-    "mod": "generatorgalore",
-    "why": "Доповнення «Фабрика» і бездротові передавач і приймач тепла переводять печі на FE — її дають генератори Generator Galore зі спільної глави «Generators N Furnaces»; доповнення «Генератор», навпаки, робить із печі генератор.",
-    "src": "квести «Доповнення: Фабрика», «Бездротовий приймач тепла», «Доповнення: Генератор», «Мідний генератор»",
-    "ref": [
-     "quest:49F08DE190AAD0D8",
-     "quest:20EC8001A05CE2C8",
-     "quest:07753C5D94312A50",
-     "quest:618F1434757C8E69"
-    ]
-   },
    {
     "mod": "allthemodium",
     "why": "Найвищі печі — усемодієва → вібранієва → унобтанієва — і покращення до них крафтяться з ATM-злитків.",
@@ -954,6 +972,18 @@
    "recipe:buildinggadgets2:gadget_exchanging",
    "recipe:buildinggadgets2:gadget_copy_paste",
    "recipe:kjs:mods/buildinggadgets2/recipes.js#L6"
+  ],
+  "synergy": [
+   {
+    "mod": "allthemodium",
+    "why": "У збірці рецепт будівельного гаджета перероблено: потребує самородок усемодію та 2 діамантові шестерні AllTheOres.",
+    "src": "KubeJS server_scripts/mods/buildinggadgets2/recipes.js",
+    "ref": [
+     "recipe:kjs:mods/buildinggadgets2/recipes.js#L6",
+     "!recipe:buildinggadgets2:gadget_building",
+     "tag:c:nuggets/allthemodium"
+    ]
+   }
   ]
  },
  "constructionstick": {
@@ -1120,17 +1150,6 @@
    "s3",
    "s4"
   ],
-  "synergy": [
-   {
-    "mod": "curios",
-    "why": "Ранець носять у слоті спини Curios — нагрудник лишається для броні (клас сумісності CuriosCompat, тег curios:back).",
-    "src": "клас com/blakebr0/ironjetpacks/compat/curios/CuriosCompat; тег curios:back",
-    "ref": [
-     "jarfile:IronJetpacks!com/blakebr0/ironjetpacks/compat/curios/CuriosCompat.class~curios",
-     "tag:curios:back"
-    ]
-   }
-  ],
   "tips": [
    "Рушій — Ctrl+Миша 4 (налаштовано в збірці; квест згадує V — це типова клавіша ATM), планерування — H, газ — «.» / «,»; підйом і спуск — Пробіл і Shift.",
    "Закінчиться енергія — впадете: заряджайте перед вильотом або носіть зарядний маяк Powah."
@@ -1211,7 +1230,7 @@
    "s2"
   ],
   "tips": [
-   "Рецепт збірки: редстоуновий годинник — з редстоуну й різьбленої кам'яної цегли (KubeJS); крихітне вугілля крафтом не роблять (рецепт прибрано KubeJS)."
+   "Рецепт збірки: редстоуновий годинник — з редстоуну й різьбленої кам'яної цегли (KubeJS); зворотний крафт 8 крихітного вугілля назад у звичайне на верстаті прибрано KubeJS (розкладати вугілля на крихітне можна, а збирати назад уміє компактувальна шухляда Functional Storage)."
   ],
   "chapter": "tips_and_tricks",
   "icons": [
@@ -1254,7 +1273,8 @@
    "file:config/utilitarian-server.toml~dritDamage = 2.0",
    "recipe:utilitarian:snad/red_snad",
    "jarfile:utilitarian!data/c/tags/block/soul_sand_growables.json~nether_wart",
-   "recipe:utilitarian:snad/soul_snad"
+   "recipe:utilitarian:snad/soul_snad",
+   "recipe:utilitarian:tiny_fuel/tiny_coal"
   ]
  },
  "titanium": {

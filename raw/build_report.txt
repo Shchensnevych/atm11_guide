@@ -1,1 +1,1 @@
-джерело (src) людською мовою: змінено 416 з 607; лишилось id / шляхів 18 (allthemods:crafting/otherflower_to_*_dye, allthemods:crystalline_infusion/*, atm:unbreakable, auroral:*, awakening/fertile_lily_pad, curios:*, netherite/*, reliquary:*…)
+джерело (src) людською мовою: змінено 421 з 604; лишилось id / шляхів 16 (allthemods:crafting/otherflower_to_*_dye, allthemods:crystalline_infusion/*, atm:unbreakable, auroral:*, awakening/fertile_lily_pad, netherite/*, reliquary:*, ritual/craft_familiar_ring…)

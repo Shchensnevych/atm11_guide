@@ -639,3 +639,132 @@
   border-color: #cbd5e1;
   color: #334155;
 }
+
+/* --- Мапа синергій (#/synergy, K36): контраст класів, ліній і карток на світлому тлі --- */
+[data-theme="light"] .syn-search,
+[data-theme="light"] .syn-sel {
+  background: #ffffff;
+  border-color: var(--line);
+}
+[data-theme="light"] .syn-ghead {
+  border-left-color: color-mix(in srgb, var(--c) 72%, #0f172a);
+}
+[data-theme="light"] .syn-chip {
+  background: color-mix(in srgb, var(--c) 12%, #ffffff);
+  border-color: color-mix(in srgb, var(--c) 58%, #334155);
+  color: color-mix(in srgb, var(--c) 62%, #0f172a);
+}
+[data-theme="light"] .syn-wheel-tip {
+  background: #ffffff;
+  border-color: var(--line);
+  color: var(--muted);
+}
+[data-theme="light"] .syn-classes .lk path.vis {
+  stroke: #94a3b8;
+}
+[data-theme="light"] .syn-classes .lk.strong path.vis {
+  stroke: color-mix(in srgb, var(--c) 55%, #475569);
+}
+[data-theme="light"] .syn-classes .lk.on path.vis {
+  stroke: color-mix(in srgb, var(--c) 74%, #0f172a);
+}
+[data-theme="light"] .syn-classes .lk.hover path.vis {
+  stroke: var(--accent);
+}
+[data-theme="light"] .syn-classes .lk .cnt {
+  fill: #0f172a;
+  stroke: var(--bg);
+}
+[data-theme="light"] .syn-classes .nd > circle.ring {
+  fill: color-mix(in srgb, var(--c) 14%, #ffffff);
+  stroke: color-mix(in srgb, var(--c) 74%, #0f172a);
+}
+[data-theme="light"] .syn-classes .nd:hover > circle.ring,
+[data-theme="light"] .syn-classes .nd:focus > circle.ring,
+[data-theme="light"] .syn-classes .nd.on > circle.ring,
+[data-theme="light"] .syn-classes .nd.peer > circle.ring {
+  fill: color-mix(in srgb, var(--c) 22%, #ffffff);
+}
+[data-theme="light"] .syn-classes .nd .ic-svg {
+  color: color-mix(in srgb, var(--c) 72%, #0f172a);
+}
+[data-theme="light"] .syn-ic {
+  background: color-mix(in srgb, var(--c, var(--line-2)) 9%, #f1f5f9);
+  border-color: color-mix(in srgb, var(--c, var(--line-2)) 30%, #cbd5e1);
+}
+[data-theme="light"] .syn-ic.mono {
+  background: color-mix(in srgb, var(--c, var(--line-2)) 14%, #ffffff);
+  border-color: color-mix(in srgb, var(--c, var(--line-2)) 52%, #94a3b8);
+}
+[data-theme="light"] .syn-ic.mono .feat,
+[data-theme="light"] .mod-logo.mod-logo-cls .feat {
+  color: color-mix(in srgb, var(--c, var(--muted)) 72%, #0f172a);
+}
+[data-theme="light"] .mod-logo {
+  background: color-mix(in srgb, var(--c, var(--line-2)) 9%, #f1f5f9);
+  border-color: color-mix(in srgb, var(--c, var(--line-2)) 30%, #cbd5e1);
+}
+[data-theme="light"] .mod-logo.mod-logo-cls {
+  background: color-mix(in srgb, var(--c, var(--line-2)) 14%, #ffffff);
+  border-color: color-mix(in srgb, var(--c, var(--line-2)) 52%, #94a3b8);
+}
+[data-theme="light"] .syn-chip .feat,
+[data-theme="light"] .syn-ghead .feat,
+[data-theme="light"] .syn-pf-btn .feat {
+  color: color-mix(in srgb, var(--fc) 66%, #0f172a);
+}
+[data-theme="light"] .syn-tile,
+[data-theme="light"] .syn-pair-item {
+  background: #ffffff;
+  border-color: var(--line);
+  border-left-color: color-mix(in srgb, var(--c) 72%, #0f172a);
+  box-shadow: 0 1px 3px rgb(15 23 42 / 5%);
+}
+[data-theme="light"] .syn-tile:hover {
+  background: #f8fafc;
+  border-color: color-mix(in srgb, var(--c) 72%, #0f172a);
+  box-shadow: 0 4px 12px rgb(15 23 42 / 9%);
+}
+[data-theme="light"] .syn-tile-cnt,
+[data-theme="light"] .syn-st-pill {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+[data-theme="light"] .syn-pf-btn {
+  background: #ffffff;
+  border-color: var(--line);
+  color: var(--text);
+}
+[data-theme="light"] .syn-pf-btn.on {
+  background: color-mix(in srgb, var(--c, var(--accent)) 16%, #ffffff);
+  border-color: color-mix(in srgb, var(--c, var(--accent)) 72%, #0f172a);
+  color: #0f172a;
+}
+[data-theme="light"] .syn-edge {
+  stroke: color-mix(in srgb, var(--c) 74%, #0f172a);
+  opacity: .56;
+}
+[data-theme="light"] .syn-dot {
+  fill: color-mix(in srgb, var(--c) 74%, #0f172a);
+}
+[data-theme="light"] .syn-edge.hl {
+  opacity: 1;
+}
+[data-theme="light"] .syn-card {
+  background: #ffffff;
+  border-color: var(--line);
+  border-left-color: color-mix(in srgb, var(--c) 72%, #0f172a);
+  box-shadow: 0 1px 4px rgb(15 23 42 / 6%);
+}
+[data-theme="light"] .syn-card.partner:hover {
+  border-color: color-mix(in srgb, var(--c) 72%, #0f172a);
+  box-shadow: 0 6px 18px rgb(15 23 42 / 11%);
+}
+[data-theme="light"] .syn-card.center {
+  border-color: var(--accent);
+  box-shadow: 0 6px 22px rgb(15 23 42 / 10%);
+}
+[data-theme="light"] .syn-card .syn-ic {
+  filter: drop-shadow(0 1px 1px rgb(15 23 42 / 14%));
+}

@@ -41,11 +41,11 @@
    },
    {
     "mod": "allthemodium",
-    "why": "Вібранієво-усемодієвий сплав збірка робить у сфері заряджання: усемодієвий і вібранієвий злитки, серце піґліча й блок нітро-кристала 1x (блок сплаву — ще й у драконячій кузні Ice and Fire).",
-    "src": "KubeJS server_scripts/mods/powah/energizing.js (vibranium_allthemodium_alloy_ingot)",
+    "why": "Вібранієво-усемодієвий сплав збірка робить у сфері заряджання: усемодієвий і вібранієвий злитки, 2 серця піґліча й блок нітро-кристала 1x (блок сплаву — ще й у вогняній драконячій кузні Ice and Fire).",
+    "src": "KubeJS server_scripts/modpack/atm_alloys.js (vibranium_allthemodium_alloy_ingot)",
     "ref": [
      "recipe:kubejs:energizing/vibranium_allthemodium_alloy_ingot",
-     "kjs:server_scripts/mods/powah/energizing.js"
+     "kjs:server_scripts/modpack/atm_alloys.js"
     ]
    },
    {
@@ -59,11 +59,12 @@
    },
    {
     "mod": "allthecompressed",
-    "why": "Стиснені блоки нітро-кристала AllTheCompressed (1x…8x) — інгредієнти сплаву й стиснених блоків вібранієво-усемодієвого сплаву у сфері заряджання.",
-    "src": "KubeJS server_scripts/mods/powah/energizing.js (vibranium_allthemodium_*)",
+    "why": "Стиснені блоки нітро-кристала AllTheCompressed (1x…9x) — інгредієнти сплаву й стиснених блоків вібранієво-усемодієвого сплаву у сфері заряджання.",
+    "src": "KubeJS server_scripts/modpack/atm_alloys.js (vibranium_allthemodium_*)",
     "ref": [
      "recipe:kubejs:energizing/vibranium_allthemodium_alloy_ingot",
-     "recipe:kubejs:energizing/vibranium_allthemodium_block_6x"
+     "recipe:kubejs:energizing/vibranium_allthemodium_block_7x",
+     "kjs:server_scripts/modpack/atm_alloys.js"
     ]
    },
    {
@@ -74,6 +75,17 @@
      "quest:677365A816994C8B",
      "config:config/powah.json5#devices.player_transmitters.charging_rates.starter=500",
      "config:config/ironjetpacks/jetpacks/wood.json#capacity=20000"
+    ]
+   },
+   {
+    "mod": "alltheores",
+    "why": "Сфера заряджання партіями (від 1 до 6 шт. за раз) перетворює уранові злитки й блоки AllTheOres на уранініт і блоки уранініту Powah.",
+    "src": "KubeJS server_scripts/mods/powah/energizing.js",
+    "ref": [
+     "recipe:kubejs:energizing/1x_uraninite_from_uranium",
+     "recipe:kubejs:energizing/6x_uraninite_from_uranium",
+     "recipe:kubejs:energizing/1x_uraninite_from_uranium_block",
+     "tag:c:ingots/uranium"
     ]
    }
   ],

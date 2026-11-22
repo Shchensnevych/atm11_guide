@@ -295,7 +295,6 @@
      "7F902A5A03FD65F8"
     ],
     "items": [
-     "minecraft:map",
      "waystones:warp_stone",
      "naturescompass:naturescompass"
     ]
@@ -551,7 +550,7 @@
     "productivemetalworks",
     "sgearmetalworks"
    ],
-   "text": "Productive Metalworks: ливарня з вогнетривкої цегли чи вікон на рідинних нагрівальних спіралях (паливо — лава) — необроблена руда плавиться з подвоєнням (180 mB проти 90 mB зі злитка), сплави змішуються рідинами, лиття у формах. Silent Gear Metalworks додає відливання деталей Silent Gear.",
+   "text": "Productive Metalworks: ливарня з вогнетривкої цегли чи вікон на рідинних нагрівальних спіралях (паливо — лава) — необроблена руда плавиться з подвоєнням (180 мВ проти 90 мВ зі злитка), сплави змішуються рідинами, лиття у формах. Silent Gear Metalworks додає відливання деталей Silent Gear.",
    "done_by": {
     "quests": [
      "45899579D9B92D91",
@@ -646,9 +645,6 @@
      "lootr:1barrel",
      "lootr:1cart",
      "lootr:1shulker"
-    ],
-    "items": [
-     "minecraft:golden_apple"
     ]
    },
    "ref": [
@@ -952,9 +948,6 @@
     "quests": [
      "7D10D15B94C63DE4",
      "2D01012FE7F9BA61"
-    ],
-    "items": [
-     "minecraft:amethyst_shard"
     ]
    },
    "ref": [
@@ -1067,7 +1060,6 @@
    "text": "Темна магія крові: екстрактор крові, темний самоцвіт сили, кривавий насичувач з обітницями, кривава скриня (лагодження кров'ю), очищувач (прокляття — геть, чари — на блук), блок вічної води, піч духів.",
    "done_by": {
     "quests": [
-     "31FD9EA513E0D010",
      "7E79F52147B606F9",
      "62A262A706CFCAF0"
     ],
@@ -1076,7 +1068,6 @@
      "evilcraft:power_crafting"
     ],
     "items": [
-     "evilcraft:dark_gem",
      "evilcraft:blood_infuser",
      "evilcraft:blood_extractor"
     ]
@@ -1112,12 +1103,10 @@
    "text": "Глибокі руди (містичний кристал, стеларит, руни), чистий пил і деорум, піч Клібано, Кузня Гефеста 5 рівнів (4 есенції, реліквії), квантовий ловець; Вічна Стелла — незламність через ритуал Occultism (ATM11).",
    "done_by": {
     "quests": [
-     "62C60FF24B2F7290",
      "2D3C8905B783A212",
      "185DBBDD252CBA0C"
     ],
     "items": [
-     "forbidden_arcanus:arcane_crystal",
      "forbidden_arcanus:hephaestus_forge",
      "forbidden_arcanus:mundabitur_dust"
     ]
@@ -1233,10 +1222,11 @@
    ],
    "mods": [
     "apotheosis",
-    "apothic_attributes"
+    "apothic_attributes",
+    "apothic_spawners"
    ],
    "chapter": "apotheosis_gear",
-   "text": "Предмети з афіксами 5 рівнів рідкості (від звичайного до міфічного), самоцвіти в гніздах, перекування за матеріали й пил самоцвітів, точкове підсилення афіксів за сигіли вдосконалення та 5 світових рівнів (Притулок → Кордон → Сходження → Вершина → Пік, вікно Ctrl + T).",
+   "text": "Предмети з афіксами 5 рівнів рідкості (від звичайного до міфічного), самоцвіти в гніздах, перекування за матеріали й пил самоцвітів, точкове підсилення афіксів за сигіли вдосконалення та 5 світових рівнів (Притулок → Кордон → Сходження → Вершина → Пік, вікно Ctrl + T). Apothic Spawners: породжувачі копаються Шовковим дотиком I і змінюються рунами Apotheosis.",
    "done_by": {
     "quests": [
      "6CA3111E5B9FE80B",
@@ -1327,7 +1317,7 @@
     "undergarden"
    ],
    "chapter": "undergarden",
-   "text": "Підземний вимір: портал як у Незер, але з кам'яної цегли; запалюється каталізатором (мідь, камінь, перлина Енду). Клоґрум, морозосталь, утерій, реґалій (торгівля з камнеродженими), роґдорій у глибинах за жахокаменем (потрібне забуте або усемодієве кайло); бос Забутий вартовий у катакомбах.",
+   "text": "Підземний сад: портал як у Незер, але з кам'яної цегли; запалюється каталізатором (мідь, камінь, перлина Енду). Клоґрум, морозосталь, утерій, реґалій (торгівля з камнеродженими), роґдорій у глибинах за жахокаменем (потрібне забуте або усемодієве кайло); бос Забутий вартовий у катакомбах.",
    "done_by": {
     "quests": [
      "6C4B93FE64BD418D",
@@ -1384,7 +1374,6 @@
      "minecraft:nether/obtain_blaze_rod"
     ],
     "items": [
-     "minecraft:netherrack",
      "minecraft:blaze_rod"
     ]
    },
@@ -1515,7 +1504,7 @@
   },
   {
    "id": "l_pylons",
-   "stage": "s2",
+   "stage": "s3",
    "lane": "farming",
    "group": "farming",
    "title": "Пілони",
@@ -1528,7 +1517,7 @@
     "pylons"
    ],
    "chapter": "pylons",
-   "text": "Жниварний пілон — найпростіша автоферма (потрібна мотика); пілон настоювання — постійні ефекти зілль; пілони заборони, захисту й вигнання бережуть базу.",
+   "text": "Жниварний пілон — проста автоферма (потрібна мотика); пілон настоювання — постійні ванільні ефекти зілль; пілони заборони, захисту й вигнання бережуть базу. У рецептах пілонів — кварцові плити й полірований чорнокамінь (природно після Незеру; пілон заборони ще й потребує незеритовий блок).",
    "done_by": {
     "quests": [
      "12ED1EE85E146A4B",
@@ -1696,22 +1685,19 @@
    "stage": "s4",
    "lane": "resources",
    "group": "resources",
-   "title": "Симуляції мобів і породжувачі",
+   "title": "Симуляції мобів",
    "icons": [
     "hostilenetworks:sim_chamber",
     "hostilenetworks:loot_fabricator",
     "hostilenetworks:deep_learner"
    ],
    "mods": [
-    "hostilenetworks",
-    "apothic_spawners"
+    "hostilenetworks"
    ],
-   "text": "Hostile Neural Networks симулює мобів у камері симуляцій і центрі обробки даних за FE; фабрикатор здобичі потребує незериту. Глава квестів прихована, але мод працює. Apothic Spawners: породжувачі копаються Шовковим дотиком і змінюються рунами.",
+   "text": "Hostile Neural Networks симулює мобів у камері симуляцій і центрі обробки даних за FE; фабрикатор здобичі потребує незериту. Глава квестів прихована, але мод працює.",
    "done_by": {
     "items": [
-     "hostilenetworks:sim_chamber",
-     "hostilenetworks:loot_fabricator",
-     "hostilenetworks:deep_learner"
+     "hostilenetworks:loot_fabricator"
     ]
    },
    "ref": [
@@ -1974,8 +1960,7 @@
     "items": [
      "ae2:controller",
      "ae2:drive",
-     "ae2:logic_processor",
-     "ae2:certus_quartz_crystal"
+     "ae2:logic_processor"
     ]
    },
    "ref": [
@@ -2054,8 +2039,7 @@
     ],
     "items": [
      "powah:reactor_basic",
-     "powah:thermo_generator_basic",
-     "powah:uraninite"
+     "powah:thermo_generator_basic"
     ]
    },
    "ref": [
@@ -2213,7 +2197,7 @@
   },
   {
    "id": "x_auroral",
-   "stage": "s4",
+   "stage": "s2",
    "lane": "exploration",
    "group": "exploration",
    "title": "Auroral",
@@ -2275,17 +2259,13 @@
    "text": "Зірка Незеру з Візера й шлях до Енду. Nullscape перебудовує Енд (висота виміру — 384 блоки, 3 нові біоми). Wither Skeleton Tweaks: з візер-скелетів завжди падає фрагмент черепа (9 — череп), а жертовний клинок — меч для них. More Dragon Eggs: яйце дракона після кожного вбивства дракона Енду.",
    "done_by": {
     "quests": [
-     "34A822487EEF2A2A",
      "5159B6673D6D5ACE",
      "57B726C4B7E418EC"
     ],
     "advancements": [
-     "minecraft:story/enter_the_end",
      "minecraft:end/kill_dragon"
     ],
     "items": [
-     "minecraft:ender_eye",
-     "minecraft:wither_skeleton_skull",
      "minecraft:nether_star",
      "minecraft:dragon_egg"
     ]
@@ -2318,12 +2298,11 @@
    "text": "Початок «Розділу 2»: руда усемодію — у біомі Темні глибини (довкола стародавніх міст), добувається кайлом не нижче незеритового. Самородки усемодію — на телепорт-плиту у виміри ATM і на покращення Mining Gadgets.",
    "done_by": {
     "quests": [
-     "4B2146C9527C54E7",
-     "111E4ACF7D570EE8",
      "201EE3566D4D3123"
     ],
     "items": [
-     "allthemodium:allthemodium_ingot"
+     "allthemodium:allthemodium_ingot",
+     "allthemodium:raw_allthemodium"
     ]
    },
    "ref": [
@@ -2483,14 +2462,13 @@
    "text": "Railcraft: коксова піч і домна (сталь), парові котли й турбіна, рейки, паро- й електротяги, завантажувачі, сигнали. Цегла домни (незерська цегла, пісок душ, магмовий крем) — після Незеру.",
    "done_by": {
     "quests": [
-     "38451B61E3FC075B",
      "5128B119DFFF0C4C",
      "425E375A9EC127EB"
     ],
     "items": [
      "railcraft:steam_locomotive",
      "railcraft:reinforced_track",
-     "railcraft:coke_oven_bricks"
+     "railcraft:blast_furnace_bricks"
     ]
    },
    "ref": [
@@ -2549,9 +2527,7 @@
      "18FAD56CDE05646A"
     ],
     "items": [
-     "quarryplus:quarry",
-     "quarryplus:marker",
-     "quarryplus:pump_module"
+     "quarryplus:quarry"
     ]
    },
    "ref": [
@@ -2718,8 +2694,7 @@
   {
    "from": "st_chest",
    "to": "st_rs",
-   "kind": "req",
-   "label": "кремній",
+   "kind": "opt",
    "src": "квести «Розділ 1»: «Найвища форма сховища» (кремній RS / AE2) ← «Покращені скрині/діжки»; рецепт refinedstorage:controller — #c:silicon",
    "ref": [
     "recipe:refinedstorage:controller",
@@ -2729,8 +2704,7 @@
   {
    "from": "st_chest",
    "to": "st_ae",
-   "kind": "req",
-   "label": "кремній",
+   "kind": "opt",
    "src": "квести «Розділ 1»: «Найвища форма сховища» (кремній RS / AE2) ← «Покращені скрині/діжки»",
    "ref": [
     "quest:1B3BBE40ABE68E69"
@@ -2818,7 +2792,7 @@
    "to": "r_foundry",
    "kind": "syn",
    "label": "руди ×2",
-   "src": "productivemetalworks: melting/raw_materials/* — необроблена руда дає 180 mB розплаву, злиток відливається з 90 mB (напр. олово AllTheOres)",
+   "src": "productivemetalworks: melting/raw_materials/* — необроблена руда дає 180 мВ розплаву, злиток відливається з 90 мВ (напр. олово AllTheOres)",
    "ref": [
     "recipe:productivemetalworks:melting/raw_materials/tin",
     "jarfile:data/productivemetalworks/recipe/melting/raw_materials/tin.json~180",
@@ -2849,11 +2823,9 @@
    ]
   },
   {
-   "from": "r_ores",
+   "from": "t_ep",
    "to": "x_stellaris",
-   "kind": "opt",
-   "label": "титан",
-   "src": "рецепт stellaris:rocket (станція ракет) — злитки титану #c:ingots/titanium"
+   "kind": "opt"
   },
   {
    "from": "tr_stone",

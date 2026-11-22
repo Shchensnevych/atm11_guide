@@ -47,7 +47,7 @@
   "synergy": [
    {
     "mod": "silentgear",
-    "why": "Пластини Silent з усемодію, вібранію й унобтанію (ковальський шаблон + пластина) — матеріали Silent Gear (dynamic_data/silentgear/silentgear_materials).",
+    "why": "Пластини Silent з усемодію, вібранію й унобтанію (ковальський шаблон + пластина) — матеріали Silent Gear.",
     "src": "KubeJS mods/allthemodium/recipes.js; dynamic_data/silentgear/silentgear_materials/allthemodium.json",
     "ref": [
      "recipe:kjs:mods/allthemodium/recipes.js#L6",
@@ -205,7 +205,7 @@
    },
    {
     "mod": "mysticalagradditions",
-    "why": "Творчу есенцію Mystical Agradditions збірка крафтить із 4 інсанієвих блоків, 4 блоків інсанієвих самоцвітів і майстерського кристала наповнення (att_items.js); вона потрібна, напр., для творчого реактивного ранця разом із зіркою ATM.",
+    "why": "Творчу есенцію Mystical Agradditions збірка крафтить із 4 інсанієвих блоків, 4 блоків інсанієвих самоцвітів і майстерського кристала наповнення; вона потрібна, напр., для творчого реактивного ранця разом із зіркою ATM.",
     "src": "KubeJS modpack/att_items.js (allthemods:allthetweaks/creative_essence)",
     "ref": [
      "recipe:allthemods:allthetweaks/creative_essence",
@@ -401,15 +401,6 @@
   ],
   "synergy": [
    {
-    "mod": "mysticalagradditions",
-    "why": "Додає 6-й рівень — інсанієву есенцію й ріллю — і насіння зірки Незеру, яйця дракона й нітро-кристала, які ростуть з основою (crux) під ріллею.",
-    "src": "квест «Інсаній» (глава «Mystical Agriculture»); предмети mysticalagradditions:*_crux",
-    "ref": [
-     "quest:202B1F54D3F06DAB",
-     "item:mysticalagradditions:nether_star_crux"
-    ]
-   },
-   {
     "mod": "allthecompressed",
     "why": "Насіння кристалів Powah, сплавів та інших ресурсів збірка робить зі стиснених блоків 1x AllTheCompressed (для насіння сталі є й рецепт зі звичайних сталевих злитків).",
     "src": "KubeJS mods/mysticalagriculture/compatibility.js",
@@ -419,18 +410,30 @@
    },
    {
     "mod": "integrateddynamics",
-    "why": "Прес Integrated Dynamics вичавлює з краплі досвіду 250 mB рідкого досвіду (рідина Just Dire Things).",
+    "why": "Прес Integrated Dynamics вичавлює з краплі досвіду 250 мВ рідкого досвіду (рідина Just Dire Things).",
     "src": "KubeJS mods/mysticalagriculture/experience_droplet.js",
     "ref": [
      "recipe:kjs:mods/mysticalagriculture/experience_droplet.js#L8"
     ],
     "pair_ok": "різні механізми: тут — прес ID вичавлює рідкий досвід із краплі досвіду MA; на сторінці Integrated Dynamics — культура менрілу MA"
+   },
+   {
+    "mod": "ae2",
+    "why": "Есенції істинного кварцу, флюїксу й небесного каменю крафтяться в кристали, пил, небесний камінь і схеми штампів процесорів (зокрема розрахунковий і кремнієвий).",
+    "src": "рецепти mysticalagriculture:essence/appliedenergistics2/*",
+    "ref": [
+     "recipe:mysticalagriculture:essence/appliedenergistics2/certus_quartz",
+     "recipe:mysticalagriculture:essence/appliedenergistics2/fluix",
+     "recipe:mysticalagriculture:essence/appliedenergistics2/sky_stone",
+     "recipe:mysticalagriculture:essence/appliedenergistics2/calculation_press",
+     "recipe:mysticalagriculture:essence/appliedenergistics2/silicon_press"
+    ]
    }
   ],
   "tips": [
    "Друге насіння з грядки за конфігом не падає (secondarySeedDrops = false), але скрипт збірки повертає 1 % культурам рівнів 1–4; з рівня 5 насіння — лише крафтом на вівтарі.",
    "Насіння сталі, бронзи, латуні, кристалів Powah, істинного кварцу, флюїксу й сплавів Ender IO збірка робить не зі злитків, а з 4 блоків (стиснених блоків 1x AllTheCompressed, якщо такі є) — mods/mysticalagriculture/compatibility.js.",
-   "Крапля досвіду в пресі Integrated Dynamics дає 250 mB рідкого досвіду; родюче латаття (Лілія родючості) Reliquary збірка перенесла на вівтар пробудження.",
+   "Крапля досвіду в пресі Integrated Dynamics дає 250 мВ рідкого досвіду; родюче латаття (Лілія родючості) Reliquary збірка перенесла на вівтар пробудження.",
    "Лійкою можуть поливати автоматичні «гравці» — клікери тощо (fakePlayerWatering = true)."
   ],
   "chapter": "mystical_agriculture",
@@ -588,14 +591,6 @@
   ],
   "synergy": [
    {
-    "mod": "mysticalagriculture",
-    "why": "Автофермер вирощує насіння MA без грядки — на ріллі відповідного рівня всередині блока.",
-    "src": "рецепти mysticalautomation:farmer/*",
-    "ref": [
-     "recipe:mysticalautomation:farmer/inferium_seeds_tier_0"
-    ]
-   },
-   {
     "mod": "mysticalagradditions",
     "why": "Інсанієва рілля в автофермері дає найвищий рівень вирощування.",
     "src": "рецепт mysticalautomation:farmer/inferium_seeds_tier_6",
@@ -709,17 +704,6 @@
    "s1",
    "s2",
    "s3"
-  ],
-  "synergy": [
-   {
-    "mod": "mysticalagriculture",
-    "why": "Рівневі кристали підвищують есенції MA верстатом ще до майстерського кристала.",
-    "src": "рецепти matc:*_essence, matc:*_crystal",
-    "ref": [
-     "recipe:matc:imperium_essence",
-     "recipe:matc:imperium_crystal"
-    ]
-   }
   ],
   "tips": [
    "Наступний кристал крафтиться з попереднього (тертієвий + імперієва есенція + уламок процвітання → імперієвий тощо)."
