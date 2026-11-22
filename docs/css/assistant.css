@@ -382,7 +382,7 @@ a.ai-kpi:hover { border-color: var(--accent); text-decoration: none; }
 .so-zdot.so-zout { background: none; border: 1px dashed var(--line-2); }
 /* K15 (компаньйон §4 Б23): ланцюжок ⛓ — окрема вузька колонка перед «⋯» (варіант 2); рядок без меню тримає ту саму сітку */
 .so-row { grid-template-columns: 22px minmax(0, 1fr) auto 32px 26px; }
-.so-chain { width: 24px; box-sizing: border-box; text-align: center; border-radius: 6px; font-size: .82rem; font-weight: 800; line-height: 1.55; color: var(--chain-ink); background: var(--chain-0); justify-self: center; }
+.so-chain { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; height: 22px; padding: 0 4px; box-sizing: border-box; text-align: center; border-radius: 5px; font-size: .8rem; font-weight: 800; line-height: 1; color: var(--chain-ink); background: var(--chain-0); justify-self: center; }
 .so-chain.ch0 { background: var(--chain-0); }
 .so-chain.ch1 { background: var(--chain-1); }
 .so-chain.ch2 { background: var(--chain-2); }
@@ -758,9 +758,9 @@ a.ai-kpi:hover { border-color: var(--accent); text-decoration: none; }
   .ai-hotkey-hint { display: none; }
 }
 
-/* K23 (М1, варіант B): лічильник підключених до мережі сховищ; K24 (з гри 11-19) — компактний «🔌1▾» після місця, перед «⋯»; розгорнуті — дочірні рядки з відступом */
-.so-metabox { display: inline-flex; align-items: center; gap: 4px; }
-.so-mounts { flex: none; display: inline-flex; align-items: center; gap: 1px; padding: 0 4px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel-2);
-  color: var(--link); font: inherit; font-size: .72rem; line-height: 1.5; cursor: pointer; white-space: nowrap; }
-.so-mounts:hover, .so-mounts.on { border-color: var(--link); }
+/* K23 / K34: кнопка розгортання підключених до мережі сховищ («1▾» / «1▴») — у 4-й колонці на рівні літер груп і в тому ж прямокутному стилі; розгорнуті — дочірні рядки з відступом */
+.so-chain.so-mounts { width: auto; min-width: 24px; max-width: 32px; height: 22px; padding: 0 3px; border-radius: 5px; border: 1px solid var(--line-2); background: var(--panel-2);
+  color: var(--link); font-size: .72rem; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1; cursor: pointer; white-space: nowrap; }
+.so-chain.so-mounts:hover, .so-chain.so-mounts.on { border-color: var(--link); background: color-mix(in srgb, var(--link) 14%, var(--panel-2)); }
+.so-chain.so-mounts-sample { cursor: default; }
 .so-row.sub { margin-left: 20px; }

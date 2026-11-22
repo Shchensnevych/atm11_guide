@@ -12,7 +12,8 @@
 // «Зони / Мітки / Типи / Зв'язок» з роздільниками (пари «значок — пояснення»), лише про те, що є у списку. Дані (`chain`, `access`, `networks`, `carried`, `stored`, `icon`) — з моста.
 // K23 (HANDOFF компаньйона §4 М1, рішення користувача 2026-11-19 — варіант B макета): сховища, які мережа показує через свій
 // вузол (шина сховища, зовнішнє сховище), — під рядком мережі (міст: `networks[].mounts`, зі списку прибрані): на рядку
-// лічильник «🔌 N підключені ▾», клік розгортає дочірні рядки з тим самим меню, що в рядка сховища; розгорнуте пам'ятає картка.
+// кнопка-лічильник «N▾» (K34: у тій самій 4-й колонці й прямокутному стилі, що літера групи, без «🔌», щоб координати стояли
+// рівно в одну вертикаль), клік розгортає дочірні рядки з тим самим меню, що в рядка сховища; розгорнуте пам'ятає картка.
 // DOM — лише h() / textContent (SECURITY §4).
 import { h, mount } from '../core/dom.js';
 import { openRowMenu, closeRowMenu, renameInPlace, isEditing } from './row-menu.js';
@@ -52,7 +53,6 @@ const shown = new WeakMap();
 const state = new WeakMap();
 /** «1 підключене / 2 підключені / 5 підключених». @param {number} n */
 const mountWord = (n) => (n % 10 === 1 && n % 100 !== 11 ? 'підключене' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 'підключені' : 'підключених');
-const MOUNT = '🔌';
 /** K23 (з гри 11-19): розгорнуті мережі — у сховищі браузера (переживають перезавантаження сторінки). */
 const OPEN_KEY = 'atm11.own.mountsOpen';
 const readOpen = () => { try { return JSON.parse(localStorage.getItem(OPEN_KEY) || '[]'); } catch (_) { return []; } };
@@ -81,14 +81,15 @@ export function renderOwnStorages(el, d, { act }) {
    * @param {HTMLElement} icon @param {string} name @param {string} where @param {any} zone
    * @param {((btn: HTMLElement, nameEl: HTMLElement) => void) | null} onMenu  null — рядок без меню (точка доступу, мережа)
    * @param {string} [extra] @param {any} [m]  рядок моста: chain — літера групи спільного вмісту, hint — підказка рядка
+   * @param {HTMLElement | null} [badge]  K34: кнопка в 4-й колонці на місці літери групи (лічильник підключених мережі)
    */
-  const row = (icon, name, where, zone, onMenu, extra = '', m = null, after = null) => {
+  const row = (icon, name, where, zone, onMenu, extra = '', m = null, badge = null) => {
     const nameEl = h('span.so-name', { title: name }, name);
     const nameCell = nameEl;
-    const metaEl = after ? h('span.so-meta.so-metabox', null, where || '', after) : h('span.so-meta', null, where || '');   // K24: «🔌1▾» — після місця, перед «⋯»
-    const chain = m && m.chain
+    const metaEl = h('span.so-meta', null, where || '');
+    const chain = badge || (m && m.chain
       ? h(`span.so-chain.ch${chainHue(m.chainN)}`, { title: `спільний вміст — група ${m.chain}: у всіх місцях із цією літерою й кольором лежить те саме` }, m.chain)
-      : h('span.so-chain.none');
+      : h('span.so-chain.none'));
     if (!onMenu) return h(`div.so-row${extra}${zoneCls(zone)}`, m && m.hint ? { title: m.hint } : null, icon, nameCell, metaEl, chain, h('span.so-nomenu'));
     const btn = h('button.so-menu', {
       type: 'button',
@@ -125,11 +126,11 @@ export function renderOwnStorages(el, d, { act }) {
   const access = (d.access || []).map((/** @type {any} */ a) => row(rowIcon(a, ACCESS_FALLBACK, 'точка доступу: з цього блока ви відкривали особисте сховище'),
     a.label || 'Точка доступу', a.where, a.zone,
     (btn) => openRowMenu(btn, [{ id: 'forget', icon: '✕', label: 'Забути точку доступу', hint: 'відкриєте — згадає' }], () => act({ action: 'forget-access', key: a.key })), '', a));
-  // K23 (М1, варіант B): лічильник підключених на рядку мережі; розгорнуто — дочірні рядки під ним
+  // K23 / K34: лічильник підключених «N▾» у 4-й колонці рядка мережі (на рівні літер синхронізованих скринь); розгорнуто — дочірні рядки під ним
   const nets = (d.networks || []).flatMap((/** @type {any} */ n) => {
     const sub = n.mounts || [];
     const on = sub.length > 0 && open.has(n.key);
-    const chip = sub.length ? h(`button.so-mounts${on ? '.on' : ''}`, {
+    const chip = sub.length ? h(`button.so-chain.so-mounts${on ? '.on' : ''}`, {
       type: 'button',
       title: `${sub.length} ${mountWord(sub.length)} — ${on ? 'згорнути' : 'показати'}`,
       'aria-label': `${sub.length} ${mountWord(sub.length)}`,
@@ -140,7 +141,7 @@ export function renderOwnStorages(el, d, { act }) {
         saveOpen(open);
         renderOwnStorages(el, stt.d, { act: stt.act });
       },
-    }, `${MOUNT}${sub.length}${on ? '▴' : '▾'}`) : null;
+    }, `${sub.length}${on ? '▴' : '▾'}`) : null;
     return [row(rowIcon(n, NET_FALLBACK, 'мережа'), n.label || 'Мережа', n.where, n.zone, null, '', n, chip), ...(on ? sub.map((/** @type {any} */ m) => markRow(m, '.sub')) : [])];
   });
   const mounted = (d.networks || []).flatMap((/** @type {any} */ n) => n.mounts || []);
@@ -168,7 +169,7 @@ export function renderOwnStorages(el, d, { act }) {
     access.length || nets.length ? keyRow('Типи', [
       access.length ? kv(ACCESS_FALLBACK, 'точка доступу', 'у рядку — картинка самого блока, якщо вона є') : null,
       nets.length ? kv(NET_FALLBACK, 'мережа', 'у рядку — картинка блока мережі, якщо вона є') : null,
-      mounted.length ? kv(MOUNT, 'підключені до мережі', 'сховища, які мережа показує через шину чи зовнішнє сховище, — під її рядком; клік по лічильнику розгортає') : null]) : null,
+      mounted.length ? kv(h('span.so-chain.so-mounts.so-mounts-sample', null, '1▾'), 'підключені до мережі', 'сховища, які мережа показує через шину чи зовнішнє сховище, — під її рядком; клік по лічильнику розгортає') : null]) : null,
     rows.some((/** @type {any} */ m) => m.chain) ? keyRow('Зв\'язок', kv([h('span.so-chain.ch0', null, 'А'), h('span.so-chain.ch1', null, 'Б')], 'однакова літера й колір — спільний вміст')) : null,
   ].filter(Boolean);
 
