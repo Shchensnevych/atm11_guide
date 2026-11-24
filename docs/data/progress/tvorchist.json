@@ -7,7 +7,7 @@
  "game_type": 1,
  "last_played": "2026-11-12 15:32",
  "last_played_ts": 1794490360,
- "updated": "2026-11-20 21:54",
+ "updated": "2026-11-24 12:33",
  "play_hours": 17.73,
  "player": {
   "uuid": "832ceed6-e820-31f9-aa40-6acd5077a2ac",
@@ -559,7 +559,7 @@
    },
    {
     "id": "patchouli:guide_book",
-    "uk": "LaserIO 101",
+    "uk": "Посібник LaserIO",
     "count": 1,
     "slot": 15,
     "slotLabel": "Інвентар (слот 15)",
@@ -669,7 +669,7 @@
    },
    {
     "id": "patchouli:guide_book",
-    "uk": "Gadgets for Derps",
+    "uk": "Гаджети для чайників",
     "count": 1,
     "slot": 26,
     "slotLabel": "Інвентар (слот 26)",
@@ -679,7 +679,7 @@
    },
    {
     "id": "patchouli:guide_book",
-    "uk": "Gadgets for Derps",
+    "uk": "Гаджети для чайників",
     "count": 1,
     "slot": 27,
     "slotLabel": "Інвентар (слот 27)",
@@ -689,7 +689,7 @@
    },
    {
     "id": "patchouli:guide_book",
-    "uk": "Big Book of Trees",
+    "uk": "Велика книга дерев",
     "count": 1,
     "slot": 28,
     "slotLabel": "Інвентар (слот 28)",
@@ -699,7 +699,7 @@
    },
    {
     "id": "patchouli:guide_book",
-    "uk": "Big Book of Bees",
+    "uk": "Велика книга бджіл",
     "count": 1,
     "slot": 29,
     "slotLabel": "Інвентар (слот 29)",

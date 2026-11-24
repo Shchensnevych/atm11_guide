@@ -6,7 +6,7 @@
 // K14: «Мої сховища» — нарівні з ⚙️ HUD компаньйона (components/own-storages.js: список B, колір зони, меню «⋯»).
 import { h, mount } from '../core/dom.js';
 import { renderOwnStorages } from './own-storages.js';
-import { isEditing } from './row-menu.js';
+import { isEditing, isRowMenuOpenIn } from './row-menu.js';
 
 const SEC_LS_KEY = 'atm11.site.jarvis.sec';
 const NAV_ITEMS = [
@@ -33,8 +33,10 @@ const cache = {
   /** @type {(() => Promise<void> | void) | null} */ onReconnect: null,
   /** @type {any} */ comp: null,   // стан конструктора з моста: { groups, components, profiles, profile }
   /** @type {any} */ stats: null,
+  worldFolder: '',
   /** @type {any} */ ownData: null,
   ownLoadedAt: 0,
+  ownLoadSeq: 0,
   /** @type {HTMLElement | null} */ ownEl: null,   // K14: живе між перемальовуваннями (меню й перейменування не зникають)
   /** @type {any} */ memData: null,
   memLoadedAt: 0,
@@ -78,20 +80,36 @@ function stateText(x) {
 }
 
 async function ensureOwnLoaded(force = false) {
-  if (!cache.connected || (!force && Date.now() - cache.ownLoadedAt < 8000)) return;
+  if (!cache.connected || (!force && Date.now() - cache.ownLoadedAt < 2500)) return;
+  const seq = ++cache.ownLoadSeq;
   cache.ownLoadedAt = Date.now();
   try {
     const { r, d } = await apiCall('/api/storage/own');
-    if (r.ok && d.ok) { cache.ownData = d; draw(); }
+    if (seq !== cache.ownLoadSeq) return;
+    if (r.ok && d.ok) {
+      const hadOwn = Boolean(cache.ownData);
+      cache.ownData = d;
+      if (hadOwn && cache.ownEl && cache.ownEl.isConnected) {
+        renderOwnStorages(cache.ownEl, d, { act: ownAct });
+      } else {
+        draw();
+      }
+    }
   } catch { /* ignore */ }
 }
 
 /** K14: дія меню «Моїх сховищ» (перейменувати / зняти позначку / не моє / видалити зону) — POST моста, у відповіді — новий стан. @param {Record<string, string>} body */
 async function ownAct(body) {
   try {
+    const seq = ++cache.ownLoadSeq;
     const { r, d } = await apiCall('/api/storage/own', body);
-    if (r.ok && d.ok) { cache.ownData = d; cache.ownLoadedAt = Date.now(); }
-    if (d.error) setToast(`⚠️ ${d.error}`); else draw();
+    if (r.ok && d.ok && seq === cache.ownLoadSeq) {
+      cache.ownData = d;
+      cache.ownLoadedAt = Date.now();
+    }
+    if (d.error) setToast(`⚠️ ${d.error}`);
+    else if (cache.ownEl && cache.ownEl.isConnected && cache.ownData) renderOwnStorages(cache.ownEl, cache.ownData, { act: ownAct });
+    else draw();
   } catch (e) {
     setToast(`Міст недоступний: ${e instanceof Error ? e.message : String(e)}`);
   }
@@ -317,9 +335,8 @@ function renderActivePane(c) {
 
 function draw() {
   if (!cache.root) return;
-  // K14: іде перейменування в «Моїх сховищах» — не перемальовувати (перенесення вузла знімає фокус, і поле зберегло б
-  // недописане); після збереження дія сама перемалює картку
-  if (isEditing(cache.ownEl)) return;
+  // K14 / K38: іде перейменування або відкрите меню «⋯» в «Моїх сховищах» — не перемальовувати всю картку
+  if (isEditing(cache.ownEl) || isRowMenuOpenIn(cache.ownEl)) return;
   const c = cache.comp;
   if (!cache.connected || !c || !Array.isArray(c.components)) {
     mount(cache.root, h('div.card.jv-offline', null,
@@ -374,15 +391,35 @@ export function renderJarvisTab(st, baseUrl, onReconnect) {
   cache.onReconnect = onReconnect || null;
   if (st.liveState?.components) cache.comp = st.liveState.components;
   cache.stats = st.liveState?.storageIndexStats || cache.stats;
+  const nextWorld = String(st.liveState?.world?.folder || '');
+  if (nextWorld && nextWorld !== cache.worldFolder) {
+    cache.worldFolder = nextWorld;
+    cache.ownLoadedAt = 0;
+  }
   if (!cache.root) cache.root = h('div.jv-wrap');
   draw();
   return cache.root;
 }
 
-/** Новий стан конструктора (поле `components` події SSE `state`). @param {any} c */
-export function updateComponentsState(c) {
-  if (!c || !Array.isArray(c.components)) return;
-  if (JSON.stringify(c) === JSON.stringify(cache.comp)) return;   // стан приходить кожні 2,5 с — без змін не перемальовуємо
-  cache.comp = c;
-  draw();
+/** Новий стан із події SSE `state`: оновлює конструктор і синхронно підтягує «Мої сховища», коли вкладка відкрита (K38, P1-19).
+ * @param {any} c @param {any} [liveState] */
+export function updateComponentsState(c, liveState = null) {
+  let needDraw = false;
+  if (c && Array.isArray(c.components) && JSON.stringify(c) !== JSON.stringify(cache.comp)) {
+    cache.comp = c;
+    needDraw = true;
+  }
+  if (liveState) {
+    if (liveState.storageIndexStats) cache.stats = liveState.storageIndexStats;
+    const nextWorld = String(liveState.world?.folder || '');
+    const worldChanged = Boolean(nextWorld && nextWorld !== cache.worldFolder);
+    if (worldChanged) {
+      cache.worldFolder = nextWorld;
+      cache.ownLoadedAt = 0;
+    }
+    if (cache.sec === 'storage' && cache.connected && cache.root && cache.root.isConnected) {
+      ensureOwnLoaded(true);
+    }
+  }
+  if (needDraw) draw();
 }

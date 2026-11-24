@@ -16,7 +16,7 @@
 // рівно в одну вертикаль), клік розгортає дочірні рядки з тим самим меню, що в рядка сховища; розгорнуте пам'ятає картка.
 // DOM — лише h() / textContent (SECURITY §4).
 import { h, mount } from '../core/dom.js';
-import { openRowMenu, closeRowMenu, renameInPlace, isEditing } from './row-menu.js';
+import { openRowMenu, closeRowMenu, renameInPlace, isEditing, isRowMenuOpenIn } from './row-menu.js';
 
 /** Кольорів зон у стилях (класи .so-zc0…so-zc5, css/assistant.css; токени --zone-*); зон більше — по колу. */
 export const ZONE_COLORS = 6;
@@ -52,7 +52,7 @@ function rowIcon(m, fallback, what = '') {
 
 /** @type {WeakMap<HTMLElement, string>} */
 const shown = new WeakMap();
-/** K23: розгорнуті мережі (ключі) й останні дані — для перемальовування за кліком по лічильнику. @type {WeakMap<HTMLElement, { open: Set<string>, d: any, act: any }>} */
+/** K23: розгорнуті мережі (ключі) й останні дані — для перемальовування за кліком по лічильнику або після закриття меню. @type {WeakMap<HTMLElement, { open: Set<string>, d: any, act: any, pending: boolean }>} */
 const state = new WeakMap();
 /** «1 підключене / 2 підключені / 5 підключених». @param {number} n */
 const mountWord = (n) => (n % 10 === 1 && n % 100 !== 11 ? 'підключене' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 'підключені' : 'підключених');
@@ -64,21 +64,32 @@ const saveOpen = (open) => { try { localStorage.setItem(OPEN_KEY, JSON.stringify
 
 /**
  * Намалювати список у контейнері, що живе між перемальовуваннями картки. Без змін даних — не перемальовує
- * (меню й поле вводу лишаються); під час перейменування — теж.
+ * (меню й поле вводу лишаються); під час перейменування або відкритого меню — відкладає оновлення до закриття.
  * @param {HTMLElement} el
  * @param {any} d  відповідь моста: { zones: [{ name, n, where }], marks: [{ key, label, pinned, placed, entity, zone, where }], placed, pinned, unpinned, snapshot }
  * @param {{ act: (body: Record<string, string>) => void }} opt  дія меню → POST /api/storage/own
  */
 export function renderOwnStorages(el, d, { act }) {
-  if (isEditing(el)) return;
-  const stt = state.get(el) || { open: new Set(readOpen()), d, act };
+  const stt = state.get(el) || { open: new Set(readOpen()), d, act, pending: false };
   stt.d = d; stt.act = act;
   state.set(el, stt);
+  if (isEditing(el) || isRowMenuOpenIn(el)) {
+    stt.pending = true;
+    return;
+  }
+  stt.pending = false;
   const open = stt.open;
   const sig = JSON.stringify([d.zones, d.marks, d.access, d.networks, d.carried, d.stored, d.placed, d.pinned, d.unpinned, d.snapshot?.lastAt, [...open]]);
   if (shown.get(el) === sig) return;
   shown.set(el, sig);
   closeRowMenu();
+
+  const flushIfPending = () => {
+    if (stt.pending) {
+      stt.pending = false;
+      renderOwnStorages(el, stt.d, { act: stt.act });
+    }
+  };
 
   /**
    * @param {HTMLElement} icon @param {string} name @param {string} where @param {any} zone
@@ -103,15 +114,21 @@ export function renderOwnStorages(el, d, { act }) {
     return h(`div.so-row${extra}${zoneCls(zone)}`, m && m.hint ? { title: m.hint } : null, icon, nameCell, metaEl, chain, btn);
   };
 
-  const zones = (d.zones || []).map((/** @type {any} */ z, /** @type {number} */ i) => row(h('span.so-ic', { title: 'зона бази' }, '📍'), z.name, z.where, i,
-    (btn, nameEl) => openRowMenu(btn, [
-      { id: 'rename', icon: '✏️', label: 'Перейменувати' },
-      { sep: true },
-      { id: 'delete', icon: '✕', label: 'Видалити зону', kind: 'danger' },
-    ], (id) => {
-      if (id === 'delete') act({ action: 'unzone', name: z.name });
-      else renameInPlace(nameEl, z.name, (to) => act({ action: 'rename-zone', name: z.name, to }));
-    }), '.zone'));
+  const zones = (d.zones || []).map((/** @type {any} */ z, /** @type {number} */ i) => {
+    const star = z.primary ? h('span.so-chain.so-zstar', { title: 'Головна база цього виміру' }, '⭐') : null;
+    const zDim = z.dim ? { dim: z.dim } : {};
+    return row(h('span.so-ic', { title: z.primary ? 'головна база' : 'зона бази' }, '📍'), z.name, z.where, i,
+      (btn, nameEl) => openRowMenu(btn, [
+        { id: 'primary', icon: z.primary ? '☆' : '⭐', label: z.primary ? 'Зняти «головну»' : 'Зробити головною' },
+        { id: 'rename', icon: '✏️', label: 'Перейменувати' },
+        { sep: true },
+        { id: 'delete', icon: '✕', label: 'Видалити зону', kind: 'danger' },
+      ], (id) => {
+        if (id === 'delete') act({ action: 'unzone', name: z.name, ...zDim });
+        else if (id === 'primary') act({ action: 'primary-zone', name: z.name, ...zDim, primary: z.primary ? '0' : '1' });
+        else renameInPlace(nameEl, z.name, (to) => act({ action: 'rename-zone', name: z.name, ...zDim, to }));
+      }, flushIfPending), '.zone', null, star);
+  });
 
   // K16: картинка блока для всіх рядків; 📌 / 🔨 — у кутах значка
   /** @param {any} m @param {string} [extra] */
@@ -123,12 +140,12 @@ export function renderOwnStorages(el, d, { act }) {
     ], (id) => {
       if (id === 'rename') renameInPlace(nameEl, m.label || 'Сховище', (to) => act({ action: 'rename-mark', key: m.key, to }));
       else act({ action: id, key: m.key });
-    }), extra, m);
+    }, flushIfPending), extra, m);
   const marks = (d.marks || []).map((/** @type {any} */ m) => markRow(m));
 
   const access = (d.access || []).map((/** @type {any} */ a) => row(rowIcon(a, ACCESS_FALLBACK, 'точка доступу: з цього блока ви відкривали особисте сховище'),
     a.label || 'Точка доступу', a.where, a.zone,
-    (btn) => openRowMenu(btn, [{ id: 'forget', icon: '✕', label: 'Забути точку доступу', hint: 'відкриєте — згадає' }], () => act({ action: 'forget-access', key: a.key })), '', a));
+    (btn) => openRowMenu(btn, [{ id: 'forget', icon: '✕', label: 'Забути точку доступу', hint: 'відкриєте — згадає' }], () => act({ action: 'forget-access', key: a.key }), flushIfPending), '', a));
   // K23 / K34: лічильник підключених «N▾» у 4-й колонці рядка мережі (на рівні літер синхронізованих скринь); розгорнуто — дочірні рядки під ним
   const nets = (d.networks || []).flatMap((/** @type {any} */ n) => {
     const sub = n.mounts || [];
@@ -140,6 +157,7 @@ export function renderOwnStorages(el, d, { act }) {
       'aria-expanded': String(on),
       onclick: (/** @type {Event} */ e) => {
         e.stopPropagation();
+        closeRowMenu();
         if (open.has(n.key)) open.delete(n.key); else open.add(n.key);
         saveOpen(open);
         renderOwnStorages(el, stt.d, { act: stt.act });
@@ -156,7 +174,7 @@ export function renderOwnStorages(el, d, { act }) {
   /** @param {any} x */
   const chip = (x) => h('span.so-chip', null,
     safeIconRel(x.icon) ? h('img.so-blk.sm', { src: `img/items/${x.icon}.png`, alt: '', loading: 'lazy' }) : null,
-    `${x.label} · ${x.note}${x.where ? ` → ${x.where}` : ''}`);
+    `${[x.label, x.note].filter(Boolean).join(' · ')}${x.where ? ` → ${x.where}` : ''}`);
   const holders = [
     (d.carried || []).length ? keyRow('При собі', (d.carried || []).map(chip), '.hold') : null,
     (d.stored || []).length ? keyRow('У сховищах', (d.stored || []).map(chip), '.hold') : null,

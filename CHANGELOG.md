@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## K38 (компаньйон) — 2026-11-24 · Миттєва SSE-синхронізація «Моїх сховищ» на `#/assistant` та єдина директива безпеки (`P1-19`)
+- **Сайт `#/assistant` (`docs/js/views/assistant.js`, `docs/js/components/{jarvis-card,own-storages,row-menu}.js`):**
+  - SSE-обробник `state` у `assistant.js` передає повний стан у `updateComponentsState(st.liveState?.components, st.liveState)`: коли відкрита вкладка «Сховища», `jarvis-card.js` одразу підтягує оновлення `/api/storage/own` (перейменування, `pin`, `unmark`, `notmine`, зони з Карти сховищ / HUD / Панелі та перемикання світу) із захистом від застарілих відповідей `ownLoadSeq` та точковим оновленням списку без зриву фокуса в полі пошуку.
+  - `row-menu.js` + `own-storages.js`: додано `isRowMenuOpenIn(container)` і колбек `onClose` — фонове оновлення по SSE відкладається, доки відкрите меню «⋯» або йде перейменування, а після закриття автоматично застосовується; клік по `N▾` закриває відкрите меню; `chip()` не додає зайвої крапки при порожньому `note`.
+- **Безпека (`.agent/workflows/security.md`):** синхронізовано §2–§3 із `ATM11-Companion/SECURITY.md` (карта сховищ, `realpathSync`, CSP, `requireToken()` на `jm-pins`, `will-redirect`, `isOwnWindow`, `timingSafeEqual`).
+- База `docs/data` не змінювалась (`92a5d1998b1f`). Подробиці K38 — `ATM11-Companion/CHANGELOG.md` K38.
+
 ## K36 — 2026-11-22 · 3-трекова ревізія путівника: дорожня карта, фактична чистка синергій і візуал `#/synergy` (Варіант B)
 - **Трек 1 — Дорожня карта (`content/roadmap.json`, `content/facts.json`, `docs/js/views/roadmap.js`):**
   - Етапи й склад віх за реальними рецептами збірки (`raw/recipes.db`, `kubejs/`): `x_auroral` (Auroral) `s4 → s2`; `l_pylons` (Пілони) `s2 → s3` (усі пілони потребують `polished_blackstone` + `quartz_slab`, а `interdiction_pylon` — блок незериту; `pylons.stage` у `logistics.json` → `["s3", "s4"]`); `apothic_spawners` перенесено з `r_hnn` (`s4`, перейменовано на «Симуляції мобів») у `g_apoth` (`s2`); уточнено `stage` для `explorerscompass` (`s4–s5`), `nullscape` (`s5`), `iceandfire` (`s5–s6`), `hellish_trials` (`s3–s4`), `moredragoneggs` (`s5`).

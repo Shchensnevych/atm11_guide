@@ -392,6 +392,7 @@ a.ai-kpi:hover { border-color: var(--accent); text-decoration: none; }
 .so-chain.ch6 { background: var(--chain-6); }
 .so-chain.ch7 { background: var(--chain-7); }
 .so-chain.none { visibility: hidden; }
+.so-chain.so-zstar { background: transparent; font-size: 0.85rem; }
 .so-nomenu { width: 26px; }
 .so-blk { width: 20px; height: 20px; image-rendering: pixelated; display: block; }
 .so-blk.sm { width: 15px; height: 15px; }

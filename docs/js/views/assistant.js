@@ -406,7 +406,7 @@ export async function render(el, _p, s) {
         if (!el.isConnected) { cleanup(); return; }
         try {
           applyLiveCompanionState(JSON.parse(/** @type {MessageEvent} */ (ev).data), false);
-          if (st.leftTab === 'core') updateComponentsState(st.liveState?.components);
+          if (st.leftTab === 'core') updateComponentsState(st.liveState?.components, st.liveState);
         } catch { /* ignore */ }
       });
       sse.addEventListener('game-event', (ev) => {

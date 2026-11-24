@@ -1350,16 +1350,6 @@
   "combo": "V"
  },
  {
-  "id": "key.crystalix.highlight_blocks",
-  "bind": "key.keyboard.r",
-  "mod": "",
-  "ns": "crystalix",
-  "en": "Highlight Blocks",
-  "uk": "Підсвітити блоки",
-  "key": "R",
-  "combo": "R"
- },
- {
   "id": "key.crystalix.pick_block",
   "bind": "key.keyboard.x",
   "mod": "",
@@ -1368,6 +1358,16 @@
   "uk": "Взяти властивості з блока",
   "key": "X",
   "combo": "X"
+ },
+ {
+  "id": "key.crystalix.highlight_blocks",
+  "bind": "key.keyboard.r",
+  "mod": "",
+  "ns": "crystalix",
+  "en": "Highlight Blocks",
+  "uk": "Підсвітити блоки",
+  "key": "R",
+  "combo": "R"
  },
  {
   "id": "key.luminax.toggle_glowing",
@@ -2240,24 +2240,14 @@
   "combo": ""
  },
  {
-  "id": "key.sophisticatedbackpacks.toggle_upgrade_4",
-  "bind": "key.keyboard.unknown",
-  "mod": "",
+  "id": "key.sophisticatedbackpacks.toggle_upgrade_1",
+  "bind": "key.keyboard.z",
+  "mod": "ALT",
   "ns": "sophisticatedbackpacks",
-  "en": "Switch Upgrade in the 4th Slot On/Off",
-  "uk": "Увімкнути/вимкнути покращення в 4-му слоті",
-  "key": "",
-  "combo": ""
- },
- {
-  "id": "key.sophisticatedbackpacks.toggle_upgrade_3",
-  "bind": "key.keyboard.unknown",
-  "mod": "",
-  "ns": "sophisticatedbackpacks",
-  "en": "Switch Upgrade in the 3rd Slot On/Off",
-  "uk": "Увімкнути/вимкнути покращення в 3-му слоті",
-  "key": "",
-  "combo": ""
+  "en": "Switch Upgrade in the 1st Slot On/Off",
+  "uk": "Увімкнути/вимкнути покращення в 1-му слоті",
+  "key": "Z",
+  "combo": "Alt+Z"
  },
  {
   "id": "key.sophisticatedbackpacks.toggle_upgrade_2",
@@ -2270,14 +2260,24 @@
   "combo": "Alt+X"
  },
  {
-  "id": "key.sophisticatedbackpacks.toggle_upgrade_1",
-  "bind": "key.keyboard.z",
-  "mod": "ALT",
+  "id": "key.sophisticatedbackpacks.toggle_upgrade_3",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
   "ns": "sophisticatedbackpacks",
-  "en": "Switch Upgrade in the 1st Slot On/Off",
-  "uk": "Увімкнути/вимкнути покращення в 1-му слоті",
-  "key": "Z",
-  "combo": "Alt+Z"
+  "en": "Switch Upgrade in the 3rd Slot On/Off",
+  "uk": "Увімкнути/вимкнути покращення в 3-му слоті",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.sophisticatedbackpacks.toggle_upgrade_4",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "sophisticatedbackpacks",
+  "en": "Switch Upgrade in the 4th Slot On/Off",
+  "uk": "Увімкнути/вимкнути покращення в 4-му слоті",
+  "key": "",
+  "combo": ""
  },
  {
   "id": "key.sophisticatedbackpacks.toggle_upgrade_5",

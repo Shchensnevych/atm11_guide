@@ -7,14 +7,18 @@ import { h } from '../core/dom.js';
 
 /** @typedef {{ id: string, label: string, icon?: string, kind?: 'go' | 'danger', hint?: string } | { sep: true }} RowMenuItem */
 
-/** @type {{ el: HTMLElement, btn: HTMLElement } | null} */
+/** @type {{ el: HTMLElement, btn: HTMLElement, onClose: (() => void) | null } | null} */
 let open = null;
 
 export function closeRowMenu() {
   if (!open) return;
-  open.el.remove();
-  open.btn.classList.remove('open');
+  const prev = open;
   open = null;
+  prev.el.remove();
+  prev.btn.classList.remove('open');
+  if (typeof prev.onClose === 'function') {
+    try { prev.onClose(); } catch { /* ignore */ }
+  }
 }
 
 /**
@@ -22,8 +26,9 @@ export function closeRowMenu() {
  * @param {HTMLElement} btn
  * @param {RowMenuItem[]} items
  * @param {(id: string) => void} onPick
+ * @param {(() => void) | null} [onClose]
  */
-export function openRowMenu(btn, items, onPick) {
+export function openRowMenu(btn, items, onPick, onClose = null) {
   const same = open && open.btn === btn;
   closeRowMenu();
   if (same || !items.length) return;
@@ -43,7 +48,7 @@ export function openRowMenu(btn, items, onPick) {
   el.style.left = `${Math.round(left)}px`;
   el.style.top = `${Math.round(top)}px`;
   btn.classList.add('open');
-  open = { el, btn };
+  open = { el, btn, onClose };
 }
 
 /**
@@ -77,6 +82,9 @@ export function renameInPlace(nameEl, current, onSave, maxLength = 40) {
 
 /** Чи йде редагування в контейнері (тоді рядки не перемальовуються — інакше поле вводу зникне). @param {HTMLElement | null} el */
 export const isEditing = (el) => Boolean(el && el.querySelector('input.so-input'));
+
+/** Чи відкрите меню «⋯» всередині цього контейнера (щоб SSE-оновлення не відривали кнопку від DOM). @param {HTMLElement | null} el */
+export const isRowMenuOpenIn = (el) => Boolean(open && el && el.contains(open.btn));
 
 document.addEventListener('click', (e) => { if (open && !open.el.contains(/** @type {Node} */ (e.target))) closeRowMenu(); });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeRowMenu(); });
