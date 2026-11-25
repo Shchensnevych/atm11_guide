@@ -1340,16 +1340,6 @@
   "combo": "F7"
  },
  {
-  "id": "key.crystalix.open_wand_editor",
-  "bind": "key.keyboard.v",
-  "mod": "",
-  "ns": "crystalix",
-  "en": "Open Wand Editor",
-  "uk": "Відкрити редактор жезла",
-  "key": "V",
-  "combo": "V"
- },
- {
   "id": "key.crystalix.pick_block",
   "bind": "key.keyboard.x",
   "mod": "",
@@ -1368,6 +1358,16 @@
   "uk": "Підсвітити блоки",
   "key": "R",
   "combo": "R"
+ },
+ {
+  "id": "key.crystalix.open_wand_editor",
+  "bind": "key.keyboard.v",
+  "mod": "",
+  "ns": "crystalix",
+  "en": "Open Wand Editor",
+  "uk": "Відкрити редактор жезла",
+  "key": "V",
+  "combo": "V"
  },
  {
   "id": "key.luminax.toggle_glowing",
@@ -4270,22 +4270,22 @@
   "combo": ""
  },
  {
-  "id": "key.ae2.appliedthaumaturge.wireless_essentia_terminal",
-  "bind": "key.keyboard.unknown",
-  "mod": "",
-  "ns": "appliedthaumaturge",
-  "en": "Open Wireless Essentia Terminal",
-  "uk": "Відкрити бездротовий термінал Essentia",
-  "key": "",
-  "combo": ""
- },
- {
   "id": "key.ae2.wireless_quantum_crafter_terminal",
   "bind": "key.keyboard.unknown",
   "mod": "",
   "ns": "advanced_ae",
   "en": "Open Wireless Quantum Crafter Terminal",
   "uk": "Відкрити бездротовий термінал квантового майструвача",
+  "key": "",
+  "combo": ""
+ },
+ {
+  "id": "key.ae2.appliedthaumaturge.wireless_essentia_terminal",
+  "bind": "key.keyboard.unknown",
+  "mod": "",
+  "ns": "appliedthaumaturge",
+  "en": "Open Wireless Essentia Terminal",
+  "uk": "Відкрити бездротовий термінал Essentia",
   "key": "",
   "combo": ""
  },
