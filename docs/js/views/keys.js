@@ -165,11 +165,13 @@ export async function render(el, _p, s) {
   };
 
   function fitU() {
-    const W = (st.layout === 'full' ? 22.5 : 18.25) + 4.2;
-    const availableW = Math.max(700, center.clientWidth - 40);
+    const W = (st.layout === 'full' ? 22.5 : 18.25) + 4.35;
+    const pad = innerWidth <= 1440 ? 44 : 72;
+    const availableW = Math.max(300, center.clientWidth - pad);
     const byW = availableW / W;
-    const byH = Math.max(50, (innerHeight - 340) / 7.2);
-    stage.style.setProperty('--u', Math.max(50, Math.min(68, Math.floor(Math.min(byW, byH)))) + 'px');
+    const byH = Math.max(30, (innerHeight - (innerHeight <= 800 ? 255 : 340)) / 6.5);
+    const minU = st.layout === 'full' ? 28 : 30;
+    stage.style.setProperty('--u', Math.max(minU, Math.min(68, Math.floor(Math.min(byW, byH)))) + 'px');
   }
 
   function drawHead() {

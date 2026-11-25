@@ -1,16 +1,16 @@
 /* Каркас сторінки: верхня панель, область перегляду, бічні панелі */
 .topbar { position: sticky; top: 0; z-index: 40; height: var(--topbar-h); display: flex; align-items: center; gap: 24px; padding: 0 20px;
   background: linear-gradient(180deg, #121a24, #0e141c); border-bottom: 1px solid var(--line); }
-.brand { color: var(--text); font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; }
+.brand { color: var(--text); font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; flex-shrink: 0; white-space: nowrap; }
 .brand:hover { text-decoration: none; }
 .brand-star { filter: drop-shadow(0 0 6px rgb(250 204 21 / 60%)); }
 .brand-sub { color: var(--muted); font-weight: 400; font-size: .9rem; }
-.nav { display: flex; gap: 4px; flex-wrap: wrap; }
-.nav a { color: var(--muted); padding: 6px 12px; border-radius: var(--radius-sm); }
+.nav { display: flex; gap: 4px; flex-wrap: nowrap; flex-shrink: 0; }
+.nav a { color: var(--muted); padding: 6px 12px; border-radius: var(--radius-sm); white-space: nowrap; }
 .nav a:hover { color: var(--text); background: var(--panel); text-decoration: none; }
 .nav a.active { color: var(--bg); background: var(--accent); font-weight: 600; }
-.world-bar { margin-left: auto; display: flex; align-items: center; gap: 6px; font-size: .8rem; color: var(--muted); white-space: nowrap; min-width: 0; max-width: 100%; }
-.wb-select { padding: 3px 8px; font-size: .8rem; border-radius: var(--radius-sm); background: var(--bg-2); color: var(--text); border: 1px solid var(--line-2); cursor: pointer; min-width: 0; max-width: 100%; }
+.world-bar { margin-left: auto; display: flex; align-items: center; gap: 6px; font-size: .8rem; color: var(--muted); white-space: nowrap; flex-shrink: 0; min-width: 0; max-width: 100%; }
+.wb-select { padding: 3px 8px; font-size: .8rem; border-radius: var(--radius-sm); background: var(--bg-2); color: var(--text); border: 1px solid var(--line-2); cursor: pointer; min-width: 0; max-width: 220px; overflow: hidden; text-overflow: ellipsis; }
 .wb-time { color: var(--muted); font-size: .75rem; }
 .theme-toggle { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; padding: 0; border-radius: var(--radius-sm); background: var(--bg-2); border: 1px solid var(--line-2); color: var(--text); cursor: pointer; font-size: 1rem; line-height: 1; flex-shrink: 0; transition: background .15s ease, border-color .15s ease, color .15s ease; }
 .theme-toggle:hover { border-color: var(--accent); color: var(--accent); background: var(--panel); }
@@ -28,6 +28,37 @@
 .split-side { width: 380px; max-width: 45vw; border-left: 1px solid var(--line); background: var(--panel); overflow: auto; padding: 16px; }
 .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 10px 14px; border-bottom: 1px solid var(--line); background: var(--bg-2); }
 .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(295px, 1fr)); }
+/* Ноутбуки 15.6" @ 125% (1536px), 1440px, 1366px, 1280px: шапка завжди в 1 рядок без переносу й накладань */
+@media (max-width: 1680px) {
+  .topbar { gap: 12px; padding: 0 14px; }
+  .brand { font-size: 1rem; gap: 6px; }
+  .brand-sub, .wb-time { display: none; }
+  .nav { gap: 2px; }
+  .nav a { padding: 5px 9px; font-size: .88rem; }
+  .wb-select { max-width: 165px; }
+}
+@media (max-width: 1440px) {
+  .view { padding: 16px 20px; }
+  .split-side { width: 320px; padding: 14px; }
+  .toolbar { padding: 8px 12px; gap: 6px 8px; }
+}
+@media (max-width: 1400px) {
+  .topbar { gap: 8px; padding: 0 12px; }
+  .nav a { padding: 5px 7px; font-size: .83rem; }
+  .wb-icon { display: none; }
+  .wb-select { max-width: 132px; padding: 3px 6px; font-size: .76rem; }
+  .topbar .wb-btn { padding: 3px 7px; font-size: .74rem; }
+}
+@media (max-width: 1320px) {
+  .view { padding: 14px 16px; }
+  .split-side { width: 300px; padding: 12px 14px; }
+  .grid { gap: 12px; grid-template-columns: repeat(auto-fill, minmax(265px, 1fr)); }
+}
+@media (max-width: 1120px) {
+  .topbar { height: auto; min-height: var(--topbar-h); flex-wrap: wrap; gap: 6px 10px; padding: 6px 12px; }
+  .nav { flex-wrap: wrap; }
+  .world-bar { flex-wrap: wrap; }
+}
 @media (max-width: 800px) {
   .topbar { height: auto; min-height: var(--topbar-h); flex-wrap: wrap; gap: 6px 10px; padding: 6px 10px; } .brand-sub, .wb-time { display: none; }
   .theme-toggle { order: 1; margin-left: auto; width: 28px; height: 28px; } .nav { order: 2; } .world-bar { order: 3; flex-wrap: wrap; }   /* кнопка теми — у рядку з назвою, не окремим рядком */

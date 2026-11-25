@@ -228,6 +228,26 @@ a.card:hover * {
   line-height: 1;
 }
 
+@media (max-width: 1440px) {
+  .chapters-grid {
+    gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  }
+  .chapter-main {
+    padding: 13px 14px;
+  }
+  .chapter-head {
+    gap: 11px;
+  }
+  .chapter-stat {
+    width: 82px;
+    padding: 10px 6px;
+  }
+  .chapter-count-num {
+    font-size: 1.6rem;
+  }
+}
+
 @media (max-width: 480px) {
   .chapters-grid {
     grid-template-columns: 1fr;
@@ -463,3 +483,11 @@ details.spoiler > summary { cursor: pointer; color: var(--warn); font-size: .88r
 .db-item img { width: 16px; height: 16px; image-rendering: pixelated; vertical-align: -3px; margin-right: 5px; }
 .db-list li.db-done { color: var(--ok); font-weight: 600; }
 .db-list li.db-part { color: var(--link); }
+
+@media (max-width: 1440px) {
+  .hero { padding: 20px 22px; margin-bottom: 16px; }
+  .stats { gap: 20px; }
+  .stat b { font-size: 1.42rem; }
+  .save-box { margin-bottom: 16px; }
+  .section { margin: 20px 0 10px; }
+}

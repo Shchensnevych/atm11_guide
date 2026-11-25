@@ -755,9 +755,41 @@ a.ai-kpi:hover { border-color: var(--accent); text-decoration: none; }
 }
 
 /* ── Адаптивність ── */
+@media (max-width: 1500px) {
+  .mc-upper-rig { grid-template-columns: minmax(215px, 0.85fr) minmax(0, 1.35fr); gap: 10px; }
+  .mc-armor-hands { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px 6px; }
+}
+@media (max-width: 1440px) {
+  .ai-hero { padding: 12px 14px; margin-bottom: 12px; }
+  .ai-hero-top h1 { font-size: 1.25rem; }
+  .ai-kpis { gap: 8px; margin-top: 10px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+  .ai-kpi { padding: 6px 10px; }
+  .ai-kpi b { font-size: .94rem; }
+  .ai-cols { grid-template-columns: minmax(0, 1.2fr) minmax(350px, 0.88fr); gap: 14px; }
+  .ai-right { top: calc(var(--topbar-h) + 10px); }
+  .ai-chat-card { max-height: calc(100vh - var(--topbar-h) - 18px); }
+  .ai-chat-head { padding: 9px 12px; }
+  .ai-chat-stream { flex: 1 1 auto; min-height: 200px; max-height: none; padding: 12px 12px 10px; gap: 12px; }
+  .ai-composer-area { padding: 8px 10px 9px; gap: 6px; }
+  .ai-qchip { padding: 4px 9px; font-size: .74rem; }
+  .ai-tabs { gap: 4px; padding: 4px; }
+  .ai-tabs button { padding: 6px 9px; font-size: .79rem; }
+  .mc-curios-grid { grid-template-columns: repeat(auto-fill, minmax(48px, 1fr)); gap: 6px 5px; }
+  .mc-insp-layout { grid-template-columns: minmax(185px, 0.82fr) minmax(0, 1.38fr); gap: 10px; }
+  .jv-layout { grid-template-columns: 168px minmax(0, 1fr); gap: 10px; }
+  .jv-nav-item { padding: 7px 8px; font-size: .79rem; gap: 6px; }
+  .jv-pane { padding: 11px 12px; }
+  .so-tab { padding: 0 7px; font-size: .74rem; gap: 4px; }
+}
+@media (max-width: 1366px) {
+  .ai-tabs button { padding: 5px 8px; font-size: .76rem; }
+  .ai-stages-bar { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; }
+}
 @media (max-width: 1120px) {
   .ai-cols { grid-template-columns: 1fr; }
   .ai-right { position: static; }
+  .ai-chat-card { max-height: none; }
+  .ai-chat-stream { max-height: min(56vh, 540px); }
 }
 @media (max-width: 720px) {
   .mc-upper-rig, .mc-insp-layout, .jv-layout { grid-template-columns: 1fr; }

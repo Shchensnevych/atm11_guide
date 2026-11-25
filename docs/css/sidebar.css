@@ -492,6 +492,26 @@
 .mods-counter-text b,
 .rm-counter-text b { color: var(--text); }
 
+@media (max-width: 1440px) {
+  .view.mods-view { padding: 0 20px 18px 0; }
+  .mods-layout { gap: 18px; }
+  .mods-sidebar { flex: 0 0 230px; width: 230px; padding: 14px 12px; }
+  .mods-main { padding-top: 16px; }
+  .mods-main .grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+  .rm-top-bar { padding: 6px 12px; min-height: 38px; }
+}
+
+@media (max-width: 1320px) {
+  .view.mods-view { padding: 0 16px 16px 0; }
+  .mods-layout { gap: 14px; }
+  .mods-sidebar { flex: 0 0 215px; width: 215px; padding: 12px 10px; }
+  .mods-main .grid { grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 12px; }
+  .sidebar-feat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5px; }
+  .sidebar-feat-btn { padding: 5px 5px; font-size: .76rem; }
+  .sidebar-feat-label { gap: 3px; min-width: 0; overflow: hidden; }
+  .sidebar-feat-cnt { font-size: .71rem; margin-left: 2px; }
+}
+
 @media (max-width: 900px) {
   .view.mods-view { padding: 16px; }
   .mods-layout { flex-direction: column; gap: 16px; }

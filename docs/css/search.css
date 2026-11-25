@@ -13,9 +13,17 @@
 .gs-title { font-size: .88rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .gs-sub { font-size: .74rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .gs-empty { padding: 10px 12px; font-size: .85rem; color: var(--muted); }
-/* шапка з полем пошуку тісніша: без підпису бренду й часу знімка на середніх ширинах */
-@media (max-width: 1700px) { .topbar { gap: 16px; } .brand-sub { display: none; } }
-@media (max-width: 1280px) { .wb-time { display: none; } }
+/* Пошук у шапці під ноутбуки: плавно стискається без перенесення навігації (правила .topbar — у layout.css) */
+@media (max-width: 1680px) {
+  .gsearch { flex: 1 1 170px; max-width: 215px; min-width: 110px; }
+}
+@media (max-width: 1400px) {
+  .gsearch { flex: 1 1 130px; max-width: 185px; min-width: 96px; }
+  .gsearch input.gs-input { padding: 5px 8px 5px 26px; font-size: .8rem; }
+}
+@media (max-width: 1120px) {
+  .gsearch { flex: 1 1 200px; max-width: none; }
+}
 @media (max-width: 800px) {
   .gsearch { order: 2; flex: 1 1 100%; }
   .gs-drop { width: 100%; }

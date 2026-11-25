@@ -121,6 +121,20 @@
 .syn-card-foot .btn { text-decoration: none; }
 .syn-card.center .syn-card-foot { justify-content: space-between; }
 
+@media (max-width: 1480px) {
+  .syn-page { grid-template-columns: 240px minmax(0, 1fr); gap: 18px; }
+  .syn-overview { grid-template-columns: minmax(0, min(540px, calc(100vh - 185px))) minmax(260px, 1fr); gap: 18px; }
+  .syn-ego { grid-template-columns: minmax(0, 1fr) minmax(225px, 265px) minmax(0, 1fr); column-gap: 30px; }
+}
+
+@media (max-width: 1320px) {
+  .syn-page { grid-template-columns: 220px minmax(0, 1fr); gap: 14px; }
+  .syn-overview { grid-template-columns: minmax(0, min(480px, calc(100vh - 175px))) minmax(240px, 1fr); gap: 14px; }
+  .syn-tiles { grid-template-columns: repeat(auto-fill, minmax(185px, 1fr)); }
+  .syn-ego { grid-template-columns: minmax(0, 1fr) minmax(215px, 250px) minmax(0, 1fr); column-gap: 24px; }
+  .syn-card { padding: 9px 11px; }
+}
+
 @media (max-width: 1260px) {
   .syn-overview { grid-template-columns: minmax(0, 1fr); }
   .syn-diagram { max-width: 620px; width: 100%; margin: 0 auto; }
