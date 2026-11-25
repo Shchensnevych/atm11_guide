@@ -14,8 +14,7 @@ export function getTheme() {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved === 'light' || saved === 'dark') return saved;
   } catch {}
-  const sysLight = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-  return sysLight ? 'light' : 'dark';
+  return 'dark';
 }
 
 /** Значення CSS-змінної теми — для canvas, SVG-атрибутів і Cytoscape, які не розуміють var(). @param {string} name */
@@ -73,18 +72,4 @@ export function initTheme() {
 
   // @ts-ignore
   window.__toggleTheme = toggleTheme;
-
-  if (window.matchMedia) {
-    const mq = window.matchMedia('(prefers-color-scheme: light)');
-    const handler = (/** @type {MediaQueryListEvent} */ e) => {
-      try {
-        if (!localStorage.getItem(STORAGE_KEY)) {
-          setTheme(e.matches ? 'light' : 'dark');
-        }
-      } catch {}
-    };
-    if (mq.addEventListener) mq.addEventListener('change', handler);
-    // @ts-ignore
-    else if (mq.addListener) mq.addListener(handler);
-  }
 }
