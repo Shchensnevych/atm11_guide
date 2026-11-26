@@ -5,10 +5,10 @@
  "mode": "creative",
  "mode_uk": "Творчість",
  "game_type": 1,
- "last_played": "2026-11-25 12:56",
- "last_played_ts": 1795604193,
- "updated": "2026-11-25 12:57",
- "play_hours": 30.6,
+ "last_played": "2026-11-26 10:16",
+ "last_played_ts": 1795681003,
+ "updated": "2026-11-26 10:18",
+ "play_hours": 31.45,
  "player": {
   "uuid": "832ceed6-e820-31f9-aa40-6acd5077a2ac",
   "xp_level": 8,
@@ -16,9 +16,9 @@
   "health": 20.0,
   "food_level": 20,
   "pos": [
-   749,
-   72,
-   863
+   750,
+   71,
+   853
   ],
   "dimension": "minecraft:overworld",
   "dimension_uk": "Верхній світ",
@@ -29,6 +29,7 @@
  "quests": {
   "done": [
    "01EC5DB1A4A25B0B",
+   "01F18150EC923482",
    "0460DDEEFDEB0AAF",
    "0542FE108089A0A2",
    "05437E6D19E6DD11",
@@ -36,6 +37,7 @@
    "0790D3BB481162A6",
    "08405A885ACDADFC",
    "0FD16AD855DAD5BD",
+   "12A43F82FC67A289",
    "134608BB2B04D96E",
    "1659A59303C15CC9",
    "175D943160C10646",
@@ -56,6 +58,7 @@
    "3D5852E6D0ADF651",
    "3DBDF0350DC69A70",
    "3E75AFE3482834C5",
+   "43E8912CB307E421",
    "47750F3CB020104C",
    "54735C5FCD2077B3",
    "565703CBB06CEABF",
@@ -76,6 +79,7 @@
   ],
   "done_visible": [
    "01EC5DB1A4A25B0B",
+   "01F18150EC923482",
    "0460DDEEFDEB0AAF",
    "0542FE108089A0A2",
    "05437E6D19E6DD11",
@@ -83,6 +87,7 @@
    "0790D3BB481162A6",
    "08405A885ACDADFC",
    "0FD16AD855DAD5BD",
+   "12A43F82FC67A289",
    "134608BB2B04D96E",
    "1659A59303C15CC9",
    "175D943160C10646",
@@ -103,6 +108,7 @@
    "3D5852E6D0ADF651",
    "3DBDF0350DC69A70",
    "3E75AFE3482834C5",
+   "43E8912CB307E421",
    "47750F3CB020104C",
    "54735C5FCD2077B3",
    "565703CBB06CEABF",
@@ -188,6 +194,7 @@
    "13F86953093670F6",
    "14A68B003E31EF04",
    "17393180EFF15717",
+   "196B8B6D59ABFC74",
    "19C973A3F42D631C",
    "1D2EE97FA68B9589",
    "1E398AE91607F514",
@@ -209,6 +216,7 @@
    "34F6C74C0D167C8B",
    "355DD6351F004027",
    "365C31F15DC05036",
+   "3724447C3E0F9942",
    "37AF49F3A7074892",
    "37E105200FAC419D",
    "3ABECD22D09DEEFB",
@@ -253,6 +261,7 @@
    "667004CD0469493D",
    "67D884FA6DD22065",
    "687604B3D5E1E78C",
+   "68A80F00CAFF427D",
    "6B38E9AF8B97B65E",
    "6B9FC8EDB5ED952E",
    "6D10104A22DA8E82",
@@ -288,6 +297,14 @@
      "0790D3BB481162A6",
      "378C95C18798D413",
      "5EE945A1185E8336"
+    ],
+    "started": []
+   },
+   "refined_storage": {
+    "done": [
+     "01F18150EC923482",
+     "12A43F82FC67A289",
+     "43E8912CB307E421"
     ],
     "started": []
    },
@@ -561,6 +578,7 @@
    "occultism:occultism/root",
    "railcraft:tracks/regular_track",
    "refinedstorage:drives",
+   "refinedstorage:root",
    "refinedstorage:storing_externally",
    "refinedstorage:storing_fluids",
    "refinedstorage:storing_items",
@@ -676,6 +694,7 @@
    "powah:energy_cell_spirited",
    "powah:solar_panel_nitro",
    "productivebees:gene",
+   "refinedstorage:controller",
    "refinedstorage:creative_controller",
    "refinedstorage:destruction_core",
    "refinedstorage:disk_drive",
@@ -689,6 +708,9 @@
    "sophisticatedstorage:iron_chest",
    "sophisticatedstorage:packing_tape",
    "thaumaturge:jar_normal",
+   "thaumaturge:liquid_death_bucket",
+   "thaumaturge:phial",
+   "thaumaturge:purifying_bucket",
    "toolbelt:belt",
    "trophymanager:trophy"
   ],
@@ -709,14 +731,18 @@
    "minecraft:ender_eye": 2,
    "minecraft:firework_rocket": 16,
    "minecraft:iron_pickaxe": 1,
+   "minecraft:lava_bucket": 1,
    "pipez:energy_pipe": 4,
    "pipez:fluid_pipe": 4,
    "powah:energy_cell_nitro": 1,
    "powah:energy_cell_spirited": 1,
    "powah:solar_panel_nitro": 1,
+   "refinedstorage:controller": 1,
    "refinedstorage:creative_controller": 1,
    "refinedstorage:disk_drive": 1,
-   "refinedstorage:grid": 1,
+   "thaumaturge:liquid_death_bucket": 1,
+   "thaumaturge:phial": 1,
+   "thaumaturge:purifying_bucket": 1,
    "toolbelt:belt": 1
   },
   "names": {
@@ -818,6 +844,7 @@
    "powah:energy_cell_spirited": "Енергетична батарея (Надзаряджена)",
    "powah:solar_panel_nitro": "Сонячна панель (Нітро)",
    "productivebees:gene": "Зразок гена",
+   "refinedstorage:controller": "Контролер",
    "refinedstorage:creative_controller": "Творчий контролер",
    "refinedstorage:destruction_core": "Ядро деструктора",
    "refinedstorage:disk_drive": "Дисковод",
@@ -831,6 +858,9 @@
    "sophisticatedstorage:iron_chest": "Залізна скриня",
    "sophisticatedstorage:packing_tape": "Пакувальна стрічка",
    "thaumaturge:jar_normal": "Захищена банка",
+   "thaumaturge:liquid_death_bucket": "Відро рідкої смерті",
+   "thaumaturge:phial": "Скляний фіал",
+   "thaumaturge:purifying_bucket": "Відро очисної рідини",
    "toolbelt:belt": "Інструментальний пояс",
    "trophymanager:trophy": "Трофей"
   }
@@ -870,6 +900,26 @@
     "modName": "Powah"
    },
    {
+    "id": "thaumaturge:liquid_death_bucket",
+    "uk": "Відро рідкої смерті",
+    "count": 1,
+    "slot": 3,
+    "slotLabel": "Гаряча панель (слот 4)",
+    "slotKind": "hotbar",
+    "ns": "thaumaturge",
+    "modName": "Thaumaturge"
+   },
+   {
+    "id": "thaumaturge:purifying_bucket",
+    "uk": "Відро очисної рідини",
+    "count": 1,
+    "slot": 4,
+    "slotLabel": "Гаряча панель (слот 5)",
+    "slotKind": "hotbar",
+    "ns": "thaumaturge",
+    "modName": "Thaumaturge"
+   },
+   {
     "id": "energizedpower:battery_box",
     "uk": "Батарейний блок",
     "count": 1,
@@ -902,16 +952,6 @@
   ],
   "inventory": [
    {
-    "id": "powah:solar_panel_nitro",
-    "uk": "Сонячна панель (Нітро)",
-    "count": 1,
-    "slot": 9,
-    "slotLabel": "Інвентар (слот 9)",
-    "slotKind": "inventory",
-    "ns": "powah",
-    "modName": "Powah"
-   },
-   {
     "id": "ae2:fluix_glass_cable",
     "uk": "Флюїксовий ME скляний кабель",
     "count": 1,
@@ -922,14 +962,24 @@
     "modName": "Applied Energistics 2"
    },
    {
-    "id": "energizedpower:copper_cable",
-    "uk": "Мідний кабель",
-    "count": 4,
-    "slot": 16,
-    "slotLabel": "Інвентар (слот 16)",
+    "id": "powah:solar_panel_nitro",
+    "uk": "Сонячна панель (Нітро)",
+    "count": 1,
+    "slot": 11,
+    "slotLabel": "Інвентар (слот 11)",
     "slotKind": "inventory",
-    "ns": "energizedpower",
-    "modName": "Energized Power"
+    "ns": "powah",
+    "modName": "Powah"
+   },
+   {
+    "id": "minecraft:bucket",
+    "uk": "Відро",
+    "count": 10,
+    "slot": 12,
+    "slotLabel": "Інвентар (слот 12)",
+    "slotKind": "inventory",
+    "ns": "minecraft",
+    "modName": "Minecraft"
    },
    {
     "id": "ae2:terminal",
@@ -972,14 +1022,14 @@
     "modName": "Applied Energistics 2"
    },
    {
-    "id": "refinedstorage:grid",
-    "uk": "Сітка",
-    "count": 1,
+    "id": "energizedpower:copper_cable",
+    "uk": "Мідний кабель",
+    "count": 4,
     "slot": 23,
     "slotLabel": "Інвентар (слот 23)",
     "slotKind": "inventory",
-    "ns": "refinedstorage",
-    "modName": "Refined Storage"
+    "ns": "energizedpower",
+    "modName": "Energized Power"
    },
    {
     "id": "refinedstorage:disk_drive",
@@ -1002,14 +1052,34 @@
     "modName": "Pipez"
    },
    {
-    "id": "minecraft:bucket",
-    "uk": "Відро",
-    "count": 10,
-    "slot": 29,
-    "slotLabel": "Інвентар (слот 29)",
+    "id": "minecraft:lava_bucket",
+    "uk": "Відро лави",
+    "count": 1,
+    "slot": 30,
+    "slotLabel": "Інвентар (слот 30)",
     "slotKind": "inventory",
     "ns": "minecraft",
     "modName": "Minecraft"
+   },
+   {
+    "id": "refinedstorage:controller",
+    "uk": "Контролер",
+    "count": 1,
+    "slot": 32,
+    "slotLabel": "Інвентар (слот 32)",
+    "slotKind": "inventory",
+    "ns": "refinedstorage",
+    "modName": "Refined Storage"
+   },
+   {
+    "id": "thaumaturge:phial",
+    "uk": "Скляний фіал",
+    "count": 1,
+    "slot": 33,
+    "slotLabel": "Інвентар (слот 33)",
+    "slotKind": "inventory",
+    "ns": "thaumaturge",
+    "modName": "Thaumaturge"
    }
   ],
   "armor": [

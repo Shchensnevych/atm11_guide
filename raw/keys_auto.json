@@ -1340,16 +1340,6 @@
   "combo": "F7"
  },
  {
-  "id": "key.crystalix.pick_block",
-  "bind": "key.keyboard.x",
-  "mod": "",
-  "ns": "crystalix",
-  "en": "Pick properties from block",
-  "uk": "Взяти властивості з блока",
-  "key": "X",
-  "combo": "X"
- },
- {
   "id": "key.crystalix.highlight_blocks",
   "bind": "key.keyboard.r",
   "mod": "",
@@ -1358,6 +1348,16 @@
   "uk": "Підсвітити блоки",
   "key": "R",
   "combo": "R"
+ },
+ {
+  "id": "key.crystalix.pick_block",
+  "bind": "key.keyboard.x",
+  "mod": "",
+  "ns": "crystalix",
+  "en": "Pick properties from block",
+  "uk": "Взяти властивості з блока",
+  "key": "X",
+  "combo": "X"
  },
  {
   "id": "key.crystalix.open_wand_editor",
